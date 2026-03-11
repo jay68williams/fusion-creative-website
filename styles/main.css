@@ -191,29 +191,22 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   position: relative;
   height: 100dvh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 5vw;
-  background: #FFFFFF;
-  overflow: hidden;
+  align-items: flex-end;
+  padding: 0 6vw 8vh;
 }
-
-/* 3D Spline Container */
-.spline-container {
+.hero-bg {
   position: absolute;
   inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 1.5s ease;
+  background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80') center/cover no-repeat;
+  z-index: -2;
 }
-
-.spline-container.loaded {
-  opacity: 1;
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #111111 0%, rgba(17,17,17,0.7) 45%, rgba(17,17,17,0.2) 100%);
+  z-index: -1;
 }
-
 .hero-content {
   position: relative;
   z-index: 10;
@@ -231,27 +224,26 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   font-family: var(--font-serif);
   font-size: clamp(3rem, 7vw, 6.5rem);
   font-weight: 700;
-  color: var(--black);
+  color: var(--off-white);
   line-height: 1;
   letter-spacing: -0.04em;
 }
 .hero-line2 {
   font-family: var(--font-serif);
   font-size: clamp(3rem, 7vw, 6.5rem);
-  color: var(--black);
+  color: var(--off-white);
   line-height: 0.9;
   margin-bottom: 1.5rem;
   font-weight: 700;
 }
 
-/* Viral Growth Glow */
+/* Hero Text Cycler */
 .hero-cycler {
   display: inline-grid;
   grid-template-columns: 1fr;
   align-items: center;
   position: relative;
   vertical-align: bottom;
-  filter: drop-shadow(0 0 15px rgba(230, 59, 46, 0.3)); /* Subtle viral glow */
 }
 .cycler-word {
   grid-area: 1 / 1;
@@ -279,9 +271,9 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
 }
 .hero-sub {
   font-size: clamp(1rem, 1.8vw, 1.2rem);
-  color: rgba(17,17,17,0.6);
+  color: rgba(245,243,238,0.6);
   max-width: 600px;
-  margin: 0 auto 3rem;
+  margin-bottom: 3rem;
   line-height: 1.6;
 }
 .hero-ctas { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
