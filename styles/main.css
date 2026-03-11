@@ -221,7 +221,7 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   margin-bottom: 2rem;
 }
 .hero-line1 {
-  font-family: var(--font-head);
+  font-family: var(--font-serif);
   font-size: clamp(3rem, 7vw, 6.5rem);
   font-weight: 700;
   color: var(--off-white);
@@ -230,12 +230,43 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
 }
 .hero-line2 {
   font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(4rem, 10vw, 10rem);
-  color: var(--signal);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  color: var(--off-white);
   line-height: 0.9;
   margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+/* Hero Text Cycler */
+.hero-cycler {
+  display: inline-flex;
+  position: relative;
+  vertical-align: bottom;
+}
+.cycler-word {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s var(--ease-btn), transform 0.5s var(--ease-btn);
+  font-family: var(--font-serif);
+  font-style: italic;
   font-weight: 400;
+  color: var(--signal);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.cycler-word.active {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+}
+.cycler-word.out {
+  opacity: 0;
+  transform: translateY(-20px);
+  position: absolute; /* Revert to absolute so next word defines width immediately */
 }
 .hero-sub {
   font-size: clamp(1rem, 1.8vw, 1.2rem);

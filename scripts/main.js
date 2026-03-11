@@ -336,4 +336,25 @@ if(cursorEl) {
     runScheduler();
 }
 
+// ===== 4. HERO WORD CYCLER =====
+const cyclerWords = document.querySelectorAll('.cycler-word');
+let cyclerIndex = 0;
+
+if (cyclerWords.length > 1) {
+  setInterval(() => {
+    const currentWord = cyclerWords[cyclerIndex];
+    currentWord.classList.remove('active');
+    currentWord.classList.add('out');
+    
+    // Clean up 'out' class after transition completes
+    setTimeout(() => {
+      currentWord.classList.remove('out');
+    }, 500);
+    
+    cyclerIndex = (cyclerIndex + 1) % cyclerWords.length;
+    const nextWord = cyclerWords[cyclerIndex];
+    nextWord.classList.add('active');
+  }, 2000); // 1.5s display + 0.5s transition
+}
+
 console.log("Brutalist Signal - Initialized");
