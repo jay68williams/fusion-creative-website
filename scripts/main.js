@@ -349,12 +349,12 @@ if (cyclerWords.length > 1) {
     // Clean up 'out' class after transition completes
     setTimeout(() => {
       currentWord.classList.remove('out');
-    }, 500);
+    }, 600);
     
     cyclerIndex = (cyclerIndex + 1) % cyclerWords.length;
     const nextWord = cyclerWords[cyclerIndex];
     nextWord.classList.add('active');
-  }, 2000); // 1.5s display + 0.5s transition
+  }, 2500); // 1.9s display + 0.6s transition
 }
 
 console.log("Brutalist Signal - Initialized");
