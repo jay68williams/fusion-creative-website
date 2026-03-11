@@ -336,25 +336,37 @@ if(cursorEl) {
     runScheduler();
 }
 
-// ===== 4. HERO 3D SPLINE & WORD CYCLER =====
-const splineContainer = document.getElementById('spline-container');
-const splineViewer = document.querySelector('spline-viewer');
+// ===== 4. HERO 3D SPLINE (SCROLL-DRIVEN) & WORD CYCLER =====
+import { Application } from 'https://unpkg.com/@splinetool/runtime@1.9.47/build/runtime.module.js';
 
-if (splineViewer) {
-  splineViewer.addEventListener('load', () => {
-    splineContainer.classList.add('loaded');
-    
-    // Scroll Animation for the 3D Scene
-    gsap.to(splineContainer, {
-      scrollTrigger: {
-        trigger: "#hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      },
-      y: 150, // Parallax move
-      scale: 1.1,
-      ease: "none"
+const canvas = document.getElementById('canvas3d');
+if (canvas) {
+  const spline = new Application(canvas);
+  
+  // Load scene with a "line growth" aesthetic
+  spline.load('https://prod.spline.design/6Wq1Q7YEBClYisConstraint/scene.splinecode').then(() => {
+    const container = document.getElementById('spline-container');
+    container.classList.add('loaded');
+
+    // Scroll mapping logic
+    ScrollTrigger.create({
+      trigger: "#hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: 1.5,
+      onUpdate: (self) => {
+        // We link scroll progress to a Spline animation or variable
+        // This is a placeholder for the object name in the chosen scene
+        // If the scene has a variable named 'Growth', we'd use:
+        // spline.setVariable('Growth', self.progress * 100);
+        
+        // Parallax effect as fallback if variables aren't present
+        gsap.to(container, {
+          y: self.progress * 200,
+          scale: 1 + self.progress * 0.1,
+          overwrite: 'auto'
+        });
+      }
     });
   });
 }

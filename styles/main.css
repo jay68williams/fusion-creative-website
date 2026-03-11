@@ -191,9 +191,12 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   position: relative;
   height: 100dvh;
   display: flex;
-  align-items: flex-end;
-  padding: 0 6vw 8vh;
-  background: var(--black);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 5vw;
+  background: #FFFFFF;
   overflow: hidden;
 }
 
@@ -228,19 +231,17 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   font-family: var(--font-serif);
   font-size: clamp(3rem, 7vw, 6.5rem);
   font-weight: 700;
-  color: var(--off-white);
+  color: var(--black);
   line-height: 1;
   letter-spacing: -0.04em;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Lift text off 3D background */
 }
 .hero-line2 {
   font-family: var(--font-serif);
   font-size: clamp(3rem, 7vw, 6.5rem);
-  color: var(--off-white);
+  color: var(--black);
   line-height: 0.9;
   margin-bottom: 1.5rem;
   font-weight: 700;
-  text-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 
 /* Viral Growth Glow */
@@ -278,9 +279,9 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
 }
 .hero-sub {
   font-size: clamp(1rem, 1.8vw, 1.2rem);
-  color: rgba(245,243,238,0.6);
+  color: rgba(17,17,17,0.6);
   max-width: 600px;
-  margin-bottom: 3rem;
+  margin: 0 auto 3rem;
   line-height: 1.6;
 }
 .hero-ctas { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
