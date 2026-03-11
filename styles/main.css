@@ -193,20 +193,10 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   display: flex;
   align-items: flex-end;
   padding: 0 6vw 8vh;
+  background: radial-gradient(circle at 50% 100%, #300d0d 0%, #0a0a0a 70%, #000000 100%);
+  overflow: hidden;
 }
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80') center/cover no-repeat;
-  z-index: -2;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, #111111 0%, rgba(17,17,17,0.7) 45%, rgba(17,17,17,0.2) 100%);
-  z-index: -1;
-}
+
 .hero-content {
   position: relative;
   z-index: 10;
