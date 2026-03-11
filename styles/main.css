@@ -193,20 +193,24 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   display: flex;
   align-items: flex-end;
   padding: 0 6vw 8vh;
+  background: var(--black);
+  overflow: hidden;
 }
-.hero-bg {
+
+/* 3D Spline Container */
+.spline-container {
   position: absolute;
   inset: 0;
-  background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80') center/cover no-repeat;
-  z-index: -2;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.5s ease;
 }
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, #111111 0%, rgba(17,17,17,0.7) 45%, rgba(17,17,17,0.2) 100%);
-  z-index: -1;
+
+.spline-container.loaded {
+  opacity: 1;
 }
+
 .hero-content {
   position: relative;
   z-index: 10;
@@ -227,6 +231,7 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   color: var(--off-white);
   line-height: 1;
   letter-spacing: -0.04em;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Lift text off 3D background */
 }
 .hero-line2 {
   font-family: var(--font-serif);
@@ -235,15 +240,17 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   line-height: 0.9;
   margin-bottom: 1.5rem;
   font-weight: 700;
+  text-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 
-/* Hero Text Cycler */
+/* Viral Growth Glow */
 .hero-cycler {
   display: inline-grid;
   grid-template-columns: 1fr;
   align-items: center;
   position: relative;
   vertical-align: bottom;
+  filter: drop-shadow(0 0 15px rgba(230, 59, 46, 0.3)); /* Subtle viral glow */
 }
 .cycler-word {
   grid-area: 1 / 1;

@@ -336,7 +336,29 @@ if(cursorEl) {
     runScheduler();
 }
 
-// ===== 4. HERO WORD CYCLER =====
+// ===== 4. HERO 3D SPLINE & WORD CYCLER =====
+const splineContainer = document.getElementById('spline-container');
+const splineViewer = document.querySelector('spline-viewer');
+
+if (splineViewer) {
+  splineViewer.addEventListener('load', () => {
+    splineContainer.classList.add('loaded');
+    
+    // Scroll Animation for the 3D Scene
+    gsap.to(splineContainer, {
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      },
+      y: 150, // Parallax move
+      scale: 1.1,
+      ease: "none"
+    });
+  });
+}
+
 const cyclerWords = document.querySelectorAll('.cycler-word');
 let cyclerIndex = 0;
 
