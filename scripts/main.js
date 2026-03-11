@@ -1,272 +1,339 @@
 /* ===================================
-   FUSION CREATIVE — JAVASCRIPT
-   Premium Glassmorphism Interactions
+   FUSION CREATIVE — BRUTALIST SIGNAL
+   GSAP Animations & Logic
    =================================== */
 
 'use strict';
 
-// ===== NAVBAR =====
+// Ensure GSAP and ScrollTrigger are loaded
+gsap.registerPlugin(ScrollTrigger);
+
+// ===== NAVBAR MORPHING =====
 const navbar = document.getElementById('navbar');
-let lastScroll = 0;
-let navbarScrolled = false;
-
 window.addEventListener('scroll', () => {
-  const currentScroll = window.scrollY;
-
-  // Hide/show navbar on scroll direction
-  if (currentScroll > lastScroll && currentScroll > 150) {
-    navbar.classList.add('hidden');
-  } else {
-    navbar.classList.remove('hidden');
-  }
-
-  // Add glass backdrop when scrolled
-  if (currentScroll > 20 && !navbarScrolled) {
+  if (window.scrollY > 100) {
     navbar.classList.add('scrolled');
-    navbarScrolled = true;
-  } else if (currentScroll <= 20 && navbarScrolled) {
+  } else {
     navbar.classList.remove('scrolled');
-    navbarScrolled = false;
   }
+});
 
-  lastScroll = currentScroll;
-}, { passive: true });
-
-// Mobile nav toggle
+// Mobile Nav Toggle
 const navToggle = document.getElementById('navToggle');
-if (navToggle) {
+const navLinks = document.querySelector('.nav-links');
+if (navToggle && navLinks) {
   navToggle.addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.toggle('mobile-open');
+    // Basic toggle logic for mobile (will need CSS addition for mobile menu if needed, 
+    // but sticking to prompt's simplicity for now)
+    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    navLinks.style.flexDirection = 'column';
+    navLinks.style.position = 'absolute';
+    navLinks.style.top = '100%';
+    navLinks.style.left = '0';
+    navLinks.style.width = '100%';
+    navLinks.style.background = 'var(--paper)';
+    navLinks.style.padding = '1rem';
+    navLinks.style.borderBottom = '1px solid var(--border)';
   });
 }
 
 // ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      const offset = 100;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-      document.querySelector('.nav-links')?.classList.remove('mobile-open');
-    }
-  });
-});
-
-// ===== INTERSECTION OBSERVER — PREMIUM SCROLL REVEAL =====
-const revealOptions = { threshold: 0.1, rootMargin: '0px 0px -60px 0px' };
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const delay = el.dataset.delay ? parseInt(el.dataset.delay) : 0;
-      setTimeout(() => {
-        el.classList.add('in-view');
-      }, delay);
-      revealObserver.unobserve(el);
-    }
-  });
-}, revealOptions);
-
-// Observe elements
-document.querySelectorAll('.service-card, .testimonial-card, .attention-card, .case-study-card').forEach(el => revealObserver.observe(el));
-
-// ===== 3D HOVER TILT EFFECT (SERVICE CARDS) =====
-const cards = document.querySelectorAll('.service-card, .testimonial-card');
-
-cards.forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left; // x position within the element.
-    const y = e.clientY - rect.top;  // y position within the element.
-    
-    // Calculate rotation (max 10 degrees)
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -6;
-    const rotateY = ((x - centerX) / centerX) * 6;
-
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-  });
-
-  card.addEventListener('mouseleave', () => {
-    // Reset via class transition
-    card.style.transform = '';
-  });
-});
-
-// ===== ANIMATED STAT COUNTERS =====
-function animateCounter(el) {
-  const target = parseFloat(el.dataset.target);
-  const suffix = el.dataset.suffix || '';
-  const prefix = el.dataset.prefix || '';
-  const duration = 2500;
-  const start = performance.now();
-  const isDecimal = target % 1 !== 0;
-
-  function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    // Custom cubic bezier easing for premium feel
-    const eased = 1 - Math.pow(1 - progress, 4); 
-    const current = target * eased;
-
-    if (isDecimal) {
-      el.textContent = prefix + current.toFixed(1) + suffix;
-    } else {
-      el.textContent = prefix + Math.round(current) + suffix;
-    }
-
-    if (progress < 1) requestAnimationFrame(update);
-  }
-  requestAnimationFrame(update);
-}
-
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounter(entry.target);
-      counterObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.stat-number').forEach(el => counterObserver.observe(el));
-
-// Count-up for small case-study numbers
-function animateSmallCounter(el) {
-  const target = parseInt(el.dataset.target);
-  const duration = 2000;
-  const start = performance.now();
-
-  function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 4);
-    const current = Math.round(target * eased);
-    
-    if (current >= 1000) {
-      el.textContent = (current / 1000).toFixed(1) + 'K';
-    } else {
-      el.textContent = current;
-    }
-    if (progress < 1) requestAnimationFrame(update);
-  }
-  requestAnimationFrame(update);
-}
-
-const smallCounterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateSmallCounter(entry.target);
-      smallCounterObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.count-up').forEach(el => smallCounterObserver.observe(el));
-
-// ===== ATTENTION CARDS STAGGERED REVEAL =====
-const attentionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      document.querySelectorAll('.attention-card').forEach((card, i) => {
-        const delay = parseInt(card.dataset.delay || 0);
-        setTimeout(() => card.classList.add('in-view'), delay);
-      });
-      attentionObserver.disconnect();
-    }
-  });
-}, { threshold: 0.2 });
-
-const attentionSection = document.querySelector('.attention-visual');
-if (attentionSection) attentionObserver.observe(attentionSection);
-
-// ===== CONTACT FORM =====
-const contactForm = document.getElementById('contactForm');
-const submitBtn = document.getElementById('submitBtn');
-const formSuccess = document.getElementById('formSuccess');
-
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const btnText = submitBtn.querySelector('.btn-text');
-    const btnLoading = submitBtn.querySelector('.btn-loading');
-
-    // Button push animation
-    submitBtn.style.transform = 'scale(0.96)';
-    setTimeout(() => submitBtn.style.transform = '', 150);
-
-    btnText.style.display = 'none';
-    btnLoading.style.display = 'inline';
-    submitBtn.disabled = true;
-
-    setTimeout(() => {
-      btnText.style.display = 'inline';
-      btnLoading.style.display = 'none';
-      submitBtn.disabled = false;
-      contactForm.reset();
-      
-      formSuccess.style.opacity = '0';
-      formSuccess.style.display = 'block';
-      setTimeout(() => formSuccess.style.opacity = '1', 50);
-
-      setTimeout(() => {
-        formSuccess.style.opacity = '0';
-        setTimeout(() => formSuccess.style.display = 'none', 300);
-      }, 5000);
-    }, 1500);
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+    const target = document.querySelector(targetId);
+    if (target) {
+      const top = target.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   });
+});
+
+// Create a GSAP context for the whole page
+let ctx = gsap.context(() => {
+
+  // ===== B. HERO ENTRANCE =====
+  const heroTimeline = gsap.timeline({ defaults: { ease: "power3.out" } });
+  
+  heroTimeline
+    .to(".eyebrow-stagger", { y: 0, opacity: 1, duration: 0.8 }, 0.3)
+    .to(".hero-line1.stagger", { y: 0, opacity: 1, duration: 0.8 }, 0.45)
+    .to(".hero-line2.stagger", { y: 0, opacity: 1, duration: 0.8 }, 0.6)
+    .to(".hero-sub.stagger", { y: 0, opacity: 1, duration: 0.8 }, 0.85)
+    .to(".hero-ctas.stagger", { y: 0, opacity: 1, duration: 0.8 }, 1.0);
+
+
+  // ===== SECTION ENTRANCES (GLOBAL) =====
+  // Applies to anything with .reveal-card, .pr-reveal, etc.
+  
+  // Cards / Grid items
+  gsap.utils.toArray('.reveal-card').forEach(card => {
+    gsap.fromTo(card, 
+      { y: 40, opacity: 0 },
+      {
+        y: 0, opacity: 1,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%"
+        }
+      }
+    );
+  });
+
+  // Protocol steps stagger
+  gsap.utils.toArray('.proto-row').forEach((row, i) => {
+    gsap.fromTo(row,
+      { x: -30, opacity: 0 },
+      {
+        x: 0, opacity: 1,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".protocol-rows", // trigger on wrapper
+          start: "top 75%",
+        },
+        delay: i * 0.12
+      }
+    );
+  });
+
+  // Philosophy text
+  const philTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".philosophy-section",
+      start: "top 60%"
+    }
+  });
+  philTimeline
+    .to(".phil-small.ph-reveal", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" })
+    .to(".phil-big.ph-reveal", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, "+=0.3");
+
+
+  // Guarentee Bars
+  const guaranteeTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".guarantee-section",
+      start: "top 75%"
+    }
+  });
+  
+  // Set initial height to 0
+  gsap.set(".bar-before", { height: 0 });
+  gsap.set(".bar-after", { height: 0 });
+  
+  guaranteeTimeline
+    .to(".bar-before", { height: 90, duration: 0.8, ease: "power3.out" })
+    .to(".bar-after", { height: 170, duration: 0.8, ease: "power3.out" }, "-=0.6");
+
+
+  // ===== CHART DRAW ANIMATION =====
+  const chartPath = document.querySelector('.chart-line');
+  const chartFill = document.querySelector('.chart-fill');
+  
+  if (chartPath && chartFill) {
+    const pathLength = chartPath.getTotalLength();
+    
+    // Set initial stroke dash setup
+    gsap.set(chartPath, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
+    gsap.set(chartFill, { opacity: 0 });
+    
+    const chartTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".chart-card",
+        start: "top 80%"
+      }
+    });
+
+    chartTimeline
+      .to(chartPath, { strokeDashoffset: 0, duration: 1.5, ease: "power3.out" })
+      .to(chartFill, { opacity: 1, duration: 1.5, ease: "power3.out" }, "<");
+  }
+
+  // ===== NUMBER COUNT-UPS =====
+  function setupCountUp(selector, delay = 0) {
+    gsap.utils.toArray(selector).forEach(el => {
+      const targetStr = el.getAttribute('data-target');
+      const targetVal = parseFloat(targetStr);
+      const isDecimal = targetStr.includes('.');
+      const suffix = el.getAttribute('data-suffix') || '';
+
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 85%",
+        once: true,
+        onEnter: () => {
+          gsap.fromTo(el, 
+            { innerHTML: 0 }, 
+            {
+              innerHTML: targetVal,
+              duration: 1.2,
+              delay: delay,
+              ease: "power2.out",
+              snap: { innerHTML: isDecimal ? 0.1 : 1 },
+              onUpdate: function() {
+                // Ensure proper formatting (e.g. 1.3 or 19)
+                let currentVal = this.targets()[0].innerHTML;
+                let formatted = isDecimal ? Number(currentVal).toFixed(1) : Math.round(currentVal);
+                el.innerHTML = formatted + suffix;
+              }
+            }
+          );
+        }
+      });
+    });
+  }
+
+  setupCountUp('.stat-value');
+  setupCountUp('.val'); // win card
+  setupCountUp('.big-stat-val');
+
+});
+
+
+// ===== INTERACTIVE FEATURES =====
+
+// 1. Diagnostic Shuffler (Card 1)
+const shuffleCards = document.querySelectorAll('.shuffle-card');
+let scIndex = 0;
+
+function runShuffler() {
+  if (!shuffleCards.length) return;
+  
+  // States:
+  // Front: z: 3, opacity: 1, y: 0, scale: 1
+  // Middle: z: 2, opacity: 0.6, y: 12, scale: 0.96
+  // Back: z: 1, opacity: 0.3, y: 24, scale: 0.92
+  
+  const states = [
+    { zIndex: 3, opacity: 1, y: 0, scale: 1 },
+    { zIndex: 2, opacity: 0.6, y: 12, scale: 0.96 },
+    { zIndex: 1, opacity: 0.3, y: 24, scale: 0.92 }
+  ];
+
+  // Map cards to current states based on scIndex
+  shuffleCards.forEach((card, i) => {
+    // Determine which state this card should be in
+    const stateIndex = (i - scIndex + states.length) % states.length;
+    const targetState = states[stateIndex];
+    
+    // Animate to new state
+    gsap.to(card, {
+      ...targetState,
+      duration: 0.6,
+      ease: "back.out(1.5)" // Gives a nice slight spring-bounce
+    });
+  });
+
+  // Increment index for next tick
+  scIndex = (scIndex + 1) % states.length;
+}
+// Init immediately, then every 3s
+runShuffler();
+setInterval(runShuffler, 3000);
+
+
+// 2. Real-Time Telemetry Typewriter (Card 2)
+const typewriterEl = document.getElementById('typewriterText');
+const phrases = [
+  'Video spike detected: +636K views in 48h.',
+  'New followers from viral post: +1,240.',
+  'Profile visit to DM conversion: 3.2%.',
+  'Posting at 6pm drives 2x reach.',
+  'Hook test A/B: "Watch this" +38% CTR.',
+  'Greek restaurant account growth: +890%.'
+];
+let phIndex = 0;
+
+async function typePhrase() {
+  if (!typewriterEl) return;
+  const curPhrase = phrases[phIndex];
+  typewriterEl.textContent = '';
+  
+  // Type characters one by one
+  for (let i = 0; i < curPhrase.length; i++) {
+    typewriterEl.textContent += curPhrase.charAt(i);
+    await new Promise(r => setTimeout(r, 40));
+  }
+  
+  // Wait 2.2s
+  await new Promise(r => setTimeout(r, 2200));
+  
+  // Clear immediately
+  typewriterEl.textContent = '';
+  
+  // Next phrase
+  phIndex = (phIndex + 1) % phrases.length;
+  typePhrase();
+}
+// Start typing loop
+setTimeout(typePhrase, 1000);
+
+
+// 3. Posting Protocol Scheduler (Card 3)
+const cursorEl = document.getElementById('schedCursor');
+const dayM = document.getElementById('day-m');
+const dayW = document.getElementById('day-w');
+const dayF = document.getElementById('day-f');
+const schedBtn = document.getElementById('schedBtn');
+
+async function runScheduler() {
+  if (!cursorEl || !dayM) return;
+  
+  const moveCursorTo = (targetEl) => {
+    const targetRect = targetEl.getBoundingClientRect();
+    const parentRect = targetEl.closest('.demo-scheduler').getBoundingClientRect();
+    // Local coords to parent
+    const x = targetRect.left - parentRect.left + (targetRect.width / 2);
+    const y = targetRect.top - parentRect.top + (targetRect.height / 2);
+    
+    return gsap.to(cursorEl, { x: x, y: y, duration: 0.5, ease: "power2.inOut" });
+  };
+  
+  const clickTarget = (targetEl) => {
+    targetEl.classList.add('saved'); // Add active styling
+    return gsap.fromTo(targetEl, { scale: 0.95 }, { scale: 1, duration: 0.2 }); // Quick click bounce
+  };
+
+  // Reset to initial state
+  [dayM, dayW, dayF, schedBtn].forEach(el => el.classList.remove('saved'));
+  schedBtn.textContent = "Save Schedule";
+  gsap.set(cursorEl, { x: 0, y: 0 }); // Initial pos
+
+  // Wait 1s
+  await new Promise(r => setTimeout(r, 1000));
+
+  // sequence
+  await moveCursorTo(dayM);
+  await clickTarget(dayM);
+  await new Promise(r => setTimeout(r, 400));
+
+  await moveCursorTo(dayW);
+  await clickTarget(dayW);
+  await new Promise(r => setTimeout(r, 400));
+
+  await moveCursorTo(dayF);
+  await clickTarget(dayF);
+  await new Promise(r => setTimeout(r, 400));
+
+  await moveCursorTo(schedBtn);
+  schedBtn.classList.add('saved');
+  schedBtn.textContent = "✓ Schedule Saved";
+  gsap.fromTo(schedBtn, { scale: 0.95 }, { scale: 1, duration: 0.2 });
+  
+  // Move cursor out of the way slightly
+  gsap.to(cursorEl, { x: "+=20", y: "+=20", duration: 0.5 });
+  
+  // Wait 2s, then loop
+  setTimeout(runScheduler, 2500);
 }
 
-// ===== MOBILE NAV STYLES =====
-const mobileNavStyle = document.createElement('style');
-mobileNavStyle.textContent = `
-  @media (max-width: 768px) {
-    .nav-links.mobile-open {
-      display: flex !important;
-      position: fixed;
-      top: 80px;
-      left: 0;
-      right: 0;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      flex-direction: column;
-      padding: 24px;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      box-shadow: 0 16px 48px rgba(15,23,42,0.1);
-      gap: 8px;
-      z-index: 999;
-    }
-    .nav-links.mobile-open a { padding: 16px; font-size: 16px; border-radius: 16px; font-weight: 600; }
-  }
-`;
-document.head.appendChild(mobileNavStyle);
+// Start Scheduler loop
+if(cursorEl) {
+    runScheduler();
+}
 
-// ===== SPLINE / HERO PARALLAX =====
-const splineWrapper = document.getElementById('splineWrapper');
-const heroContent = document.querySelector('.hero-content');
-
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-  const heroHeight = window.innerHeight;
-  
-  if (scrollY < heroHeight) {
-    const progress = scrollY / heroHeight;
-    // Pushes the Spline model down slightly slower than the scroll creating massive depth
-    if (splineWrapper) {
-      splineWrapper.style.transform = `scale(1.4) translate(5%, ${progress * -80}px)`;
-      splineWrapper.style.opacity = 1 - progress * 0.5;
-    }
-    // Fade out text faster
-    if (heroContent) {
-      heroContent.style.opacity = 1 - progress * 1.5;
-      heroContent.style.transform = `translateY(${progress * 60}px)`;
-    }
-  }
-}, { passive: true });
-
-console.log('%c Fusion Creative 🚀 (Premium V2)', 'color: #6366f1; font-size: 18px; font-weight: 800;');
+console.log("Brutalist Signal - Initialized");

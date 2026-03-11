@@ -3,277 +3,451 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fusion Creative — We Make Your Business Go Viral</title>
-  <meta name="description" content="Fusion Creative is a social media agency that makes local businesses go viral. Short-form content for TikTok and Instagram that gets real results — 1.3M+ impressions in 10 days." />
-  <meta name="keywords" content="social media agency, TikTok marketing, viral content, Instagram, paid advertising, website development" />
-  <meta property="og:title" content="Fusion Creative — We Make Your Business Go Viral" />
-  <meta property="og:description" content="Short-form content that gets your business in front of millions. Double your impressions or pay half." />
+  <title>Fusion Creative — Short-Form Content Agency</title>
+  <meta name="description" content="Fusion Creative is a restaurant short-form content agency. Short-form content that gets your restaurant in front of millions." />
+  <meta name="keywords" content="social media agency, TikTok marketing, viral content, Instagram, restaurants, content agency" />
+  <meta property="og:title" content="Fusion Creative — Short-Form Content Agency" />
+  <meta property="og:description" content="Short-form content that gets your business in front of millions. Proven results. Guaranteed growth." />
   <meta property="og:url" content="https://fusioncreative.uk" />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles/main.css" />
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
+  
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
-  <!-- AMBIENT BACKGROUND (for glassmorphism) -->
-  <div class="ambient-mesh">
-    <div class="ambient-orb orb-1"></div>
-    <div class="ambient-orb orb-2"></div>
-    <div class="ambient-orb orb-3"></div>
-  </div>
+  <!-- GLOBAL NOISE OVERLAY -->
+  <svg display="none">
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+    </filter>
+  </svg>
 
-  <!-- NAVBAR -->
+  <!-- A. NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
-      <a href="#" class="nav-logo"><span class="logo-fusion">Fusion</span><span class="logo-creative">Creative</span></a>
+      <a href="#" class="nav-logo">Fusion Creative</a>
       <ul class="nav-links">
+        <li><a href="#results">Results</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#work">Work</a></li>
         <li><a href="#guarantee">Guarantee</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#plans">Pricing</a></li>
       </ul>
-      <a href="#contact" class="btn btn-nav">Get Started →</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <a href="#contact" class="btn btn-signal"><span>Work With Us</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- B. HERO SECTION -->
   <section class="hero" id="hero">
-    <div class="hero-bg-gradient"></div>
+    <div class="hero-bg"></div>
     <div class="hero-content">
-      <div class="hero-badge">📈 1.3M+ impressions in 10 days</div>
-      <h1 class="hero-headline">We Make Your Business<br /><span class="headline-gradient">Go Viral</span></h1>
-      <p class="hero-sub">Short-form content that gets your business in front of millions — on TikTok, Instagram and beyond.</p>
-      <div class="hero-ctas">
-        <a href="#contact" class="btn btn-primary">Start Growing Now</a>
-        <a href="#work" class="btn btn-ghost">See Our Work ↓</a>
+      <div class="hero-eyebrow eyebrow-stagger">Short-Form Content Agency — fusioncreative.uk</div>
+      <h1 class="hero-line1 stagger">We Make Your Restaurant</h1>
+      <h2 class="hero-line2 stagger">Go Viral.</h2>
+      <p class="hero-sub stagger">Short-form content that gets your business in front of millions.<br />Proven results. Guaranteed growth.</p>
+      <div class="hero-ctas stagger">
+        <a href="#contact" class="btn btn-signal"><span>Start Growing &rarr;</span></a>
+        <a href="#results" class="btn btn-ghost">See Client Results &darr;</a>
       </div>
     </div>
-    <div class="spline-wrapper" id="splineWrapper">
-      <spline-viewer id="splineViewer" url="https://prod.spline.design/aZcalBV6FTip5Ynx/scene.splinecode" loading-anim-type="spinner-big-dark"></spline-viewer>
-    </div>
-    <div class="hero-scroll-hint"><span>Scroll to explore</span><div class="scroll-arrow"></div></div>
   </section>
 
-  <!-- STATS BAR -->
+  <!-- C. STATS BAR -->
   <section class="stats-bar" id="stats">
-    <div class="container">
+    <div class="stats-inner">
+      <div class="stats-label">@new.greek &mdash; 10 day results</div>
+      <div class="stats-divider"></div>
       <div class="stats-grid">
-        <div class="stat-item"><span class="stat-number" data-target="1.3" data-suffix="M+">0</span><span class="stat-label">Impressions in 10 days</span></div>
-        <div class="stat-item"><span class="stat-number" data-target="19" data-suffix="K+">0</span><span class="stat-label">Likes on first campaign</span></div>
-        <div class="stat-item"><span class="stat-number" data-target="10" data-suffix=" days">0</span><span class="stat-label">To go viral</span></div>
-        <div class="stat-item"><span class="stat-number" data-target="2" data-prefix="" data-suffix="× Growth">0</span><span class="stat-label">Impressions guaranteed</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ATTENTION HOOK -->
-  <section class="attention-section">
-    <div class="container">
-      <div class="attention-inner">
-        <div class="attention-text">
-          <div class="section-badge">Why it matters</div>
-          <h2>Attention is the<br /><span class="gradient-text">new currency</span></h2>
-          <p>Most social content is ignored — 90% of viewers scroll past in 3 seconds. For local businesses, every view counts.</p>
-          <p>The average attention span is only 8 seconds — win those precious moments and win new business.</p>
-          <a href="#services" class="btn btn-primary">How we capture it →</a>
+        <div class="stat-item">
+          <div class="stat-meta">Post Views</div>
+          <div class="stat-value" data-target="1.3" data-suffix="M">0</div>
+          <div class="stat-delta">+1.3M</div>
         </div>
-        <div class="attention-visual">
-          <div class="attention-card" data-delay="0"><div class="notification-dot"></div><span class="notif-icon">🔥</span><div><p class="notif-title">Your post went viral!</p><p class="notif-sub">1.3M impressions · still climbing</p></div></div>
-          <div class="attention-card" data-delay="300"><div class="notification-dot"></div><span class="notif-icon">📊</span><div><p class="notif-title">Engagement up 847%</p><p class="notif-sub">Since last week</p></div></div>
-          <div class="attention-card" data-delay="600"><div class="notification-dot"></div><span class="notif-icon">💬</span><div><p class="notif-title">19,000 new likes</p><p class="notif-sub">TikTok · Today</p></div></div>
-          <div class="attention-card" data-delay="900"><div class="notification-dot"></div><span class="notif-icon">🚀</span><div><p class="notif-title">Profile reached 50K</p><p class="notif-sub">From 800 followers in 10 days</p></div></div>
+        <div class="stat-item">
+          <div class="stat-meta">Profile Views</div>
+          <div class="stat-value" data-target="5.3" data-suffix="K">0</div>
+          <div class="stat-delta">+5.3K</div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="services-section" id="services">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-badge">What we do</div>
-        <h2>Everything you need to<br /><span class="gradient-text">dominate your market</span></h2>
-        <p>Four core services that work together to grow your brand and drive real business results.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card" data-index="0">
-          <div class="service-icon">🌐</div>
-          <h3>Website Development</h3>
-          <p>Premium, conversion-focused websites built to turn visitors into customers. Fast, beautiful, and built to rank.</p>
-          <div class="service-tags"><span>Landing Pages</span><span>E-Commerce</span><span>SEO</span></div>
+        <div class="stat-item">
+          <div class="stat-meta">Likes</div>
+          <div class="stat-value" data-target="19" data-suffix="K">0</div>
+          <div class="stat-delta">+19K</div>
         </div>
-        <div class="service-card" data-index="1">
-          <div class="service-icon">📱</div>
-          <h3>Social Media Management</h3>
-          <p>Full account management across TikTok and Instagram. We handle strategy, posting, community and growth.</p>
-          <div class="service-tags"><span>TikTok</span><span>Instagram</span><span>Strategy</span></div>
+        <div class="stat-item">
+          <div class="stat-meta">Comments</div>
+          <div class="stat-value" data-target="245">0</div>
+          <div class="stat-delta">+245</div>
         </div>
-        <div class="service-card featured" data-index="2">
-          <div class="featured-badge">Most Popular</div>
-          <div class="service-icon">🎬</div>
-          <h3>Social Content Creation</h3>
-          <p>Scroll-stopping short-form videos designed to go viral. We script, film, edit and post — you just watch the results.</p>
-          <div class="service-tags"><span>Reels</span><span>TikTok Videos</span><span>Editing</span></div>
-        </div>
-        <div class="service-card" data-index="3">
-          <div class="service-icon">🎯</div>
-          <h3>Paid Marketing & Advertising</h3>
-          <p>Precision-targeted paid campaigns that turn ad spend into revenue. Every penny optimised for maximum ROI.</p>
-          <div class="service-tags"><span>Meta Ads</span><span>TikTok Ads</span><span>ROI Focus</span></div>
+        <div class="stat-item">
+          <div class="stat-meta">Peak Single Video</div>
+          <div class="stat-value" data-target="636" data-suffix="K">0</div>
+          <div class="stat-delta-badge">Peak</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CASE STUDY -->
-  <section class="case-study-section" id="work">
+  <!-- D. RECENT CLIENT WINS -->
+  <section class="client-wins-section section-pad" id="results">
     <div class="container">
-      <div class="section-header">
-        <div class="section-badge">Case Study</div>
-        <h2>From zero to <span class="gradient-text">1.3 million</span><br />in 10 days</h2>
-      </div>
-      <div class="case-study-card">
-        <div class="case-study-left">
-          <div class="client-tag">@new.greek · TikTok</div>
-          <h3>New Greek Restaurant — Local to Viral</h3>
-          <p>We partnered with a local Greek restaurant to transform their social presence. Within the first 10 days, their TikTok exploded — generating over 1.3 million impressions, 19K likes, and thousands of new potential customers.</p>
-          <div class="case-metrics">
-            <div class="case-metric"><span class="case-metric-number">1.3M+</span><span class="case-metric-label">Impressions</span></div>
-            <div class="case-metric"><span class="case-metric-number">19K</span><span class="case-metric-label">Likes</span></div>
-            <div class="case-metric"><span class="case-metric-number">10</span><span class="case-metric-label">Days</span></div>
+      <div class="section-label">/ Recent Client Wins</div>
+      
+      <div class="wins-grid">
+        <!-- Story Card -->
+        <div class="win-card story-card reveal-card">
+          <a href="https://www.tiktok.com/@new.greek" target="_blank" rel="noopener" class="handle-link">@new.greek &nearr;</a>
+          <h3>Greek Restaurant &mdash; TikTok Explosion</h3>
+          <p>We partnered with a local Greek restaurant to transform their social presence. Within the first 10 days of working together, their TikTok exploded &mdash; generating over 1.3 million impressions, 19K likes, and thousands of new potential customers discovering their business.</p>
+          
+          <div class="win-metrics-row">
+            <div class="win-metric">
+              <span class="meta">Post Views</span>
+              <span class="val" data-target="1.3" data-suffix="M">0</span>
+              <span class="delta">+1.3M</span>
+            </div>
+            <div class="win-metric">
+              <span class="meta">Profile Views</span>
+              <span class="val" data-target="5.3" data-suffix="K">0</span>
+              <span class="delta">+5.3K</span>
+            </div>
+            <div class="win-metric">
+              <span class="meta">Likes</span>
+              <span class="val" data-target="19" data-suffix="K">0</span>
+              <span class="delta">+19K</span>
+            </div>
+            <div class="win-metric">
+              <span class="meta">Comments</span>
+              <span class="val" data-target="245">0</span>
+              <span class="delta">+245</span>
+            </div>
           </div>
-          <a href="https://www.tiktok.com/@new.greek" target="_blank" rel="noopener" class="btn btn-primary">View @new.greek on TikTok ↗</a>
         </div>
-        <div class="case-study-right">
-          <div class="phone-mockup">
-            <div class="phone-screen">
-              <div class="tiktok-ui">
-                <div class="tiktok-header"><span class="tiktok-handle">@new.greek</span><div class="follow-btn">Follow</div></div>
-                <div class="tiktok-caption">Greek food that hits different 🔥🇬🇷 #greekfood #fyp</div>
-                <div class="tiktok-actions">
-                  <div class="tiktok-action"><span class="action-icon">❤️</span><span class="action-count count-up" data-target="19000">0</span></div>
-                  <div class="tiktok-action"><span class="action-icon">💬</span><span class="action-count count-up" data-target="842">0</span></div>
-                  <div class="tiktok-action"><span class="action-icon">🔁</span><span class="action-count count-up" data-target="3400">0</span></div>
-                </div>
-                <div class="tiktok-views">1.3M views</div>
+        
+        <!-- Chart Card -->
+        <div class="win-card chart-card reveal-card">
+          <div class="chart-header">
+            <span class="chart-label">Video performance / 10 days</span>
+            <span class="chart-badge">&uarr; Peak: 636K views</span>
+          </div>
+          
+          <div class="chart-container">
+            <svg class="performance-chart" viewBox="0 0 320 120" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="rgba(230,59,46,0.35)" />
+                  <stop offset="100%" stop-color="rgba(230,59,46,0)" />
+                </linearGradient>
+              </defs>
+              <path class="chart-fill" d="M0,110 L30,108 L60,105 L90,100 L110,90 L125,50 L135,10 L145,30 L160,55 L190,75 L220,82 L260,88 L300,90 L320,88 L320,120 L0,120 Z" fill="url(#chartGradient)"></path>
+              <path class="chart-line" d="M0,110 L30,108 L60,105 L90,100 L110,90 L125,50 L135,10 L145,30 L160,55 L190,75 L220,82 L260,88 L300,90 L320,88"></path>
+            </svg>
+          </div>
+          
+          <div class="chart-dates">
+            <span>Dec 27, 2025</span>
+            <span>Jan 6, 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E. ATTENTION SECTION -->
+  <section class="attention-section section-pad">
+    <div class="container">
+      <div class="attention-grid">
+        <div class="attention-text">
+          <div class="section-label">/ The Problem</div>
+          <h2>Attention is the new currency</h2>
+          <p>Most social content is ignored &mdash; 90% of viewers scroll past in 3 seconds. For local businesses, every view counts. A single viral video can change the trajectory. The average attention span is only 8 seconds &mdash; win those precious moments and win new business.</p>
+        </div>
+        <div class="attention-stats">
+          <div class="big-stat-block">
+            <div class="big-stat-val" data-target="90" data-suffix="%">0</div>
+            <div class="big-stat-lbl">Scroll past in 3s</div>
+          </div>
+          <div class="big-stat-block">
+            <div class="big-stat-val" data-target="8" data-suffix="s">0</div>
+            <div class="big-stat-lbl">Avg. attention span</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- F. FEATURES -->
+  <section class="features-section section-pad" id="services">
+    <div class="container">
+      <div class="section-label">/ What We Do</div>
+      <div class="features-header">
+        <h2>Built to <em>dominate</em> the feed.</h2>
+        <p>Three systems working together to transform your restaurant into a content machine that runs on autopilot &mdash; capturing attention, building loyalty, and converting scrollers into diners.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1: Shuffler -->
+        <div class="feature-card reveal-card">
+          <div class="feature-label">01 &mdash; Content</div>
+          <h3>Viral-First Production</h3>
+          <p>We script, shoot, and edit short-form content engineered to stop the scroll.</p>
+          
+          <div class="interactive-demo demo-shuffler">
+            <div class="shuffler-stack">
+              <div class="shuffle-card sc-3">
+                <span>Hook in 1.5 seconds</span>
+                <div class="pulse-dot"></div>
+              </div>
+              <div class="shuffle-card sc-2">
+                <span>Native platform feel</span>
+                <div class="pulse-dot"></div>
+              </div>
+               <div class="shuffle-card sc-1">
+                <span>Trend-led scripting</span>
+                <div class="pulse-dot"></div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- GUARANTEE -->
-  <section class="guarantee-section" id="guarantee">
-    <div class="container">
-      <div class="guarantee-card">
-        <div class="guarantee-icon">🛡️</div>
-        <div class="guarantee-badge">Our Promise</div>
-        <h2>Double your impressions<br />or <span class="gradient-text">pay half</span></h2>
-        <p>We're so confident in our ability to deliver results that we guarantee we'll double your impressions within the first month — or you only pay 50%.</p>
-        <p class="guarantee-sub">No fine print. No excuses. Just results.</p>
-        <a href="#contact" class="btn btn-primary btn-large">Claim Your Guarantee →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="testimonials-section" id="testimonials">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-badge">Testimonials</div>
-        <h2>Brands that are<br /><span class="gradient-text">winning with us</span></h2>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p>"Within 10 days our restaurant went from a few hundred TikTok followers to over a million views. Fusion Creative completely transformed how we attract customers."</p>
-          <div class="testimonial-author"><div class="author-avatar">NG</div><div><strong>New Greek Restaurant</strong><span>@new.greek · TikTok</span></div></div>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p>"The team understood our brand immediately. The content they create feels authentic, gets incredible reach, and actually drives people through our doors."</p>
-          <div class="testimonial-author"><div class="author-avatar">LC</div><div><strong>Local Client</strong><span>Restaurant Owner</span></div></div>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p>"Best investment we've made. The viral content brought in more customers in a week than our previous marketing did all year."</p>
-          <div class="testimonial-author"><div class="author-avatar">BC</div><div><strong>Business Client</strong><span>UK Local Business</span></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <div class="contact-inner">
-        <div class="contact-left">
-          <div class="section-badge">Get Started</div>
-          <h2>Ready to<br /><span class="gradient-text">Go Viral?</span></h2>
-          <p>Join the brands dominating social media. Fill out the form and we'll be in touch within 24 hours.</p>
-          <div class="contact-perks">
-            <div class="perk">✅ Free strategy consultation</div>
-            <div class="perk">✅ No long-term contracts</div>
-            <div class="perk">✅ Results-guaranteed or pay half</div>
+        <!-- Feature 2: Typewriter -->
+        <div class="feature-card reveal-card">
+          <div class="feature-label">02 &mdash; Analytics</div>
+          <h3>Real-Time Performance</h3>
+          <p>Every post is monitored and optimised. We use data to double down on what's working.</p>
+          
+          <div class="interactive-demo demo-terminal">
+            <div class="terminal-header">
+              <div class="pulse-dot"></div>
+              <span>Live Feed</span>
+            </div>
+            <div class="terminal-body">
+              <span id="typewriterText"></span><span class="cursor"></span>
+            </div>
           </div>
         </div>
-        <div class="contact-right">
-          <form class="contact-form" id="contactForm">
-            <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="Jane Smith" required /></div>
-            <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="jane@yourbusiness.com" required /></div>
-            <div class="form-group"><label for="business">Business Name</label><input type="text" id="business" name="business" placeholder="Your Business Ltd" required /></div>
-            <div class="form-group">
-              <label for="service">Service Interested In</label>
-              <select id="service" name="service">
-                <option value="">Select a service...</option>
-                <option value="social-content">Social Content Creation</option>
-                <option value="social-management">Social Media Management</option>
-                <option value="paid-ads">Paid Marketing / Advertising</option>
-                <option value="website">Website Development</option>
-                <option value="all">Everything!</option>
-              </select>
+
+        <!-- Feature 3: Scheduler -->
+        <div class="feature-card reveal-card">
+          <div class="feature-label">03 &mdash; Strategy</div>
+          <h3>Posting Protocol</h3>
+          <p>Consistent, strategic publishing cadence to maximise reach and algorithm favour.</p>
+          
+          <div class="interactive-demo demo-scheduler">
+            <div class="week-grid">
+              <span class="day-slot">S</span>
+              <span class="day-slot active-slot" id="day-m">M</span>
+              <span class="day-slot">T</span>
+              <span class="day-slot active-slot" id="day-w">W</span>
+              <span class="day-slot">T</span>
+              <span class="day-slot active-slot" id="day-f">F</span>
+              <span class="day-slot">S</span>
             </div>
-            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
-              <span class="btn-text">Send Message →</span>
-              <span class="btn-loading" style="display:none;">Sending...</span>
-            </button>
-            <div class="form-success" id="formSuccess" style="display:none;">🎉 Message sent! We'll be in touch within 24 hours.</div>
-          </form>
+            <div class="schedule-btn" id="schedBtn">Save Schedule</div>
+            <div class="sched-cursor" id="schedCursor">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4.6 2.3 21 11.2c1.7.9.6 3.4-1.2 3L13 13l-1.2 6.8c-.4 1.8-2.9 2.9-3.8 1.2L2.3 4.6c-.9-1.7 1.4-3.5 2.3-2.3z" fill="#fff" stroke="#111" stroke-width="1.5"/></svg>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- G. PHILOSOPHY -->
+  <section class="philosophy-section">
+    <div class="philosophy-bg"></div>
+    <div class="container container-center">
+      <div class="section-label">/ Our Belief</div>
+      <p class="phil-small ph-reveal">Most restaurants post content to fill a calendar. They recycle the same plated-dish photos. Nobody watches. Nobody cares.</p>
+      <h2 class="phil-big ph-reveal">We create content people <span class="phil-highlight">stop</span> for.</h2>
+    </div>
+  </section>
+
+  <!-- H. GUARANTEE -->
+  <section class="guarantee-section section-pad" id="guarantee">
+    <div class="container">
+      <div class="guarantee-grid">
+        <div class="guarantee-text">
+          <div class="section-label">/ Zero Risk</div>
+          <h2>OUR GUARANTEE</h2>
+          <p class="g-sub">Double your impressions or pay half.</p>
+          <p class="g-body">We're so confident in our ability to deliver results that we guarantee we'll double your impressions within the first month &mdash; or you only pay 50%. No fine print. No catch.</p>
+        </div>
+        
+        <div class="guarantee-visual">
+          <div class="bar-container">
+            <div class="bar-col">
+              <span class="bar-lbl-top">50K</span>
+              <div class="bar-fill bar-before"></div>
+              <span class="bar-lbl-bot">Before</span>
+            </div>
+            <div class="bar-col">
+              <span class="bar-lbl-top signal">100K+</span>
+              <div class="bar-fill bar-after">
+                <div class="bar-badge">2x</div>
+              </div>
+              <span class="bar-lbl-bot">After</span>
+            </div>
+          </div>
+          <div class="g-footer">&uarr; Guaranteed growth</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- I. PROTOCOL -->
+  <section class="protocol-section section-pad">
+    <div class="container">
+      <div class="section-label">/ How It Works</div>
+      <h2>From zero to <em>viral</em> in four steps.</h2>
+      
+      <div class="protocol-rows">
+        <div class="proto-row pr-reveal">
+          <div class="proto-num">01</div>
+          <div class="proto-content">
+            <h3>Brand Discovery</h3>
+            <p>We learn your restaurant &mdash; your story, your dishes, your audience. We find the angles that make people stop scrolling.</p>
+          </div>
+          <div class="proto-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </div>
+        </div>
+        
+        <div class="proto-row pr-reveal">
+          <div class="proto-num">02</div>
+          <div class="proto-content">
+            <h3>Content Production</h3>
+            <p>We script, film, and edit short-form videos optimised for TikTok, Instagram Reels, and YouTube Shorts. Hook-first, always.</p>
+          </div>
+          <div class="proto-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+          </div>
+        </div>
+        
+        <div class="proto-row pr-reveal">
+          <div class="proto-num">03</div>
+          <div class="proto-content">
+            <h3>Publish & Optimise</h3>
+            <p>We manage your posting schedule, captions, and hashtags. Every post is monitored and iterated based on real performance data.</p>
+          </div>
+          <div class="proto-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+        </div>
+        
+        <div class="proto-row pr-reveal">
+          <div class="proto-num">04</div>
+          <div class="proto-content">
+            <h3>Scale What Works</h3>
+            <p>When a video hits, we double down. We identify the format, the hook, the story &mdash; and we build a repeatable system around it.</p>
+          </div>
+          <div class="proto-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- J. PRICING -->
+  <section class="pricing-section section-pad" id="plans">
+    <div class="container container-center">
+      <div class="section-label center">/ Plans</div>
+      <h2 class="center">Pick your <em>growth</em> tier.</h2>
+      <p class="pricing-sub center">All plans include the guarantee &mdash; double impressions or pay half.</p>
+      
+      <div class="pricing-grid">
+        <div class="price-card reveal-card">
+          <h3>Starter</h3>
+          <div class="price">&pound;497 <span>/ per month</span></div>
+          <ul class="price-features">
+            <li>4 short-form videos/month</li>
+            <li>TikTok + Reels publishing</li>
+            <li>Monthly performance report</li>
+            <li>Caption & hashtag strategy</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline"><span>Get Started</span></a>
+        </div>
+        
+        <div class="price-card featured reveal-card">
+          <div class="price-badge">Most Popular</div>
+          <h3>Growth</h3>
+          <div class="price off-white">&pound;897 <span>/ per month</span></div>
+          <ul class="price-features">
+            <li>8 short-form videos/month</li>
+            <li>TikTok + Reels + Shorts</li>
+            <li>Weekly optimisation calls</li>
+            <li>Trend-jacking content</li>
+            <li>Impressions guarantee</li>
+          </ul>
+          <a href="#contact" class="btn btn-signal"><span>Most Popular</span></a>
+        </div>
+        
+        <div class="price-card reveal-card">
+          <h3>Scale</h3>
+          <div class="price">Custom <span>/ bespoke package</span></div>
+          <ul class="price-features">
+            <li>Unlimited content production</li>
+            <li>Dedicated creative strategist</li>
+            <li>Multi-platform domination</li>
+            <li>Priority turnaround</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline"><span>Let's Talk</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- K. FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <a href="#" class="nav-logo"><span class="logo-fusion">Fusion</span><span class="logo-creative">Creative</span></a>
-          <p>We make your business go viral. Short-form content that gets real results.</p>
-          <div class="footer-socials">
-            <a href="https://www.tiktok.com/@fusioncreativeuk" target="_blank" rel="noopener" aria-label="TikTok">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.13a8.16 8.16 0 0 0 4.77 1.52V7.2a4.85 4.85 0 0 1-1-.51z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/fusioncreativeuk" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-            <a href="mailto:hello@fusioncreative.uk" aria-label="Email">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            </a>
-          </div>
+      <div class="footer-grid">
+        <div class="f-col-large">
+          <div class="footer-logo">Fusion Creative</div>
+          <p>Short-form content that gets your restaurant in front of millions.<br/>Based in the UK. Working with restaurants worldwide.</p>
         </div>
-        <div class="footer-links">
-          <div class="footer-col"><h4>Navigation</h4><ul><li><a href="#">Home</a></li><li><a href="#services">Services</a></li><li><a href="#work">Case Study</a></li><li><a href="#guarantee">Guarantee</a></li><li><a href="#contact">Connect</a></li></ul></div>
-          <div class="footer-col"><h4>Services</h4><ul><li><a href="#services">Social Content</a></li><li><a href="#services">Social Management</a></li><li><a href="#services">Paid Advertising</a></li><li><a href="#services">Web Development</a></li></ul></div>
+        <div class="f-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#guarantee">Guarantee</a></li>
+            <li><a href="#plans">Process</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h4>Platforms</h4>
+          <ul>
+            <li><a href="#">TikTok</a></li>
+            <li><a href="#">Instagram Reels</a></li>
+            <li><a href="#">YouTube Shorts</a></li>
+          </ul>
+        </div>
+        <div class="f-col" id="contact">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="#">fusioncreative.uk</a></li>
+            <li><a href="#">Book a Call</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">TikTok</a></li>
+          </ul>
         </div>
       </div>
-      <div class="footer-bottom"><p>© 2024 Fusion Creative. All rights reserved.</p><p>fusioncreative.uk</p></div>
+      
+      <div class="footer-bottom">
+        <div class="sys-status">
+          <div class="status-dot"></div>
+          <span>System Operational</span>
+        </div>
+        <div class="copyright">&copy; 2026 Fusion Creative. All rights reserved.</div>
+      </div>
     </div>
   </footer>
 
