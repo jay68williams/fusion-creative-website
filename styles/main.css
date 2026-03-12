@@ -726,8 +726,15 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   .wins-grid { grid-template-columns: 1fr; }
   .win-card { padding: 2rem; }
   
+  /* Fix Metric row wrapping */
+  .win-metrics-row { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
+  .win-metric .val { font-size: 1.5rem; }
+
   /* Fix Chart Card overflow */
   .chart-card { min-height: 400px; }
+  .chart-header { flex-wrap: wrap; gap: 1rem; }
+  .chart-label { font-size: 0.75rem; }
+  .chart-badge { font-size: 0.7rem; }
   
   /* Fix Guarantee scaling on small height */
   .guarantee-grid { grid-template-columns: 1fr; gap: 3rem; }
