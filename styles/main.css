@@ -630,12 +630,15 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   text-transform: uppercase;
 }
 .price-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-.price { font-size: 2rem; font-weight: 700; margin-bottom: 2.5rem; }
+.price { font-size: 2rem; font-weight: 700; margin-bottom: 2.5rem; display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
+.was-price { font-size: 1.2rem; text-decoration: line-through; color: var(--mid); font-weight: 400; opacity: 0.7; }
 .price.off-white { color: var(--off-white); }
-.price span { font-size: 0.9rem; font-weight: 400; color: var(--mid); }
+.price span:not(.was-price) { font-size: 0.9rem; font-weight: 400; color: var(--mid); }
 .price-features { margin-bottom: 3rem; flex-grow: 1; }
 .price-features li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 1rem; font-size: 0.95rem; opacity: 0.8; }
 .price-features li::before { content: ''; display: block; width: 5px; height: 5px; background: var(--signal); border-radius: 50%; margin-top: 8px; flex-shrink: 0; }
+.price-features li.disabled { opacity: 0.5; color: var(--mid); }
+.price-features li.disabled::before { background: transparent; border: 1px solid var(--mid); }
 .price-card .btn { width: 100%; }
 .price-card.featured .btn-signal { background: var(--signal); color: var(--off-white); }
 
