@@ -23,17 +23,7 @@ const navToggle = document.getElementById('navToggle');
 const navLinks = document.querySelector('.nav-links');
 if (navToggle && navLinks) {
   navToggle.addEventListener('click', () => {
-    // Basic toggle logic for mobile (will need CSS addition for mobile menu if needed, 
-    // but sticking to prompt's simplicity for now)
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-    navLinks.style.flexDirection = 'column';
-    navLinks.style.position = 'absolute';
-    navLinks.style.top = '100%';
-    navLinks.style.left = '0';
-    navLinks.style.width = '100%';
-    navLinks.style.background = 'var(--paper)';
-    navLinks.style.padding = '1rem';
-    navLinks.style.borderBottom = '1px solid var(--border)';
+    navLinks.classList.toggle('open');
   });
 }
 
