@@ -331,7 +331,7 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   color: var(--signal);
   font-size: 0.7rem;
   position: absolute;
-  top: 1rem; right: -0.5rem;
+  top: 1rem; right: 1rem;
 }
 .stat-delta-badge {
   background: var(--signal);
