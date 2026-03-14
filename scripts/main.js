@@ -91,6 +91,21 @@ let ctx = gsap.context(() => {
     );
   }
 
+  // Booking section expand on scroll
+  const calWrap = document.querySelector('.cal-embed-wrap');
+  if (calWrap) {
+    gsap.to(calWrap, {
+      height: 560,
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".booking-section",
+        start: "top 70%"
+      }
+    });
+  }
+
   // Protocol steps stagger
   gsap.utils.toArray('.proto-row').forEach((row, i) => {
     gsap.fromTo(row,
