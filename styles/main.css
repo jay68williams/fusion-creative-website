@@ -387,9 +387,9 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
-.win-metric { display: flex; flex-direction: column; position: relative;}
-.win-metric .val { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.03em; margin: 0.2rem 0;}
-.win-metric .meta { font-family: var(--font-mono); font-size: 0.7rem; color: var(--mid); text-transform: uppercase;}
+.win-metric { display: flex; flex-direction: column; position: relative; }
+.win-metric .meta { font-family: var(--font-mono); font-size: 0.7rem; color: var(--mid); text-transform: uppercase; min-height: 2em; display: flex; align-items: flex-end; }
+.win-metric .val { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; }
 .win-metric .delta { font-family: var(--font-mono); font-size: 0.7rem; color: var(--signal); position: absolute; top:-10px; right: 0; }
 
 /* Chart Card */
