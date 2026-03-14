@@ -683,6 +683,7 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   margin: 0 auto;
   text-align: left;
 }
+.price-card.featured { order: -1; }
 .price-card {
   background: var(--paper);
   border-radius: var(--rad-md);
