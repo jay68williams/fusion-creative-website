@@ -205,8 +205,9 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   z-index: 1;
   height: 100dvh;
   display: flex;
-  align-items: flex-end;
-  padding: 0 6vw 8vh;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6vw;
   background: radial-gradient(circle at 50% 100%, #300d0d 0%, #0a0a0a 70%, #000000 100%);
   overflow: hidden;
 }
@@ -214,7 +215,8 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
 .hero-content {
   position: relative;
   z-index: 10;
-  max-width: 900px;
+  max-width: 1000px;
+  text-align: center;
 }
 .hero-eyebrow {
   font-family: var(--font-mono);
@@ -226,7 +228,7 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
 }
 .hero-line1 {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
   font-weight: 700;
   color: var(--off-white);
   line-height: 1;
@@ -234,7 +236,7 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
 }
 .hero-line2 {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
   color: var(--off-white);
   line-height: 0.9;
   margin-bottom: 1.5rem;
@@ -274,13 +276,13 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   z-index: 1;
 }
 .hero-sub {
-  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
   color: rgba(245,243,238,0.6);
   max-width: 600px;
-  margin-bottom: 3rem;
+  margin: 0 auto 3rem;
   line-height: 1.6;
 }
-.hero-ctas { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.hero-ctas { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 
 /* GSAP Start states */
 .eyebrow-stagger, .stagger { opacity: 0; transform: translateY(40px); }
