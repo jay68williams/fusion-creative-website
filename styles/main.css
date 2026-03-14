@@ -391,9 +391,10 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+  align-items: end;
 }
 .win-metric { display: flex; flex-direction: column; position: relative; }
-.win-metric .meta { font-family: var(--font-mono); font-size: 0.7rem; color: var(--mid); text-transform: uppercase; min-height: 2em; display: flex; align-items: flex-end; }
+.win-metric .meta { font-family: var(--font-mono); font-size: 0.65rem; color: var(--mid); text-transform: uppercase; white-space: nowrap; }
 .win-metric .val { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; }
 .win-metric .delta { font-family: var(--font-mono); font-size: 0.7rem; color: var(--signal); position: absolute; top:-10px; right: 0; }
 
@@ -575,19 +576,18 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   position: relative;
 }
 
-/* Jay cutout — overlaps the value cards */
-.about-cutout {
-  position: absolute;
-  top: -40px;
-  left: -120px;
-  width: 300px;
-  z-index: 10;
-  pointer-events: none;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+/* Jay portrait */
+.about-portrait {
+  border-radius: var(--rad-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  aspect-ratio: 3 / 4;
 }
-.about-cutout img {
+.about-portrait img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 .value-item {
@@ -751,7 +751,7 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   .hero-line2 { font-size: 5rem; }
   .attention-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .about-cutout { display: none; }
+  .about-portrait { aspect-ratio: 16 / 9; }
   .features-grid { grid-template-columns: 1fr; gap: 2rem;}
   .features-header { grid-template-columns: 1fr; gap: 1rem;}
   .proto-row { grid-template-columns: 1fr; gap: 1rem; text-align: center;}

@@ -74,11 +74,11 @@ let ctx = gsap.context(() => {
     );
   });
 
-  // Jay cutout pop-in
-  const cutout = document.querySelector('.about-cutout');
-  if (cutout) {
-    gsap.fromTo(cutout,
-      { scale: 0.8, y: 60, opacity: 0 },
+  // Jay portrait pop-in
+  const portrait = document.querySelector('.about-portrait');
+  if (portrait) {
+    gsap.fromTo(portrait,
+      { scale: 0.9, y: 40, opacity: 0 },
       {
         scale: 1, y: 0, opacity: 1,
         duration: 1,
