@@ -15,6 +15,21 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles/main.css" />
   
+  <!-- Facebook Pixel — TODO: Replace YOUR_PIXEL_ID_HERE with your actual Pixel ID -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID_HERE');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"/></noscript>
   <!-- GSAP & ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -428,6 +443,47 @@
     </div>
   </section>
 
+  <!-- BOOKING SECTION -->
+  <section class="booking-section section-pad" id="contact">
+    <div class="container container-center">
+      <div class="section-label">/ Book a Call</div>
+      <h2>Ready to go <em>viral?</em></h2>
+      <p class="booking-sub">Pick a time that suits you. We'll discuss your goals, audit your current content, and map out a plan — no obligation.</p>
+      
+      <!-- Cal.com Inline Embed -->
+      <div class="cal-embed-wrap">
+        <div id="cal-inline" style="width:100%;height:100%;overflow:hidden;min-height:500px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cal.com Embed Script -->
+  <script>
+    (function (C, A, L) {
+      let p = function (a, ar) { a.q.push(ar); };
+      let d = C.document;
+      C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    Cal("init", {origin:"https://cal.com"});
+
+    // TODO: Replace "your-cal-username/30min" with your actual Cal.com booking link
+    Cal("inline", {
+      elementOrSelector: "#cal-inline",
+      calLink: "your-cal-username/30min",
+      layout: "month_view",
+      config: {
+        theme: "light"
+      }
+    });
+
+    Cal("ui", {
+      styles: { branding: { brandColor: "#E63B2E" } },
+      hideEventTypeDetails: false,
+      layout: "month_view"
+    });
+  </script>
+
 
   <!-- K. FOOTER -->
   <footer class="footer">
@@ -454,7 +510,7 @@
             <li><a href="#">YouTube Shorts</a></li>
           </ul>
         </div>
-        <div class="f-col" id="contact">
+        <div class="f-col">
           <h4>Contact</h4>
           <ul>
             <li><a href="#">fusioncreative.uk</a></li>

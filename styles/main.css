@@ -723,6 +723,23 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
 .price-card .btn { width: 100%; }
 .price-card.featured .btn-signal { background: var(--signal); color: var(--off-white); }
 
+/* ===== BOOKING ===== */
+.booking-section em { color: var(--signal); }
+.booking-sub {
+  font-size: 1.15rem;
+  opacity: 0.7;
+  max-width: 550px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+.cal-embed-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: var(--rad-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
 /* ===== K. FOOTER ===== */
 .footer {
   position: relative;
