@@ -576,6 +576,17 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   position: relative;
 }
 
+/* About intro row — avatar + first paragraph side by side */
+.about-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.about-intro .about-body {
+  margin-bottom: 0;
+}
+
 /* Jay portrait */
 .about-portrait {
   width: 80px;
@@ -584,6 +595,7 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   overflow: hidden;
   border: 2px solid var(--border);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
 }
 .about-portrait img {
   width: 100%;
