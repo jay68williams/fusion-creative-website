@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Fusion Creative</title>
+  <meta name="description" content="Get in touch with Fusion Creative. Fill out the form and we'll get back to you within 24 hours." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3460078514307805');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3460078514307805&ev=PageView&noscript=1"/></noscript>
+
+  <style>
+    .contact-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 120px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .contact-info h1 {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .contact-info h1 em { color: var(--signal); }
+    .contact-info p {
+      font-size: 1.1rem;
+      opacity: 0.7;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--mid);
+    }
+    .contact-detail svg {
+      flex-shrink: 0;
+      color: var(--signal);
+    }
+    .contact-form {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: var(--rad-md);
+      padding: 2.5rem;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--mid);
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--off-white);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--signal);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--signal);
+      color: #fff;
+      border: none;
+      border-radius: var(--rad-pill);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .form-submit:hover { opacity: 0.9; }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .form-success.show { display: block; }
+    .form-success h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+    .form-success p {
+      opacity: 0.7;
+      font-size: 1rem;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--signal); }
+
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-info h1 { font-size: 2.2rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">Fusion Creative</a>
+      <div class="nav-links">
+        <a href="index.html#results">Results</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#guarantee">Guarantee</a>
+        <a href="index.html#plans">Pricing</a>
+      </div>
+      <a href="index.html#contact" class="btn btn-primary nav-cta">Work With Us</a>
+    </div>
+  </nav>
+
+  <main class="contact-page">
+    <div class="container">
+      <a href="index.html" class="back-link">&larr; Back to Home</a>
+      
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h1>Let's <em>talk.</em></h1>
+          <p>Fill out the form and we'll get back to you within 24 hours. Whether you want to discuss a project, ask a question, or just say hello.</p>
+          
+          <div class="contact-detail">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            jay@fusioncreative.uk
+          </div>
+          <div class="contact-detail">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            United Kingdom
+          </div>
+        </div>
+
+        <div class="contact-form" id="contactForm">
+          <form id="contactFormEl" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Jay Williams" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="jay@example.com" />
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+44 7XXX XXX XXX" />
+              </div>
+              <div class="form-group">
+                <label for="restaurant">Restaurant Name</label>
+                <input type="text" id="restaurant" name="restaurant" placeholder="Your restaurant" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="budget">Monthly Budget</label>
+              <select id="budget" name="budget">
+                <option value="">Select a range</option>
+                <option value="starter">Around &pound;599/mo (Starter)</option>
+                <option value="growth">Around &pound;995/mo (Growth)</option>
+                <option value="scale">Custom / Scale</option>
+                <option value="unsure">Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Tell us about your project *</label>
+              <textarea id="message" name="message" required placeholder="What are your goals? What platforms are you on? Any specific challenges?"></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">Send Message &rarr;</button>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            <h3>Message sent!</h3>
+            <p>We'll get back to you within 24 hours. In the meantime, feel free to <a href="index.html#contact" style="color:var(--signal)">book a call</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 100);
+    });
+
+    // Form submission
+    const form = document.getElementById('contactFormEl');
+    const success = document.getElementById('formSuccess');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('.form-submit');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+
+        try {
+          const resp = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (resp.ok) {
+            form.style.display = 'none';
+            success.classList.add('show');
+            // Track conversion in FB Pixel
+            if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+          } else {
+            btn.textContent = 'Error - Try Again';
+            btn.disabled = false;
+          }
+        } catch {
+          btn.textContent = 'Error - Try Again';
+          btn.disabled = false;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
