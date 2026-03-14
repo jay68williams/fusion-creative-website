@@ -547,6 +547,50 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
 .phil-highlight { color: var(--signal); }
 .ph-reveal { opacity: 0; transform: translateY(50px); }
 
+/* ===== ABOUT US ===== */
+.about-section em { color: var(--signal); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.about-body {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  max-width: 500px;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.about-values {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.value-item {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--rad-md);
+  padding: 2rem 2.5rem;
+}
+.value-num {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--signal);
+  margin-bottom: 1rem;
+}
+.value-item h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+.value-item p {
+  font-size: 0.95rem;
+  opacity: 0.7;
+  line-height: 1.6;
+}
+
 /* ===== H. GUARANTEE ===== */
 .guarantee-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .g-sub { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
@@ -681,6 +725,7 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   .hero-line1 { font-size: 4rem; }
   .hero-line2 { font-size: 5rem; }
   .attention-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .features-grid { grid-template-columns: 1fr; gap: 2rem;}
   .features-header { grid-template-columns: 1fr; gap: 1rem;}
   .proto-row { grid-template-columns: 1fr; gap: 1rem; text-align: center;}
