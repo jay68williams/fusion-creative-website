@@ -61,16 +61,19 @@ em { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
 .container-center { text-align: center; }
 .section-pad { padding: 12vmax 0; }
 
-/* Vertical scroll connector line */
-body::before {
+/* Section connector lines (between sections) */
+.section-pad {
+  position: relative;
+}
+.section-pad::after {
   content: '';
-  position: fixed;
-  top: 0;
+  position: absolute;
   bottom: 0;
   left: 50%;
+  transform: translateX(-50%);
   width: 1px;
-  background: var(--border);
-  z-index: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--border), transparent);
   pointer-events: none;
 }
 
