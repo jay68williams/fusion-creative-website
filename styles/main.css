@@ -61,20 +61,25 @@ em { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
 .container-center { text-align: center; }
 .section-pad { padding: 12vmax 0; }
 
-/* Section connector lines (between sections) */
-.section-pad {
-  position: relative;
-}
-.section-pad::after {
+/* Fixed vertical connector line — sits behind all sections */
+body::before {
   content: '';
-  position: absolute;
+  position: fixed;
+  top: 0;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
   width: 1px;
-  height: 80px;
-  background: linear-gradient(to bottom, var(--border), transparent);
+  background: var(--border);
+  z-index: 0;
   pointer-events: none;
+}
+
+/* Each section covers the line; gaps between them let it show */
+.section-pad {
+  position: relative;
+  z-index: 1;
+  background: var(--off-white);
+  margin-bottom: 3rem;
 }
 
 /* Top level Headers */
@@ -554,6 +559,7 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   background: var(--black);
   padding: 16vmax 0;
   text-align: center;
+  margin-bottom: 3rem;
 }
 .philosophy-bg {
   position: absolute;
@@ -637,7 +643,6 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
 
 /* ===== I. PROTOCOL ===== */
 .protocol-section h2 { margin-bottom: 4rem; }
-.protocol-section::after { display: none; }
 .protocol-section em { color: var(--signal); }
 .protocol-rows { border-top: 1px solid var(--border); }
 .proto-row {
