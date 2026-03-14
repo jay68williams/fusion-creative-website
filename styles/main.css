@@ -61,6 +61,19 @@ em { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
 .container-center { text-align: center; }
 .section-pad { padding: 12vmax 0; }
 
+/* Vertical scroll connector line */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--border);
+  z-index: 0;
+  pointer-events: none;
+}
+
 /* Top level Headers */
 h2 {
   font-family: var(--font-head);
@@ -189,6 +202,7 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
 /* ===== B. HERO ===== */
 .hero {
   position: relative;
+  z-index: 1;
   height: 100dvh;
   display: flex;
   align-items: flex-end;
@@ -531,6 +545,7 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
 /* ===== G. PHILOSOPHY ===== */
 .philosophy-section {
   position: relative;
+  z-index: 1;
   background: var(--black);
   padding: 16vmax 0;
   text-align: center;
@@ -688,6 +703,8 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
 
 /* ===== K. FOOTER ===== */
 .footer {
+  position: relative;
+  z-index: 1;
   background: var(--black);
   color: var(--off-white);
   border-radius: var(--rad-lg) var(--rad-lg) 0 0;
