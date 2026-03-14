@@ -61,25 +61,28 @@ em { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
 .container-center { text-align: center; }
 .section-pad { padding: 12vmax 0; }
 
-/* Fixed vertical connector line — sits behind all sections */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-  background: var(--border);
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Each section covers the line; gaps between them let it show */
-.section-pad {
+/* Section connector — line + dots between sections */
+.section-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  height: 80px;
   position: relative;
   z-index: 1;
-  background: var(--off-white);
-  margin-bottom: 3rem;
+}
+.connector-line {
+  width: 1px;
+  flex: 1;
+  background: var(--border);
+}
+.connector-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 8px rgba(230, 59, 46, 0.6), 0 0 20px rgba(230, 59, 46, 0.3);
+  flex-shrink: 0;
 }
 
 /* Top level Headers */
@@ -559,7 +562,6 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   background: var(--black);
   padding: 16vmax 0;
   text-align: center;
-  margin-bottom: 3rem;
 }
 .philosophy-bg {
   position: absolute;
