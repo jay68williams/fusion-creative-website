@@ -74,6 +74,23 @@ let ctx = gsap.context(() => {
     );
   });
 
+  // Jay cutout pop-in
+  const cutout = document.querySelector('.about-cutout');
+  if (cutout) {
+    gsap.fromTo(cutout,
+      { scale: 0.8, y: 60, opacity: 0 },
+      {
+        scale: 1, y: 0, opacity: 1,
+        duration: 1,
+        ease: "back.out(1.4)",
+        scrollTrigger: {
+          trigger: ".about-values",
+          start: "top 80%"
+        }
+      }
+    );
+  }
+
   // Protocol steps stagger
   gsap.utils.toArray('.proto-row').forEach((row, i) => {
     gsap.fromTo(row,

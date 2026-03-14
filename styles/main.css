@@ -572,6 +572,23 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: relative;
+}
+
+/* Jay cutout — overlaps the value cards */
+.about-cutout {
+  position: absolute;
+  top: -40px;
+  left: -120px;
+  width: 300px;
+  z-index: 10;
+  pointer-events: none;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+}
+.about-cutout img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 .value-item {
   background: var(--paper);
@@ -734,6 +751,7 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   .hero-line2 { font-size: 5rem; }
   .attention-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-cutout { display: none; }
   .features-grid { grid-template-columns: 1fr; gap: 2rem;}
   .features-header { grid-template-columns: 1fr; gap: 1rem;}
   .proto-row { grid-template-columns: 1fr; gap: 1rem; text-align: center;}
