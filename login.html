@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Login - Fusion Creative</title>
+  <meta name="description" content="Log in to your Fusion Creative client dashboard." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #0d0d0d;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .login-wrapper { width: 100%; max-width: 400px; }
+    .branding {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .branding h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .branding .coral { color: #E8573C; }
+    .branding p {
+      color: #888;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+    .card {
+      background: #161616;
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    .card h2 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .card .subtitle {
+      font-size: 0.875rem;
+      color: #888;
+      margin-bottom: 1.5rem;
+    }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #A0A0A0;
+      margin-bottom: 0.375rem;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 0.625rem 1rem;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input::placeholder { color: #555; }
+    .form-group input:focus { border-color: rgba(232, 87, 60, 0.5); box-shadow: 0 0 0 3px rgba(232, 87, 60, 0.15); }
+    .error-msg {
+      font-size: 0.875rem;
+      color: #f87171;
+      background: rgba(248, 113, 113, 0.1);
+      border: 1px solid rgba(248, 113, 113, 0.2);
+      border-radius: 12px;
+      padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
+      display: none;
+    }
+    .error-msg.visible { display: block; }
+    .btn-submit {
+      width: 100%;
+      padding: 0.75rem;
+      background: #E8573C;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: #d14a32; }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #555;
+      margin-top: 1.5rem;
+    }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.8125rem;
+      color: #888;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="branding">
+      <h1>Fusion <span class="coral">Creative</span></h1>
+      <p>Client Dashboard</p>
+    </div>
+
+    <div class="card">
+      <h2>Welcome back</h2>
+      <p class="subtitle">Sign in to view your dashboard</p>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@company.com" required autofocus />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required />
+        </div>
+        <div class="error-msg" id="errorMsg"></div>
+        <button type="submit" class="btn-submit" id="submitBtn">Sign in</button>
+      </form>
+    </div>
+
+    <p class="footer">Powered by Fusion Creative</p>
+    <a href="index.html" class="back-link">&larr; Back to website</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script>
+    const SUPABASE_URL = 'https://hjmmefphhckinejctqhs.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhqbW1lZnBoaGNraW5lamN0cWhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2MDY4NTksImV4cCI6MjA4OTE4Mjg1OX0.6jd5neNNxiiq8Avs2mdAB5o3T05iVCBbHeVq4DnDzH0';
+
+    // Client slug to subdomain mapping
+    const SUBDOMAIN_MAP = {
+      'new-greek': 'newgreek.fusioncreative.uk'
+    };
+
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const form = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      errorMsg.classList.remove('visible');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Signing in...';
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        const { data, error } = await sb.auth.signInWithPassword({ email, password });
+
+        if (error) {
+          errorMsg.textContent = error.message;
+          errorMsg.classList.add('visible');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Sign in';
+          return;
+        }
+
+        const meta = data.user?.user_metadata || {};
+        const role = meta.role || 'admin';
+        const clientId = meta.client_id || null;
+
+        // Admin users go to admin dashboard
+        if (role === 'admin') {
+          window.location.href = 'https://newgreek.fusioncreative.uk/admin/';
+          return;
+        }
+
+        // Client users: look up their slug and redirect to subdomain
+        if (clientId) {
+          try {
+            const res = await fetch(
+              SUPABASE_URL + '/rest/v1/clients?id=eq.' + clientId + '&select=slug',
+              {
+                headers: {
+                  'apikey': SUPABASE_ANON_KEY,
+                  'Authorization': 'Bearer ' + data.session.access_token
+                }
+              }
+            );
+            const clients = await res.json();
+            if (clients.length > 0 && clients[0].slug && SUBDOMAIN_MAP[clients[0].slug]) {
+              window.location.href = 'https://' + SUBDOMAIN_MAP[clients[0].slug] + '/portal/dashboard/';
+              return;
+            }
+          } catch (e) {
+            console.error('Client lookup failed:', e);
+          }
+        }
+
+        // Fallback
+        window.location.href = 'https://newgreek.fusioncreative.uk/portal/dashboard/';
+      } catch (err) {
+        errorMsg.textContent = 'Something went wrong. Please try again.';
+        errorMsg.classList.add('visible');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign in';
+      }
+    });
+  </script>
+</body>
+</html>
