@@ -1,12 +1,12 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Player } from '@remotion/player';
-import { DashboardReveal } from './DashboardReveal';
+import { DashboardAd } from './DashboardAd';
 
-function DashboardRevealPlayer() {
+function DashboardAdPlayer() {
   return React.createElement(Player, {
-    component: DashboardReveal,
-    durationInFrames: 900,
+    component: DashboardAd,
+    durationInFrames: 1650,
     compositionWidth: 1920,
     compositionHeight: 1080,
     fps: 30,
@@ -24,7 +24,7 @@ function mount() {
   const el = document.getElementById('remotion-player');
   if (el) {
     const root = createRoot(el);
-    root.render(React.createElement(DashboardRevealPlayer));
+    root.render(React.createElement(DashboardAdPlayer));
   }
 }
 
