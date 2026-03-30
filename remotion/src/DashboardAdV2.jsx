@@ -335,7 +335,7 @@ export function DashboardAd() {
             <div style={{ textAlign: 'center', maxWidth: 900 }}>
               <TextBlock inF={195} outF={350} frame={frame} fps={fps}
                 style={{ fontSize: 40, fontWeight: 600, color: '#fff', letterSpacing: -0.5, lineHeight: 1.3 }}>
-                Your clients deserve better than a monthly PDF report.
+                Our clients actually get more than a monthly PDF report.
               </TextBlock>
             </div>
           </div>
