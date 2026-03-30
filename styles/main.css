@@ -276,6 +276,40 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
 /* GSAP Start states */
 .eyebrow-stagger, .stagger { opacity: 0; transform: translateY(40px); }
 
+/* ===== WORKED WITH ===== */
+.worked-with-section {
+  background: var(--black);
+  padding: 3rem 0;
+  text-align: center;
+}
+.worked-with-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 1rem;
+}
+.worked-with-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.worked-with-name {
+  font-family: var(--font-head);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.7);
+}
+.worked-with-divider {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.15);
+}
+
 /* ===== C. STATS BAR ===== */
 .stats-bar {
   background: var(--black);
