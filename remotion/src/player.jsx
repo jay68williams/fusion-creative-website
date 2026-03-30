@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Player } from '@remotion/player';
-import { DashboardAd } from './DashboardAd';
+import { DashboardAd } from './DashboardAdV2';
 
 function DashboardAdPlayer() {
   return React.createElement(Player, {
