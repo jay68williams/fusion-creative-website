@@ -279,7 +279,7 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
 /* ===== WORKED WITH ===== */
 .worked-with-section {
   background: var(--black);
-  padding: 3rem 0;
+  padding: 4rem 0;
   text-align: center;
 }
 .worked-with-label {
@@ -288,26 +288,24 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: rgba(255, 255, 255, 0.35);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .worked-with-logos {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 3rem;
   flex-wrap: wrap;
 }
-.worked-with-name {
-  font-family: var(--font-head);
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.7);
+.worked-with-logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0) invert(1) opacity(0.4);
+  transition: filter 0.3s ease;
 }
-.worked-with-divider {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.15);
+.worked-with-logo:hover {
+  filter: grayscale(100%) brightness(0) invert(1) opacity(0.7);
 }
 
 /* ===== C. STATS BAR ===== */
