@@ -102,12 +102,12 @@ function StatCard({ label, value, suffix, frame, startFrame, index, fps }) {
 
   return (
     <GlassCard style={{
-      padding: '18px 22px', flex: 1,
+      padding: '32px 36px', flex: 1,
       transform: `translateY(${interpolate(enter, [0, 1], [30, 0], C)}px) scale(${0.95 + enter * 0.05})`,
       opacity: enter,
     }}>
-      <div style={{ fontSize: 9, color: '#666', textTransform: 'uppercase', letterSpacing: 2.5, marginBottom: 10, fontFamily: FNT }}>{label}</div>
-      <div style={{ fontSize: 28, fontWeight: 700, color: '#fff', fontVariantNumeric: 'tabular-nums', fontFamily: FNT, opacity: pulse }}>{display}</div>
+      <div style={{ fontSize: 13, color: '#666', textTransform: 'uppercase', letterSpacing: 2.5, marginBottom: 14, fontFamily: FNT }}>{label}</div>
+      <div style={{ fontSize: 48, fontWeight: 700, color: '#fff', fontVariantNumeric: 'tabular-nums', fontFamily: FNT, opacity: pulse }}>{display}</div>
     </GlassCard>
   );
 }
@@ -128,7 +128,7 @@ function Chart({ color, data, label, sub, frame, startF, fps, area }) {
   const rY = interpolate(local, [0, 220], [-12, 2], C) + (local > 80 ? Math.sin(local * 0.012) * 2.5 : 0);
   const rX = interpolate(local, [0, 220], [4, 0], C);
 
-  const W = 540, H = 170, mx = Math.max(...data);
+  const W = 880, H = 280, mx = Math.max(...data);
   const pts = data.map((v, i) => ({ x: (i / (data.length - 1)) * W, y: H - (v / mx) * H * 0.88 - 8 }));
   const d = pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
   const ad = d + ` L${W},${H} L0,${H} Z`;
@@ -150,14 +150,14 @@ function Chart({ color, data, label, sub, frame, startF, fps, area }) {
     <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', perspective: 1200 }}>
       <GlassCard style={{
         transform: `scale(${0.5 + popIn * 0.5}) rotateX(${rX}deg) rotateY(${rY}deg)`,
-        opacity: popIn, width: 620, padding: '28px 36px',
+        opacity: popIn, width: 1000, padding: '40px 50px',
         boxShadow: `0 30px 80px rgba(0,0,0,0.5), 0 0 20px rgba(232,85,60,${0.03 + Math.sin(frame * 0.04) * 0.015})`,
         transformStyle: 'preserve-3d',
         background: SURFACE,
         border: `1px solid ${BORDER}`,
       }}>
-        <div style={{ fontSize: 15, fontWeight: 600, color: '#fff', marginBottom: 4, fontFamily: FNT }}>{label}</div>
-        <div style={{ fontSize: 11, color: '#555', marginBottom: 16, fontFamily: FNT }}>{sub}</div>
+        <div style={{ fontSize: 22, fontWeight: 600, color: '#fff', marginBottom: 6, fontFamily: FNT }}>{label}</div>
+        <div style={{ fontSize: 14, color: '#555', marginBottom: 20, fontFamily: FNT }}>{sub}</div>
         <div style={{ position: 'relative' }}>
           <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{ display: 'block', width: '100%', height: 'auto' }}>
             <defs><filter id={`g${id}`}><feGaussianBlur stdDeviation="6" /></filter></defs>
@@ -200,7 +200,7 @@ function DashboardWindow({ opacity, frame, fps, scale, rotY }) {
     <div style={{ perspective: 1400, position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{
         transform: `scale(${scale}) rotateY(${rotY || 0}deg)`,
-        opacity, width: 1440, borderRadius: 16, overflow: 'hidden',
+        opacity, width: 1750, borderRadius: 16, overflow: 'hidden',
         boxShadow: `0 50px 150px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04)`,
         transformStyle: 'preserve-3d',
       }}>
@@ -315,7 +315,7 @@ export function DashboardAd() {
         {/* S1: Cold open with staggered stat cards */}
         {s1 > 0 && (
           <div style={{ position: 'absolute', inset: 0, opacity: s1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <div style={{ display: 'flex', gap: 20, padding: '0 120px' }}>
+            <div style={{ display: 'flex', gap: 24, padding: '0 40px', width: '100%' }}>
               {[
                 ['Total Reach', 2300000, 'M'],
                 ['Impressions', 3100000, 'M'],
@@ -332,9 +332,9 @@ export function DashboardAd() {
         {/* S2: Problem */}
         {s2 > 0 && (
           <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: s2 }}>
-            <div style={{ textAlign: 'center', maxWidth: 900 }}>
+            <div style={{ textAlign: 'center', maxWidth: 1500, padding: '0 60px' }}>
               <TextBlock inF={195} outF={350} frame={frame} fps={fps}
-                style={{ fontSize: 40, fontWeight: 600, color: '#fff', letterSpacing: -0.5, lineHeight: 1.3 }}>
+                style={{ fontSize: 64, fontWeight: 600, color: '#fff', letterSpacing: -1, lineHeight: 1.2 }}>
                 Our clients actually get more than a monthly PDF report.
               </TextBlock>
             </div>
@@ -346,15 +346,15 @@ export function DashboardAd() {
           <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: s3 }}>
             <div style={{ textAlign: 'center' }}>
               <TextBlock inF={375} outF={548} frame={frame} fps={fps}
-                style={{ fontSize: 44, fontWeight: 700, color: '#fff', letterSpacing: -0.5 }}>
+                style={{ fontSize: 68, fontWeight: 700, color: '#fff', letterSpacing: -1 }}>
                 Every client gets their own personal dashboard.
               </TextBlock>
               <TextBlock inF={390} outF={548} frame={frame} fps={fps}
-                style={{ fontSize: 24, fontWeight: 500, color: CORAL, marginTop: 20 }}>
+                style={{ fontSize: 34, fontWeight: 500, color: CORAL, marginTop: 24 }}>
                 Live data. Real numbers. Zero guesswork.
               </TextBlock>
               <TextBlock inF={405} outF={548} frame={frame} fps={fps}
-                style={{ fontSize: 17, color: 'rgba(255,255,255,0.4)', marginTop: 16 }}>
+                style={{ fontSize: 22, color: 'rgba(255,255,255,0.4)', marginTop: 18 }}>
                 Included with every Fusion Creative retainer.
               </TextBlock>
             </div>
@@ -367,11 +367,11 @@ export function DashboardAd() {
             <Chart color="#fff" data={igData} label="Instagram Views" sub="30-day rolling window"
               frame={frame} startF={575} fps={fps} area />
             <TextBlock inF={640} outF={750} frame={frame} fps={fps}
-              style={{ position: 'absolute', bottom: 80, left: 0, right: 0, textAlign: 'center', fontSize: 22, fontWeight: 600, color: '#fff' }}>
+              style={{ position: 'absolute', bottom: 90, left: 0, right: 0, textAlign: 'center', fontSize: 32, fontWeight: 600, color: '#fff' }}>
               Instagram Views
             </TextBlock>
             <TextBlock inF={655} outF={760} frame={frame} fps={fps}
-              style={{ position: 'absolute', bottom: 50, left: 0, right: 0, textAlign: 'center', fontSize: 17, fontWeight: 500, color: CORAL }}>
+              style={{ position: 'absolute', bottom: 52, left: 0, right: 0, textAlign: 'center', fontSize: 24, fontWeight: 500, color: CORAL }}>
               Peak: 341,000 views
             </TextBlock>
           </div>
@@ -397,15 +397,15 @@ export function DashboardAd() {
           <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: s6 }}>
             <div style={{ textAlign: 'center' }}>
               <TextBlock inF={1065} outF={1240} frame={frame} fps={fps}
-                style={{ fontSize: 44, fontWeight: 700, color: '#fff' }}>
+                style={{ fontSize: 68, fontWeight: 700, color: '#fff' }}>
                 Included with every retainer.
               </TextBlock>
               <TextBlock inF={1080} outF={1240} frame={frame} fps={fps}
-                style={{ fontSize: 22, color: 'rgba(255,255,255,0.55)', marginTop: 20 }}>
+                style={{ fontSize: 32, color: 'rgba(255,255,255,0.55)', marginTop: 24 }}>
                 Your own dashboard. Your own login. Your own data.
               </TextBlock>
               <TextBlock inF={1095} outF={1240} frame={frame} fps={fps}
-                style={{ fontSize: 22, fontWeight: 500, color: CORAL, marginTop: 16 }}>
+                style={{ fontSize: 30, fontWeight: 500, color: CORAL, marginTop: 18 }}>
                 No extra cost. No setup fee. Just results.
               </TextBlock>
             </div>
@@ -425,7 +425,7 @@ export function DashboardAd() {
             }} />
             <div style={{ position: 'relative', textAlign: 'center' }}>
               <div style={{
-                fontSize: 80, fontWeight: 700, letterSpacing: -2, fontFamily: FNT,
+                fontSize: 110, fontWeight: 700, letterSpacing: -3, fontFamily: FNT,
                 opacity: brandEnter,
                 transform: `translateY(${interpolate(brandEnter, [0, 1], [15, 0], C)}px) scale(${0.96 + brandEnter * 0.04})`,
               }}>
@@ -433,14 +433,14 @@ export function DashboardAd() {
                 <span style={{ color: CORAL }}>Creative</span>
               </div>
               <div style={{
-                fontSize: 24, color: 'rgba(255,255,255,0.5)', marginTop: 20, fontFamily: FNT,
+                fontSize: 34, color: 'rgba(255,255,255,0.5)', marginTop: 24, fontFamily: FNT,
                 opacity: tagEnter,
                 transform: `translateY(${interpolate(tagEnter, [0, 1], [12, 0], C)}px)`,
               }}>
                 Your growth, visualised.
               </div>
               <div style={{
-                fontSize: 16, color: 'rgba(255,255,255,0.3)', marginTop: 14, fontFamily: FNT,
+                fontSize: 22, color: 'rgba(255,255,255,0.3)', marginTop: 16, fontFamily: FNT,
                 opacity: urlEnter,
                 transform: `translateY(${interpolate(urlEnter, [0, 1], [10, 0], C)}px)`,
               }}>
