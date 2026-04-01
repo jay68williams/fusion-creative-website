@@ -6,216 +6,236 @@
   <title>Free Social Media Audit | Fusion Creative</title>
   <meta name="description" content="Get a free 20-minute social media audit for your Newcastle restaurant, pub, bar or cafe. Honest answers about what is costing you views and customers." />
   <meta property="og:title" content="Free Social Media Audit | Fusion Creative" />
-  <meta property="og:description" content="Get a free 20-minute social media audit for your Newcastle restaurant, pub, bar or cafe." />
+  <meta property="og:description" content="Free 20-minute social media audit for Newcastle hospitality businesses. No obligation." />
   <meta property="og:url" content="https://fusioncreative.uk/audit" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
   <!-- Facebook Pixel -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1631577007728254');
-    fbq('track', 'PageView');
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1631577007728254');fbq('track','PageView');
   </script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style>
-/* ===== RESET & BASE ===== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-body { background: #0D0D0D; color: #F0F0F0; font-family: 'DM Sans', sans-serif; line-height: 1.6; overflow-x: hidden; }
-::selection { background: #E8645A; color: white; }
-a { color: inherit; text-decoration: none; }
-button { font-family: inherit; border: none; background: transparent; cursor: pointer; }
-
-/* Noise overlay */
-body::after {
-  content: ''; position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+/* ===== TOKENS ===== */
+:root {
+  --paper: #E8E4DD;
+  --signal: #E63B2E;
+  --off-white: #F5F3EE;
+  --black: #111111;
+  --mid: #888880;
+  --border: rgba(17,17,17,0.12);
+  --border-dark: rgba(255,255,255,0.12);
+  --font-head: 'Space Grotesk', sans-serif;
+  --font-serif: 'DM Serif Display', serif;
+  --font-mono: 'Space Mono', monospace;
+  --rad-sm: 1rem;
+  --rad-md: 2rem;
+  --ease-btn: cubic-bezier(0.25,0.46,0.45,0.94);
+  --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
 }
 
-/* ===== TYPOGRAPHY ===== */
-.heading { font-family: 'Bebas Neue', sans-serif; line-height: 0.95; letter-spacing: 0.02em; }
-.coral { color: #E8645A; }
-.eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
-.eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: #E8645A; flex-shrink: 0; }
-.eyebrow-text { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #E8645A; }
+/* ===== RESET ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-head);background:var(--off-white);color:var(--black);line-height:1.5;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")}
+::selection{background:var(--signal);color:white}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;border:none;background:transparent;cursor:pointer}
+em{font-family:var(--font-serif);font-style:italic;font-weight:400}
+strong{font-weight:700}
 
-/* ===== LAYOUT ===== */
-.wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-.grid-2 { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: start; }
-.grid-2-equal { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.container{max-width:1240px;margin:0 auto;padding:0 5vw;width:100%}
+.section-pad{padding:12vmax 0}
+.section-label{font-family:var(--font-mono);font-size:0.85rem;color:var(--signal);margin-bottom:24px;text-transform:uppercase;letter-spacing:0.05em}
+h2{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:700;letter-spacing:-0.04em;line-height:1.05;margin-bottom:24px}
 
 /* ===== NAV ===== */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background: rgba(10,10,10,0.8); border-bottom: 1px solid rgba(255,255,255,0.06); transition: background 0.3s; }
-.nav.scrolled { background: rgba(10,10,10,0.92); }
-.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 64px; }
-.nav-brand { font-weight: 700; font-size: 18px; text-transform: uppercase; letter-spacing: 0.05em; color: #F0F0F0; }
+.navbar{position:fixed;top:1.5rem;left:50%;transform:translateX(-50%);z-index:1000;background:transparent;transition:background 0.4s,border 0.4s,box-shadow 0.4s;border-radius:999px;width:calc(100% - 3rem);max-width:1200px}
+.navbar.scrolled{background:rgba(245,243,238,0.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0.5rem 0.5rem 0.5rem 1.5rem}
+.nav-logo{font-weight:700;font-size:1.1rem;letter-spacing:-0.03em;color:var(--black);transition:color 0.4s}
+.navbar:not(.scrolled) .nav-logo{color:var(--off-white)}
 
-/* ===== BUTTONS ===== */
-.btn-coral { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 32px; border-radius: 100px; font-weight: 600; font-size: 15px; background: #E8645A; color: white; transition: background 0.2s, transform 0.2s; cursor: pointer; }
-.btn-coral:hover { background: #D4534A; transform: translateY(-1px); }
-.btn-coral-sm { padding: 10px 24px; font-size: 13px; }
-.btn-ghost { display: inline-flex; align-items: center; gap: 6px; padding: 14px 24px; font-weight: 500; font-size: 15px; color: #888; cursor: pointer; transition: color 0.2s; }
-.btn-ghost:hover { color: #F0F0F0; }
-.btn-disabled { opacity: 0.4; pointer-events: none; }
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:600;font-size:1rem;padding:1rem 2rem;border-radius:var(--rad-sm);position:relative;overflow:hidden;will-change:transform;transition:transform 0.3s var(--ease-btn)}
+.btn span{position:relative;z-index:2;transition:color 0.3s var(--ease-btn)}
+.btn-signal{background:var(--signal);color:var(--off-white);border-radius:999px}
+.btn-signal::before{content:'';position:absolute;inset:0;background:var(--black);transform:translateY(100%);transition:transform 0.4s var(--ease-btn);z-index:1}
+.btn-signal:hover{transform:scale(1.03);box-shadow:0 6px 30px rgba(230,59,46,0.45)}
+.btn-signal:hover::before{transform:translateY(0)}
+.btn-ghost{font-family:var(--font-mono);font-size:0.85rem;color:var(--mid);padding:1rem 1.5rem}
+.btn-ghost:hover{color:var(--off-white);transform:translateY(-1px) scale(1.03)}
+.btn-sm{padding:0.7rem 1.5rem;font-size:0.9rem}
 
-/* ===== CARDS ===== */
-.fcard { background: #161616; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4); transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
-.fcard:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.7), 0 4px 12px rgba(0,0,0,0.5); border-color: rgba(232,100,90,0.25); }
-.fcard-static { background: #161616; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4); }
-.lcard { background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); transition: transform 0.35s ease, box-shadow 0.35s ease; position: relative; overflow: hidden; }
-.lcard::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: #E8645A; transition: width 0.4s ease; }
-.lcard:hover { transform: translateY(-6px); box-shadow: 0 8px 36px rgba(0,0,0,0.12); }
-.lcard:hover::after { width: 100%; }
+/* ===== HERO ===== */
+.hero{position:relative;z-index:1;height:100dvh;display:flex;align-items:center;justify-content:center;padding:0 6vw;background:radial-gradient(circle at 50% 100%,#300d0d 0%,#0a0a0a 70%,#000 100%);overflow:hidden}
+.hero-content{position:relative;z-index:10;max-width:1000px;text-align:center}
+.hero-eyebrow{font-family:var(--font-mono);font-size:0.75rem;color:var(--signal);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:2rem}
+.hero-h1{font-family:var(--font-head);font-size:clamp(3rem,7vw,6rem);font-weight:700;color:var(--off-white);line-height:1.05;letter-spacing:-0.04em;margin-bottom:1.5rem}
+.hero-h1 em{color:var(--signal);font-family:var(--font-serif);font-weight:400}
+.hero-sub{font-size:clamp(1.05rem,1.8vw,1.3rem);color:rgba(245,243,238,0.6);max-width:600px;margin:0 auto 3rem;line-height:1.6}
+.hero-ctas{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
+.stagger{opacity:0;transform:translateY(40px)}
+
+/* ===== STATS BAR ===== */
+.stats-bar{background:var(--black);width:100%}
+.stats-grid{display:flex;width:100%;justify-content:space-between;padding:2rem 0}
+.stat-item{display:flex;flex-direction:column;padding:1rem;border-radius:var(--rad-sm);transition:background 0.3s;text-align:center;flex:1}
+.stat-item:hover{background:rgba(255,255,255,0.04)}
+.stat-value{font-family:var(--font-head);font-weight:700;font-size:clamp(1.8rem,3vw,2.5rem);color:var(--off-white);letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.2rem}
+.stat-meta{font-family:var(--font-head);font-size:0.78rem;color:var(--mid);text-transform:uppercase;letter-spacing:0.05em}
+.stats-divider{width:1px;height:48px;background:var(--border-dark);margin:0 1rem;flex-shrink:0;align-self:center}
+
+/* ===== FEATURE CARDS ===== */
+.feature-card{background:var(--off-white);border:1px solid var(--border);border-radius:var(--rad-md);padding:2.5rem;min-height:280px;display:flex;flex-direction:column;transition:transform 0.3s var(--ease-btn),box-shadow 0.3s}
+.feature-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.08)}
+.feature-label{font-family:var(--font-mono);font-size:0.8rem;color:var(--mid);margin-bottom:2rem}
+.feature-card h3{font-size:1.4rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:1rem}
+.feature-card p{opacity:0.7;font-size:0.95rem;line-height:1.6}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+
+/* ===== DARK SECTIONS ===== */
+.dark-section{background:var(--black);color:var(--off-white)}
+.dark-section .section-label{color:var(--mid)}
+.dark-section h2{color:var(--off-white)}
+
+/* ===== PAIN CARDS ===== */
+.pain-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:start}
+.pain-card{background:rgba(255,255,255,0.03);border:1px solid var(--border-dark);border-left:3px solid var(--signal);border-radius:var(--rad-sm);padding:1.5rem 2rem;transition:transform 0.3s var(--ease-btn),background 0.3s}
+.pain-card:hover{transform:translateY(-3px);background:rgba(255,255,255,0.06)}
+.pain-card h3{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem}
+.pain-card p{font-size:0.9rem;color:var(--mid);line-height:1.6}
+.fix-card{background:rgba(230,59,46,0.06);border:1px solid rgba(230,59,46,0.15);border-radius:var(--rad-md);padding:3rem;position:relative;overflow:hidden}
+.fix-card::before{content:'';position:absolute;top:-30%;right:-30%;width:80%;height:80%;border-radius:50%;background:radial-gradient(ellipse,rgba(230,59,46,0.08) 0%,transparent 70%);pointer-events:none}
+
+/* ===== PROOF CARD ===== */
+.proof-card{background:rgba(255,255,255,0.03);border:1px solid var(--border-dark);border-left:3px solid var(--signal);border-radius:var(--rad-md);overflow:hidden}
+.proof-grid{display:grid;grid-template-columns:1.3fr 1fr}
+.proof-text{padding:3rem}
+.proof-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-dark)}
+.proof-stat{background:var(--black);padding:2rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.proof-stat .stat-value{font-size:2rem}
+
+/* ===== AUDIT CHECKS ===== */
+.audit-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.audit-item{display:flex;gap:1rem;align-items:flex-start}
+.audit-check{width:28px;height:28px;border-radius:8px;background:rgba(230,59,46,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.audit-item h3{font-size:1rem;font-weight:700;margin-bottom:4px}
+.audit-item p{font-size:0.9rem;color:var(--mid);line-height:1.6}
 
 /* ===== FORM ===== */
-.opt-btn { display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.07); background: #1E1E1E; cursor: pointer; transition: all 0.2s; font-size: 15px; color: #F0F0F0; width: 100%; text-align: left; }
-.opt-btn:hover { border-color: rgba(232,100,90,0.3); background: rgba(232,100,90,0.06); }
-.opt-btn.active { border-color: #E8645A; background: rgba(232,100,90,0.1); }
-.form-input { width: 100%; padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.07); background: #1E1E1E; color: #F0F0F0; font-family: 'DM Sans', sans-serif; font-size: 15px; outline: none; transition: border-color 0.2s; }
-.form-input::placeholder { color: #888; }
-.form-input:focus { border-color: #E8645A; }
-.progress-track { display: flex; gap: 6px; margin-bottom: 32px; }
-.progress-seg { flex: 1; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.07); transition: background 0.3s; }
-.progress-seg.filled { background: #E8645A; }
+.form-wrap{max-width:680px;margin:0 auto}
+.form-card{background:rgba(255,255,255,0.04);border:1px solid var(--border-dark);border-radius:var(--rad-md);padding:clamp(2rem,5vw,3rem)}
+.progress-track{display:flex;gap:6px;margin-bottom:2rem}
+.progress-seg{flex:1;height:4px;border-radius:2px;background:var(--border-dark);transition:background 0.3s}
+.progress-seg.filled{background:var(--signal)}
+.form-step{display:none}.form-step.active{display:block}
+.form-success{display:none;text-align:center;padding:3rem 0}.form-success.active{display:block}
+.form-content.hidden{display:none}
 
-/* ===== SCROLL REVEAL ===== */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+.opt-btn{display:flex;align-items:center;gap:12px;padding:1rem 1.25rem;border-radius:var(--rad-sm);border:1px solid var(--border-dark);background:rgba(255,255,255,0.03);cursor:pointer;transition:all 0.2s;font-family:var(--font-head);font-size:0.95rem;color:var(--off-white);width:100%;text-align:left}
+.opt-btn:hover{border-color:rgba(230,59,46,0.3);background:rgba(230,59,46,0.06);transform:translateY(-1px)}
+.opt-btn.active{border-color:var(--signal);background:rgba(230,59,46,0.1)}
+.form-input{width:100%;padding:0.9rem 1.1rem;border-radius:var(--rad-sm);border:1px solid var(--border-dark);background:rgba(255,255,255,0.03);color:var(--off-white);font-family:var(--font-head);font-size:0.95rem;outline:none;transition:border-color 0.2s}
+.form-input::placeholder{color:var(--mid)}
+.form-input:focus{border-color:var(--signal)}
+.form-nav{display:flex;justify-content:space-between;margin-top:2rem}
+.btn-back{font-family:var(--font-mono);font-size:0.85rem;color:var(--mid);padding:0.8rem 1.2rem;transition:color 0.2s}
+.btn-back:hover{color:var(--off-white)}
+.btn-disabled{opacity:0.4;pointer-events:none}
+
+/* ===== FOOTER ===== */
+.footer{border-top:1px solid var(--border-dark);padding:2rem 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:var(--mid)}
 
 /* ===== MOBILE STICKY ===== */
-@media (max-width: 767px) {
-  .mobile-sticky { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; padding: 12px 16px; background: rgba(13,13,13,0.95); backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,0.07); }
+@media(max-width:767px){
+  .mobile-sticky{position:fixed;bottom:0;left:0;right:0;z-index:100;padding:12px 16px;background:rgba(0,0,0,0.92);backdrop-filter:blur(12px);border-top:1px solid var(--border-dark)}
+  .mobile-sticky .btn{width:100%;justify-content:center}
 }
-@media (min-width: 768px) { .mobile-sticky { display: none; } }
+@media(min-width:768px){.mobile-sticky{display:none}}
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 767px) {
-  .hero-heading { font-size: clamp(48px, 14vw, 72px) !important; }
-  .grid-2, .grid-2-equal { grid-template-columns: 1fr !important; }
-  .grid-3 { grid-template-columns: 1fr !important; }
-  .stats-row { flex-direction: column !important; gap: 24px !important; }
-  .stats-divider { display: none !important; }
-  .footer-inner { flex-direction: column !important; text-align: center !important; gap: 16px !important; }
-  .proof-grid { grid-template-columns: 1fr !important; }
-  .proof-stats { grid-template-columns: repeat(2, 1fr) !important; }
-  .form-options-grid { grid-template-columns: 1fr !important; }
+@media(max-width:767px){
+  .hero-h1{font-size:clamp(2.5rem,10vw,4rem)!important}
+  .pain-grid,.proof-grid,.audit-grid,.features-grid{grid-template-columns:1fr!important}
+  .stats-grid{flex-direction:column;gap:1rem;align-items:center}
+  .stats-divider{display:none}
+  .footer-inner{flex-direction:column;text-align:center;gap:12px}
+  .navbar{top:0.75rem;width:calc(100% - 1.5rem)}
+  .form-options-grid{grid-template-columns:1fr!important}
 }
-@media (min-width: 768px) and (max-width: 1079px) {
-  .grid-3 { grid-template-columns: repeat(2, 1fr) !important; }
+@media(min-width:768px)and(max-width:1079px){
+  .features-grid{grid-template-columns:repeat(2,1fr)!important}
 }
 
-/* ===== PREFERS REDUCED MOTION ===== */
-@media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .fcard, .lcard { transition: none !important; }
-  .fcard:hover, .lcard:hover { transform: none !important; }
-  html { scroll-behavior: auto; }
+@media(prefers-reduced-motion:reduce){
+  .stagger{opacity:1!important;transform:none!important}
+  .reveal-el{opacity:1!important;transform:none!important}
+  html{scroll-behavior:auto}
 }
-
-/* Form step visibility */
-.form-step { display: none; }
-.form-step.active { display: block; }
-.form-success { display: none; text-align: center; padding: 40px 0; }
-.form-success.active { display: block; }
-.form-content.hidden { display: none; }
 </style>
 </head>
 <body>
 
-<!-- ==================== NAV ==================== -->
-<nav class="nav" id="nav">
+<!-- NAV -->
+<nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <span class="nav-brand">Fusion <span class="coral">Creative</span></span>
-    <button class="btn-coral btn-coral-sm" onclick="scrollToForm()">Get Free Audit</button>
+    <a href="/" class="nav-logo">Fusion Creative</a>
+    <a href="#form-section" class="btn btn-signal btn-sm"><span>Get Free Audit</span></a>
   </div>
 </nav>
 
-<!-- ==================== HERO ==================== -->
-<section style="min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:100px;padding-bottom:80px;">
-  <div style="position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:80%;height:60%;border-radius:50%;background:radial-gradient(ellipse, rgba(232,100,90,0.08) 0%, transparent 70%);pointer-events:none;"></div>
-  <div class="wrap" style="position:relative;z-index:1;">
-    <div class="reveal" data-delay="0.2">
-      <div style="font-size:12px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#888;margin-bottom:24px;">Newcastle Upon Tyne &middot; Short-Form Video Agency</div>
-    </div>
-    <div class="reveal" data-delay="0.4">
-      <h1 class="heading hero-heading" style="font-size:clamp(56px, 8vw, 120px);margin-bottom:24px;">
-        <span style="display:block;color:#F0F0F0;">YOUR RESTAURANT</span>
-        <span style="display:block;color:#E8645A;">SHOULD BE</span>
-        <span style="display:block;color:#F0F0F0;">GOING VIRAL.</span>
-      </h1>
-    </div>
-    <div class="reveal" data-delay="0.6">
-      <p style="font-size:18px;color:#888;max-width:580px;line-height:1.7;margin-bottom:36px;">
-        There are over 1,400 restaurants in Newcastle fighting to be on your customers' screens.
-        We make sure yours is the one they stop scrolling for.
-        <span style="display:block;margin-top:8px;color:#F0F0F0;font-weight:500;">Free 20-minute audit, no obligation.</span>
-      </p>
-    </div>
-    <div class="reveal" data-delay="0.8">
-      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-        <button class="btn-coral" onclick="scrollToForm()">Get My Free Audit</button>
-        <button class="btn-ghost" onclick="document.getElementById('services-section').scrollIntoView({behavior:'smooth'})">See what we do &#8595;</button>
-      </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow stagger">Newcastle Upon Tyne &middot; Short-Form Video Agency</div>
+    <h1 class="hero-h1 stagger">Your <em>Restaurant</em> Should Be Going Viral.</h1>
+    <p class="hero-sub stagger">There are over 1,400 restaurants in Newcastle fighting to be on your customers' screens. We make sure yours is the one they stop scrolling for. <strong>Free 20-minute audit, no obligation.</strong></p>
+    <div class="hero-ctas stagger">
+      <a href="#form-section" class="btn btn-signal"><span>Get My Free Audit &rarr;</span></a>
+      <a href="#services" class="btn btn-ghost">See what we do &darr;</a>
     </div>
   </div>
 </section>
 
-<!-- ==================== STATS STRIP ==================== -->
-<section style="background:#161616;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);">
-  <div class="wrap" style="padding-top:48px;padding-bottom:48px;">
-    <div class="reveal">
-      <div class="stats-row" style="display:flex;justify-content:center;align-items:center;gap:64px;">
-        <div style="text-align:center;">
-          <div class="heading" style="font-size:48px;color:#E8645A;">2.6M</div>
-          <div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#888;margin-top:4px;">Views for a Newcastle Restaurant</div>
-        </div>
-        <div class="stats-divider" style="width:1px;height:48px;background:rgba(255,255,255,0.07);"></div>
-        <div style="text-align:center;">
-          <div class="heading" style="font-size:48px;color:#E8645A;">60</div>
-          <div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#888;margin-top:4px;">Days to Results</div>
-        </div>
-        <div class="stats-divider" style="width:1px;height:48px;background:rgba(255,255,255,0.07);"></div>
-        <div style="text-align:center;">
-          <div class="heading" style="font-size:48px;color:#E8645A;">100%</div>
-          <div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#888;margin-top:4px;">North East Focused</div>
-        </div>
-      </div>
+<!-- STATS BAR -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal-el"><div class="stat-value">2.6M</div><div class="stat-meta">Views for a Newcastle Restaurant</div></div>
+      <div class="stats-divider"></div>
+      <div class="stat-item reveal-el"><div class="stat-value">60</div><div class="stat-meta">Days to Results</div></div>
+      <div class="stats-divider"></div>
+      <div class="stat-item reveal-el"><div class="stat-value">100%</div><div class="stat-meta">North East Focused</div></div>
     </div>
   </div>
 </section>
 
-<!-- ==================== PROBLEM ==================== -->
-<section style="position:relative;overflow:hidden;padding:100px 0;">
-  <div style="position:absolute;bottom:-10%;right:-10%;width:50%;height:50%;border-radius:50%;background:radial-gradient(ellipse, rgba(232,100,90,0.07) 0%, transparent 70%);pointer-events:none;"></div>
-  <div class="wrap" style="position:relative;z-index:1;">
-    <div class="reveal"><div class="eyebrow"><span class="eyebrow-dot"></span><span class="eyebrow-text">The Problem</span></div></div>
-    <div class="reveal" data-delay="0.1"><h2 class="heading" style="font-size:clamp(36px, 5vw, 56px);margin-bottom:16px;">YOU HAVE ENOUGH ON YOUR PLATE.</h2></div>
-    <div class="reveal" data-delay="0.2"><p style="color:#888;font-size:17px;max-width:600px;margin-bottom:48px;">Running a restaurant means managing staff, suppliers, customers and kitchens. Your social media should not be another thing keeping you up at night.</p></div>
+<!-- PROBLEM -->
+<section class="dark-section section-pad">
+  <div class="container">
+    <div class="section-label reveal-el">/ The Problem</div>
+    <h2 class="reveal-el" style="max-width:600px;">You have <em>enough</em> on your plate.</h2>
+    <p class="reveal-el" style="color:var(--mid);font-size:1.1rem;max-width:600px;margin-bottom:4rem;">Running a restaurant means managing staff, suppliers, customers and kitchens. Your social media should not be another thing keeping you up at night.</p>
 
-    <div class="grid-2">
-      <div style="display:flex;flex-direction:column;gap:16px;">
-        <div class="reveal"><div class="fcard" style="padding:24px;border-left:3px solid #E8645A;"><h3 style="font-weight:700;font-size:16px;margin-bottom:8px;">Posting and getting nothing back</h3><p style="color:#888;font-size:14px;line-height:1.7;">You are putting content out but the views and new customers are not following. The algorithm rewards strategy, not effort.</p></div></div>
-        <div class="reveal" data-delay="0.1"><div class="fcard" style="padding:24px;border-left:3px solid #E8645A;"><h3 style="font-weight:700;font-size:16px;margin-bottom:8px;">No time to keep up with trends</h3><p style="color:#888;font-size:14px;line-height:1.7;">What works on TikTok changes week to week. By the time you figure it out, the moment has passed.</p></div></div>
-        <div class="reveal" data-delay="0.2"><div class="fcard" style="padding:24px;border-left:3px solid #E8645A;"><h3 style="font-weight:700;font-size:16px;margin-bottom:8px;">Invisible while competitors grow</h3><p style="color:#888;font-size:14px;line-height:1.7;">Other restaurants in Newcastle are going viral and filling tables from social media. Yours has great food but nobody outside your regulars knows it.</p></div></div>
-        <div class="reveal" data-delay="0.3"><div class="fcard" style="padding:24px;border-left:3px solid #E8645A;"><h3 style="font-weight:700;font-size:16px;margin-bottom:8px;">No clear strategy or direction</h3><p style="color:#888;font-size:14px;line-height:1.7;">Posting randomly and hoping something lands is not a content strategy. It is just noise.</p></div></div>
+    <div class="pain-grid">
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="pain-card reveal-el"><h3>Posting and getting nothing back</h3><p>You are putting content out but the views and new customers are not following. The algorithm rewards strategy, not effort.</p></div>
+        <div class="pain-card reveal-el"><h3>No time to keep up with trends</h3><p>What works on TikTok changes week to week. By the time you figure it out, the moment has passed.</p></div>
+        <div class="pain-card reveal-el"><h3>Invisible while competitors grow</h3><p>Other restaurants in Newcastle are going viral and filling tables from social media. Yours has great food but nobody outside your regulars knows it.</p></div>
+        <div class="pain-card reveal-el"><h3>No clear strategy or direction</h3><p>Posting randomly and hoping something lands is not a content strategy. It is just noise.</p></div>
       </div>
-      <div class="reveal" data-delay="0.3">
-        <div class="fcard-static" style="padding:40px;position:relative;overflow:hidden;background:linear-gradient(135deg, #161616 0%, #1E1E1E 100%);">
-          <div style="position:absolute;top:-30%;right:-30%;width:80%;height:80%;border-radius:50%;background:radial-gradient(ellipse, rgba(232,100,90,0.1) 0%, transparent 70%);pointer-events:none;"></div>
+      <div class="reveal-el">
+        <div class="fix-card">
           <div style="position:relative;z-index:1;">
-            <h3 class="heading" style="font-size:32px;margin-bottom:16px;">WE FIX ALL OF THIS.</h3>
-            <p style="color:#888;font-size:15px;line-height:1.7;margin-bottom:28px;">Fusion Creative is a Newcastle-based digital growth partner for hospitality businesses. We handle your content, your digital presence and your strategy so you can focus on the food.</p>
-            <button class="btn-coral" onclick="scrollToForm()">Get a Free Audit</button>
+            <h2 style="font-size:clamp(2rem,4vw,2.8rem);">We fix <em>all</em> of this.</h2>
+            <p style="color:var(--mid);font-size:1rem;line-height:1.7;margin-bottom:2rem;">Fusion Creative is a Newcastle-based digital growth partner for hospitality businesses. We handle your content, your digital presence and your strategy so you can focus on the food.</p>
+            <a href="#form-section" class="btn btn-signal"><span>Get a Free Audit</span></a>
           </div>
         </div>
       </div>
@@ -223,318 +243,225 @@ body::after {
   </div>
 </section>
 
-<!-- ==================== SERVICES (Light) ==================== -->
-<section id="services-section" style="background:#F5F2EE;padding:100px 0;">
-  <div class="wrap">
-    <div class="reveal"><div class="eyebrow"><span class="eyebrow-dot"></span><span class="eyebrow-text">What We Do</span></div></div>
-    <div class="reveal" data-delay="0.1"><h2 class="heading" style="font-size:clamp(36px, 5vw, 56px);color:#111;margin-bottom:12px;">ONE PARTNER. EVERY DIGITAL NEED.</h2></div>
-    <div class="reveal" data-delay="0.15"><p style="color:#666;font-size:17px;max-width:560px;margin-bottom:48px;">We are not just a social media agency. We are a full digital growth partner for Newcastle hospitality businesses.</p></div>
-    <div class="grid-3">
-      <div class="reveal"><div class="lcard" style="padding:32px;height:100%;"><h3 style="font-weight:700;font-size:17px;color:#111;margin-bottom:10px;">Short-Form Video Content</h3><p style="color:#666;font-size:14px;line-height:1.7;">20 professional videos per month. Skits, food showcases, customer reactions, behind the scenes. Content the algorithm pushes to new audiences every day.</p></div></div>
-      <div class="reveal" data-delay="0.1"><div class="lcard" style="padding:32px;height:100%;"><h3 style="font-weight:700;font-size:17px;color:#111;margin-bottom:10px;">Full Social Management</h3><p style="color:#666;font-size:14px;line-height:1.7;">Daily posting, community management, trend research and monthly strategy sessions. You focus on the restaurant, we handle the rest.</p></div></div>
-      <div class="reveal" data-delay="0.2"><div class="lcard" style="padding:32px;height:100%;"><h3 style="font-weight:700;font-size:17px;color:#111;margin-bottom:10px;">Website Design and Build</h3><p style="color:#666;font-size:14px;line-height:1.7;">Branded websites built for hospitality. Mobile-first, fast, and designed to convert visitors into customers.</p></div></div>
-      <div class="reveal" data-delay="0.3"><div class="lcard" style="padding:32px;height:100%;"><h3 style="font-weight:700;font-size:17px;color:#111;margin-bottom:10px;">Animated Menu Screens</h3><p style="color:#666;font-size:14px;line-height:1.7;">Replace static menu boards with animated screens that showcase your food and upsell customers before they even order.</p></div></div>
-      <div class="reveal" data-delay="0.4"><div class="lcard" style="padding:32px;height:100%;"><h3 style="font-weight:700;font-size:17px;color:#111;margin-bottom:10px;">Client Performance Dashboard</h3><p style="color:#666;font-size:14px;line-height:1.7;">Every client gets their own branded dashboard. See your views, reach, follower growth and engagement in one place from anywhere.</p></div></div>
-      <div class="reveal" data-delay="0.5"><div class="lcard" style="padding:32px;height:100%;"><h3 style="font-weight:700;font-size:17px;color:#111;margin-bottom:10px;">Brand Strategy and Consolidation</h3><p style="color:#666;font-size:14px;line-height:1.7;">From naming to account consolidation, we build a consistent identity across every platform and every location.</p></div></div>
+<!-- SERVICES -->
+<section class="section-pad" id="services">
+  <div class="container">
+    <div class="section-label reveal-el">/ What We Do</div>
+    <div class="reveal-el" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:4rem;">
+      <h2>One partner. Every <em>digital</em> need.</h2>
+      <p style="font-size:1.15rem;opacity:0.8;max-width:500px;padding-top:0.5rem;">We are not just a social media agency. We are a full digital growth partner for Newcastle hospitality businesses.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal-el"><div class="feature-label">01</div><h3>Short-Form Video Content</h3><p>20 professional videos per month. Skits, food showcases, customer reactions, behind the scenes. Content the algorithm pushes to new audiences every day.</p></div>
+      <div class="feature-card reveal-el"><div class="feature-label">02</div><h3>Full Social Management</h3><p>Daily posting, community management, trend research and monthly strategy sessions. You focus on the restaurant, we handle the rest.</p></div>
+      <div class="feature-card reveal-el"><div class="feature-label">03</div><h3>Website Design and Build</h3><p>Branded websites built for hospitality. Mobile-first, fast, and designed to convert visitors into customers.</p></div>
+      <div class="feature-card reveal-el"><div class="feature-label">04</div><h3>Animated Menu Screens</h3><p>Replace static menu boards with animated screens that showcase your food and upsell customers before they even order.</p></div>
+      <div class="feature-card reveal-el"><div class="feature-label">05</div><h3>Client Performance Dashboard</h3><p>Every client gets their own branded dashboard. See your views, reach, follower growth and engagement in one place.</p></div>
+      <div class="feature-card reveal-el"><div class="feature-label">06</div><h3>Brand Strategy</h3><p>From naming to account consolidation, we build a consistent identity across every platform and every location.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ==================== PROOF ==================== -->
-<section style="padding:100px 0;position:relative;">
-  <div class="wrap">
-    <div class="reveal"><div class="eyebrow"><span class="eyebrow-dot"></span><span class="eyebrow-text">Proof It Works</span></div></div>
-    <div class="reveal" data-delay="0.1"><h2 class="heading" style="font-size:clamp(36px, 5vw, 56px);margin-bottom:40px;">SAME CITY. SAME SYSTEM.</h2></div>
-    <div class="reveal" data-delay="0.2">
-      <div class="fcard-static" style="border-left:3px solid #E8645A;overflow:hidden;">
-        <div class="proof-grid" style="display:grid;grid-template-columns:1.3fr 1fr;gap:0;">
-          <div style="padding:40px;">
-            <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#E8645A;margin-bottom:12px;">Case Study</div>
-            <h3 class="heading" style="font-size:28px;margin-bottom:16px;">NEW GREEK, CHILLINGHAM ROAD, NEWCASTLE</h3>
-            <p style="color:#888;font-size:15px;line-height:1.7;margin-bottom:24px;">A family-owned fast-casual restaurant in Newcastle with great food and zero viral reach. We implemented our content system and within 60 days the results were undeniable. Same market. Same playbook. This is a repeatable system.</p>
-            <p style="color:#666;font-size:13px;font-style:italic;line-height:1.6;border-left:2px solid rgba(255,255,255,0.07);padding-left:16px;">&ldquo;We went from being invisible online to people stopping us in the street saying they had seen us on TikTok.&rdquo;</p>
-          </div>
-          <div class="proof-stats" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.07);">
-            <div style="background:#161616;padding:32px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;"><div class="heading" style="font-size:36px;color:#E8645A;">60</div><div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#888;margin-top:6px;">Days to results</div></div>
-            <div style="background:#161616;padding:32px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;"><div class="heading" style="font-size:36px;color:#E8645A;">NE1</div><div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#888;margin-top:6px;">Same market as you</div></div>
-            <div style="background:#161616;padding:32px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;"><div class="heading" style="font-size:36px;color:#E8645A;">20+</div><div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#888;margin-top:6px;">Videos per month</div></div>
-            <div style="background:#161616;padding:32px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;"><div class="heading" style="font-size:36px;color:#E8645A;">Proven</div><div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#888;margin-top:6px;">Repeatable system</div></div>
-          </div>
+<!-- PROOF -->
+<section class="dark-section section-pad">
+  <div class="container">
+    <div class="section-label reveal-el">/ Proof It Works</div>
+    <h2 class="reveal-el">Same city. Same <em>system.</em></h2>
+    <div class="proof-card reveal-el" style="margin-top:3rem;">
+      <div class="proof-grid">
+        <div class="proof-text">
+          <div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--signal);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:1rem;">Case Study</div>
+          <h3 style="font-size:1.8rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:1rem;color:var(--off-white);">New Greek, Chillingham Road, Newcastle</h3>
+          <p style="color:var(--mid);font-size:1rem;line-height:1.7;margin-bottom:2rem;">A family-owned fast-casual restaurant in Newcastle with great food and zero viral reach. We implemented our content system and within 60 days the results were undeniable. Same market. Same playbook. This is a repeatable system.</p>
+          <p style="color:rgba(255,255,255,0.4);font-family:var(--font-serif);font-style:italic;font-size:1rem;line-height:1.6;border-left:2px solid var(--border-dark);padding-left:1.5rem;">&ldquo;We went from being invisible online to people stopping us in the street saying they had seen us on TikTok.&rdquo;</p>
+        </div>
+        <div class="proof-stats">
+          <div class="proof-stat"><div class="stat-value" style="color:var(--signal);">60</div><div class="stat-meta">Days to results</div></div>
+          <div class="proof-stat"><div class="stat-value" style="color:var(--signal);">NE1</div><div class="stat-meta">Same market as you</div></div>
+          <div class="proof-stat"><div class="stat-value" style="color:var(--signal);">20+</div><div class="stat-meta">Videos per month</div></div>
+          <div class="proof-stat"><div class="stat-value" style="color:var(--signal);">Proven</div><div class="stat-meta">Repeatable system</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== AUDIT VALUE ==================== -->
-<section style="background:#161616;padding:100px 0;">
-  <div class="wrap">
-    <div class="reveal"><div class="eyebrow"><span class="eyebrow-dot"></span><span class="eyebrow-text">Free Audit</span></div></div>
-    <div class="reveal" data-delay="0.1"><h2 class="heading" style="font-size:clamp(36px, 5vw, 56px);margin-bottom:12px;">WHAT YOU GET FOR FREE.</h2></div>
-    <div class="reveal" data-delay="0.15"><p style="color:#888;font-size:17px;max-width:600px;margin-bottom:48px;">A proper 20-minute audit of your social media and digital presence. No obligation. Just honest answers about what is costing you views and customers.</p></div>
-    <div class="grid-2-equal">
-      <div class="reveal"><div style="display:flex;gap:16px;align-items:flex-start;"><div style="width:28px;height:28px;border-radius:8px;background:rgba(232,100,90,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8645A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h3 style="font-weight:700;font-size:16px;margin-bottom:6px;">Content Performance Review</h3><p style="color:#888;font-size:14px;line-height:1.7;">We analyse your current posts, hooks, formats and engagement to identify exactly what is and is not working.</p></div></div></div>
-      <div class="reveal" data-delay="0.1"><div style="display:flex;gap:16px;align-items:flex-start;"><div style="width:28px;height:28px;border-radius:8px;background:rgba(232,100,90,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8645A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h3 style="font-weight:700;font-size:16px;margin-bottom:6px;">Competitor Analysis</h3><p style="color:#888;font-size:14px;line-height:1.7;">We review what other Newcastle restaurants are doing on social and identify the gaps you can exploit.</p></div></div></div>
-      <div class="reveal" data-delay="0.2"><div style="display:flex;gap:16px;align-items:flex-start;"><div style="width:28px;height:28px;border-radius:8px;background:rgba(232,100,90,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8645A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h3 style="font-weight:700;font-size:16px;margin-bottom:6px;">Platform and Algorithm Review</h3><p style="color:#888;font-size:14px;line-height:1.7;">We check your TikTok and Instagram setup, posting times and how the algorithm is treating your content.</p></div></div></div>
-      <div class="reveal" data-delay="0.3"><div style="display:flex;gap:16px;align-items:flex-start;"><div style="width:28px;height:28px;border-radius:8px;background:rgba(232,100,90,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8645A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h3 style="font-weight:700;font-size:16px;margin-bottom:6px;">Growth Opportunity Report</h3><p style="color:#888;font-size:14px;line-height:1.7;">You leave the call with a clear picture of what we would do differently and what results that could produce.</p></div></div></div>
+<!-- AUDIT VALUE -->
+<section class="section-pad" style="background:var(--paper);">
+  <div class="container">
+    <div class="section-label reveal-el">/ Free Audit</div>
+    <h2 class="reveal-el">What you get for <em>free.</em></h2>
+    <p class="reveal-el" style="opacity:0.7;font-size:1.1rem;max-width:600px;margin-bottom:4rem;">A proper 20-minute audit of your social media and digital presence. No obligation. Just honest answers about what is costing you views and customers.</p>
+    <div class="audit-grid">
+      <div class="audit-item reveal-el"><div class="audit-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h3>Content Performance Review</h3><p>We analyse your current posts, hooks, formats and engagement to identify exactly what is and is not working.</p></div></div>
+      <div class="audit-item reveal-el"><div class="audit-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h3>Competitor Analysis</h3><p>We review what other Newcastle restaurants are doing on social and identify the gaps you can exploit.</p></div></div>
+      <div class="audit-item reveal-el"><div class="audit-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h3>Platform and Algorithm Review</h3><p>We check your TikTok and Instagram setup, posting times and how the algorithm is treating your content.</p></div></div>
+      <div class="audit-item reveal-el"><div class="audit-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h3>Growth Opportunity Report</h3><p>You leave the call with a clear picture of what we would do differently and what results that could produce.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ==================== MULTI-STEP FORM ==================== -->
-<section id="form-section" style="padding:100px 0;position:relative;">
-  <div style="position:absolute;top:20%;left:50%;transform:translateX(-50%);width:60%;height:50%;border-radius:50%;background:radial-gradient(ellipse, rgba(232,100,90,0.07) 0%, transparent 70%);pointer-events:none;"></div>
-  <div style="max-width:680px;margin:0 auto;padding:0 24px;position:relative;z-index:1;">
-    <div class="reveal">
-      <div class="fcard-static" style="padding:clamp(28px, 5vw, 48px);border-radius:28px;">
+<!-- FORM -->
+<section class="dark-section section-pad" id="form-section">
+  <div class="container form-wrap">
+    <div class="form-card reveal-el">
+      <div id="form-content" class="form-content">
+        <div class="section-label" style="color:var(--signal);">/ Free Social Media Audit</div>
+        <h2 style="font-size:clamp(2rem,4vw,3rem);">Get your free <em>audit.</em></h2>
+        <p style="color:var(--mid);margin-bottom:2rem;">Takes 60 seconds. We will be in touch within 24 hours.</p>
+        <div class="progress-track"><div class="progress-seg filled" id="seg-1"></div><div class="progress-seg" id="seg-2"></div><div class="progress-seg" id="seg-3"></div><div class="progress-seg" id="seg-4"></div><div class="progress-seg" id="seg-5"></div></div>
 
-        <!-- Form content -->
-        <div id="form-content" class="form-content">
-          <div class="eyebrow"><span class="eyebrow-dot"></span><span class="eyebrow-text">Free Social Media Audit</span></div>
-          <h2 class="heading" style="font-size:clamp(32px, 5vw, 44px);margin-bottom:8px;">GET YOUR FREE AUDIT</h2>
-          <p style="color:#888;font-size:15px;margin-bottom:28px;">Takes 60 seconds. We will be in touch within 24 hours.</p>
-
-          <div class="progress-track">
-            <div class="progress-seg filled" id="seg-1"></div>
-            <div class="progress-seg" id="seg-2"></div>
-            <div class="progress-seg" id="seg-3"></div>
-            <div class="progress-seg" id="seg-4"></div>
-            <div class="progress-seg" id="seg-5"></div>
-          </div>
-
-          <!-- Step 1 -->
-          <div class="form-step active" id="step-1">
-            <p style="font-weight:600;font-size:16px;margin-bottom:16px;">What type of business do you run?</p>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" class="form-options-grid">
-              <button class="opt-btn" data-field="business_type" data-value="restaurant"><span style="font-size:22px;">&#127869;</span> Restaurant</button>
-              <button class="opt-btn" data-field="business_type" data-value="pub_bar"><span style="font-size:22px;">&#127866;</span> Pub or Bar</button>
-              <button class="opt-btn" data-field="business_type" data-value="cafe_takeaway"><span style="font-size:22px;">&#9749;</span> Cafe or Takeaway</button>
-              <button class="opt-btn" data-field="business_type" data-value="other"><span style="font-size:22px;">&#127978;</span> Other</button>
-            </div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="form-step" id="step-2">
-            <p style="font-weight:600;font-size:16px;margin-bottom:16px;">What is your biggest goal right now?</p>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" class="form-options-grid">
-              <button class="opt-btn" data-field="goal" data-value="more_customers"><span style="font-size:22px;">&#128101;</span> More customers</button>
-              <button class="opt-btn" data-field="goal" data-value="brand_awareness"><span style="font-size:22px;">&#128227;</span> Brand awareness</button>
-              <button class="opt-btn" data-field="goal" data-value="go_viral"><span style="font-size:22px;">&#128640;</span> Go viral on TikTok</button>
-              <button class="opt-btn" data-field="goal" data-value="full_management"><span style="font-size:22px;">&#128241;</span> Full social management</button>
-            </div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="form-step" id="step-3">
-            <p style="font-weight:600;font-size:16px;margin-bottom:16px;">How is your social media currently?</p>
-            <div style="display:flex;flex-direction:column;gap:12px;">
-              <button class="opt-btn" data-field="social_status" data-value="not_posting">Not really posting at all</button>
-              <button class="opt-btn" data-field="social_status" data-value="no_results">Posting but getting no results</button>
-              <button class="opt-btn" data-field="social_status" data-value="inconsistent">Inconsistent, no real strategy</button>
-              <button class="opt-btn" data-field="social_status" data-value="okay_want_more">Okay but want much more</button>
-            </div>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="form-step" id="step-4">
-            <p style="font-weight:600;font-size:16px;margin-bottom:16px;">Tell us about your business.</p>
-            <div style="display:flex;flex-direction:column;gap:14px;">
-              <input class="form-input" id="f-business_name" placeholder="Business Name" />
-              <input class="form-input" id="f-social_handle" placeholder="Instagram or TikTok handle" />
-              <input class="form-input" id="f-website" placeholder="Website (optional)" />
-            </div>
-          </div>
-
-          <!-- Step 5 -->
-          <div class="form-step" id="step-5">
-            <p style="font-weight:600;font-size:16px;margin-bottom:16px;">How do we send your audit?</p>
-            <div style="display:flex;flex-direction:column;gap:14px;">
-              <input class="form-input" id="f-name" placeholder="Your Name" />
-              <input class="form-input" id="f-email" type="email" placeholder="Email Address" />
-              <input class="form-input" id="f-phone" type="tel" placeholder="Phone Number" />
-            </div>
-          </div>
-
-          <!-- Nav buttons -->
-          <div style="display:flex;justify-content:space-between;margin-top:28px;">
-            <button class="btn-ghost" id="btn-back" style="padding:12px 20px;display:none;" onclick="prevStep()">Back</button>
-            <div id="btn-back-spacer"></div>
-            <button class="btn-coral" id="btn-next" style="padding:12px 28px;" onclick="nextStep()">Next</button>
+        <div class="form-step active" id="step-1">
+          <p style="font-weight:600;margin-bottom:1rem;">What type of business do you run?</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" class="form-options-grid">
+            <button class="opt-btn" data-field="business_type" data-value="restaurant"><span style="font-size:1.3rem">&#127869;</span> Restaurant</button>
+            <button class="opt-btn" data-field="business_type" data-value="pub_bar"><span style="font-size:1.3rem">&#127866;</span> Pub or Bar</button>
+            <button class="opt-btn" data-field="business_type" data-value="cafe_takeaway"><span style="font-size:1.3rem">&#9749;</span> Cafe or Takeaway</button>
+            <button class="opt-btn" data-field="business_type" data-value="other"><span style="font-size:1.3rem">&#127978;</span> Other</button>
           </div>
         </div>
-
-        <!-- Success state -->
-        <div class="form-success" id="form-success">
-          <div style="font-size:56px;margin-bottom:16px;">&#127881;</div>
-          <h2 class="heading" style="font-size:36px;margin-bottom:12px;">YOU ARE IN.</h2>
-          <p style="color:#888;font-size:16px;line-height:1.7;max-width:440px;margin:0 auto;">
-            We have received your audit request and will be in touch within 24 hours.
-            In the meantime, follow <span style="color:#E8645A;font-weight:600;">@fusioncreative.uk</span> on TikTok and Instagram to see what we do every day.
-          </p>
+        <div class="form-step" id="step-2">
+          <p style="font-weight:600;margin-bottom:1rem;">What is your biggest goal right now?</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" class="form-options-grid">
+            <button class="opt-btn" data-field="goal" data-value="more_customers"><span style="font-size:1.3rem">&#128101;</span> More customers</button>
+            <button class="opt-btn" data-field="goal" data-value="brand_awareness"><span style="font-size:1.3rem">&#128227;</span> Brand awareness</button>
+            <button class="opt-btn" data-field="goal" data-value="go_viral"><span style="font-size:1.3rem">&#128640;</span> Go viral on TikTok</button>
+            <button class="opt-btn" data-field="goal" data-value="full_management"><span style="font-size:1.3rem">&#128241;</span> Full social management</button>
+          </div>
         </div>
-
+        <div class="form-step" id="step-3">
+          <p style="font-weight:600;margin-bottom:1rem;">How is your social media currently?</p>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <button class="opt-btn" data-field="social_status" data-value="not_posting">Not really posting at all</button>
+            <button class="opt-btn" data-field="social_status" data-value="no_results">Posting but getting no results</button>
+            <button class="opt-btn" data-field="social_status" data-value="inconsistent">Inconsistent, no real strategy</button>
+            <button class="opt-btn" data-field="social_status" data-value="okay_want_more">Okay but want much more</button>
+          </div>
+        </div>
+        <div class="form-step" id="step-4">
+          <p style="font-weight:600;margin-bottom:1rem;">Tell us about your business.</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <input class="form-input" id="f-business_name" placeholder="Business Name" />
+            <input class="form-input" id="f-social_handle" placeholder="Instagram or TikTok handle" />
+            <input class="form-input" id="f-website" placeholder="Website (optional)" />
+          </div>
+        </div>
+        <div class="form-step" id="step-5">
+          <p style="font-weight:600;margin-bottom:1rem;">How do we send your audit?</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <input class="form-input" id="f-name" placeholder="Your Name" />
+            <input class="form-input" id="f-email" type="email" placeholder="Email Address" />
+            <input class="form-input" id="f-phone" type="tel" placeholder="Phone Number" />
+          </div>
+        </div>
+        <div class="form-nav">
+          <button class="btn-back" id="btn-back" style="display:none;" onclick="prevStep()">&#8592; Back</button>
+          <div id="btn-back-spacer"></div>
+          <button class="btn btn-signal btn-sm" id="btn-next" onclick="nextStep()"><span id="btn-next-text">Next &rarr;</span></button>
+        </div>
+      </div>
+      <div class="form-success" id="form-success">
+        <div style="font-size:3.5rem;margin-bottom:1rem;">&#127881;</div>
+        <h2 style="font-size:2.2rem;">You are <em>in.</em></h2>
+        <p style="color:var(--mid);font-size:1.05rem;line-height:1.7;max-width:440px;margin:0 auto;">We have received your audit request and will be in touch within 24 hours. In the meantime, follow <strong style="color:var(--signal);">@fusioncreative.uk</strong> on TikTok and Instagram to see what we do every day.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== FOOTER ==================== -->
-<footer style="border-top:1px solid rgba(255,255,255,0.07);padding:32px 0;">
-  <div class="footer-inner wrap" style="display:flex;justify-content:space-between;align-items:center;">
-    <span style="font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:0.05em;">Fusion <span class="coral">Creative</span></span>
-    <div style="display:flex;gap:24px;align-items:center;font-size:13px;color:#888;">
-      <a href="mailto:jay@fusioncreative.uk" style="color:#888;">jay@fusioncreative.uk</a>
+<!-- FOOTER -->
+<footer class="dark-section footer">
+  <div class="container footer-inner">
+    <span style="font-weight:700;font-size:1rem;letter-spacing:-0.02em;">Fusion Creative</span>
+    <div style="display:flex;gap:2rem;align-items:center;">
+      <a href="mailto:jay@fusioncreative.uk" style="color:var(--mid)">jay@fusioncreative.uk</a>
       <span>07437 571250</span>
-      <a href="#" style="color:#888;">Privacy Policy</a>
+      <a href="#" style="color:var(--mid)">Privacy Policy</a>
     </div>
-    <span style="font-size:12px;color:#555;">&copy; 2026 Fusion Creative, Newcastle upon Tyne</span>
+    <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--mid);">&copy; 2026 Fusion Creative, Newcastle upon Tyne</span>
   </div>
 </footer>
 
-<!-- Mobile sticky CTA -->
+<!-- Mobile sticky -->
 <div class="mobile-sticky">
-  <button class="btn-coral" onclick="scrollToForm()" style="width:100%;padding:14px 0;">Get My Free Audit</button>
+  <a href="#form-section" class="btn btn-signal"><span>Get My Free Audit</span></a>
 </div>
 
 <script>
-// ===== NAV SCROLL =====
-window.addEventListener('scroll', function() {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
-}, { passive: true });
+// NAV scroll
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60)},{passive:true});
 
-// ===== SCROLL REVEAL =====
-(function() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
-    return;
-  }
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var delay = parseFloat(entry.target.getAttribute('data-delay') || '0');
-        setTimeout(function() { entry.target.classList.add('visible'); }, delay * 1000);
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
-})();
+// GSAP animations
+gsap.registerPlugin(ScrollTrigger);
+// Hero stagger
+gsap.utils.toArray('.stagger').forEach(function(el,i){
+  gsap.to(el,{opacity:1,y:0,duration:0.8,delay:0.3+i*0.15,ease:'power3.out'});
+});
+// Scroll reveals
+gsap.utils.toArray('.reveal-el').forEach(function(el){
+  gsap.fromTo(el,{opacity:0,y:40},{opacity:1,y:0,duration:0.7,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 85%',once:true}});
+});
 
-// ===== SMOOTH SCROLL =====
-function scrollToForm() {
-  document.getElementById('form-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
+// FORM LOGIC
+var formData={business_type:'',goal:'',social_status:'',business_name:'',social_handle:'',website:'',name:'',email:'',phone:''};
+var currentStep=1;
 
-// ===== MULTI-STEP FORM =====
-var formData = { business_type: '', goal: '', social_status: '', business_name: '', social_handle: '', website: '', name: '', email: '', phone: '' };
-var currentStep = 1;
-var totalSteps = 5;
-
-// Option button clicks
-document.querySelectorAll('.opt-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    var field = this.getAttribute('data-field');
-    var value = this.getAttribute('data-value');
-    formData[field] = value;
-    // Update active state within same step
-    this.closest('.form-step').querySelectorAll('.opt-btn').forEach(function(b) { b.classList.remove('active'); });
+document.querySelectorAll('.opt-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var field=this.getAttribute('data-field');
+    var value=this.getAttribute('data-value');
+    formData[field]=value;
+    this.closest('.form-step').querySelectorAll('.opt-btn').forEach(function(b){b.classList.remove('active')});
     this.classList.add('active');
     updateButtons();
   });
 });
 
-function canNext() {
-  if (currentStep === 1) return !!formData.business_type;
-  if (currentStep === 2) return !!formData.goal;
-  if (currentStep === 3) return !!formData.social_status;
-  if (currentStep === 4) return !!document.getElementById('f-business_name').value.trim();
-  if (currentStep === 5) {
-    return !!document.getElementById('f-name').value.trim() &&
-           !!document.getElementById('f-email').value.trim() &&
-           !!document.getElementById('f-phone').value.trim();
-  }
+function canNext(){
+  if(currentStep===1)return!!formData.business_type;
+  if(currentStep===2)return!!formData.goal;
+  if(currentStep===3)return!!formData.social_status;
+  if(currentStep===4)return!!document.getElementById('f-business_name').value.trim();
+  if(currentStep===5)return!!document.getElementById('f-name').value.trim()&&!!document.getElementById('f-email').value.trim()&&!!document.getElementById('f-phone').value.trim();
   return false;
 }
 
-function updateButtons() {
-  var back = document.getElementById('btn-back');
-  var spacer = document.getElementById('btn-back-spacer');
-  var next = document.getElementById('btn-next');
-
-  back.style.display = currentStep > 1 ? 'inline-flex' : 'none';
-  spacer.style.display = currentStep > 1 ? 'none' : 'block';
-
-  if (currentStep === 5) {
-    next.textContent = 'Get My Free Audit';
-  } else {
-    next.textContent = 'Next';
-  }
-  next.classList.toggle('btn-disabled', !canNext());
+function updateButtons(){
+  var back=document.getElementById('btn-back');
+  var spacer=document.getElementById('btn-back-spacer');
+  var nextText=document.getElementById('btn-next-text');
+  back.style.display=currentStep>1?'inline-flex':'none';
+  spacer.style.display=currentStep>1?'none':'block';
+  nextText.innerHTML=currentStep===5?'Get My Free Audit &rarr;':'Next &rarr;';
+  document.getElementById('btn-next').classList.toggle('btn-disabled',!canNext());
 }
 
-function showStep(n) {
-  document.querySelectorAll('.form-step').forEach(function(el) { el.classList.remove('active'); });
-  document.getElementById('step-' + n).classList.add('active');
-  for (var i = 1; i <= totalSteps; i++) {
-    document.getElementById('seg-' + i).classList.toggle('filled', i <= n);
-  }
+function showStep(n){
+  document.querySelectorAll('.form-step').forEach(function(el){el.classList.remove('active')});
+  document.getElementById('step-'+n).classList.add('active');
+  for(var i=1;i<=5;i++)document.getElementById('seg-'+i).classList.toggle('filled',i<=n);
   updateButtons();
 }
 
-function nextStep() {
-  if (!canNext()) return;
-  // Sync text inputs for steps 4 and 5
-  if (currentStep === 4) {
-    formData.business_name = document.getElementById('f-business_name').value.trim();
-    formData.social_handle = document.getElementById('f-social_handle').value.trim();
-    formData.website = document.getElementById('f-website').value.trim();
-  }
-  if (currentStep === 5) {
-    formData.name = document.getElementById('f-name').value.trim();
-    formData.email = document.getElementById('f-email').value.trim();
-    formData.phone = document.getElementById('f-phone').value.trim();
-    submitForm();
-    return;
-  }
-  currentStep++;
-  showStep(currentStep);
-  document.getElementById('form-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+function nextStep(){
+  if(!canNext())return;
+  if(currentStep===4){formData.business_name=document.getElementById('f-business_name').value.trim();formData.social_handle=document.getElementById('f-social_handle').value.trim();formData.website=document.getElementById('f-website').value.trim()}
+  if(currentStep===5){formData.name=document.getElementById('f-name').value.trim();formData.email=document.getElementById('f-email').value.trim();formData.phone=document.getElementById('f-phone').value.trim();submitForm();return}
+  currentStep++;showStep(currentStep);
+  document.getElementById('form-section').scrollIntoView({behavior:'smooth',block:'start'});
 }
+function prevStep(){if(currentStep<=1)return;currentStep--;showStep(currentStep);document.getElementById('form-section').scrollIntoView({behavior:'smooth',block:'start'})}
 
-function prevStep() {
-  if (currentStep <= 1) return;
-  currentStep--;
-  showStep(currentStep);
-  document.getElementById('form-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function submitForm() {
-  console.log('Form submitted:', formData);
-
-  // --- Webhook / Supabase POST placeholder ---
-  // fetch('https://your-webhook-url.com/audit-lead', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(formData),
-  // });
-
-  // Facebook Pixel lead event
-  if (typeof fbq === 'function') {
-    fbq('track', 'Lead', { content_name: 'Free Social Media Audit', content_category: formData.business_type });
-  }
-
+function submitForm(){
+  console.log('Form submitted:',formData);
+  // fetch('https://your-webhook-url.com/audit-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(formData)});
+  if(typeof fbq==='function')fbq('track','Lead',{content_name:'Free Social Media Audit',content_category:formData.business_type});
   document.getElementById('form-content').classList.add('hidden');
   document.getElementById('form-success').classList.add('active');
 }
 
-// Live validation for text inputs
-document.querySelectorAll('.form-input').forEach(function(input) {
-  input.addEventListener('input', updateButtons);
-});
-
-// Init
+document.querySelectorAll('.form-input').forEach(function(input){input.addEventListener('input',updateButtons)});
 updateButtons();
 </script>
-
 </body>
 </html>
