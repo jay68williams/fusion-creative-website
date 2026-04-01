@@ -177,10 +177,20 @@ h2{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:7
   .stagger{opacity:1!important;transform:none!important}
   .reveal-el{opacity:1!important;transform:none!important}
   html{scroll-behavior:auto}
+  .cursor-glow,.cursor-trail-canvas{display:none!important}
 }
+
+/* Cursor glow */
+.cursor-glow{position:fixed;width:320px;height:320px;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(230,59,46,0.12) 0%,rgba(230,59,46,0.04) 40%,transparent 70%);mix-blend-mode:screen;will-change:transform;transition:opacity 0.3s}
+.cursor-trail-canvas{position:fixed;inset:0;pointer-events:none;z-index:9997}
+@media(max-width:767px){.cursor-glow,.cursor-trail-canvas{display:none}}
 </style>
 </head>
 <body>
+
+<!-- Cursor glow + trail -->
+<div class="cursor-glow" id="cursorGlow"></div>
+<canvas class="cursor-trail-canvas" id="cursorTrail"></canvas>
 
 <!-- NAV -->
 <nav class="navbar" id="navbar">
@@ -462,6 +472,64 @@ function submitForm(){
 
 document.querySelectorAll('.form-input').forEach(function(input){input.addEventListener('input',updateButtons)});
 updateButtons();
+
+// ===== CURSOR GLOW + TRAIL =====
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(window.innerWidth < 768) return;
+
+  var glow = document.getElementById('cursorGlow');
+  var canvas = document.getElementById('cursorTrail');
+  var ctx = canvas.getContext('2d');
+  var mx = -500, my = -500;
+  var glowX = -500, glowY = -500;
+  var trail = [];
+  var maxTrail = 35;
+  var raf;
+
+  function resize(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  document.addEventListener('mousemove', function(e){
+    mx = e.clientX;
+    my = e.clientY;
+    trail.push({ x: mx, y: my, age: 0 });
+    if(trail.length > maxTrail) trail.shift();
+    glow.style.opacity = '1';
+  });
+
+  document.addEventListener('mouseleave', function(){
+    glow.style.opacity = '0';
+  });
+
+  function tick(){
+    // Smooth glow follow
+    glowX += (mx - glowX) * 0.15;
+    glowY += (my - glowY) * 0.15;
+    glow.style.transform = 'translate(' + (glowX - 160) + 'px,' + (glowY - 160) + 'px)';
+
+    // Draw trail
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for(var i = 0; i < trail.length; i++){
+      trail[i].age++;
+      var life = 1 - (trail[i].age / 50);
+      if(life <= 0){ trail.splice(i, 1); i--; continue; }
+      var r = life * 18;
+      var alpha = life * 0.25;
+      ctx.beginPath();
+      ctx.arc(trail[i].x, trail[i].y, r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(230,59,46,' + alpha + ')';
+      ctx.fill();
+    }
+
+    raf = requestAnimationFrame(tick);
+  }
+  tick();
+})();
 </script>
 </body>
 </html>
