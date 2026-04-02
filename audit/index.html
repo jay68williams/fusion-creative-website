@@ -537,11 +537,10 @@ function submitForm(){
   var btnText=document.getElementById('btn-next-text');
   btn.classList.add('btn-disabled');
   btnText.innerHTML='Submitting...';
-  fetch('https://fusion-dashboard-sigma.vercel.app/api/audit-lead',{
+  fetch('https://newgreek.fusioncreative.uk/api/audit-lead/',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify(formData),
-    redirect:'follow'
+    body:JSON.stringify(formData)
   }).then(function(res){
     if(!res.ok)throw new Error('Server error');
     return res.json();
