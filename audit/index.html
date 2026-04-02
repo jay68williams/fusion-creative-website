@@ -166,7 +166,10 @@ h2{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:7
 .form-nav{display:flex;justify-content:space-between;margin-top:2rem}
 .btn-back{font-family:var(--font-mono);font-size:0.85rem;color:var(--mid);padding:0.8rem 1.2rem;transition:color 0.2s}
 .btn-back:hover{color:var(--off-white)}
-.btn-disabled{opacity:0.4;pointer-events:none}
+.btn-disabled{opacity:0.4;cursor:not-allowed}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.shake{animation:shake 0.4s ease}
+.highlight-required{outline:2px solid var(--signal)!important;outline-offset:2px;transition:outline 0.3s}
 
 /* ===== FOOTER ===== */
 .footer{border-top:1px solid var(--border-dark);padding:2rem 0}
@@ -509,7 +512,19 @@ function showStep(n){
 }
 
 function nextStep(){
-  if(!canNext())return;
+  if(!canNext()){
+    // Shake the button and highlight that a selection is needed
+    var btn=document.getElementById('btn-next');
+    btn.classList.add('shake');
+    setTimeout(function(){btn.classList.remove('shake')},500);
+    // Highlight unselected options
+    var step=document.getElementById('step-'+currentStep);
+    var opts=step.querySelectorAll('.opt-btn');
+    var inputs=step.querySelectorAll('.form-input');
+    if(opts.length){opts.forEach(function(o){o.classList.add('highlight-required');setTimeout(function(){o.classList.remove('highlight-required')},1500)})}
+    if(inputs.length){inputs.forEach(function(inp){if(!inp.value.trim()){inp.classList.add('highlight-required');setTimeout(function(){inp.classList.remove('highlight-required')},1500)}})}
+    return;
+  }
   if(currentStep===4){formData.business_name=document.getElementById('f-business_name').value.trim();formData.social_handle=document.getElementById('f-social_handle').value.trim();formData.website=document.getElementById('f-website').value.trim()}
   if(currentStep===5){formData.name=document.getElementById('f-name').value.trim();formData.email=document.getElementById('f-email').value.trim();formData.phone=document.getElementById('f-phone').value.trim();submitForm();return}
   currentStep++;showStep(currentStep);
@@ -518,16 +533,28 @@ function nextStep(){
 function prevStep(){if(currentStep<=1)return;currentStep--;showStep(currentStep);document.getElementById('form-section').scrollIntoView({behavior:'smooth',block:'start'})}
 
 function submitForm(){
-  console.log('Form submitted:',formData);
-  // POST to Supabase via API + trigger n8n webhook
+  var btn=document.getElementById('btn-next');
+  var btnText=document.getElementById('btn-next-text');
+  btn.classList.add('btn-disabled');
+  btnText.innerHTML='Submitting...';
   fetch('https://fusion-dashboard-sigma.vercel.app/api/audit-lead',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify(formData)
-  }).catch(function(err){console.error('Submit error:',err)});
-  if(typeof fbq==='function'&&window._fbPixelLoaded)fbq('track','Lead',{content_name:'Free Social Media Audit',content_category:formData.business_type});
-  document.getElementById('form-content').classList.add('hidden');
-  document.getElementById('form-success').classList.add('active');
+    body:JSON.stringify(formData),
+    redirect:'follow'
+  }).then(function(res){
+    if(!res.ok)throw new Error('Server error');
+    return res.json();
+  }).then(function(){
+    if(typeof fbq==='function'&&window._fbPixelLoaded)fbq('track','Lead',{content_name:'Free Social Media Audit',content_category:formData.business_type});
+    document.getElementById('form-content').classList.add('hidden');
+    document.getElementById('form-success').classList.add('active');
+  }).catch(function(err){
+    console.error('Submit error:',err);
+    btn.classList.remove('btn-disabled');
+    btnText.innerHTML='Get My Free Audit &rarr;';
+    alert('Something went wrong. Please try again or email jay@fusioncreative.uk directly.');
+  });
 }
 
 document.querySelectorAll('.form-input').forEach(function(input){input.addEventListener('input',updateButtons)});
