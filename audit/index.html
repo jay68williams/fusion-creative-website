@@ -211,20 +211,18 @@ h2{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:7
   .stagger{opacity:1!important;transform:none!important}
   .reveal-el{opacity:1!important;transform:none!important}
   html{scroll-behavior:auto}
-  .cursor-glow,.cursor-trail-canvas{display:none!important}
+  .cursor-glow{display:none!important}
 }
 
 /* Cursor glow — behind everything */
 .cursor-glow{position:fixed;width:500px;height:500px;border-radius:50%;pointer-events:none;z-index:0;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(230,59,46,0.10) 0%,rgba(230,59,46,0.06) 20%,rgba(230,59,46,0.03) 40%,rgba(230,59,46,0.01) 60%,transparent 80%);mix-blend-mode:screen;will-change:transform;transition:opacity 0.3s}
-.cursor-trail-canvas{position:fixed;inset:0;pointer-events:none;z-index:0}
-@media(max-width:767px){.cursor-glow,.cursor-trail-canvas{display:none}}
+@media(max-width:767px){.cursor-glow{display:none}}
 </style>
 </head>
 <body>
 
 <!-- Cursor glow + trail -->
 <div class="cursor-glow" id="cursorGlow"></div>
-<canvas class="cursor-trail-canvas" id="cursorTrail"></canvas>
 
 <!-- NAV -->
 <nav class="navbar" id="navbar">
@@ -535,45 +533,18 @@ function submitForm(){
 document.querySelectorAll('.form-input').forEach(function(input){input.addEventListener('input',updateButtons)});
 updateButtons();
 
-// ===== CURSOR GLOW + TRAIL =====
+// ===== CURSOR GLOW =====
 (function(){
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if(window.innerWidth < 768) return;
 
   var glow = document.getElementById('cursorGlow');
-  var canvas = document.getElementById('cursorTrail');
-  var ctx = canvas.getContext('2d');
   var mx = -500, my = -500;
   var glowX = -500, glowY = -500;
-  // Smooth trail stored as interpolated positions
-  var trail = [];
-  var maxLen = 200;
-  var lastX = -1, lastY = -1;
-
-  function resize(){
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
 
   document.addEventListener('mousemove', function(e){
     mx = e.clientX;
     my = e.clientY;
-    // Interpolate between last position and current to keep trail dense
-    if(lastX >= 0){
-      var dx = mx - lastX, dy = my - lastY;
-      var dist = Math.sqrt(dx*dx + dy*dy);
-      var steps = Math.max(1, Math.floor(dist / 3));
-      for(var s = 1; s <= steps; s++){
-        var t = s / steps;
-        trail.push({ x: lastX + dx * t, y: lastY + dy * t });
-      }
-    } else {
-      trail.push({ x: mx, y: my });
-    }
-    lastX = mx; lastY = my;
-    while(trail.length > maxLen) trail.shift();
     glow.style.opacity = '1';
   });
 
@@ -585,62 +556,6 @@ updateButtons();
     glowX += (mx - glowX) * 0.15;
     glowY += (my - glowY) * 0.15;
     glow.style.transform = 'translate(' + (glowX - 250) + 'px,' + (glowY - 250) + 'px)';
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Fade trail by removing oldest points each frame
-    var removeCount = Math.max(2, Math.floor(trail.length / 30));
-    for(var r = 0; r < removeCount && trail.length > 2; r++){
-      trail.shift();
-    }
-
-    if(trail.length < 3){ requestAnimationFrame(tick); return; }
-
-    // Soft feathered passes: wide blurry outer layers, narrow bright core
-    // Each pass uses canvas shadowBlur for true soft edges
-    var passes = [
-      { width: 50, blur: 40, r: 230, g: 59, b: 46, alphaScale: 0.02 },
-      { width: 34, blur: 25, r: 230, g: 59, b: 46, alphaScale: 0.035 },
-      { width: 20, blur: 16, r: 230, g: 59, b: 46, alphaScale: 0.06 },
-      { width: 10, blur: 10, r: 235, g: 80, b: 65, alphaScale: 0.1 },
-      { width: 4,  blur: 6,  r: 245, g: 120, b: 100, alphaScale: 0.18 },
-      { width: 1.5,blur: 3,  r: 255, g: 160, b: 140, alphaScale: 0.25 }
-    ];
-
-    for(var p = 0; p < passes.length; p++){
-      var pass = passes[p];
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      ctx.shadowColor = 'rgba(' + pass.r + ',' + pass.g + ',' + pass.b + ',0.5)';
-      ctx.shadowBlur = pass.blur;
-      ctx.shadowOffsetX = 0;
-      ctx.shadowOffsetY = 0;
-
-      for(var i = 1; i < trail.length; i++){
-        var progress = i / (trail.length - 1);
-        var alpha = progress * progress * pass.alphaScale;
-        if(alpha < 0.001) continue;
-
-        ctx.beginPath();
-        ctx.moveTo(trail[i-1].x, trail[i-1].y);
-
-        if(i < trail.length - 1){
-          var cpx = (trail[i].x + trail[i+1].x) * 0.5;
-          var cpy = (trail[i].y + trail[i+1].y) * 0.5;
-          ctx.quadraticCurveTo(trail[i].x, trail[i].y, cpx, cpy);
-        } else {
-          ctx.lineTo(trail[i].x, trail[i].y);
-        }
-
-        ctx.strokeStyle = 'rgba(' + pass.r + ',' + pass.g + ',' + pass.b + ',' + alpha + ')';
-        ctx.lineWidth = pass.width;
-        ctx.stroke();
-      }
-    }
-    // Reset shadow
-    ctx.shadowColor = 'transparent';
-    ctx.shadowBlur = 0;
-
     requestAnimationFrame(tick);
   }
   tick();
