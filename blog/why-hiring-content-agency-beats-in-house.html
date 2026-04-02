@@ -9,28 +9,35 @@
   <meta property="og:title" content="Why Hiring a Content Agency Beats Doing It In-House | Fusion Creative" />
   <meta property="og:description" content="Most Newcastle restaurant owners try to handle content themselves. Here is why working with an agency gets better results for less stress." />
   <meta property="og:url" content="https://fusioncreative.uk/blog/why-hiring-content-agency-beats-in-house" />
-  <link rel="canonical" href="https://fusioncreative.uk/blog/why-hiring-content-agency-beats-in-house.html" />
+  <link rel="canonical" href="https://fusioncreative.uk/blog/why-hiring-content-agency-beats-in-house" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles/main.css" />
 
-  <!-- Meta Pixel -->
+  <!-- Facebook Pixel (deferred until consent) -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1631577007728254');
-    fbq('track', 'PageView');
+    window._fbPixelLoaded=false;
+    function loadFBPixel(){
+      if(window._fbPixelLoaded)return;window._fbPixelLoaded=true;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init','1631577007728254');fbq('track','PageView');
+    }
+    if(localStorage.getItem('fc_cookie_consent')==='accepted')loadFBPixel();
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1631577007728254&ev=PageView&noscript=1"/></noscript>
+
+  <style>
+    .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:10000;background:#111;border-top:1px solid rgba(255,255,255,0.12);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:0.85rem;color:#888;transform:translateY(100%);transition:transform 0.4s ease}
+    .cookie-banner.visible{transform:translateY(0)}
+    .cookie-banner a{color:#E63B2E;text-decoration:underline}
+    .cookie-btns{display:flex;gap:0.5rem;flex-shrink:0}
+    .cookie-btns button{padding:0.5rem 1.2rem;border-radius:999px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:background 0.2s}
+    .cookie-accept{background:#E63B2E;color:white;border:none}
+    .cookie-accept:hover{background:#c4302a}
+    .cookie-decline{background:transparent;color:#888;border:1px solid rgba(255,255,255,0.12)}
+    .cookie-decline:hover{color:#F5F3EE}
+  </style>
 
   <!-- Article Schema -->
   <script type="application/ld+json">
@@ -62,16 +69,16 @@
   <!-- NAVBAR -->
   <nav class="navbar scrolled" id="navbar">
     <div class="nav-inner">
-      <a href="../index.html" class="nav-logo">Fusion Creative</a>
+      <a href="/" class="nav-logo">Fusion Creative</a>
       <ul class="nav-links">
-        <li><a href="../index.html#results">Results</a></li>
-        <li><a href="../index.html#services">Services</a></li>
-        <li><a href="../index.html#about">About</a></li>
-        <li><a href="../index.html#guarantee">Guarantee</a></li>
-        <li><a href="../index.html#plans">Pricing</a></li>
-        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="/#results">Results</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#guarantee">Guarantee</a></li>
+        <li><a href="/#plans">Pricing</a></li>
+        <li><a href="/blog">Blog</a></li>
       </ul>
-      <a href="../login.html" class="btn btn-signal"><span>Client Login</span></a>
+      <a href="/login" class="btn btn-signal"><span>Client Login</span></a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -81,7 +88,7 @@
   <article>
     <header class="blog-post-hero">
       <div class="container">
-        <a href="../blog.html" class="back-link">&larr; Back to Blog</a>
+        <a href="/blog" class="back-link">&larr; Back to Blog</a>
         <h1>Why Hiring a Content Agency Beats Doing It In-House</h1>
         <div class="blog-post-meta">
           <span>Mar 30, 2026</span>
@@ -189,7 +196,7 @@
       <div class="blog-cta-box">
         <h3>Ready to stop struggling with content?</h3>
         <p>Book a free call and we will show you exactly how Fusion Creative can take content off your plate and put your restaurant in front of thousands of hungry locals every week.</p>
-        <a href="../index.html#contact" class="btn btn-signal"><span>Book a Free Call &rarr;</span></a>
+        <a href="/#contact" class="btn btn-signal"><span>Book a Free Call &rarr;</span></a>
       </div>
 
     </div>
@@ -206,10 +213,10 @@
         <div class="f-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="../index.html#results">Results</a></li>
-            <li><a href="../index.html#services">Services</a></li>
-            <li><a href="../index.html#guarantee">Guarantee</a></li>
-            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="/#results">Results</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#guarantee">Guarantee</a></li>
+            <li><a href="/blog">Blog</a></li>
           </ul>
         </div>
         <div class="f-col">
@@ -225,8 +232,9 @@
           <h4>Contact</h4>
           <ul>
             <li><a href="https://fusioncreative.uk">fusioncreative.uk</a></li>
-            <li><a href="../contact.html">Contact Us</a></li>
-            <li><a href="../index.html#contact">Book a Call</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/#contact">Book a Call</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
           </ul>
         </div>
       </div>
@@ -246,6 +254,20 @@
     const toggle = document.getElementById('navToggle');
     const links = document.querySelector('.nav-links');
     if (toggle) toggle.addEventListener('click', () => links.classList.toggle('open'));
+  </script>
+
+  <!-- Cookie consent -->
+  <div class="cookie-banner" id="cookieBanner">
+    <p>We use cookies to measure ad performance and improve your experience. <a href="/privacy">Privacy Policy</a></p>
+    <div class="cookie-btns">
+      <button type="button" class="cookie-decline" onclick="declineCookies()">Decline</button>
+      <button type="button" class="cookie-accept" onclick="acceptCookies()">Accept</button>
+    </div>
+  </div>
+  <script>
+  function acceptCookies(){localStorage.setItem('fc_cookie_consent','accepted');document.getElementById('cookieBanner').classList.remove('visible');loadFBPixel()}
+  function declineCookies(){localStorage.setItem('fc_cookie_consent','declined');document.getElementById('cookieBanner').classList.remove('visible')}
+  (function(){var c=localStorage.getItem('fc_cookie_consent');if(!c)setTimeout(function(){document.getElementById('cookieBanner').classList.add('visible')},2000)})();
   </script>
 </body>
 </html>

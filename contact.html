@@ -11,23 +11,27 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles/main.css" />
 
-  <!-- Facebook Pixel -->
+  <!-- Facebook Pixel (deferred until consent) -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1631577007728254');
-    fbq('track', 'PageView');
+    window._fbPixelLoaded=false;
+    function loadFBPixel(){
+      if(window._fbPixelLoaded)return;window._fbPixelLoaded=true;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init','1631577007728254');fbq('track','PageView');
+    }
+    if(localStorage.getItem('fc_cookie_consent')==='accepted')loadFBPixel();
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1631577007728254&ev=PageView&noscript=1"/></noscript>
 
   <style>
+    .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:10000;background:#111;border-top:1px solid rgba(255,255,255,0.12);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:0.85rem;color:#888;transform:translateY(100%);transition:transform 0.4s ease}
+    .cookie-banner.visible{transform:translateY(0)}
+    .cookie-banner a{color:#E63B2E;text-decoration:underline}
+    .cookie-btns{display:flex;gap:0.5rem;flex-shrink:0}
+    .cookie-btns button{padding:0.5rem 1.2rem;border-radius:999px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:background 0.2s}
+    .cookie-accept{background:#E63B2E;color:white;border:none}
+    .cookie-accept:hover{background:#c4302a}
+    .cookie-decline{background:transparent;color:#888;border:1px solid rgba(255,255,255,0.12)}
+    .cookie-decline:hover{color:#F5F3EE}
     .contact-page {
       min-height: 100vh;
       display: flex;
@@ -169,22 +173,22 @@
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="nav-logo">Fusion Creative</a>
+      <a href="/" class="nav-logo">Fusion Creative</a>
       <div class="nav-links">
-        <a href="index.html#results">Results</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#guarantee">Guarantee</a>
-        <a href="index.html#plans">Pricing</a>
-        <a href="blog.html">Blog</a>
+        <a href="/#results">Results</a>
+        <a href="/#services">Services</a>
+        <a href="/#about">About</a>
+        <a href="/#guarantee">Guarantee</a>
+        <a href="/#plans">Pricing</a>
+        <a href="/blog">Blog</a>
       </div>
-      <a href="login.html" class="btn btn-primary nav-cta">Client Login</a>
+      <a href="/login" class="btn btn-primary nav-cta">Client Login</a>
     </div>
   </nav>
 
   <main class="contact-page">
     <div class="container">
-      <a href="index.html" class="back-link">&larr; Back to Home</a>
+      <a href="/" class="back-link">&larr; Back to Home</a>
       
       <div class="contact-grid">
         <div class="contact-info">
@@ -247,11 +251,11 @@
             <button type="submit" class="form-submit">Send Message &rarr;</button>
           </form>
 
-          <a href="index.html" class="btn btn-outline" style="width:100%;text-align:center;margin-top:1rem;display:block;"><span>&larr; Return to Home</span></a>
+          <a href="/" class="btn btn-outline" style="width:100%;text-align:center;margin-top:1rem;display:block;"><span>&larr; Return to Home</span></a>
 
           <div class="form-success" id="formSuccess">
             <h3>Message sent!</h3>
-            <p>We'll get back to you within 24 hours. In the meantime, feel free to <a href="index.html#contact" style="color:var(--signal)">book a call</a>.</p>
+            <p>We'll get back to you within 24 hours. In the meantime, feel free to <a href="/#contact" style="color:var(--signal)">book a call</a>.</p>
           </div>
         </div>
       </div>
@@ -297,5 +301,19 @@
       });
     }
   </script>
+
+<!-- Cookie consent -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>We use cookies to measure ad performance and improve your experience. <a href="/privacy">Privacy Policy</a></p>
+  <div class="cookie-btns">
+    <button type="button" class="cookie-decline" onclick="declineCookies()">Decline</button>
+    <button type="button" class="cookie-accept" onclick="acceptCookies()">Accept</button>
+  </div>
+</div>
+<script>
+function acceptCookies(){localStorage.setItem('fc_cookie_consent','accepted');document.getElementById('cookieBanner').classList.remove('visible');loadFBPixel()}
+function declineCookies(){localStorage.setItem('fc_cookie_consent','declined');document.getElementById('cookieBanner').classList.remove('visible')}
+(function(){var c=localStorage.getItem('fc_cookie_consent');if(!c)setTimeout(function(){document.getElementById('cookieBanner').classList.add('visible')},2000)})();
+</script>
 </body>
 </html>

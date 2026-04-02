@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - Fusion Creative</title>
+  <meta name="description" content="Privacy Policy for Fusion Creative. Learn how we collect, use, and protect your personal data in compliance with UK GDPR." />
+  <meta property="og:title" content="Privacy Policy - Fusion Creative" />
+  <meta property="og:description" content="Privacy Policy for Fusion Creative. Learn how we collect, use, and protect your personal data." />
+  <meta property="og:url" content="https://fusioncreative.uk/privacy" />
+  <link rel="canonical" href="https://fusioncreative.uk/privacy" />
+  <link rel="icon" type="image/png" href="assets/logos/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+
+  <!-- Facebook Pixel (deferred until consent) -->
+  <script>
+    window._fbPixelLoaded=false;
+    function loadFBPixel(){
+      if(window._fbPixelLoaded)return;window._fbPixelLoaded=true;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init','1631577007728254');fbq('track','PageView');
+    }
+    // Auto-load if consent already given
+    if(localStorage.getItem('fc_cookie_consent')==='accepted')loadFBPixel();
+  </script>
+
+  <style>
+    .privacy-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 120px;
+      padding-bottom: 4rem;
+    }
+    .privacy-container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .privacy-container h1 {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+    .privacy-container h1 em { color: var(--signal); }
+    .privacy-meta {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--mid);
+      margin-bottom: 3rem;
+    }
+    .privacy-container h2 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .privacy-container h3 {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .privacy-container p,
+    .privacy-container li {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink);
+      opacity: 0.85;
+    }
+    .privacy-container p {
+      margin-bottom: 1rem;
+    }
+    .privacy-container ul,
+    .privacy-container ol {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+    }
+    .privacy-container li {
+      margin-bottom: 0.4rem;
+    }
+    .privacy-container a {
+      color: var(--signal);
+      text-decoration: underline;
+    }
+    .privacy-container a:hover {
+      opacity: 0.8;
+    }
+    .privacy-container table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+    .privacy-container th,
+    .privacy-container td {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+    }
+    .privacy-container th {
+      background: var(--paper);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--mid);
+    }
+    .privacy-container td {
+      line-height: 1.5;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--signal); }
+
+    /* Cookie consent */
+    .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:10000;background:var(--ink);border-top:1px solid rgba(255,255,255,0.12);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:0.85rem;color:var(--mid);transform:translateY(100%);transition:transform 0.4s ease}
+    .cookie-banner.visible{transform:translateY(0)}
+    .cookie-banner a{color:var(--signal);text-decoration:underline}
+    .cookie-btns{display:flex;gap:0.5rem;flex-shrink:0}
+    .cookie-btns button{padding:0.5rem 1.2rem;border-radius:999px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:background 0.2s}
+    .cookie-accept{background:var(--signal);color:white;border:none}
+    .cookie-accept:hover{background:#c4302a}
+    .cookie-decline{background:transparent;color:var(--mid);border:1px solid rgba(255,255,255,0.12)}
+    .cookie-decline:hover{color:var(--off-white)}
+
+    @media (max-width: 768px) {
+      .privacy-container h1 { font-size: 2.2rem; }
+      .privacy-container h2 { font-size: 1.3rem; }
+      .privacy-container { padding: 0 0.5rem; }
+      .cookie-banner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Fusion Creative</a>
+      <ul class="nav-links">
+        <li><a href="/#results">Results</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#digital">Digital</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#guarantee">Guarantee</a></li>
+        <li><a href="/#plans">Pricing</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+      <a href="/login" class="btn btn-signal"><span>Client Login</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="privacy-page">
+    <div class="container privacy-container">
+      <a href="/" class="back-link">&larr; Back to Home</a>
+
+      <h1>Privacy <em>Policy</em></h1>
+      <p class="privacy-meta">Last updated: 2 April 2026</p>
+
+      <p>Fusion Creative ("we", "us", "our") is a UK-based marketing agency specialising in short-form video content and digital marketing for the hospitality industry. We are committed to protecting your personal data and complying with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
+      <p>This policy explains what data we collect, why we collect it, how we use it, and your rights regarding that data.</p>
+
+      <h2>1. Data Controller</h2>
+      <p>The data controller is Fusion Creative, operated by Jay Williams.</p>
+      <ul>
+        <li>Website: <a href="https://fusioncreative.uk">fusioncreative.uk</a></li>
+        <li>Email: <a href="mailto:jay@fusioncreative.uk">jay@fusioncreative.uk</a></li>
+        <li>Location: Newcastle upon Tyne, United Kingdom</li>
+      </ul>
+
+      <h2>2. Data We Collect</h2>
+      <p>We collect personal data that you provide directly to us and data collected automatically when you visit our website.</p>
+
+      <h3>Data you provide</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Data Point</th>
+            <th>Source</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Name, email address</td>
+            <td>Contact form (via Web3Forms)</td>
+            <td>To respond to your enquiry</td>
+          </tr>
+          <tr>
+            <td>Phone number</td>
+            <td>Contact form (via Web3Forms)</td>
+            <td>To follow up on your enquiry</td>
+          </tr>
+          <tr>
+            <td>Business name</td>
+            <td>Contact form (via Web3Forms)</td>
+            <td>To understand your business context</td>
+          </tr>
+          <tr>
+            <td>Name, email, phone, business name, social media handles</td>
+            <td>Audit lead form (via Supabase API)</td>
+            <td>To deliver your free social media audit</td>
+          </tr>
+          <tr>
+            <td>Booking details (name, email)</td>
+            <td>Cal.com scheduling embed</td>
+            <td>To schedule and manage calls</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Data collected automatically</h3>
+      <ul>
+        <li><strong>Cookie consent preference</strong> - stored in your browser via localStorage (key: <code>fc_cookie_consent</code>). This is not transmitted to our servers.</li>
+        <li><strong>Analytics data</strong> - page views, session duration, approximate location, and device information collected via Google Analytics (when implemented).</li>
+        <li><strong>Advertising data</strong> - Facebook/Meta Pixel tracks page views and conversion events (only after you accept cookies via our consent banner).</li>
+        <li><strong>Server logs</strong> - our hosting provider (Vercel) may collect IP addresses, browser type, and request data as part of standard web hosting.</li>
+      </ul>
+
+      <h2>3. Legal Basis for Processing</h2>
+      <p>We process your personal data on the following legal bases under UK GDPR:</p>
+      <ul>
+        <li><strong>Consent (Article 6(1)(a))</strong> - for non-essential cookies such as Facebook Pixel and Google Analytics. You can accept or decline these via our cookie banner.</li>
+        <li><strong>Legitimate interest (Article 6(1)(f))</strong> - for responding to enquiries submitted through our contact or audit forms, and for operating and securing our website.</li>
+        <li><strong>Contract performance (Article 6(1)(b))</strong> - when processing data is necessary to deliver services you have requested.</li>
+      </ul>
+
+      <h2>4. Cookies</h2>
+      <p>We use the following categories of cookies:</p>
+
+      <h3>Essential cookies</h3>
+      <p>These are required for the website to function and cannot be switched off. They include:</p>
+      <ul>
+        <li><strong>Cookie consent preference</strong> - stored in localStorage (<code>fc_cookie_consent</code>) to remember whether you accepted or declined non-essential cookies. This is not a traditional cookie but functions similarly.</li>
+      </ul>
+
+      <h3>Analytics cookies</h3>
+      <ul>
+        <li><strong>Google Analytics (GA4)</strong> - used to understand how visitors interact with our website. Collects anonymised usage data including pages visited, time on site, and referral source. Only active when implemented and after consent is given.</li>
+      </ul>
+
+      <h3>Advertising cookies</h3>
+      <ul>
+        <li><strong>Facebook/Meta Pixel</strong> - tracks page views and conversion events to measure the performance of our advertising campaigns on Facebook and Instagram. This pixel is only loaded after you click "Accept" on our cookie consent banner.</li>
+      </ul>
+
+      <h3>Managing cookies</h3>
+      <p>When you first visit our website, a cookie consent banner appears at the bottom of the page. You can choose to accept or decline non-essential cookies. Your preference is stored in your browser's localStorage. To change your preference, clear your browser's site data for fusioncreative.uk, and the banner will appear again on your next visit.</p>
+
+      <h2>5. Third-Party Services</h2>
+      <p>We share your data with the following third-party services, each of which operates under its own privacy policy:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Purpose</th>
+            <th>Data Shared</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Web3Forms</strong></td>
+            <td>Contact form processing</td>
+            <td>Name, email, phone, business name, message</td>
+          </tr>
+          <tr>
+            <td><strong>Supabase</strong></td>
+            <td>Audit lead form data storage</td>
+            <td>Name, email, phone, business name, social handles</td>
+          </tr>
+          <tr>
+            <td><strong>Facebook/Meta</strong></td>
+            <td>Advertising measurement (after consent)</td>
+            <td>Page views, conversion events, browser/device data</td>
+          </tr>
+          <tr>
+            <td><strong>Google Analytics</strong></td>
+            <td>Website analytics (placeholder, after consent)</td>
+            <td>Anonymised usage data</td>
+          </tr>
+          <tr>
+            <td><strong>Cal.com</strong></td>
+            <td>Booking and scheduling</td>
+            <td>Name, email, booking details</td>
+          </tr>
+          <tr>
+            <td><strong>Vercel</strong></td>
+            <td>Website hosting and deployment</td>
+            <td>IP address, server request logs</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>We do not sell your personal data to any third party.</p>
+
+      <h2>6. Data Retention</h2>
+      <p>We retain your personal data only for as long as necessary to fulfil the purposes for which it was collected:</p>
+      <ul>
+        <li><strong>Contact form submissions</strong> - retained for up to 24 months after your last interaction, then deleted.</li>
+        <li><strong>Audit lead form submissions</strong> - retained for up to 24 months, then deleted.</li>
+        <li><strong>Cal.com booking data</strong> - retained in accordance with Cal.com's own retention policy.</li>
+        <li><strong>Analytics data</strong> - retained for up to 14 months (Google Analytics default), then automatically deleted.</li>
+        <li><strong>Cookie consent preferences</strong> - stored in your browser until you clear your site data.</li>
+      </ul>
+      <p>If you become an active client, we retain data related to the business relationship for up to 6 years after the relationship ends, in line with UK tax and accounting requirements.</p>
+
+      <h2>7. Your Rights Under UK GDPR</h2>
+      <p>You have the following rights regarding your personal data:</p>
+      <ul>
+        <li><strong>Right of access</strong> - you can request a copy of the personal data we hold about you.</li>
+        <li><strong>Right to rectification</strong> - you can ask us to correct any inaccurate or incomplete data.</li>
+        <li><strong>Right to erasure</strong> - you can request that we delete your personal data where there is no compelling reason for us to continue processing it.</li>
+        <li><strong>Right to restrict processing</strong> - you can ask us to suspend the processing of your data in certain circumstances.</li>
+        <li><strong>Right to data portability</strong> - you can request your data in a structured, commonly used, machine-readable format.</li>
+        <li><strong>Right to object</strong> - you can object to processing based on legitimate interest at any time.</li>
+        <li><strong>Right to withdraw consent</strong> - where we rely on consent, you can withdraw it at any time without affecting the lawfulness of processing carried out before withdrawal.</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at <a href="mailto:jay@fusioncreative.uk">jay@fusioncreative.uk</a>. We will respond within 30 days.</p>
+
+      <h2>8. Data Security</h2>
+      <p>We take reasonable technical and organisational measures to protect your personal data from unauthorised access, loss, or misuse. Our website is served over HTTPS, and third-party services we use maintain their own security certifications and protocols.</p>
+
+      <h2>9. International Transfers</h2>
+      <p>Some of our third-party services (such as Supabase, Vercel, and Google) may process data outside the United Kingdom. Where this occurs, we ensure that appropriate safeguards are in place, such as Standard Contractual Clauses or equivalent measures recognised under UK data protection law.</p>
+
+      <h2>10. Children</h2>
+      <p>Our services are not directed at individuals under the age of 18. We do not knowingly collect personal data from children. If you believe we have collected data from a child, please contact us and we will delete it promptly.</p>
+
+      <h2>11. Changes to This Policy</h2>
+      <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated "Last updated" date. We encourage you to review this policy periodically.</p>
+
+      <h2>12. Complaints</h2>
+      <p>If you are unhappy with how we handle your personal data, you have the right to lodge a complaint with the Information Commissioner's Office (ICO):</p>
+      <ul>
+        <li>Website: <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a></li>
+        <li>Phone: 0303 123 1113</li>
+      </ul>
+
+      <h2>13. Contact</h2>
+      <p>For any questions about this privacy policy or to make a data request, please contact:</p>
+      <ul>
+        <li>Jay Williams, Fusion Creative</li>
+        <li>Email: <a href="mailto:jay@fusioncreative.uk">jay@fusioncreative.uk</a></li>
+        <li>Website: <a href="https://fusioncreative.uk">fusioncreative.uk</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="f-col-large">
+          <div class="footer-logo">Fusion Creative</div>
+          <p>Content, websites, and marketing built for hospitality.<br/>Based in the UK. Working with restaurants worldwide.</p>
+        </div>
+        <div class="f-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/#results">Results</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#digital">Digital Services</a></li>
+            <li><a href="/#guarantee">Guarantee</a></li>
+            <li><a href="/#plans">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h4>Platforms</h4>
+          <ul>
+            <li><a href="#">TikTok</a></li>
+            <li><a href="#">Instagram Reels</a></li>
+            <li><a href="#">YouTube Shorts</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="https://fusioncreative.uk">fusioncreative.uk</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/#contact">Book a Call</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="https://www.instagram.com/fusioncreative.uk" target="_blank">Instagram</a></li>
+            <li><a href="https://www.facebook.com/fusioncreative.uk" target="_blank">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="sys-status">
+          <div class="status-dot"></div>
+          <span>System Operational</span>
+        </div>
+        <div class="copyright">&copy; 2026 Fusion Creative. All rights reserved. Website developed and created by Fusion Creative.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie consent -->
+  <div class="cookie-banner" id="cookieBanner">
+    <p>We use cookies to measure ad performance and improve your experience. <a href="/privacy">Privacy Policy</a></p>
+    <div class="cookie-btns">
+      <button type="button" class="cookie-decline" onclick="declineCookies()">Decline</button>
+      <button type="button" class="cookie-accept" onclick="acceptCookies()">Accept</button>
+    </div>
+  </div>
+
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 100);
+    });
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('open');
+        navToggle.classList.toggle('active');
+      });
+    }
+
+    // Cookie consent
+    function acceptCookies(){localStorage.setItem('fc_cookie_consent','accepted');document.getElementById('cookieBanner').classList.remove('visible');loadFBPixel()}
+    function declineCookies(){localStorage.setItem('fc_cookie_consent','declined');document.getElementById('cookieBanner').classList.remove('visible')}
+    (function(){var c=localStorage.getItem('fc_cookie_consent');if(!c)setTimeout(function(){document.getElementById('cookieBanner').classList.add('visible')},2000)})();
+  </script>
+</body>
+</html>

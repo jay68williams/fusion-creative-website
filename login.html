@@ -8,6 +8,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Facebook Pixel (deferred until consent) -->
+  <script>
+    window._fbPixelLoaded=false;
+    function loadFBPixel(){
+      if(window._fbPixelLoaded)return;window._fbPixelLoaded=true;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init','1631577007728254');fbq('track','PageView');
+    }
+    if(localStorage.getItem('fc_cookie_consent')==='accepted')loadFBPixel();
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -116,6 +126,15 @@
       transition: color 0.2s;
     }
     .back-link:hover { color: #fff; }
+    .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:10000;background:#111;border-top:1px solid rgba(255,255,255,0.12);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:0.85rem;color:#888;transform:translateY(100%);transition:transform 0.4s ease}
+    .cookie-banner.visible{transform:translateY(0)}
+    .cookie-banner a{color:#E63B2E;text-decoration:underline}
+    .cookie-btns{display:flex;gap:0.5rem;flex-shrink:0}
+    .cookie-btns button{padding:0.5rem 1.2rem;border-radius:999px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:background 0.2s}
+    .cookie-accept{background:#E63B2E;color:white;border:none}
+    .cookie-accept:hover{background:#c4302a}
+    .cookie-decline{background:transparent;color:#888;border:1px solid rgba(255,255,255,0.12)}
+    .cookie-decline:hover{color:#F5F3EE}
   </style>
 </head>
 <body>
@@ -144,7 +163,7 @@
     </div>
 
     <p class="footer">Powered by Fusion Creative</p>
-    <a href="index.html" class="back-link">&larr; Back to website</a>
+    <a href="/" class="back-link">&larr; Back to website</a>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
@@ -224,5 +243,19 @@
       }
     });
   </script>
+
+<!-- Cookie consent -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>We use cookies to measure ad performance and improve your experience. <a href="/privacy">Privacy Policy</a></p>
+  <div class="cookie-btns">
+    <button type="button" class="cookie-decline" onclick="declineCookies()">Decline</button>
+    <button type="button" class="cookie-accept" onclick="acceptCookies()">Accept</button>
+  </div>
+</div>
+<script>
+function acceptCookies(){localStorage.setItem('fc_cookie_consent','accepted');document.getElementById('cookieBanner').classList.remove('visible');loadFBPixel()}
+function declineCookies(){localStorage.setItem('fc_cookie_consent','declined');document.getElementById('cookieBanner').classList.remove('visible')}
+(function(){var c=localStorage.getItem('fc_cookie_consent');if(!c)setTimeout(function(){document.getElementById('cookieBanner').classList.add('visible')},2000)})();
+</script>
 </body>
 </html>
