@@ -292,10 +292,31 @@
             headers: { 'Accept': 'application/json' }
           });
           if (resp.ok) {
+            // Also save to audit_leads so all leads are in one place
+            var contactName = (document.getElementById('name') || {}).value || '';
+            var contactEmail = (document.getElementById('email') || {}).value || '';
+            var contactPhone = (document.getElementById('phone') || {}).value || '';
+            var contactBusiness = (document.getElementById('restaurant') || {}).value || '';
+            var contactBudget = (document.getElementById('budget') || {}).value || '';
+            var contactMessage = (document.getElementById('message') || {}).value || '';
+            fetch('https://newgreek.fusioncreative.uk/api/audit-lead/', {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                business_name: contactBusiness || 'Not provided',
+                name: contactName,
+                email: contactEmail,
+                phone: contactPhone,
+                business_type: 'Contact form enquiry',
+                goal: contactBudget ? 'Budget: ' + contactBudget : 'Not specified',
+                social_status: 'N/A - contact form',
+                notes: 'Source: Contact Page Form\nBudget: ' + (contactBudget || 'Not specified') + '\nMessage: ' + contactMessage
+              })
+            }).catch(function(){});
             form.style.display = 'none';
             success.classList.add('show');
             // Track conversion in FB Pixel
-            if (typeof fbq !== 'undefined') fbq('track', 'Lead', {content_name: 'Free Social Media Audit', content_category: 'Hospitality', status: 'submitted'});
+            if (typeof fbq !== 'undefined') fbq('track', 'Lead', {content_name: 'Contact Form', content_category: 'Enquiry', status: 'submitted'});
           } else {
             btn.textContent = 'Error - Try Again';
             btn.disabled = false;

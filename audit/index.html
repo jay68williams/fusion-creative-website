@@ -549,7 +549,7 @@ function submitForm(){
   fetch('https://newgreek.fusioncreative.uk/api/audit-lead/',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify(formData)
+    body:JSON.stringify(Object.assign({},formData,{notes:'Source: Audit Page Form'}))
   }).then(function(res){
     if(!res.ok)throw new Error('Server error');
     return res.json();
