@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Audit - Frallo | Fusion Creative</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f5f6fa;
+            --card: #ffffff;
+            --card-border: rgba(0,0,0,0.06);
+            --coral: #E8553C;
+            --coral-light: #ff7a64;
+            --coral-dark: #c4412b;
+            --text: #111111;
+            --text-secondary: #555555;
+            --text-muted: #999999;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); }
+            50% { box-shadow: 0 0 40px rgba(232,85,60,0.5); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.85); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .brand {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+        }
+
+        .brand-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+        }
+
+        .header-date {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .hero {
+            padding: 64px 0 56px;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .hero-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .section {
+            padding: 48px 0;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .card-sm {
+            padding: 28px 32px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .section-text {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .section-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 60%);
+            border-color: rgba(232, 85, 60, 0.1);
+        }
+
+        .intro-card .greeting {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .stats-table tr {
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .stats-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .stats-table tr:nth-child(even) {
+            background: rgba(0,0,0,0.02);
+        }
+
+        .stats-table td {
+            padding: 14px 0;
+        }
+
+        .stats-table td:first-child {
+            color: var(--text-secondary);
+            font-weight: 400;
+            padding-right: 24px;
+            white-space: nowrap;
+        }
+
+        .stats-table td:last-child {
+            font-weight: 600;
+            color: var(--text);
+            text-align: right;
+        }
+
+        .stat-highlight {
+            color: var(--coral) !important;
+            font-weight: 700 !important;
+        }
+
+        .stat-badge {
+            display: inline-block;
+            background: rgba(232, 85, 60, 0.1);
+            color: var(--coral);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            animation: scaleIn 0.4s ease both;
+        }
+
+        .stat-badge-green {
+            display: inline-block;
+            background: rgba(52, 199, 89, 0.1);
+            color: #34c759;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .working-item {
+            margin-bottom: 28px;
+        }
+
+        .working-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .working-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .working-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .check-icon {
+            display: inline-block;
+            color: #34c759;
+            margin-right: 6px;
+            font-weight: 700;
+        }
+
+        .opportunity-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--coral);
+            color: white;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(232, 85, 60, 0.35);
+        }
+
+        .opportunity-heading {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .opportunity-heading h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .opportunity-card {
+            margin-bottom: 20px;
+        }
+
+        .opportunity-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 60%);
+            border-color: rgba(232, 85, 60, 0.1);
+            border-left: 4px solid var(--coral);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .case-study-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--coral-light));
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin: 32px 0;
+        }
+
+        .case-study-stat {
+            text-align: center;
+            padding: 24px 16px;
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.1);
+            border-radius: 12px;
+            animation: scaleIn 0.5s ease both;
+        }
+
+        .case-study-stat:nth-child(1) { animation-delay: 0.1s; }
+        .case-study-stat:nth-child(2) { animation-delay: 0.2s; }
+        .case-study-stat:nth-child(3) { animation-delay: 0.3s; }
+        .case-study-stat:nth-child(4) { animation-delay: 0.4s; }
+
+        .case-study-stat .number {
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 900;
+            color: var(--coral);
+            letter-spacing: -1px;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .case-study-stat .label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .viral-callout {
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.12);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-top: 24px;
+        }
+
+        .viral-callout .big-number {
+            font-size: clamp(32px, 6vw, 48px);
+            font-weight: 900;
+            color: var(--coral);
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .viral-callout .context {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        .viral-callout .context strong {
+            color: var(--text);
+        }
+
+        .takeaway {
+            margin-top: 24px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .package-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 0;
+        }
+
+        .package-bullet {
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .package-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .package-item strong {
+            color: var(--text);
+        }
+
+        .strategy-list {
+            list-style: none;
+        }
+
+        .strategy-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.6;
+        }
+
+        .strategy-list li:last-child {
+            border-bottom: none;
+        }
+
+        .strategy-list li::before {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 5px;
+            background: var(--coral);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .video-ideas-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .video-idea-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-idea-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .video-idea-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--coral);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .idea-number {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 10px;
+        }
+
+        .idea-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .idea-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .idea-tag {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.04);
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        .idea-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .idea-why {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            padding-top: 14px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .idea-why strong {
+            color: var(--coral);
+            font-weight: 600;
+        }
+
+        .enhancement-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .enhancement-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .enhancement-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .enhancement-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .enhancement-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .enhancement-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .enhancement-list {
+            list-style: none;
+            margin: 12px 0;
+        }
+
+        .enhancement-list li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 6px 0;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .enhancement-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 13px;
+            width: 5px;
+            height: 5px;
+            background: var(--coral);
+            border-radius: 50%;
+        }
+
+        .highlight-box {
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.12);
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin-top: 14px;
+        }
+
+        .highlight-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .highlight-box strong {
+            color: var(--coral);
+        }
+
+        .next-steps-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 80%);
+            border-color: rgba(232, 85, 60, 0.1);
+        }
+
+        .steps-list {
+            list-style: none;
+            counter-reset: steps;
+        }
+
+        .steps-list li {
+            counter-increment: steps;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .steps-list li:last-child {
+            border-bottom: none;
+        }
+
+        .steps-list li::before {
+            content: counter(steps);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            background: var(--coral);
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(232, 85, 60, 0.3);
+        }
+
+        .about-fc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .about-fc-stat {
+            background: rgba(232, 85, 60, 0.04);
+            border: 1px solid rgba(232, 85, 60, 0.1);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-align: center;
+            animation: scaleIn 0.5s ease both;
+        }
+
+        .about-fc-stat:nth-child(1) { animation-delay: 0.1s; }
+        .about-fc-stat:nth-child(2) { animation-delay: 0.2s; }
+        .about-fc-stat:nth-child(3) { animation-delay: 0.3s; }
+        .about-fc-stat:nth-child(4) { animation-delay: 0.4s; }
+
+        .about-fc-stat-val {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--coral);
+            letter-spacing: -0.5px;
+        }
+
+        .about-fc-stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .about-fc-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-fc-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .about-fc-tag {
+            background: rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .cta-wrap {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--coral);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 40px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        .cta-btn:hover {
+            background: var(--coral-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(232, 85, 60, 0.4);
+            animation: none;
+        }
+
+        .cta-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        .closing-note {
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .signature {
+            padding: 48px 0;
+        }
+
+        .signature-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .signature-role {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .signature-link {
+            font-size: 14px;
+            color: var(--coral);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .signature-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            padding: 32px 0;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            text-align: center;
+            background: #edeef2;
+        }
+
+        .footer-confidential {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .footer-brand {
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-brand span {
+            color: var(--coral);
+            font-weight: 600;
+        }
+
+        @media print {
+            :root {
+                --bg: #ffffff;
+                --card: #f8f8f8;
+                --card-border: #e0e0e0;
+                --text: #111111;
+                --text-secondary: #444444;
+                --text-muted: #888888;
+            }
+
+            body {
+                background: white;
+                color: #111;
+                font-size: 11pt;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 28pt;
+            }
+
+            .hero h1 span {
+                -webkit-text-fill-color: var(--coral);
+                background: none;
+                animation: none;
+            }
+
+            .card, .video-idea-card, .enhancement-card, .case-study-card, .intro-card, .next-steps-card {
+                background: #f8f8f8 !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                border-color: #e0e0e0;
+                box-shadow: none !important;
+                transform: none !important;
+                animation: none !important;
+            }
+
+            .section {
+                animation: none !important;
+            }
+
+            .case-study-card::before {
+                background: var(--coral);
+            }
+
+            .video-idea-card::before {
+                background: var(--coral);
+            }
+
+            .case-study-stat {
+                background: rgba(232, 85, 60, 0.06) !important;
+                animation: none !important;
+            }
+
+            .viral-callout {
+                background: rgba(232, 85, 60, 0.05) !important;
+            }
+
+            .highlight-box {
+                background: rgba(232, 85, 60, 0.05) !important;
+            }
+
+            .cta-btn {
+                animation: none !important;
+                box-shadow: none !important;
+            }
+
+            a {
+                color: var(--coral) !important;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .hero {
+                padding: 40px 0 32px;
+                animation: none !important;
+            }
+
+            .footer {
+                background: #f0f0f0 !important;
+            }
+
+            .stat-badge, .about-fc-stat {
+                animation: none !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .card {
+                padding: 28px 22px;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .video-idea-card {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .video-idea-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .enhancement-card {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .enhancement-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .hero {
+                padding: 40px 0 36px;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .case-study-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .video-idea-card {
+                padding: 24px 22px;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .about-fc-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .about-fc-stat-val {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="container">
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand">
+                    <span class="brand-dot"></span>Fusion Creative
+                </div>
+                <div class="header-date">8 April 2026</div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-label">Free Social Media Audit</div>
+            <h1>Frallo <span>Italian Steakhouse</span></h1>
+            <p class="hero-subtitle">Prepared by Fusion Creative | 8 April 2026</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Intro -->
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Hey Frallo team,</div>
+                <p class="section-text">This is not a sales pitch. We are Fusion Creative, a UK content and marketing agency that specialises in hospitality. We took a deep look at Frallo's online presence and put together our honest findings.</p>
+                <p class="section-text">You have built something genuinely special in Houghton-le-Spring. An Italian steakhouse with a bar, terrace, live music, and multiple dining spaces including The Cove. The food is clearly exceptional, because food bloggers keep finding you organically and raving about it. But your social media is not matching the quality of what you are serving. We found <strong>five areas where there is real room to grow</strong>, and some of them are leaving covers on the table right now.</p>
+                <p class="section-text">Inside you will find a full snapshot of where you are now, what is working well, key opportunities you are missing, video ideas you can use immediately, and recommendations for quick wins. Even if we never speak, this is yours to keep.</p>
+            </div>
+
+            <!-- Fusion Creative metrics card -->
+            <div class="card" style="margin-top:8px;">
+                <div style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--coral); margin-bottom:6px;">Client Results</div>
+                <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Generated for a single restaurant client within 90 days</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">27M+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">394K+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Engagements</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">6,657</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">22M</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
+                    </div>
+                </div>
+                <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">New Greek, a small independent restaurant in Newcastle with zero social presence before us. One reel hit 22 million views. Frallo has exceptional food that bloggers already rave about, a venue with genuine character, and an early bird offer that sells itself. Imagine what is possible with the right content strategy behind it.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Snapshot -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Current Snapshot</div>
+            <div class="section-title">Where You Are Right Now</div>
+            <div class="card card-sm">
+                <table class="stats-table">
+                    <tr>
+                        <td>Instagram Followers</td>
+                        <td>2,503</td>
+                    </tr>
+                    <tr>
+                        <td>Instagram Posts</td>
+                        <td>81</td>
+                    </tr>
+                    <tr>
+                        <td>Instagram Following</td>
+                        <td class="stat-highlight">1,287 <span class="stat-badge">High Ratio</span></td>
+                    </tr>
+                    <tr>
+                        <td>Account Type</td>
+                        <td class="stat-highlight">Personal <span class="stat-badge">Not Business</span></td>
+                    </tr>
+                    <tr>
+                        <td>Instagram Engagement Rate</td>
+                        <td class="stat-highlight">~1% <span class="stat-badge">Below Average</span></td>
+                    </tr>
+                    <tr>
+                        <td>Avg Likes per Post</td>
+                        <td class="stat-highlight">~25 <span class="stat-badge">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td>Avg Comments per Post</td>
+                        <td class="stat-highlight">~0.5 <span class="stat-badge">Very Low</span></td>
+                    </tr>
+                    <tr>
+                        <td>Best Own Post</td>
+                        <td>55 likes (Fiorentina platter)</td>
+                    </tr>
+                    <tr>
+                        <td>Posting Frequency</td>
+                        <td>Every 2-3 days <span class="stat-badge-green">Consistent</span></td>
+                    </tr>
+                    <tr>
+                        <td>Video Content (Reels)</td>
+                        <td class="stat-highlight">Limited <span class="stat-badge">Underused</span></td>
+                    </tr>
+                    <tr>
+                        <td>UGC/Blogger Posts Avg</td>
+                        <td>170+ likes <span class="stat-badge-green">Strong</span></td>
+                    </tr>
+                    <tr>
+                        <td>Website</td>
+                        <td>frallorestaurant.com</td>
+                    </tr>
+                    <tr>
+                        <td>Facebook</td>
+                        <td style="color: var(--text-muted);">Not found</td>
+                    </tr>
+                    <tr>
+                        <td>Paid Ads Running</td>
+                        <td style="color: var(--text-muted);">None visible</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- What Is Working -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">What Is Already Working Well</div>
+            <div class="section-title">Credit Where It Is Due</div>
+            <div class="card">
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Food quality is exceptional</h4>
+                    <p>Every food blogger who visits raves about the food. The vodka pasta, the steaks, the scotch egg. The product sells itself. When creators are organically seeking you out and posting without being asked, that tells you the dining experience is genuinely outstanding.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Early bird menu is a brilliant value offer</h4>
+                    <p>2 courses for £17.95 is outstanding value for the quality you serve. Bloggers specifically call this out. @northeastcravings said "Can't recommend this restaurant enough" and @izz.eatsout raved about the early bird value. That offer is a conversion machine waiting to be promoted properly.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The venue has genuine character</h4>
+                    <p>The Cove, the terrace, the bar, the main restaurant. Multiple dining experiences under one roof. That is rare. Most restaurants have one room and one vibe. You have intimate date nights in The Cove, dog-friendly bar drinks, al fresco terrace dining, and a buzzing main restaurant. Each one is a different piece of content.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Food bloggers are already finding you organically</h4>
+                    <p>Four different creators posted about Frallo recently without being asked. @izz.eatsout (285 likes, 3,537 views), @gourmetnortheast (264 likes, 69 comments), @northeastcravings (87 likes), and @spritzandstays (55 likes). That is organic word-of-mouth that most restaurants would pay for.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Caption style is warm and inviting</h4>
+                    <p>Good descriptions of dishes, atmospheric tone, appropriate use of emojis. The captions feel like the restaurant: welcoming, characterful, and genuine. The voice is there. It just needs to be paired with content that matches.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Frallo Fridays Unplugged</h4>
+                    <p>Live music every other Friday creates a unique positioning that most competitors do not have. It gives people a reason to come on a specific night, it creates atmosphere content for social media, and it differentiates Frallo from every other Italian restaurant in the area.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Where The Opportunity Is -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Where The Opportunity Is</div>
+            <div class="section-title">Five Things Holding You Back</div>
+            <p class="section-text" style="margin-bottom: 32px;">The food is incredible, bloggers are already raving, and the venue has real character. But the content strategy is not converting that quality into growth. Here is where the biggest gaps are.</p>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">1</span>
+                    <h3>UGC Massively Outperforms Brand Content</h3>
+                </div>
+                <p class="section-text">This is the single biggest finding in this audit. Food blogger posts about Frallo average 170+ likes. Your own brand posts average 25 likes. That is a 7x gap. When @izz.eatsout posts about her anniversary date night at Frallo, it gets 285 likes and 3,537 views. When @gourmetnortheast posts a Sunday lunch video, it gets 264 likes and 69 comments. Your own content is not coming close to those numbers.</p>
+                <p class="section-text">This is not a criticism of your content. It is a massive opportunity. The demand for Frallo content is clearly there. People want to see it. They engage when they do. You just need a structured UGC and influencer strategy to turn occasional organic mentions into a consistent stream of high-performing content.</p>
+                <p class="section-text">Right now, those blogger posts happen by chance. With a formal programme of 2-3 creator invites per month, you could guarantee a steady flow of content that reaches audiences you currently have no access to, all performing at 5-7x your own post average.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">2</span>
+                    <h3>Not a Business Account</h3>
+                </div>
+                <p class="section-text">Frallo is running on a personal Instagram account. This means you have no access to Instagram Insights (so you cannot see which posts drive the most profile visits, saves, or shares), no ability to run paid ads, no contact button on your profile, no booking button, and no ability to add links to Stories.</p>
+                <p class="section-text">Switching to a business account is free and takes two minutes. It immediately unlocks analytics, advertising, and features that let potential customers contact you or book directly from the app. Every day on a personal account is a day you are flying blind with no data on what is actually working.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">3</span>
+                    <h3>Following 1,287 Accounts</h3>
+                </div>
+                <p class="section-text">With 2,503 followers and 1,287 following, your ratio is roughly 2:1. That is follow-for-follow territory. It dilutes the brand, makes the account look less established, and does not build a real audience. The people you gained through follow-for-follow are not your customers. They are not in Houghton-le-Spring. They are not booking a table.</p>
+                <p class="section-text">A premium Italian steakhouse should have a following ratio that reflects authority, not reciprocity. Unfollowing non-relevant accounts and focusing on content-driven growth would improve brand perception immediately. Let the food and the venue attract followers, not a follow-back strategy.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">4</span>
+                    <h3>Video Content Is Underutilised</h3>
+                </div>
+                <p class="section-text">Your Reels get decent view counts when you do post them. A wine and conversation Reel got 581 views and 45 likes. A steak cutting Reel got 938 views and 41 likes. But you post mostly static images. The steak being cut, the pasta being plated, cocktails being poured, the atmosphere of The Cove, the terrace at sunset. All of this is screaming for video.</p>
+                <p class="section-text">In 2026, Instagram's algorithm overwhelmingly favours Reels. A static photo of your vodka pasta might get 25 likes. A 15-second Reel of that same pasta being tossed, the burrata being placed on top, and the nduja oil being drizzled could reach 10x the audience. Your Reels already prove this: they consistently outperform your static posts. You just need more of them.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">5</span>
+                    <h3>No Paid Social Visible</h3>
+                </div>
+                <p class="section-text">With the early bird offer (2 courses for £17.95), the venue quality, and the food that bloggers already rave about, even a small paid budget targeting locals within 15 miles would drive bookings directly. A 15-second Reel showing "What you get for £17.95 at Frallo" with a booking link would convert.</p>
+                <p class="section-text">Your competitors in the North East dining scene are running ads. Every impression they get is one you do not. The early bird offer is a natural paid social campaign: clear value proposition, specific price point, easy call to action. It just needs to be seen by more people.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- The Opportunity -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Opportunity</div>
+            <div class="section-title">The Food Is Doing the Hard Work. The Content Needs to Catch Up.</div>
+            <div class="card case-study-card">
+                <p class="section-text">Frallo has something most restaurants would kill for: food bloggers are finding it organically and raving about it. The vodka pasta, the steaks, the early bird value, The Cove atmosphere. The product is already selling itself through word of mouth. The gap is that Frallo's own content is not matching the quality of what bloggers produce. The restaurant is better than its Instagram suggests.</p>
+
+                <div class="case-study-grid">
+                    <div class="case-study-stat">
+                        <div class="number">2,503</div>
+                        <div class="label">Current Followers</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">7x</div>
+                        <div class="label">UGC vs Brand Gap</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">~1%</div>
+                        <div class="label">Engagement Rate</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">81</div>
+                        <div class="label">Total Posts</div>
+                    </div>
+                </div>
+
+                <div class="viral-callout">
+                    <div class="big-number">Bloggers are already doing your marketing for free.</div>
+                    <div class="context"><strong>@izz.eatsout got 285 likes and 3,537 views. @gourmetnortheast got 264 likes and 69 comments. @northeastcravings said "Can't recommend this restaurant enough."</strong> These creators are reaching thousands of potential customers that your own posts never touch. The question is not whether people want to see Frallo content. They clearly do. The question is whether you are going to capture that demand systematically.</div>
+                </div>
+
+                <p class="takeaway">We took a restaurant with zero social presence and generated 27 million views in 90 days. Frallo already has the food, the venue, the bloggers, and the buzz. The opportunity here is not about starting from scratch. It is about turning what is already working into a content strategy that drives consistent growth and bookings.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- How We Would Help -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">How We Would Help</div>
+            <div class="section-title">What We Would Do for Frallo</div>
+
+            <div class="card">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 20px;">Content and Growth Package</h3>
+                <div class="package-grid">
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Short-form video production</strong> capturing the Italian steakhouse experience: steak being cut, pasta being plated, cocktails being crafted, The Cove atmosphere, terrace dining at golden hour</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>UGC and influencer programme</strong> building relationships with North East food bloggers, turning occasional organic mentions into a structured pipeline of 2-3 creator visits per month</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Instagram growth strategy</strong> to build the follower base from 2.5K with content-led growth, not follow-for-follow. Real followers who actually live nearby and book tables</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Paid social campaigns</strong> promoting the early bird offer and Frallo Fridays to locals within 15 miles, driving bookings directly through targeted ads</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Content calendar management</strong> ensuring consistent daily posting so your team can focus on delivering an incredible dining experience while we handle the content engine</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Brand positioning</strong> as the premium Italian steakhouse destination in the area, with content that reflects the quality of the food and the character of the venue</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 20px;">Content Approach</h3>
+                <ul class="strategy-list">
+                    <li>Steak content: the cut, the sizzle, the pink centre reveal. Cinematic Reels that stop the scroll</li>
+                    <li>Pasta content: vodka pasta being tossed, burrata being broken open, sauce being poured. The dishes that bloggers already obsess over</li>
+                    <li>The Cove: intimate atmosphere shots, candlelit tables, couples dining in the curved room. Date night content that sells itself</li>
+                    <li>Frallo Fridays: live music clips, cocktails being made, the energy of a Friday evening. Atmospheric and aspirational</li>
+                    <li>Early bird value: "What you get for £17.95" format showing the full 2-course experience. Price reveal at the end</li>
+                    <li>Behind the scenes: kitchen prep, steak being seasoned, pizza going into the oven, the team getting ready for service</li>
+                    <li>Customer moments: date nights, celebrations, groups enjoying the Fiorentina sharing platter, dogs in the bar</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Video Ideas -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Ready-Made Content</div>
+            <div class="section-title">5 Video Ideas You Could Film This Week</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are formats that are working right now for restaurants on Instagram and TikTok. All of them play to Frallo's unique strengths as an Italian steakhouse with exceptional food, a standout venue, and a value offer that converts.</p>
+
+            <div class="video-ideas-grid">
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 01</div>
+                    <div class="idea-title">"What you get for £17.95 at Frallo"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Value Reveal</span>
+                        <span class="idea-tag">Conversion</span>
+                        <span class="idea-tag">Trending</span>
+                    </div>
+                    <p class="idea-description">Show the full early bird 2-course experience. Walking in. Sitting down. Starter arriving, beautifully plated. Main course arriving. The quality, the presentation, the atmosphere. Hold back the price until the very end. Text overlay: "All of this for £17.95." 20 seconds.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Price reveal content is one of the highest-performing formats on Reels and TikTok. The gap between what people expect for £17.95 and what Frallo actually delivers is massive. That surprise is what drives shares, saves, and comments. Bloggers are already calling out the value. This format turns that reaction into a repeatable content piece that drives midweek bookings directly.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 02</div>
+                    <div class="idea-title">"Cutting into our Fiorentina T-bone"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Food ASMR</span>
+                        <span class="idea-tag">Cinematic</span>
+                        <span class="idea-tag">Shareable</span>
+                    </div>
+                    <p class="idea-description">Slow-motion, close-up of the Fiorentina T-bone being sliced. The pink centre reveal. Juices running across the board. Plating with sides. The full sharing platter assembled. Pure steak ASMR. No voiceover needed. Let the visuals and the sizzle do the work. 15 seconds.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Your best own post (55 likes) was the Fiorentina sharing platter as a static image. Now imagine that same dish in slow-motion video with the sound of the knife, the sizzle, and the reveal. Food ASMR content gets saved and shared at extremely high rates because it is satisfying to watch on repeat. This is your hero dish. Give it hero content.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 03</div>
+                    <div class="idea-title">"Date night at The Cove"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">POV</span>
+                        <span class="idea-tag">Lifestyle</span>
+                        <span class="idea-tag">Romantic</span>
+                    </div>
+                    <p class="idea-description">POV walking into The Cove. The curved walls, the intimate lighting. Sitting down at a candlelit table. Wine being poured. Starter arriving. The atmosphere. A couple clinking glasses. Trending romantic audio. 20 seconds of pure mood. End with "The Cove at Frallo. Book the table in the corner."</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Date night content consistently ranks among the highest-performing restaurant formats. The Cove is a unique space that most people do not know exists. This content turns a hidden gem into a must-visit destination. People tag their partners, save the post for later, and send it to friends. @izz.eatsout's anniversary date night post got 285 likes and 3,537 views. That is the demand. This format captures it on your own account.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 04</div>
+                    <div class="idea-title">"Our vodka pasta has food bloggers obsessed"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Trending</span>
+                        <span class="idea-tag">Social Proof</span>
+                        <span class="idea-tag">Reaction</span>
+                    </div>
+                    <p class="idea-description">Open with text: "Food bloggers keep coming back for this." Quick cuts of the blogger posts and their captions. Then cut to the kitchen. The pasta being made. The nduja going in. The rigatoni being tossed. The burrata placed on top. The first forkful. Finish with "Rigatoni Vodka e Burrata. Available now." 20 seconds.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Social proof is the most powerful sales tool in hospitality. When potential customers see that multiple independent bloggers are raving about the same dish, it creates urgency. @spritzandstays gave the vodka pasta a 9/10 spritz score. This format stacks that proof and then shows the dish being made, turning curiosity into craving. It also rewards the bloggers with visibility, encouraging more organic visits.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 05</div>
+                    <div class="idea-title">"Friday nights at Frallo hit different"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Lifestyle</span>
+                        <span class="idea-tag">Vibe</span>
+                        <span class="idea-tag">Aspirational</span>
+                    </div>
+                    <p class="idea-description">Live music clip from Frallo Fridays Unplugged. Cocktails being shaken and poured. Food being served to a busy table. The energy of a Friday evening. Quick cuts between the musician, the bar, the food, the people. Atmospheric and aspirational. Trending audio. End with "Frallo Fridays. Every other Friday." 15 seconds.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Atmosphere and vibe content positions Frallo as more than just a meal. It makes it an experience, a night out, a "we should go there this Friday" moment. The live music is a genuine differentiator that no other Italian restaurant in the area offers. This format sells the Friday feeling, not just the food. It drives group bookings and repeat visits.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Digital Enhancements -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Digital Enhancements</div>
+            <div class="section-title">Beyond Social Media</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are strategic changes that would make a real difference alongside the social media work.</p>
+
+            <div class="enhancement-card">
+                <h4>Switch to a Business Account Immediately</h4>
+                <p>This is the single quickest win available. Switching from a personal account to a business account is free and takes two minutes. It unlocks Instagram Insights (so you can see what is actually working), the ability to run paid ads, contact and booking buttons on your profile, and link stickers in Stories.</p>
+                <ul class="enhancement-list">
+                    <li>See which posts drive the most profile visits, website clicks, and saves</li>
+                    <li>Understand your audience demographics: age, location, active hours</li>
+                    <li>Add a "Book Now" or "Reserve" button directly on your Instagram profile</li>
+                    <li>Run targeted ads promoting the early bird offer to locals within 15 miles</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Quick win:</strong> Switch to a business account today. It is free, takes two minutes, and you will immediately see data on every post you have ever made. No reason not to.</p>
+                </div>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Clean Up the Following List</h4>
+                <p>Following 1,287 accounts with 2,503 followers gives a ratio that signals follow-for-follow growth. A premium Italian steakhouse should look like a destination, not an account that follows back everyone. Unfollowing non-relevant accounts would immediately improve brand perception and signal authority.</p>
+                <p>Focus on following only accounts that add value: local food bloggers, suppliers you work with, industry accounts, and genuine community connections. The goal is a following list that looks curated, not accumulated.</p>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Build a Structured Influencer Programme</h4>
+                <p>You are already getting organic blogger visits. That is the hardest part, and it is already happening. The next step is to formalise it. Invite 2-3 North East food creators per month for a complimentary Frallo experience. Let them create content naturally. Repost the best pieces.</p>
+                <ul class="enhancement-list">
+                    <li>The North East has dozens of active food bloggers with 5K-50K engaged, local followers</li>
+                    <li>Each visit generates 2-4 pieces of content reaching audiences you currently have no access to</li>
+                    <li>The cost is a complimentary meal. The return is content and reach worth many times more</li>
+                    <li>Blogger posts already average 170+ likes vs your own 25 likes. That 7x gap is the opportunity</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Quick win:</strong> Reach out to @northeastcravings, @izz.eatsout, and @spritzandstays. They already love Frallo. Invite them back. Build the relationship. Turn one-off posts into ongoing partnerships.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- About Fusion Creative -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">About Fusion Creative</div>
+            <div class="card intro-card">
+                <p class="about-fc-text">Fusion Creative is a UK content and marketing agency that specialises in hospitality. We produce short-form video content, manage social media, run paid ad campaigns, and handle branding. Everything under one roof.</p>
+                <p class="about-fc-text">We are based in Newcastle and work with restaurants, bars, and hospitality brands across the North East. Our approach is simple: create content that people actually want to watch, post it consistently, and let the results speak for themselves. No stock footage, no generic templates, no recycled ideas.</p>
+                <p class="about-fc-text">We have generated over 27 million views for a single restaurant client in under 90 days, including a single reel that hit 22 million views. We understand what makes hospitality content perform, and we know how to turn a great dining experience into a social media presence that drives real bookings.</p>
+
+                <div class="about-fc-grid">
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">27M+</div>
+                        <div class="about-fc-stat-label">Views generated</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">20+</div>
+                        <div class="about-fc-stat-label">Videos per month</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">6+</div>
+                        <div class="about-fc-stat-label">Years in content</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">100%</div>
+                        <div class="about-fc-stat-label">Impressions guarantee</div>
+                    </div>
+                </div>
+
+                <div class="about-fc-services">
+                    <span class="about-fc-tag">Short-Form Video</span>
+                    <span class="about-fc-tag">Instagram Reels</span>
+                    <span class="about-fc-tag">TikTok Management</span>
+                    <span class="about-fc-tag">Paid Ads</span>
+                    <span class="about-fc-tag">Influencer Partnerships</span>
+                    <span class="about-fc-tag">Branding</span>
+                    <span class="about-fc-tag">Social Media Management</span>
+                    <span class="about-fc-tag">Hospitality Marketing</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Next Steps -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a look through this audit. The key takeaway is that the food is already doing the hard work. Bloggers are finding Frallo organically and raving about it. The content just needs to catch up to the experience you are delivering every single service.</li>
+                    <li>If any of this resonates, jump on a quick call with us. No pitch, just a conversation about where the biggest wins are for Frallo specifically.</li>
+                    <li>We can put together a specific content plan and show you exactly what the first month would look like: the video shoots, the posting schedule, the paid campaign structure, and the influencer outreach.</li>
+                </ol>
+                <p class="closing-note">No pressure at all. But every weekend that passes without video content is a weekend where potential customers are scrolling past your competitors' Reels instead. The food is already exceptional. The bloggers already know it. The content just needs to tell that story to everyone else.</p>
+                <div class="cta-wrap">
+                    <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="cta-btn">Schedule a Call</a>
+                    <div class="cta-sub">30 minutes. No obligation. Pick a time that suits you.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Signature -->
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="footer">
+            <div class="footer-confidential">Confidential - Prepared for Frallo</div>
+            <div class="footer-note">This audit was put together using live data from Instagram and website on 8 April 2026.</div>
+            <div class="footer-brand"><span>Fusion Creative</span></div>
+        </footer>
+    </div>
+
+</body>
+</html>
