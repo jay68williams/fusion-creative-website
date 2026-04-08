@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Audit - INSA Korean BBQ | Fusion Creative</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f5f6fa;
+            --card: #ffffff;
+            --card-border: rgba(0,0,0,0.06);
+            --coral: #E8553C;
+            --coral-light: #ff7a64;
+            --coral-dark: #c4412b;
+            --text: #111111;
+            --text-secondary: #555555;
+            --text-muted: #999999;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); }
+            50% { box-shadow: 0 0 40px rgba(232,85,60,0.5); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.85); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .brand {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+        }
+
+        .brand-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+        }
+
+        .header-date {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .hero {
+            padding: 64px 0 56px;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .hero-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .section {
+            padding: 48px 0;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .card-sm {
+            padding: 28px 32px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .section-text {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .section-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 60%);
+            border-color: rgba(232, 85, 60, 0.1);
+        }
+
+        .intro-card .greeting {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .stats-table tr {
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .stats-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .stats-table tr:nth-child(even) {
+            background: rgba(0,0,0,0.02);
+        }
+
+        .stats-table td {
+            padding: 14px 0;
+        }
+
+        .stats-table td:first-child {
+            color: var(--text-secondary);
+            font-weight: 400;
+            padding-right: 24px;
+            white-space: nowrap;
+        }
+
+        .stats-table td:last-child {
+            font-weight: 600;
+            color: var(--text);
+            text-align: right;
+        }
+
+        .stat-highlight {
+            color: var(--coral) !important;
+            font-weight: 700 !important;
+        }
+
+        .stat-badge {
+            display: inline-block;
+            background: rgba(232, 85, 60, 0.1);
+            color: var(--coral);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            animation: scaleIn 0.4s ease both;
+        }
+
+        .stat-badge-green {
+            display: inline-block;
+            background: rgba(52, 199, 89, 0.1);
+            color: #34c759;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .stat-badge-amber {
+            display: inline-block;
+            background: rgba(255, 159, 10, 0.1);
+            color: #ff9f0a;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .working-item {
+            margin-bottom: 28px;
+        }
+
+        .working-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .working-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .working-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .check-icon {
+            display: inline-block;
+            color: #34c759;
+            margin-right: 6px;
+            font-weight: 700;
+        }
+
+        .opportunity-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--coral);
+            color: white;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(232, 85, 60, 0.35);
+        }
+
+        .opportunity-heading {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .opportunity-heading h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .opportunity-card {
+            margin-bottom: 20px;
+        }
+
+        .opportunity-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 60%);
+            border-color: rgba(232, 85, 60, 0.1);
+            border-left: 4px solid var(--coral);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .case-study-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--coral-light));
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin: 32px 0;
+        }
+
+        .case-study-stat {
+            text-align: center;
+            padding: 24px 16px;
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.1);
+            border-radius: 12px;
+            animation: scaleIn 0.5s ease both;
+        }
+
+        .case-study-stat:nth-child(1) { animation-delay: 0.1s; }
+        .case-study-stat:nth-child(2) { animation-delay: 0.2s; }
+        .case-study-stat:nth-child(3) { animation-delay: 0.3s; }
+        .case-study-stat:nth-child(4) { animation-delay: 0.4s; }
+
+        .case-study-stat .number {
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 900;
+            color: var(--coral);
+            letter-spacing: -1px;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .case-study-stat .label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .viral-callout {
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.12);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-top: 24px;
+        }
+
+        .viral-callout .big-number {
+            font-size: clamp(32px, 6vw, 48px);
+            font-weight: 900;
+            color: var(--coral);
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .viral-callout .context {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        .viral-callout .context strong {
+            color: var(--text);
+        }
+
+        .takeaway {
+            margin-top: 24px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .package-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 0;
+        }
+
+        .package-bullet {
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .package-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .package-item strong {
+            color: var(--text);
+        }
+
+        .strategy-list {
+            list-style: none;
+        }
+
+        .strategy-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.6;
+        }
+
+        .strategy-list li:last-child {
+            border-bottom: none;
+        }
+
+        .strategy-list li::before {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 5px;
+            background: var(--coral);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .video-ideas-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .video-idea-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-idea-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .video-idea-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--coral);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .idea-number {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 10px;
+        }
+
+        .idea-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .idea-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .idea-tag {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.04);
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        .idea-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .idea-why {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            padding-top: 14px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .idea-why strong {
+            color: var(--coral);
+            font-weight: 600;
+        }
+
+        .enhancement-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .enhancement-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .enhancement-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .enhancement-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .enhancement-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .enhancement-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .enhancement-list {
+            list-style: none;
+            margin: 12px 0;
+        }
+
+        .enhancement-list li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 6px 0;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .enhancement-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 13px;
+            width: 5px;
+            height: 5px;
+            background: var(--coral);
+            border-radius: 50%;
+        }
+
+        .highlight-box {
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.12);
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin-top: 14px;
+        }
+
+        .highlight-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .highlight-box strong {
+            color: var(--coral);
+        }
+
+        .next-steps-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 80%);
+            border-color: rgba(232, 85, 60, 0.1);
+        }
+
+        .steps-list {
+            list-style: none;
+            counter-reset: steps;
+        }
+
+        .steps-list li {
+            counter-increment: steps;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .steps-list li:last-child {
+            border-bottom: none;
+        }
+
+        .steps-list li::before {
+            content: counter(steps);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            background: var(--coral);
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(232, 85, 60, 0.3);
+        }
+
+        .about-fc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .about-fc-stat {
+            background: rgba(232, 85, 60, 0.04);
+            border: 1px solid rgba(232, 85, 60, 0.1);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-align: center;
+            animation: scaleIn 0.5s ease both;
+        }
+
+        .about-fc-stat:nth-child(1) { animation-delay: 0.1s; }
+        .about-fc-stat:nth-child(2) { animation-delay: 0.2s; }
+        .about-fc-stat:nth-child(3) { animation-delay: 0.3s; }
+        .about-fc-stat:nth-child(4) { animation-delay: 0.4s; }
+
+        .about-fc-stat-val {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--coral);
+            letter-spacing: -0.5px;
+        }
+
+        .about-fc-stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .about-fc-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-fc-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .about-fc-tag {
+            background: rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .cta-wrap {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--coral);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 40px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        .cta-btn:hover {
+            background: var(--coral-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(232, 85, 60, 0.4);
+            animation: none;
+        }
+
+        .cta-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        .closing-note {
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .signature {
+            padding: 48px 0;
+        }
+
+        .signature-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .signature-role {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .signature-link {
+            font-size: 14px;
+            color: var(--coral);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .signature-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            padding: 32px 0;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            text-align: center;
+            background: #edeef2;
+        }
+
+        .footer-confidential {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .footer-brand {
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-brand span {
+            color: var(--coral);
+            font-weight: 600;
+        }
+
+        @media print {
+            :root {
+                --bg: #ffffff;
+                --card: #f8f8f8;
+                --card-border: #e0e0e0;
+                --text: #111111;
+                --text-secondary: #444444;
+                --text-muted: #888888;
+            }
+
+            body {
+                background: white;
+                color: #111;
+                font-size: 11pt;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 28pt;
+            }
+
+            .hero h1 span {
+                -webkit-text-fill-color: var(--coral);
+                background: none;
+                animation: none;
+            }
+
+            .card, .video-idea-card, .enhancement-card, .case-study-card, .intro-card, .next-steps-card {
+                background: #f8f8f8 !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                border-color: #e0e0e0;
+                box-shadow: none !important;
+                transform: none !important;
+                animation: none !important;
+            }
+
+            .section {
+                animation: none !important;
+            }
+
+            .case-study-card::before {
+                background: var(--coral);
+            }
+
+            .video-idea-card::before {
+                background: var(--coral);
+            }
+
+            .case-study-stat {
+                background: rgba(232, 85, 60, 0.06) !important;
+                animation: none !important;
+            }
+
+            .viral-callout {
+                background: rgba(232, 85, 60, 0.05) !important;
+            }
+
+            .highlight-box {
+                background: rgba(232, 85, 60, 0.05) !important;
+            }
+
+            .cta-btn {
+                animation: none !important;
+                box-shadow: none !important;
+            }
+
+            a {
+                color: var(--coral) !important;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .hero {
+                padding: 40px 0 32px;
+                animation: none !important;
+            }
+
+            .footer {
+                background: #f0f0f0 !important;
+            }
+
+            .stat-badge, .about-fc-stat {
+                animation: none !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .card {
+                padding: 28px 22px;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .video-idea-card {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .video-idea-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .enhancement-card {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .enhancement-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .hero {
+                padding: 40px 0 36px;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .case-study-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .video-idea-card {
+                padding: 24px 22px;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .about-fc-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .about-fc-stat-val {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="container">
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand">
+                    <span class="brand-dot"></span>Fusion Creative
+                </div>
+                <div class="header-date">9 April 2026</div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-label">Free Social Media Audit</div>
+            <h1><span>INSA Korean BBQ</span></h1>
+            <p class="hero-subtitle">Prepared by Fusion Creative | 9 April 2026</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Intro -->
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Hey team,</div>
+                <p class="section-text">We came across INSA Korean BBQ and were really impressed. An authentic Korean BBQ experience with real charcoal grilling at the table, a 5.0 TripAdvisor rating, 4.7 on Google, and a 100% recommendation rate on Facebook. That is an exceptional reputation to have built in Jesmond.</p>
+                <p class="section-text">We are Fusion Creative, a UK content and marketing agency. We took a detailed look at your online presence and put together this honest audit. Inside you will find a full snapshot of where you are now, what is working well, <strong>five areas where there is real potential to grow</strong>, video ideas you can use immediately, and recommendations for quick wins.</p>
+                <p class="section-text">Even if we never speak, this is yours to keep.</p>
+            </div>
+
+            <!-- Fusion Creative metrics card -->
+            <div class="card" style="margin-top:8px;">
+                <div style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--coral); margin-bottom:6px;">Client Results</div>
+                <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Generated for a single restaurant client within 90 days</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">27M+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">394K+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Engagements</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">6,657</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">22M</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
+                    </div>
+                </div>
+                <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">New Greek, a small independent restaurant in Newcastle with zero social presence before us. One reel hit 22 million views. They went from empty tables to a waiting list. INSA has the same potential, with an even more visually dramatic concept. Meat sizzling over real charcoal at the table is made for video content.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Snapshot -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Current Snapshot</div>
+            <div class="section-title">Where You Are Right Now</div>
+            <div class="card card-sm">
+                <table class="stats-table">
+                    <tr>
+                        <td>Google Rating</td>
+                        <td>4.7 / 5 (~75 reviews) <span class="stat-badge-green">Excellent</span></td>
+                    </tr>
+                    <tr>
+                        <td>TripAdvisor Rating</td>
+                        <td>5.0 / 5 <span class="stat-badge-green">Perfect</span></td>
+                    </tr>
+                    <tr>
+                        <td>TripAdvisor Reviews</td>
+                        <td class="stat-highlight">4 reviews <span class="stat-badge">Very Low</span></td>
+                    </tr>
+                    <tr>
+                        <td>Facebook</td>
+                        <td>100% recommended (15 reviews) <span class="stat-badge-green">Strong</span></td>
+                    </tr>
+                    <tr>
+                        <td>Instagram (@insa_koreanbbq)</td>
+                        <td>~4,835 followers <span class="stat-badge-green">Solid</span></td>
+                    </tr>
+                    <tr>
+                        <td>TikTok (@insakoreanbbq)</td>
+                        <td>Active <span class="stat-badge-green">Present</span></td>
+                    </tr>
+                    <tr>
+                        <td>UGC Coverage</td>
+                        <td>Strong <span class="stat-badge-green">Organic Buzz</span></td>
+                    </tr>
+                    <tr>
+                        <td>Website</td>
+                        <td class="stat-highlight">None <span class="stat-badge">Missing</span></td>
+                    </tr>
+                    <tr>
+                        <td>Hours</td>
+                        <td>Tue-Fri 4-10pm, Sat 12-10pm, Sun 12-9pm</td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>0191 281 9988</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- What Is Working -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">What Is Already Working Well</div>
+            <div class="section-title">Credit Where It Is Due</div>
+            <div class="card">
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Outstanding reviews across every platform</h4>
+                    <p>A 5.0 on TripAdvisor, 4.7 on Google, and 100% recommendation rate on Facebook is remarkable. You are not just good at what you do. Customers are going out of their way to tell other people about it. That level of consistency across multiple platforms shows that the experience is genuinely exceptional, not just a lucky review or two.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Strong organic user-generated content</h4>
+                    <p>People are filming their experience at INSA and posting it on TikTok and Instagram without being asked. That is the gold standard of restaurant marketing. When customers become your content creators, it means the experience is so memorable they feel compelled to share it. The interactive table BBQ concept is inherently shareable because it is visually dramatic and different from anything else in Newcastle.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> A unique interactive concept</h4>
+                    <p>Table-side BBQ over real charcoal is not something you find elsewhere in the city. That uniqueness is your biggest marketing asset. It is not just a meal. It is an experience. People come for the food and stay for the theatre of cooking it themselves. That combination of great food and memorable experience is exactly what drives word-of-mouth and social sharing.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Premium menu positioning with Wagyu A5</h4>
+                    <p>Offering A5 Wagyu alongside authentic Korean dishes like bulgogi and bibimbap shows real confidence in your sourcing and kitchen. The premium option gives you a natural content hook. Wagyu content consistently goes viral because people are fascinated by the quality, the marbling, and the sizzle on the grill. You have a built-in viral format sitting on your menu.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Jesmond location with a loyal community</h4>
+                    <p>Jesmond is a neighbourhood where people actively seek out independent restaurants and share their finds. Your location on Osborne Road puts you in one of the best dining streets in Newcastle, surrounded by a community that values quality and authenticity. The local support is clearly strong, as your review scores show.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Where The Opportunity Is -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Where The Opportunity Is</div>
+            <div class="section-title">Five Areas With Real Potential</div>
+            <p class="section-text" style="margin-bottom: 32px;">The food, the reviews, and the concept are all exceptional. You have built something that people genuinely love. These are the areas where a focused push could take things to the next level.</p>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">1</span>
+                    <h3>Only 4 TripAdvisor Reviews Despite a Perfect Score</h3>
+                </div>
+                <p class="section-text">A 5.0 rating on TripAdvisor is incredible. But with only 4 reviews, you are almost invisible on the platform. TripAdvisor heavily weights review volume and recency in its rankings. A restaurant with 150 reviews at 4.2 will outrank a restaurant with 4 reviews at 5.0 every single time. People also trust higher review counts. When someone is choosing between two restaurants and one has 4 reviews while the other has 200, they pick the one with more reviews regardless of the rating.</p>
+                <p class="section-text">The good news is that you clearly have the customer satisfaction to generate excellent reviews. Your customers love the experience. They just need a gentle nudge to share it publicly. A QR code on the table linking to TripAdvisor, a small prompt from staff after a positive comment, or a follow-up message after a booking could transform your review count within months.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">2</span>
+                    <h3>No Website Is Holding You Back</h3>
+                </div>
+                <p class="section-text">When someone Googles "Korean BBQ Newcastle" or "best restaurant Jesmond," you need a website to capture that traffic. Right now, without a website, you are relying entirely on social media profiles and third-party review sites to represent your brand online. You cannot control how those platforms display your information, and you are missing out on direct bookings.</p>
+                <p class="section-text">A clean, well-designed website with your menu, booking integration, your story, photos of the experience, and your opening hours would immediately improve your Google search ranking, give potential customers confidence, and provide a direct channel for reservations. It does not need to be complicated. It needs to be professional, fast, and mobile-friendly.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">3</span>
+                    <h3>Turn the UGC Wave Into a Content Strategy</h3>
+                </div>
+                <p class="section-text">You are already getting fantastic user-generated content from customers filming their BBQ experience. That is a huge advantage. The next step is building a deliberate content strategy around it. Repost the best UGC to your own feed (with permission and credit). Create your own high-quality versions of the same content. Establish a branded hashtag. Make it easy and rewarding for customers to tag you.</p>
+                <p class="section-text">A consistent posting schedule of your own content, combined with strategic reposting of UGC, would create a content engine that grows itself. Every customer with a phone is a potential content creator for INSA. You just need to make it part of the experience.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">4</span>
+                    <h3>Own the TikTok Moment</h3>
+                </div>
+                <p class="section-text">Korean BBQ is one of the most viral food categories on TikTok globally. The sizzle, the smoke, the interactive element, the dramatic visual of meat cooking over charcoal at the table. This content practically films itself. While you have a TikTok presence and strong UGC coverage, a deliberate strategy with consistent, high-quality posts using trending formats and audio could rapidly grow your reach.</p>
+                <p class="section-text">Restaurants that post consistently on TikTok are seeing direct, measurable increases in bookings. The format is perfect for INSA because the experience is inherently visual and dramatic. One well-produced video of Wagyu A5 hitting the charcoal grill could reach millions of people in the North East and beyond.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">5</span>
+                    <h3>Fill the Quieter Hours With Smart Marketing</h3>
+                </div>
+                <p class="section-text">Being closed on Mondays and opening at 4pm on weekdays means your revenue windows are concentrated. While that may suit your operations, targeted marketing could help maximise every opening hour. Early evening midweek promotions, special tasting menus for quieter Tuesday and Wednesday evenings, or student-focused offers for the Jesmond demographic could fill tables that might otherwise be empty.</p>
+                <p class="section-text">Paid social ads targeting people within 5 miles of Jesmond during the afternoon, just before you open, with a mouthwatering video of the BBQ experience, could drive same-day bookings. The timing is everything. Show someone a sizzling grill at 3pm and they are booking a table for that evening.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- The Opportunity -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Opportunity</div>
+            <div class="section-title">Newcastle's Best-Kept Secret Deserves a Bigger Stage</div>
+            <div class="card case-study-card">
+                <p class="section-text">INSA has something most restaurants would dream of: a perfect TripAdvisor score, outstanding Google reviews, a 100% Facebook recommendation rate, and a concept that is inherently shareable. The experience you have created is genuinely special. The opportunity is about matching your digital presence to the quality of what you are serving.</p>
+
+                <div class="case-study-grid">
+                    <div class="case-study-stat">
+                        <div class="number">5.0</div>
+                        <div class="label">TripAdvisor</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">4.7</div>
+                        <div class="label">Google Rating</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">100%</div>
+                        <div class="label">Facebook Rec</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">4</div>
+                        <div class="label">TripAdvisor Reviews</div>
+                    </div>
+                </div>
+
+                <div class="viral-callout">
+                    <div class="big-number">22 million views. One reel. One restaurant.</div>
+                    <div class="context"><strong>That was New Greek, a small independent restaurant in Newcastle, before we started working with them.</strong> They had zero social presence. We created short-form video content and one reel hit 22 million views. They went from quiet midweek evenings to fully booked with a waiting list. INSA has an even more visual concept. Meat sizzling over real charcoal at the table is the kind of content that stops people mid-scroll. The viral potential here is enormous.</div>
+                </div>
+
+                <p class="takeaway">You do not need to change anything about the food or the experience. You just need more people to see it. Build the digital foundations, amplify the content that customers are already creating, and the growth follows naturally.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- How We Would Help -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">How We Would Help</div>
+            <div class="section-title">What We Would Do for You</div>
+
+            <div class="card">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 20px;">Content and Growth Package</h3>
+                <div class="package-grid">
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Short-form video production</strong> creating high-retention Reels and TikToks capturing the sizzle, smoke, and drama of the table-side BBQ experience</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>TikTok growth strategy</strong> with a dedicated posting cadence, trending audio, and Korean BBQ formats proven to drive massive engagement and local discovery</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Instagram management</strong> with consistent Reels, Stories, UGC curation, and community engagement to turn your 4.8K followers into a growth engine</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Website design and build</strong> creating a professional site with your menu, booking integration, your story, and stunning imagery of the experience</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Paid social campaigns</strong> targeting foodies and diners within Jesmond and the wider Newcastle area to fill tables during midweek evenings</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Review generation strategy</strong> with QR codes, table prompts, and follow-up systems to rapidly grow your TripAdvisor and Google review counts</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 20px;">Content Approach</h3>
+                <ul class="strategy-list">
+                    <li>The sizzle: close-up footage of premium meats hitting the hot charcoal grill, smoke rising, fat rendering</li>
+                    <li>The Wagyu moment: A5 Wagyu being sliced, placed on the grill, and the first bite. This is guaranteed viral content</li>
+                    <li>The full experience: a table being set up, the grill being lit, meats arriving, customers cooking and reacting</li>
+                    <li>Banchan and sides: the colourful spread of Korean side dishes that comes with every meal</li>
+                    <li>Behind-the-scenes: kitchen prep, meat being portioned, sauces being made, the care behind the experience</li>
+                    <li>Customer reactions: genuine first-time reactions to the BBQ experience, especially the Wagyu</li>
+                    <li>Educational content: "How to Korean BBQ" guides that teach and entertain simultaneously</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Video Ideas -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Ready-Made Content</div>
+            <div class="section-title">5 Video Ideas You Could Film Today</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are formats that are working right now for restaurants on TikTok and Instagram. All of them play to INSA's strengths as an interactive, experience-driven Korean BBQ restaurant.</p>
+
+            <div class="video-ideas-grid">
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 01</div>
+                    <div class="idea-title">"A5 Wagyu on real charcoal. This is INSA."</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Premium</span>
+                        <span class="idea-tag">ASMR</span>
+                        <span class="idea-tag">Hero Content</span>
+                    </div>
+                    <p class="idea-description">Close-up of A5 Wagyu being placed on the charcoal grill. The sizzle. The marbling melting. The smoke rising. Slow motion flip. The juice running. Someone picks it up with chopsticks and takes the first bite. No voiceover. Just the sounds of the grill and a trending audio track underneath.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Wagyu content is one of the most viral food categories on TikTok globally. The visual of A5 marbling melting over real charcoal is hypnotic. This single video format has the potential to reach millions and position INSA as a must-visit destination in Newcastle.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 02</div>
+                    <div class="idea-title">"Your first Korean BBQ? Here is how it works."</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Educational</span>
+                        <span class="idea-tag">Approachable</span>
+                        <span class="idea-tag">Discovery</span>
+                    </div>
+                    <p class="idea-description">A friendly, quick guide for first-timers. Show the grill being set up. Explain the basics: choose your meats, grill them at the table, wrap in lettuce with banchan. Make it welcoming, not intimidating. "Never been to Korean BBQ? Let us show you." End with the full spread on the table looking incredible.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Many people in Newcastle have never tried Korean BBQ and might feel unsure about the process. An approachable guide removes that hesitation completely. Educational content also gets saved and shared at high rates, which signals to the algorithm to push it further. It turns curiosity into bookings.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 03</div>
+                    <div class="idea-title">"POV: Saturday night at Newcastle's only charcoal Korean BBQ"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Atmosphere</span>
+                        <span class="idea-tag">Social Proof</span>
+                        <span class="idea-tag">Vibe</span>
+                    </div>
+                    <p class="idea-description">Capture the energy of a busy Saturday service. Smoke rising from multiple tables. Groups laughing and grilling together. The kitchen in full flow. Meat sizzling. Glasses clinking. Use a warm, atmospheric audio track. Let the energy of the room do the work. End with a wide shot of the full restaurant.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> People choose restaurants based on vibe as much as food. A video showing a packed, buzzing INSA on a Saturday night creates fear of missing out. It shows that this is where people want to be. That social proof is more powerful than any menu description or paid advertisement.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 04</div>
+                    <div class="idea-title">"We ordered everything on the menu at INSA"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Menu Showcase</span>
+                        <span class="idea-tag">Scale</span>
+                        <span class="idea-tag">Shareable</span>
+                    </div>
+                    <p class="idea-description">A full table spread showing every dish INSA offers. Bulgogi, bibimbap, Wagyu, all the banchan, the full works. Quick cuts of each dish arriving and being placed on the table. The table getting fuller and fuller. End with the overhead shot of the entire spread. "This is INSA Korean BBQ, Jesmond."</p>
+                    <div class="idea-why"><strong>Why it works:</strong> "We ordered everything" is one of the most popular restaurant content formats on TikTok. The abundance and variety creates an irresistible visual. People tag friends, save it for their next meal out, and share it in group chats. It showcases your full menu in a single, highly shareable video.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 05</div>
+                    <div class="idea-title">"The sound of real charcoal Korean BBQ"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">ASMR</span>
+                        <span class="idea-tag">Sensory</span>
+                        <span class="idea-tag">Unique</span>
+                    </div>
+                    <p class="idea-description">No music. No voiceover. Just the pure sounds of the INSA experience. The charcoal crackling. Meat sizzling as it hits the grill. Tongs turning the meat. The gentle bubble of a stew. Chopsticks picking up a piece of perfectly grilled beef. Close-up, intimate shots. Let the sounds tell the story.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> ASMR food content generates some of the highest view counts and watch times on TikTok. The real charcoal element gives INSA a sound that no gas grill or electric plate can replicate. It is unique, authentic, and incredibly satisfying to watch and listen to. This differentiates you from every other restaurant in the city.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Digital Enhancements -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Digital Enhancements</div>
+            <div class="section-title">Beyond Social Media</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are strategic changes that would make a real difference alongside the social media work.</p>
+
+            <div class="enhancement-card">
+                <h4>Build a Professional Website</h4>
+                <p>A website is the single most impactful thing missing from your digital presence. It gives you a home on Google, a place for direct bookings, and full control over how your brand is presented to potential customers.</p>
+                <ul class="enhancement-list">
+                    <li>Full menu with professional food photography</li>
+                    <li>Online booking integration so customers can reserve directly</li>
+                    <li>Your story: the charcoal, the authenticity, what makes INSA different</li>
+                    <li>Mobile-first design since most restaurant searches happen on phones</li>
+                    <li>Review highlights pulled from Google, TripAdvisor, and Facebook</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Quick win:</strong> A domain like insakoreanbbq.co.uk or insa-newcastle.co.uk would immediately improve your Google search ranking for "Korean BBQ Newcastle" and related terms.</p>
+                </div>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>TripAdvisor Review Growth</h4>
+                <p>Your 5.0 rating is perfect, but 4 reviews means you are essentially invisible on the platform. A simple review generation system could transform this:</p>
+                <ul class="enhancement-list">
+                    <li>A small card or QR code on each table linking directly to your TripAdvisor page</li>
+                    <li>Staff trained to ask happy tables: "If you enjoyed it, we would love a review"</li>
+                    <li>Target: 50+ reviews within 3 months, which would dramatically improve your ranking and visibility</li>
+                    <li>Your food quality guarantees the reviews will be excellent. You just need more of them</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Google Business Profile Optimisation</h4>
+                <p>With 4.7 stars and around 75 reviews on Google, your profile is solid but could be stronger. Regular photo uploads of the BBQ experience, responding to every review, posting weekly updates about specials, and keeping all information accurate helps Google rank you higher in local search results. Professional food photography on your Google listing makes a measurable difference in click-through rates.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- About Fusion Creative -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">About Fusion Creative</div>
+            <div class="card intro-card">
+                <p class="about-fc-text">Fusion Creative is a UK content and marketing agency that produces short-form video content, manages social media, builds websites, runs paid ad campaigns, and handles branding. Everything under one roof.</p>
+                <p class="about-fc-text">We are based in Newcastle and work with businesses across the North East and beyond. Our approach is simple: create content that people actually want to watch, post it consistently, and let the results speak for themselves. No stock footage, no generic templates, no recycled ideas.</p>
+                <p class="about-fc-text">We have generated over 27 million views for a single restaurant client in under 90 days, including a single reel that hit 22 million views. We understand what makes restaurant content perform, and we know how to turn great food into a packed dining room.</p>
+
+                <div class="about-fc-grid">
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">27M+</div>
+                        <div class="about-fc-stat-label">Views generated</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">20+</div>
+                        <div class="about-fc-stat-label">Videos per month</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">6+</div>
+                        <div class="about-fc-stat-label">Years in content</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">100%</div>
+                        <div class="about-fc-stat-label">Impressions guarantee</div>
+                    </div>
+                </div>
+
+                <div class="about-fc-services">
+                    <span class="about-fc-tag">Short-Form Video</span>
+                    <span class="about-fc-tag">TikTok Management</span>
+                    <span class="about-fc-tag">Instagram Reels</span>
+                    <span class="about-fc-tag">Paid Ads</span>
+                    <span class="about-fc-tag">Website Design</span>
+                    <span class="about-fc-tag">Branding</span>
+                    <span class="about-fc-tag">SEO</span>
+                    <span class="about-fc-tag">Social Media Management</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Next Steps -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a look through this audit. The key takeaway is simple: the food, the experience, and the reviews are already exceptional. The digital presence just needs to match.</li>
+                    <li>If any of this resonates, jump on a quick call with us. No pitch, just a conversation about where the biggest wins are for INSA specifically.</li>
+                    <li>We can put together a specific content plan and show you exactly what the first month would look like across TikTok, Instagram, website, and review growth.</li>
+                </ol>
+                <p class="closing-note">No pressure at all. But with a concept this visual, reviews this strong, and a city full of people who have not discovered you yet, the potential is enormous. Korean BBQ content is exploding on social media globally. INSA is perfectly positioned to ride that wave in Newcastle.</p>
+                <div class="cta-wrap">
+                    <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="cta-btn">Schedule a Call</a>
+                    <div class="cta-sub">30 minutes. No obligation. Pick a time that suits you.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Signature -->
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="footer">
+            <div class="footer-confidential">Confidential - Prepared for INSA Korean BBQ</div>
+            <div class="footer-note">This audit was put together using live data from your Instagram, TikTok, Facebook, TripAdvisor, Google, and Facebook Ad Library on 9 April 2026.</div>
+            <div class="footer-brand"><span>Fusion Creative</span></div>
+        </footer>
+    </div>
+
+</body>
+</html>

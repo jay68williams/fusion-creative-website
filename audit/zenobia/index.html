@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Audit - Zenobia Arabian Street Food | Fusion Creative</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f5f6fa;
+            --card: #ffffff;
+            --card-border: rgba(0,0,0,0.06);
+            --coral: #E8553C;
+            --coral-light: #ff7a64;
+            --coral-dark: #c4412b;
+            --text: #111111;
+            --text-secondary: #555555;
+            --text-muted: #999999;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); }
+            50% { box-shadow: 0 0 40px rgba(232,85,60,0.5); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.85); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .brand {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+        }
+
+        .brand-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+        }
+
+        .header-date {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .hero {
+            padding: 64px 0 56px;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .hero-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .section {
+            padding: 48px 0;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .card-sm {
+            padding: 28px 32px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .section-text {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .section-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 60%);
+            border-color: rgba(232, 85, 60, 0.1);
+        }
+
+        .intro-card .greeting {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .stats-table tr {
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .stats-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .stats-table tr:nth-child(even) {
+            background: rgba(0,0,0,0.02);
+        }
+
+        .stats-table td {
+            padding: 14px 0;
+        }
+
+        .stats-table td:first-child {
+            color: var(--text-secondary);
+            font-weight: 400;
+            padding-right: 24px;
+            white-space: nowrap;
+        }
+
+        .stats-table td:last-child {
+            font-weight: 600;
+            color: var(--text);
+            text-align: right;
+        }
+
+        .stat-highlight {
+            color: var(--coral) !important;
+            font-weight: 700 !important;
+        }
+
+        .stat-badge {
+            display: inline-block;
+            background: rgba(232, 85, 60, 0.1);
+            color: var(--coral);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            animation: scaleIn 0.4s ease both;
+        }
+
+        .stat-badge-green {
+            display: inline-block;
+            background: rgba(52, 199, 89, 0.1);
+            color: #34c759;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .stat-badge-amber {
+            display: inline-block;
+            background: rgba(255, 159, 10, 0.1);
+            color: #ff9f0a;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .working-item {
+            margin-bottom: 28px;
+        }
+
+        .working-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .working-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .working-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .check-icon {
+            display: inline-block;
+            color: #34c759;
+            margin-right: 6px;
+            font-weight: 700;
+        }
+
+        .opportunity-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--coral);
+            color: white;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(232, 85, 60, 0.35);
+        }
+
+        .opportunity-heading {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .opportunity-heading h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .opportunity-card {
+            margin-bottom: 20px;
+        }
+
+        .opportunity-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 60%);
+            border-color: rgba(232, 85, 60, 0.1);
+            border-left: 4px solid var(--coral);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .case-study-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--coral-light));
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin: 32px 0;
+        }
+
+        .case-study-stat {
+            text-align: center;
+            padding: 24px 16px;
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.1);
+            border-radius: 12px;
+            animation: scaleIn 0.5s ease both;
+        }
+
+        .case-study-stat:nth-child(1) { animation-delay: 0.1s; }
+        .case-study-stat:nth-child(2) { animation-delay: 0.2s; }
+        .case-study-stat:nth-child(3) { animation-delay: 0.3s; }
+        .case-study-stat:nth-child(4) { animation-delay: 0.4s; }
+
+        .case-study-stat .number {
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 900;
+            color: var(--coral);
+            letter-spacing: -1px;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .case-study-stat .label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .viral-callout {
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.12);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-top: 24px;
+        }
+
+        .viral-callout .big-number {
+            font-size: clamp(32px, 6vw, 48px);
+            font-weight: 900;
+            color: var(--coral);
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .viral-callout .context {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        .viral-callout .context strong {
+            color: var(--text);
+        }
+
+        .takeaway {
+            margin-top: 24px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .package-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 0;
+        }
+
+        .package-bullet {
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .package-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .package-item strong {
+            color: var(--text);
+        }
+
+        .strategy-list {
+            list-style: none;
+        }
+
+        .strategy-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.6;
+        }
+
+        .strategy-list li:last-child {
+            border-bottom: none;
+        }
+
+        .strategy-list li::before {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 5px;
+            background: var(--coral);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .video-ideas-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .video-idea-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-idea-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .video-idea-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--coral);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .idea-number {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 10px;
+        }
+
+        .idea-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .idea-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .idea-tag {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.04);
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        .idea-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .idea-why {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            padding-top: 14px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .idea-why strong {
+            color: var(--coral);
+            font-weight: 600;
+        }
+
+        .enhancement-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .enhancement-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .enhancement-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .enhancement-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .enhancement-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .enhancement-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .enhancement-list {
+            list-style: none;
+            margin: 12px 0;
+        }
+
+        .enhancement-list li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 6px 0;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .enhancement-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 13px;
+            width: 5px;
+            height: 5px;
+            background: var(--coral);
+            border-radius: 50%;
+        }
+
+        .highlight-box {
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.12);
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin-top: 14px;
+        }
+
+        .highlight-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .highlight-box strong {
+            color: var(--coral);
+        }
+
+        .next-steps-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 80%);
+            border-color: rgba(232, 85, 60, 0.1);
+        }
+
+        .steps-list {
+            list-style: none;
+            counter-reset: steps;
+        }
+
+        .steps-list li {
+            counter-increment: steps;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .steps-list li:last-child {
+            border-bottom: none;
+        }
+
+        .steps-list li::before {
+            content: counter(steps);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            background: var(--coral);
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(232, 85, 60, 0.3);
+        }
+
+        .about-fc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .about-fc-stat {
+            background: rgba(232, 85, 60, 0.04);
+            border: 1px solid rgba(232, 85, 60, 0.1);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-align: center;
+            animation: scaleIn 0.5s ease both;
+        }
+
+        .about-fc-stat:nth-child(1) { animation-delay: 0.1s; }
+        .about-fc-stat:nth-child(2) { animation-delay: 0.2s; }
+        .about-fc-stat:nth-child(3) { animation-delay: 0.3s; }
+        .about-fc-stat:nth-child(4) { animation-delay: 0.4s; }
+
+        .about-fc-stat-val {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--coral);
+            letter-spacing: -0.5px;
+        }
+
+        .about-fc-stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .about-fc-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-fc-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .about-fc-tag {
+            background: rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .cta-wrap {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--coral);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 40px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        .cta-btn:hover {
+            background: var(--coral-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(232, 85, 60, 0.4);
+            animation: none;
+        }
+
+        .cta-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        .closing-note {
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .signature {
+            padding: 48px 0;
+        }
+
+        .signature-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .signature-role {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .signature-link {
+            font-size: 14px;
+            color: var(--coral);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .signature-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            padding: 32px 0;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            text-align: center;
+            background: #edeef2;
+        }
+
+        .footer-confidential {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .footer-brand {
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-brand span {
+            color: var(--coral);
+            font-weight: 600;
+        }
+
+        @media print {
+            :root {
+                --bg: #ffffff;
+                --card: #f8f8f8;
+                --card-border: #e0e0e0;
+                --text: #111111;
+                --text-secondary: #444444;
+                --text-muted: #888888;
+            }
+
+            body {
+                background: white;
+                color: #111;
+                font-size: 11pt;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 28pt;
+            }
+
+            .hero h1 span {
+                -webkit-text-fill-color: var(--coral);
+                background: none;
+                animation: none;
+            }
+
+            .card, .video-idea-card, .enhancement-card, .case-study-card, .intro-card, .next-steps-card {
+                background: #f8f8f8 !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                border-color: #e0e0e0;
+                box-shadow: none !important;
+                transform: none !important;
+                animation: none !important;
+            }
+
+            .section {
+                animation: none !important;
+            }
+
+            .case-study-card::before {
+                background: var(--coral);
+            }
+
+            .video-idea-card::before {
+                background: var(--coral);
+            }
+
+            .case-study-stat {
+                background: rgba(232, 85, 60, 0.06) !important;
+                animation: none !important;
+            }
+
+            .viral-callout {
+                background: rgba(232, 85, 60, 0.05) !important;
+            }
+
+            .highlight-box {
+                background: rgba(232, 85, 60, 0.05) !important;
+            }
+
+            .cta-btn {
+                animation: none !important;
+                box-shadow: none !important;
+            }
+
+            a {
+                color: var(--coral) !important;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .hero {
+                padding: 40px 0 32px;
+                animation: none !important;
+            }
+
+            .footer {
+                background: #f0f0f0 !important;
+            }
+
+            .stat-badge, .about-fc-stat {
+                animation: none !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .card {
+                padding: 28px 22px;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .video-idea-card {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .video-idea-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .enhancement-card {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .enhancement-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .hero {
+                padding: 40px 0 36px;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .case-study-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .video-idea-card {
+                padding: 24px 22px;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .about-fc-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .about-fc-stat-val {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="container">
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand">
+                    <span class="brand-dot"></span>Fusion Creative
+                </div>
+                <div class="header-date">9 April 2026</div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-label">Free Social Media Audit</div>
+            <h1><span>Zenobia Arabian Street Food</span></h1>
+            <p class="hero-subtitle">Prepared by Fusion Creative | 9 April 2026</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Intro -->
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Hey team,</div>
+                <p class="section-text">We came across Zenobia Arabian Street Food and were really impressed. We are Fusion Creative, a UK content and marketing agency that specialises in hospitality. We took a detailed look at your online presence and put together our honest findings.</p>
+                <p class="section-text">What you have built is genuinely special. Authentic Syrian street food in Heaton, a 4.8 Google rating, a 9.6 on TheFork, and customers raving about your charcoal-grilled meats and generous portions. The food clearly speaks for itself. But we spotted <strong>some areas where there is real room to grow your reach</strong>, and some quick wins that could bring in a lot more customers. It is all in this report.</p>
+                <p class="section-text">Inside you will find a full snapshot of where you are now, what is working well, key opportunities, video ideas you can use immediately, and recommendations. Even if we never speak, this is yours to keep.</p>
+            </div>
+
+            <!-- Fusion Creative metrics card -->
+            <div class="card" style="margin-top:8px;">
+                <div style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--coral); margin-bottom:6px;">Client Results</div>
+                <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Generated for a single restaurant client within 90 days</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">27M+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">394K+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Engagements</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">6,657</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">22M</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
+                    </div>
+                </div>
+                <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">New Greek, a small independent restaurant in Newcastle with zero social presence before us. One reel hit 22 million views. They went from empty tables to a waiting list. Zenobia has the same potential, and you are starting from a stronger position with incredible reviews and a loyal following.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Snapshot -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Current Snapshot</div>
+            <div class="section-title">Where You Are Right Now</div>
+            <div class="card card-sm">
+                <table class="stats-table">
+                    <tr>
+                        <td>Google Rating</td>
+                        <td>4.8 / 5 <span class="stat-badge-green">Excellent</span></td>
+                    </tr>
+                    <tr>
+                        <td>TheFork Rating</td>
+                        <td>9.6 / 10 <span class="stat-badge-green">Outstanding</span></td>
+                    </tr>
+                    <tr>
+                        <td>TripAdvisor Rating</td>
+                        <td>4.5 / 5 <span class="stat-badge-green">Strong</span></td>
+                    </tr>
+                    <tr>
+                        <td>TripAdvisor Reviews</td>
+                        <td>41 reviews <span class="stat-badge-amber">Growing</span></td>
+                    </tr>
+                    <tr>
+                        <td>TripAdvisor Ranking</td>
+                        <td class="stat-highlight">#323 of 1,135 in Newcastle <span class="stat-badge">Should Be Higher</span></td>
+                    </tr>
+                    <tr>
+                        <td>Instagram (@zenobiaarabian)</td>
+                        <td class="stat-highlight">~2,558 followers <span class="stat-badge">Low for Review Quality</span></td>
+                    </tr>
+                    <tr>
+                        <td>TikTok</td>
+                        <td>Exists <span class="stat-badge-amber">Underutilised</span></td>
+                    </tr>
+                    <tr>
+                        <td>Facebook</td>
+                        <td>Active <span class="stat-badge-green">Good</span></td>
+                    </tr>
+                    <tr>
+                        <td>Website</td>
+                        <td class="stat-highlight">None (Linktree only) <span class="stat-badge">Missing</span></td>
+                    </tr>
+                    <tr>
+                        <td>Opening Hours</td>
+                        <td>Thu-Sun 12-10pm <span class="stat-badge-amber">4 Days</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- What Is Working -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">What Is Already Working Well</div>
+            <div class="section-title">Credit Where It Is Due</div>
+            <div class="card">
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Outstanding reviews across every platform</h4>
+                    <p>A 4.8 on Google, 4.5 on TripAdvisor, and a 9.6 on TheFork is an exceptional combination. Very few restaurants in Newcastle can claim that consistency across multiple review platforms. Customers are not just satisfied, they are genuinely enthusiastic. Words like "incredible," "authentic," and "generous" come up again and again. That kind of organic praise is the hardest thing to earn in hospitality, and you have it.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Smart multi-channel approach with restaurant and markets</h4>
+                    <p>Running the Chillingham Road restaurant alongside the Quayside Market on Sundays is a brilliant strategy. The market stall acts as a tasting experience and discovery point. People try the food at the market, fall in love with it, and then visit the restaurant. It is essentially a free marketing channel that also generates revenue. That market-to-restaurant pipeline is something most restaurants would love to have.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> A powerful origin story and value proposition</h4>
+                    <p>Authentic Syrian street food, charcoal-grilled meats, and a story that started at a market stall. That is the kind of narrative that content practically writes itself around. The authenticity of what you do is a huge differentiator in a city full of restaurants trying to be something they are not. Your food is real, your story is real, and customers feel that.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Generous portions at great value</h4>
+                    <p>Reviewers consistently call out the portion sizes and value for money. In a cost-of-living climate where people are more careful about eating out, delivering exceptional value is a massive competitive advantage. People remember where they got a great meal for a fair price, and they come back.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Where The Opportunity Is -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Where The Opportunity Is</div>
+            <div class="section-title">Areas With Real Growth Potential</div>
+            <p class="section-text" style="margin-bottom: 32px;">The food, the reviews, and the customer loyalty are all genuinely strong. You have built something special. These are the areas where a bit of focused effort could take things to the next level.</p>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">1</span>
+                    <h3>Instagram Following Does Not Match Your Reputation</h3>
+                </div>
+                <p class="section-text">With a 4.8 Google rating, a 9.6 on TheFork, and consistently glowing reviews, Zenobia should have a much larger Instagram following than 2,558. For context, restaurants in Newcastle with similar review quality typically have 5,000 to 15,000 followers. The gap between the quality of your food and the size of your audience represents a huge growth opportunity.</p>
+                <p class="section-text">The good news is that the hardest part, having genuinely great food that people love, is already done. The content is already happening in your kitchen every day. It just needs to be captured and shared consistently. Short-form video of charcoal grills, shawarma being carved, and falafel being prepared would perform incredibly well on Instagram Reels.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">2</span>
+                    <h3>No Website Is Holding You Back</h3>
+                </div>
+                <p class="section-text">Using Linktree instead of a proper website means you are missing out on search traffic, credibility, and control over the customer journey. When someone Googles "Syrian food Newcastle" or "Arabian restaurant Heaton," a dedicated website with your menu, story, location, and booking options would rank and convert. A Linktree page cannot do that.</p>
+                <p class="section-text">A clean, mobile-first website does not need to be complicated. Your menu, your story, your location and hours, and a way to book or order. That is it. But it gives you a proper home on the internet that you own and control, and it dramatically improves how you appear in search results.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">3</span>
+                    <h3>TripAdvisor Ranking Has Room to Climb</h3>
+                </div>
+                <p class="section-text">You are currently ranked #323 of 1,135 restaurants in Newcastle on TripAdvisor, with 41 reviews at 4.5 stars. That rating is strong, but the review volume is keeping your ranking lower than it should be. TripAdvisor's algorithm heavily favours recent review volume. A focused effort to encourage happy customers to leave reviews could push you into the top 100 within a few months.</p>
+                <p class="section-text">A simple QR code on the bill linking directly to your TripAdvisor page, combined with a friendly prompt from staff, would make a meaningful difference. Your customers already love the food. They just need an easy way to share that.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">4</span>
+                    <h3>TikTok Is Your Biggest Untapped Channel</h3>
+                </div>
+                <p class="section-text">You have a TikTok account, which is great, but the platform is massively underutilised. Charcoal-grilled meats, open flames, sizzling shawarma, and fresh flatbread being made by hand. This is exactly the kind of content that goes viral on TikTok. The ASMR quality of your cooking process alone is a content goldmine.</p>
+                <p class="section-text">Restaurants posting consistent short-form video on TikTok are seeing direct, measurable increases in footfall. One well-shot video of a shawarma being carved or a mixed grill platter being assembled could reach hundreds of thousands of people in the North East without spending a penny on advertising.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">5</span>
+                    <h3>Four-Day Opening Creates Urgency (Use It)</h3>
+                </div>
+                <p class="section-text">Being open Thursday to Sunday could feel like a limitation, but it is actually a brilliant content angle if framed correctly. "Only 4 days a week. Do not miss it." That kind of scarcity messaging drives urgency and bookings. It makes every opening day feel like an event.</p>
+                <p class="section-text">The key is to make your social media work harder on the days you are closed. Monday to Wednesday should be about building anticipation: throwback food shots, behind-the-scenes prep, countdowns to Thursday. By the time you open, people should already be planning their visit.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- The Opportunity -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Opportunity</div>
+            <div class="section-title">Incredible Food That Deserves a Bigger Audience</div>
+            <div class="card case-study-card">
+                <p class="section-text">Zenobia has everything a restaurant needs to succeed on social media: visually stunning food, an authentic origin story, passionate reviews, and a unique niche in the Newcastle dining scene. Syrian and Arabian street food is underrepresented on social media in the North East, which means there is a gap waiting to be filled. The restaurant that fills it first wins.</p>
+
+                <div class="case-study-grid">
+                    <div class="case-study-stat">
+                        <div class="number">4.8</div>
+                        <div class="label">Google Rating</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">9.6</div>
+                        <div class="label">TheFork</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">2.5K</div>
+                        <div class="label">Instagram (Room to Grow)</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">#323</div>
+                        <div class="label">TripAdvisor (Can Climb)</div>
+                    </div>
+                </div>
+
+                <div class="viral-callout">
+                    <div class="big-number">22 million views. One reel. One restaurant.</div>
+                    <div class="context"><strong>That was New Greek, a small independent restaurant in Newcastle, before we started working with them.</strong> They had zero social presence. We created short-form video content and one reel hit 22 million views. They went from quiet midweek evenings to fully booked with a waiting list. Zenobia has the same ingredients: incredible food, a genuine story, and loyal customers. The only difference is that nobody has turned the camera on yet.</div>
+                </div>
+
+                <p class="takeaway">You do not need to change the food. You just need more people to see it. The reviews already prove the quality. Now it is about making sure Newcastle knows about it.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- How We Would Help -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">How We Would Help</div>
+            <div class="section-title">What We Would Do for You</div>
+
+            <div class="card">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 20px;">Content and Growth Package</h3>
+                <div class="package-grid">
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Short-form video production</strong> capturing the charcoal grills, shawarma carving, falafel frying, and the energy of service in high-retention Reels and TikToks</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>TikTok growth strategy</strong> with a dedicated posting cadence, trending audio, and restaurant-specific formats proven to drive local discovery</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Instagram management and growth</strong> with consistent branding, Reels, Stories, and a content calendar built around your 4-day opening schedule</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Website design and build</strong> creating a professional, mobile-first site with your menu, story, location, hours, and booking/ordering capability</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Paid social campaigns</strong> targeting local food lovers within a 10-mile radius to drive footfall on your open days</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Review generation strategy</strong> with QR codes and follow-up prompts to grow your TripAdvisor and Google review count</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 20px;">Content Approach</h3>
+                <ul class="strategy-list">
+                    <li>Charcoal grill content: flames, sizzling meats, smoke rising, skewers being turned. Pure visual and audio satisfaction</li>
+                    <li>Shawarma being carved: one of the most watched food formats on TikTok globally</li>
+                    <li>Market stall footage: the energy of the Quayside Market, queues forming, food being served fresh</li>
+                    <li>The Zenobia story: from market stall to restaurant, the journey of authentic Syrian cuisine in Newcastle</li>
+                    <li>Behind the scenes: morning prep, marinades being made, bread being baked, the care that goes into every dish</li>
+                    <li>Customer reactions: first bites, plate reveals, families enjoying the food together</li>
+                    <li>Scarcity content: "Only open Thursday to Sunday" countdown posts that build weekly anticipation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Video Ideas -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Ready-Made Content</div>
+            <div class="section-title">5 Video Ideas You Could Film Today</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are formats that are working right now for restaurants on TikTok and Instagram. All of them play to Zenobia's strengths as an authentic Syrian street food restaurant with incredible food and a great story.</p>
+
+            <div class="video-ideas-grid">
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 01</div>
+                    <div class="idea-title">"How we grill over real charcoal at Zenobia"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Behind the Scenes</span>
+                        <span class="idea-tag">ASMR</span>
+                        <span class="idea-tag">Process</span>
+                    </div>
+                    <p class="idea-description">Start with the charcoal being lit. Show the flames building. Then the meats going on the grill. Close-up of the sizzle, the char marks forming, the juices dripping. Pull back to reveal the full grill loaded with skewers. End with a finished plate hitting the table. Keep it under 30 seconds. Let the sound do the work.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Charcoal grill content is one of the highest-performing food formats on TikTok and Instagram. The combination of fire, sizzling sounds, and smoke triggers an almost primal response. People share it, save it, and most importantly, they want to eat it.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 02</div>
+                    <div class="idea-title">"The shawarma carve that stops the scroll"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Food Porn</span>
+                        <span class="idea-tag">Satisfying</span>
+                        <span class="idea-tag">Signature Dish</span>
+                    </div>
+                    <p class="idea-description">Close-up of the shawarma rotating. The knife slicing through the outer layer. Thin strips falling onto the plate. Then the wrap being assembled: flatbread, meat, sauces, garnish. Wrap it up. Cut it in half. Show the cross-section. That is the money shot.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Shawarma carving videos regularly get millions of views on TikTok. The slicing motion is hypnotic and satisfying. It is one of the most universally appealing food formats online, and Zenobia does it over real charcoal which makes it even more compelling.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 03</div>
+                    <div class="idea-title">"From a market stall to our own restaurant"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Origin Story</span>
+                        <span class="idea-tag">Emotional</span>
+                        <span class="idea-tag">Brand</span>
+                    </div>
+                    <p class="idea-description">Tell the Zenobia story in 60 seconds. Start with footage or photos from the early market stall days. Show the journey: the early mornings, the queues growing, the loyal customers. Then reveal the restaurant on Chillingham Road. End with a busy service, plates going out, happy customers. Use a voiceover or text overlay with a warm backing track.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Origin stories are some of the most powerful content a small business can create. People root for real stories. A family bringing authentic Syrian cuisine to Newcastle, starting at a market and building to their own restaurant. That is the kind of story people share because it makes them feel something.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 04</div>
+                    <div class="idea-title">"We are only open 4 days a week. Here is why it is worth the wait."</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Scarcity</span>
+                        <span class="idea-tag">FOMO</span>
+                        <span class="idea-tag">Local</span>
+                    </div>
+                    <p class="idea-description">Start with a text hook: "We are only open Thursday to Sunday." Then rapid-fire cuts of your best dishes, the busiest moments, happy customers, the charcoal grill at full capacity. Make it feel like an event. End with "Thursday is coming. Are you ready?" and your location.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Scarcity drives action. When people know something is only available for a limited time, they prioritise it. Framing your 4-day schedule as an exclusive experience rather than a limitation turns it into a marketing advantage. People will plan their week around it.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 05</div>
+                    <div class="idea-title">"The mixed grill platter that feeds the whole table"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Hero Dish</span>
+                        <span class="idea-tag">Sharing</span>
+                        <span class="idea-tag">Value</span>
+                    </div>
+                    <p class="idea-description">Build the platter from scratch. Each element being placed: grilled meats, falafel, hummus, flatbread, salads, sauces. The camera pulls back to reveal the full spread. Then show it landing at a table with a group of friends. Their reactions. Hands reaching in. The shared experience of eating together. End with "Chillingham Road, Newcastle. Thursday to Sunday."</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Platter and sharing content is incredibly shareable because it is inherently social. People tag their friends with "we need to go here." The generous portions Zenobia is known for make this even more impactful. When viewers see how much food arrives, the value proposition sells itself.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Digital Enhancements -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Digital Enhancements</div>
+            <div class="section-title">Beyond Social Media</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are strategic changes that would make a real difference alongside the social media work.</p>
+
+            <div class="enhancement-card">
+                <h4>Build a Proper Website</h4>
+                <p>A Linktree page is a placeholder, not a website. You need a dedicated site that ranks in search results for terms like "Syrian food Newcastle," "Arabian restaurant Heaton," and "best shawarma Newcastle." A clean, mobile-first website with your menu, story, location, hours, and a way to book would immediately improve discoverability.</p>
+                <ul class="enhancement-list">
+                    <li>A dedicated domain (something like zenobiaarabian.co.uk) gives you a professional presence</li>
+                    <li>SEO-optimised pages would help you rank for local food searches</li>
+                    <li>An embedded booking or ordering system removes friction from the customer journey</li>
+                    <li>Your origin story and food philosophy deserve a proper home, not a list of links</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Quick win:</strong> Even a simple one-page website with your menu, location, hours, and a booking button would be a massive improvement over a Linktree. It takes your online presence from "we exist" to "we are a serious restaurant."</p>
+                </div>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>TripAdvisor Review Push</h4>
+                <p>41 reviews at 4.5 stars is a great foundation, but you are ranked #323 in Newcastle. The restaurants above you often have lower ratings but many more reviews. A systematic review generation effort could change your ranking dramatically within a few months.</p>
+                <ul class="enhancement-list">
+                    <li>QR codes on bills linking directly to TripAdvisor and Google review pages</li>
+                    <li>A friendly prompt from staff when customers express how much they enjoyed the meal</li>
+                    <li>Target: 150+ TripAdvisor reviews within 6 months to push into the top 100</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Google Business Profile Optimisation</h4>
+                <p>Your 4.8 Google rating is outstanding. Make sure the listing is working as hard as possible: professional food photos, regular updates about specials, responses to every review, and accurate hours including market stall times. Google Business is often the first impression people get of your restaurant. Make it count.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- About Fusion Creative -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">About Fusion Creative</div>
+            <div class="card intro-card">
+                <p class="about-fc-text">Fusion Creative is a UK content and marketing agency that produces short-form video content, manages social media, builds websites, runs paid ad campaigns, and handles branding. Everything under one roof.</p>
+                <p class="about-fc-text">We are based in Newcastle and work with businesses across the North East and beyond. Our approach is simple: create content that people actually want to watch, post it consistently, and let the results speak for themselves. No stock footage, no generic templates, no recycled ideas.</p>
+                <p class="about-fc-text">We have generated over 27 million views for a single restaurant client in under 90 days, including a single reel that hit 22 million views. We understand what makes restaurant content perform, and we know how to turn great food into a packed dining room.</p>
+
+                <div class="about-fc-grid">
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">27M+</div>
+                        <div class="about-fc-stat-label">Views generated</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">20+</div>
+                        <div class="about-fc-stat-label">Videos per month</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">6+</div>
+                        <div class="about-fc-stat-label">Years in content</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">100%</div>
+                        <div class="about-fc-stat-label">Impressions guarantee</div>
+                    </div>
+                </div>
+
+                <div class="about-fc-services">
+                    <span class="about-fc-tag">Short-Form Video</span>
+                    <span class="about-fc-tag">TikTok Management</span>
+                    <span class="about-fc-tag">Instagram Reels</span>
+                    <span class="about-fc-tag">Paid Ads</span>
+                    <span class="about-fc-tag">Website Design</span>
+                    <span class="about-fc-tag">Branding</span>
+                    <span class="about-fc-tag">SEO</span>
+                    <span class="about-fc-tag">Social Media Management</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Next Steps -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a look through this audit. The key takeaway is simple: the food and the reputation are already exceptional. The digital presence just needs to catch up.</li>
+                    <li>If any of this resonates, jump on a quick call with us. No pitch, just a conversation about where the biggest wins are for Zenobia specifically.</li>
+                    <li>We can put together a specific content plan and show you exactly what the first month would look like across TikTok, Instagram, website, and paid social.</li>
+                </ol>
+                <p class="closing-note">No pressure at all. But every week without a strong online presence is a week where potential customers are choosing somewhere else because they never found you. The food is there. The reviews prove it. Now it is about making sure the rest of Newcastle knows about it too.</p>
+                <div class="cta-wrap">
+                    <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="cta-btn">Schedule a Call</a>
+                    <div class="cta-sub">30 minutes. No obligation. Pick a time that suits you.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Signature -->
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="footer">
+            <div class="footer-confidential">Confidential - Prepared for Zenobia Arabian Street Food</div>
+            <div class="footer-note">This audit was put together using live data from your Instagram, Facebook, TripAdvisor, Google, TheFork, and Facebook Ad Library on 9 April 2026.</div>
+            <div class="footer-brand"><span>Fusion Creative</span></div>
+        </footer>
+    </div>
+
+</body>
+</html>

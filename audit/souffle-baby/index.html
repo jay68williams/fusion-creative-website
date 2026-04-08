@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Audit - Souffle Baby | Fusion Creative</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f5f6fa;
+            --card: #ffffff;
+            --card-border: rgba(0,0,0,0.06);
+            --coral: #E8553C;
+            --coral-light: #ff7a64;
+            --coral-dark: #c4412b;
+            --text: #111111;
+            --text-secondary: #555555;
+            --text-muted: #999999;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); }
+            50% { box-shadow: 0 0 40px rgba(232,85,60,0.5); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.85); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .brand {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+        }
+
+        .brand-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+        }
+
+        .header-date {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .hero {
+            padding: 64px 0 56px;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .hero-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .section {
+            padding: 48px 0;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .card-sm {
+            padding: 28px 32px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .section-text {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .section-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 60%);
+            border-color: rgba(232, 85, 60, 0.1);
+        }
+
+        .intro-card .greeting {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .stats-table tr {
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .stats-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .stats-table tr:nth-child(even) {
+            background: rgba(0,0,0,0.02);
+        }
+
+        .stats-table td {
+            padding: 14px 0;
+        }
+
+        .stats-table td:first-child {
+            color: var(--text-secondary);
+            font-weight: 400;
+            padding-right: 24px;
+            white-space: nowrap;
+        }
+
+        .stats-table td:last-child {
+            font-weight: 600;
+            color: var(--text);
+            text-align: right;
+        }
+
+        .stat-highlight {
+            color: var(--coral) !important;
+            font-weight: 700 !important;
+        }
+
+        .stat-badge {
+            display: inline-block;
+            background: rgba(232, 85, 60, 0.1);
+            color: var(--coral);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            animation: scaleIn 0.4s ease both;
+        }
+
+        .stat-badge-green {
+            display: inline-block;
+            background: rgba(52, 199, 89, 0.1);
+            color: #34c759;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .stat-badge-amber {
+            display: inline-block;
+            background: rgba(255, 159, 10, 0.1);
+            color: #ff9f0a;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .working-item {
+            margin-bottom: 28px;
+        }
+
+        .working-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .working-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .working-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .check-icon {
+            display: inline-block;
+            color: #34c759;
+            margin-right: 6px;
+            font-weight: 700;
+        }
+
+        .opportunity-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--coral);
+            color: white;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(232, 85, 60, 0.35);
+        }
+
+        .opportunity-heading {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .opportunity-heading h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .opportunity-card {
+            margin-bottom: 20px;
+        }
+
+        .opportunity-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 60%);
+            border-color: rgba(232, 85, 60, 0.1);
+            border-left: 4px solid var(--coral);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .case-study-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--coral-light));
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin: 32px 0;
+        }
+
+        .case-study-stat {
+            text-align: center;
+            padding: 24px 16px;
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.1);
+            border-radius: 12px;
+            animation: scaleIn 0.5s ease both;
+        }
+
+        .case-study-stat:nth-child(1) { animation-delay: 0.1s; }
+        .case-study-stat:nth-child(2) { animation-delay: 0.2s; }
+        .case-study-stat:nth-child(3) { animation-delay: 0.3s; }
+        .case-study-stat:nth-child(4) { animation-delay: 0.4s; }
+
+        .case-study-stat .number {
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 900;
+            color: var(--coral);
+            letter-spacing: -1px;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .case-study-stat .label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .viral-callout {
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.12);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-top: 24px;
+        }
+
+        .viral-callout .big-number {
+            font-size: clamp(32px, 6vw, 48px);
+            font-weight: 900;
+            color: var(--coral);
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .viral-callout .context {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        .viral-callout .context strong {
+            color: var(--text);
+        }
+
+        .takeaway {
+            margin-top: 24px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .package-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 0;
+        }
+
+        .package-bullet {
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .package-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .package-item strong {
+            color: var(--text);
+        }
+
+        .strategy-list {
+            list-style: none;
+        }
+
+        .strategy-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.6;
+        }
+
+        .strategy-list li:last-child {
+            border-bottom: none;
+        }
+
+        .strategy-list li::before {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 5px;
+            background: var(--coral);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .video-ideas-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .video-idea-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-idea-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .video-idea-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--coral);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .idea-number {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 10px;
+        }
+
+        .idea-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .idea-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .idea-tag {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.04);
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        .idea-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .idea-why {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            padding-top: 14px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .idea-why strong {
+            color: var(--coral);
+            font-weight: 600;
+        }
+
+        .enhancement-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .enhancement-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .enhancement-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .enhancement-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .enhancement-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .enhancement-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .enhancement-list {
+            list-style: none;
+            margin: 12px 0;
+        }
+
+        .enhancement-list li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 6px 0;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .enhancement-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 13px;
+            width: 5px;
+            height: 5px;
+            background: var(--coral);
+            border-radius: 50%;
+        }
+
+        .highlight-box {
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.12);
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin-top: 14px;
+        }
+
+        .highlight-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .highlight-box strong {
+            color: var(--coral);
+        }
+
+        .next-steps-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 80%);
+            border-color: rgba(232, 85, 60, 0.1);
+        }
+
+        .steps-list {
+            list-style: none;
+            counter-reset: steps;
+        }
+
+        .steps-list li {
+            counter-increment: steps;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .steps-list li:last-child {
+            border-bottom: none;
+        }
+
+        .steps-list li::before {
+            content: counter(steps);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            background: var(--coral);
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(232, 85, 60, 0.3);
+        }
+
+        .about-fc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .about-fc-stat {
+            background: rgba(232, 85, 60, 0.04);
+            border: 1px solid rgba(232, 85, 60, 0.1);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-align: center;
+            animation: scaleIn 0.5s ease both;
+        }
+
+        .about-fc-stat:nth-child(1) { animation-delay: 0.1s; }
+        .about-fc-stat:nth-child(2) { animation-delay: 0.2s; }
+        .about-fc-stat:nth-child(3) { animation-delay: 0.3s; }
+        .about-fc-stat:nth-child(4) { animation-delay: 0.4s; }
+
+        .about-fc-stat-val {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--coral);
+            letter-spacing: -0.5px;
+        }
+
+        .about-fc-stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .about-fc-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-fc-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .about-fc-tag {
+            background: rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .cta-wrap {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--coral);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 40px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        .cta-btn:hover {
+            background: var(--coral-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(232, 85, 60, 0.4);
+            animation: none;
+        }
+
+        .cta-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        .closing-note {
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .signature {
+            padding: 48px 0;
+        }
+
+        .signature-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .signature-role {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .signature-link {
+            font-size: 14px;
+            color: var(--coral);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .signature-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            padding: 32px 0;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            text-align: center;
+            background: #edeef2;
+        }
+
+        .footer-confidential {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .footer-brand {
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-brand span {
+            color: var(--coral);
+            font-weight: 600;
+        }
+
+        @media print {
+            :root {
+                --bg: #ffffff;
+                --card: #f8f8f8;
+                --card-border: #e0e0e0;
+                --text: #111111;
+                --text-secondary: #444444;
+                --text-muted: #888888;
+            }
+
+            body {
+                background: white;
+                color: #111;
+                font-size: 11pt;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 28pt;
+            }
+
+            .hero h1 span {
+                -webkit-text-fill-color: var(--coral);
+                background: none;
+                animation: none;
+            }
+
+            .card, .video-idea-card, .enhancement-card, .case-study-card, .intro-card, .next-steps-card {
+                background: #f8f8f8 !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                border-color: #e0e0e0;
+                box-shadow: none !important;
+                transform: none !important;
+                animation: none !important;
+            }
+
+            .section {
+                animation: none !important;
+            }
+
+            .case-study-card::before {
+                background: var(--coral);
+            }
+
+            .video-idea-card::before {
+                background: var(--coral);
+            }
+
+            .case-study-stat {
+                background: rgba(232, 85, 60, 0.06) !important;
+                animation: none !important;
+            }
+
+            .viral-callout {
+                background: rgba(232, 85, 60, 0.05) !important;
+            }
+
+            .highlight-box {
+                background: rgba(232, 85, 60, 0.05) !important;
+            }
+
+            .cta-btn {
+                animation: none !important;
+                box-shadow: none !important;
+            }
+
+            a {
+                color: var(--coral) !important;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .hero {
+                padding: 40px 0 32px;
+                animation: none !important;
+            }
+
+            .footer {
+                background: #f0f0f0 !important;
+            }
+
+            .stat-badge, .about-fc-stat {
+                animation: none !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .card {
+                padding: 28px 22px;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .video-idea-card {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .video-idea-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .enhancement-card {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .enhancement-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .hero {
+                padding: 40px 0 36px;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .case-study-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .video-idea-card {
+                padding: 24px 22px;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .about-fc-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .about-fc-stat-val {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="container">
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand">
+                    <span class="brand-dot"></span>Fusion Creative
+                </div>
+                <div class="header-date">9 April 2026</div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-label">Free Social Media Audit</div>
+            <h1><span>Souffle Baby</span></h1>
+            <p class="hero-subtitle">Prepared by Fusion Creative | 9 April 2026</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Intro -->
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Hey team,</div>
+                <p class="section-text">We came across Souffle Baby and were really impressed. A Japanese souffle pancake cafe in Newcastle city centre with over 7,000 Instagram followers, a unique product that is genuinely stunning to look at, and a niche that barely exists anywhere else in the North East. You have carved out something really special.</p>
+                <p class="section-text">We are Fusion Creative, a UK content and marketing agency. We took a detailed look at your online presence and put together this honest audit. Inside you will find a full snapshot of where you are now, what is working well, <strong>five areas where there is real potential to grow</strong>, video ideas you can use immediately, and recommendations for quick wins.</p>
+                <p class="section-text">Even if we never speak, this is yours to keep.</p>
+            </div>
+
+            <!-- Fusion Creative metrics card -->
+            <div class="card" style="margin-top:8px;">
+                <div style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--coral); margin-bottom:6px;">Client Results</div>
+                <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Generated for a single restaurant client within 90 days</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">27M+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">394K+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Engagements</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">6,657</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">22M</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
+                    </div>
+                </div>
+                <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">New Greek, a small independent restaurant in Newcastle with zero social presence before us. One reel hit 22 million views. They went from empty tables to a waiting list. Souffle Baby has even more visual potential. Japanese souffle pancakes are one of the most mesmerising foods to watch being made, and that is exactly what goes viral.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Snapshot -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Current Snapshot</div>
+            <div class="section-title">Where You Are Right Now</div>
+            <div class="card card-sm">
+                <table class="stats-table">
+                    <tr>
+                        <td>Instagram (@soufflebabyncl)</td>
+                        <td>~7,136 followers <span class="stat-badge-green">Strong</span></td>
+                    </tr>
+                    <tr>
+                        <td>TikTok (@soufflebabyncl)</td>
+                        <td>1,329 followers, 14K likes <span class="stat-badge-amber">Early Stage</span></td>
+                    </tr>
+                    <tr>
+                        <td>Facebook</td>
+                        <td>Active <span class="stat-badge-green">Present</span></td>
+                    </tr>
+                    <tr>
+                        <td>TripAdvisor</td>
+                        <td class="stat-highlight">2.5 / 5 (2 reviews) <span class="stat-badge">Needs Attention</span></td>
+                    </tr>
+                    <tr>
+                        <td>Website</td>
+                        <td class="stat-highlight">None <span class="stat-badge">Missing</span></td>
+                    </tr>
+                    <tr>
+                        <td>Delivery Platforms</td>
+                        <td>Deliveroo + Just Eat <span class="stat-badge-green">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td>Hours</td>
+                        <td>Daily 12pm-9pm <span class="stat-badge-green">7 Days</span></td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td>85 Westgate Road, Newcastle NE1 4AE</td>
+                    </tr>
+                    <tr>
+                        <td>Price Range</td>
+                        <td>~10-11 per pancake</td>
+                    </tr>
+                    <tr>
+                        <td>Dietary Options</td>
+                        <td>Gluten-free + Lactose-free base <span class="stat-badge-green">Inclusive</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- What Is Working -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">What Is Already Working Well</div>
+            <div class="section-title">Credit Where It Is Due</div>
+            <div class="card">
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> You own a niche that nobody else has</h4>
+                    <p>Japanese souffle pancakes are not something you can get anywhere else in Newcastle. That level of uniqueness is a massive competitive advantage. You are not competing with every other cafe in the city. You are the only option for anyone who wants this specific product. That means every piece of content, every search, every recommendation for souffle pancakes points directly to you.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Strong Instagram community with 7K+ followers</h4>
+                    <p>Over 7,000 followers for a single-concept cafe is impressive. That is a genuine community of people who are interested in what you do. Your products are inherently photogenic, which means every customer who posts a photo is creating free marketing for you. The visual appeal of souffle pancakes practically demands to be shared on Instagram.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Visually stunning product that is made for social media</h4>
+                    <p>Souffle pancakes are one of the most visually captivating foods in the world. The jiggly, fluffy texture. The height. The toppings cascading over the edges. The moment someone cuts into one and it wobbles. This is exactly the kind of content that stops people mid-scroll. You have a product that is naturally viral. Most businesses would pay anything for a product this photogenic.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Delivery presence on Deliveroo and Just Eat</h4>
+                    <p>Being on two delivery platforms opens up a significant revenue stream beyond walk-ins. For a dessert and pancake cafe, delivery can be a major driver, especially during evenings and weekends when people are ordering treats. Having this infrastructure already in place is a strong foundation to build on.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Gluten-free and lactose-free options built into the menu</h4>
+                    <p>Having dietary-inclusive options is not just good practice. It is a marketing angle. The number of people searching for "gluten-free desserts Newcastle" or "dairy-free pancakes near me" is growing every year. Being able to serve those customers means you are accessible to an audience that many competitors exclude. This is a differentiator that should be front and centre in your marketing.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Where The Opportunity Is -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Where The Opportunity Is</div>
+            <div class="section-title">Five Areas With Real Potential</div>
+            <p class="section-text" style="margin-bottom: 32px;">The product, the niche, and the Instagram community are all strong. You have built something that people love. These are the areas where a focused push could take things significantly further.</p>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">1</span>
+                    <h3>TripAdvisor Needs Immediate Attention</h3>
+                </div>
+                <p class="section-text">Your TripAdvisor listing currently shows 2.5 out of 5 from just 2 reviews. This does not reflect the reality of your business at all. With over 7,000 Instagram followers and a loyal customer base, the actual customer satisfaction is clearly much higher than what TripAdvisor suggests. The problem is simply that only 2 people have left reviews, and the sample size is far too small to be representative.</p>
+                <p class="section-text">This is one of the most urgent things to address because TripAdvisor is a major discovery platform. When someone searches "cafes in Newcastle" or "desserts Newcastle," a 2.5 rating can turn potential customers away before they even consider visiting. The fix is straightforward: encourage your happy customers to leave reviews. A QR code at the counter, a gentle prompt from staff, a small card with the bill. Within a couple of months, you could have 30 to 50 reviews that accurately reflect the quality of what you are serving, and the rating would shift dramatically.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">2</span>
+                    <h3>No Website Is Limiting Your Discoverability</h3>
+                </div>
+                <p class="section-text">When someone Googles "souffle pancakes Newcastle" or "Japanese pancakes near me," you need a website to capture that search traffic. Right now, without a website, you are relying on Instagram and delivery apps to be your digital storefront. A simple, beautiful website with your menu, your story, location and hours, delivery links, and your Instagram feed would give you a permanent home on Google and build credibility with new customers.</p>
+                <p class="section-text">For a unique concept like souffle pancakes, a website is also an opportunity to educate people who have never tried them before. A page explaining what souffle pancakes are, how they are made, and why they are different would capture search traffic from curious people and convert them into customers.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">3</span>
+                    <h3>TikTok Is Massively Underused</h3>
+                </div>
+                <p class="section-text">With 1,329 followers and 14K likes, your TikTok account has shown early signs of traction but has not yet had its breakout moment. This is a huge missed opportunity because souffle pancakes are one of the most viral food categories on TikTok globally. The jiggle, the fluffiness, the toppings, the cutting moment. These are exactly the formats that generate millions of views.</p>
+                <p class="section-text">Japanese souffle pancake videos regularly hit millions of views on TikTok worldwide. The format is proven. The audience is there. You just need to post consistently with high-quality, short-form video content that showcases the product in all its jiggly glory. A consistent schedule of 4 to 5 videos per week could transform your TikTok from early stage to a genuine growth engine within weeks.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">4</span>
+                    <h3>Build a Content Engine Around the Product</h3>
+                </div>
+                <p class="section-text">Your product is inherently visual and shareable. Every pancake that comes out of the kitchen is a potential piece of content. But turning that potential into actual growth requires a deliberate content strategy: planned shoots, consistent posting schedules, trending audio, hashtag strategy, and community engagement. Right now, the content is not matching the potential of the product.</p>
+                <p class="section-text">A structured approach to content creation, where you film multiple pieces of content during each service and schedule them across the week, would keep your feeds active and your audience growing. The content is already sitting in your kitchen. It just needs to be captured and distributed strategically.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">5</span>
+                    <h3>Promote the Dietary-Inclusive Angle</h3>
+                </div>
+                <p class="section-text">Having a gluten-free and lactose-free base is a genuine differentiator that many customers are actively searching for. This should be a major part of your marketing, not just a small note on the menu. Content like "Did you know our souffle pancakes can be made gluten-free?" or "Lactose-free Japanese pancakes in Newcastle" would reach an audience that struggles to find desserts they can enjoy.</p>
+                <p class="section-text">The dietary-inclusive community is highly engaged on social media. When they find a place that caters to them, they share it enthusiastically with others in the same situation. One well-targeted video about your gluten-free option could reach thousands of people who have never heard of Souffle Baby but have been looking for exactly what you offer.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- The Opportunity -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Opportunity</div>
+            <div class="section-title">The Most Instagrammable Cafe in Newcastle</div>
+            <div class="card case-study-card">
+                <p class="section-text">Souffle Baby has a product that most food businesses can only dream of. It is unique, visually stunning, and inherently viral. The jiggly souffle pancake is one of the most-watched food formats on the internet. You have that product. You have 7,000 followers who already love it. The opportunity is about building a digital engine that turns that visual appeal into consistent growth across every platform.</p>
+
+                <div class="case-study-grid">
+                    <div class="case-study-stat">
+                        <div class="number">7.1K</div>
+                        <div class="label">Instagram Followers</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">2.5</div>
+                        <div class="label">TripAdvisor (2 Reviews)</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">0</div>
+                        <div class="label">Website</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">14K</div>
+                        <div class="label">TikTok Likes</div>
+                    </div>
+                </div>
+
+                <div class="viral-callout">
+                    <div class="big-number">22 million views. One reel. One restaurant.</div>
+                    <div class="context"><strong>That was New Greek, a small independent restaurant in Newcastle, before we started working with them.</strong> They had zero social presence. We created short-form video content and one reel hit 22 million views. They went from quiet evenings to fully booked with a waiting list. Souffle Baby has an even more visual product. Jiggly souffle pancakes are one of the most watched food formats on TikTok globally. The viral potential here is extraordinary.</div>
+                </div>
+
+                <p class="takeaway">You already have the most photogenic product in Newcastle. Now it is about making sure the rest of the city, and beyond, sees it. Fix TripAdvisor, build a TikTok strategy, and let the pancakes do the talking.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- How We Would Help -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">How We Would Help</div>
+            <div class="section-title">What We Would Do for You</div>
+
+            <div class="card">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 20px;">Content and Growth Package</h3>
+                <div class="package-grid">
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Short-form video production</strong> creating high-retention Reels and TikToks capturing the jiggly, fluffy magic of souffle pancakes being made, plated, and eaten</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>TikTok growth strategy</strong> with a dedicated posting cadence, trending audio, and souffle pancake formats proven to drive millions of views globally</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Instagram management</strong> with consistent Reels, Stories, and community engagement to grow your 7K followers into an even larger audience</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Website design and build</strong> creating a beautiful site with your menu, story, location, delivery links, and an explanation of what makes souffle pancakes special</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Paid social campaigns</strong> targeting dessert lovers and foodies within Newcastle to drive footfall and delivery orders</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Review generation strategy</strong> with an urgent focus on TripAdvisor to correct the 2.5 rating and build a review profile that reflects reality</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 20px;">Content Approach</h3>
+                <ul class="strategy-list">
+                    <li>The jiggle: close-up slow-motion footage of souffle pancakes wobbling on the plate. This is the single most viral souffle pancake format</li>
+                    <li>The making process: batter being prepared, the careful flip, the towering stack being built and topped</li>
+                    <li>The first cut: a fork or knife cutting through the fluffy pancake, revealing the soft interior. Incredibly satisfying content</li>
+                    <li>Toppings cascade: pouring sauce, adding fruit, dusting with sugar. Each topping is a visual moment</li>
+                    <li>Bingsu and bubble tea: showcase the full menu beyond pancakes to drive repeat visits</li>
+                    <li>Dietary-inclusive content: "Gluten-free souffle pancakes in Newcastle" as a targeted content series</li>
+                    <li>Customer reactions: first-time reactions to seeing and tasting souffle pancakes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Video Ideas -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Ready-Made Content</div>
+            <div class="section-title">5 Video Ideas You Could Film Today</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are formats that are working right now for dessert cafes and Japanese food content on TikTok and Instagram. All of them play to Souffle Baby's strengths as the only souffle pancake cafe in Newcastle.</p>
+
+            <div class="video-ideas-grid">
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 01</div>
+                    <div class="idea-title">"The jiggliest pancakes in Newcastle"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Satisfying</span>
+                        <span class="idea-tag">ASMR</span>
+                        <span class="idea-tag">Hero Content</span>
+                    </div>
+                    <p class="idea-description">Close-up on a perfectly cooked souffle pancake. Gently tap the plate or the pancake itself. Watch it jiggle. Slow motion replay. Different angles. Stack them up. Tap again. The wobble is mesmerising. No voiceover needed. Just the visual and a trending audio track. End with the full plate, beautifully topped.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Jiggly souffle pancake videos are one of the most viewed food formats on TikTok globally. The satisfying wobble triggers replays, shares, and saves. This single format could be your most consistent content pillar and has the highest probability of going viral. People cannot stop watching them.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 02</div>
+                    <div class="idea-title">"What are souffle pancakes? Let me show you."</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Educational</span>
+                        <span class="idea-tag">Discovery</span>
+                        <span class="idea-tag">Approachable</span>
+                    </div>
+                    <p class="idea-description">A quick, friendly explainer for people who have never tried souffle pancakes. "They are not like normal pancakes. They are fluffy, jiggly, and made with whipped egg whites." Show the process. Show the result. Show someone tasting one for the first time. Make it welcoming and exciting. "You can only get them at Souffle Baby in Newcastle."</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Many people in Newcastle have never heard of souffle pancakes. Educational content removes the unfamiliarity and turns curiosity into visits. It also gets saved and shared at high rates, which the algorithm rewards with more reach. Every person who learns what souffle pancakes are from your video is a potential customer.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 03</div>
+                    <div class="idea-title">"Every flavour on our menu, ranked"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Menu Showcase</span>
+                        <span class="idea-tag">Opinion</span>
+                        <span class="idea-tag">Engagement</span>
+                    </div>
+                    <p class="idea-description">Walk through every souffle pancake variant on the menu. Show each one. Give a quick opinion or description. Rank them from good to best. Make it personal and fun. End with "What is your favourite? Comment below." This drives massive engagement because everyone has an opinion and wants to share it.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Ranking content is one of the most engaging formats on social media because it invites debate. People comment to agree or disagree, which drives the algorithm. It also showcases your full menu in a single video, which helps customers decide what to order. Comments and shares equal reach.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 04</div>
+                    <div class="idea-title">"POV: You have never had a souffle pancake before"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">First Timer</span>
+                        <span class="idea-tag">Reaction</span>
+                        <span class="idea-tag">Relatable</span>
+                    </div>
+                    <p class="idea-description">Film a first-time customer's genuine reaction. The anticipation as it arrives. The surprise at how tall and fluffy it is. The first cut. The first bite. Their face says everything. Multiple first-timers in a compilation. Real people, real reactions. "This is what happens when you try souffle pancakes for the first time."</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Genuine reactions are incredibly powerful social proof. When people see others being surprised and delighted by your product, they want to experience it themselves. Reaction content is also highly shareable because people tag friends with "we need to try this." It turns viewers into customers through pure emotion.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 05</div>
+                    <div class="idea-title">"Gluten-free and it tastes THIS good?"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Dietary</span>
+                        <span class="idea-tag">Inclusive</span>
+                        <span class="idea-tag">Niche Audience</span>
+                    </div>
+                    <p class="idea-description">Highlight the gluten-free and lactose-free options. Show the pancake being made. Show it looking just as incredible as the regular version. Someone with dietary requirements trying it and being genuinely impressed. "You do not have to miss out. Souffle Baby does gluten-free and lactose-free." The message is inclusive and welcoming.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> The gluten-free and dairy-free community is highly engaged online. When they find a dessert spot that caters to them, they share it with everyone they know. This single video could reach thousands of people who have been searching for exactly this. It also positions Souffle Baby as a thoughtful, inclusive brand.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Digital Enhancements -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Digital Enhancements</div>
+            <div class="section-title">Beyond Social Media</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are strategic changes that would make a real difference alongside the social media work.</p>
+
+            <div class="enhancement-card">
+                <h4>Fix TripAdvisor Urgently</h4>
+                <p>A 2.5 rating from 2 reviews does not reflect your actual customer satisfaction. This is the single most urgent thing to address because it is actively turning potential customers away. The fix is straightforward and fast:</p>
+                <ul class="enhancement-list">
+                    <li>Place a QR code at the counter and on tables linking directly to your TripAdvisor review page</li>
+                    <li>Train staff to ask happy customers: "If you enjoyed it, we would love a TripAdvisor review"</li>
+                    <li>Add a gentle prompt on receipts or packaging for delivery orders</li>
+                    <li>Target: 30+ positive reviews within 2 months, which would dramatically shift the rating</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Why this is urgent:</strong> Every day that TripAdvisor shows 2.5 stars is a day where potential customers are being put off before they ever try your pancakes. Your 7,000 Instagram followers prove the real story. TripAdvisor just needs to catch up.</p>
+                </div>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Build a Simple, Beautiful Website</h4>
+                <p>A website for Souffle Baby should do three things: showcase the product with stunning visuals, explain what souffle pancakes are for people who have never tried them, and make it easy to find you or order delivery.</p>
+                <ul class="enhancement-list">
+                    <li>Full menu with photos of every pancake variant</li>
+                    <li>"What are souffle pancakes?" section for newcomers</li>
+                    <li>Location, hours, and direct links to Deliveroo and Just Eat</li>
+                    <li>Gluten-free and lactose-free options highlighted prominently</li>
+                    <li>Your Instagram feed embedded to show real customer content</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Google Business Profile Optimisation</h4>
+                <p>Make sure your Google Business Profile has professional food photography, accurate hours, your full menu, and regular posts about new toppings or seasonal specials. Respond to every review. Post weekly updates. When someone searches "desserts Newcastle" or "pancakes near me," your Google listing is often the first thing they see. It needs to look as good as your pancakes.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- About Fusion Creative -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">About Fusion Creative</div>
+            <div class="card intro-card">
+                <p class="about-fc-text">Fusion Creative is a UK content and marketing agency that produces short-form video content, manages social media, builds websites, runs paid ad campaigns, and handles branding. Everything under one roof.</p>
+                <p class="about-fc-text">We are based in Newcastle and work with businesses across the North East and beyond. Our approach is simple: create content that people actually want to watch, post it consistently, and let the results speak for themselves. No stock footage, no generic templates, no recycled ideas.</p>
+                <p class="about-fc-text">We have generated over 27 million views for a single restaurant client in under 90 days, including a single reel that hit 22 million views. We understand what makes food content perform, and we know how to turn a great product into a packed venue.</p>
+
+                <div class="about-fc-grid">
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">27M+</div>
+                        <div class="about-fc-stat-label">Views generated</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">20+</div>
+                        <div class="about-fc-stat-label">Videos per month</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">6+</div>
+                        <div class="about-fc-stat-label">Years in content</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">100%</div>
+                        <div class="about-fc-stat-label">Impressions guarantee</div>
+                    </div>
+                </div>
+
+                <div class="about-fc-services">
+                    <span class="about-fc-tag">Short-Form Video</span>
+                    <span class="about-fc-tag">TikTok Management</span>
+                    <span class="about-fc-tag">Instagram Reels</span>
+                    <span class="about-fc-tag">Paid Ads</span>
+                    <span class="about-fc-tag">Website Design</span>
+                    <span class="about-fc-tag">Branding</span>
+                    <span class="about-fc-tag">SEO</span>
+                    <span class="about-fc-tag">Social Media Management</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Next Steps -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a look through this audit. The key takeaway is simple: you have the most visually viral product in Newcastle and a loyal community. The digital presence just needs to catch up.</li>
+                    <li>If any of this resonates, jump on a quick call with us. No pitch, just a conversation about where the biggest wins are for Souffle Baby specifically.</li>
+                    <li>We can put together a specific content plan and show you exactly what the first month would look like across TikTok, Instagram, TripAdvisor recovery, and paid social.</li>
+                </ol>
+                <p class="closing-note">No pressure at all. But every week without a proper TikTok strategy and a corrected TripAdvisor presence is a week where potential customers are either not discovering you or being put off by a rating that does not reflect reality. The pancakes are already incredible. Now it is about making sure more people see them and making sure TripAdvisor tells the real story.</p>
+                <div class="cta-wrap">
+                    <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="cta-btn">Schedule a Call</a>
+                    <div class="cta-sub">30 minutes. No obligation. Pick a time that suits you.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Signature -->
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="footer">
+            <div class="footer-confidential">Confidential - Prepared for Souffle Baby</div>
+            <div class="footer-note">This audit was put together using live data from your Instagram, TikTok, Facebook, TripAdvisor, Google, and delivery platforms on 9 April 2026.</div>
+            <div class="footer-brand"><span>Fusion Creative</span></div>
+        </footer>
+    </div>
+
+</body>
+</html>
