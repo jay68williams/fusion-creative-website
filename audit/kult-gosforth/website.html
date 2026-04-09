@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KULT. | Coffee, Matcha, Protein, Event Space - Gosforth</title>
+    <meta name="description" content="KULT. Gosforth - Specialty coffee and matcha by day, cocktails and wine by evening. Protein kitchen, run club, and event space on Gosforth High Street.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --matcha: #7AB648;
+            --matcha-dark: #5a9632;
+            --matcha-light: #9dd06a;
+            --matcha-pale: #e8f5d9;
+            --matcha-tint: #f4faea;
+            --charcoal: #1a1a1a;
+            --white: #ffffff;
+            --off-white: #fafbf7;
+            --text: #1a1a1a;
+            --text-secondary: #555;
+            --text-muted: #888;
+            --border: rgba(0,0,0,0.06);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.1);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* ===== GRAIN TEXTURE ===== */
+        .grain-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 40px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+            transition: var(--transition);
+        }
+
+        .nav.scrolled {
+            box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+        }
+
+        .nav-logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo span {
+            color: var(--matcha);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color var(--transition);
+            letter-spacing: 0.2px;
+        }
+
+        .nav-links a:hover {
+            color: var(--matcha);
+        }
+
+        .nav-cta {
+            background: var(--charcoal) !important;
+            color: var(--white) !important;
+            padding: 10px 24px !important;
+            border-radius: 999px !important;
+            font-weight: 600 !important;
+            font-size: 13px !important;
+            transition: background var(--transition), transform var(--transition) !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--matcha) !important;
+            transform: translateY(-1px);
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--charcoal);
+            margin: 0 auto;
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .mobile-menu-btn span:nth-child(1) { margin-bottom: 6px; }
+        .mobile-menu-btn span:nth-child(3) { margin-top: 6px; }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(4px, 6px);
+        }
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(4px, -6px);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            font-family: 'Syne', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--charcoal);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        .mobile-nav a:hover {
+            color: var(--matcha);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(160deg, #f0f7e6 0%, #ffffff 30%, #f7faf2 60%, #e8f5d9 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(122,182,72,0.12) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(122,182,72,0.08) 0%, transparent 70%);
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -20px) scale(1.05); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(122,182,72,0.1);
+            border: 1px solid rgba(122,182,72,0.2);
+            border-radius: 999px;
+            padding: 8px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--matcha-dark);
+            margin-bottom: 32px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--matcha);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .hero h1 {
+            font-size: clamp(64px, 12vw, 140px);
+            font-weight: 800;
+            line-height: 0.9;
+            letter-spacing: -3px;
+            color: var(--charcoal);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 .dot {
+            color: var(--matcha);
+        }
+
+        .hero-tagline {
+            font-size: clamp(16px, 2.5vw, 22px);
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .hero-location {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .hero-location svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--matcha);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 999px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--matcha);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(122,182,72,0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--charcoal);
+            border: 2px solid rgba(0,0,0,0.12);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--matcha);
+            color: var(--matcha);
+            transform: translateY(-2px);
+        }
+
+        /* ===== SCROLL INDICATOR ===== */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            animation: bounce-down 2s ease-in-out infinite;
+        }
+
+        .scroll-indicator span {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 32px;
+            background: linear-gradient(to bottom, var(--text-muted), transparent);
+        }
+
+        @keyframes bounce-down {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* ===== SECTIONS GENERAL ===== */
+        .section {
+            padding: 100px 24px;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--matcha);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+            color: var(--charcoal);
+        }
+
+        .section-desc {
+            font-size: 17px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* ===== ABOUT ===== */
+        .about {
+            background: var(--white);
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .about-header .section-desc {
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--off-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            text-align: center;
+            transition: all var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(122,182,72,0.2);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 16px;
+            background: rgba(122,182,72,0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .feature-card h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== DAY/NIGHT SPLIT ===== */
+        .split-section {
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+
+        .split-side {
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .split-day {
+            background: linear-gradient(160deg, #f7faf2 0%, #e8f5d9 40%, #d4ebc0 100%);
+        }
+
+        .split-day::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(122,182,72,0.15);
+            filter: blur(40px);
+        }
+
+        .split-day .split-visual {
+            width: 100%;
+            height: 220px;
+            border-radius: var(--radius);
+            margin-bottom: 32px;
+            background: linear-gradient(135deg, #c8e6a0 0%, #a8d870 30%, #7AB648 70%, #5a9632 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .split-day .split-visual::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            top: 30px;
+            left: 40px;
+        }
+
+        .split-day .split-visual::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            bottom: 40px;
+            right: 60px;
+        }
+
+        .split-visual-icons {
+            display: flex;
+            gap: 16px;
+            font-size: 40px;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+        }
+
+        .split-night {
+            background: linear-gradient(160deg, #1a1a1a 0%, #111 40%, #0a0a0a 100%);
+            color: var(--white);
+        }
+
+        .split-night::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(122,182,72,0.08) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+        }
+
+        .split-night .split-visual {
+            width: 100%;
+            height: 220px;
+            border-radius: var(--radius);
+            margin-bottom: 32px;
+            background: linear-gradient(135deg, #2a1a3a 0%, #1a1030 30%, #0d0820 70%, #1a0a2a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .split-night .split-visual::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,180,50,0.2), transparent);
+            top: 20px;
+            right: 40px;
+        }
+
+        .split-night .split-visual::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200,100,255,0.15), transparent);
+            bottom: 30px;
+            left: 50px;
+        }
+
+        .split-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .split-day .split-label { color: var(--matcha-dark); }
+        .split-night .split-label { color: var(--matcha-light); }
+
+        .split-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+
+        .split-desc {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .split-day .split-desc { color: var(--text-secondary); }
+        .split-night .split-desc { color: rgba(255,255,255,0.6); }
+
+        .split-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .split-tag {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 999px;
+        }
+
+        .split-day .split-tag {
+            background: rgba(122,182,72,0.12);
+            color: var(--matcha-dark);
+        }
+
+        .split-night .split-tag {
+            background: rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.7);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .split-divider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(122,182,72,0.4), transparent);
+            z-index: 10;
+            transform: translateX(-50%);
+        }
+
+        /* ===== MENU ===== */
+        .menu-section {
+            background: var(--off-white);
+        }
+
+        .menu-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .menu-header .section-desc {
+            margin: 0 auto;
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .menu-cat-btn {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 999px;
+            border: 2px solid var(--border);
+            background: var(--white);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .menu-cat-btn:hover,
+        .menu-cat-btn.active {
+            background: var(--charcoal);
+            color: var(--white);
+            border-color: var(--charcoal);
+        }
+
+        .menu-grid {
+            display: none;
+        }
+
+        .menu-grid.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            animation: fadeUp 0.4s ease;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .menu-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            transition: all var(--transition);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+            border-color: rgba(122,182,72,0.2);
+        }
+
+        .menu-card-info h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .menu-card-info p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .menu-card-price {
+            font-family: 'Syne', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--matcha);
+            white-space: nowrap;
+        }
+
+        /* Horizontal scroll version for mobile */
+        .menu-scroll {
+            display: none;
+        }
+
+        /* ===== RUN CLUB ===== */
+        .runclub {
+            background: var(--charcoal);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .runclub::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(122,182,72,0.1) 0%, transparent 70%);
+        }
+
+        .runclub::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(122,182,72,0.06) 0%, transparent 70%);
+        }
+
+        .runclub-inner {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .runclub .section-label {
+            color: var(--matcha-light);
+        }
+
+        .runclub .section-title {
+            color: var(--white);
+        }
+
+        .runclub .section-desc {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .runclub-visual {
+            width: 100%;
+            aspect-ratio: 1;
+            max-width: 400px;
+            border-radius: 50%;
+            background: linear-gradient(160deg, rgba(122,182,72,0.15) 0%, rgba(122,182,72,0.05) 100%);
+            border: 2px solid rgba(122,182,72,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .runclub-visual::before {
+            content: '';
+            position: absolute;
+            inset: -12px;
+            border-radius: 50%;
+            border: 1px solid rgba(122,182,72,0.1);
+            animation: spin-slow 20s linear infinite;
+        }
+
+        .runclub-visual::after {
+            content: '';
+            position: absolute;
+            inset: -24px;
+            border-radius: 50%;
+            border: 1px dashed rgba(122,182,72,0.06);
+            animation: spin-slow 30s linear infinite reverse;
+        }
+
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .runclub-visual-inner {
+            text-align: center;
+        }
+
+        .runclub-visual-day {
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--matcha-light);
+            margin-bottom: 8px;
+        }
+
+        .runclub-visual-time {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(48px, 8vw, 72px);
+            font-weight: 800;
+            letter-spacing: -2px;
+            color: var(--white);
+            line-height: 1;
+        }
+
+        .runclub-visual-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+            margin-top: 8px;
+        }
+
+        .runclub-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .runclub-feature {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+        }
+
+        .runclub-feature h5 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .runclub-feature p {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.5;
+        }
+
+        .runclub-cta {
+            margin-top: 32px;
+        }
+
+        .btn-matcha {
+            background: var(--matcha);
+            color: var(--white);
+        }
+
+        .btn-matcha:hover {
+            background: var(--matcha-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(122,182,72,0.3);
+        }
+
+        /* ===== EVENT SPACE ===== */
+        .events {
+            background: var(--white);
+        }
+
+        .events-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .events-visual {
+            width: 100%;
+            aspect-ratio: 4/3;
+            border-radius: var(--radius);
+            background: linear-gradient(160deg, var(--matcha-pale) 0%, var(--matcha-tint) 50%, #fff 100%);
+            border: 1px solid rgba(122,182,72,0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .events-visual::before {
+            content: '';
+            position: absolute;
+            inset: 16px;
+            border: 1px dashed rgba(122,182,72,0.2);
+            border-radius: calc(var(--radius) - 8px);
+        }
+
+        .events-visual-icons {
+            font-size: 48px;
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .events-visual-text {
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--matcha-dark);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .events-types {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .event-type {
+            background: var(--off-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            text-align: center;
+            transition: all var(--transition);
+        }
+
+        .event-type:hover {
+            border-color: rgba(122,182,72,0.2);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .event-type-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .event-type h5 {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* ===== FIND US ===== */
+        .findus {
+            background: var(--off-white);
+        }
+
+        .findus-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .findus-map {
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            min-height: 400px;
+        }
+
+        .findus-map iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border: none;
+            display: block;
+        }
+
+        .findus-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .findus-item {
+            margin-bottom: 28px;
+        }
+
+        .findus-item h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--matcha-dark);
+            margin-bottom: 8px;
+        }
+
+        .findus-item p,
+        .findus-item a {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            text-decoration: none;
+        }
+
+        .findus-item a:hover {
+            color: var(--matcha);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 999px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            transition: all var(--transition);
+        }
+
+        .social-link:hover {
+            border-color: var(--matcha);
+            color: var(--matcha);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.5);
+            padding: 48px 24px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .footer-logo span {
+            color: var(--matcha);
+        }
+
+        .footer-tagline {
+            font-size: 13px;
+            margin-bottom: 24px;
+            color: rgba(255,255,255,0.35);
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin: 0 auto 24px;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .footer-credit {
+            font-size: 12px;
+        }
+
+        .footer-credit a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        .footer-credit a:hover {
+            color: var(--matcha);
+        }
+
+        /* ===== DEMO BANNER ===== */
+        .demo-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 10000;
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.8);
+            padding: 14px 24px;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.5;
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(122,182,72,0.3);
+        }
+
+        .demo-banner strong {
+            color: var(--matcha-light);
+        }
+
+        .demo-banner a {
+            color: var(--matcha-light);
+            text-decoration: underline;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+
+            .split-container {
+                grid-template-columns: 1fr;
+            }
+
+            .split-divider { display: none; }
+
+            .runclub-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .runclub .section-desc {
+                margin: 0 auto;
+            }
+
+            .runclub-features {
+                max-width: 400px;
+                margin: 32px auto 0;
+            }
+
+            .runclub-cta {
+                text-align: center;
+            }
+
+            .events-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .events-visual {
+                order: -1;
+            }
+
+            .findus-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav { padding: 0 20px; }
+
+            .section { padding: 64px 16px; }
+
+            .hero { padding: 100px 16px 64px; }
+            .hero h1 { letter-spacing: -1.5px; }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .split-side {
+                padding: 48px 24px;
+            }
+
+            .runclub-features {
+                grid-template-columns: 1fr;
+            }
+
+            .events-types {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-grid.active {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Padding for fixed nav */
+        body {
+            padding-bottom: 52px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Grain overlay -->
+    <div class="grain-overlay"></div>
+
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        <strong>Template Preview</strong> - This is a demo website created by <a href="https://fusioncreative.uk" target="_blank">Fusion Creative</a> to showcase what we can build for KULT. Content and images are placeholders.
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="#" class="nav-logo">KULT<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#runclub">Run Club</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#findus">Find Us</a></li>
+            <li><a href="https://www.instagram.com/kult.gosforth" target="_blank" class="nav-cta">Follow Us</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#about" onclick="closeMobile()">About</a>
+        <a href="#menu" onclick="closeMobile()">Menu</a>
+        <a href="#runclub" onclick="closeMobile()">Run Club</a>
+        <a href="#events" onclick="closeMobile()">Events</a>
+        <a href="#findus" onclick="closeMobile()">Find Us</a>
+        <a href="https://www.instagram.com/kult.gosforth" target="_blank">Instagram</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge reveal">Gosforth High Street</div>
+            <h1 class="reveal reveal-delay-1">KULT<span class="dot">.</span></h1>
+            <p class="hero-tagline reveal reveal-delay-2">Coffee. Matcha. Protein. Community.</p>
+            <p class="hero-location reveal reveal-delay-3">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                High Street, Gosforth, Newcastle upon Tyne
+            </p>
+            <div class="hero-buttons reveal reveal-delay-4">
+                <a href="#menu" class="btn btn-primary">View Menu</a>
+                <a href="#runclub" class="btn btn-outline">Join Run Club</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="about">
+        <div class="section-inner">
+            <div class="about-header">
+                <div class="section-label reveal">More Than a Cafe</div>
+                <h2 class="section-title reveal reveal-delay-1">Fuel by day.<br>Unwind by evening.</h2>
+                <p class="section-desc reveal reveal-delay-2">KULT is Gosforth's modern fuel bar. Specialty coffee and matcha by morning. High-protein acai bowls and overnight oats by day. Wine, beer, and cocktails by evening. Plus a community run club every Thursday and event space for hire.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">&#9749;</div>
+                    <h4>Specialty Coffee</h4>
+                    <p>Expertly pulled espresso, oat lattes, and single origin brews</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-1">
+                    <div class="feature-icon">&#127861;</div>
+                    <h4>Matcha Bar</h4>
+                    <p>Ceremonial grade matcha, iced matcha, and matcha lattes</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <div class="feature-icon">&#127838;</div>
+                    <h4>Protein Kitchen</h4>
+                    <p>Acai bowls, protein smoothies, overnight oats, and fuel food</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <div class="feature-icon">&#127863;</div>
+                    <h4>Evening Bar</h4>
+                    <p>Natural wine, craft beer, espresso martinis, and cocktails</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-4">
+                    <div class="feature-icon">&#127939;</div>
+                    <h4>Run Club</h4>
+                    <p>Every Thursday. All levels welcome. Post-run drinks included.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-5">
+                    <div class="feature-icon">&#127880;</div>
+                    <h4>Event Space</h4>
+                    <p>Private hire, workshops, pop-ups, and community gatherings</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Day / Night Split -->
+    <section class="split-section" id="concept">
+        <div class="split-divider"></div>
+        <div class="split-container">
+            <div class="split-side split-day">
+                <div class="split-visual">
+                    <div class="split-visual-icons">
+                        <span>&#127861;</span>
+                        <span>&#127815;</span>
+                        <span>&#9749;</span>
+                    </div>
+                </div>
+                <div class="split-label">By Day</div>
+                <h2 class="split-title">Fuel<span class="dot" style="color:var(--matcha)">.</span></h2>
+                <p class="split-desc">Start with a perfectly pulled flat white or a ceremonial matcha latte. Refuel with an acai bowl, protein smoothie, or a loaded avocado toast. This is your morning and afternoon destination.</p>
+                <div class="split-tags">
+                    <span class="split-tag">Matcha</span>
+                    <span class="split-tag">Acai Bowls</span>
+                    <span class="split-tag">Coffee</span>
+                    <span class="split-tag">Protein</span>
+                    <span class="split-tag">Lunch</span>
+                </div>
+            </div>
+            <div class="split-side split-night">
+                <div class="split-visual">
+                    <div class="split-visual-icons">
+                        <span>&#127864;</span>
+                        <span>&#127865;</span>
+                        <span>&#127867;</span>
+                    </div>
+                </div>
+                <div class="split-label">By Night</div>
+                <h2 class="split-title">Unwind<span class="dot" style="color:var(--matcha-light)">.</span></h2>
+                <p class="split-desc">As the lights dim, KULT transforms. Natural wines, craft beers, espresso martinis, and cocktails. The same space, a completely different energy. This is Gosforth's new evening destination.</p>
+                <div class="split-tags">
+                    <span class="split-tag">Cocktails</span>
+                    <span class="split-tag">Natural Wine</span>
+                    <span class="split-tag">Craft Beer</span>
+                    <span class="split-tag">Espresso Martini</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="section menu-section" id="menu">
+        <div class="section-inner">
+            <div class="menu-header">
+                <div class="section-label reveal">The Menu</div>
+                <h2 class="section-title reveal reveal-delay-1">What we serve.</h2>
+                <p class="section-desc reveal reveal-delay-2">From matcha lattes to espresso martinis. Something for every hour of the day.</p>
+            </div>
+
+            <div class="menu-categories reveal">
+                <button class="menu-cat-btn active" data-cat="coffee">Coffee & Matcha</button>
+                <button class="menu-cat-btn" data-cat="protein">Protein Kitchen</button>
+                <button class="menu-cat-btn" data-cat="lunch">Lunch</button>
+                <button class="menu-cat-btn" data-cat="evening">Evening</button>
+            </div>
+
+            <!-- Coffee & Matcha -->
+            <div class="menu-grid active" id="menu-coffee">
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Flat White</h4>
+                        <p>Double shot, velvety microfoam</p>
+                    </div>
+                    <div class="menu-card-price">&pound;3.50</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Oat Latte</h4>
+                        <p>Espresso with steamed oat milk</p>
+                    </div>
+                    <div class="menu-card-price">&pound;3.80</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Matcha Latte</h4>
+                        <p>Ceremonial grade, oat or whole milk</p>
+                    </div>
+                    <div class="menu-card-price">&pound;4.20</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Iced Matcha</h4>
+                        <p>Shaken matcha over ice</p>
+                    </div>
+                    <div class="menu-card-price">&pound;4.50</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Ceremonial Matcha</h4>
+                        <p>Pure whisked matcha, traditional style</p>
+                    </div>
+                    <div class="menu-card-price">&pound;5.00</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Chai Latte</h4>
+                        <p>Spiced chai with steamed milk</p>
+                    </div>
+                    <div class="menu-card-price">&pound;4.00</div>
+                </div>
+            </div>
+
+            <!-- Protein Kitchen -->
+            <div class="menu-grid" id="menu-protein">
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Acai Bowl</h4>
+                        <p>Blended acai, granola, fresh fruit, coconut</p>
+                    </div>
+                    <div class="menu-card-price">&pound;9.50</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Protein Smoothie Bowl</h4>
+                        <p>Whey protein, banana, berries, nut butter</p>
+                    </div>
+                    <div class="menu-card-price">&pound;8.50</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Overnight Oats</h4>
+                        <p>Oats, chia, honey, seasonal fruit</p>
+                    </div>
+                    <div class="menu-card-price">&pound;6.50</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Protein Shake</h4>
+                        <p>Whey, oat milk, banana, peanut butter</p>
+                    </div>
+                    <div class="menu-card-price">&pound;7.00</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Granola Bowl</h4>
+                        <p>House granola, yoghurt, honey, fresh berries</p>
+                    </div>
+                    <div class="menu-card-price">&pound;7.50</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Avocado Toast</h4>
+                        <p>Sourdough, smashed avo, chilli flakes, seeds</p>
+                    </div>
+                    <div class="menu-card-price">&pound;10.50</div>
+                </div>
+            </div>
+
+            <!-- Lunch -->
+            <div class="menu-grid" id="menu-lunch">
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Chicken Wrap</h4>
+                        <p>Grilled chicken, mixed leaves, house dressing</p>
+                    </div>
+                    <div class="menu-card-price">&pound;9.50</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Halloumi Salad Bowl</h4>
+                        <p>Grilled halloumi, grain salad, tahini</p>
+                    </div>
+                    <div class="menu-card-price">&pound;9.50</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Soup of the Day</h4>
+                        <p>House-made soup with sourdough bread</p>
+                    </div>
+                    <div class="menu-card-price">&pound;7.50</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Toasted Ciabatta</h4>
+                        <p>Choice of fillings, served with salad</p>
+                    </div>
+                    <div class="menu-card-price">&pound;8.50</div>
+                </div>
+            </div>
+
+            <!-- Evening -->
+            <div class="menu-grid" id="menu-evening">
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Aperol Spritz</h4>
+                        <p>Aperol, prosecco, soda, orange</p>
+                    </div>
+                    <div class="menu-card-price">&pound;9.50</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Espresso Martini</h4>
+                        <p>Vodka, espresso, coffee liqueur</p>
+                    </div>
+                    <div class="menu-card-price">&pound;10.50</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Natural Wine</h4>
+                        <p>Rotating selection, ask the bar</p>
+                    </div>
+                    <div class="menu-card-price">&pound;7.50</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Craft Beer</h4>
+                        <p>Local and guest taps</p>
+                    </div>
+                    <div class="menu-card-price">&pound;5.50</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>Negroni</h4>
+                        <p>Gin, Campari, sweet vermouth</p>
+                    </div>
+                    <div class="menu-card-price">&pound;10.00</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-info">
+                        <h4>G&T</h4>
+                        <p>Premium gin, Fever-Tree tonic, botanicals</p>
+                    </div>
+                    <div class="menu-card-price">&pound;8.50</div>
+                </div>
+            </div>
+
+            <p style="text-align:center; font-size:13px; color:var(--text-muted); margin-top:24px;" class="reveal">Prices are indicative. Full menu available in store.</p>
+        </div>
+    </section>
+
+    <!-- Run Club -->
+    <section class="section runclub" id="runclub">
+        <div class="section-inner">
+            <div class="runclub-inner">
+                <div>
+                    <div class="section-label reveal">KULT Run Club</div>
+                    <h2 class="section-title reveal reveal-delay-1">Every Thursday<span class="dot" style="color:var(--matcha-light)">.</span></h2>
+                    <p class="section-desc reveal reveal-delay-2">Lace up, run from the cafe, and return for post-run drinks. All levels welcome. Whether you are training for a marathon or just starting out, this is your crew. No pressure, just good energy and good people.</p>
+
+                    <div class="runclub-features reveal reveal-delay-3">
+                        <div class="runclub-feature">
+                            <h5>All Levels</h5>
+                            <p>Beginners to experienced runners</p>
+                        </div>
+                        <div class="runclub-feature">
+                            <h5>Free to Join</h5>
+                            <p>Just show up on Thursday</p>
+                        </div>
+                        <div class="runclub-feature">
+                            <h5>Post-Run Drinks</h5>
+                            <p>Protein shakes or something stronger</p>
+                        </div>
+                        <div class="runclub-feature">
+                            <h5>Community</h5>
+                            <p>Meet people, make friends, keep moving</p>
+                        </div>
+                    </div>
+
+                    <div class="runclub-cta reveal reveal-delay-4">
+                        <a href="https://www.instagram.com/kult.gosforth" target="_blank" class="btn btn-matcha">Join via Instagram</a>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-2">
+                    <div class="runclub-visual">
+                        <div class="runclub-visual-inner">
+                            <div class="runclub-visual-day">Thursday</div>
+                            <div class="runclub-visual-time">RUN</div>
+                            <div class="runclub-visual-label">All levels welcome</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Space -->
+    <section class="section events" id="events">
+        <div class="section-inner">
+            <div class="events-inner">
+                <div>
+                    <div class="section-label reveal">Event Space</div>
+                    <h2 class="section-title reveal reveal-delay-1">Host at KULT<span class="dot" style="color:var(--matcha)">.</span></h2>
+                    <p class="section-desc reveal reveal-delay-2">KULT transforms for your event. Available for private hire, workshops, pop-ups, community gatherings, and meetings. A unique space that sets the tone for whatever you are planning.</p>
+
+                    <div class="events-types reveal reveal-delay-3">
+                        <div class="event-type">
+                            <div class="event-type-icon">&#127881;</div>
+                            <h5>Private Hire</h5>
+                        </div>
+                        <div class="event-type">
+                            <div class="event-type-icon">&#128218;</div>
+                            <h5>Workshops</h5>
+                        </div>
+                        <div class="event-type">
+                            <div class="event-type-icon">&#127922;</div>
+                            <h5>Pop-Ups</h5>
+                        </div>
+                        <div class="event-type">
+                            <div class="event-type-icon">&#128188;</div>
+                            <h5>Meetings</h5>
+                        </div>
+                    </div>
+
+                    <p class="reveal reveal-delay-4" style="margin-top:28px; font-size:15px; color:var(--text-secondary);">Enquire via <a href="https://www.instagram.com/kult.gosforth" target="_blank" style="color:var(--matcha); font-weight:600; text-decoration:none;">Instagram</a> or email to check availability and discuss your event.</p>
+                </div>
+                <div class="events-visual reveal reveal-delay-2">
+                    <div class="events-visual-icons">
+                        <span>&#127880;</span>
+                        <span>&#127881;</span>
+                        <span>&#127870;</span>
+                    </div>
+                    <div class="events-visual-text">Your Event Here</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Find Us -->
+    <section class="section findus" id="findus">
+        <div class="section-inner">
+            <div class="section-label reveal" style="text-align:center;">Find Us</div>
+            <h2 class="section-title reveal reveal-delay-1" style="text-align:center; margin-bottom:48px;">Come say hello<span class="dot" style="color:var(--matcha)">.</span></h2>
+            <div class="findus-inner reveal reveal-delay-2">
+                <div class="findus-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2285.5!2d-1.609!3d54.9815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTTCsDU4JzUzLjQiTiAxwrAzNiczMi40Ilc!5e0!3m2!1sen!2suk!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="findus-info">
+                    <div class="findus-item">
+                        <h4>Address</h4>
+                        <p>High Street<br>Gosforth<br>Newcastle upon Tyne</p>
+                    </div>
+                    <div class="findus-item">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/kult.gosforth" target="_blank" class="social-link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                Instagram
+                            </a>
+                            <a href="https://www.facebook.com/KULTGosforth" target="_blank" class="social-link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.737-.9 10.125-5.864 10.125-11.854z"/></svg>
+                                Facebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">KULT<span>.</span></div>
+        <div class="footer-tagline">Coffee. Matcha. Protein. Community.</div>
+        <div class="footer-divider"></div>
+        <div class="footer-copy">&copy; 2026 KULT. Gosforth. All rights reserved.</div>
+        <div class="footer-credit">Website by <a href="https://fusioncreative.uk" target="_blank">Fusion Creative</a></div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        });
+
+        function closeMobile() {
+            mobileMenuBtn.classList.remove('active');
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Nav scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        reveals.forEach(el => observer.observe(el));
+
+        // Menu category switching
+        const catBtns = document.querySelectorAll('.menu-cat-btn');
+        const menuGrids = document.querySelectorAll('.menu-grid');
+
+        catBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const cat = btn.dataset.cat;
+
+                catBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                menuGrids.forEach(g => g.classList.remove('active'));
+                document.getElementById('menu-' + cat).classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
