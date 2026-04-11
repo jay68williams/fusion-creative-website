@@ -10,10 +10,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 // ===== NAVBAR MORPHING =====
 const navbar = document.getElementById('navbar');
+const alwaysScrolled = navbar && navbar.classList.contains('scrolled');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 100) {
     navbar.classList.add('scrolled');
-  } else {
+  } else if (!alwaysScrolled) {
     navbar.classList.remove('scrolled');
   }
 });
