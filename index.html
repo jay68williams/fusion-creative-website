@@ -964,18 +964,17 @@
       position: relative;
       z-index: 10;
       max-width: 1000px;
-      margin: -80px auto -60px;
+      margin: -60px auto -40px;
       padding: 0 24px;
     }
-    .hiw-sticker-wrap::before {
-      content: '';
+    .hiw-glow {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 80%;
-      height: 70%;
-      background: radial-gradient(ellipse, rgba(230,59,46,0.6) 0%, rgba(230,59,46,0.3) 40%, transparent 70%);
+      width: 70%;
+      height: 80%;
+      background: radial-gradient(ellipse, rgba(230,59,46,0.55) 0%, rgba(230,59,46,0.25) 40%, transparent 70%);
       filter: blur(60px);
       z-index: 5;
       pointer-events: none;
@@ -988,11 +987,8 @@
       text-align: center;
       transform: rotate(-1.5deg) scale(0.6);
       opacity: 0;
-      box-shadow:
-        0 4px 30px rgba(0,0,0,0.5),
-        0 0 60px rgba(230,59,46,0.3);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.5);
       position: relative;
-      overflow: hidden;
       transition: none;
       z-index: 6;
     }
@@ -1010,13 +1006,6 @@
       50% { transform: rotate(-0.5deg) scale(0.97); opacity: 1; }
       70% { transform: rotate(-1.8deg) scale(1.02); }
       100% { transform: rotate(-1.5deg) scale(1); opacity: 1; }
-    }
-    .hiw-sticker::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      opacity: 0.05;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
     }
     .hiw-sticker .hiw-inner { position: relative; z-index: 1; }
     .hiw-sticker .hiw-label {
@@ -1064,6 +1053,7 @@
     }
   </style>
   <div class="hiw-sticker-wrap">
+    <div class="hiw-glow"></div>
     <a href="/why-us" class="hiw-sticker" id="hiwSticker" style="display:block; text-decoration:none; color:#fff; cursor:pointer;">
       <div class="hiw-inner">
         <p class="hiw-label">Why Fusion Creative</p>
