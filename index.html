@@ -976,12 +976,22 @@
       transform: rotate(-1.5deg) scale(0.6);
       opacity: 0;
       box-shadow:
-        0 24px 80px rgba(0,0,0,0.3),
-        0 0 120px rgba(230,59,46,0.15),
-        0 0 200px rgba(230,59,46,0.08);
+        0 24px 80px rgba(0,0,0,0.35),
+        0 0 100px rgba(230,59,46,0.4),
+        0 0 200px rgba(230,59,46,0.25),
+        0 0 350px rgba(230,59,46,0.12);
       position: relative;
       overflow: hidden;
       transition: none;
+    }
+    .hiw-sticker:hover {
+      box-shadow:
+        0 24px 80px rgba(0,0,0,0.4),
+        0 0 120px rgba(230,59,46,0.5),
+        0 0 250px rgba(230,59,46,0.3),
+        0 0 400px rgba(230,59,46,0.15) !important;
+      transform: rotate(-1deg) scale(1.02) !important;
+      transition: box-shadow 0.3s ease, transform 0.3s ease !important;
     }
     .hiw-sticker.stamped {
       transform: rotate(-1.5deg) scale(1);
@@ -1047,19 +1057,23 @@
     }
   </style>
   <div class="hiw-sticker-wrap">
-    <div class="hiw-sticker" id="hiwSticker">
+    <a href="/why-us" class="hiw-sticker" id="hiwSticker" style="display:block; text-decoration:none; color:#fff; cursor:pointer;">
       <div class="hiw-inner">
-        <p class="hiw-label">/ How It Works</p>
-        <h2>From zero to <em>viral</em> in four steps.</h2>
-        <p class="hiw-desc">Discovery. Production. Publish. Scale. We handle the entire process so you can focus on running your business.</p>
+        <p class="hiw-label">Why Fusion Creative</p>
+        <h2>What makes us <em>different?</em></h2>
+        <p class="hiw-desc">A full creative team, custom-built tech, and proven results. All for less than the cost of one hire. See how we compare.</p>
         <div class="hiw-steps">
-          <div><div class="hiw-step-num">01</div><div class="hiw-step-label">Discover</div></div>
-          <div><div class="hiw-step-num">02</div><div class="hiw-step-label">Create</div></div>
-          <div><div class="hiw-step-num">03</div><div class="hiw-step-label">Publish</div></div>
-          <div><div class="hiw-step-num">04</div><div class="hiw-step-label">Scale</div></div>
+          <div><div class="hiw-step-num" style="font-size:1.4rem;">&#10003;</div><div class="hiw-step-label">Full Team</div></div>
+          <div><div class="hiw-step-num" style="font-size:1.4rem;">&#10003;</div><div class="hiw-step-label">Custom Tech</div></div>
+          <div><div class="hiw-step-num" style="font-size:1.4rem;">&#10003;</div><div class="hiw-step-label">Proven Results</div></div>
+          <div><div class="hiw-step-num" style="font-size:1.4rem;">&#10003;</div><div class="hiw-step-label">One Price</div></div>
         </div>
+        <a href="/why-us" style="display:inline-flex; align-items:center; gap:8px; background:var(--signal); color:#fff; padding:14px 32px; border-radius:var(--rad-sm); font-weight:600; font-size:0.9rem; text-decoration:none; margin-top:28px; transition:background 0.2s ease;">
+          See our pricing & comparison
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
-    </div>
+    </a>
   </div>
   <script>
     (function() {
@@ -1153,20 +1167,6 @@
           <a href="#contact" class="btn btn-outline"><span>Get in Touch</span></a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- WHY US BANNER -->
-  <section style="background:#111; padding:80px 0; text-align:center; position:relative; overflow:hidden;">
-    <div style="position:absolute; inset:0; opacity:0.04; background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27300%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.65%27 numOctaves=%273%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27300%27 height=%27300%27 filter=%27url(%23n)%27/%3E%3C/svg%3E');"></div>
-    <div style="position:relative; z-index:1; max-width:700px; margin:0 auto; padding:0 24px;">
-      <p style="font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--signal); margin-bottom:16px;">Why Fusion Creative</p>
-      <h2 style="font-family:var(--font-serif); font-size:clamp(2rem,4vw,3rem); color:#fff; margin-bottom:16px;">What makes us different?</h2>
-      <p style="color:#888; font-size:1rem; line-height:1.7; margin-bottom:32px;">A full creative team, custom-built tech, and proven results. All for less than the cost of one hire. See how we compare.</p>
-      <a href="/why-us" style="display:inline-flex; align-items:center; gap:8px; background:var(--signal); color:#fff; padding:14px 32px; border-radius:var(--rad-sm); font-weight:600; font-size:0.9rem; text-decoration:none; transition:background 0.2s ease;">
-        See our pricing & comparison
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
     </div>
   </section>
 
