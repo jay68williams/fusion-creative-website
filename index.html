@@ -967,31 +967,38 @@
       margin: -80px auto -60px;
       padding: 0 24px;
     }
+    .hiw-sticker-wrap::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 70%;
+      background: radial-gradient(ellipse, rgba(230,59,46,0.6) 0%, rgba(230,59,46,0.3) 40%, transparent 70%);
+      filter: blur(60px);
+      z-index: 5;
+      pointer-events: none;
+    }
     .hiw-sticker {
-      background: #111;
+      background: #0d0d0d;
       color: #fff;
       border-radius: 2.4rem;
-      padding: 56px 64px;
+      padding: 60px 64px;
       text-align: center;
       transform: rotate(-1.5deg) scale(0.6);
       opacity: 0;
       box-shadow:
-        0 24px 80px rgba(0,0,0,0.35),
-        0 0 100px rgba(230,59,46,0.4),
-        0 0 200px rgba(230,59,46,0.25),
-        0 0 350px rgba(230,59,46,0.12);
+        0 4px 30px rgba(0,0,0,0.5),
+        0 0 60px rgba(230,59,46,0.3);
       position: relative;
       overflow: hidden;
       transition: none;
+      z-index: 6;
     }
     .hiw-sticker:hover {
-      box-shadow:
-        0 24px 80px rgba(0,0,0,0.4),
-        0 0 120px rgba(230,59,46,0.5),
-        0 0 250px rgba(230,59,46,0.3),
-        0 0 400px rgba(230,59,46,0.15) !important;
       transform: rotate(-1deg) scale(1.02) !important;
-      transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+      transition: transform 0.3s ease !important;
     }
     .hiw-sticker.stamped {
       transform: rotate(-1.5deg) scale(1);
