@@ -17,6 +17,59 @@
       padding: 160px 0 80px;
       text-align: center;
       background: var(--off-white);
+      position: relative;
+      overflow: hidden;
+    }
+    /* Floating animated orbs */
+    .why-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0.12;
+      filter: blur(60px);
+    }
+    .why-orb-1 {
+      width: 400px; height: 400px;
+      background: var(--signal);
+      top: -100px; right: -100px;
+      animation: orb-drift-1 8s ease-in-out infinite alternate;
+    }
+    .why-orb-2 {
+      width: 300px; height: 300px;
+      background: #ff8a65;
+      bottom: -80px; left: -60px;
+      animation: orb-drift-2 10s ease-in-out infinite alternate;
+    }
+    .why-orb-3 {
+      width: 200px; height: 200px;
+      background: var(--signal);
+      top: 40%; left: 50%;
+      animation: orb-drift-3 12s ease-in-out infinite alternate;
+    }
+    @keyframes orb-drift-1 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-60px, 40px) scale(1.15); }
+    }
+    @keyframes orb-drift-2 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(50px, -30px) scale(1.1); }
+    }
+    @keyframes orb-drift-3 {
+      0% { transform: translate(-50%, 0) scale(0.8); opacity: 0.08; }
+      100% { transform: translate(-40%, -20px) scale(1.2); opacity: 0.15; }
+    }
+    /* Fade-in stagger for hero text */
+    .why-hero .container { position: relative; z-index: 1; }
+    .why-fade {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: why-fade-in 0.8s ease forwards;
+    }
+    .why-fade-d1 { animation-delay: 0.1s; }
+    .why-fade-d2 { animation-delay: 0.3s; }
+    .why-fade-d3 { animation-delay: 0.5s; }
+    @keyframes why-fade-in {
+      to { opacity: 1; transform: translateY(0); }
     }
     .why-hero h1 {
       font-family: var(--font-serif);
@@ -376,10 +429,13 @@
 
   <!-- HERO -->
   <header class="why-hero">
+    <div class="why-orb why-orb-1"></div>
+    <div class="why-orb why-orb-2"></div>
+    <div class="why-orb why-orb-3"></div>
     <div class="container">
-      <p class="label" style="color:var(--signal); font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:16px;">Why Fusion Creative</p>
-      <h1>Everything you need.<br>One monthly price.</h1>
-      <p>Content creation, social media management, analytics, websites, booking systems, and reporting. All handled, so you can focus on running your business.</p>
+      <p class="label why-fade why-fade-d1" style="color:var(--signal); font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:16px;">Why Fusion Creative</p>
+      <h1 class="why-fade why-fade-d2">Everything you need.<br>One monthly price.</h1>
+      <p class="why-fade why-fade-d3">Content creation, social media management, analytics, websites, booking systems, and reporting. All handled, so you can focus on running your business.</p>
     </div>
   </header>
 
