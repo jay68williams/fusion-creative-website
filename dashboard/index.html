@@ -125,7 +125,7 @@
 
     /* Full circle visual */
     .circle-section {
-      padding: 80px 0;
+      padding: 80px 0 120px;
       background: #0a0a0a;
       text-align: center;
       color: #fff;
@@ -140,7 +140,7 @@
     .circle-section p {
       color: #666;
       max-width: 500px;
-      margin: 0 auto 40px;
+      margin: 0 auto 80px;
     }
     .hub-wrap {
       width: 420px;
@@ -190,6 +190,28 @@
       background: rgba(230,59,46,0.5);
       border-radius: 50%;
     }
+    .orb-icon {
+      position: absolute;
+      width: 32px; height: 32px;
+      background: rgba(230,59,46,0.15);
+      border: 1px solid rgba(230,59,46,0.25);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .orb-icon svg { width: 14px; height: 14px; color: var(--signal); }
+    .orb-icon-sm {
+      position: absolute;
+      width: 24px; height: 24px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .orb-icon-sm svg { width: 11px; height: 11px; color: rgba(230,59,46,0.6); }
     /* Connection lines from centre */
     .hub-line {
       position: absolute;
@@ -410,24 +432,24 @@
       <div class="hub-line" style="transform:rotate(270deg);"></div>
       <div class="hub-line" style="transform:rotate(315deg);"></div>
 
-      <!-- Outer orbit (rotating dots) -->
+      <!-- Outer orbit (rotating dots + icons) -->
       <div class="hub-orbit">
-        <div class="orb-dot" style="top:0; left:50%; margin-left:-5px;"></div>
-        <div class="orb-dot" style="top:50%; right:0; margin-top:-5px;"></div>
-        <div class="orb-dot" style="bottom:0; left:50%; margin-left:-5px;"></div>
-        <div class="orb-dot" style="top:50%; left:0; margin-top:-5px;"></div>
-        <div class="orb-dot-sm" style="top:12%; right:12%;"></div>
-        <div class="orb-dot-sm" style="bottom:12%; right:12%;"></div>
-        <div class="orb-dot-sm" style="bottom:12%; left:12%;"></div>
-        <div class="orb-dot-sm" style="top:12%; left:12%;"></div>
+        <div class="orb-icon" style="top:-16px; left:50%; margin-left:-16px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+        <div class="orb-icon" style="top:50%; right:-16px; margin-top:-16px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="orb-icon" style="bottom:-16px; left:50%; margin-left:-16px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg></div>
+        <div class="orb-icon" style="top:50%; left:-16px; margin-top:-16px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <div class="orb-dot" style="top:12%; right:12%;"></div>
+        <div class="orb-dot" style="bottom:12%; right:12%;"></div>
+        <div class="orb-dot" style="bottom:12%; left:12%;"></div>
+        <div class="orb-dot" style="top:12%; left:12%;"></div>
       </div>
 
       <!-- Inner orbit (rotating opposite) -->
       <div class="hub-orbit-inner">
-        <div class="orb-dot-sm" style="top:0; left:50%; margin-left:-3px;"></div>
-        <div class="orb-dot-sm" style="top:50%; right:0; margin-top:-3px;"></div>
-        <div class="orb-dot-sm" style="bottom:0; left:50%; margin-left:-3px;"></div>
-        <div class="orb-dot-sm" style="top:50%; left:0; margin-top:-3px;"></div>
+        <div class="orb-icon-sm" style="top:-12px; left:50%; margin-left:-12px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div>
+        <div class="orb-icon-sm" style="top:50%; right:-12px; margin-top:-12px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></div>
+        <div class="orb-icon-sm" style="bottom:-12px; left:50%; margin-left:-12px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <div class="orb-icon-sm" style="top:50%; left:-12px; margin-top:-12px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
       </div>
 
       <!-- Centre hub -->
