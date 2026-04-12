@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TS8XCRSG4W"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TS8XCRSG4W');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Dashboard - Fusion Creative | Full-Stack Digital Agency</title>
+  <meta name="description" content="See everything in one place. Bookings, app downloads, website traffic, social media performance, and weekly reports. Your full-stack client dashboard by Fusion Creative.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/main.css">
+  <style>
+    .dash-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+      background: #0a0a0a;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+    }
+    .dash-hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(230,59,46,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .dash-hero .container { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    .dash-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+    .dash-hero h1 em { font-style: italic; color: var(--signal); }
+    .dash-hero .lead {
+      font-size: 1.1rem;
+      color: #888;
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Loop section */
+    .loop-section {
+      padding: 80px 0;
+      background: var(--off-white);
+    }
+    .loop-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 56px;
+      padding: 0 24px;
+    }
+    .loop-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 12px;
+    }
+    .loop-header p { color: var(--mid); font-size: 1rem; }
+
+    .loop-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .loop-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--rad-md);
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .loop-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+      transform: translateY(-3px);
+    }
+    .loop-num {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--signal);
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .loop-num::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .loop-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+    .loop-card p {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+    .loop-icon {
+      position: absolute;
+      top: 24px; right: 24px;
+      width: 40px; height: 40px;
+      background: rgba(230,59,46,0.08);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .loop-icon svg { width: 20px; height: 20px; color: var(--signal); }
+
+    /* Full circle visual */
+    .circle-section {
+      padding: 80px 0;
+      background: #0a0a0a;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .circle-section h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 16px;
+    }
+    .circle-section p {
+      color: #666;
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+    .circle-ring {
+      width: 320px;
+      height: 320px;
+      margin: 0 auto;
+      position: relative;
+      animation: ring-spin 20s linear infinite;
+    }
+    @keyframes ring-spin {
+      to { transform: rotate(360deg); }
+    }
+    .circle-ring::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px dashed rgba(230,59,46,0.3);
+      border-radius: 50%;
+    }
+    .ring-node {
+      position: absolute;
+      width: 80px;
+      text-align: center;
+      animation: ring-counter-spin 20s linear infinite;
+    }
+    @keyframes ring-counter-spin {
+      to { transform: rotate(-360deg); }
+    }
+    .ring-node-dot {
+      width: 36px; height: 36px;
+      background: var(--signal);
+      border-radius: 50%;
+      margin: 0 auto 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ring-node-dot svg { width: 16px; height: 16px; color: #fff; }
+    .ring-node span {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .ring-center {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--signal);
+      font-style: italic;
+    }
+
+    /* Features strip */
+    .features-section {
+      padding: 80px 0;
+      background: var(--off-white);
+    }
+    .features-list {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .features-list h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .feat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .feat-row:first-of-type { border-top: 1px solid var(--border); }
+    .feat-row span:first-child { font-size: 1rem; font-weight: 500; }
+    .feat-row span:last-child {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--signal);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* CTA */
+    .dash-cta {
+      padding: 100px 0;
+      text-align: center;
+      background: #fff;
+    }
+    .dash-cta h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 16px;
+    }
+    .dash-cta p {
+      color: var(--mid);
+      max-width: 480px;
+      margin: 0 auto 32px;
+    }
+    .dash-cta-btn {
+      display: inline-block;
+      background: var(--signal);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: var(--rad-sm);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+    .dash-cta-btn:hover { background: #c42f24; }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .fade-in { opacity: 0; animation: dash-fade 0.8s ease forwards; }
+    .fade-d1 { animation-delay: 0.1s; }
+    .fade-d2 { animation-delay: 0.3s; }
+    .fade-d3 { animation-delay: 0.5s; }
+    @keyframes dash-fade { to { opacity: 1; } }
+
+    @media (max-width: 768px) {
+      .loop-grid { grid-template-columns: 1fr; }
+      .circle-ring { width: 240px; height: 240px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Fusion Creative</a>
+      <ul class="nav-links">
+        <li><a href="/#results">Results</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/why-us">Why Us</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+      <a href="/login" class="btn btn-signal"><span>Client Login</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="dash-hero">
+    <div class="container">
+      <p class="fade-in fade-d1" style="font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--signal); margin-bottom:16px;">Your Client Dashboard</p>
+      <h1 class="fade-in fade-d2">Not just content.<br>The <em>full picture.</em></h1>
+      <p class="lead fade-in fade-d3">Every client gets a live dashboard that tracks everything. Bookings, app downloads, website visits, social media performance, and weekly reports. All in one place.</p>
+    </div>
+  </header>
+
+  <!-- THE LOOP -->
+  <section class="loop-section">
+    <div class="loop-header">
+      <h2 class="reveal">The full-stack loop</h2>
+      <p class="reveal">Most agencies give you content and a report. We give you the entire ecosystem, tracked end to end.</p>
+    </div>
+
+    <div class="loop-grid">
+      <div class="loop-card reveal">
+        <div class="loop-num">01</div>
+        <div class="loop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+        <h3>We create the content</h3>
+        <p>Short-form videos, reels, TikToks. Filmed, edited, and optimised for your audience. Posted to your accounts on a schedule that drives maximum reach.</p>
+      </div>
+
+      <div class="loop-card reveal">
+        <div class="loop-num">02</div>
+        <div class="loop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>People discover your business</h3>
+        <p>Your content reaches thousands. They visit your website, check the menu, browse the gallery. Every visit is tracked in your dashboard.</p>
+      </div>
+
+      <div class="loop-card reveal">
+        <div class="loop-num">03</div>
+        <div class="loop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+        <h3>They take action</h3>
+        <p>They book a table, place an order, download the app, or call you directly. Every action is tracked. You see exactly what's converting.</p>
+      </div>
+
+      <div class="loop-card reveal">
+        <div class="loop-num">04</div>
+        <div class="loop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>You see the results</h3>
+        <p>Your dashboard shows everything: bookings, orders, downloads, website traffic, social media growth, and weekly reports. The full picture, live.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPINNING CIRCLE -->
+  <section class="circle-section">
+    <h2 class="reveal">Everything connects</h2>
+    <p class="reveal">Content drives traffic. Traffic drives action. Action drives revenue. You see it all.</p>
+    <div class="circle-ring">
+      <div class="ring-node" style="top:-30px; left:50%; margin-left:-40px;">
+        <div class="ring-node-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+        <span>Content</span>
+      </div>
+      <div class="ring-node" style="top:50%; right:-30px; margin-top:-30px;">
+        <div class="ring-node-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <span>Traffic</span>
+      </div>
+      <div class="ring-node" style="bottom:-30px; left:50%; margin-left:-40px;">
+        <div class="ring-node-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></div>
+        <span>Orders</span>
+      </div>
+      <div class="ring-node" style="top:50%; left:-30px; margin-top:-30px;">
+        <div class="ring-node-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <span>Results</span>
+      </div>
+      <div class="ring-center">Full Stack</div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section">
+    <div class="features-list">
+      <h2 class="reveal">What's in your dashboard</h2>
+      <div class="feat-row reveal"><span>Live booking calendar</span><span>Real-time</span></div>
+      <div class="feat-row reveal"><span>Today's reservations at a glance</span><span>Daily</span></div>
+      <div class="feat-row reveal"><span>Website visitor tracking</span><span>Google Analytics</span></div>
+      <div class="feat-row reveal"><span>Order click tracking (direct + Uber Eats)</span><span>Per click</span></div>
+      <div class="feat-row reveal"><span>App download tracking</span><span>Per click</span></div>
+      <div class="feat-row reveal"><span>Instagram performance (views, reach, engagement)</span><span>30-day rolling</span></div>
+      <div class="feat-row reveal"><span>TikTok performance (views, likes, shares)</span><span>Daily</span></div>
+      <div class="feat-row reveal"><span>Follower growth tracking + projection</span><span>Live</span></div>
+      <div class="feat-row reveal"><span>Best performing content highlights</span><span>Auto-detected</span></div>
+      <div class="feat-row reveal"><span>Weekly performance reports</span><span>Every Monday</span></div>
+      <div class="feat-row reveal"><span>Content pipeline visibility</span><span>Always up to date</span></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="dash-cta">
+    <h2 class="reveal">See it for yourself.</h2>
+    <p class="reveal">Book a call and we'll walk you through a live dashboard demo.</p>
+    <a href="/contact" class="dash-cta-btn reveal">Start a Project</a>
+  </section>
+
+  <script src="/scripts/main.js"></script>
+  <script>
+    (function() {
+      var els = document.querySelectorAll('.reveal');
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function(el) { obs.observe(el); });
+    })();
+  </script>
+</body>
+</html>
