@@ -222,14 +222,14 @@
       letter-spacing: 0.08em;
     }
     /* Floating animations - varied movement per node */
-    .hub-node:nth-child(1) { animation: nfloat1 3.5s ease-in-out infinite; }
-    .hub-node:nth-child(2) { animation: nfloat2 4.2s ease-in-out infinite 0.3s; }
-    .hub-node:nth-child(3) { animation: nfloat3 3.8s ease-in-out infinite 0.6s; }
-    .hub-node:nth-child(4) { animation: nfloat4 4.5s ease-in-out infinite 0.2s; }
-    .hub-node:nth-child(5) { animation: nfloat5 3.6s ease-in-out infinite 0.5s; }
-    .hub-node:nth-child(6) { animation: nfloat6 4.0s ease-in-out infinite 0.8s; }
-    .hub-node:nth-child(7) { animation: nfloat7 3.4s ease-in-out infinite 0.4s; }
-    .hub-node:nth-child(8) { animation: nfloat8 4.3s ease-in-out infinite 0.7s; }
+    .nf1 { animation: nfloat1 3.5s ease-in-out infinite !important; }
+    .nf2 { animation: nfloat2 4.2s ease-in-out infinite 0.3s !important; }
+    .nf3 { animation: nfloat3 3.8s ease-in-out infinite 0.6s !important; }
+    .nf4 { animation: nfloat4 4.5s ease-in-out infinite 0.2s !important; }
+    .nf5 { animation: nfloat5 3.6s ease-in-out infinite 0.5s !important; }
+    .nf6 { animation: nfloat6 4.0s ease-in-out infinite 0.8s !important; }
+    .nf7 { animation: nfloat7 3.4s ease-in-out infinite 0.4s !important; }
+    .nf8 { animation: nfloat8 4.3s ease-in-out infinite 0.7s !important; }
     @keyframes nfloat1 { 0%,100% { transform: translate(0, 0); } 25% { transform: translate(5px, -12px); } 50% { transform: translate(-3px, -16px); } 75% { transform: translate(-6px, -8px); } }
     @keyframes nfloat2 { 0%,100% { transform: translate(0, 0); } 25% { transform: translate(-8px, -6px); } 50% { transform: translate(4px, -14px); } 75% { transform: translate(7px, -4px); } }
     @keyframes nfloat3 { 0%,100% { transform: translate(0, 0); } 25% { transform: translate(6px, -10px); } 50% { transform: translate(-5px, -6px); } 75% { transform: translate(3px, -15px); } }
@@ -407,35 +407,35 @@
       <div class="hub-center-label">Full Stack</div>
 
       <!-- 8 floating nodes -->
-      <div class="hub-node" style="top:-20px; left:50%; margin-left:-28px;">
+      <div class="hub-node nf1" style="top:-20px; left:50%; margin-left:-28px;">
         <div class="hub-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
         <span>Content</span>
       </div>
-      <div class="hub-node" style="top:10%; right:0;">
+      <div class="hub-node nf2" style="top:10%; right:0;">
         <div class="hub-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
         <span>Traffic</span>
       </div>
-      <div class="hub-node" style="top:50%; right:-20px; margin-top:-28px;">
+      <div class="hub-node nf3" style="top:50%; right:-20px; margin-top:-28px;">
         <div class="hub-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div>
         <span>Website</span>
       </div>
-      <div class="hub-node" style="bottom:10%; right:0;">
+      <div class="hub-node nf4" style="bottom:10%; right:0;">
         <div class="hub-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></div>
         <span>Orders</span>
       </div>
-      <div class="hub-node" style="bottom:-20px; left:50%; margin-left:-28px;">
+      <div class="hub-node nf5" style="bottom:-20px; left:50%; margin-left:-28px;">
         <div class="hub-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg></div>
         <span>Bookings</span>
       </div>
-      <div class="hub-node" style="bottom:10%; left:0;">
+      <div class="hub-node nf6" style="bottom:10%; left:0;">
         <div class="hub-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
         <span>App</span>
       </div>
-      <div class="hub-node" style="top:50%; left:-20px; margin-top:-28px;">
+      <div class="hub-node nf7" style="top:50%; left:-20px; margin-top:-28px;">
         <div class="hub-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
         <span>Followers</span>
       </div>
-      <div class="hub-node" style="top:10%; left:0;">
+      <div class="hub-node nf8" style="top:10%; left:0;">
         <div class="hub-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
         <span>Results</span>
       </div>
