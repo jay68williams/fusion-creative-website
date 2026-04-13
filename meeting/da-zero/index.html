@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Da-Zero x Fusion Creative | Growth Meeting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        :root {
+            --bg: #0a0a0a;
+            --card: #141414;
+            --card-border: rgba(255,255,255,0.06);
+            --coral: #E8553C;
+            --white: #ffffff;
+            --muted: #888888;
+            --dim: #555555;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* Animations */
+        @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes countUp { from { opacity:0; transform:scale(0.8); } to { opacity:1; transform:scale(1); } }
+        .fade { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease, transform 0.7s ease; }
+        .fade.vis { opacity:1; transform:translateY(0); }
+
+        /* Hero */
+        .hero { padding:120px 0 80px; text-align:center; position:relative; overflow:hidden; }
+        .hero::before { content:''; position:absolute; top:-200px; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(232,85,60,0.1) 0%, transparent 60%); pointer-events:none; }
+        .hero-label { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--coral); margin-bottom:16px; }
+        .hero h1 { font-family:'DM Serif Display',serif; font-size:clamp(2.4rem,5vw,4rem); line-height:1.1; margin-bottom:16px; }
+        .hero h1 em { font-style:italic; color:var(--coral); }
+        .hero p { color:var(--muted); font-size:1.05rem; max-width:550px; margin:0 auto; line-height:1.7; }
+        .hero-date { display:inline-block; background:var(--card); border:1px solid var(--card-border); padding:8px 20px; border-radius:999px; font-size:0.8rem; color:var(--muted); margin-top:24px; }
+
+        /* Section */
+        .section { padding:60px 0; }
+        .section-label { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--coral); margin-bottom:12px; }
+        .section h2 { font-family:'DM Serif Display',serif; font-size:clamp(1.6rem,3vw,2.4rem); margin-bottom:16px; line-height:1.15; }
+        .section p.desc { color:var(--muted); font-size:0.92rem; max-width:600px; line-height:1.7; margin-bottom:32px; }
+
+        /* Stat cards */
+        .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:40px; }
+        .stat-card { background:var(--card); border:1px solid var(--card-border); border-radius:16px; padding:28px 24px; text-align:center; }
+        .stat-card .num { font-family:'DM Serif Display',serif; font-size:2.2rem; color:var(--coral); margin-bottom:4px; }
+        .stat-card .label { font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.1em; }
+
+        /* Case study card */
+        .case-card { background:var(--card); border:1px solid var(--card-border); border-radius:20px; padding:40px; margin-bottom:24px; position:relative; overflow:hidden; }
+        .case-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--coral), transparent); }
+        .case-card h3 { font-family:'DM Serif Display',serif; font-size:1.4rem; margin-bottom:8px; }
+        .case-card p { color:var(--muted); font-size:0.9rem; line-height:1.7; }
+        .case-tag { display:inline-block; background:rgba(232,85,60,0.1); color:var(--coral); font-size:0.7rem; font-weight:600; padding:4px 12px; border-radius:20px; margin-bottom:12px; letter-spacing:0.04em; }
+        .case-stats { display:flex; gap:24px; margin-top:20px; flex-wrap:wrap; }
+        .case-stat { text-align:center; }
+        .case-stat .val { font-family:'DM Serif Display',serif; font-size:1.5rem; color:var(--coral); }
+        .case-stat .lbl { font-size:0.65rem; color:var(--dim); text-transform:uppercase; letter-spacing:0.08em; }
+
+        /* Opportunity list */
+        .opp-list { list-style:none; }
+        .opp-item { display:flex; gap:16px; padding:20px 0; border-bottom:1px solid var(--card-border); }
+        .opp-item:last-child { border-bottom:none; }
+        .opp-num { font-family:'DM Serif Display',serif; font-size:1.4rem; color:var(--coral); flex-shrink:0; width:36px; }
+        .opp-item h4 { font-size:0.95rem; font-weight:600; margin-bottom:4px; }
+        .opp-item p { font-size:0.85rem; color:var(--muted); line-height:1.6; }
+
+        /* What you get */
+        .deliverable-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+        .deliverable { background:var(--card); border:1px solid var(--card-border); border-radius:14px; padding:24px; }
+        .deliverable h4 { font-size:0.9rem; font-weight:600; margin-bottom:6px; }
+        .deliverable p { font-size:0.82rem; color:var(--muted); line-height:1.6; }
+        .deliverable-icon { width:36px; height:36px; background:rgba(232,85,60,0.1); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:12px; }
+        .deliverable-icon svg { width:18px; height:18px; color:var(--coral); }
+
+        /* Pricing */
+        .price-card { background:var(--card); border:2px solid var(--coral); border-radius:20px; padding:48px 40px; text-align:center; margin:40px 0; position:relative; }
+        .price-card::before { content:'RECOMMENDED'; position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--coral); color:#fff; font-size:0.65rem; font-weight:700; padding:5px 16px; border-radius:20px; letter-spacing:0.1em; }
+        .price-card h3 { font-family:'DM Serif Display',serif; font-size:1.3rem; margin-bottom:8px; }
+        .price-card .amount { font-family:'DM Serif Display',serif; font-size:3rem; color:var(--coral); margin:16px 0 8px; }
+        .price-card .period { font-size:0.85rem; color:var(--muted); margin-bottom:24px; }
+        .price-features { list-style:none; text-align:left; max-width:400px; margin:0 auto 28px; }
+        .price-features li { padding:8px 0; font-size:0.88rem; color:var(--muted); border-bottom:1px solid var(--card-border); display:flex; align-items:center; gap:10px; }
+        .price-features li::before { content:'✓'; color:var(--coral); font-weight:700; }
+        .price-cta { display:inline-block; background:var(--coral); color:#fff; padding:14px 40px; border-radius:10px; font-weight:600; font-size:0.9rem; text-decoration:none; }
+
+        /* CTA */
+        .meeting-cta { padding:80px 0; text-align:center; }
+        .meeting-cta h2 { font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,3vw,2.6rem); margin-bottom:12px; }
+        .meeting-cta p { color:var(--muted); margin-bottom:32px; max-width:450px; margin-left:auto; margin-right:auto; }
+
+        /* Divider */
+        .divider { height:1px; background:var(--card-border); margin:40px 0; }
+
+        /* Responsive */
+        @media (max-width:640px) {
+            .stats-grid { grid-template-columns:1fr; }
+            .deliverable-grid { grid-template-columns:1fr; }
+            .case-stats { flex-direction:column; gap:12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="container">
+            <p class="hero-label fade">Fusion Creative x Da-Zero</p>
+            <h1 class="fade">Let's take Da-Zero <em>digital.</em></h1>
+            <p class="fade">A walkthrough of what we do, what we've built for other restaurants, and exactly what we can do for you.</p>
+            <div class="hero-date fade">Meeting - 13 April 2026</div>
+        </div>
+    </header>
+
+    <!-- WHO WE ARE -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label fade">Who We Are</div>
+            <h2 class="fade">Fusion Creative</h2>
+            <p class="desc fade">We're a full-stack digital agency based in the UK. We create short-form video content, manage social media, build websites, set up booking and ordering systems, and provide live analytics dashboards. Everything a restaurant needs to grow online, handled by one team.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card fade"><div class="num">100M+</div><div class="label">Views Generated</div></div>
+                <div class="stat-card fade"><div class="num">50+</div><div class="label">Clients Served</div></div>
+                <div class="stat-card fade"><div class="num">6+</div><div class="label">Years Experience</div></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- CASE STUDY: NEW GREEK -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label fade">Case Study</div>
+            <h2 class="fade">New Greek - From Zero to Viral</h2>
+            <p class="desc fade">A small independent Greek restaurant in Newcastle with zero social media presence before working with us. Here's what happened.</p>
+
+            <div class="case-card fade">
+                <div class="case-tag">Client: New Greek, Newcastle</div>
+                <h3>One reel. 30 million views.</h3>
+                <p>We built their entire digital presence from scratch. Content strategy, filming, editing, posting schedule. Within weeks, a single reel went viral, hitting 30 million views on Instagram. The restaurant went from empty tables to a waiting list.</p>
+                <div class="case-stats">
+                    <div class="case-stat"><div class="val">33.7M</div><div class="lbl">Total Views</div></div>
+                    <div class="case-stat"><div class="val">525K</div><div class="lbl">Engagements</div></div>
+                    <div class="case-stat"><div class="val">10.5K</div><div class="lbl">Followers</div></div>
+                    <div class="case-stat"><div class="val">30M</div><div class="lbl">Viral Reel</div></div>
+                </div>
+            </div>
+
+            <div class="case-card fade">
+                <div class="case-tag">What We Built</div>
+                <h3>Full digital ecosystem</h3>
+                <p>Beyond content, we built New Greek a custom website (newgreek.co.uk), a booking system with live capacity management, an order page with app downloads and Uber Eats integration, Google Analytics tracking, and a live client dashboard where they see everything - bookings, website traffic, social media performance, and weekly reports - all in real time.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- DA-ZERO OPPORTUNITY -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label fade">The Opportunity</div>
+            <h2 class="fade">Why Da-Zero is perfectly positioned</h2>
+            <p class="desc fade">"Da-Zero" means "from scratch." That's not just a name - it's a content strategy waiting to happen. Here's what we see.</p>
+
+            <ul class="opp-list">
+                <li class="opp-item fade">
+                    <div class="opp-num">01</div>
+                    <div>
+                        <h4>The "from scratch" story is gold</h4>
+                        <p>Every dish made from scratch is a piece of content. Dough being stretched, sauces being built, pasta being cut. This is exactly the type of content that goes viral on TikTok and Instagram. ASMR food content, process videos, behind-the-scenes. Da-Zero has this built into its DNA.</p>
+                    </div>
+                </li>
+                <li class="opp-item fade">
+                    <div class="opp-num">02</div>
+                    <div>
+                        <h4>No one in Chester-le-Street is doing this</h4>
+                        <p>We looked at every restaurant in the area. None of them are producing consistent, high-quality short-form video. The first one to do it properly owns the local market. That should be Da-Zero.</p>
+                    </div>
+                </li>
+                <li class="opp-item fade">
+                    <div class="opp-num">03</div>
+                    <div>
+                        <h4>You already have the love</h4>
+                        <p>Your Google reviews are strong. Customers already call you a "hidden gem." The food speaks for itself. What's missing is the distribution. We put the food in front of thousands of new people every week.</p>
+                    </div>
+                </li>
+                <li class="opp-item fade">
+                    <div class="opp-num">04</div>
+                    <div>
+                        <h4>Consolidate and dominate</h4>
+                        <p>Right now you have multiple websites and Instagram accounts splitting your presence. We consolidate everything into one powerful brand, one website, one account, one strategy. Every view, every follower, every booking flows into one place.</p>
+                    </div>
+                </li>
+                <li class="opp-item fade">
+                    <div class="opp-num">05</div>
+                    <div>
+                        <h4>TikTok is untouched</h4>
+                        <p>There's already a customer review video on TikTok rating Da-Zero 10/10. But it's on someone else's account. You need your own. Restaurants posting consistently on TikTok are seeing direct increases in bookings. Some go viral overnight.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- WHAT YOU GET -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label fade">What You Get</div>
+            <h2 class="fade">The full package</h2>
+            <p class="desc fade">Everything Da-Zero needs to grow, all handled by one team. No managing freelancers, no buying software, no figuring it out yourself.</p>
+
+            <div class="deliverable-grid">
+                <div class="deliverable fade">
+                    <div class="deliverable-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+                    <h4>Short-Form Video Production</h4>
+                    <p>We script, film, and edit videos optimised for TikTok and Instagram Reels. Hook-first content that stops the scroll.</p>
+                </div>
+                <div class="deliverable fade">
+                    <div class="deliverable-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                    <h4>Social Media Management</h4>
+                    <p>We handle posting, scheduling, captions, and hashtags. Consistent, strategic content on a schedule that drives growth.</p>
+                </div>
+                <div class="deliverable fade">
+                    <div class="deliverable-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></div>
+                    <h4>Custom Website</h4>
+                    <p>One clean, fast website with your menu, gallery, booking system, and ordering. Built for mobile, optimised for Google.</p>
+                </div>
+                <div class="deliverable fade">
+                    <div class="deliverable-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg></div>
+                    <h4>Booking System</h4>
+                    <p>Online table reservations with capacity management, email confirmations, and a calendar dashboard to manage everything.</p>
+                </div>
+                <div class="deliverable fade">
+                    <div class="deliverable-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                    <h4>Live Analytics Dashboard</h4>
+                    <p>See your Instagram, TikTok, website traffic, bookings, and orders all in one live dashboard. Updated in real time.</p>
+                </div>
+                <div class="deliverable fade">
+                    <div class="deliverable-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+                    <h4>Branding & Identity</h4>
+                    <p>A unified visual identity across all platforms. Logo refinement, colour palette, typography, and brand guidelines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- PRICING -->
+    <section class="section">
+        <div class="container" style="text-align:center;">
+            <div class="section-label fade">Investment</div>
+            <h2 class="fade">Simple pricing, everything included</h2>
+
+            <div class="price-card fade">
+                <h3>The Full Stack Package</h3>
+                <p style="color:var(--muted); font-size:0.9rem;">Content + social + website + booking + dashboard + branding</p>
+                <div class="amount">&pound;1,600</div>
+                <div class="period">per month - everything included</div>
+                <ul class="price-features">
+                    <li>Short-form video production (filming + editing)</li>
+                    <li>Social media management (Instagram + TikTok)</li>
+                    <li>Content strategy and posting schedule</li>
+                    <li>Custom website design and build</li>
+                    <li>Online booking system with capacity management</li>
+                    <li>Live analytics dashboard</li>
+                    <li>Weekly performance reports</li>
+                    <li>Full branding and digital upgrade</li>
+                    <li>No contracts - cancel anytime</li>
+                </ul>
+                <a href="/contact" class="price-cta">Let's Get Started</a>
+            </div>
+
+            <p class="fade" style="color:var(--dim); font-size:0.85rem; max-width:500px; margin:0 auto;">A full-time social media hire would cost &pound;2,500+/month in salary alone, plus software, equipment, and training. You get an entire team for less.</p>
+        </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- CTA -->
+    <section class="meeting-cta">
+        <div class="container">
+            <h2 class="fade">Ready to go from hidden gem to household name?</h2>
+            <p class="fade">Da-Zero has everything it needs to blow up. The food, the story, the name. We just need to put it in front of people.</p>
+            <a href="/contact" class="price-cta fade">Start a Project</a>
+        </div>
+    </section>
+
+    <div style="text-align:center; padding:40px 0; border-top:1px solid var(--card-border);">
+        <p style="font-size:0.75rem; color:var(--dim);">Prepared by <strong style="color:var(--white);">Fusion Creative</strong> | fusioncreative.uk</p>
+    </div>
+
+    <script>
+        const els = document.querySelectorAll('.fade');
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+        els.forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>
