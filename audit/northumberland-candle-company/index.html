@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northumberland Candle Co x Fusion Creative</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        :root { --bg:#0a0a0a; --card:#141414; --border:rgba(255,255,255,0.06); --coral:#E8553C; --white:#fff; --muted:#888; --dim:#555; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--white); line-height:1.6; -webkit-font-smoothing:antialiased; }
+        .container { max-width:800px; margin:0 auto; padding:0 24px; }
+        .fade { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s ease; }
+        .fade.vis { opacity:1; transform:translateY(0); }
+        .divider { height:1px; background:var(--border); margin:48px 0; }
+
+        /* Hero */
+        .hero { padding:100px 0 60px; text-align:center; position:relative; overflow:hidden; }
+        .hero::before { content:''; position:absolute; top:-200px; left:50%; transform:translateX(-50%); width:600px; height:600px; background:radial-gradient(circle, rgba(232,85,60,0.08) 0%, transparent 60%); }
+        .hero-label { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--coral); margin-bottom:14px; }
+        .hero h1 { font-family:'DM Serif Display',serif; font-size:clamp(2rem,4vw,3rem); line-height:1.1; margin-bottom:14px; }
+        .hero h1 em { font-style:italic; color:var(--coral); }
+        .hero p { color:var(--muted); font-size:0.95rem; max-width:500px; margin:0 auto; line-height:1.7; }
+
+        /* Section */
+        .section { padding:40px 0; }
+        .section-label { font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--coral); margin-bottom:10px; }
+        .section h2 { font-family:'DM Serif Display',serif; font-size:clamp(1.4rem,3vw,2rem); margin-bottom:12px; }
+        .section p.desc { color:var(--muted); font-size:0.88rem; max-width:550px; line-height:1.7; margin-bottom:24px; }
+
+        /* Ideas */
+        .idea-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+        .idea { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:20px; }
+        .idea-num { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--coral); margin-bottom:6px; }
+        .idea h4 { font-size:0.88rem; font-weight:600; margin-bottom:4px; }
+        .idea p { font-size:0.78rem; color:var(--muted); line-height:1.5; }
+
+        /* Pricing */
+        .price-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+        .price-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:28px 22px; position:relative; }
+        .price-card.featured { border-color:var(--coral); border-width:2px; }
+        .price-badge { position:absolute; top:-10px; left:50%; transform:translateX(-50%); background:var(--coral); color:#fff; font-size:0.58rem; font-weight:700; padding:4px 12px; border-radius:20px; letter-spacing:0.1em; text-transform:uppercase; white-space:nowrap; }
+        .price-card h3 { font-family:'DM Serif Display',serif; font-size:1.1rem; margin-bottom:4px; }
+        .price-amount { font-family:'DM Serif Display',serif; font-size:1.8rem; color:var(--coral); margin:10px 0 4px; }
+        .price-period { font-size:0.72rem; color:var(--muted); margin-bottom:16px; }
+        .price-list { list-style:none; }
+        .price-list li { padding:5px 0; font-size:0.78rem; color:var(--muted); border-bottom:1px solid var(--border); display:flex; gap:8px; }
+        .price-list li:last-child { border-bottom:none; }
+        .price-list li::before { content:'\\2713'; color:var(--coral); font-weight:700; }
+        .price-note { margin-top:12px; font-size:0.7rem; color:var(--dim); font-style:italic; }
+
+        /* CTA */
+        .cta { padding:60px 0; text-align:center; }
+        .cta h2 { font-family:'DM Serif Display',serif; font-size:clamp(1.4rem,3vw,2rem); margin-bottom:10px; }
+        .cta p { color:var(--muted); margin-bottom:24px; font-size:0.9rem; }
+        .cta-btn { display:inline-block; background:var(--coral); color:#fff; padding:12px 32px; border-radius:10px; font-weight:600; font-size:0.85rem; text-decoration:none; }
+
+        @media (max-width:640px) {
+            .idea-grid, .price-grid { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <p class="hero-label fade">Fusion Creative x Northumberland Candle Co</p>
+            <h1 class="fade">Here's what we can <em>do for you.</em></h1>
+            <p class="fade">Hey Ravi. Here's a breakdown of the content, email, and website packages we talked about. Pick what works for you.</p>
+        </div>
+    </header>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- CONTENT IDEAS -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label fade">Content Ideas</div>
+            <h2 class="fade">What 5 reels a week looks like</h2>
+            <p class="desc fade">Candle and wax melt brands are massive on TikTok and Instagram right now. Here are the types of videos we would be making.</p>
+
+            <div class="idea-grid">
+                <div class="idea fade">
+                    <div class="idea-num">01</div>
+                    <h4>Wax melt pours</h4>
+                    <p>Satisfying ASMR-style pouring shots. These are some of the highest-performing candle content formats on TikTok.</p>
+                </div>
+                <div class="idea fade">
+                    <div class="idea-num">02</div>
+                    <h4>Snap bar reveals</h4>
+                    <p>Breaking snap bars with the satisfying snap sound. Quick, shareable, perfect for Reels and TikTok.</p>
+                </div>
+                <div class="idea fade">
+                    <div class="idea-num">03</div>
+                    <h4>Scent reviews & rankings</h4>
+                    <p>"Ranking every wax melt in our shop" or "Which scent should you try first?" These drive engagement and comments.</p>
+                </div>
+                <div class="idea fade">
+                    <div class="idea-num">04</div>
+                    <h4>Behind the scenes</h4>
+                    <p>Packing orders, making batches, the family side of the business. People love seeing the real process.</p>
+                </div>
+                <div class="idea fade">
+                    <div class="idea-num">05</div>
+                    <h4>Subscription unboxings</h4>
+                    <p>Monthly box reveals showing what subscribers get. Creates FOMO and drives subscription signups.</p>
+                </div>
+                <div class="idea fade">
+                    <div class="idea-num">06</div>
+                    <h4>Trending sounds + hooks</h4>
+                    <p>Jumping on trending TikTok audio with candle-themed twists. These are how you hit the algorithm.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- PRICING -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label fade">Packages</div>
+            <h2 class="fade">Three options, pick what suits</h2>
+
+            <div class="price-grid">
+                <!-- Tier 1 -->
+                <div class="price-card fade">
+                    <h3>Content</h3>
+                    <div class="price-amount">&pound;900</div>
+                    <div class="price-period">per month</div>
+                    <ul class="price-list">
+                        <li>5 reels per week</li>
+                        <li>Posted on Instagram + TikTok</li>
+                        <li>Daily stories</li>
+                        <li>Content strategy</li>
+                        <li>Posting schedule</li>
+                        <li>Hashtag research</li>
+                        <li>Analytics reporting</li>
+                    </ul>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="price-card featured fade">
+                    <div class="price-badge">Popular</div>
+                    <h3>Content + Email</h3>
+                    <div class="price-amount">&pound;1,200</div>
+                    <div class="price-period">per month</div>
+                    <ul class="price-list">
+                        <li>Everything in Content</li>
+                        <li>2 email campaigns per month</li>
+                        <li>Email design and copywriting</li>
+                        <li>Subscriber list management</li>
+                        <li>Campaign analytics</li>
+                        <li>Product launch emails</li>
+                        <li>Seasonal promotions</li>
+                    </ul>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="price-card fade">
+                    <h3>Full Package</h3>
+                    <div class="price-amount">&pound;1,500</div>
+                    <div class="price-period">first month</div>
+                    <ul class="price-list">
+                        <li>Everything in Content + Email</li>
+                        <li>Full Shopify website revamp</li>
+                        <li>Improved product pages</li>
+                        <li>Mobile optimisation</li>
+                        <li>SEO improvements</li>
+                        <li>Conversion rate optimisation</li>
+                        <li>Ongoing site maintenance</li>
+                    </ul>
+                    <p class="price-note">Drops to &pound;1,200/mo after the first month once the website revamp is done. Then it's content + email + ongoing website maintenance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="fade">Let me know what works, Ravi.</h2>
+            <p class="fade">No pressure. Pick the one that makes sense and we'll get started whenever you're ready.</p>
+            <a href="https://fusioncreative.uk/contact" class="cta-btn fade">Get in Touch</a>
+        </div>
+    </section>
+
+    <div style="text-align:center; padding:32px 0; border-top:1px solid var(--border);">
+        <p style="font-size:0.7rem; color:var(--dim);">Prepared by <strong style="color:var(--white);">Fusion Creative</strong> | fusioncreative.uk</p>
+    </div>
+
+    <script>
+        const els = document.querySelectorAll('.fade');
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+        els.forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>
