@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Proposal - NGU Homes | Fusion Creative</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0a;
+            --card: #141414;
+            --border: rgba(255,255,255,0.06);
+            --coral: #E8553C;
+            --coral-light: #ff7a64;
+            --coral-dark: #c4412b;
+            --white: #ffffff;
+            --text: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --muted: #666666;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.88); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        .fade {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade.vis { opacity: 1; transform: translateY(0); }
+
+        .divider { height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent); margin: 48px 0; }
+
+        /* Header */
+        .header { padding: 48px 0 40px; border-bottom: 1px solid var(--border); }
+        .header-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+        .brand { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); }
+        .brand-dot { display: inline-block; width: 6px; height: 6px; background: var(--coral); border-radius: 50%; margin-right: 8px; position: relative; top: -1px; }
+        .header-date { font-size: 13px; color: var(--muted); font-weight: 400; }
+
+        /* Hero */
+        .hero { padding: 80px 0 60px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(232,85,60,0.07) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .hero-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--coral); margin-bottom: 16px; font-weight: 600; }
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .hero h1 em { font-style: italic; color: var(--coral); }
+        .hero-subtitle { color: var(--text-secondary); font-size: 1rem; max-width: 580px; margin: 0 auto; line-height: 1.7; }
+
+        /* Stats */
+        .stats { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin: 40px 0; }
+        .stat {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 22px 30px;
+            text-align: center;
+            flex: 1;
+            min-width: 140px;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .stat:hover { border-color: rgba(232,85,60,0.3); transform: translateY(-2px); }
+        .stat-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--coral); line-height: 1.2; }
+        .stat-label { font-size: 0.72rem; color: var(--muted); margin-top: 4px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+        /* Sections */
+        .section { padding: 40px 0; }
+        .section-label { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--coral); margin-bottom: 10px; font-weight: 700; }
+        .section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 20px; line-height: 1.2; }
+        .section-text { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.8; margin-bottom: 12px; }
+
+        /* Cards */
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 16px;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .card:hover { border-color: rgba(232,85,60,0.25); transform: translateY(-2px); }
+
+        /* Findings list */
+        .findings-list { list-style: none; }
+        .findings-list li {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            line-height: 1.7;
+        }
+        .findings-list li:last-child { border-bottom: none; }
+        .findings-list li::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 9px;
+        }
+
+        /* Opportunity cards */
+        .opp-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+        .opp-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--coral);
+            border-radius: 16px;
+            padding: 32px;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .opp-card:hover { border-color: rgba(232,85,60,0.35); border-left-color: var(--coral); transform: translateY(-2px); }
+        .opp-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--coral);
+            color: var(--white);
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 8px rgba(232,85,60,0.35);
+        }
+        .opp-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 10px; }
+        .opp-card p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.7; }
+
+        /* Case study */
+        .case-card {
+            background: linear-gradient(135deg, rgba(232,85,60,0.08) 0%, var(--card) 60%);
+            border: 1px solid rgba(232,85,60,0.15);
+            border-left: 4px solid var(--coral);
+            border-radius: 16px;
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+        }
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--coral-light));
+        }
+        .case-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin: 28px 0;
+        }
+        .case-stat {
+            text-align: center;
+            padding: 20px 14px;
+            background: rgba(232,85,60,0.06);
+            border: 1px solid rgba(232,85,60,0.12);
+            border-radius: 12px;
+        }
+        .case-stat .number {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            color: var(--coral);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .case-stat .label { font-size: 0.68rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; }
+        .case-quote {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.7;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(232,85,60,0.12);
+        }
+
+        /* Video ideas */
+        .ideas-grid { display: grid; gap: 16px; }
+        .idea-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 32px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .idea-card:hover { border-color: rgba(232,85,60,0.3); transform: translateY(-2px); }
+        .idea-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--coral);
+            border-radius: 4px 0 0 4px;
+        }
+        .idea-number { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--coral); margin-bottom: 6px; }
+        .idea-title { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 8px; }
+        .idea-desc { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.7; }
+
+        /* Cost comparison */
+        .cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .cost-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+        }
+        .cost-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 16px; }
+        .cost-card .price {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+        }
+        .cost-card ul { list-style: none; }
+        .cost-card ul li {
+            padding: 6px 0;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.6;
+        }
+        .cost-card ul li::before {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 7px;
+        }
+        .cost-hire ul li::before { background: var(--muted); }
+        .cost-hire .price { color: var(--muted); }
+
+        .cost-fc {
+            border-color: rgba(232,85,60,0.3);
+            background: linear-gradient(135deg, rgba(232,85,60,0.06) 0%, var(--card) 60%);
+        }
+        .cost-fc .price { color: var(--coral); }
+        .cost-fc ul li::before { background: var(--coral); }
+
+        .cost-bottom {
+            margin-top: 20px;
+            padding: 24px 28px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            text-align: center;
+        }
+        .cost-bottom p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        /* Service cards */
+        .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .service-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 22px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .service-card:hover { border-color: rgba(232,85,60,0.25); transform: translateY(-1px); }
+        .service-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--coral);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .service-card span { font-weight: 500; color: var(--text); }
+
+        /* CTA */
+        .cta-section { text-align: center; padding: 60px 0; }
+        .cta-section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3.5vw, 2.2rem); margin-bottom: 16px; }
+        .cta-section p { color: var(--text-secondary); font-size: 0.92rem; max-width: 520px; margin: 0 auto 28px; line-height: 1.7; }
+        .cta-btn {
+            display: inline-block;
+            background: var(--coral);
+            color: var(--white);
+            text-decoration: none;
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 20px rgba(232,85,60,0.3);
+        }
+        .cta-btn:hover {
+            background: var(--coral-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(232,85,60,0.4);
+        }
+        .cta-sub { margin-top: 16px; font-size: 0.78rem; color: var(--muted); }
+
+        /* Footer */
+        .footer { padding: 48px 0; text-align: center; border-top: 1px solid var(--border); }
+        .footer p { color: var(--muted); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .stats { flex-direction: column; }
+            .stat { min-width: auto; }
+            .cost-grid { grid-template-columns: 1fr; }
+            .service-grid { grid-template-columns: 1fr; }
+            .hero { padding: 60px 0 40px; }
+            .opp-card, .card, .idea-card { padding: 24px; }
+            .case-card { padding: 24px; }
+            .cost-card { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="brand"><span class="brand-dot"></span>Fusion Creative</div>
+                <div class="header-date">April 2026</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <p class="hero-label fade">Prepared for Chris Fitzakerley</p>
+            <h1 class="fade">NGU Homes <em>Content Proposal</em></h1>
+            <p class="hero-subtitle fade">You have 17 years of property expertise and 700+ managed properties. It is time to turn that knowledge into content that actually converts landlords, tenants and investors.</p>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="container">
+        <div class="stats fade">
+            <div class="stat">
+                <div class="stat-num">729</div>
+                <div class="stat-label">Instagram Followers</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">1,595</div>
+                <div class="stat-label">Posts Published</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">700+</div>
+                <div class="stat-label">Properties Managed</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">0</div>
+                <div class="stat-label">TikTok Presence</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- What We Noticed -->
+    <section class="section">
+        <div class="container">
+            <p class="section-label fade">The Problem</p>
+            <h2 class="fade">What We Noticed</h2>
+            <p class="section-text fade">NGU is not short on effort. 1,595 posts is serious output. But the results tell a different story. This is not a frequency problem. It is a content strategy problem.</p>
+            <div class="card fade">
+                <ul class="findings-list">
+                    <li>1,595 posts but only 729 followers. The content is not resonating with the algorithm or the audience. That ratio should be inverted.</li>
+                    <li>Reels are text overlays and slideshows, not video with real humans in them. Instagram and TikTok are pushing video with faces. Static graphics get buried.</li>
+                    <li>No face-to-camera content from Chris, Nigel or any of the team. Property audiences trust people, not branded templates.</li>
+                    <li>Market data content is genuinely useful and well-researched, but it is delivered in a format nobody engages with. The substance is there. The format is wrong.</li>
+                    <li>Zero TikTok presence in a massive property TikTok space. Letting agents, property investors and relocation content performs extremely well on the platform.</li>
+                    <li>No dedicated marketing person listed on the team page. Content is likely being produced in-house around other responsibilities.</li>
+                    <li>Engagement sits at near zero across recent posts. Most are getting 0 to 5 likes with no meaningful comments or shares.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- Opportunities -->
+    <section class="section">
+        <div class="container">
+            <p class="section-label fade">The Opportunity</p>
+            <h2 class="fade">Three Ways to Fix This</h2>
+            <div class="opp-grid">
+                <div class="opp-card fade">
+                    <div class="opp-num">1</div>
+                    <h3>Founder-Led Content</h3>
+                    <p>Chris and Nigel have 17+ years of property expertise between them. That is the content. Put them on camera sharing market insights, landlord tips and honest takes on the Gateshead and Newcastle property market. Property audiences trust people, not graphics. Founder-led accounts consistently outperform brand pages across every metric.</p>
+                </div>
+                <div class="opp-card fade">
+                    <div class="opp-num">2</div>
+                    <h3>Property Tours That Stop the Scroll</h3>
+                    <p>Cinematic walkthrough Reels and TikToks of your listings. Audio trends, smooth transitions, lifestyle-driven shots that show what it feels like to live there. Not a slideshow of photos from Rightmove. These are the most shareable and saveable format in property content right now.</p>
+                </div>
+                <div class="opp-card fade">
+                    <div class="opp-num">3</div>
+                    <h3>Investor Education Series</h3>
+                    <p>You are already publishing market data. That is valuable content most agencies do not have. Turn those posts into talking-head Reels where Chris or Nigel walk through the numbers on camera. Same substance, 10x the engagement. Position NGU as the authority on North East property investment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- Case Study -->
+    <section class="section">
+        <div class="container">
+            <p class="section-label fade">Proof It Works</p>
+            <h2 class="fade">Case Study: New Greek</h2>
+            <div class="case-card fade">
+                <p class="section-text" style="margin-bottom:0;">One independent restaurant in Newcastle. 30 days of short-form video with Fusion Creative. Here is what happened.</p>
+                <div class="case-stats">
+                    <div class="case-stat">
+                        <div class="number">36.2M</div>
+                        <div class="label">Views</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="number">+3,034</div>
+                        <div class="label">New Followers</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="number">494,535</div>
+                        <div class="label">Interactions</div>
+                    </div>
+                </div>
+                <p class="case-quote">"One restaurant. 30 days. Your market data is just as valuable as food content. It just needs the right format, the right faces, and someone who understands how the platforms actually work."</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- 5 Video Ideas -->
+    <section class="section">
+        <div class="container">
+            <p class="section-label fade">Content That Converts</p>
+            <h2 class="fade">5 Video Ideas for NGU</h2>
+            <div class="ideas-grid">
+                <div class="idea-card fade">
+                    <div class="idea-number">Idea 01</div>
+                    <div class="idea-title">"Before and After"</div>
+                    <div class="idea-desc">Property refurbishment transformations. NGU handles refurbs and this is gold for short-form video. A quick before shot, a time-lapse or transition, and the finished result. These go viral in the property space because the transformation is inherently satisfying to watch.</div>
+                </div>
+                <div class="idea-card fade">
+                    <div class="idea-number">Idea 02</div>
+                    <div class="idea-title">"Market Minute"</div>
+                    <div class="idea-desc">60-second market update, face-to-camera, data on screen. Chris or Nigel delivering the key stat of the week in plain English. No jargon, no static infographic. This positions NGU as the go-to source for North East property insight and builds trust with landlords considering switching agents.</div>
+                </div>
+                <div class="idea-card fade">
+                    <div class="idea-number">Idea 03</div>
+                    <div class="idea-title">"Sold in 7 Days"</div>
+                    <div class="idea-desc">The story behind a property that sold fast. What made it work, how it was priced, what the strategy was. Social proof that NGU delivers results. Potential vendors watching this will think "I want that for my property."</div>
+                </div>
+                <div class="idea-card fade">
+                    <div class="idea-number">Idea 04</div>
+                    <div class="idea-title">"Tenant Wins"</div>
+                    <div class="idea-desc">Happy tenant moments. Key handovers, moving-in clips, reactions to a new place. Humanises the brand, shows NGU cares about the people not just the properties, and creates shareable content that tenants post to their own stories and feeds.</div>
+                </div>
+                <div class="idea-card fade">
+                    <div class="idea-number">Idea 05</div>
+                    <div class="idea-title">"The Brothers"</div>
+                    <div class="idea-desc">Chris and Nigel's story. How they built NGU from scratch, what drives them, the reality of running a property company in the North East. Founder story content builds deep audience connection and makes NGU more than just another lettings brand. People follow people.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- Cost Comparison -->
+    <section class="section">
+        <div class="container">
+            <p class="section-label fade">The Numbers</p>
+            <h2 class="fade">Cost Comparison</h2>
+            <div class="cost-grid fade">
+                <div class="cost-card cost-hire">
+                    <h3>Full-Time Social Media Specialist</h3>
+                    <div class="price">~£2,800+/month</div>
+                    <ul>
+                        <li>£25,000-30,000/year salary (£2,083-2,500/month)</li>
+                        <li>Employer National Insurance contributions</li>
+                        <li>Pension auto-enrolment</li>
+                        <li>Camera, lighting and equipment</li>
+                        <li>Software subscriptions</li>
+                        <li>Training and development</li>
+                        <li>Management overhead</li>
+                        <li>One person. One skillset. Holiday cover needed.</li>
+                    </ul>
+                </div>
+                <div class="cost-card cost-fc">
+                    <h3>Fusion Creative</h3>
+                    <div class="price">£1,500/month</div>
+                    <ul>
+                        <li>12 Reels/TikToks per month</li>
+                        <li>Full content strategy</li>
+                        <li>Professional filming at your properties</li>
+                        <li>Editing, colour grading and captions</li>
+                        <li>Trend research and audio selection</li>
+                        <li>Monthly performance reporting</li>
+                        <li>Full creative team. No overhead.</li>
+                        <li>We are 10 minutes away in Newcastle.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cost-bottom fade">
+                <p>You have been posting for years. Let us show you what happens when the right content meets the right strategy.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- What's Included -->
+    <section class="section">
+        <div class="container">
+            <p class="section-label fade">The Package</p>
+            <h2 class="fade">What's Included</h2>
+            <div class="service-grid fade">
+                <div class="service-card"><div class="service-dot"></div><span>12 short-form videos per month</span></div>
+                <div class="service-card"><div class="service-dot"></div><span>Content strategy and planning</span></div>
+                <div class="service-card"><div class="service-dot"></div><span>Professional filming on location</span></div>
+                <div class="service-card"><div class="service-dot"></div><span>Full post-production and editing</span></div>
+                <div class="service-card"><div class="service-dot"></div><span>Trend research and audio sourcing</span></div>
+                <div class="service-card"><div class="service-dot"></div><span>Instagram Reels and TikTok formats</span></div>
+                <div class="service-card"><div class="service-dot"></div><span>Monthly analytics and reporting</span></div>
+                <div class="service-card"><div class="service-dot"></div><span>Dedicated account management</span></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <!-- Next Steps / CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <p class="section-label fade">Next Steps</p>
+            <h2 class="fade">Let's Talk</h2>
+            <p class="fade">We are based in Newcastle, you are in Gateshead. A quick meeting to walk through this proposal, see some of our work in person, and talk about what month one looks like for NGU.</p>
+            <a href="https://cal.com/fusioncreative/30min" target="_blank" class="cta-btn fade">Book a Call with Jay</a>
+            <p class="cta-sub fade">Jay Williams, Founder - Fusion Creative</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Prepared for NGU Homes by Fusion Creative | April 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('vis');
+                    }, i * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Proposal - Durham University | Fusion Creative</title>
+    <meta name="description" content="Short-form video content proposal for Durham University by Fusion Creative.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="https://fusioncreative.uk/assets/logos/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0a;
+            --card: #141414;
+            --card-border: rgba(255,255,255,0.06);
+            --coral: #E8553C;
+            --coral-light: #ff7a64;
+            --coral-dark: #c4412b;
+            --text: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --font-head: 'DM Serif Display', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection { background: var(--coral); color: white; }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* Fade-in on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid var(--card-border);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .brand {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+        }
+        .brand-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            margin-right: 8px;
+            position: relative;
+            top: -1px;
+        }
+        .header-date {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 80px 0 56px;
+        }
+        .hero-label {
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-family: var(--font-head);
+            font-size: clamp(40px, 7vw, 64px);
+            font-weight: 400;
+            line-height: 1.08;
+            letter-spacing: -0.5px;
+            margin-bottom: 28px;
+        }
+        .hero h1 .coral-italic {
+            color: var(--coral);
+            font-style: italic;
+        }
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 680px;
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--card-border);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 80px;
+        }
+        .stat-item {
+            background: var(--card);
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .stat-number {
+            font-family: var(--font-head);
+            font-size: clamp(24px, 3.5vw, 36px);
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 64px 0;
+        }
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-family: var(--font-head);
+            font-size: clamp(28px, 4.5vw, 42px);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 40px;
+        }
+        .section-title .coral-italic {
+            color: var(--coral);
+            font-style: italic;
+        }
+
+        /* ===== AUDIT CARDS ===== */
+        .audit-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .audit-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 28px 32px;
+            border-left: 3px solid var(--coral);
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .audit-card strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* ===== COMPARISON TABLE ===== */
+        .comparison-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 40px 36px;
+            overflow: hidden;
+        }
+        .comparison-card h3 {
+            font-family: var(--font-head);
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 28px;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .comparison-table th {
+            text-align: left;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 0 0 16px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+        .comparison-table th:last-child {
+            text-align: right;
+        }
+        .comparison-table td {
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+        .comparison-table td:last-child {
+            text-align: right;
+            font-family: var(--font-head);
+            font-size: 18px;
+            color: var(--text);
+        }
+        .comparison-table tr.highlight td {
+            color: var(--coral);
+            font-weight: 600;
+        }
+        .comparison-table tr.highlight td:last-child {
+            color: var(--coral);
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        .comparison-note {
+            margin-top: 24px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            font-style: italic;
+            padding-top: 20px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        /* ===== OPPORTUNITY CARDS ===== */
+        .opportunity-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .opp-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            position: relative;
+        }
+        .opp-number {
+            font-family: var(--font-head);
+            font-size: 48px;
+            color: var(--coral);
+            opacity: 0.25;
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            line-height: 1;
+        }
+        .opp-card h3 {
+            font-family: var(--font-head);
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        .opp-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            max-width: 700px;
+        }
+
+        /* ===== CASE STUDY ===== */
+        .case-study {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 48px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .case-study::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--coral-light));
+        }
+        .case-study-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 8px;
+        }
+        .case-study-title {
+            font-family: var(--font-head);
+            font-size: 28px;
+            margin-bottom: 32px;
+        }
+        .case-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        .case-stat {
+            text-align: center;
+        }
+        .case-stat-number {
+            font-family: var(--font-head);
+            font-size: clamp(24px, 3.5vw, 36px);
+            color: var(--coral);
+            margin-bottom: 4px;
+        }
+        .case-stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .case-note {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            border-top: 1px solid var(--card-border);
+            padding-top: 24px;
+            font-style: italic;
+        }
+
+        /* ===== VIDEO IDEAS ===== */
+        .ideas-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .idea-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 28px 32px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .idea-index {
+            font-family: var(--font-head);
+            font-size: 32px;
+            color: var(--coral);
+            opacity: 0.4;
+            line-height: 1;
+            flex-shrink: 0;
+            min-width: 32px;
+        }
+        .idea-content h4 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+        .idea-content .idea-format {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 8px;
+        }
+        .idea-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ===== COST COMPARISON ===== */
+        .cost-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .cost-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .cost-col {
+            padding: 40px 32px;
+        }
+        .cost-col:first-child {
+            border-right: 1px solid var(--card-border);
+        }
+        .cost-col.highlighted {
+            background: rgba(232, 85, 60, 0.04);
+            border-left: 3px solid var(--coral);
+        }
+        .cost-col h3 {
+            font-family: var(--font-head);
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        .cost-col.highlighted h3 {
+            color: var(--coral);
+        }
+        .cost-price {
+            font-family: var(--font-head);
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .cost-col.highlighted .cost-price {
+            color: var(--coral);
+        }
+        .cost-list {
+            list-style: none;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 2;
+        }
+        .cost-list li::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .cost-col.highlighted .cost-list li::before {
+            background: var(--coral);
+        }
+        .cost-bottom {
+            padding: 24px 32px;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        /* ===== SERVICES GRID ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .service-item {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 24px 28px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .service-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--coral);
+            flex-shrink: 0;
+        }
+
+        /* ===== NEXT STEPS ===== */
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+        .step-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .step-number {
+            font-family: var(--font-head);
+            font-size: 28px;
+            color: var(--coral);
+            line-height: 1;
+            flex-shrink: 0;
+            min-width: 28px;
+        }
+        .step-text {
+            font-size: 17px;
+            color: var(--text-secondary);
+            padding-top: 2px;
+            line-height: 1.6;
+        }
+
+        /* ===== CTA BUTTON ===== */
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 48px;
+            background: var(--coral);
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(232, 85, 60, 0.35);
+            background: var(--coral-dark);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 64px 0 48px;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+        }
+        .footer p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 2;
+        }
+
+        /* ===== DIVIDER ===== */
+        .divider {
+            height: 1px;
+            background: var(--card-border);
+            margin: 0;
+            border: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 640px) {
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .case-stats {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .cost-grid {
+                grid-template-columns: 1fr;
+            }
+            .cost-col:first-child {
+                border-right: none;
+                border-bottom: 1px solid var(--card-border);
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 56px 0 40px;
+            }
+            .section {
+                padding: 48px 0;
+            }
+            .case-study {
+                padding: 32px 24px;
+            }
+            .opp-card {
+                padding: 28px 24px;
+            }
+            .idea-card {
+                padding: 24px 20px;
+            }
+            .cost-col {
+                padding: 32px 24px;
+            }
+            .comparison-card {
+                padding: 28px 20px;
+            }
+            .comparison-table td,
+            .comparison-table th {
+                font-size: 13px;
+            }
+            .comparison-table td:last-child {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            .opp-number {
+                font-size: 36px;
+            }
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="brand"><span class="brand-dot"></span>Fusion Creative</div>
+                <div class="header-date">April 2026</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero fade-in">
+        <div class="container">
+            <div class="hero-label">Fusion Creative</div>
+            <h1>Durham University<br><span class="coral-italic">Content Proposal</span></h1>
+            <p class="hero-subtitle">The most photogenic campus in the UK deserves a social presence to match. A UNESCO World Heritage Site, a cathedral that belongs in a film, a river that looks different every hour. Durham has everything a content team could ask for. Except the content.</p>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="container fade-in">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">105K</div>
+                <div class="stat-label">Instagram Followers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">9K</div>
+                <div class="stat-label">TikTok Followers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">Top 10</div>
+                <div class="stat-label">UK University</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">UNESCO</div>
+                <div class="stat-label">World Heritage Site</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHAT WE NOTICED -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">The Audit</div>
+                <h2 class="section-title">What We <span class="coral-italic">Noticed</span></h2>
+            </div>
+            <div class="audit-cards">
+                <div class="audit-card fade-in">
+                    <strong>105K Instagram followers vs Newcastle's 113K.</strong> Your direct competitor, 15 miles up the A1, is ahead on the platform that matters most for brand perception. Newcastle ranks lower academically but outperforms Durham on social across the board.
+                </div>
+                <div class="audit-card fade-in">
+                    <strong>TikTok is effectively a student side project.</strong> 9K followers puts Durham nowhere near the conversation. Glasgow has 80K. Newcastle has 30K. For the platform that drives prospective student decisions, Durham is invisible.
+                </div>
+                <div class="audit-card fade-in">
+                    <strong>Absent from the top 10 Russell Group universities by TikTok content volume.</strong> The universities winning on TikTok are producing native, platform-first content at volume. Durham is not in that group, and prospective students notice.
+                </div>
+                <div class="audit-card fade-in">
+                    <strong>Reels lean on static and carousel imagery rather than native short-form video.</strong> The Instagram grid looks polished, but the content that drives reach and engagement in 2026 is video. Static posts are not competing in the algorithm.
+                </div>
+                <div class="audit-card fade-in">
+                    <strong>The campus is a visual goldmine that is massively underutilised.</strong> Durham Cathedral, the Norman Castle, the Wear loop, Palace Green, formal halls in candlelit medieval dining rooms. This is the most cinematic university campus in the country, and it barely appears in professional video content.
+                </div>
+                <div class="audit-card fade-in">
+                    <strong>No professional short-form video strategy for recruitment or brand awareness.</strong> There is no visible, consistent short-form content engine driving awareness, applications, or alumni engagement. That is the gap, and it is a significant one for a top-10 institution.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><hr class="divider"></div>
+
+    <!-- RUSSELL GROUP COMPARISON -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Benchmarking</div>
+                <h2 class="section-title">Russell Group <span class="coral-italic">Comparison</span></h2>
+            </div>
+            <div class="comparison-card fade-in">
+                <h3>Instagram Followers by University</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>University</th>
+                            <th>Instagram Followers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Oxford</td>
+                            <td>2M</td>
+                        </tr>
+                        <tr>
+                            <td>Cambridge</td>
+                            <td>1.5M</td>
+                        </tr>
+                        <tr>
+                            <td>Edinburgh</td>
+                            <td>214K</td>
+                        </tr>
+                        <tr>
+                            <td>Birmingham</td>
+                            <td>174K</td>
+                        </tr>
+                        <tr>
+                            <td>Manchester</td>
+                            <td>159K</td>
+                        </tr>
+                        <tr>
+                            <td>Leeds</td>
+                            <td>156K</td>
+                        </tr>
+                        <tr>
+                            <td>Bristol</td>
+                            <td>144K</td>
+                        </tr>
+                        <tr>
+                            <td>Newcastle</td>
+                            <td>113K</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td>Durham</td>
+                            <td>105K</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="comparison-note">For a top-10 university with a UNESCO campus, 23rd on Instagram is a gap. The institutions above Durham have larger student populations but far less distinctive campuses. Durham's visual identity should be an unfair advantage, not a missed opportunity.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><hr class="divider"></div>
+
+    <!-- OPPORTUNITIES -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">The Strategy</div>
+                <h2 class="section-title">The <span class="coral-italic">Opportunity</span></h2>
+            </div>
+            <div class="opportunity-cards">
+                <div class="opp-card fade-in">
+                    <div class="opp-number">01</div>
+                    <h3>Campus Content That Sells</h3>
+                    <p>Durham Cathedral at golden hour. The castle silhouetted against a winter sky. Students in gowns crossing Palace Green. Formal halls lit by candlelight in rooms that have not changed in 500 years. The river at dawn. This campus was built for Reels and TikTok. Professional short-form video tours, seasonal content, and cinematic golden hour shots would give Durham a visual identity on social media that no other UK university could match. The raw material is extraordinary. It just needs a camera and a strategy.</p>
+                </div>
+                <div class="opp-card fade-in">
+                    <div class="opp-number">02</div>
+                    <h3>Student Recruitment Content</h3>
+                    <p>Prospective students live on TikTok and Reels. That is where they form opinions, compare universities, and make decisions that shape their UCAS applications. Professional content showing campus life, city vibes, and the Durham experience reaches them where they already are. Not a prospectus PDF. Not a drone shot on a YouTube channel with 200 views. Native, platform-first content that shows what it actually feels like to be a Durham student. That is what drives applications.</p>
+                </div>
+                <div class="opp-card fade-in">
+                    <div class="opp-number">03</div>
+                    <h3>Beat Newcastle</h3>
+                    <p>Your closest rival is 15 miles away and outperforming you on every social platform. Newcastle has 113K Instagram followers to your 105K. 30K TikTok followers to your 9K. They are not a better university. They are not in a more photogenic city. They simply have a more visible social media presence. A dedicated content partner changes that within three months. This is a winnable fight, and Durham has every advantage except execution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><hr class="divider"></div>
+
+    <!-- CASE STUDY -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Proof of Work</div>
+                <h2 class="section-title">What We've <span class="coral-italic">Done</span></h2>
+            </div>
+            <div class="case-study fade-in">
+                <div class="case-study-label">Case Study: New Greek Restaurant, Newcastle</div>
+                <h3 class="case-study-title">One restaurant. One month. 36 million views.</h3>
+                <div class="case-stats">
+                    <div class="case-stat">
+                        <div class="case-stat-number">36.2M</div>
+                        <div class="case-stat-label">Views in 30 days</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-number">+3,034</div>
+                        <div class="case-stat-label">New followers in 30 days</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-number">494,535</div>
+                        <div class="case-stat-label">Interactions in 30 days</div>
+                    </div>
+                </div>
+                <p class="case-note">One restaurant in Newcastle. 30 days. Professional short-form video. Imagine what that same approach does for a UNESCO World Heritage campus with 800 years of history, medieval architecture, and a river that looks like it belongs in a period drama.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><hr class="divider"></div>
+
+    <!-- VIDEO IDEAS -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Creative</div>
+                <h2 class="section-title">5 Video <span class="coral-italic">Ideas</span></h2>
+            </div>
+            <div class="ideas-grid">
+                <div class="idea-card fade-in">
+                    <div class="idea-index">01</div>
+                    <div class="idea-content">
+                        <h4>"Dawn at Durham"</h4>
+                        <div class="idea-format">Reels / TikTok</div>
+                        <p>Golden hour cinematic campus walk. The cathedral emerging through morning mist. Light hitting the river. The castle in silhouette. Palace Green with no one on it. A 60-second piece that makes every prospective student stop scrolling and think: I need to go there.</p>
+                    </div>
+                </div>
+                <div class="idea-card fade-in">
+                    <div class="idea-index">02</div>
+                    <div class="idea-content">
+                        <h4>"Formal Hall"</h4>
+                        <div class="idea-format">Reels / TikTok</div>
+                        <p>The dining experience that no other UK university can match. Gowns, candlelight, medieval halls, Latin grace. POV content that shows what it actually looks like to sit down for formal hall at Durham. This is the content that goes viral because nowhere else in British higher education offers anything like it.</p>
+                    </div>
+                </div>
+                <div class="idea-card fade-in">
+                    <div class="idea-index">03</div>
+                    <div class="idea-content">
+                        <h4>"A Day at Durham"</h4>
+                        <div class="idea-format">Reels / TikTok</div>
+                        <p>Student perspective, start to finish. Morning coffee on the Bailey. Lectures in a building older than most countries. Library session with the cathedral visible through the window. College bar in the evening. The daily rhythm of Durham student life, shot natively for the platform.</p>
+                    </div>
+                </div>
+                <div class="idea-card fade-in">
+                    <div class="idea-index">04</div>
+                    <div class="idea-content">
+                        <h4>"The City"</h4>
+                        <div class="idea-format">Reels / TikTok</div>
+                        <p>Durham beyond the university. The independent coffee shops. The river walks. The market hall. The viaduct. The view from the train as you pull into the station. A love letter to the city itself, positioning Durham as a place to live, not just study.</p>
+                    </div>
+                </div>
+                <div class="idea-card fade-in">
+                    <div class="idea-index">05</div>
+                    <div class="idea-content">
+                        <h4>"Why Durham?"</h4>
+                        <div class="idea-format">TikTok / Reels</div>
+                        <p>Quick-fire student testimonials. 15 seconds each. Authentic and unscripted. Real students answering one question: why did you choose Durham? No rehearsal. No script. Just genuine answers from people who picked this university and would do it again. The content that builds trust with applicants more than any open day ever could.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><hr class="divider"></div>
+
+    <!-- COST COMPARISON -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">The Numbers</div>
+                <h2 class="section-title">Cost <span class="coral-italic">Comparison</span></h2>
+            </div>
+            <div class="cost-card fade-in">
+                <div class="cost-grid">
+                    <div class="cost-col">
+                        <h3>Full-Time Social Media Manager</h3>
+                        <div class="cost-price">~£2,250-2,917/mo</div>
+                        <ul class="cost-list">
+                            <li>Salary: £27,000-35,000/year</li>
+                            <li>Employer NI contributions</li>
+                            <li>Pension contributions</li>
+                            <li>Equipment and software</li>
+                            <li>Training and development</li>
+                            <li>Management overhead</li>
+                            <li>Sick pay and holiday cover</li>
+                            <li>One person managing multiple platforms</li>
+                        </ul>
+                    </div>
+                    <div class="cost-col highlighted">
+                        <h3>Fusion Creative</h3>
+                        <div class="cost-price">£1,500/mo</div>
+                        <ul class="cost-list">
+                            <li>12 professional Reels/TikToks per month</li>
+                            <li>Content strategy</li>
+                            <li>Professional filming</li>
+                            <li>Professional editing</li>
+                            <li>Trend research</li>
+                            <li>Performance reporting</li>
+                            <li>Full creative team</li>
+                            <li>No overhead. Cancel anytime.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cost-bottom">Your new Social Media Manager will need content to post. We make it.</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><hr class="divider"></div>
+
+    <!-- WHAT'S INCLUDED -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Service Breakdown</div>
+                <h2 class="section-title">What's <span class="coral-italic">Included</span></h2>
+            </div>
+            <div class="services-grid fade-in">
+                <div class="service-item"><span class="service-dot"></span>Short-form video production (Reels, TikTok, Shorts)</div>
+                <div class="service-item"><span class="service-dot"></span>Content strategy and calendar</div>
+                <div class="service-item"><span class="service-dot"></span>Professional filming and editing</div>
+                <div class="service-item"><span class="service-dot"></span>Trend research and ideation</div>
+                <div class="service-item"><span class="service-dot"></span>Performance analytics and reporting</div>
+                <div class="service-item"><span class="service-dot"></span>Platform-specific optimisation</div>
+                <div class="service-item"><span class="service-dot"></span>Recruitment content strategy</div>
+                <div class="service-item"><span class="service-dot"></span>Brand and campaign consultation</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><hr class="divider"></div>
+
+    <!-- NEXT STEPS -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Getting Started</div>
+                <h2 class="section-title">Next <span class="coral-italic">Steps</span></h2>
+            </div>
+            <div class="steps-list fade-in">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-text">15-minute call with Jay to discuss your content goals and where professional short-form video fits into your wider marketing strategy.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-text">We create a free test piece on campus. No cost, no commitment. Just proof of what professional content looks like for Durham.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-text">You see the quality before committing to anything.</div>
+                </div>
+            </div>
+            <div class="fade-in" style="text-align:center; padding-top: 16px;">
+                <a href="https://cal.com/fusioncreative" class="cta-btn" target="_blank" rel="noopener">Book a Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>Prepared for Durham University by Fusion Creative | April 2026</p>
+            <p>This proposal is confidential and intended for the named recipient only.</p>
+        </div>
+    </footer>
+
+    <!-- SCROLL ANIMATIONS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elements = document.querySelectorAll('.fade-in');
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+            elements.forEach(function(el) {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>

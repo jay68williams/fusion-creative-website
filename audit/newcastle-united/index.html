@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Proposal - Newcastle United FC | Fusion Creative</title>
+    <meta name="description" content="Commercial content proposal for Newcastle United FC by Fusion Creative.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="https://fusioncreative.uk/assets/logos/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0a;
+            --card: #141414;
+            --card-border: rgba(255,255,255,0.06);
+            --coral: #E8553C;
+            --coral-light: #ff7a64;
+            --coral-dark: #c4412b;
+            --text: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --font-head: 'DM Serif Display', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection { background: var(--coral); color: white; }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* Fade-in on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid var(--card-border);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .brand {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+        }
+        .brand-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            margin-right: 8px;
+            position: relative;
+            top: -1px;
+        }
+        .header-date {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 80px 0 56px;
+        }
+        .hero-label {
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-family: var(--font-head);
+            font-size: clamp(40px, 7vw, 64px);
+            font-weight: 400;
+            line-height: 1.08;
+            letter-spacing: -0.5px;
+            margin-bottom: 28px;
+        }
+        .hero h1 .coral-italic {
+            color: var(--coral);
+            font-style: italic;
+        }
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 680px;
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--card-border);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 80px;
+        }
+        .stat-item {
+            background: var(--card);
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .stat-number {
+            font-family: var(--font-head);
+            font-size: clamp(28px, 4vw, 40px);
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 64px 0;
+        }
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-family: var(--font-head);
+            font-size: clamp(28px, 4.5vw, 42px);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 40px;
+        }
+        .section-title .coral-italic {
+            color: var(--coral);
+            font-style: italic;
+        }
+
+        /* ===== AUDIT CARDS ===== */
+        .audit-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .audit-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 28px 32px;
+            border-left: 3px solid var(--coral);
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .audit-card strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* ===== OPPORTUNITY CARDS ===== */
+        .opportunity-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .opp-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            position: relative;
+        }
+        .opp-number {
+            font-family: var(--font-head);
+            font-size: 48px;
+            color: var(--coral);
+            opacity: 0.25;
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            line-height: 1;
+        }
+        .opp-card h3 {
+            font-family: var(--font-head);
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        .opp-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            max-width: 700px;
+        }
+
+        /* ===== CASE STUDY ===== */
+        .case-study {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 48px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .case-study::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--coral-light));
+        }
+        .case-study-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 8px;
+        }
+        .case-study-title {
+            font-family: var(--font-head);
+            font-size: 28px;
+            margin-bottom: 32px;
+        }
+        .case-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        .case-stat {
+            text-align: center;
+        }
+        .case-stat-number {
+            font-family: var(--font-head);
+            font-size: clamp(24px, 3.5vw, 36px);
+            color: var(--coral);
+            margin-bottom: 4px;
+        }
+        .case-stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .case-note {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            border-top: 1px solid var(--card-border);
+            padding-top: 24px;
+            font-style: italic;
+        }
+
+        /* ===== VIDEO IDEAS ===== */
+        .ideas-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .idea-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 28px 32px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .idea-index {
+            font-family: var(--font-head);
+            font-size: 32px;
+            color: var(--coral);
+            opacity: 0.4;
+            line-height: 1;
+            flex-shrink: 0;
+            min-width: 32px;
+        }
+        .idea-content h4 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+        .idea-content .idea-format {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 8px;
+        }
+        .idea-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ===== COST COMPARISON ===== */
+        .cost-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .cost-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .cost-col {
+            padding: 40px 32px;
+        }
+        .cost-col:first-child {
+            border-right: 1px solid var(--card-border);
+        }
+        .cost-col.highlighted {
+            background: rgba(232, 85, 60, 0.04);
+            border-left: 3px solid var(--coral);
+        }
+        .cost-col h3 {
+            font-family: var(--font-head);
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        .cost-col.highlighted h3 {
+            color: var(--coral);
+        }
+        .cost-price {
+            font-family: var(--font-head);
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .cost-col.highlighted .cost-price {
+            color: var(--coral);
+        }
+        .cost-list {
+            list-style: none;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 2;
+        }
+        .cost-list li::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .cost-col.highlighted .cost-list li::before {
+            background: var(--coral);
+        }
+        .cost-bottom {
+            padding: 24px 32px;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        /* ===== SERVICES GRID ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .service-item {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 24px 28px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .service-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--coral);
+            flex-shrink: 0;
+        }
+
+        /* ===== NEXT STEPS ===== */
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+        .step-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .step-number {
+            font-family: var(--font-head);
+            font-size: 28px;
+            color: var(--coral);
+            line-height: 1;
+            flex-shrink: 0;
+            min-width: 28px;
+        }
+        .step-text {
+            font-size: 17px;
+            color: var(--text-secondary);
+            padding-top: 2px;
+            line-height: 1.6;
+        }
+
+        /* ===== CTA BUTTON ===== */
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 48px;
+            background: var(--coral);
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(232, 85, 60, 0.35);
+            background: var(--coral-dark);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 64px 0 48px;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+        }
+        .footer p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 2;
+        }
+
+        /* ===== DIVIDER ===== */
+        .divider {
+            height: 1px;
+            background: var(--card-border);
+            margin: 0;
+            border: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+            .case-stats {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .cost-grid {
+                grid-template-columns: 1fr;
+            }
+            .cost-col:first-child {
+                border-right: none;
+                border-bottom: 1px solid var(--card-border);
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 56px 0 40px;
+            }
+            .section {
+                padding: 48px 0;
+            }
+            .case-study {
+                padding: 32px 24px;
+            }
+            .opp-card {
+                padding: 28px 24px;
+            }
+            .idea-card {
+                padding: 24px 20px;
+            }
+            .cost-col {
+                padding: 32px 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            .opp-number {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="brand"><span class="brand-dot"></span>Fusion Creative</div>
+                <div class="header-date">April 2026</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero fade-in">
+        <div class="container">
+            <div class="hero-label">Fusion Creative</div>
+            <h1>Newcastle United<br><span class="coral-italic">Content Proposal</span></h1>
+            <p class="hero-subtitle">We noticed you are hiring a Social Media Marketing Manager. Before you fill that role, there is a faster, leaner way to transform your commercial content. This is what we would do for Newcastle United, from a team that knows this city inside out.</p>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="container fade-in">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">4M</div>
+                <div class="stat-label">Instagram Followers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">8.5M</div>
+                <div class="stat-label">TikTok Followers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">912K</div>
+                <div class="stat-label">YouTube Subscribers</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHAT WE NOTICED -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">The Audit</div>
+                <h2 class="section-title">What We <span class="coral-italic">Noticed</span></h2>
+            </div>
+            <div class="audit-cards">
+                <div class="audit-card fade-in">
+                    <strong>Football content is world-class.</strong> Match highlights, player access, behind-the-scenes from the dressing room. The football side of your social presence is professional, consistent, and well-executed.
+                </div>
+                <div class="audit-card fade-in">
+                    <strong>Commercial content is the gap.</strong> St James' Park events, kit launches, hospitality experiences, sponsor activations. The non-football side of the brand is largely untouched on social. That is where the revenue opportunity lives.
+                </div>
+                <div class="audit-card fade-in">
+                    <strong>The women's team is growing fast.</strong> @newcastleunitedwomen has 112K followers and the momentum is building, but the social content strategy is still early-stage. Dedicated short-form content could accelerate that growth significantly.
+                </div>
+                <div class="audit-card fade-in">
+                    <strong>YouTube is underperforming.</strong> 912K subscribers for a Premier League club with this fanbase is low. A dedicated Shorts strategy would drive subscriber growth without requiring new long-form production resources.
+                </div>
+                <div class="audit-card fade-in">
+                    <strong>Reels are mostly repurposed match footage.</strong> The current short-form output leans heavily on match clips rather than native Reels and TikTok creative. For the commercial side, that format gap is costing reach and engagement.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><hr class="divider"></div>
+
+    <!-- THE OPPORTUNITY -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">The Strategy</div>
+                <h2 class="section-title">The <span class="coral-italic">Opportunity</span></h2>
+            </div>
+            <div class="opportunity-cards">
+                <div class="opp-card fade-in">
+                    <div class="opp-number">01</div>
+                    <h3>Commercial & Venue Content</h3>
+                    <p>St James' Park is a 4,500-capacity conference and events venue, a hospitality destination, and a stage for sponsor activations and kit launches. None of that is being sold through short-form video. We would create native Reels, TikToks, and Shorts that position the non-football side of Newcastle United as a premium brand in its own right.</p>
+                </div>
+                <div class="opp-card fade-in">
+                    <div class="opp-number">02</div>
+                    <h3>Women's Team Growth</h3>
+                    <p>As the women's team pushes for WSL promotion, the audience is there and growing. Dedicated social content, personality-driven Reels, matchday coverage, community engagement, would build the brand at the pace the team deserves. Not repurposed clips. Native content made for the platform.</p>
+                </div>
+                <div class="opp-card fade-in">
+                    <div class="opp-number">03</div>
+                    <h3>YouTube Shorts Strategy</h3>
+                    <p>912K subscribers should be 1.5M+. YouTube Shorts is the fastest path to get there. The production quality already exists across your other channels. We would bring a dedicated short-form content strategy to YouTube that converts casual viewers into subscribers at scale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><hr class="divider"></div>
+
+    <!-- CASE STUDY -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Proof of Work</div>
+                <h2 class="section-title">What We've <span class="coral-italic">Done</span></h2>
+            </div>
+            <div class="case-study fade-in">
+                <div class="case-study-label">Case Study: New Greek Restaurant</div>
+                <h3 class="case-study-title">One restaurant. One month. 36 million views.</h3>
+                <div class="case-stats">
+                    <div class="case-stat">
+                        <div class="case-stat-number">36.2M</div>
+                        <div class="case-stat-label">Views in 30 days</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-number">+3,034</div>
+                        <div class="case-stat-label">New followers in 30 days</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-number">494,535</div>
+                        <div class="case-stat-label">Interactions in 30 days</div>
+                    </div>
+                </div>
+                <p class="case-note">Reels drove 36M of these views. One restaurant. One month. Imagine what we could do for Newcastle United's commercial content.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><hr class="divider"></div>
+
+    <!-- VIDEO IDEAS -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Creative</div>
+                <h2 class="section-title">Video <span class="coral-italic">Ideas</span></h2>
+            </div>
+            <div class="ideas-grid">
+                <div class="idea-card fade-in">
+                    <div class="idea-index">01</div>
+                    <div class="idea-content">
+                        <h4>"Behind the Curtain"</h4>
+                        <div class="idea-format">Reels / TikTok</div>
+                        <p>Matchday hospitality experience from arrival to final whistle. The food, the views, the atmosphere. Shot as a first-person narrative that makes people want to book, not just watch.</p>
+                    </div>
+                </div>
+                <div class="idea-card fade-in">
+                    <div class="idea-index">02</div>
+                    <div class="idea-content">
+                        <h4>"Kit Drop"</h4>
+                        <div class="idea-format">Reels / TikTok / Shorts</div>
+                        <p>Cinematic slow-motion unboxing and try-on content for new season kits. Close-up fabric details, first reactions, on-body styling. Built to sell, not just announce.</p>
+                    </div>
+                </div>
+                <div class="idea-card fade-in">
+                    <div class="idea-index">03</div>
+                    <div class="idea-content">
+                        <h4>"The Venue"</h4>
+                        <div class="idea-format">Reels / Shorts</div>
+                        <p>St James' Park as you have never seen it. Corporate events, conferences, private dining. A walkthrough series that positions the ground as a premium venue destination, not just a football stadium.</p>
+                    </div>
+                </div>
+                <div class="idea-card fade-in">
+                    <div class="idea-index">04</div>
+                    <div class="idea-content">
+                        <h4>"Her Toon"</h4>
+                        <div class="idea-format">Reels / TikTok</div>
+                        <p>Women's team personality-driven content. Training sessions, matchday rituals, community moments. Building individual player brands that grow the team's audience organically.</p>
+                    </div>
+                </div>
+                <div class="idea-card fade-in">
+                    <div class="idea-index">05</div>
+                    <div class="idea-content">
+                        <h4>"Tunnel to Table"</h4>
+                        <div class="idea-format">Reels / TikTok</div>
+                        <p>Pre-match tunnel walk energy, the roar of the crowd, the final whistle. Then cut to the post-match hospitality dining experience. Two worlds in one piece of content. The matchday you do not see on TV.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><hr class="divider"></div>
+
+    <!-- COST COMPARISON -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">The Numbers</div>
+                <h2 class="section-title">Cost <span class="coral-italic">Comparison</span></h2>
+            </div>
+            <div class="cost-card fade-in">
+                <div class="cost-grid">
+                    <div class="cost-col">
+                        <h3>Full-Time Hire</h3>
+                        <div class="cost-price">~£3,500+/mo</div>
+                        <ul class="cost-list">
+                            <li>Salary: £30,000-35,000/year</li>
+                            <li>Employer NI contributions</li>
+                            <li>Pension contributions</li>
+                            <li>Equipment and software</li>
+                            <li>Training and development</li>
+                            <li>Management overhead</li>
+                            <li>Sick pay and holiday cover</li>
+                            <li>Limited to one person's skill set</li>
+                        </ul>
+                    </div>
+                    <div class="cost-col highlighted">
+                        <h3>Fusion Creative</h3>
+                        <div class="cost-price">£1,500/mo</div>
+                        <ul class="cost-list">
+                            <li>12 Reels/TikToks per month</li>
+                            <li>Content strategy</li>
+                            <li>Professional shoot days</li>
+                            <li>Professional editing</li>
+                            <li>Trend research</li>
+                            <li>Performance reporting</li>
+                            <li>Full creative team</li>
+                            <li>No overhead. Cancel anytime.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cost-bottom">Same output. Fraction of the cost. No recruitment headaches.</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><hr class="divider"></div>
+
+    <!-- WHAT'S INCLUDED -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Service Breakdown</div>
+                <h2 class="section-title">What's <span class="coral-italic">Included</span></h2>
+            </div>
+            <div class="services-grid fade-in">
+                <div class="service-item"><span class="service-dot"></span>Short-form video production (Reels, TikTok, Shorts)</div>
+                <div class="service-item"><span class="service-dot"></span>Content strategy & calendar</div>
+                <div class="service-item"><span class="service-dot"></span>Professional filming & editing</div>
+                <div class="service-item"><span class="service-dot"></span>Trend research & ideation</div>
+                <div class="service-item"><span class="service-dot"></span>Performance analytics & reporting</div>
+                <div class="service-item"><span class="service-dot"></span>Social media management</div>
+                <div class="service-item"><span class="service-dot"></span>Website development support</div>
+                <div class="service-item"><span class="service-dot"></span>Marketing consultation</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container"><hr class="divider"></div>
+
+    <!-- NEXT STEPS -->
+    <section class="section">
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Getting Started</div>
+                <h2 class="section-title">Next <span class="coral-italic">Steps</span></h2>
+            </div>
+            <div class="steps-list fade-in">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-text">15-minute call with Jay to discuss your commercial content needs and where we can add the most value.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-text">We create a free test piece for your venue or retail content. No cost, no commitment. Just proof of what we can deliver.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-text">You see the quality before committing to anything.</div>
+                </div>
+            </div>
+            <div class="fade-in" style="text-align:center; padding-top: 16px;">
+                <a href="https://cal.com/fusioncreative" class="cta-btn" target="_blank" rel="noopener">Book a Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>Prepared for Newcastle United FC by Fusion Creative | April 2026</p>
+            <p>This proposal is confidential and intended for the named recipient only.</p>
+        </div>
+    </footer>
+
+    <!-- SCROLL ANIMATIONS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elements = document.querySelectorAll('.fade-in');
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+            elements.forEach(function(el) {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>

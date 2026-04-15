@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Proposal - Newcastle University | Fusion Creative</title>
+    <meta name="description" content="Short-form video content proposal for Newcastle University by Fusion Creative.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="https://fusioncreative.uk/assets/logos/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0a;
+            --card: #141414;
+            --card-border: rgba(255,255,255,0.06);
+            --coral: #E8553C;
+            --coral-light: #ff7a64;
+            --coral-dark: #c4412b;
+            --text: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --font-head: 'DM Serif Display', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection { background: var(--coral); color: white; }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* Fade-in on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid var(--card-border);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .brand {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+        }
+        .brand-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            margin-right: 8px;
+            position: relative;
+            top: -1px;
+        }
+        .header-date {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 80px 0 56px;
+        }
+        .hero-label {
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-family: var(--font-head);
+            font-size: clamp(40px, 7vw, 64px);
+            font-weight: 400;
+            line-height: 1.08;
+            letter-spacing: -0.5px;
+            margin-bottom: 28px;
+        }
+        .hero h1 .coral-italic {
+            color: var(--coral);
+            font-style: italic;
+        }
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 680px;
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--card-border);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 80px;
+        }
+        .stat-item {
+            background: var(--card);
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .stat-number {
+            font-family: var(--font-head);
+            font-size: clamp(24px, 3.5vw, 36px);
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 64px 0;
+        }
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-family: var(--font-head);
+            font-size: clamp(28px, 4.5vw, 42px);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 40px;
+        }
+        .section-title .coral-italic {
+            color: var(--coral);
+            font-style: italic;
+        }
+
+        /* ===== AUDIT CARDS ===== */
+        .audit-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .audit-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 28px 32px;
+            border-left: 3px solid var(--coral);
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .audit-card strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* ===== OPPORTUNITY CARDS ===== */
+        .opportunity-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .opp-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            position: relative;
+        }
+        .opp-number {
+            font-family: var(--font-head);
+            font-size: 48px;
+            color: var(--coral);
+            opacity: 0.25;
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            line-height: 1;
+        }
+        .opp-card h3 {
+            font-family: var(--font-head);
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        .opp-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            max-width: 700px;
+        }
+
+        /* ===== CASE STUDY ===== */
+        .case-study {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 48px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .case-study::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--coral-light));
+        }
+        .case-study-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 8px;
+        }
+        .case-study-title {
+            font-family: var(--font-head);
+            font-size: 28px;
+            margin-bottom: 32px;
+        }
+        .case-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        .case-stat {
+            text-align: center;
+        }
+        .case-stat-number {
+            font-family: var(--font-head);
+            font-size: clamp(24px, 3.5vw, 36px);
+            color: var(--coral);
+            margin-bottom: 4px;
+        }
+        .case-stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .case-note {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            border-top: 1px solid var(--card-border);
+            padding-top: 24px;
+            font-style: italic;
+        }
+
+        /* ===== VIDEO IDEAS ===== */
+        .video-ideas {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .video-idea {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 24px 28px;
+        }
+        .video-idea-number {
+            font-family: var(--font-head);
+            font-size: 32px;
+            color: var(--coral);
+            opacity: 0.4;
+            line-height: 1;
+            flex-shrink: 0;
+            width: 32px;
+            text-align: center;
+        }
+        .video-idea-content h4 {
+            font-family: var(--font-head);
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+        .video-idea-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* ===== COST COMPARISON ===== */
+        .cost-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        .cost-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+        }
+        .cost-card.highlight {
+            border-color: var(--coral);
+            position: relative;
+            overflow: hidden;
+        }
+        .cost-card.highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--coral-light));
+        }
+        .cost-card h3 {
+            font-family: var(--font-head);
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+        .cost-price {
+            font-family: var(--font-head);
+            font-size: 32px;
+            color: var(--coral);
+            margin-bottom: 20px;
+        }
+        .cost-price span {
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        .cost-list {
+            list-style: none;
+            padding: 0;
+        }
+        .cost-list li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+        .cost-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 13px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+        .cost-card:not(.highlight) .cost-list li::before {
+            background: var(--text-muted);
+        }
+        .cost-card.highlight .cost-list li::before {
+            background: var(--coral);
+        }
+        .cost-summary {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--card-border);
+            line-height: 1.6;
+        }
+        .cost-bottom-note {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 24px 28px;
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* ===== SERVICES GRID ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .service-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 24px 24px;
+        }
+        .service-card h4 {
+            font-family: var(--font-head);
+            font-size: 17px;
+            font-weight: 400;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+        .service-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== NEXT STEPS ===== */
+        .next-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .step-number {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border-radius: 50%;
+            background: var(--coral);
+            color: white;
+            font-family: var(--font-head);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .step-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ===== CTA BUTTON ===== */
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            background: var(--coral);
+            color: white;
+            text-decoration: none;
+            border-radius: 60px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .cta-btn:hover {
+            background: var(--coral-dark);
+            transform: translateY(-2px);
+        }
+        .cta-btn svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.2s ease;
+        }
+        .cta-btn:hover svg {
+            transform: translateX(3px);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 48px 0;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+        }
+        .footer p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* ===== DIVIDER ===== */
+        .divider {
+            height: 1px;
+            background: var(--card-border);
+            margin: 0;
+            border: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 640px) {
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cost-grid {
+                grid-template-columns: 1fr;
+            }
+            .case-stats {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 56px 0 40px;
+            }
+            .section {
+                padding: 48px 0;
+            }
+            .case-study {
+                padding: 32px 24px;
+            }
+            .opp-card {
+                padding: 28px 24px;
+            }
+            .cost-card {
+                padding: 28px 24px;
+            }
+            .video-idea {
+                padding: 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+            <div class="brand"><span class="brand-dot"></span>Fusion Creative</div>
+            <div class="header-date">April 2026</div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-label fade-in">Prepared for Simona Lenoci</div>
+            <h1 class="fade-in">Newcastle University<br><span class="coral-italic">Content Proposal</span></h1>
+            <p class="hero-subtitle fade-in">Expanding your content formats, reaching new audiences, and strengthening the digital presence of one of the UK's leading research universities. From a team based right here in Newcastle.</p>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="container">
+        <div class="stats-bar fade-in">
+            <div class="stat-item">
+                <div class="stat-number">123K</div>
+                <div class="stat-label">Instagram</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">30K</div>
+                <div class="stat-label">TikTok</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">159K</div>
+                <div class="stat-label">Facebook</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Marketing Roles Open</div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- WHAT WE NOTICED -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label fade-in">What We Noticed</div>
+            <h2 class="section-title fade-in">A strong brand with<br><span class="coral-italic">room to scale</span></h2>
+            <div class="audit-cards">
+                <div class="audit-card fade-in">
+                    <strong>Instagram is strong at 123K, but TikTok at 30K is underperforming</strong> for where Gen Z actually spends their time. For a university competing for UCAS applications, that gap is a missed opportunity with the exact demographic you need to reach.
+                </div>
+                <div class="audit-card fade-in">
+                    <strong>The Organic Social Media Assistant role is asking one person to do too much.</strong> Content creation, community management, analytics, student team coordination, and internal training across 4+ platforms. That is a lot to put on a single junior hire at the 29-31K band.
+                </div>
+                <div class="audit-card fade-in">
+                    <strong>Short-form video output is likely inconsistent</strong> given the current team size constraints. Professional Reels and TikToks require dedicated filming time, editing skills, and trend awareness that are difficult to maintain alongside community management and reporting duties.
+                </div>
+                <div class="audit-card fade-in">
+                    <strong>No video-first content on the homepage or social media directory page.</strong> The website leads with static imagery and text. In 2026, prospective students expect to see the campus, the city, and the student experience in motion before they ever visit in person.
+                </div>
+                <div class="audit-card fade-in">
+                    <strong>Blog content is fragmented across 4 separate subdomains.</strong> This dilutes the content strategy and makes it harder to build a cohesive brand voice. A unified short-form video presence would tie these narratives together across platforms.
+                </div>
+                <div class="audit-card fade-in">
+                    <strong>The "Hero, Hub, Help" content framework is smart</strong> but it needs more Hero-level video content. The kind that stops the scroll, sparks emotion, and gets shared. That is where a dedicated video team makes the biggest difference.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- OPPORTUNITIES -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label fade-in">Opportunities</div>
+            <h2 class="section-title fade-in">Three ways we <span class="coral-italic">move the needle</span></h2>
+            <div class="opportunity-cards">
+                <div class="opp-card fade-in">
+                    <div class="opp-number">01</div>
+                    <h3>Professional Short-Form Video</h3>
+                    <p>Take the production burden off your in-house team. We shoot, edit, and deliver trend-aware Reels and TikToks on a predictable schedule. Your team focuses on what they do best: strategy, community engagement, and performance reporting. We handle the cameras, the edits, and the creative direction. And because we are based in Newcastle, we can be on campus the same day you need us.</p>
+                </div>
+                <div class="opp-card fade-in">
+                    <div class="opp-number">02</div>
+                    <h3>TikTok Growth</h3>
+                    <p>30K followers to 100K+. Your campus, your city, your students. Professional content that stops the scroll and drives UCAS applications. We know what performs on TikTok because we produce it every day for clients across Newcastle. The algorithm rewards consistency and quality. We deliver both.</p>
+                </div>
+                <div class="opp-card fade-in">
+                    <div class="opp-number">03</div>
+                    <h3>Campus Content Library</h3>
+                    <p>Build a bank of evergreen campus content that your team can draw from year-round. Architecture, city life, student experience, lecture halls, the Tyne, the Quayside. Professionally shot footage your social team can repurpose for campaigns, open days, recruitment drives, and seasonal pushes without needing to schedule another shoot.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CASE STUDY -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label fade-in">Case Study</div>
+            <h2 class="section-title fade-in">Proof it works. <span class="coral-italic">In this city.</span></h2>
+            <div class="case-study fade-in">
+                <div class="case-study-label">New Greek / Newcastle</div>
+                <div class="case-study-title">36.2 million views in 30 days</div>
+                <div class="case-stats">
+                    <div class="case-stat">
+                        <div class="case-stat-number">36.2M</div>
+                        <div class="case-stat-label">Views</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-number">+3,034</div>
+                        <div class="case-stat-label">New Followers</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-number">494,535</div>
+                        <div class="case-stat-label">Interactions</div>
+                    </div>
+                </div>
+                <p class="case-note">One Newcastle restaurant. 30 days. We know this city and we know how to make it look incredible on camera. Imagine what those numbers look like when the subject is a world-class university with 28,000 students, a stunning campus, and one of the best cities in the UK as its backdrop.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- VIDEO IDEAS -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label fade-in">Content Concepts</div>
+            <h2 class="section-title fade-in">5 videos we would <span class="coral-italic">make first</span></h2>
+            <div class="video-ideas">
+                <div class="video-idea fade-in">
+                    <div class="video-idea-number">1</div>
+                    <div class="video-idea-content">
+                        <h4>"This Is Newcastle"</h4>
+                        <p>Cinematic campus and city montage. Golden hour on the Armstrong Building, the Arches, students crossing the Quad, the Tyne Bridge at dusk. Trending audio. The video that makes a sixth-former choose Newcastle over every other university they are considering.</p>
+                    </div>
+                </div>
+                <div class="video-idea fade-in">
+                    <div class="video-idea-number">2</div>
+                    <div class="video-idea-content">
+                        <h4>"Lecture Break"</h4>
+                        <p>Quick campus vlog format. Library to coffee to lecture hall and back. Real student energy captured in 30 seconds. The kind of content that performs on TikTok because it feels authentic, not produced by a marketing department.</p>
+                    </div>
+                </div>
+                <div class="video-idea fade-in">
+                    <div class="video-idea-number">3</div>
+                    <div class="video-idea-content">
+                        <h4>"Research That Matters"</h4>
+                        <p>60-second visual explainer of groundbreaking Newcastle research. Make complex science accessible and shareable. The kind of Hero content that builds reputation beyond the student audience and into mainstream visibility.</p>
+                    </div>
+                </div>
+                <div class="video-idea fade-in">
+                    <div class="video-idea-number">4</div>
+                    <div class="video-idea-content">
+                        <h4>"Freshers' Guide"</h4>
+                        <p>The real student experience, not the prospectus version. Best coffee spots, where to sit in the library, the kebab shop at 2am, the walk from halls to campus. Content that speaks directly to incoming students and gets saved and shared in group chats.</p>
+                    </div>
+                </div>
+                <div class="video-idea fade-in">
+                    <div class="video-idea-number">5</div>
+                    <div class="video-idea-content">
+                        <h4>"City vs Campus"</h4>
+                        <p>Split-screen format. University life meets Newcastle nightlife, culture, and food. Show prospective students that choosing Newcastle means getting a world-class education in a world-class city. Two selling points in one piece of content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- COST COMPARISON -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label fade-in">Cost Comparison</div>
+            <h2 class="section-title fade-in">The numbers <span class="coral-italic">speak clearly</span></h2>
+            <div class="cost-grid fade-in">
+                <div class="cost-card">
+                    <h3>Full-Time Social Media Assistant</h3>
+                    <div class="cost-price">~£3,500+ <span>/month</span></div>
+                    <ul class="cost-list">
+                        <li>Salary: £29,588 - £31,236/year (£2,466 - £2,603/month)</li>
+                        <li>Employer NI contributions (£290+/month)</li>
+                        <li>Pension contributions (£500+/month)</li>
+                        <li>Equipment and hardware</li>
+                        <li>Software licenses (Sprout Social, Adobe Creative Suite)</li>
+                        <li>Training and professional development</li>
+                    </ul>
+                    <div class="cost-summary">One person covering 4+ platforms, content creation, community management, analytics, student team coordination, and internal training.</div>
+                </div>
+                <div class="cost-card highlight">
+                    <h3>Fusion Creative</h3>
+                    <div class="cost-price">£1,500 <span>/month</span></div>
+                    <ul class="cost-list">
+                        <li>12 professional Reels/TikToks per month</li>
+                        <li>Content strategy and creative direction</li>
+                        <li>On-campus filming (we are in Newcastle)</li>
+                        <li>Professional editing and post-production</li>
+                        <li>Trend research and audio selection</li>
+                        <li>Monthly performance reporting</li>
+                    </ul>
+                    <div class="cost-summary">A dedicated creative team. No recruitment risk. No training period. No notice period. Results from month one.</div>
+                </div>
+            </div>
+            <div class="cost-bottom-note fade-in">
+                Your new hire will need content to post. We make it. They manage it. Everyone wins.
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- WHAT'S INCLUDED -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label fade-in">What's Included</div>
+            <h2 class="section-title fade-in">Everything you need, <span class="coral-italic">nothing you don't</span></h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <h4>On-Campus Filming</h4>
+                    <p>Professional shoots on location. Same city, same day availability. No travel costs, no logistics overhead.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h4>Professional Editing</h4>
+                    <p>Cuts, colour grading, captions, and sound design optimised for each platform's algorithm and format.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h4>Content Strategy</h4>
+                    <p>Monthly content calendars aligned to your academic calendar, open days, clearing, and campaigns.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h4>Trend Research</h4>
+                    <p>We track what is performing on Reels and TikTok daily. Your content stays current, not reactive.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h4>Platform Optimisation</h4>
+                    <p>Each video tailored for Instagram Reels, TikTok, and YouTube Shorts. Native formats, not reposts.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h4>Performance Reporting</h4>
+                    <p>Monthly analytics covering views, engagement, follower growth, and content performance breakdowns.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h4>Evergreen Content Library</h4>
+                    <p>Reusable campus footage and clips your team can pull from for any campaign or recruitment push.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h4>Dedicated Account Manager</h4>
+                    <p>A single point of contact who understands your brand, your goals, and your institution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- NEXT STEPS -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label fade-in">Next Steps</div>
+            <h2 class="section-title fade-in">Simple. <span class="coral-italic">No commitment.</span></h2>
+            <div class="next-steps">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>15-minute call with Jay</h4>
+                        <p>No pitch deck, no pressure. A quick conversation about your content goals, your team structure, and where Fusion Creative could fit in.</p>
+                    </div>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Free test piece filmed on campus</h4>
+                        <p>We will come to campus and produce a single piece of content at no cost. You see the quality, the process, and the final product before any commitment.</p>
+                    </div>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>See the quality before committing</h4>
+                        <p>If you like what you see, we start. If not, no hard feelings. The test piece is yours to keep either way.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="fade-in" style="text-align: center;">
+                <a href="https://cal.com/fusioncreative" target="_blank" class="cta-btn">
+                    Book a Call
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>Prepared for Newcastle University by Fusion Creative | April 2026</p>
+            <p style="margin-top: 8px; font-size: 12px;">This document is confidential and intended solely for the named recipient. Please do not distribute without permission.</p>
+        </div>
+    </footer>
+
+    <!-- INTERSECTION OBSERVER -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+            document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+        });
+    </script>
+
+</body>
+</html>
