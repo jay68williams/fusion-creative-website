@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Audit - ABOVE Newcastle | Fusion Creative</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f5f6fa;
+            --card: #ffffff;
+            --card-border: rgba(0,0,0,0.06);
+            --coral: #E8553C;
+            --coral-light: #ff7a64;
+            --coral-dark: #c4412b;
+            --text: #111111;
+            --text-secondary: #555555;
+            --text-muted: #999999;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); }
+            50% { box-shadow: 0 0 40px rgba(232,85,60,0.5); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.85); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .brand {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+        }
+
+        .brand-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+        }
+
+        .header-date {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .hero {
+            padding: 64px 0 56px;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .hero-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .section {
+            padding: 48px 0;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .card-sm {
+            padding: 28px 32px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .section-text {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .section-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 60%);
+            border-color: rgba(232, 85, 60, 0.1);
+        }
+
+        .intro-card .greeting {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .stats-table tr {
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .stats-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .stats-table tr:nth-child(even) {
+            background: rgba(0,0,0,0.02);
+        }
+
+        .stats-table td {
+            padding: 14px 0;
+        }
+
+        .stats-table td:first-child {
+            color: var(--text-secondary);
+            font-weight: 400;
+            padding-right: 24px;
+            white-space: nowrap;
+        }
+
+        .stats-table td:last-child {
+            font-weight: 600;
+            color: var(--text);
+            text-align: right;
+        }
+
+        .stat-highlight {
+            color: var(--coral) !important;
+            font-weight: 700 !important;
+        }
+
+        .stat-badge {
+            display: inline-block;
+            background: rgba(232, 85, 60, 0.1);
+            color: var(--coral);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            animation: scaleIn 0.4s ease both;
+        }
+
+        .stat-badge-green {
+            display: inline-block;
+            background: rgba(52, 199, 89, 0.1);
+            color: #34c759;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .stat-badge-amber {
+            display: inline-block;
+            background: rgba(255, 159, 10, 0.1);
+            color: #ff9f0a;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .working-item {
+            margin-bottom: 28px;
+        }
+
+        .working-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .working-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .working-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .check-icon {
+            display: inline-block;
+            color: #34c759;
+            margin-right: 6px;
+            font-weight: 700;
+        }
+
+        .opportunity-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--coral);
+            color: white;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(232, 85, 60, 0.35);
+        }
+
+        .opportunity-heading {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .opportunity-heading h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .opportunity-card {
+            margin-bottom: 20px;
+        }
+
+        .opportunity-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 60%);
+            border-color: rgba(232, 85, 60, 0.1);
+            border-left: 4px solid var(--coral);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .case-study-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--coral-light));
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin: 32px 0;
+        }
+
+        .case-study-stat {
+            text-align: center;
+            padding: 24px 16px;
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.1);
+            border-radius: 12px;
+            animation: scaleIn 0.5s ease both;
+        }
+
+        .case-study-stat:nth-child(1) { animation-delay: 0.1s; }
+        .case-study-stat:nth-child(2) { animation-delay: 0.2s; }
+        .case-study-stat:nth-child(3) { animation-delay: 0.3s; }
+        .case-study-stat:nth-child(4) { animation-delay: 0.4s; }
+
+        .case-study-stat .number {
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 900;
+            color: var(--coral);
+            letter-spacing: -1px;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .case-study-stat .label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .viral-callout {
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.12);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-top: 24px;
+        }
+
+        .viral-callout .big-number {
+            font-size: clamp(32px, 6vw, 48px);
+            font-weight: 900;
+            color: var(--coral);
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .viral-callout .context {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        .viral-callout .context strong {
+            color: var(--text);
+        }
+
+        .takeaway {
+            margin-top: 24px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .video-ideas-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .video-idea-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-idea-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .video-idea-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--coral);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .idea-number {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 10px;
+        }
+
+        .idea-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .idea-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .idea-tag {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.04);
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        .idea-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .idea-why {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            padding-top: 14px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .idea-why strong {
+            color: var(--coral);
+            font-weight: 600;
+        }
+
+        .enhancement-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .enhancement-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .enhancement-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .enhancement-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .enhancement-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .enhancement-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .enhancement-list {
+            list-style: none;
+            margin: 12px 0;
+        }
+
+        .enhancement-list li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 6px 0;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .enhancement-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 13px;
+            width: 5px;
+            height: 5px;
+            background: var(--coral);
+            border-radius: 50%;
+        }
+
+        .highlight-box {
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.12);
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin-top: 14px;
+        }
+
+        .highlight-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .highlight-box strong {
+            color: var(--coral);
+        }
+
+        .next-steps-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 80%);
+            border-color: rgba(232, 85, 60, 0.1);
+        }
+
+        .steps-list {
+            list-style: none;
+            counter-reset: steps;
+        }
+
+        .steps-list li {
+            counter-increment: steps;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .steps-list li:last-child {
+            border-bottom: none;
+        }
+
+        .steps-list li::before {
+            content: counter(steps);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            background: var(--coral);
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(232, 85, 60, 0.3);
+        }
+
+        .about-fc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .about-fc-stat {
+            background: rgba(232, 85, 60, 0.04);
+            border: 1px solid rgba(232, 85, 60, 0.1);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-align: center;
+            animation: scaleIn 0.5s ease both;
+        }
+
+        .about-fc-stat:nth-child(1) { animation-delay: 0.1s; }
+        .about-fc-stat:nth-child(2) { animation-delay: 0.2s; }
+        .about-fc-stat:nth-child(3) { animation-delay: 0.3s; }
+        .about-fc-stat:nth-child(4) { animation-delay: 0.4s; }
+
+        .about-fc-stat-val {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--coral);
+            letter-spacing: -0.5px;
+        }
+
+        .about-fc-stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .about-fc-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-fc-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .about-fc-tag {
+            background: rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .cta-wrap {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--coral);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 40px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        .cta-btn:hover {
+            background: var(--coral-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(232, 85, 60, 0.4);
+            animation: none;
+        }
+
+        .cta-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        .closing-note {
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .signature {
+            padding: 48px 0;
+        }
+
+        .signature-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .signature-role {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .signature-link {
+            font-size: 14px;
+            color: var(--coral);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .signature-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            padding: 32px 0;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            text-align: center;
+            background: #edeef2;
+        }
+
+        .footer-confidential {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .footer-brand {
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-brand span {
+            color: var(--coral);
+            font-weight: 600;
+        }
+
+        @media print {
+            :root {
+                --bg: #ffffff;
+                --card: #f8f8f8;
+                --card-border: #e0e0e0;
+                --text: #111111;
+                --text-secondary: #444444;
+                --text-muted: #888888;
+            }
+
+            body {
+                background: white;
+                color: #111;
+                font-size: 11pt;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 28pt;
+            }
+
+            .hero h1 span {
+                -webkit-text-fill-color: var(--coral);
+                background: none;
+                animation: none;
+            }
+
+            .card, .video-idea-card, .enhancement-card, .case-study-card, .intro-card, .next-steps-card {
+                background: #f8f8f8 !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                border-color: #e0e0e0;
+                box-shadow: none !important;
+                transform: none !important;
+                animation: none !important;
+            }
+
+            .section {
+                animation: none !important;
+            }
+
+            .case-study-card::before {
+                background: var(--coral);
+            }
+
+            .video-idea-card::before {
+                background: var(--coral);
+            }
+
+            .case-study-stat {
+                background: rgba(232, 85, 60, 0.06) !important;
+                animation: none !important;
+            }
+
+            .viral-callout {
+                background: rgba(232, 85, 60, 0.05) !important;
+            }
+
+            .highlight-box {
+                background: rgba(232, 85, 60, 0.05) !important;
+            }
+
+            .cta-btn {
+                animation: none !important;
+                box-shadow: none !important;
+            }
+
+            a {
+                color: var(--coral) !important;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .hero {
+                padding: 40px 0 32px;
+                animation: none !important;
+            }
+
+            .footer {
+                background: #f0f0f0 !important;
+            }
+
+            .stat-badge, .about-fc-stat {
+                animation: none !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .card {
+                padding: 28px 22px;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .video-idea-card {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .video-idea-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .enhancement-card {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .enhancement-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .hero {
+                padding: 40px 0 36px;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .case-study-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .video-idea-card {
+                padding: 24px 22px;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .about-fc-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .about-fc-stat-val {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="container">
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand">
+                    <span class="brand-dot"></span>Fusion Creative
+                </div>
+                <div class="header-date">16 April 2026</div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-label">Free Social Media Audit</div>
+            <h1><span>ABOVE Newcastle</span></h1>
+            <p class="hero-subtitle">Rooftop Bar &amp; Lounge at The Vermont Hotel | Prepared by Fusion Creative | 16 April 2026</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Intro -->
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Hey team,</div>
+                <p class="section-text">We had a proper look at ABOVE and honestly, the potential here is massive. Newcastle's only true rooftop bar, 200ft up with 360-degree views, cocktails, events, and a location that basically sells itself on camera. You have something most venues in this city would kill for.</p>
+                <p class="section-text">We are Fusion Creative, a content and marketing agency based in Newcastle that works exclusively with hospitality businesses. We put together this honest audit of your social media presence. Inside you will find a full snapshot of where you are now, what is working, <strong>five areas where there is real room to grow</strong>, video ideas you can use straight away, and recommendations for quick digital wins.</p>
+                <p class="section-text">This is yours whether we work together or not.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Snapshot -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Current Snapshot</div>
+            <div class="section-title">Where You Are Right Now</div>
+            <div class="card card-sm">
+                <table class="stats-table">
+                    <tr>
+                        <td>Website</td>
+                        <td>abovenewcastle.com <span class="stat-badge-green">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td>Instagram (@abovencl)</td>
+                        <td>18K followers <span class="stat-badge-green">Strong Base</span></td>
+                    </tr>
+                    <tr>
+                        <td>TikTok (@abovencl)</td>
+                        <td class="stat-highlight">Low followers, few videos <span class="stat-badge">Underused</span></td>
+                    </tr>
+                    <tr>
+                        <td>Facebook</td>
+                        <td>facebook.com/abovencl <span class="stat-badge-green">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td>Twitter/X (@AboveNcl)</td>
+                        <td><span class="stat-badge-amber">Low Activity</span></td>
+                    </tr>
+                    <tr>
+                        <td>TripAdvisor</td>
+                        <td>4.0/5 (482 reviews) <span class="stat-badge-green">Established</span></td>
+                    </tr>
+                    <tr>
+                        <td>TripAdvisor Rank</td>
+                        <td>#161 of 1,163 restaurants <span class="stat-badge-amber">Room to Climb</span></td>
+                    </tr>
+                    <tr>
+                        <td>Parent Company</td>
+                        <td>Gainford Group <span class="stat-badge-green">Established Brand</span></td>
+                    </tr>
+                    <tr>
+                        <td>USP</td>
+                        <td>Only rooftop bar in Newcastle, 360-degree views</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- What Is Working -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">What Is Already Working Well</div>
+            <div class="section-title">Credit Where It Is Due</div>
+            <div class="card">
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> 18K Instagram followers is a strong foundation</h4>
+                    <p>Most hospitality businesses in Newcastle would love to have 18,000 followers. That audience is real and it already exists. You do not need to build from zero. You need to activate the audience you already have with content that actually gets pushed by the algorithm. The base is there, it just needs the right fuel.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The rooftop location is an unbeatable visual asset</h4>
+                    <p>There is no other rooftop bar in Newcastle. That is a genuinely unique selling point that most venues simply cannot compete with. Sunset views 200ft above the city, the Tyne Bridge in the background, cocktails with that backdrop. This is the kind of content that goes viral without even trying, if it is filmed right and posted consistently.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Events programme is strong and varied</h4>
+                    <p>Sky High Cinema Club, Skyline Bottomless Brunch, Summer in the Sky, DJ nights, live musicians, private hire. You are not short on things to promote. Each one of those events is a content series waiting to happen. The variety means you could post every single day and never repeat yourself.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> TripAdvisor reviews praise the views and cocktails</h4>
+                    <p>When people talk about ABOVE, they talk about the views and the cocktails. Those are exactly the two things that perform best on short-form video. You already know what your customers love. Now it is about turning those moments into content that reaches people who have not visited yet.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Gainford Group gives you operational credibility</h4>
+                    <p>Being part of the Gainford Group alongside Aveika, Livello, and The Vermont gives ABOVE a level of infrastructure and professionalism that independent bars struggle to match. That credibility translates directly into trust when people discover you online for the first time.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Where The Opportunity Is -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Where The Opportunity Is</div>
+            <div class="section-title">Five Areas With Real Potential</div>
+            <p class="section-text" style="margin-bottom: 32px;">ABOVE has a lot going for it. The gaps are not about the venue or the experience. They are about how the story is being told online. Fix these and the growth will follow.</p>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">1</span>
+                    <h3>Engagement Is Low Relative to 18K Followers</h3>
+                </div>
+                <p class="section-text">18K followers is great on paper, but if the content is not driving likes, comments, saves, and shares, the algorithm buries it. Right now, most of your posts are polished photos and reposts. They look nice, but they do not stop people scrolling. Instagram in 2026 rewards personality-driven video content with strong hooks in the first second. That is what gets pushed to the Explore page and into new people's feeds.</p>
+                <p class="section-text">The fix is not complicated. It means shifting from "pretty pictures of cocktails" to "content people actually want to watch and share." Staff on camera, behind-the-scenes moments, reaction content, POV formats. The venue looks incredible. You just need to show it in a way the algorithm actually rewards.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">2</span>
+                    <h3>TikTok Is a Massive Missed Opportunity</h3>
+                </div>
+                <p class="section-text">A rooftop bar with 360-degree views of Newcastle is literally perfect TikTok content. Sunset timelapses, cocktail making, the reveal of stepping out onto the rooftop for the first time. These are formats that rack up millions of views for venues far less impressive than yours.</p>
+                <p class="section-text">Right now, your TikTok has barely started. A handful of videos and a low follower count. The platform is still the easiest place to grow organically in hospitality. One good video of the view at golden hour with a trending sound could put ABOVE in front of hundreds of thousands of people overnight. Every day without a TikTok strategy is reach you are leaving on the table.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">3</span>
+                    <h3>No UGC Strategy Despite a Huge Opportunity</h3>
+                </div>
+                <p class="section-text">People film themselves at rooftop bars. It is one of the most filmed categories in hospitality. Your customers are already creating content when they visit ABOVE. They are filming the view, the cocktails, the sunset. But there is no visible strategy for repurposing that content.</p>
+                <p class="section-text">With 18K followers, you should be resharing customer Stories daily, running a branded hashtag, and encouraging UGC with prompts at the venue. Every customer video is free content and social proof. A simple system for collecting and reposting UGC would multiply your content output without filming a single extra thing.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">4</span>
+                    <h3>Events Are Not Being Promoted Through Video</h3>
+                </div>
+                <p class="section-text">Sky High Cinema Club. Skyline Bottomless Brunch. Summer in the Sky. These are brilliant events that people would absolutely share on social media. But they are not being promoted through short-form video content. A 15-second Reel showing the cinema setup on the rooftop at sunset would sell more tickets than any static graphic ever could.</p>
+                <p class="section-text">Each event should have a content series around it: teaser videos before, behind-the-scenes during, highlight reels after. That gives you a constant stream of content that promotes the events and fills seats, while also showing the personality and energy of ABOVE.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">5</span>
+                    <h3>Review Narratives Need Countering With Content</h3>
+                </div>
+                <p class="section-text">Some of your TripAdvisor reviews mention slow service and loud music. Whether that is fair or not does not matter. What matters is that people read those reviews before deciding to visit. The best way to counter negative review narratives is not by arguing online. It is by creating content that shows the opposite.</p>
+                <p class="section-text">Videos of staff being attentive and friendly, cocktails arriving quickly, customers having genuine fun, the atmosphere looking right. Content that shows the real experience overwrites negative perceptions far more effectively than a management response ever could. Show, do not tell.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Case Study -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Case Study</div>
+            <div class="section-title">What We Did for New Greek</div>
+            <div class="card case-study-card">
+                <p class="section-text">New Greek is a small independent restaurant in Newcastle. No brand backing, no rooftop views, no 18K follower head start. They started from zero. Here is where they are now after working with Fusion Creative.</p>
+
+                <div class="case-study-grid">
+                    <div class="case-study-stat">
+                        <div class="number">40M+</div>
+                        <div class="label">Total Views</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">37.4M</div>
+                        <div class="label">Instagram Views</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">5.2M</div>
+                        <div class="label">TikTok Views</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">11.5K</div>
+                        <div class="label">Followers</div>
+                    </div>
+                </div>
+
+                <div class="viral-callout">
+                    <div class="big-number">40 million views. One restaurant. Zero head start.</div>
+                    <div class="context"><strong>New Greek had no followers, no content history, and no brand recognition.</strong> We built their entire social presence from scratch with short-form video. They went from empty tables to fully booked with a waiting list. ABOVE already has 18K followers, a stunning venue, and a built-in events programme. Imagine what happens when you add the right content strategy on top of that.</div>
+                </div>
+
+                <p class="takeaway">New Greek did not have a rooftop. They did not have 360-degree views. They did not have 18K followers to start with. The only thing that changed was the content. ABOVE has a significantly stronger starting position.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Video Ideas -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Ready-Made Content</div>
+            <div class="section-title">4 Video Ideas You Could Film This Week</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are formats that are working right now on TikTok and Instagram Reels. All of them are built around what makes ABOVE unique. Film any one of these properly and it could outperform everything you have posted in the last year.</p>
+
+            <div class="video-ideas-grid">
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 01</div>
+                    <div class="idea-title">"POV: You step out onto Newcastle's only rooftop bar for the first time"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Reveal</span>
+                        <span class="idea-tag">POV</span>
+                        <span class="idea-tag">Discovery</span>
+                    </div>
+                    <p class="idea-description">Start in the lift or walking through the corridor. Build the anticipation. Then the door opens and you step out onto the rooftop. Wide shot of the 360-degree view over Newcastle at sunset. Hold on the view for a beat. Cut to a cocktail being placed on the bar with the skyline behind it. Text overlay: "Newcastle's only rooftop bar." Trending audio underneath.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Reveal content is one of the highest-performing formats on TikTok and Reels. The anticipation of "what is behind this door" keeps people watching. The payoff of that rooftop view is genuinely jaw-dropping. This is the kind of video that gets shared in group chats with "we need to go here." One well-filmed version of this could hit six figures in views easily.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 02</div>
+                    <div class="idea-title">"Ranking every cocktail on the menu from worst to best"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Staff</span>
+                        <span class="idea-tag">Ranking</span>
+                        <span class="idea-tag">Personality</span>
+                    </div>
+                    <p class="idea-description">Get two or three members of staff on camera. Line up every cocktail on the menu. Taste each one and rank them honestly. Let them disagree. Let them have opinions. Film it fast, cut it tight. Each cocktail gets a quick reaction and a score. The "worst" one still looks incredible. The best one gets the slow-motion hero shot with the Newcastle skyline behind it.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Ranking content drives massive engagement because people want to argue. "How is that at the bottom?!" Comments like that are algorithm gold. It shows off the full menu, puts your staff's personalities front and centre, and makes the audience feel like they know the team. It is also a series, because you can do cocktails, bar snacks, even customer favourites vs staff favourites.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 03</div>
+                    <div class="idea-title">"What does 50 quid get you at Newcastle's highest bar?"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Value</span>
+                        <span class="idea-tag">Challenge</span>
+                        <span class="idea-tag">Relatable</span>
+                    </div>
+                    <p class="idea-description">Start with the concept: "I have got 50 pounds to spend at the highest bar in Newcastle. Let us see what I can get." Order cocktails, a light bite, maybe a second round. Show every item with a running total on screen. Show the view between each order. End with the full spread laid out against the skyline and the total. Make it feel like a genuine experience someone could have on a night out.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Money challenge content performs incredibly well because it answers a question everyone secretly has: "How much does it actually cost?" Some people think rooftop bars are out of their price range. This video either confirms good value or creates aspiration. Either way, it gets watched, shared, and commented on. It also directly addresses pricing concerns from reviews.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 04</div>
+                    <div class="idea-title">"Things people say when they see the view for the first time"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Reactions</span>
+                        <span class="idea-tag">UGC</span>
+                        <span class="idea-tag">Social Proof</span>
+                    </div>
+                    <p class="idea-description">Film genuine reactions of people stepping out onto the rooftop for the first time. You can do this as a compilation of real customer reactions or as a skit where staff act out the most common things people say. "Oh my God." "You can see everything from up here." "Why have I never been here before?" Mix in shots of the actual view between each reaction. Keep it fast-paced and fun.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Reaction content is social proof in its purest form. When potential customers see real people being blown away by the view, they want to experience it themselves. It humanises the brand, it is endlessly repeatable as a series, and it positions ABOVE as a "must-visit" destination rather than just another bar. The reactions also counter any negative review narratives because they show real enjoyment.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Digital Enhancements -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Digital Enhancements</div>
+            <div class="section-title">Beyond Social Media</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are strategic changes that would make a real difference alongside the content work.</p>
+
+            <div class="enhancement-card">
+                <h4>Build a UGC Collection System</h4>
+                <p>Your customers are already filming content at ABOVE. The view alone guarantees it. But without a system to collect and repurpose that content, it disappears into their personal feeds and you get zero benefit from it.</p>
+                <ul class="enhancement-list">
+                    <li>Create a branded hashtag and promote it at the venue (table cards, signage, menu inserts)</li>
+                    <li>Reshare customer Stories to your own Stories daily to encourage more tagging</li>
+                    <li>Run a monthly "best customer photo/video" feature to incentivise quality UGC</li>
+                    <li>Use UGC in your Reels as social proof. Real customer reactions are more persuasive than any polished brand content</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Quick win:</strong> Just adding "Tag us @abovencl for a chance to be featured" to your table cards would immediately increase the volume of customer content you can repurpose. Free content, free social proof.</p>
+                </div>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Turn Events Into Content Machines</h4>
+                <p>Sky High Cinema Club, Skyline Bottomless Brunch, and Summer in the Sky are all events that would look incredible on video. Each one should have a content cycle: teaser content before the event, behind-the-scenes and atmosphere content during it, and highlight reels after. That gives you a constant stream of content that promotes future events while showcasing the ABOVE experience.</p>
+                <ul class="enhancement-list">
+                    <li>Film a 15-second teaser for every upcoming event and post it a week in advance</li>
+                    <li>Capture atmosphere content during events (crowd shots, reactions, the setup with the view)</li>
+                    <li>Create "recap" Reels the day after each event to build FOMO for the next one</li>
+                    <li>Use event content for paid ads targeting Newcastle nightlife audiences</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Push TripAdvisor Rating and Ranking</h4>
+                <p>4.0 out of 5 with 482 reviews is a solid base, but you are ranked #161 out of 1,163 restaurants in Newcastle. A focused review generation push could move that ranking significantly. More recent positive reviews also push down the visibility of older negative ones.</p>
+                <ul class="enhancement-list">
+                    <li>Add a QR code to receipts or table cards linking directly to the TripAdvisor review page</li>
+                    <li>Train staff to mention reviews to happy customers at the right moment</li>
+                    <li>Respond to every review, positive and negative, to show you are actively engaged</li>
+                    <li>Target: push into the top 100 within 6 months with consistent review collection</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>TikTok Launch Strategy</h4>
+                <p>TikTok is still the fastest-growing platform for hospitality discovery. People actively search TikTok for "bars in Newcastle," "rooftop bars UK," and "things to do in Newcastle." Without a presence, you are invisible in those searches. The content you need to create is exactly what makes ABOVE special: the view, the cocktails, the events, the experience of being 200ft above the city.</p>
+                <div class="highlight-box">
+                    <p><strong>The reality:</strong> Your competitors are not on TikTok either. The first rooftop bar in Newcastle to own TikTok will dominate the "rooftop bar Newcastle" search for years. That should be ABOVE.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- About Fusion Creative -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">About Fusion Creative</div>
+            <div class="card intro-card">
+                <p class="about-fc-text">Fusion Creative is a content and marketing agency based in Newcastle. We produce short-form video content, manage social media accounts, run paid campaigns, build websites, and handle branding. Everything under one roof.</p>
+                <p class="about-fc-text">We work exclusively with hospitality businesses. Restaurants, bars, hotels, and events. We know what works in this space because it is all we do. No stock footage, no generic templates, no recycled ideas. Every piece of content is original and tailored to the venue.</p>
+                <p class="about-fc-text">Our headline result is New Greek, a small independent restaurant in Newcastle that went from zero followers to over 40 million views. We know what makes hospitality content perform, and we know how to turn a great venue into a packed room.</p>
+
+                <div class="about-fc-grid">
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">40M+</div>
+                        <div class="about-fc-stat-label">Views generated</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">20+</div>
+                        <div class="about-fc-stat-label">Videos per month</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">6+</div>
+                        <div class="about-fc-stat-label">Years in content</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">100%</div>
+                        <div class="about-fc-stat-label">Impressions guarantee</div>
+                    </div>
+                </div>
+
+                <div class="about-fc-services">
+                    <span class="about-fc-tag">Short-Form Video</span>
+                    <span class="about-fc-tag">TikTok Management</span>
+                    <span class="about-fc-tag">Instagram Reels</span>
+                    <span class="about-fc-tag">Paid Ads</span>
+                    <span class="about-fc-tag">Website Design</span>
+                    <span class="about-fc-tag">Branding</span>
+                    <span class="about-fc-tag">SEO</span>
+                    <span class="about-fc-tag">Social Media Management</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Next Steps -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a read through this audit. The short version: ABOVE has one of the strongest visual assets of any bar in the North East and 18K followers to build on. The content just needs to catch up with the venue.</li>
+                    <li>If any of this resonates, let us jump on a quick call. No pitch, just a straight conversation about where the biggest wins are for ABOVE specifically.</li>
+                    <li>We can put together a content plan showing exactly what the first month would look like across TikTok, Instagram Reels, UGC strategy, and event promotion.</li>
+                </ol>
+                <p class="closing-note">No pressure at all. But with summer coming and events like Sky High Cinema Club and Summer in the Sky on the horizon, the next few months are the most important window to turn those 18K followers into a proper content engine. The venue is already incredible. Now it is about making sure the rest of Newcastle sees it.</p>
+                <div class="cta-wrap">
+                    <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="cta-btn">Schedule a Call</a>
+                    <div class="cta-sub">30 minutes. No obligation. Pick a time that suits you.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Signature -->
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="footer">
+            <div class="footer-confidential">Confidential - Prepared for ABOVE Newcastle</div>
+            <div class="footer-note">This audit was put together using live data from your website, social media accounts, and online listings on 16 April 2026.</div>
+            <div class="footer-brand"><span>Fusion Creative</span></div>
+        </footer>
+    </div>
+
+</body>
+</html>
