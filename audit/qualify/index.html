@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Few Quick Questions | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0A0A0A;
+  color: #E8E4DD;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 600px; margin: 0 auto; padding: 40px 24px 80px; }
+
+/* Header */
+.brand { font-size: 13px; font-weight: 600; letter-spacing: 0.5px; color: #888; margin-bottom: 40px; }
+.brand span { color: #E8553C; }
+h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.subtitle { font-size: 15px; color: #888; line-height: 1.6; margin-bottom: 40px; }
+.biz-name { color: #E8553C; font-weight: 600; }
+
+/* Progress */
+.progress-bar { width: 100%; height: 3px; background: rgba(255,255,255,0.06); border-radius: 3px; margin-bottom: 40px; }
+.progress-fill { height: 100%; background: #E8553C; border-radius: 3px; transition: width 0.4s ease; }
+
+/* Question */
+.question { display: none; }
+.question.active { display: block; }
+.q-number { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #E8553C; margin-bottom: 8px; }
+.q-text { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 24px; line-height: 1.4; }
+
+/* Options */
+.options { display: flex; flex-direction: column; gap: 10px; }
+.option {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.option:hover { border-color: rgba(232,85,60,0.3); background: #151515; }
+.option.selected { border-color: #E8553C; background: rgba(232,85,60,0.08); color: #fff; }
+.option-dot {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.15);
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.option.selected .option-dot { border-color: #E8553C; background: #E8553C; }
+.option.selected .option-dot::after { content: ''; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+
+/* Text input question */
+.text-input {
+  width: 100%;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 14px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+  min-height: 100px;
+}
+.text-input:focus { border-color: rgba(232,85,60,0.4); }
+.text-input::placeholder { color: #555; }
+
+/* Navigation */
+.nav { display: flex; justify-content: space-between; margin-top: 32px; }
+.btn {
+  padding: 14px 28px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s;
+}
+.btn-next { background: #E8553C; color: #fff; }
+.btn-next:hover { transform: scale(1.02); box-shadow: 0 4px 16px rgba(232,85,60,0.3); }
+.btn-next:disabled { opacity: 0.3; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-back { background: transparent; color: #888; border: 1px solid rgba(255,255,255,0.08); }
+.btn-back:hover { color: #fff; border-color: rgba(255,255,255,0.2); }
+.btn-back.hidden { visibility: hidden; }
+
+/* Success */
+.success { display: none; text-align: center; padding: 60px 0; }
+.success.active { display: block; }
+.tick { font-size: 48px; margin-bottom: 20px; }
+.success h2 { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: #fff; margin-bottom: 12px; }
+.success p { font-size: 15px; color: #888; line-height: 1.6; }
+.success a { color: #E8553C; text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="brand">Fusion <span>Creative</span></div>
+
+  <div id="formArea">
+    <h1>A few quick questions</h1>
+    <p class="subtitle">Thanks for requesting your audit<span id="bizNameSpan"></span>. These help us tailor the audit to your situation. Takes about 60 seconds.</p>
+
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:14%"></div></div>
+
+    <!-- Q1 -->
+    <div class="question active" data-q="1">
+      <div class="q-number">Question 1 of 7</div>
+      <div class="q-text">How would you describe your business?</div>
+      <div class="options" data-key="business_type">
+        <div class="option" data-value="restaurant">
+          <div class="option-dot"></div> Restaurant or takeaway
+        </div>
+        <div class="option" data-value="cafe_bakery">
+          <div class="option-dot"></div> Cafe or bakery
+        </div>
+        <div class="option" data-value="bar_pub">
+          <div class="option-dot"></div> Bar, pub, or nightlife
+        </div>
+        <div class="option" data-value="hotel_accommodation">
+          <div class="option-dot"></div> Hotel or accommodation
+        </div>
+        <div class="option" data-value="retail">
+          <div class="option-dot"></div> Retail or e-commerce
+        </div>
+        <div class="option" data-value="other">
+          <div class="option-dot"></div> Something else
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question" data-q="2">
+      <div class="q-number">Question 2 of 7</div>
+      <div class="q-text">What is your main goal right now?</div>
+      <div class="options" data-key="main_goal">
+        <div class="option" data-value="more_customers">
+          <div class="option-dot"></div> Get more customers through the door
+        </div>
+        <div class="option" data-value="brand_awareness">
+          <div class="option-dot"></div> Build brand awareness and get known locally
+        </div>
+        <div class="option" data-value="social_growth">
+          <div class="option-dot"></div> Grow social media following and engagement
+        </div>
+        <div class="option" data-value="online_orders">
+          <div class="option-dot"></div> Increase online orders and delivery
+        </div>
+        <div class="option" data-value="not_sure">
+          <div class="option-dot"></div> Not sure yet, just exploring
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question" data-q="3">
+      <div class="q-number">Question 3 of 7</div>
+      <div class="q-text">Who currently handles your social media?</div>
+      <div class="options" data-key="current_social">
+        <div class="option" data-value="me_owner">
+          <div class="option-dot"></div> I do it myself (the owner)
+        </div>
+        <div class="option" data-value="staff_member">
+          <div class="option-dot"></div> A staff member handles it when they can
+        </div>
+        <div class="option" data-value="freelancer">
+          <div class="option-dot"></div> We use a freelancer or part-time person
+        </div>
+        <div class="option" data-value="agency">
+          <div class="option-dot"></div> We already work with an agency
+        </div>
+        <div class="option" data-value="nobody">
+          <div class="option-dot"></div> Nobody, we barely post
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question" data-q="4">
+      <div class="q-number">Question 4 of 7</div>
+      <div class="q-text">Have you ever considered hiring a marketing or content agency?</div>
+      <div class="options" data-key="considered_agency">
+        <div class="option" data-value="yes_actively">
+          <div class="option-dot"></div> Yes, I am actively looking
+        </div>
+        <div class="option" data-value="yes_thought">
+          <div class="option-dot"></div> I have thought about it but not taken the step
+        </div>
+        <div class="option" data-value="no_cost">
+          <div class="option-dot"></div> No, I assumed it would be too expensive
+        </div>
+        <div class="option" data-value="no_trust">
+          <div class="option-dot"></div> No, I have not found one I trust
+        </div>
+        <div class="option" data-value="no_never">
+          <div class="option-dot"></div> Never thought about it
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question" data-q="5">
+      <div class="q-number">Question 5 of 7</div>
+      <div class="q-text">What has been your biggest challenge with marketing so far?</div>
+      <div class="options" data-key="biggest_challenge">
+        <div class="option" data-value="no_time">
+          <div class="option-dot"></div> No time to create content consistently
+        </div>
+        <div class="option" data-value="no_ideas">
+          <div class="option-dot"></div> Do not know what to post or how to make it engaging
+        </div>
+        <div class="option" data-value="no_results">
+          <div class="option-dot"></div> We post but it does not seem to get results
+        </div>
+        <div class="option" data-value="no_budget">
+          <div class="option-dot"></div> Budget is tight and marketing feels like a luxury
+        </div>
+        <div class="option" data-value="no_knowledge">
+          <div class="option-dot"></div> Do not understand the platforms well enough
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question" data-q="6">
+      <div class="q-number">Question 6 of 7</div>
+      <div class="q-text">If you could wave a magic wand, what would success look like in 3 months?</div>
+      <div class="options" data-key="success_vision">
+        <div class="option" data-value="packed_every_night">
+          <div class="option-dot"></div> Packed every night without relying on discounts
+        </div>
+        <div class="option" data-value="known_locally">
+          <div class="option-dot"></div> Everyone in the area knows who we are
+        </div>
+        <div class="option" data-value="viral_content">
+          <div class="option-dot"></div> A video goes viral and puts us on the map
+        </div>
+        <div class="option" data-value="steady_growth">
+          <div class="option-dot"></div> Steady, consistent growth in followers and bookings
+        </div>
+        <div class="option" data-value="hands_off">
+          <div class="option-dot"></div> Someone else handles marketing so I can focus on the business
+        </div>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question" data-q="7">
+      <div class="q-number">Question 7 of 7</div>
+      <div class="q-text">Anything else you would like us to know about your business?</div>
+      <textarea class="text-input" id="extraNotes" placeholder="Optional. Tell us anything that might help us put together a better audit for you."></textarea>
+    </div>
+
+    <div class="nav">
+      <button class="btn btn-back hidden" id="btnBack" onclick="goBack()">Back</button>
+      <button class="btn btn-next" id="btnNext" onclick="goNext()">Next</button>
+    </div>
+  </div>
+
+  <div class="success" id="successArea">
+    <div class="tick">&#9989;</div>
+    <h2>All done</h2>
+    <p>Thanks for taking the time. This really helps us put together a more useful audit for you. We will be in touch within 24 hours.</p>
+    <p style="margin-top:24px;"><a href="https://fusioncreative.uk">Back to Fusion Creative</a></p>
+  </div>
+</div>
+
+<script>
+(function() {
+  var currentQ = 1;
+  var totalQ = 7;
+  var answers = {};
+  var params = new URLSearchParams(window.location.search);
+  var leadId = params.get('id') || '';
+  var bizName = params.get('biz') || '';
+
+  if (bizName) {
+    document.getElementById('bizNameSpan').innerHTML = ' for <span class="biz-name">' + decodeURIComponent(bizName) + '</span>';
+  }
+
+  // Option click handlers
+  document.querySelectorAll('.option').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      var parent = this.closest('.options');
+      parent.querySelectorAll('.option').forEach(function(o) { o.classList.remove('selected'); });
+      this.classList.add('selected');
+      answers[parent.getAttribute('data-key')] = this.getAttribute('data-value');
+      document.getElementById('btnNext').disabled = false;
+    });
+  });
+
+  function updateUI() {
+    document.querySelectorAll('.question').forEach(function(q) {
+      q.classList.toggle('active', parseInt(q.getAttribute('data-q')) === currentQ);
+    });
+    document.getElementById('progressFill').style.width = ((currentQ / totalQ) * 100) + '%';
+    document.getElementById('btnBack').classList.toggle('hidden', currentQ === 1);
+    document.getElementById('btnNext').textContent = currentQ === totalQ ? 'Submit' : 'Next';
+
+    // Check if current question has a selection
+    var activeQ = document.querySelector('.question.active');
+    var opts = activeQ ? activeQ.querySelector('.options') : null;
+    if (opts) {
+      var hasSelection = opts.querySelector('.option.selected') !== null;
+      document.getElementById('btnNext').disabled = !hasSelection;
+    } else {
+      document.getElementById('btnNext').disabled = false;
+    }
+  }
+
+  window.goNext = function() {
+    if (currentQ < totalQ) {
+      currentQ++;
+      updateUI();
+    } else {
+      // Submit
+      answers.extra_notes = document.getElementById('extraNotes').value.trim();
+      answers.lead_id = leadId;
+      answers.business_name = decodeURIComponent(bizName);
+
+      document.getElementById('btnNext').disabled = true;
+      document.getElementById('btnNext').textContent = 'Submitting...';
+
+      fetch('https://newgreek.fusioncreative.uk/api/audit-qualify/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(answers)
+      }).then(function() {
+        document.getElementById('formArea').style.display = 'none';
+        document.getElementById('successArea').classList.add('active');
+      }).catch(function() {
+        document.getElementById('formArea').style.display = 'none';
+        document.getElementById('successArea').classList.add('active');
+      });
+    }
+  };
+
+  window.goBack = function() {
+    if (currentQ > 1) {
+      currentQ--;
+      updateUI();
+    }
+  };
+
+  updateUI();
+})();
+</script>
+
+</body>
+</html>
