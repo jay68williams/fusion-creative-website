@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Proposal - Freight | Fusion Creative</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --bg:#0a0a0a;
+            --card:#141414;
+            --card-border:rgba(255,255,255,0.06);
+            --coral:#E8553C;
+            --coral-glow:rgba(232,85,60,0.15);
+            --text:#f0f0f0;
+            --text-secondary:#999;
+            --text-muted:#666;
+        }
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+        .container{max-width:900px;margin:0 auto;padding:0 28px}
+        .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+        .reveal.vis{opacity:1;transform:translateY(0)}
+
+        /* Hero */
+        .hero{padding:100px 0 72px;text-align:center;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(232,85,60,0.08) 0%,transparent 60%);pointer-events:none}
+        .hero-label{font-family:'Inter',sans-serif;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--coral);margin-bottom:16px;position:relative}
+        .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,5.5vw,4.2rem);font-weight:400;margin-bottom:8px;position:relative;line-height:1.1}
+        .hero h1 span{font-family:'DM Serif Display',serif;font-style:italic;color:var(--coral);display:block;font-size:clamp(1.4rem,3vw,2rem);margin-top:8px}
+        .hero p{color:var(--text-secondary);font-size:0.95rem;max-width:580px;margin:20px auto 0;position:relative;line-height:1.8}
+
+        /* Sections */
+        .section{padding:48px 0}
+        .section-label{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--coral);font-weight:700;margin-bottom:10px}
+        .section h2{font-family:'DM Serif Display',serif;font-size:1.8rem;font-weight:400;margin-bottom:24px;line-height:1.3}
+        .section p.lead{color:var(--text-secondary);font-size:0.95rem;margin-bottom:24px}
+
+        /* Cards */
+        .card{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:28px 32px;margin-bottom:16px}
+        .card h3{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;margin-bottom:8px;color:var(--text)}
+        .card p{color:var(--text-secondary);font-size:0.88rem;margin-bottom:0;line-height:1.75}
+
+        /* Case Study */
+        .case-study{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:36px 40px;position:relative;overflow:hidden}
+        .case-study::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--coral)}
+        .case-study h3{font-family:'DM Serif Display',serif;font-size:1.25rem;font-weight:400;margin-bottom:4px}
+        .case-study .case-sub{color:var(--text-muted);font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px}
+        .case-study .case-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}
+        .case-study .case-stat .num{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--coral)}
+        .case-study .case-stat .label{font-size:0.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:2px}
+        .case-study .case-note{font-size:0.88rem;color:var(--text-secondary);font-style:italic;margin-top:4px;line-height:1.75}
+
+        /* Video Ideas */
+        .idea-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+        .idea{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:22px 24px}
+        .idea .num{font-family:'DM Serif Display',serif;font-size:0.85rem;color:var(--coral);margin-bottom:6px;opacity:0.6}
+        .idea h4{font-family:'DM Serif Display',serif;font-size:1rem;font-weight:400;margin-bottom:6px;line-height:1.3}
+        .idea p{font-size:0.82rem;color:var(--text-muted);margin:0;line-height:1.6}
+
+        /* CTA */
+        .cta-section{padding:56px 0 64px}
+        .cta-card{background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:48px 40px;text-align:center;position:relative;overflow:hidden}
+        .cta-card::before{content:'';position:absolute;top:-120px;right:-120px;width:320px;height:320px;background:radial-gradient(circle,rgba(232,85,60,0.12) 0%,transparent 60%);pointer-events:none}
+        .cta-card h2{font-family:'DM Serif Display',serif;font-size:1.7rem;font-weight:400;margin-bottom:12px;position:relative}
+        .cta-card h2 em{font-style:italic;color:var(--coral)}
+        .cta-card p{color:var(--text-secondary);font-size:0.95rem;max-width:560px;margin:0 auto;line-height:1.8;position:relative}
+        .cta-card .sign-off{margin-top:28px;font-family:'DM Serif Display',serif;font-style:italic;color:var(--text);font-size:1.05rem;position:relative}
+
+        /* Footer */
+        .footer{text-align:center;padding:40px 0 40px;border-top:1px solid var(--card-border)}
+        .footer p{font-size:0.72rem;color:var(--text-muted);margin-bottom:6px}
+        .footer a{color:var(--coral);text-decoration:none}
+
+        /* Divider */
+        .divider{width:60px;height:2px;background:var(--coral);opacity:0.3;margin:48px auto}
+
+        /* Mobile */
+        @media(max-width:640px){
+            .hero{padding:72px 0 56px}
+            .idea-grid{grid-template-columns:1fr}
+            .case-study .case-stats{grid-template-columns:1fr;text-align:center}
+            .container{padding:0 20px}
+            .card{padding:24px}
+            .case-study{padding:28px 24px}
+            .cta-card{padding:36px 24px}
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="container">
+        <p class="hero-label reveal">Fusion Creative</p>
+        <h1 class="reveal">Freight<span>A short content proposal</span></h1>
+        <p class="reveal">Thanks for the follow. Here is a quick look at who we are, what we do, and a handful of ideas that would get Freight in front of a lot more Newcastle drinkers.</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Who We Are -->
+    <section class="section">
+        <div class="section-label reveal">Who We Are</div>
+        <h2 class="reveal">Fusion Creative in <em style="font-style:italic;color:var(--coral)">one minute</em></h2>
+
+        <div class="card reveal">
+            <h3>Short-form video agency, based in Newcastle</h3>
+            <p>We make Reels and TikToks for hospitality venues. Restaurants, bars, pubs. We film, edit, strategise, and publish. You carry on running the bar.</p>
+        </div>
+
+        <div class="card reveal">
+            <h3>We do one thing, properly</h3>
+            <p>Twelve videos a month, shot on location at your venue, posted on a content calendar built around trends and what is working right now on the platforms. Not pretty content that looks good in a pitch deck. Content that actually gets views, followers, and bodies through the door.</p>
+        </div>
+
+        <div class="card reveal">
+            <h3>Local, not remote</h3>
+            <p>We are Newcastle-based. We know the scene, we know the students, we know what lands in this city. We are a five-minute drive from most venues in town, including yours.</p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Case Study -->
+    <section class="section">
+        <div class="section-label reveal">Proof of Work</div>
+        <h2 class="reveal">What we did for one Newcastle restaurant</h2>
+
+        <div class="case-study reveal">
+            <h3>New Greek, Chillingham Road</h3>
+            <div class="case-sub">30-Day Results</div>
+            <div class="case-stats">
+                <div class="case-stat"><div class="num">38.9M</div><div class="label">Views (30 days)</div></div>
+                <div class="case-stat"><div class="num">+3,890</div><div class="label">New Followers</div></div>
+                <div class="case-stat"><div class="num">535,062</div><div class="label">Interactions</div></div>
+            </div>
+            <p class="case-note">One independent restaurant. No paid ads. No influencers. Just consistent, strategic short-form content. The same blueprint works for a pub, and it works even better when the content involves drinks, characters, and a bit of chaos.</p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Video Ideas -->
+    <section class="section">
+        <div class="section-label reveal">Content Concepts</div>
+        <h2 class="reveal">8 videos we would make for <em style="font-style:italic;color:var(--coral)">Freight</em></h2>
+        <p class="lead reveal">These are starting points, not a fixed list. Half of the best videos we make come out of things that happen on the night.</p>
+
+        <div class="idea-grid">
+            <div class="idea reveal">
+                <div class="num">01</div>
+                <h4>How drunk is this person?</h4>
+                <p>Show punters a photo or clip of someone at the bar, let them guess how drunk they are, then breathalyse the person and reveal the score. Reaction-driven, high replay value.</p>
+            </div>
+            <div class="idea reveal">
+                <div class="num">02</div>
+                <h4>How drunk are you?</h4>
+                <p>Ask people at the bar how drunk they think they are, breathalyse them, and catch their reaction when the number hits. Works every weekend.</p>
+            </div>
+            <div class="idea reveal">
+                <div class="num">03</div>
+                <h4>Summer at Freight</h4>
+                <p>A rolling showcase of what is coming up. Events, DJ sets, themed nights, bank holiday takeovers. Builds anticipation and turns the feed into a "what is on" guide.</p>
+            </div>
+            <div class="idea reveal">
+                <div class="num">04</div>
+                <h4>Tell us X for free entry</h4>
+                <p>Short on-the-door prompts. Name three drinks on our menu, tell us your worst date, sing a line of a song. Instant comedy, instant engagement, gets people sharing with mates before they even arrive.</p>
+            </div>
+            <div class="idea reveal">
+                <div class="num">05</div>
+                <h4>Best pick up lines</h4>
+                <p>Stop the lads at the bar. "What is your best pick up line?" The answers range from gold to tragic. Always pulls views, always gets shared.</p>
+            </div>
+            <div class="idea reveal">
+                <div class="num">06</div>
+                <h4>What is on the menu</h4>
+                <p>Fast, close-up, trending-audio shots of the food and drinks. Plates going down, pints being pulled, cocktails being made. The kind of content that makes people screenshot and send to their group chat.</p>
+            </div>
+            <div class="idea reveal">
+                <div class="num">07</div>
+                <h4>Weirdest drink requests</h4>
+                <p>Bar staff telling the camera the strangest orders they have ever had. Bar staff are underrated characters. Give them a minute of screen time and they carry the whole feed.</p>
+            </div>
+            <div class="idea reveal">
+                <div class="num">08</div>
+                <h4>Whatever is trending</h4>
+                <p>Weekly pickups of whatever format is exploding on TikTok and Reels that week, adapted to Freight. Speed is the edge here. We move on a trend within 48 hours, not two weeks.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Close -->
+    <section class="cta-section">
+        <div class="cta-card reveal">
+            <div class="section-label">Next Step</div>
+            <h2>Let's <em>chat in person</em></h2>
+            <p>I would love to come down to Freight, grab a drink, and talk through how this could look. No pitch deck, no pressure. Just a conversation about what you want the bar to feel like online, and whether we are the right team to help you get there.</p>
+            <div class="sign-off">- Jay, Fusion Creative</div>
+        </div>
+    </section>
+
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p>Prepared for Freight by <a href="https://fusioncreative.uk" target="_blank" rel="noopener">Fusion Creative</a> | April 2026</p>
+    </div>
+</footer>
+
+<script>
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
