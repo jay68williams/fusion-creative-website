@@ -6,6 +6,20 @@
     <title>Content Proposal - Frate | Fusion Creative</title>
     <meta name="robots" content="noindex, nofollow">
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TS8XCRSG4W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TS8XCRSG4W');
+    </script>
+    <!-- Meta Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init','1631577007728254');fbq('track','PageView');
+    </script>
     <style>
         *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
         :root{
@@ -69,6 +83,10 @@
         .cta-card h2 em{font-style:italic;color:var(--coral)}
         .cta-card p{color:var(--text-secondary);font-size:0.95rem;max-width:580px;margin:0 auto;line-height:1.8;position:relative}
         .cta-card .sign-off{margin-top:28px;font-family:'DM Serif Display',serif;font-style:italic;color:var(--text);font-size:1.05rem;position:relative}
+        .cta-contact{margin-top:20px;display:flex;flex-direction:column;gap:8px;align-items:center;position:relative}
+        .cta-contact a{color:var(--coral);text-decoration:none;font-size:0.95rem;font-weight:600;letter-spacing:0.02em;transition:opacity 0.2s ease}
+        .cta-contact a:hover{opacity:0.8}
+        .cta-contact .contact-label{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);font-weight:600}
 
         /* Footer */
         .footer{text-align:center;padding:40px 0 40px;border-top:1px solid var(--card-border)}
@@ -370,6 +388,10 @@
             <h2>Let's <em>chat in person</em></h2>
             <p>I would love to come down to Frate, grab a drink in the courtyard, and talk through how this could look. No pitch deck, no pressure. Just a conversation about what you want Frate to feel like online, and whether we are the right team to help get you there.</p>
             <div class="sign-off">- Jay, Fusion Creative</div>
+            <div class="cta-contact">
+                <span class="contact-label">Give me a call or text</span>
+                <a href="tel:+447437571250" id="fratePhone">07437 571250</a>
+            </div>
         </div>
     </section>
 
@@ -386,6 +408,39 @@
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Notify Jay when the phone number is clicked
+    var phoneLink = document.getElementById('fratePhone');
+    if (phoneLink) {
+        phoneLink.addEventListener('click', function () {
+            // GA4 event
+            if (typeof gtag === 'function') {
+                gtag('event', 'phone_click', { page: 'Frate audit', contact_method: 'phone' });
+            }
+            // Meta Pixel event
+            if (typeof fbq === 'function') {
+                fbq('track', 'Contact', { content_name: 'Frate audit phone click' });
+            }
+            // Direct notification via n8n pipeline (audit-lead endpoint)
+            try {
+                fetch('https://newgreek.fusioncreative.uk/api/audit-lead/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        business_name: 'Frate (Newcastle)',
+                        name: 'Frate (phone click)',
+                        email: 'unknown',
+                        phone: 'clicked: 07437 571250',
+                        business_type: 'Open-air bar/venue',
+                        goal: 'Phone click from Frate audit page',
+                        social_status: 'N/A - click tracking',
+                        notes: 'HOT: Someone clicked Jay\'s phone number on the Frate audit page (/audit/frate/). Likely Frate owner calling now.'
+                    }),
+                    keepalive: true
+                }).catch(function () {});
+            } catch (e) {}
+        });
+    }
 </script>
 
 </body>
