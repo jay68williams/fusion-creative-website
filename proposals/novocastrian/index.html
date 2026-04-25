@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Proposal - NOVOCASTRIAN | Fusion Creative</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f5f6fa;
+            --card: #ffffff;
+            --card-border: rgba(0,0,0,0.06);
+            --coral: #E8553C;
+            --coral-light: #ff7a64;
+            --coral-dark: #c4412b;
+            --text: #111111;
+            --text-secondary: #555555;
+            --text-muted: #999999;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); }
+            50% { box-shadow: 0 0 40px rgba(232,85,60,0.5); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.85); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .brand {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+        }
+
+        .brand-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+        }
+
+        .header-date {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .hero {
+            padding: 64px 0 56px;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .hero-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .section {
+            padding: 48px 0;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .card-sm {
+            padding: 28px 32px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .section-text {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .section-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 60%);
+            border-color: rgba(232, 85, 60, 0.1);
+        }
+
+        .intro-card .greeting {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .stats-table tr {
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .stats-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .stats-table tr:nth-child(even) {
+            background: rgba(0,0,0,0.02);
+        }
+
+        .stats-table td {
+            padding: 14px 0;
+        }
+
+        .stats-table td:first-child {
+            color: var(--text-secondary);
+            font-weight: 400;
+            padding-right: 24px;
+            white-space: nowrap;
+        }
+
+        .stats-table td:last-child {
+            font-weight: 600;
+            color: var(--text);
+            text-align: right;
+        }
+
+        .stat-highlight {
+            color: var(--coral) !important;
+            font-weight: 700 !important;
+        }
+
+        .stat-badge {
+            display: inline-block;
+            background: rgba(232, 85, 60, 0.1);
+            color: var(--coral);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            animation: scaleIn 0.4s ease both;
+        }
+
+        .stat-badge-green {
+            display: inline-block;
+            background: rgba(52, 199, 89, 0.1);
+            color: #34c759;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .stat-badge-amber {
+            display: inline-block;
+            background: rgba(255, 159, 10, 0.1);
+            color: #ff9f0a;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .working-item {
+            margin-bottom: 28px;
+        }
+
+        .working-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .working-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .working-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .check-icon {
+            display: inline-block;
+            color: #34c759;
+            margin-right: 6px;
+            font-weight: 700;
+        }
+
+        .opportunity-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--coral);
+            color: white;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(232, 85, 60, 0.35);
+        }
+
+        .opportunity-heading {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .opportunity-heading h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .opportunity-card {
+            margin-bottom: 20px;
+        }
+
+        .opportunity-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 60%);
+            border-color: rgba(232, 85, 60, 0.1);
+            border-left: 4px solid var(--coral);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .case-study-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--coral-light));
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin: 32px 0;
+        }
+
+        .case-study-stat {
+            text-align: center;
+            padding: 24px 16px;
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.1);
+            border-radius: 12px;
+            animation: scaleIn 0.5s ease both;
+        }
+
+        .case-study-stat:nth-child(1) { animation-delay: 0.1s; }
+        .case-study-stat:nth-child(2) { animation-delay: 0.2s; }
+        .case-study-stat:nth-child(3) { animation-delay: 0.3s; }
+        .case-study-stat:nth-child(4) { animation-delay: 0.4s; }
+
+        .case-study-stat .number {
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 900;
+            color: var(--coral);
+            letter-spacing: -1px;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .case-study-stat .label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .viral-callout {
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.12);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-top: 24px;
+        }
+
+        .viral-callout .big-number {
+            font-size: clamp(32px, 6vw, 48px);
+            font-weight: 900;
+            color: var(--coral);
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .viral-callout .context {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        .viral-callout .context strong {
+            color: var(--text);
+        }
+
+        .takeaway {
+            margin-top: 24px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .package-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 0;
+        }
+
+        .package-bullet {
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .package-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .package-item strong {
+            color: var(--text);
+        }
+
+        .strategy-list {
+            list-style: none;
+        }
+
+        .strategy-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.6;
+        }
+
+        .strategy-list li:last-child {
+            border-bottom: none;
+        }
+
+        .strategy-list li::before {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 5px;
+            background: var(--coral);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .video-ideas-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .video-idea-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-idea-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .video-idea-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--coral);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .idea-number {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 10px;
+        }
+
+        .idea-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .idea-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .idea-tag {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.04);
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        .idea-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .idea-why {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            padding-top: 14px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .idea-why strong {
+            color: var(--coral);
+            font-weight: 600;
+        }
+
+        .enhancement-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .enhancement-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .enhancement-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .enhancement-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .enhancement-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .enhancement-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .enhancement-list {
+            list-style: none;
+            margin: 12px 0;
+        }
+
+        .enhancement-list li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 6px 0;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .enhancement-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 13px;
+            width: 5px;
+            height: 5px;
+            background: var(--coral);
+            border-radius: 50%;
+        }
+
+        .highlight-box {
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.12);
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin-top: 14px;
+        }
+
+        .highlight-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .highlight-box strong {
+            color: var(--coral);
+        }
+
+        .next-steps-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 80%);
+            border-color: rgba(232, 85, 60, 0.1);
+        }
+
+        .steps-list {
+            list-style: none;
+            counter-reset: steps;
+        }
+
+        .steps-list li {
+            counter-increment: steps;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .steps-list li:last-child {
+            border-bottom: none;
+        }
+
+        .steps-list li::before {
+            content: counter(steps);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            background: var(--coral);
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(232, 85, 60, 0.3);
+        }
+
+        .about-fc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .about-fc-stat {
+            background: rgba(232, 85, 60, 0.04);
+            border: 1px solid rgba(232, 85, 60, 0.1);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-align: center;
+            animation: scaleIn 0.5s ease both;
+        }
+
+        .about-fc-stat:nth-child(1) { animation-delay: 0.1s; }
+        .about-fc-stat:nth-child(2) { animation-delay: 0.2s; }
+        .about-fc-stat:nth-child(3) { animation-delay: 0.3s; }
+        .about-fc-stat:nth-child(4) { animation-delay: 0.4s; }
+
+        .about-fc-stat-val {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--coral);
+            letter-spacing: -0.5px;
+        }
+
+        .about-fc-stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .about-fc-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-fc-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .about-fc-tag {
+            background: rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .cta-wrap {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--coral);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 40px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        .cta-btn:hover {
+            background: var(--coral-dark);
+            box-shadow: 0 8px 30px rgba(232, 85, 60, 0.4);
+            animation: none;
+        }
+
+        .cta-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        .closing-note {
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .signature {
+            padding: 48px 0;
+        }
+
+        .signature-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .signature-role {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .signature-link {
+            font-size: 14px;
+            color: var(--coral);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .signature-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            padding: 32px 0;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            text-align: center;
+            background: #edeef2;
+        }
+
+        .footer-confidential {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .footer-brand {
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-brand span {
+            color: var(--coral);
+            font-weight: 600;
+        }
+
+        /* Comparison table */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .compare-table th {
+            text-align: left;
+            padding: 14px 16px;
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid rgba(0,0,0,0.08);
+        }
+
+        .compare-table th:nth-child(2),
+        .compare-table th:nth-child(3) {
+            text-align: center;
+        }
+
+        .compare-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            color: var(--text-secondary);
+        }
+
+        .compare-table td:nth-child(2),
+        .compare-table td:nth-child(3) {
+            text-align: center;
+        }
+
+        .compare-table td:nth-child(3) {
+            color: var(--coral);
+            font-weight: 600;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        @media print {
+            :root {
+                --bg: #ffffff;
+                --card: #f8f8f8;
+                --card-border: #e0e0e0;
+                --text: #111111;
+                --text-secondary: #444444;
+                --text-muted: #888888;
+            }
+
+            body {
+                background: white;
+                color: #111;
+                font-size: 11pt;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 28pt;
+            }
+
+            .hero h1 span {
+                -webkit-text-fill-color: var(--coral);
+                background: none;
+                animation: none;
+            }
+
+            .card, .video-idea-card, .enhancement-card, .case-study-card, .intro-card, .next-steps-card {
+                background: #f8f8f8 !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                border-color: #e0e0e0;
+                box-shadow: none !important;
+                transform: none !important;
+                animation: none !important;
+            }
+
+            .section {
+                animation: none !important;
+            }
+
+            .case-study-card::before {
+                background: var(--coral);
+            }
+
+            .video-idea-card::before {
+                background: var(--coral);
+            }
+
+            .case-study-stat {
+                background: rgba(232, 85, 60, 0.06) !important;
+                animation: none !important;
+            }
+
+            .viral-callout {
+                background: rgba(232, 85, 60, 0.05) !important;
+            }
+
+            .highlight-box {
+                background: rgba(232, 85, 60, 0.05) !important;
+            }
+
+            .cta-btn {
+                animation: none !important;
+                box-shadow: none !important;
+            }
+
+            a {
+                color: var(--coral) !important;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .hero {
+                padding: 40px 0 32px;
+                animation: none !important;
+            }
+
+            .footer {
+                background: #f0f0f0 !important;
+            }
+
+            .stat-badge, .about-fc-stat {
+                animation: none !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .card {
+                padding: 28px 22px;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .video-idea-card {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .video-idea-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .enhancement-card {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .enhancement-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .hero {
+                padding: 40px 0 36px;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .case-study-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .video-idea-card {
+                padding: 24px 22px;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .about-fc-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .about-fc-stat-val {
+                font-size: 22px;
+            }
+
+            .compare-table {
+                font-size: 13px;
+            }
+
+            .compare-table th,
+            .compare-table td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="container">
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand">
+                    <span class="brand-dot"></span>Fusion Creative
+                </div>
+                <div class="header-date">24 April 2026</div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-label">Content Partnership Proposal</div>
+            <h1><span>NOVOCASTRIAN</span></h1>
+            <p class="hero-subtitle">Handcrafted furniture and lighting deserves handcrafted content. A proposal for bringing the workshop to the world.</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Intro -->
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Hey team,</div>
+                <p class="section-text">We came across NOVOCASTRIAN while exploring the best of North East craftsmanship, and honestly, what you have built in Washington is one of the most impressive operations we have seen in this region. Handcrafted furniture and lighting, made-to-order, shipped worldwide to some of the most discerning clients on the planet. That is a story worth telling properly.</p>
+                <p class="section-text">We noticed you are currently advertising for a <strong>Digital Marketing and Social Media Manager</strong>. Before you commit to a full-time hire, we wanted to show you what a specialist content partner can deliver. Often at a fraction of the cost, with no recruitment lag, and with results from week one.</p>
+                <p class="section-text">This proposal breaks down where we see the biggest opportunities in your digital presence right now, what we would do about it, and why short-form video is the single most powerful tool for selling luxury craftsmanship in 2026. Even if we never work together, we hope this is useful.</p>
+            </div>
+
+            <!-- Fusion Creative metrics card -->
+            <div class="card" style="margin-top:8px;">
+                <div style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--coral); margin-bottom:6px;">Client Results</div>
+                <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Generated for a single local business client in the North East</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">45M+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">623K+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Interactions</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">4,500+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">47M</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
+                    </div>
+                </div>
+                <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">We generated 45M+ views for a single local Newcastle business. One reel alone hit 47 million views. We understand how to make visual, craft-driven content perform at scale. NOVOCASTRIAN's workshop, materials, and making process are exactly the kind of content that stops people scrolling.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Snapshot -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Current Snapshot</div>
+            <div class="section-title">Where You Are Right Now</div>
+            <div class="card card-sm">
+                <table class="stats-table">
+                    <tr>
+                        <td>Website</td>
+                        <td>novocastrian.co <span class="stat-badge-green">Premium Design</span></td>
+                    </tr>
+                    <tr>
+                        <td>Instagram</td>
+                        <td>@novocastrianco <span class="stat-badge-amber">Static Content Only</span></td>
+                    </tr>
+                    <tr>
+                        <td>Pinterest</td>
+                        <td>NOVOCASTRIAN_CO <span class="stat-badge-amber">Underutilised</span></td>
+                    </tr>
+                    <tr>
+                        <td>LinkedIn</td>
+                        <td>novocastrian <span class="stat-badge">Low Activity</span></td>
+                    </tr>
+                    <tr>
+                        <td>TikTok</td>
+                        <td class="stat-highlight">None <span class="stat-badge">Missing</span></td>
+                    </tr>
+                    <tr>
+                        <td>Blog / Journal</td>
+                        <td class="stat-highlight">Page exists, no content <span class="stat-badge">Empty</span></td>
+                    </tr>
+                    <tr>
+                        <td>Paid Social</td>
+                        <td>Instagram Ads active <span class="stat-badge-amber">Basic Setup</span></td>
+                    </tr>
+                    <tr>
+                        <td>E-commerce</td>
+                        <td>13 currencies supported <span class="stat-badge-green">International Ready</span></td>
+                    </tr>
+                    <tr>
+                        <td>Brand Identity</td>
+                        <td>Provenance, Graft, Distinction <span class="stat-badge-green">Exceptional</span></td>
+                    </tr>
+                    <tr>
+                        <td>Product Range</td>
+                        <td>6 collections, bespoke made-to-order <span class="stat-badge-green">Premium</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- What Is Working -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">What Is Already Working Well</div>
+            <div class="section-title">Credit Where It Is Due</div>
+            <div class="card">
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> World-class brand identity</h4>
+                    <p>Provenance, Graft, Distinction. These are not just words on a page. The entire brand experience from the website design to the product photography reflects a level of taste and restraint that most luxury brands spend years trying to achieve. The work by A184 and NE6 is outstanding. This is a brand that already looks like it belongs on the world stage.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The product speaks for itself</h4>
+                    <p>Handcrafted, made-to-order furniture and lighting designed and built in Northern England. The Egg Mirror, The Hagstones, The Insulator Collection. These are not commodities. They are heirloom pieces with real stories behind them. Every collection has a distinct identity and a clear design language. That is incredibly rare and incredibly valuable from a content perspective.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> International e-commerce is already set up</h4>
+                    <p>Supporting 13 currencies with worldwide shipping is a serious infrastructure advantage. Most small makers struggle with this. NOVOCASTRIAN is already set up to sell globally. The bottleneck is not the backend. It is making sure enough of the right people around the world know the brand exists.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> North East heritage positioning is powerful</h4>
+                    <p>"Rooted in North East England's rich manufacturing heritage." This is not just a nice line. It is a genuine competitive advantage. In the luxury market, provenance matters enormously. Made in Italy sells fashion. Made in the North East of England by humble craftsmen using time-honoured techniques and modern innovation sells furniture. The story is already there. It just needs to be shown, not just told.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Growth Opportunities -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Where The Opportunity Is</div>
+            <div class="section-title">Five Growth Opportunities</div>
+            <p class="section-text" style="margin-bottom: 32px;">NOVOCASTRIAN has world-class product and world-class branding. The gap is between the quality of what you make and the number of people who get to see it being made. These are the five biggest opportunities we identified.</p>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">1</span>
+                    <h3>The Workshop Is a Content Studio You Are Not Using</h3>
+                </div>
+                <p class="section-text">Your workshop in Washington is one of the most compelling content environments we have seen. Raw steel being shaped by hand. Metalwork being ground, polished, and finished. Engineers and craftsmen working with a blend of traditional techniques and modern innovation. This is the kind of content that luxury audiences cannot get enough of.</p>
+                <p class="section-text">Right now, none of this is being captured on video. Your Instagram is product photography, which is beautiful, but it is only half the story. The other half, the making, the process, the hands, the sparks, the workshop floor, is what builds emotional connection and justifies premium pricing. When a potential client sees a dining table being hand-built from raw material, they understand viscerally why it costs what it does.</p>
+                <p class="section-text">Short-form video of the making process is the single biggest unlock for NOVOCASTRIAN's digital presence. It is the difference between "nice table" and "I need to own that."</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">2</span>
+                    <h3>No One Is Telling the Human Story</h3>
+                </div>
+                <p class="section-text">"Designers, craftsmen, metalworkers, artists, makers, and engineers." "Humble northern souls who are quietly confident in their pursuit of excellence." These are genuinely brilliant lines. But there is no face behind them. No founder story. No team profiles. No one to connect with.</p>
+                <p class="section-text">In the luxury market, people buy from people. The most successful luxury makers on social media, whether it is a watchmaker in Switzerland or a ceramicist in Japan, put human faces on their craft. The viewer needs to see the person whose hands shaped the metal. They need to feel the quiet pride. They need to see the concentration, the skill, the moment a piece comes together.</p>
+                <p class="section-text">This is not about becoming influencers. It is about giving the brand a heartbeat that photography alone cannot provide.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">3</span>
+                    <h3>The Blog Exists but Has No Content</h3>
+                </div>
+                <p class="section-text">The /blogs/journal page is live on your site but completely empty. This is a significant missed opportunity for two reasons. First, it is an SEO gap. People searching for "bespoke dining table UK", "handcrafted lighting North East", or "custom metalwork furniture" are not finding NOVOCASTRIAN through organic search because there is no content for Google to index.</p>
+                <p class="section-text">Second, journal content builds authority and trust. A piece about the inspiration behind The Hagstone Collection, or the metallurgical process behind a specific finish, or the story of a commission for a notable client, these are the kinds of articles that architects, interior designers, and high-net-worth buyers read and share. They position NOVOCASTRIAN as thought leaders in the craft, not just product sellers.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">4</span>
+                    <h3>Pinterest and LinkedIn Are Massively Underutilised</h3>
+                </div>
+                <p class="section-text">For a luxury interiors brand, Pinterest should be a primary traffic and discovery channel, not an afterthought. Interior designers, architects, and homeowners planning high-end renovations live on Pinterest. Rich pins linked to your product catalogue, mood boards, and installation photography could drive significant qualified traffic to the site.</p>
+                <p class="section-text">LinkedIn is where your B2B audience lives. Architects, commercial specifiers, hospitality designers, and interior design firms are all on LinkedIn. Thought leadership content, project case studies, and behind-the-scenes workshop content positioned for a professional audience could open up an entirely new pipeline of trade enquiries and commercial commissions.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">5</span>
+                    <h3>Paid Ads Are Running but Could Work Much Harder</h3>
+                </div>
+                <p class="section-text">We can see from the UTM parameters on your current campaigns that you are running Instagram ads. This is a good start. But without video creative, proper audience segmentation, and creative testing, you are likely leaving a lot of performance on the table.</p>
+                <p class="section-text">Luxury furniture ads that show the making process, the raw materials, the finished piece in a stunning interior, these consistently outperform static product shots in ad performance. A well-structured ad funnel targeting interior designers, architects, and affluent homeowners, with video creative that tells the NOVOCASTRIAN story, would deliver a significantly stronger return on your current ad spend.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- The Opportunity -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Opportunity</div>
+            <div class="section-title">Content-Led Growth for Luxury Craft</div>
+            <div class="card case-study-card">
+                <p class="section-text">The luxury and artisan space has been transformed by short-form video. Brands that show the process, not just the product, build deeper trust and justify premium pricing. When a potential client watches raw steel being hand-shaped into a dining table over 30 mesmerising seconds, they do not question the price tag. They feel it.</p>
+
+                <div class="case-study-grid">
+                    <div class="case-study-stat">
+                        <div class="number">2-3x</div>
+                        <div class="label">Reach vs Static</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">73%</div>
+                        <div class="label">Prefer Video Discovery</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">6</div>
+                        <div class="label">Collections to Showcase</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">Global</div>
+                        <div class="label">Audience Potential</div>
+                    </div>
+                </div>
+
+                <div class="viral-callout">
+                    <div class="big-number">Your workshop is a content studio.</div>
+                    <div class="context"><strong>Every piece you make is a story waiting to be told.</strong> The sparks from the grinder. The slow reveal of a polished surface. A finished dining table being lifted into place. This is the content that luxury audiences save, share, and act on. Reels are Instagram's highest-reach format, and "how it is made" content consistently outperforms product-only posts in the luxury interiors space.</div>
+                </div>
+
+                <p class="takeaway">You do not need to change anything about what you make or how you make it. You just need to let people watch.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- How We Would Help -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">How We Would Help</div>
+            <div class="section-title">What We Would Do for NOVOCASTRIAN</div>
+
+            <div class="card">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 8px;">Phase 1: Content Foundation</h3>
+                <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">Month 1 - Establish the visual identity and content library</p>
+                <div class="package-grid">
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Full-day workshop shoot</strong> capturing the making process, materials, finishing techniques, tools, and the team at work across multiple pieces and collections</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Brand story video (60-90s)</strong> a cinematic piece capturing the soul of NOVOCASTRIAN: the heritage, the craft, the North East roots, the quiet confidence</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>8 short-form videos</strong> ready for Instagram Reels and TikTok: process clips, material close-ups, before/after reveals, "how it is made" sequences</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Content strategy document</strong> posting calendar, platform priorities, hashtag strategy, tone of voice guide, and audience targeting recommendations</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 8px;">Phase 2: Ongoing Content</h3>
+                <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">Monthly - Consistent, high-quality content production</p>
+                <ul class="strategy-list">
+                    <li>Monthly shoot day at the workshop (half or full day depending on production schedule and pieces in progress)</li>
+                    <li>12 short-form videos per month: process content, product reveals, behind-the-scenes, lifestyle and interiors content, seasonal campaigns</li>
+                    <li>Caption and copy writing for every post, on-brand and aligned with the Provenance, Graft, Distinction positioning</li>
+                    <li>Monthly analytics and reporting dashboard showing reach, engagement, follower growth, website traffic from social, and content performance</li>
+                    <li>Platform management across Instagram, with expansion to TikTok and LinkedIn as the content library grows</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 8px;">Phase 3: Growth Accelerators</h3>
+                <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">Month 3+ - Scale reach and build new channels</p>
+                <ul class="strategy-list">
+                    <li><strong>Paid social strategy:</strong> Proper creative-tested ad funnels targeting architects, interior designers, and high-net-worth homeowners with video creative</li>
+                    <li><strong>SEO journal content:</strong> Articles optimised for search terms like "bespoke dining tables UK", "handcrafted lighting North East England", "custom metalwork furniture"</li>
+                    <li><strong>Pinterest strategy:</strong> Board creation, pin optimisation, rich pin setup for the product catalogue, interior mood boards</li>
+                    <li><strong>LinkedIn content:</strong> Thought leadership, project case studies, and trade-focused content targeting architects and commercial specifiers</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Video Ideas -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Ready-Made Content</div>
+            <div class="section-title">5 Video Concepts for NOVOCASTRIAN</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are formats that perform exceptionally well in the luxury craft and interiors space. Each one is designed to showcase the making process, the materials, and the human story behind the brand.</p>
+
+            <div class="video-ideas-grid">
+                <div class="video-idea-card">
+                    <div class="idea-number">Concept 01</div>
+                    <div class="idea-title">"From raw steel to dining table. Made by hand in the North East of England."</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Process</span>
+                        <span class="idea-tag">Time-lapse</span>
+                        <span class="idea-tag">Hero Content</span>
+                    </div>
+                    <p class="idea-description">Follow a single piece from raw material to finished product. Open on a sheet of steel or a rough casting. Show the cutting, shaping, welding, grinding, and finishing. The sparks, the precision, the patience. End with the completed dining table in a beautiful interior. 30-60 seconds of pure craftsmanship.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> "How it is made" content is one of the highest-performing formats on Instagram and TikTok. In the luxury space, it does double duty: it builds emotional connection and it justifies the price point. When someone sees the hours of skilled handwork that go into a single table, the value becomes self-evident.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Concept 02</div>
+                    <div class="idea-title">"The hands behind every piece."</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Portrait</span>
+                        <span class="idea-tag">Storytelling</span>
+                        <span class="idea-tag">Brand Building</span>
+                    </div>
+                    <p class="idea-description">Close-up on the hands of the craftsmen at work. No face initially, just skilled hands shaping metal, polishing surfaces, checking joints. Then a slow reveal of the person. A brief moment of them looking at camera, maybe a quiet smile. Text overlay: "Designers, craftsmen, metalworkers, artists, makers, and engineers." Minimal, powerful, human.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Luxury buyers connect with the maker, not just the product. This format humanises the brand without compromising the premium feel. It takes the brilliant copy you already have and brings it to life visually. The restraint of the format matches the restraint of the brand perfectly.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Concept 03</div>
+                    <div class="idea-title">"Sound on. This is how a NOVOCASTRIAN mirror is made."</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">ASMR</span>
+                        <span class="idea-tag">Sensory</span>
+                        <span class="idea-tag">Immersive</span>
+                    </div>
+                    <p class="idea-description">Pure workshop audio. The ring of metal being shaped. The hiss of a weld. The quiet scrape of a hand finishing a surface. No music, no voiceover. Just the authentic sounds of the workshop. Close-up visuals of each process. End with silence and the finished Egg Mirror hanging on a wall.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> ASMR and sensory content consistently outperforms on social media because it creates an immersive experience. For a metalwork brand, the natural sounds of the workshop are incredibly distinctive and satisfying. It positions NOVOCASTRIAN as a maker, not a retailer. Viewers save and rewatch this type of content.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Concept 04</div>
+                    <div class="idea-title">"Same piece. Six different finishes."</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Product</span>
+                        <span class="idea-tag">Educational</span>
+                        <span class="idea-tag">Carousel/Reel</span>
+                    </div>
+                    <p class="idea-description">Showcase the range of finishes available on a single piece. Brushed brass, blackened steel, polished copper, raw iron. Each finish caught in beautiful light. Quick cuts between them or a slow pan across samples. Highlight the bespoke nature of the brand: "Every piece is personalised to your preference."</p>
+                    <div class="idea-why"><strong>Why it works:</strong> This format educates while it sells. It shows the depth of the offering, positions the brand as truly bespoke, and gives potential clients a reason to reach out to discuss their specific requirements. It also performs well as a carousel post and a Reel, giving you two pieces of content from one concept.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Concept 05</div>
+                    <div class="idea-title">"Delivery day. Washington to [destination]."</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Lifestyle</span>
+                        <span class="idea-tag">Reveal</span>
+                        <span class="idea-tag">Social Proof</span>
+                    </div>
+                    <p class="idea-description">Follow a finished piece being carefully wrapped, crated, and leaving the workshop. Cut to it arriving at a stunning home or commercial space. The unwrapping. The positioning. The moment it sits in its new environment for the first time. The workshop in Washington to a penthouse in London or a hotel in New York. That journey is the story.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> This format connects the craft to the lifestyle. It shows that NOVOCASTRIAN pieces end up in extraordinary spaces, which elevates the brand. It also reinforces the worldwide shipping capability and gives potential clients a vision of how the piece would look in their own space. The contrast between a northern workshop and a global destination is compelling storytelling.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- The Marketing Manager Question -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Something to Consider</div>
+            <div class="section-title">The Marketing Manager Question</div>
+            <div class="card">
+                <p class="section-text">Hiring a full-time Digital Marketing and Social Media Manager is a significant commitment. We are not saying do not hire. But we are saying: let us prove the ROI of professional content first. If you then hire a marketing manager, they will have a library of assets, a proven strategy, and clear data to build on.</p>
+
+                <table class="compare-table">
+                    <tr>
+                        <th></th>
+                        <th>Full-Time Hire</th>
+                        <th>Fusion Creative</th>
+                    </tr>
+                    <tr>
+                        <td>Annual cost</td>
+                        <td>28-40k+ salary, NI, pension, equipment</td>
+                        <td>Fraction of the cost</td>
+                    </tr>
+                    <tr>
+                        <td>Time to results</td>
+                        <td>2-3 months to recruit and onboard</td>
+                        <td>Producing in week 1</td>
+                    </tr>
+                    <tr>
+                        <td>Video production</td>
+                        <td>Would still need a videographer</td>
+                        <td>Included</td>
+                    </tr>
+                    <tr>
+                        <td>Equipment</td>
+                        <td>Camera, lighting, editing software</td>
+                        <td>We bring everything</td>
+                    </tr>
+                    <tr>
+                        <td>Strategic insight</td>
+                        <td>One person's perspective</td>
+                        <td>Full team, cross-client data</td>
+                    </tr>
+                    <tr>
+                        <td>Flexibility</td>
+                        <td>Fixed capacity</td>
+                        <td>Scale up or down</td>
+                    </tr>
+                    <tr>
+                        <td>Continuity</td>
+                        <td>Holiday and sickness gaps</td>
+                        <td>Continuous coverage</td>
+                    </tr>
+                </table>
+
+                <div class="highlight-box" style="margin-top: 24px;">
+                    <p><strong>The smart move:</strong> Start with a content partner who delivers results from day one. Build the asset library, prove the strategy, generate the data. Then if a full-time hire makes sense later, they inherit a running machine instead of starting from scratch.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Digital Enhancements -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Digital Enhancements</div>
+            <div class="section-title">Beyond Social Media</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are strategic changes that would complement the content work and drive long-term, compounding growth.</p>
+
+            <div class="enhancement-card">
+                <h4>Populate the Journal</h4>
+                <p>The /blogs/journal page on your site is live but empty. This is prime real estate for SEO and brand authority. Articles about the inspiration behind each collection, the metallurgical processes you use, the heritage of North East manufacturing, commissions and installations. Each article is a new entry point for Google search and a reason for architects and designers to share your site.</p>
+                <ul class="enhancement-list">
+                    <li>"The story behind The Hagstone Collection" - design inspiration, material sourcing, making process</li>
+                    <li>"Why we only make to order" - a piece on the philosophy of bespoke over mass production</li>
+                    <li>"Working with architects: how we approach commercial commissions"</li>
+                    <li>"Materials guide: understanding our metal finishes" - educational content that drives product page visits</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>SEO opportunity:</strong> Terms like "bespoke dining table UK", "handcrafted furniture North East England", and "custom metal lighting" have strong search volume and low competition. A handful of well-written articles could drive significant organic traffic within 3-6 months.</p>
+                </div>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Activate Pinterest Properly</h4>
+                <p>Pinterest is a visual search engine, and for luxury interiors brands it is one of the highest-intent platforms available. Interior designers and homeowners planning renovations use Pinterest to discover and save products. Rich pins linked to your product catalogue, curated mood boards, and installation photography could drive a steady stream of qualified traffic to the site.</p>
+                <p>The content already exists in your product photography. It just needs to be formatted, tagged, and distributed strategically on the platform.</p>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Build a LinkedIn Presence for Trade</h4>
+                <p>Architects, interior designers, commercial specifiers, and hospitality groups are all on LinkedIn. A consistent presence sharing project case studies, workshop behind-the-scenes, and thought leadership on craft and design would open up an entirely new pipeline of trade enquiries.</p>
+                <ul class="enhancement-list">
+                    <li>Project spotlights: "We just completed a bespoke lighting installation for [client type]"</li>
+                    <li>Workshop content repurposed for a professional audience</li>
+                    <li>Commentary on design trends, materials, and craftsmanship</li>
+                    <li>Connection building with architects and design firms across the UK and internationally</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Upgrade Your Paid Social Creative</h4>
+                <p>Your current Instagram ads are running with basic UTM tracking and likely static creative. Video ad creative showing the making process, the workshop, and the finished piece in a beautiful interior consistently outperforms static product shots in the luxury space.</p>
+                <p>A properly structured ad funnel with creative testing, audience segmentation (architects, designers, affluent homeowners), and retargeting would deliver significantly stronger returns on the same ad spend you are already committing.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- About Fusion Creative -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">About Fusion Creative</div>
+            <div class="card intro-card">
+                <p class="about-fc-text">Fusion Creative is a Newcastle-based content and marketing agency specialising in short-form video production, social media management, and digital strategy. We work with brands that make things worth watching.</p>
+                <p class="about-fc-text">Our approach is simple: create content that people actually want to see, post it consistently, and let the results speak for themselves. No stock footage, no generic templates, no recycled ideas. Every piece of content is shot specifically for your brand, in your space, with your story.</p>
+                <p class="about-fc-text">We have generated over 45 million views for a single local Newcastle business, including one reel that hit 47 million views alone. We understand what makes visual, craft-driven content perform at scale, and we know how to translate exceptional products into exceptional content.</p>
+
+                <div class="about-fc-grid">
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">45M+</div>
+                        <div class="about-fc-stat-label">Views generated</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">20+</div>
+                        <div class="about-fc-stat-label">Videos per month</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">6+</div>
+                        <div class="about-fc-stat-label">Years in content</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">100%</div>
+                        <div class="about-fc-stat-label">Impressions guarantee</div>
+                    </div>
+                </div>
+
+                <div class="about-fc-services">
+                    <span class="about-fc-tag">Short-Form Video</span>
+                    <span class="about-fc-tag">Instagram Reels</span>
+                    <span class="about-fc-tag">TikTok</span>
+                    <span class="about-fc-tag">LinkedIn Content</span>
+                    <span class="about-fc-tag">Pinterest Strategy</span>
+                    <span class="about-fc-tag">Paid Social</span>
+                    <span class="about-fc-tag">SEO Content</span>
+                    <span class="about-fc-tag">Social Media Management</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Next Steps -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a read through this proposal. The core message is simple: NOVOCASTRIAN has a world-class product and a world-class brand. The digital presence just needs to catch up. Short-form video of the making process is the fastest, most powerful way to close that gap.</li>
+                    <li>If this resonates, let us grab a coffee at the workshop. No pitch, no pressure. Just a walk around, a conversation about where you want to take the brand, and a chance to see whether we are the right fit to help you get there.</li>
+                    <li>If we decide to work together, we will put together a detailed content plan for month one and have cameras in the workshop within days. The only thing we need from you is access. The making is already happening. We just need to capture it.</li>
+                </ol>
+                <p class="closing-note">We are genuinely excited about what NOVOCASTRIAN is building. The craftsmanship, the brand, the positioning. It is all there. The opportunity is simply about letting more of the right people see it. We are 15 minutes down the road and we would love to be part of that.</p>
+                <div class="cta-wrap">
+                    <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="cta-btn">Schedule a Call</a>
+                    <div class="cta-sub">30 minutes. No obligation. Pick a time that suits you.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Signature -->
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="footer">
+            <div class="footer-confidential">Confidential - Prepared for NOVOCASTRIAN</div>
+            <div class="footer-note">This proposal was prepared using publicly available information from novocastrian.co on 24 April 2026.</div>
+            <div class="footer-brand"><span>Fusion Creative</span></div>
+        </footer>
+    </div>
+
+</body>
+</html>
