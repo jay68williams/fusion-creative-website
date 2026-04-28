@@ -166,3 +166,29 @@ Jay Williams
 Fusion Creative
 fusioncreative.uk
 cal.com/fusioncreative
+
+---
+
+## Frate (Newcastle, Grey Street)
+**To:** hello@fratenewcastle.co.uk
+**Subject:** Thanks for the follow - a few ideas for Frate
+
+Hi team,
+
+Thanks for following us on Instagram the other day. Really appreciate it, and it gave me an excuse to spend some proper time on the Frate feed.
+
+Honestly, Frate is one of the best-looking venues in Newcastle. The courtyard, the containers, the events calendar - everything about the place is already doing the hard part. The bit that feels like it is missing right now is a consistent short-form content engine sitting behind it all.
+
+So I put together a quick proposal page. It is an honest audit of where the account is, why we think Frate is sitting on one of the strongest organic content opportunities in the city, and eight specific video ideas we think would hit hard - yours to use either way.
+
+Here it is: https://fusioncreative.uk/audit/frate/
+
+Quick bit of context on us: we run Fusion Creative, a Newcastle-based short-form video agency. Our work with New Greek on Chillingham Road has now done 48M+ views, 6,000+ new followers, and over 665K interactions. One independent venue, no ads, no influencers.
+
+We would love to work with you. There is so much potential at Frate and we are a five-minute walk away. Happy to come down, grab a drink in the courtyard, and talk it through with no pitch deck and no pressure.
+
+Jay Williams
+Fusion Creative
+07437 571250
+fusioncreative.uk
+cal.com/fusioncreative
