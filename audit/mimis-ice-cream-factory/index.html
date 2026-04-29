@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Audit - Mimi's Ice Cream Factory | Fusion Creative</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f5f6fa;
+            --card: #ffffff;
+            --card-border: rgba(0,0,0,0.06);
+            --coral: #E8553C;
+            --coral-light: #ff7a64;
+            --coral-dark: #c4412b;
+            --text: #111111;
+            --text-secondary: #555555;
+            --text-muted: #999999;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); }
+            50% { box-shadow: 0 0 40px rgba(232,85,60,0.5); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.85); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .brand {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+        }
+
+        .brand-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+        }
+
+        .header-date {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .hero {
+            padding: 64px 0 56px;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .hero-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .section {
+            padding: 48px 0;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .card-sm {
+            padding: 28px 32px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .section-text {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .section-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 60%);
+            border-color: rgba(232, 85, 60, 0.1);
+        }
+
+        .intro-card .greeting {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .stats-table tr {
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .stats-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .stats-table tr:nth-child(even) {
+            background: rgba(0,0,0,0.02);
+        }
+
+        .stats-table td {
+            padding: 14px 0;
+        }
+
+        .stats-table td:first-child {
+            color: var(--text-secondary);
+            font-weight: 400;
+            padding-right: 24px;
+            white-space: nowrap;
+        }
+
+        .stats-table td:last-child {
+            font-weight: 600;
+            color: var(--text);
+            text-align: right;
+        }
+
+        .stat-highlight {
+            color: var(--coral) !important;
+            font-weight: 700 !important;
+        }
+
+        .stat-badge {
+            display: inline-block;
+            background: rgba(232, 85, 60, 0.1);
+            color: var(--coral);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            animation: scaleIn 0.4s ease both;
+        }
+
+        .stat-badge-green {
+            display: inline-block;
+            background: rgba(52, 199, 89, 0.1);
+            color: #34c759;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .stat-badge-amber {
+            display: inline-block;
+            background: rgba(255, 159, 10, 0.1);
+            color: #ff9f0a;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .working-item {
+            margin-bottom: 28px;
+        }
+
+        .working-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .working-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .working-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .check-icon {
+            display: inline-block;
+            color: #34c759;
+            margin-right: 6px;
+            font-weight: 700;
+        }
+
+        .opportunity-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--coral);
+            color: white;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(232, 85, 60, 0.35);
+        }
+
+        .opportunity-heading {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .opportunity-heading h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .opportunity-card {
+            margin-bottom: 20px;
+        }
+
+        .opportunity-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 60%);
+            border-color: rgba(232, 85, 60, 0.1);
+            border-left: 4px solid var(--coral);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .case-study-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--coral-light));
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin: 32px 0;
+        }
+
+        .case-study-stat {
+            text-align: center;
+            padding: 24px 16px;
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.1);
+            border-radius: 12px;
+            animation: scaleIn 0.5s ease both;
+        }
+
+        .case-study-stat:nth-child(1) { animation-delay: 0.1s; }
+        .case-study-stat:nth-child(2) { animation-delay: 0.2s; }
+        .case-study-stat:nth-child(3) { animation-delay: 0.3s; }
+        .case-study-stat:nth-child(4) { animation-delay: 0.4s; }
+
+        .case-study-stat .number {
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 900;
+            color: var(--coral);
+            letter-spacing: -1px;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .case-study-stat .label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .viral-callout {
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.12);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-top: 24px;
+        }
+
+        .viral-callout .big-number {
+            font-size: clamp(32px, 6vw, 48px);
+            font-weight: 900;
+            color: var(--coral);
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .viral-callout .context {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        .viral-callout .context strong {
+            color: var(--text);
+        }
+
+        .takeaway {
+            margin-top: 24px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .package-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 0;
+        }
+
+        .package-bullet {
+            width: 6px;
+            height: 6px;
+            background: var(--coral);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .package-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .package-item strong {
+            color: var(--text);
+        }
+
+        .strategy-list {
+            list-style: none;
+        }
+
+        .strategy-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.6;
+        }
+
+        .strategy-list li:last-child {
+            border-bottom: none;
+        }
+
+        .strategy-list li::before {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 5px;
+            background: var(--coral);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .video-ideas-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .video-idea-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-idea-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .video-idea-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--coral);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .idea-number {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 10px;
+        }
+
+        .idea-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .idea-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .idea-tag {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.04);
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        .idea-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .idea-why {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            padding-top: 14px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .idea-why strong {
+            color: var(--coral);
+            font-weight: 600;
+        }
+
+        .enhancement-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .enhancement-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.06);
+        }
+
+        .enhancement-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .enhancement-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .enhancement-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .enhancement-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .enhancement-list {
+            list-style: none;
+            margin: 12px 0;
+        }
+
+        .enhancement-list li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 6px 0;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .enhancement-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 13px;
+            width: 5px;
+            height: 5px;
+            background: var(--coral);
+            border-radius: 50%;
+        }
+
+        .highlight-box {
+            background: rgba(232, 85, 60, 0.05);
+            border: 1px solid rgba(232, 85, 60, 0.12);
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin-top: 14px;
+        }
+
+        .highlight-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .highlight-box strong {
+            color: var(--coral);
+        }
+
+        .next-steps-card {
+            background: linear-gradient(135deg, #fff5f2 0%, #ffffff 80%);
+            border-color: rgba(232, 85, 60, 0.1);
+        }
+
+        .steps-list {
+            list-style: none;
+            counter-reset: steps;
+        }
+
+        .steps-list li {
+            counter-increment: steps;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .steps-list li:last-child {
+            border-bottom: none;
+        }
+
+        .steps-list li::before {
+            content: counter(steps);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            background: var(--coral);
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(232, 85, 60, 0.3);
+        }
+
+        .about-fc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .about-fc-stat {
+            background: rgba(232, 85, 60, 0.04);
+            border: 1px solid rgba(232, 85, 60, 0.1);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-align: center;
+            animation: scaleIn 0.5s ease both;
+        }
+
+        .about-fc-stat:nth-child(1) { animation-delay: 0.1s; }
+        .about-fc-stat:nth-child(2) { animation-delay: 0.2s; }
+        .about-fc-stat:nth-child(3) { animation-delay: 0.3s; }
+        .about-fc-stat:nth-child(4) { animation-delay: 0.4s; }
+
+        .about-fc-stat-val {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--coral);
+            letter-spacing: -0.5px;
+        }
+
+        .about-fc-stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .about-fc-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-fc-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .about-fc-tag {
+            background: rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .cta-wrap {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--coral);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 40px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        .cta-btn:hover {
+            background: var(--coral-dark);
+            box-shadow: 0 8px 30px rgba(232, 85, 60, 0.4);
+            animation: none;
+        }
+
+        .cta-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        .closing-note {
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .signature {
+            padding: 48px 0;
+        }
+
+        .signature-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .signature-role {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .signature-link {
+            font-size: 14px;
+            color: var(--coral);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .signature-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            padding: 32px 0;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            text-align: center;
+            background: #edeef2;
+        }
+
+        .footer-confidential {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .footer-brand {
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-brand span {
+            color: var(--coral);
+            font-weight: 600;
+        }
+
+        @media print {
+            :root {
+                --bg: #ffffff;
+                --card: #f8f8f8;
+                --card-border: #e0e0e0;
+                --text: #111111;
+                --text-secondary: #444444;
+                --text-muted: #888888;
+            }
+
+            body {
+                background: white;
+                color: #111;
+                font-size: 11pt;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 28pt;
+            }
+
+            .hero h1 span {
+                -webkit-text-fill-color: var(--coral);
+                background: none;
+                animation: none;
+            }
+
+            .card, .video-idea-card, .enhancement-card, .case-study-card, .intro-card, .next-steps-card {
+                background: #f8f8f8 !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                border-color: #e0e0e0;
+                box-shadow: none !important;
+                transform: none !important;
+                animation: none !important;
+            }
+
+            .section {
+                animation: none !important;
+            }
+
+            .case-study-card::before {
+                background: var(--coral);
+            }
+
+            .video-idea-card::before {
+                background: var(--coral);
+            }
+
+            .case-study-stat {
+                background: rgba(232, 85, 60, 0.06) !important;
+                animation: none !important;
+            }
+
+            .viral-callout {
+                background: rgba(232, 85, 60, 0.05) !important;
+            }
+
+            .highlight-box {
+                background: rgba(232, 85, 60, 0.05) !important;
+            }
+
+            .cta-btn {
+                animation: none !important;
+                box-shadow: none !important;
+            }
+
+            a {
+                color: var(--coral) !important;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .hero {
+                padding: 40px 0 32px;
+                animation: none !important;
+            }
+
+            .footer {
+                background: #f0f0f0 !important;
+            }
+
+            .stat-badge, .about-fc-stat {
+                animation: none !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .card {
+                padding: 28px 22px;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .video-idea-card {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .video-idea-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .enhancement-card {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.03);
+            }
+
+            .enhancement-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.05);
+            }
+
+            .hero {
+                padding: 40px 0 36px;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .case-study-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .video-idea-card {
+                padding: 24px 22px;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .about-fc-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .about-fc-stat-val {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="container">
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand">
+                    <span class="brand-dot"></span>Fusion Creative
+                </div>
+                <div class="header-date">29 April 2026</div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-label">Free Social Media Audit</div>
+            <h1><span>Mimi's Ice Cream Factory</span></h1>
+            <p class="hero-subtitle">Prepared by Fusion Creative | 29 April 2026</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Intro -->
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Hey Daniel,</div>
+                <p class="section-text">Thank you for requesting an audit. We are genuinely excited to dig into what Mimi's Ice Cream Factory is doing online, because we can see straight away that you have built something really special in Gosforth.</p>
+                <p class="section-text">The factory concept, the mascot, the kids parties, the Deliveroo integration, the branding. You have clearly put a lot of thought and effort into creating a memorable experience. That is exactly the kind of business that explodes on social media when the content strategy catches up to the quality of the experience.</p>
+                <p class="section-text">We have put together a full audit of your current online presence. Inside you will find a snapshot of where things stand right now, what is already working well, the biggest opportunities we spotted, five video ideas you could start filming tomorrow, and some digital recommendations. Even if we never speak again, this is yours to keep. We genuinely hope it is useful.</p>
+            </div>
+
+            <!-- Fusion Creative metrics card -->
+            <div class="card" style="margin-top:8px;">
+                <div style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--coral); margin-bottom:6px;">Client Results</div>
+                <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Generated for a single local restaurant in Newcastle</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">53M+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">772K+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Interactions</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">5,800+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">47M</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
+                    </div>
+                </div>
+                <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">We generated 53M+ views in 30 days for a local Newcastle restaurant. One single reel hit 47 million views. They went from zero social presence to a household name in the North East. Mimi's has the same ingredients: a fun, visual product, a strong brand identity, and a local audience that loves sharing food content. The only thing missing is consistent video content.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Snapshot -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Current Snapshot</div>
+            <div class="section-title">Where You Are Right Now</div>
+            <div class="card card-sm">
+                <table class="stats-table">
+                    <tr>
+                        <td>Instagram</td>
+                        <td>@mimisicecreamfactory <span class="stat-badge-amber">1,645 Followers</span></td>
+                    </tr>
+                    <tr>
+                        <td>Instagram Posts</td>
+                        <td class="stat-highlight">19 total <span class="stat-badge">Very Low Output</span></td>
+                    </tr>
+                    <tr>
+                        <td>Reels / Video</td>
+                        <td class="stat-highlight">2 videos ever <span class="stat-badge">Almost None</span></td>
+                    </tr>
+                    <tr>
+                        <td>Avg. Likes</td>
+                        <td class="stat-highlight">10-26 per post <span class="stat-badge">Low Engagement</span></td>
+                    </tr>
+                    <tr>
+                        <td>Best Reel</td>
+                        <td>1,214 views <span class="stat-badge-amber">Room to Grow</span></td>
+                    </tr>
+                    <tr>
+                        <td>Posting Frequency</td>
+                        <td class="stat-highlight">Months between posts <span class="stat-badge">Inconsistent</span></td>
+                    </tr>
+                    <tr>
+                        <td>Website</td>
+                        <td class="stat-highlight">Domain not connected <span class="stat-badge">Not Live</span></td>
+                    </tr>
+                    <tr>
+                        <td>TikTok</td>
+                        <td class="stat-highlight">Linked but inactive <span class="stat-badge">Missed Opportunity</span></td>
+                    </tr>
+                    <tr>
+                        <td>Linktree</td>
+                        <td>Active <span class="stat-badge-green">Set Up</span></td>
+                    </tr>
+                    <tr>
+                        <td>Deliveroo</td>
+                        <td>Listed <span class="stat-badge-green">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td>Party Bookings</td>
+                        <td>Via Baluu <span class="stat-badge-green">Online Booking</span></td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td>3 Rotary Way, Gosforth <span class="stat-badge-green">Great Area</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- What Is Working -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">What Is Already Working Well</div>
+            <div class="section-title">Credit Where It Is Due</div>
+            <div class="card">
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The Mimi mascot is a brilliant brand asset</h4>
+                    <p>You have a physical mascot character that shows up at the shop. That is incredibly rare for a small business and it is pure gold for social media. Mascot content performs phenomenally well on TikTok and Reels because it is fun, shareable, and immediately recognisable. The "Meet Mimi" reel you posted got 1,214 views and 80 likes, which was by far your best performing content. That is not a coincidence. Lean into it heavily.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The "factory" concept is a content machine</h4>
+                    <p>Ice cream shops are everywhere, but an ice cream factory is an experience. The theming, the branding, the way you talk about "flavour experts" and "Junior Flavour Expert Experiences" for kids parties. This is world-building, and it is exactly what makes people want to film content for you. You have created an experience that people naturally want to share. That is half the battle already won.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Kids parties and private experiences are a smart revenue stream</h4>
+                    <p>Birthday Takeovers from &pound;245, Junior Flavour Expert Experiences, Private Booth with Bottomless Ice Cream. These are not just revenue streams, they are content goldmines. Every party is a room full of happy kids and proud parents who want to share what they are experiencing. Every booth booking is a potential story tag. You have built-in content opportunities every single week that most businesses would dream of.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Deliveroo and online booking are set up</h4>
+                    <p>You are already on Deliveroo and you have party bookings running through Baluu. That means the conversion infrastructure exists. When content starts driving traffic, people can actually order or book straight away. Many businesses we audit do not have this in place. You are ahead of the curve here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Where The Opportunity Is -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Where The Opportunity Is</div>
+            <div class="section-title">Five Growth Opportunities</div>
+            <p class="section-text" style="margin-bottom: 32px;">Mimi's has incredible foundations. The brand, the experience, the location, and the product are all strong. The gap is purely in how many people know you exist. Here is where the biggest opportunities are.</p>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">1</span>
+                    <h3>19 Posts in 10 Months Is Not Enough</h3>
+                </div>
+                <p class="section-text">This is the single biggest issue. You have posted 19 times total, with gaps of two to three months between posts. In January you posted about a temporary closure. Your next post was not until April. That is a quarter of the year with zero content. Instagram and TikTok reward consistency. When you disappear for months, the algorithm forgets you exist and your followers stop seeing you even when you do post.</p>
+                <p class="section-text">The businesses that win on social media are the ones that show up every single day, or at a minimum several times a week. With the amount of content Mimi's could create, there is absolutely no reason to be posting less than 4-5 times per week. Every ice cream order, every topping combination, every happy kid, every behind-the-scenes moment in the factory is a piece of content waiting to happen.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">2</span>
+                    <h3>Almost No Video Content Is a Massive Missed Opportunity</h3>
+                </div>
+                <p class="section-text">Out of 19 posts, only 2 are videos. That means 89% of your content is static images. In 2026, video is everything. Instagram Reels and TikTok are where the reach is. Static posts get shown to a fraction of your followers. A well-made Reel gets shown to thousands of people who have never heard of you. Your best reel hit 1,214 views. Your average static post gets 10-26 likes. The maths speaks for itself.</p>
+                <p class="section-text">Ice cream is one of the most visual, satisfying, and shareable food categories on social media. Scooping, drizzling sauces, adding toppings, the first bite, kids' faces lighting up. This content practically films itself. Every single day you are open, you could be creating 3-4 short videos that would each outperform any static image you have ever posted.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">3</span>
+                    <h3>Your Website Is Not Live</h3>
+                </div>
+                <p class="section-text">The domain mimisicecreamfactory.co.uk exists but it is not connected to anything. It shows a Wix "domain not connected" error. That means anyone who searches for your business online and clicks on the website link hits a dead end. It also means you are missing out on Google search traffic, local SEO, and the credibility that comes with having a professional online presence.</p>
+                <p class="section-text">Your Linktree is doing some of the heavy lifting, but it is not a substitute for a proper website. A website with your menu, party packages, opening hours, location, photos, and a booking button would convert significantly more visitors into customers. It also gives you a place to send people from social media, ads, and Google.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">4</span>
+                    <h3>TikTok Is Where Ice Cream Goes Viral</h3>
+                </div>
+                <p class="section-text">You have TikTok linked in your Linktree but the account appears inactive. This is the single biggest growth lever available to Mimi's right now. Ice cream content is one of the most popular and viral categories on TikTok. Satisfying scoop videos, topping reveals, ASMR sundae builds, kids party chaos, mascot appearances. This content gets millions of views consistently.</p>
+                <p class="section-text">Every ice cream shop that has gone viral in the last two years has done it through short-form video. The algorithm rewards visually satisfying, watch-to-the-end content, and ice cream ticks every box. One well-shot 15-second video of a sundae being built from scoop to sauce to sprinkles could reach more people in Gosforth, Jesmond, and the wider Newcastle area than six months of static Instagram posts combined.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">5</span>
+                    <h3>The Mimi Mascot Is Being Massively Underused</h3>
+                </div>
+                <p class="section-text">Your mascot reveal reel was your best performing post by a mile: 1,214 views and 80 likes versus an average of 15 likes on everything else. That tells you exactly what the audience wants. Mimi the character is your secret weapon. A mascot that interacts with kids, dances to trending audio, surprises customers, and shows up in unexpected places is a proven viral formula.</p>
+                <p class="section-text">Look at what businesses like Duolingo and Scrub Daddy have done with their mascots on TikTok. Millions of views, millions of followers, all from a character that people love and want to share. You already have the mascot. You already have the costume. You just need to put Mimi in front of the camera regularly and let the character do the work.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- The Opportunity -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Opportunity</div>
+            <div class="section-title">A Business Built for Social Media</div>
+            <div class="card case-study-card">
+                <p class="section-text">Here is the thing about Mimi's that gets us genuinely excited: you have built a business that is practically designed to go viral. A fun factory theme, a loveable mascot, colourful ice cream, happy kids, party experiences, and a location in one of Newcastle's busiest family areas. Every single element of your business is content waiting to be captured. You just need to press record.</p>
+
+                <div class="case-study-grid">
+                    <div class="case-study-stat">
+                        <div class="number">19</div>
+                        <div class="label">Total Posts</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">2</div>
+                        <div class="label">Video Reels</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">1,645</div>
+                        <div class="label">Followers</div>
+                    </div>
+                    <div class="case-study-stat">
+                        <div class="number">Huge</div>
+                        <div class="label">Potential</div>
+                    </div>
+                </div>
+
+                <div class="viral-callout">
+                    <div class="big-number">53M+ views. One local Newcastle restaurant.</div>
+                    <div class="context"><strong>We generated 53M+ views in 30 days for a Newcastle restaurant that started with zero social presence.</strong> One single reel hit 47 million views. They went from unknown to fully booked with a waiting list. Mimi's has all the same ingredients and then some. A mascot character, a factory experience, colourful product, and a family audience that shares everything. The only difference is the content strategy.</div>
+                </div>
+
+                <p class="takeaway">You do not need a bigger shop or a different product. You need more eyes on the incredible experience you are already creating every single day. Consistent video content is the key that unlocks everything.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- How We Would Help -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">How We Would Help</div>
+            <div class="section-title">What We Would Do for Mimi's</div>
+
+            <div class="card">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 20px;">Content and Growth Package</h3>
+                <div class="package-grid">
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Short-form video production</strong> creating high-retention Reels and TikToks from your shop: ice cream builds, topping reveals, mascot content, party footage, and behind-the-scenes factory moments</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>TikTok launch and growth</strong> with a dedicated posting cadence, trending audio, and ice cream formats that are proven to drive local discovery and viral reach in the food category</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Instagram Reels strategy</strong> shifting from static images to video-first content that reaches thousands of new potential customers every week instead of the same small group of existing followers</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Website design and build</strong> getting mimisicecreamfactory.co.uk live with your menu, party packages, opening hours, location, and a booking button that actually converts visitors</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Mascot content strategy</strong> building Mimi into a recurring character across all platforms, following the playbook that has worked for some of the biggest brand accounts on TikTok</p>
+                    </div>
+                    <div class="package-item">
+                        <div class="package-bullet"></div>
+                        <p><strong>Community and engagement management</strong> responding to comments, DMs, and story tags so every interaction with your audience builds loyalty and drives repeat visits</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 20px;">Content Approach</h3>
+                <ul class="strategy-list">
+                    <li>Satisfying ice cream builds: scoop, sauce, toppings, sprinkles, the full sequence. This is the bread and butter of viral ice cream content</li>
+                    <li>Mimi mascot series: dancing to trending audio, surprising customers, interacting with kids, showing up at local events. The character becomes the face of the brand</li>
+                    <li>Behind the scenes: morning prep, fresh batches being made, new flavours being tested. People love seeing how the factory works</li>
+                    <li>Party and event content: happy kids, birthday moments, the Junior Flavour Expert experience in action. This sells future bookings on autopilot</li>
+                    <li>Customer reaction content: first bites, kids choosing their favourite flavour, the moment they see their sundae for the first time</li>
+                    <li>Seasonal and limited edition drops: new flavour announcements, seasonal specials, countdown content that builds anticipation and urgency</li>
+                    <li>Local community content: tagging Gosforth, Great Park, Jesmond to build hyper-local discovery and become the neighbourhood ice cream destination</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Video Ideas -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Ready-Made Content</div>
+            <div class="section-title">5 Video Ideas You Could Film Tomorrow</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are formats that are working right now for food and dessert businesses on TikTok and Instagram. All of them play to Mimi's strengths as a fun, visual, experience-driven ice cream shop.</p>
+
+            <div class="video-ideas-grid">
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 01</div>
+                    <div class="idea-title">"Build your dream sundae at Mimi's Ice Cream Factory"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Satisfying</span>
+                        <span class="idea-tag">ASMR</span>
+                        <span class="idea-tag">Viral Format</span>
+                    </div>
+                    <p class="idea-description">Close-up, overhead camera. Film the full build from empty cup to finished masterpiece. Two scoops going in, sauce drizzling over the top, sprinkles falling, a wafer being placed. No talking, just the sounds and a trending audio underneath. End with a beauty shot of the finished sundae.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Satisfying food build videos are one of the most reliably viral formats on TikTok and Reels. Ice cream is especially effective because of the colours, textures, and the way sauces flow. These videos get watched on repeat, saved, and shared with friends. "We need to go here" in the comments is the goal, and this format delivers it consistently.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 02</div>
+                    <div class="idea-title">"Mimi surprised the whole shop today"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Mascot</span>
+                        <span class="idea-tag">Reaction</span>
+                        <span class="idea-tag">Shareable</span>
+                    </div>
+                    <p class="idea-description">Film Mimi the mascot walking out from behind the counter or through the front door. Capture the kids' faces as they see her for the first time. The excitement, the hugs, the dancing. Set it to a trending audio. Keep it under 15 seconds for maximum replay.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Your mascot reveal reel already proved this works. It was your best performing post by a huge margin. Mascot content consistently outperforms on TikTok because it is fun, unexpected, and makes people tag friends and family. "We need to take the kids here" is exactly the reaction you want, and Mimi makes that happen naturally.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 03</div>
+                    <div class="idea-title">"POV: It is your birthday and your mum booked Mimi's"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">POV</span>
+                        <span class="idea-tag">Party Content</span>
+                        <span class="idea-tag">Emotional</span>
+                    </div>
+                    <p class="idea-description">First-person style footage of a birthday party at Mimi's. Walking in to see the decorated booth, the ice cream being served, Mimi appearing for the sing-along, the birthday child's reaction. Mix of clips from a real party, set to a nostalgic or feel-good audio.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> This sells your party packages without ever feeling like an advert. Parents watching this will immediately picture their own child having the same experience. It drives direct bookings because the viewer can see exactly what they are paying for. Every party you host is a potential version of this video.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 04</div>
+                    <div class="idea-title">"NEW FLAVOUR DROP: you are not ready for this one"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Hype</span>
+                        <span class="idea-tag">Product Launch</span>
+                        <span class="idea-tag">Urgency</span>
+                    </div>
+                    <p class="idea-description">Quick cuts: the new flavour being scooped, a close-up of the colour and texture, someone tasting it for the first time and reacting, the flavour name revealed at the end. Keep it fast, punchy, and under 10 seconds. Post it the morning the flavour launches with a "limited time" hook.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Scarcity and exclusivity drive urgency. "Limited edition" and "new drop" language triggers FOMO. People share it with friends and make plans to visit before it runs out. It also gives you a reason to post regularly because you always have new flavours to announce. This format works every single time.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 05</div>
+                    <div class="idea-title">"Rating every ice cream flavour at Mimi's (honest review)"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Review</span>
+                        <span class="idea-tag">Taste Test</span>
+                        <span class="idea-tag">Series</span>
+                    </div>
+                    <p class="idea-description">Someone (ideally Daniel or a team member with personality) tries each flavour and gives an honest, quick rating out of 10. Fast cuts between flavours. Genuine reactions. The controversial low rating on one flavour makes people comment to disagree. End with "but which one do YOU think is the best?" to drive comments.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Rating and review content drives massive engagement because people love to agree, disagree, and share their own opinion. Asking a question at the end triggers comments, which tells the algorithm to push the video to more people. This can become a recurring series every time new flavours arrive, giving you consistent content that always performs.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Digital Enhancements -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Digital Enhancements</div>
+            <div class="section-title">Beyond Social Media</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are strategic changes that would make a real difference alongside the social media work. Each one is a growth lever in its own right.</p>
+
+            <div class="enhancement-card">
+                <h4>Get Your Website Live</h4>
+                <p>Right now mimisicecreamfactory.co.uk shows a "domain not connected" error. That means anyone who Googles your business and clicks the website link sees nothing. You are losing potential customers, party bookings, and Deliveroo orders every single day because of this.</p>
+                <ul class="enhancement-list">
+                    <li>Connect your domain to a proper website with your menu, opening hours, and location</li>
+                    <li>Add your party packages with pricing and a direct booking button</li>
+                    <li>Include a gallery of the factory, the ice cream, and the experience</li>
+                    <li>Link to your Deliveroo page for easy online ordering</li>
+                    <li>Set up Google Analytics so you can see how many people visit and where they come from</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Quick win:</strong> This is the single most impactful thing you can fix right now. Every day without a working website is a day where people are trying to find you online and hitting a dead end. We can have this built and live within a week.</p>
+                </div>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Optimise Your Google Business Profile</h4>
+                <p>When families in Gosforth, Jesmond, or the wider Newcastle area search "ice cream near me" on Google, your Google Business Profile is what they see first. Make sure it is fully optimised with up-to-date hours (you recently had to correct third-party platforms showing wrong times), plenty of photos, your party offerings, and a link to order on Deliveroo.</p>
+                <ul class="enhancement-list">
+                    <li>Upload high-quality photos of the factory, the ice cream, and the party setup</li>
+                    <li>Keep opening hours accurate and consistent across all platforms</li>
+                    <li>Encourage happy customers and party parents to leave Google reviews</li>
+                    <li>Post weekly updates with new flavours, events, and seasonal offers</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>The bottom line:</strong> Google reviews are one of the strongest trust signals for local businesses. Every 5-star review from a happy parent makes the next family more likely to choose Mimi's. A steady stream of reviews also pushes you higher in local search results.</p>
+                </div>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Turn Every Party into a Content and Review Machine</h4>
+                <p>You host kids parties regularly. Every single one of those parties is an opportunity to generate content and collect reviews. With permission from parents, capture short clips during parties. After the event, send a follow-up message thanking them and asking for a Google review. This creates a flywheel: parties generate content, content drives more party bookings, bookings generate more content.</p>
+                <p>Consider creating a simple "share your Mimi's moment" hashtag or photo spot in the shop where families naturally want to take photos and tag you. User-generated content is the most powerful marketing you can get because it comes from real customers and costs you nothing.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- About Fusion Creative -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">About Fusion Creative</div>
+            <div class="card intro-card">
+                <p class="about-fc-text">Fusion Creative is a UK content and marketing agency that produces short-form video content, manages social media, builds websites, runs paid ad campaigns, and handles branding. Everything under one roof.</p>
+                <p class="about-fc-text">We are based in Newcastle and work with businesses across the North East and beyond. Our approach is simple: create content that people actually want to watch, post it consistently, and let the results speak for themselves. No stock footage, no generic templates, no recycled ideas.</p>
+                <p class="about-fc-text">We generated over 53 million views in 30 days for a single local Newcastle restaurant, including a reel that hit 47 million views. We understand what makes food and hospitality content perform, and we know how to turn a great local business into a destination that people travel to visit.</p>
+
+                <div class="about-fc-grid">
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">53M+</div>
+                        <div class="about-fc-stat-label">Views in 30 days</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">20+</div>
+                        <div class="about-fc-stat-label">Videos per month</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">6+</div>
+                        <div class="about-fc-stat-label">Years in content</div>
+                    </div>
+                    <div class="about-fc-stat">
+                        <div class="about-fc-stat-val">100%</div>
+                        <div class="about-fc-stat-label">Impressions guarantee</div>
+                    </div>
+                </div>
+
+                <div class="about-fc-services">
+                    <span class="about-fc-tag">Short-Form Video</span>
+                    <span class="about-fc-tag">TikTok Management</span>
+                    <span class="about-fc-tag">Instagram Reels</span>
+                    <span class="about-fc-tag">Paid Ads</span>
+                    <span class="about-fc-tag">Website Design</span>
+                    <span class="about-fc-tag">Branding</span>
+                    <span class="about-fc-tag">SEO</span>
+                    <span class="about-fc-tag">Social Media Management</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Next Steps -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a look through this audit. The key takeaway is simple: Mimi's has everything it needs to blow up on social media. The brand is fun, the product is visual, the mascot is a proven winner, and the location is perfect. The only thing missing is consistent video content and a working website.</li>
+                    <li>If any of this resonates, jump on a quick call with us. No pitch, just a conversation about where the biggest wins are for Mimi's specifically and what the first steps would look like. We are right here in Newcastle so we can easily pop in for an ice cream and a chat.</li>
+                    <li>We can put together a specific content plan and show you exactly what the first month would look like across TikTok, Instagram, your website, and Google. We think Mimi's could be our next big case study.</li>
+                </ol>
+                <p class="closing-note">No pressure at all. But every week without consistent content is a week where families in Gosforth and the wider Newcastle area are discovering other ice cream spots instead of yours. The product and the experience are clearly incredible. It is just about making sure more people know about it. We would genuinely love to help make that happen.</p>
+                <div class="cta-wrap">
+                    <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="cta-btn">Schedule a Call</a>
+                    <div class="cta-sub">30 minutes. No obligation. Pick a time that suits you.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Signature -->
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="footer">
+            <div class="footer-confidential">Confidential - Prepared for Mimi's Ice Cream Factory</div>
+            <div class="footer-note">This audit was put together using live data from your Instagram, Linktree, and website on 29 April 2026.</div>
+            <div class="footer-brand"><span>Fusion Creative</span></div>
+        </footer>
+    </div>
+
+</body>
+</html>
