@@ -269,10 +269,11 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
   opacity: 0;
   transform: translateY(15px);
   transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--signal);
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--off-white);
   white-space: nowrap;
   pointer-events: none;
 }
