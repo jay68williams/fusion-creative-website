@@ -816,22 +816,28 @@
       var hint = document.getElementById('ar-drag-hint');
       if (!mv) return;
 
-      mv.addEventListener('load', function() {
-        if (loading) {
+      function hideLoading() {
+        if (loading && !loading.classList.contains('hidden')) {
           loading.classList.add('hidden');
           setTimeout(function() { loading.style.display = 'none'; }, 400);
         }
-        if (hint) {
+        if (hint && hint.style.display === 'none') {
           hint.style.display = 'flex';
         }
+      }
+
+      mv.addEventListener('load', hideLoading);
+
+      // model-visibility fires when the model is actually drawn to screen
+      mv.addEventListener('model-visibility', function(e) {
+        if (e.detail && e.detail.visible) hideLoading();
       });
 
-      mv.addEventListener('error', function(e) {
-        if (loading) {
-          loading.querySelector('.ar-loading-text').textContent = 'Could not load 3D model';
-          loading.querySelector('.ar-loading-spinner').style.display = 'none';
-        }
-      });
+      // Fallback: if model is already loaded by the time this script runs
+      if (mv.loaded || mv.modelIsVisible) hideLoading();
+
+      // Safety fallback: hide after 15s no matter what
+      setTimeout(hideLoading, 15000);
     })();
   </script>
 
