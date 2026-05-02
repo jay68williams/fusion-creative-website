@@ -376,11 +376,12 @@
       cursor: pointer;
       box-shadow: 0 4px 16px rgba(230,59,46,0.35);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      display: inline-flex;
+      display: none;
       align-items: center;
       gap: 0.5rem;
       z-index: 5;
     }
+    .ar-place-btn.visible { display: inline-flex; }
     .ar-place-btn:hover {
       transform: translateX(-50%) scale(1.05);
       box-shadow: 0 6px 24px rgba(230,59,46,0.5);
@@ -816,7 +817,7 @@
               <div class="ar-loading-text">Loading 3D model...</div>
               <div class="ar-loading-progress" id="ar-loading-progress">0%</div>
             </div>
-            <button slot="ar-button" class="ar-place-btn">Place on your table</button>
+            <button slot="ar-button" class="ar-place-btn" id="ar-place-btn">Place on your table</button>
           </model-viewer>
           <div class="ar-demo-label">New Greek, Newcastle / Mix Grill for 2 / Drag, pinch to zoom, or tap "Place on your table"</div>
         </div>
@@ -1031,21 +1032,24 @@
         if (progressEl) progressEl.textContent = pct + '%';
       });
 
+      var arBtn = document.getElementById('ar-place-btn');
+
+      function onModelReady() {
+        if (progressOverlay) progressOverlay.classList.add('hidden');
+        if (arBtn && mv.canActivateAR) arBtn.classList.add('visible');
+        if (hint) {
+          hint.style.display = 'flex';
+          setTimeout(function() { hint.style.display = 'none'; }, 5000);
+        }
+      }
+
       // Hide progress overlay when model is actually visible
       mv.addEventListener('model-visibility', function(e) {
-        if (e.detail && e.detail.visible) {
-          if (progressOverlay) progressOverlay.classList.add('hidden');
-          if (hint) {
-            hint.style.display = 'flex';
-            setTimeout(function() { hint.style.display = 'none'; }, 5000);
-          }
-        }
+        if (e.detail && e.detail.visible) onModelReady();
       });
 
       // Backup: load event
-      mv.addEventListener('load', function() {
-        if (progressOverlay) progressOverlay.classList.add('hidden');
-      });
+      mv.addEventListener('load', onModelReady);
     })();
   </script>
 
