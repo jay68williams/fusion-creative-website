@@ -133,13 +133,26 @@
       --progress-bar-height: 4px;
       --progress-mask: rgba(245, 240, 232, 0.4);
     }
-    .ar-mv-container { width: 100%; height: 460px; transition: opacity 0.4s ease; }
-    .ar-poster-state {
-      position: relative;
+    .ar-poster-slot {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: 460px;
+      height: 100%;
       overflow: hidden;
+      cursor: pointer;
     }
+    .ar-progress-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      background: linear-gradient(180deg, #F5F0E8 0%, #E8E0D0 100%);
+      z-index: 5;
+    }
+    .ar-progress-overlay.hidden { display: none !important; }
     .ar-poster-img {
       width: 100%;
       height: 100%;
@@ -759,49 +772,52 @@
               </filter>
             </defs>
           </svg>
-          <!-- Poster state: shown until user clicks Load 3D -->
-          <div class="ar-poster-state" id="ar-poster-state">
-            <img src="/ar-menu/models/poster.jpg" alt="Mix Grill for 2 - New Greek Newcastle" class="ar-poster-img">
-            <div class="ar-poster-overlay">
-              <button class="ar-load-btn" id="ar-load-btn">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 3L2 8l10 5 10-5-10-5z"/>
-                  <path d="M2 17l10 5 10-5"/>
-                  <path d="M2 12l10 5 10-5"/>
-                </svg>
-                <span>Load 3D Model</span>
-                <small>6.8MB / takes a few seconds</small>
-              </button>
-            </div>
-          </div>
-          <!-- Loading state: shown while GLB downloads -->
-          <div class="ar-loading-overlay" id="ar-loading" style="display:none">
-            <div class="ar-loading-spinner"></div>
-            <div class="ar-loading-text">Loading 3D model...</div>
-            <div class="ar-loading-progress" id="ar-loading-progress">0%</div>
-          </div>
           <!-- Drag hint after load -->
           <div class="ar-drag-hint" id="ar-drag-hint" style="display:none">Drag to rotate</div>
-          <!-- Model viewer (hidden until activated by Load 3D button) -->
-          <div class="ar-mv-container" id="ar-mv-container" style="display:none">
-            <model-viewer
-              id="ar-demo-model"
-              alt="New Greek Mix Grill - 3D AR model"
-              camera-controls
-              touch-action="pan-y"
-              ar
-              ar-modes="scene-viewer webxr quick-look"
-              ar-scale="auto"
-              shadow-intensity="1.2"
-              environment-image="neutral"
-              exposure="1.1"
-              auto-rotate
-              interaction-prompt="none"
-              style="width:100%;height:100%;background:transparent;"
-            >
-              <button slot="ar-button" class="ar-place-btn">Place on your table</button>
-            </model-viewer>
-          </div>
+          <!-- Model viewer with built-in poster + manual reveal -->
+          <model-viewer
+            id="ar-demo-model"
+            src="/ar-menu/models/mix-grill.glb"
+            ios-src="/ar-menu/models/mix-grill.usdz"
+            poster="/ar-menu/models/poster.jpg"
+            reveal="manual"
+            alt="New Greek Mix Grill - 3D AR model"
+            camera-controls
+            touch-action="pan-y"
+            ar
+            ar-modes="scene-viewer webxr quick-look"
+            ar-scale="auto"
+            shadow-intensity="1.2"
+            environment-image="neutral"
+            exposure="1.1"
+            auto-rotate
+            interaction-prompt="none"
+            loading="lazy"
+            style="width:100%;height:460px;background:#F5F0E8;"
+          >
+            <!-- Custom poster overlay with the Load 3D button -->
+            <div slot="poster" class="ar-poster-slot">
+              <img src="/ar-menu/models/poster.jpg" alt="Mix Grill for 2 - New Greek Newcastle" class="ar-poster-img">
+              <div class="ar-poster-overlay">
+                <button class="ar-load-btn" id="ar-load-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3L2 8l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                  </svg>
+                  <span>Load 3D Model</span>
+                  <small>6.8MB / takes a few seconds</small>
+                </button>
+              </div>
+            </div>
+            <!-- Custom loading progress bar overlay (hidden until user clicks Load 3D) -->
+            <div slot="progress-bar" class="ar-progress-overlay" id="ar-progress-overlay" style="display:none">
+              <div class="ar-loading-spinner"></div>
+              <div class="ar-loading-text">Loading 3D model...</div>
+              <div class="ar-loading-progress" id="ar-loading-progress">0%</div>
+            </div>
+            <button slot="ar-button" class="ar-place-btn">Place on your table</button>
+          </model-viewer>
           <div class="ar-demo-label">New Greek, Newcastle / Mix Grill for 2 / Drag, pinch to zoom, or tap "Place on your table"</div>
         </div>
         <div class="ar-demo-text">
@@ -982,61 +998,53 @@
     });
   </script>
 
-  <!-- 3D model click-to-load handler -->
+  <!-- 3D model click-to-load handler using model-viewer dismissPoster -->
   <script>
     (function() {
+      var mv = document.getElementById('ar-demo-model');
+      if (!mv) return;
+
       var loadBtn = document.getElementById('ar-load-btn');
-      var posterState = document.getElementById('ar-poster-state');
-      var loadingState = document.getElementById('ar-loading');
+      var progressOverlay = document.getElementById('ar-progress-overlay');
       var progressEl = document.getElementById('ar-loading-progress');
       var hint = document.getElementById('ar-drag-hint');
-      var mvContainer = document.getElementById('ar-mv-container');
-      var mv = document.getElementById('ar-demo-model');
-      if (!loadBtn || !mv) return;
+      var clicked = false;
 
-      var revealed = false;
-      var pollId = null;
-
-      function hideLoading() {
-        if (revealed) return;
-        revealed = true;
-        if (pollId) { clearInterval(pollId); pollId = null; }
-        loadingState.style.setProperty('display', 'none', 'important');
-        if (hint) {
-          hint.style.display = 'flex';
-          setTimeout(function() { hint.style.display = 'none'; }, 5000);
+      function startLoad(e) {
+        if (clicked) return;
+        if (e) { e.preventDefault(); e.stopPropagation(); }
+        clicked = true;
+        // Tell model-viewer to dismiss poster and start loading
+        if (typeof mv.dismissPoster === 'function') {
+          mv.dismissPoster();
         }
+        // Show our custom progress overlay over the loading state
+        if (progressOverlay) progressOverlay.style.display = 'flex';
       }
 
-      // Listen for all possible "ready" signals
-      mv.addEventListener('load', hideLoading);
-      mv.addEventListener('model-visibility', function(e) {
-        if (e.detail && e.detail.visible) hideLoading();
-      });
+      if (loadBtn) loadBtn.addEventListener('click', startLoad);
+
+      // Track download progress
       mv.addEventListener('progress', function(e) {
         var p = (e.detail && typeof e.detail.totalProgress === 'number') ? e.detail.totalProgress : 0;
         var pct = Math.round(p * 100);
         if (progressEl) progressEl.textContent = pct + '%';
-        if (p >= 0.99) hideLoading();
       });
 
-      loadBtn.addEventListener('click', function() {
-        posterState.style.display = 'none';
-        loadingState.style.display = 'flex';
-        // Show model-viewer fully visible from the start
-        mvContainer.style.display = 'block';
-        mvContainer.style.opacity = '1';
-        // Trigger the GLB download by setting src
-        mv.setAttribute('src', '/ar-menu/models/mix-grill.glb');
-        mv.setAttribute('ios-src', '/ar-menu/models/mix-grill.usdz');
+      // Hide progress overlay when model is actually visible
+      mv.addEventListener('model-visibility', function(e) {
+        if (e.detail && e.detail.visible) {
+          if (progressOverlay) progressOverlay.classList.add('hidden');
+          if (hint) {
+            hint.style.display = 'flex';
+            setTimeout(function() { hint.style.display = 'none'; }, 5000);
+          }
+        }
+      });
 
-        // Poll every 200ms checking model state as a robust fallback
-        pollId = setInterval(function() {
-          if (mv.loaded || mv.modelIsVisible) hideLoading();
-        }, 200);
-
-        // Safety timeout: 30s
-        setTimeout(hideLoading, 30000);
+      // Backup: load event
+      mv.addEventListener('load', function() {
+        if (progressOverlay) progressOverlay.classList.add('hidden');
       });
     })();
   </script>
