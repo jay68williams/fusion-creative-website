@@ -118,17 +118,92 @@
       .ar-demo-grid { grid-template-columns: 1fr 1fr; text-align: left; }
     }
     .ar-demo-viewer {
-      background: #F5F0E8;
+      background: linear-gradient(180deg, #F5F0E8 0%, #E8E0D0 100%);
       border-radius: var(--rad-md);
       overflow: hidden;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
       border: 1px solid var(--border);
+      position: relative;
     }
     .ar-demo-viewer model-viewer {
       width: 100%;
-      height: 360px;
-      background: #F5F0E8;
-      --poster-color: #F5F0E8;
+      height: 460px;
+      background: transparent;
+      --poster-color: transparent;
+      --progress-bar-color: var(--signal);
+      --progress-bar-height: 3px;
+    }
+    @media (max-width: 768px) {
+      .ar-demo-viewer model-viewer { height: 380px; }
+    }
+    .ar-drag-hint {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 5;
+      background: rgba(17,17,17,0.75);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      pointer-events: none;
+      opacity: 0;
+      animation: dragHintFade 4s ease 1.5s forwards;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .ar-drag-hint::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--signal);
+      border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes dragHintFade {
+      0% { opacity: 0; transform: translateY(-4px); }
+      15% { opacity: 1; transform: translateY(0); }
+      85% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+    .ar-place-btn {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--signal);
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 999px;
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(230,59,46,0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 5;
+    }
+    .ar-place-btn:hover {
+      transform: translateX(-50%) scale(1.05);
+      box-shadow: 0 6px 24px rgba(230,59,46,0.5);
+    }
+    .ar-place-btn::before {
+      content: '';
+      width: 14px;
+      height: 14px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/%3E%3Cpolyline points='3.27 6.96 12 12.01 20.73 6.96'/%3E%3Cline x1='12' y1='22.08' x2='12' y2='12'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
     }
     .ar-demo-label {
       padding: 16px 20px;
@@ -494,38 +569,35 @@
       <p class="section-label center">Live demo</p>
       <div class="ar-demo-grid">
         <div class="ar-demo-viewer">
+          <div class="ar-drag-hint">Drag to rotate</div>
           <model-viewer
             src="/ar-menu/models/mix-grill.glb"
             ios-src="/ar-menu/models/mix-grill.usdz"
-            poster="/ar-menu/models/poster.jpg"
             alt="New Greek Mix Grill - 3D AR model"
             auto-rotate
+            auto-rotate-delay="500"
+            rotation-per-second="20deg"
             camera-controls
             touch-action="pan-y"
-            shadow-intensity="0.6"
+            interaction-prompt="auto"
+            interaction-prompt-style="basic"
+            interaction-prompt-threshold="2000"
+            shadow-intensity="1"
             shadow-softness="0.8"
+            exposure="1.1"
+            environment-image="neutral"
+            camera-orbit="0deg 75deg 105%"
+            min-camera-orbit="auto auto 50%"
+            max-camera-orbit="auto auto 200%"
             loading="eager"
             reveal="auto"
             ar
             ar-modes="webxr scene-viewer quick-look"
+            ar-scale="auto"
           >
-            <button slot="ar-button" style="
-              position: absolute;
-              bottom: 16px;
-              left: 50%;
-              transform: translateX(-50%);
-              background: var(--signal, #E63B2E);
-              color: #fff;
-              border: none;
-              padding: 10px 24px;
-              border-radius: 999px;
-              font-family: 'Space Grotesk', sans-serif;
-              font-weight: 600;
-              font-size: 0.85rem;
-              cursor: pointer;
-            ">Place on your table</button>
+            <button slot="ar-button" class="ar-place-btn">Place on your table</button>
           </model-viewer>
-          <div class="ar-demo-label">New Greek, Newcastle / Mix Grill for 2 / Spin, zoom, or tap "Place on your table"</div>
+          <div class="ar-demo-label">New Greek, Newcastle / Mix Grill for 2 / Drag, pinch to zoom, or tap "Place on your table"</div>
         </div>
         <div class="ar-demo-text">
           <h2>Try it yourself</h2>
