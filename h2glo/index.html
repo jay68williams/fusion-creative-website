@@ -508,78 +508,167 @@
             color: #3b9eff;
         }
 
-        /* ── Reviews ── */
-        .reviews { padding: 120px 0; }
+        /* ── Reviews (Floating Field) ── */
+        .reviews {
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
         .reviews-header {
             text-align: center;
             margin-bottom: 64px;
+            position: relative;
+            z-index: 5;
         }
         .reviews-header .section-subtitle { margin: 0 auto; }
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 24px;
+        .reviews-google-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #b0b8cc;
         }
-        .review-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            border-radius: 24px;
-            padding: 36px;
-            transition: all 0.4s ease;
+        .reviews-google-badge .stars {
+            color: #fbbf24;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
+
+        /* Floating field container */
+        .reviews-field {
             position: relative;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 1100px;
+            padding: 0 24px;
+        }
+
+        /* Floating card */
+        .review-card {
+            position: absolute;
+            background: rgba(20, 26, 40, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 22px;
+            padding: 26px 28px;
+            width: 320px;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.4s ease, z-index 0s linear 0.5s;
+            box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
+            cursor: default;
+            will-change: transform;
+        }
+        .review-card.float-anim {
+            animation: float-card var(--float-duration, 9s) ease-in-out infinite;
+            animation-delay: var(--float-delay, 0s);
         }
         .review-card:hover {
-            background: rgba(59, 158, 255, 0.06);
-            border-color: rgba(59, 158, 255, 0.2);
-            transform: translateY(-4px);
+            transform: translate(-50%, -50%) rotate(0deg) scale(1.06) !important;
+            border-color: rgba(59, 158, 255, 0.5);
+            box-shadow: 0 30px 60px -12px rgba(59, 158, 255, 0.35), 0 8px 24px rgba(0, 0, 0, 0.4);
+            z-index: 50 !important;
+            animation-play-state: paused;
+            transition-delay: 0s;
         }
-        .review-card::before {
-            content: '\201C';
+
+        @keyframes float-card {
+            0%, 100% { translate: 0 0; }
+            50% { translate: 0 -14px; }
+        }
+
+        .review-card .quote-mark {
             position: absolute;
-            top: 20px;
-            right: 28px;
-            font-size: 4rem;
+            top: 14px;
+            right: 22px;
+            font-size: 3rem;
             font-family: Georgia, serif;
-            color: rgba(59, 158, 255, 0.15);
+            color: rgba(59, 158, 255, 0.18);
             line-height: 1;
+            user-select: none;
         }
         .review-stars {
             color: #fbbf24;
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: 2px;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
         .review-text {
-            font-size: 0.95rem;
-            color: #b0b8cc;
-            line-height: 1.8;
-            margin-bottom: 24px;
+            font-size: 0.9rem;
+            color: #d4dbeb;
+            line-height: 1.65;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 7;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
         .review-author {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
         .review-avatar {
-            width: 44px;
-            height: 44px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             background: linear-gradient(135deg, #3b9eff, #0B5688);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #fff;
+            flex-shrink: 0;
         }
+        .review-author-meta { flex: 1; min-width: 0; }
         .review-author-name {
             font-weight: 600;
             color: #fff;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
         }
         .review-author-role {
+            font-size: 0.72rem;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .review-author-role svg { flex-shrink: 0; }
+
+        /* Floating background glows */
+        .reviews-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .reviews-glow.g1 {
+            width: 500px; height: 500px;
+            background: rgba(59, 158, 255, 0.12);
+            top: 200px; left: -150px;
+        }
+        .reviews-glow.g2 {
+            width: 400px; height: 400px;
+            background: rgba(124, 58, 237, 0.08);
+            bottom: 100px; right: -100px;
+        }
+
+        /* Hint text on mobile */
+        .reviews-hint {
+            display: none;
+            text-align: center;
             font-size: 0.8rem;
             color: #6b7280;
+            margin-top: 24px;
         }
 
         /* ── FAQ ── */
@@ -870,6 +959,31 @@
         }
 
         /* ── Responsive ── */
+        @media (max-width: 1200px) {
+            /* Floating field needs ≥1200px to look right; stack on smaller screens */
+            .reviews-field {
+                height: auto !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 18px;
+                padding: 0 20px;
+                max-width: 720px;
+            }
+            .review-card {
+                position: relative !important;
+                width: 100% !important;
+                max-width: 420px !important;
+                top: auto !important;
+                left: auto !important;
+                transform: rotate(0) !important;
+                animation: none !important;
+            }
+            .review-card:nth-child(odd) { transform: rotate(-1.5deg) !important; }
+            .review-card:nth-child(even) { transform: rotate(1.5deg) !important; }
+            .review-card:hover { transform: translateY(-4px) !important; }
+            .reviews-hint { display: block; }
+        }
         @media (max-width: 1024px) {
             .google-rating { display: none; }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -895,7 +1009,6 @@
             .hero-stats { gap: 24px; flex-wrap: wrap; }
             .hero-stat h3 { font-size: 1.5rem; }
             .services-grid { grid-template-columns: 1fr; }
-            .reviews-grid { grid-template-columns: 1fr; }
             .form-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 32px; }
             .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
@@ -1079,72 +1192,153 @@
 
 <!-- Reviews -->
 <section class="reviews" id="reviews">
-    <div class="container" style="position:relative;">
-        <div class="bg-shape bg-shape-1"></div>
-        <div class="bg-shape bg-shape-2"></div>
+    <div class="reviews-glow g1"></div>
+    <div class="reviews-glow g2"></div>
+    <div class="container">
         <div class="reviews-header reveal">
             <p class="section-label">Testimonials</p>
             <h2 class="section-title">What Our Customers Say</h2>
-            <p class="section-subtitle">Real feedback from real customers across the North East.</p>
+            <p class="section-subtitle">Real 5-star reviews pulled from our Google Business Profile.</p>
+            <div class="reviews-google-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#fbbf24"/></svg>
+                <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span>5.0 on Google &middot; 15+ verified reviews</span>
+            </div>
         </div>
-        <div class="reviews-grid">
-            <div class="review-card reveal tilt-card" style="transition-delay: 0.1s;">
-                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="review-text">"Used H2Glo to undertake cleaning of the patios and pathways outside of my house. What can I say, their service was exceptional. They ensured everything was done to an amazing standard. The guys were very professional throughout, kept me updated with progress and I was very happy with the results once completed."</p>
-                <div class="review-author">
-                    <div class="review-avatar">C</div>
-                    <div>
-                        <div class="review-author-name">Chris</div>
-                        <div class="review-author-role">Homeowner</div>
-                    </div>
+    </div>
+    <div class="reviews-field" id="reviewsField">
+        <!-- Card 1 -->
+        <div class="review-card float-anim reveal-scale" style="left: 30px; top: 20px; transform: rotate(-4deg); z-index: 3; --float-duration: 8s; --float-delay: 0s;">
+            <span class="quote-mark">&#8220;</span>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-text">This company is the best. Marc has completely transformed my patio and garden area, everything looks like new. Would highly recommend to anyone looking to restore their patios and paths to look like new again.</p>
+            <div class="review-author">
+                <div class="review-avatar">I</div>
+                <div class="review-author-meta">
+                    <div class="review-author-name">Irene Sumby</div>
+                    <div class="review-author-role"><svg width="10" height="10" viewBox="0 0 24 24" fill="#3b9eff"><circle cx="12" cy="12" r="10"/></svg> 3 days ago &middot; Google</div>
                 </div>
             </div>
-            <div class="review-card reveal tilt-card" style="transition-delay: 0.2s;">
-                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="review-text">"We were delighted with the job Marc carried out on our drive. He gave a very fair price, talked us through what to expect and completed the job with attention to detail and worked non stop. Marc is very pleasant and we would thoroughly recommend him and wouldn't hesitate to use his services again."</p>
-                <div class="review-author">
-                    <div class="review-avatar">D</div>
-                    <div>
-                        <div class="review-author-name">David R.</div>
-                        <div class="review-author-role">Property Owner</div>
-                    </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="review-card float-anim reveal-scale" style="left: 380px; top: 70px; transform: rotate(2deg); z-index: 4; --float-duration: 10s; --float-delay: 1s;">
+            <span class="quote-mark">&#8220;</span>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-text">5 star service. I would highly recommend using H2Glo. They have done an excellent job pressure washing my fences and removing years of paint and dirt. Super friendly and very knowledgeable. I will definitely use them again!</p>
+            <div class="review-author">
+                <div class="review-avatar">M</div>
+                <div class="review-author-meta">
+                    <div class="review-author-name">Millie Coulson</div>
+                    <div class="review-author-role"><svg width="10" height="10" viewBox="0 0 24 24" fill="#3b9eff"><circle cx="12" cy="12" r="10"/></svg> 5 days ago &middot; Google</div>
                 </div>
             </div>
-            <div class="review-card reveal tilt-card" style="transition-delay: 0.3s;">
-                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="review-text">"Professional and personable service, highly recommended! Patio was well overdue some attention and the lads have it looking like new. Would definitely use them again."</p>
-                <div class="review-author">
-                    <div class="review-avatar">J</div>
-                    <div>
-                        <div class="review-author-name">J Johnson</div>
-                        <div class="review-author-role">Homeowner</div>
-                    </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="review-card float-anim reveal-scale" style="left: 730px; top: 30px; transform: rotate(-2deg); z-index: 5; --float-duration: 9s; --float-delay: 0.5s;">
+            <span class="quote-mark">&#8220;</span>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-text">Five star service, cannot recommend this company enough. Lovely honest hard workers with an excellent service. Nothing was too much for them.</p>
+            <div class="review-author">
+                <div class="review-avatar">N</div>
+                <div class="review-author-meta">
+                    <div class="review-author-name">Nichola Shoesmith</div>
+                    <div class="review-author-role"><svg width="10" height="10" viewBox="0 0 24 24" fill="#3b9eff"><circle cx="12" cy="12" r="10"/></svg> 1 week ago &middot; Google</div>
                 </div>
             </div>
-            <div class="review-card reveal tilt-card" style="transition-delay: 0.4s;">
-                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="review-text">"Brilliant job on our block paving. It was in a terrible state after years of neglect but the lads brought it back to life. The re-sanding really finished it off perfectly. Looks like a brand new driveway. Can't recommend these lads enough!"</p>
-                <div class="review-author">
-                    <div class="review-avatar">M</div>
-                    <div>
-                        <div class="review-author-name">Mark T.</div>
-                        <div class="review-author-role">Homeowner, Durham</div>
-                    </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="review-card float-anim reveal-scale" style="left: 1030px; top: 110px; transform: rotate(3deg); z-index: 3; --float-duration: 11s; --float-delay: 1.5s;">
+            <span class="quote-mark">&#8220;</span>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-text">Done my auntie's patio: deweeded, cemented, and sealed. Absolutely excellent work, worth every penny. So professional and a hard working team. Would highly recommend.</p>
+            <div class="review-author">
+                <div class="review-avatar">M</div>
+                <div class="review-author-meta">
+                    <div class="review-author-name">Meg Oneil</div>
+                    <div class="review-author-role"><svg width="10" height="10" viewBox="0 0 24 24" fill="#3b9eff"><circle cx="12" cy="12" r="10"/></svg> 1 week ago &middot; Google</div>
                 </div>
             </div>
-            <div class="review-card reveal tilt-card" style="transition-delay: 0.5s;">
-                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="review-text">"Had the full works done - driveway, patio, and fascias. The difference is unbelievable. Marc and the team were punctual, professional, and left everything spotless. Best money we've spent on the house in years. Already booked them for next year!"</p>
-                <div class="review-author">
-                    <div class="review-avatar">S</div>
-                    <div>
-                        <div class="review-author-name">Sarah W.</div>
-                        <div class="review-author-role">Homeowner, Gateshead</div>
-                    </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="review-card float-anim reveal-scale" style="left: 180px; top: 340px; transform: rotate(3deg); z-index: 6; --float-duration: 9.5s; --float-delay: 0.8s;">
+            <span class="quote-mark">&#8220;</span>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-text">Very pleased with my driveway, looks like new. Tarmac sealed and restored. Very happy, good job done.</p>
+            <div class="review-author">
+                <div class="review-avatar">S</div>
+                <div class="review-author-meta">
+                    <div class="review-author-name">Stephen Newland</div>
+                    <div class="review-author-role"><svg width="10" height="10" viewBox="0 0 24 24" fill="#3b9eff"><circle cx="12" cy="12" r="10"/></svg> 3 weeks ago &middot; Local Guide</div>
+                </div>
+            </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="review-card float-anim reveal-scale" style="left: 540px; top: 370px; transform: rotate(-3deg); z-index: 4; --float-duration: 10.5s; --float-delay: 0.3s;">
+            <span class="quote-mark">&#8220;</span>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-text">Extremely happy with the service. Very professional and explained the process thoroughly. It was a big job and the results exceeded my expectations. Thank you.</p>
+            <div class="review-author">
+                <div class="review-avatar">K</div>
+                <div class="review-author-meta">
+                    <div class="review-author-name">Kirsty Bell</div>
+                    <div class="review-author-role"><svg width="10" height="10" viewBox="0 0 24 24" fill="#3b9eff"><circle cx="12" cy="12" r="10"/></svg> 1 month ago &middot; Local Guide</div>
+                </div>
+            </div>
+        </div>
+        <!-- Card 7 -->
+        <div class="review-card float-anim reveal-scale" style="left: 880px; top: 380px; transform: rotate(2deg); z-index: 5; --float-duration: 8.5s; --float-delay: 1.2s;">
+            <span class="quote-mark">&#8220;</span>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-text">Amazing job on the block paving driveway, could not be happier. So friendly, very professional, will definitely be using again. Very good prices also.</p>
+            <div class="review-author">
+                <div class="review-avatar">K</div>
+                <div class="review-author-meta">
+                    <div class="review-author-name">Kay</div>
+                    <div class="review-author-role"><svg width="10" height="10" viewBox="0 0 24 24" fill="#3b9eff"><circle cx="12" cy="12" r="10"/></svg> 1 month ago &middot; Google</div>
+                </div>
+            </div>
+        </div>
+        <!-- Card 8 -->
+        <div class="review-card float-anim reveal-scale" style="left: 80px; top: 680px; transform: rotate(-2deg); z-index: 4; --float-duration: 10s; --float-delay: 0.6s;">
+            <span class="quote-mark">&#8220;</span>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-text">As the name suggests, a very professional job. Organised, thorough, informative and a super job from a lovely team of guys. 100% will use again.</p>
+            <div class="review-author">
+                <div class="review-avatar">P</div>
+                <div class="review-author-meta">
+                    <div class="review-author-name">Patrick Deane</div>
+                    <div class="review-author-role"><svg width="10" height="10" viewBox="0 0 24 24" fill="#3b9eff"><circle cx="12" cy="12" r="10"/></svg> 2 months ago &middot; Google</div>
+                </div>
+            </div>
+        </div>
+        <!-- Card 9 -->
+        <div class="review-card float-anim reveal-scale" style="left: 420px; top: 720px; transform: rotate(3deg); z-index: 6; --float-duration: 9s; --float-delay: 1.8s;">
+            <span class="quote-mark">&#8220;</span>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-text">Their service was exceptional. They ensured everything was done to an amazing standard, kept me updated with progress, and were very reasonably priced. Would highly recommend, and will be using again.</p>
+            <div class="review-author">
+                <div class="review-avatar">C</div>
+                <div class="review-author-meta">
+                    <div class="review-author-name">Christopher Chisholm</div>
+                    <div class="review-author-role"><svg width="10" height="10" viewBox="0 0 24 24" fill="#3b9eff"><circle cx="12" cy="12" r="10"/></svg> 2 months ago &middot; Google</div>
+                </div>
+            </div>
+        </div>
+        <!-- Card 10 -->
+        <div class="review-card float-anim reveal-scale" style="left: 760px; top: 700px; transform: rotate(-3deg); z-index: 5; --float-duration: 11s; --float-delay: 0.4s;">
+            <span class="quote-mark">&#8220;</span>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-text">Really great job by these guys! Chris was super helpful and gave our drive a complete makeover. 10/10 recommend.</p>
+            <div class="review-author">
+                <div class="review-avatar">J</div>
+                <div class="review-author-meta">
+                    <div class="review-author-name">Jason Williams</div>
+                    <div class="review-author-role"><svg width="10" height="10" viewBox="0 0 24 24" fill="#3b9eff"><circle cx="12" cy="12" r="10"/></svg> 2 months ago &middot; Google</div>
                 </div>
             </div>
         </div>
     </div>
+    <p class="reviews-hint">Tap any card to read in full. View more on our <a href="https://www.google.com/search?q=H2Glo+Professional+Exterior+Cleaning+Reviews" style="color:#3b9eff;">Google profile</a>.</p>
 </section>
 
 <!-- FAQ -->
