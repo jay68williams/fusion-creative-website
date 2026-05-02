@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TS8XCRSG4W"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TS8XCRSG4W');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Menus for Restaurants | Fusion Creative</title>
+  <meta name="description" content="Let your customers see every dish in 3D before they order. AR menus built for restaurants, cafes, and hospitality businesses. We build it all for you.">
+  <meta property="og:title" content="AR Menus for Restaurants | Fusion Creative">
+  <meta property="og:description" content="Let your customers see every dish in 3D before they order. We build your full AR menu from photos of your food.">
+  <meta property="og:url" content="https://fusioncreative.uk/ar-menu">
+  <link rel="canonical" href="https://fusioncreative.uk/ar-menu">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Google model-viewer for live demo -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <style>
+    /* ===== AR MENU LANDING PAGE ===== */
+
+    /* Hero */
+    .ar-hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 6vw 80px;
+      background: var(--black);
+      overflow: hidden;
+    }
+    .ar-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: radial-gradient(ellipse at 50% 60%, rgba(230,59,46,0.08) 0%, transparent 60%);
+    }
+    .ar-hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 800px;
+      text-align: center;
+    }
+    .ar-hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--signal);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 2rem;
+    }
+    .ar-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700;
+      color: var(--off-white);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
+    }
+    .ar-hero-title .highlight {
+      color: var(--signal);
+    }
+    .ar-hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: #999;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+    .ar-hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Floating phone mockup in hero */
+    .ar-hero-visual {
+      position: absolute;
+      right: 5vw;
+      bottom: 10%;
+      z-index: 5;
+      width: 220px;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+    @media (min-width: 1200px) {
+      .ar-hero-visual { opacity: 0.3; width: 280px; }
+    }
+
+    /* Live Demo Section */
+    .ar-demo {
+      padding: 6vmax 0;
+      background: var(--off-white);
+      text-align: center;
+    }
+    .ar-demo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 5vw;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .ar-demo-grid { grid-template-columns: 1fr 1fr; text-align: left; }
+    }
+    .ar-demo-viewer {
+      background: #F5F0E8;
+      border-radius: var(--rad-md);
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      border: 1px solid var(--border);
+    }
+    .ar-demo-viewer model-viewer {
+      width: 100%;
+      height: 360px;
+      background: #F5F0E8;
+      --poster-color: #F5F0E8;
+    }
+    .ar-demo-label {
+      padding: 16px 20px;
+      background: #fff;
+      font-size: 0.8rem;
+      color: var(--mid);
+      font-family: var(--font-mono);
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    .ar-demo-text h2 {
+      margin-bottom: 1rem;
+    }
+    .ar-demo-text p {
+      color: #555;
+      line-height: 1.7;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+    .ar-demo-text .tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--signal);
+      border: 1px solid var(--signal);
+      border-radius: 999px;
+      padding: 0.35rem 1rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* How It Works */
+    .ar-how {
+      padding: 6vmax 0;
+      background: var(--black);
+      color: var(--off-white);
+    }
+    .ar-how h2 { color: var(--off-white); }
+    .ar-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 3rem auto 0;
+      padding: 0 5vw;
+    }
+    .ar-step {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--rad-sm);
+      padding: 2.5rem 2rem;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .ar-step:hover {
+      transform: translateY(-4px);
+      border-color: rgba(230,59,46,0.3);
+    }
+    .ar-step-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--signal);
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+    }
+    .ar-step h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .ar-step p {
+      color: #888;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    /* Benefits */
+    .ar-benefits {
+      padding: 6vmax 0;
+      background: var(--off-white);
+    }
+    .ar-benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 3rem auto 0;
+      padding: 0 5vw;
+    }
+    .ar-benefit {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--rad-sm);
+      padding: 2.5rem 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .ar-benefit:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+    }
+    .ar-benefit-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .ar-benefit h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .ar-benefit p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    /* Social Proof */
+    .ar-proof {
+      padding: 5vmax 0;
+      background: #fafaf7;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .ar-proof-stat {
+      display: inline-block;
+      margin: 0 2rem 1rem;
+    }
+    .ar-proof-stat strong {
+      display: block;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--black);
+    }
+    .ar-proof-stat span {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--mid);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Pricing */
+    .ar-pricing {
+      padding: 6vmax 0;
+      background: var(--off-white);
+      text-align: center;
+    }
+    .ar-pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 3rem auto 0;
+      padding: 0 5vw;
+    }
+    .ar-pricing-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--rad-md);
+      padding: 3rem 2rem;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .ar-pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+    }
+    .ar-pricing-card.featured {
+      border-color: var(--signal);
+      position: relative;
+    }
+    .ar-pricing-card.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: -12px;
+      left: 2rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      background: var(--signal);
+      color: #fff;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+    }
+    .ar-pricing-tier {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--signal);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+    .ar-pricing-price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.25rem;
+    }
+    .ar-pricing-price span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--mid);
+    }
+    .ar-pricing-desc {
+      color: var(--mid);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .ar-pricing-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .ar-pricing-features li {
+      padding: 0.5rem 0;
+      font-size: 0.95rem;
+      color: #444;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .ar-pricing-features li::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--signal);
+      border-radius: 50%;
+      margin-top: 0.55rem;
+      flex-shrink: 0;
+    }
+
+    /* CTA Banner */
+    .ar-cta {
+      padding: 6vmax 0;
+      background: var(--black);
+      text-align: center;
+    }
+    .ar-cta h2 { color: var(--off-white); }
+    .ar-cta p {
+      color: #888;
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* FAQ */
+    .ar-faq {
+      padding: 6vmax 0;
+      background: var(--off-white);
+    }
+    .ar-faq-list {
+      max-width: 700px;
+      margin: 3rem auto 0;
+      padding: 0 5vw;
+    }
+    .ar-faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .ar-faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 1.5rem 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--black);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: var(--font-head);
+    }
+    .ar-faq-q::after {
+      content: '+';
+      font-size: 1.4rem;
+      color: var(--mid);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      margin-left: 1rem;
+    }
+    .ar-faq-item.open .ar-faq-q::after {
+      transform: rotate(45deg);
+      color: var(--signal);
+    }
+    .ar-faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .ar-faq-item.open .ar-faq-a {
+      max-height: 300px;
+      padding-bottom: 1.5rem;
+    }
+    .ar-faq-a p {
+      color: #666;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    .ar-footer {
+      padding: 3rem 0;
+      background: var(--black);
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .ar-footer p {
+      font-size: 0.8rem;
+      color: #555;
+    }
+    .ar-footer a {
+      color: var(--signal);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .ar-hero { padding: 140px 5vw 60px; min-height: auto; }
+      .ar-hero-title { font-size: clamp(2.2rem, 9vw, 3.5rem); }
+      .ar-proof-stat { display: block; margin: 1.5rem 0; }
+      .ar-pricing-cards { grid-template-columns: 1fr; }
+      .ar-demo-viewer model-viewer { height: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <section class="ar-hero">
+    <div class="ar-hero-content">
+      <p class="ar-hero-eyebrow">AR Menus by Fusion Creative</p>
+      <h1 class="ar-hero-title">Your dishes. <br><span class="highlight">On their table.</span></h1>
+      <p class="ar-hero-sub">Let customers see every plate in 3D augmented reality before they order. We photograph your food, build the models, and deploy your AR menu. You just share the QR code.</p>
+      <div class="ar-hero-ctas">
+        <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="btn btn-signal"><span>Book a Demo</span></a>
+        <a href="#demo" class="btn btn-ghost"><span>See it live</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOCIAL PROOF BAR ===== -->
+  <section class="ar-proof">
+    <div class="container">
+      <div class="ar-proof-stat">
+        <strong>60M+</strong>
+        <span>Social views generated</span>
+      </div>
+      <div class="ar-proof-stat">
+        <strong>50+</strong>
+        <span>Hospitality businesses audited</span>
+      </div>
+      <div class="ar-proof-stat">
+        <strong>1st</strong>
+        <span>AR menu agency in the North East</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LIVE DEMO ===== -->
+  <section class="ar-demo" id="demo">
+    <div class="container">
+      <p class="section-label center">Live demo</p>
+      <div class="ar-demo-grid">
+        <div class="ar-demo-viewer">
+          <model-viewer
+            src="https://newgreek.co.uk/ar/models/mix-grill.glb"
+            ios-src="https://newgreek.co.uk/ar/models/mix-grill.usdz"
+            alt="New Greek Mix Grill - 3D AR model"
+            auto-rotate
+            camera-controls
+            touch-action="pan-y"
+            shadow-intensity="0.6"
+            shadow-softness="0.8"
+            ar
+            ar-modes="webxr scene-viewer quick-look"
+          >
+            <button slot="ar-button" style="
+              position: absolute;
+              bottom: 16px;
+              left: 50%;
+              transform: translateX(-50%);
+              background: var(--signal, #E63B2E);
+              color: #fff;
+              border: none;
+              padding: 10px 24px;
+              border-radius: 999px;
+              font-family: 'Space Grotesk', sans-serif;
+              font-weight: 600;
+              font-size: 0.85rem;
+              cursor: pointer;
+            ">Place on your table</button>
+          </model-viewer>
+          <div class="ar-demo-label">New Greek, Newcastle / Mix Grill for 2 / Spin, zoom, or tap "Place on your table"</div>
+        </div>
+        <div class="ar-demo-text">
+          <h2>Try it yourself</h2>
+          <p>This is a real 3D model from our first AR menu build for New Greek in Newcastle. Spin it around. Zoom in. If you're on a phone, tap "Place on your table" to see it in AR on your actual table.</p>
+          <p>This is what your customers get. Every dish, photographed and turned into a 3D model they can view from any angle before ordering.</p>
+          <div>
+            <span class="tag">Works on iPhone</span>
+            <span class="tag">Works on Android</span>
+            <span class="tag">No app needed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="ar-how">
+    <div class="container container-center">
+      <p class="section-label center" style="color:var(--signal)">How it works</p>
+      <h2>Three steps. We handle everything.</h2>
+    </div>
+    <div class="ar-steps">
+      <div class="ar-step">
+        <p class="ar-step-num">01</p>
+        <h3>We photograph your dishes</h3>
+        <p>We come to you and photograph each dish from multiple angles. No special setup needed. We work around your normal service.</p>
+      </div>
+      <div class="ar-step">
+        <p class="ar-step-num">02</p>
+        <h3>We build the 3D models</h3>
+        <p>Using AI photogrammetry, we turn each dish into a detailed 3D model optimised for mobile AR. Every texture, every garnish, every detail.</p>
+      </div>
+      <div class="ar-step">
+        <p class="ar-step-num">03</p>
+        <h3>Your AR menu goes live</h3>
+        <p>We deploy a branded AR menu page with your dishes and give you a QR code. Stick it on your tables, printed menus, or window. Customers scan and see your food in AR.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS ===== -->
+  <section class="ar-benefits">
+    <div class="container container-center">
+      <p class="section-label center">Why AR menus</p>
+      <h2>Give customers a reason to order more</h2>
+    </div>
+    <div class="ar-benefits-grid">
+      <div class="ar-benefit">
+        <div class="ar-benefit-icon">&#x1f4f1;</div>
+        <h3>No app download</h3>
+        <p>Works straight from the camera on iPhone and Android. Customers scan a QR code and they're in. Zero friction.</p>
+      </div>
+      <div class="ar-benefit">
+        <div class="ar-benefit-icon">&#x1f4b0;</div>
+        <h3>Increase average order value</h3>
+        <p>When people can see the dish before ordering, they order more confidently. Upsells on premium plates happen naturally when they look this good.</p>
+      </div>
+      <div class="ar-benefit">
+        <div class="ar-benefit-icon">&#x1f4f8;</div>
+        <h3>Built-in social content</h3>
+        <p>Customers share AR experiences on their stories and feeds. Your restaurant gets free organic exposure from every table.</p>
+      </div>
+      <div class="ar-benefit">
+        <div class="ar-benefit-icon">&#x2b50;</div>
+        <h3>Stand out from every competitor</h3>
+        <p>Nobody else in your area is doing this. It's a genuine talking point. Press, bloggers, and food influencers notice restaurants doing things differently.</p>
+      </div>
+      <div class="ar-benefit">
+        <div class="ar-benefit-icon">&#x1f30d;</div>
+        <h3>Break the language barrier</h3>
+        <p>Tourists and international guests don't need to read the menu. They see the dish. Works especially well in city centres with high tourist footfall.</p>
+      </div>
+      <div class="ar-benefit">
+        <div class="ar-benefit-icon">&#x26a1;</div>
+        <h3>Faster table turns</h3>
+        <p>Customers decide quicker when they can see what they're getting. Less deliberation, fewer questions to staff, faster orders.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section class="ar-pricing" id="pricing">
+    <div class="container">
+      <p class="section-label center">Pricing</p>
+      <h2>Simple, transparent pricing</h2>
+    </div>
+    <div class="ar-pricing-cards">
+      <div class="ar-pricing-card">
+        <p class="ar-pricing-tier">Starter</p>
+        <p class="ar-pricing-price">&pound;1,500 <span>one-off setup</span></p>
+        <p class="ar-pricing-desc">Perfect for testing AR with your most popular dishes.</p>
+        <ul class="ar-pricing-features">
+          <li>Up to 10 dishes photographed and modelled</li>
+          <li>Branded AR menu page</li>
+          <li>QR code for tables and printed menus</li>
+          <li>Works on iPhone and Android</li>
+          <li>Hosted and maintained for 12 months</li>
+        </ul>
+        <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="btn btn-outline" style="width:100%"><span>Get Started</span></a>
+      </div>
+      <div class="ar-pricing-card featured">
+        <p class="ar-pricing-tier">Full Menu</p>
+        <p class="ar-pricing-price">&pound;2,500 <span>one-off setup</span></p>
+        <p class="ar-pricing-desc">Your entire menu in AR. The full experience.</p>
+        <ul class="ar-pricing-features">
+          <li>Up to 30 dishes photographed and modelled</li>
+          <li>Branded AR menu page with categories</li>
+          <li>QR codes for tables, menus, and window display</li>
+          <li>Works on iPhone and Android</li>
+          <li>Hosted and maintained for 12 months</li>
+          <li>Priority support and seasonal updates</li>
+        </ul>
+        <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="btn btn-signal" style="width:100%"><span>Book a Demo</span></a>
+      </div>
+    </div>
+    <p style="margin-top:2rem;font-size:0.85rem;color:var(--mid);padding:0 5vw;">Need more dishes or ongoing updates? Add new dishes any time for &pound;75 each. Monthly hosting after year one is &pound;50/month.</p>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="ar-faq">
+    <div class="container container-center">
+      <p class="section-label center">FAQ</p>
+      <h2>Common questions</h2>
+    </div>
+    <div class="ar-faq-list">
+      <div class="ar-faq-item">
+        <button class="ar-faq-q">Do my customers need to download an app?</button>
+        <div class="ar-faq-a"><p>No. It works directly in the phone's browser and camera. iPhone uses Quick Look (built into Safari) and Android uses WebXR or Scene Viewer. Zero downloads, zero sign-ups.</p></div>
+      </div>
+      <div class="ar-faq-item">
+        <button class="ar-faq-q">How long does the whole process take?</button>
+        <div class="ar-faq-a"><p>From the photography session to your live AR menu, typically 5 to 7 working days. The photo shoot itself takes about an hour depending on how many dishes you want.</p></div>
+      </div>
+      <div class="ar-faq-item">
+        <button class="ar-faq-q">What if I change my menu?</button>
+        <div class="ar-faq-a"><p>We can add, remove, or swap dishes at any time. New dishes are charged at a flat rate per dish. Seasonal menu updates are included in the Full Menu package.</p></div>
+      </div>
+      <div class="ar-faq-item">
+        <button class="ar-faq-q">Does it work on older phones?</button>
+        <div class="ar-faq-a"><p>The 3D models work on any modern smartphone browser. The AR "place on table" feature requires an iPhone 6S or newer (iOS 12+) or an ARCore-compatible Android device, which covers the vast majority of phones in use today.</p></div>
+      </div>
+      <div class="ar-faq-item">
+        <button class="ar-faq-q">Can I see a live example?</button>
+        <div class="ar-faq-a"><p>Yes. Scroll up to the demo on this page, or visit newgreek.co.uk/ar on your phone to see the full AR menu we built for New Greek in Newcastle.</p></div>
+      </div>
+      <div class="ar-faq-item">
+        <button class="ar-faq-q">I'm not in Newcastle. Can you still do this?</button>
+        <div class="ar-faq-a"><p>Yes. For restaurants outside the North East, we can work with high-quality photos you provide, or we can arrange a shoot day. The AR build and deployment is all done remotely.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="ar-cta">
+    <div class="container">
+      <p class="section-label center" style="color:var(--signal)">Ready?</p>
+      <h2>Your food deserves to be seen</h2>
+      <p>Book a 30-minute call. We'll walk you through a live demo and show you exactly what your AR menu would look like.</p>
+      <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="btn btn-signal"><span>Book a Free Demo Call</span></a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="ar-footer">
+    <p><a href="https://fusioncreative.uk">Fusion Creative</a> / Newcastle upon Tyne</p>
+  </footer>
+
+  <!-- FAQ toggle -->
+  <script>
+    document.querySelectorAll('.ar-faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.ar-faq-item.open').forEach(function(el) { el.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
