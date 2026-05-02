@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H2GLO - Professional Exterior Cleaning</title>
+    <meta name="description" content="H2GLO Professional Exterior Cleaning. Family-run exterior cleaning specialists in the North East. Driveways, patios, fascias and more.">
+    <meta name="theme-color" content="#0B5688">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ── Reset & Base ── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0a0e17;
+            color: #e4e8f1;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.15; }
+
+        /* ── Utility ── */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section-label {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #3b9eff;
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #8a93a8;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #3b9eff, #0B5688);
+            color: #fff;
+            box-shadow: 0 4px 24px rgba(59, 158, 255, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(59, 158, 255, 0.45);
+        }
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+        }
+        .btn-outline:hover {
+            border-color: #3b9eff;
+            color: #3b9eff;
+            transform: translateY(-2px);
+        }
+
+        /* ── Scroll Reveal ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ── Navigation ── */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled {
+            background: rgba(10, 14, 23, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 12px 0;
+        }
+        .nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #fff;
+        }
+        .nav-logo span { color: #3b9eff; }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #8a93a8;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: #fff; }
+        .nav-cta {
+            padding: 10px 24px !important;
+            font-size: 0.85rem !important;
+        }
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(10, 14, 23, 0.92) 0%,
+                rgba(10, 14, 23, 0.7) 40%,
+                rgba(10, 14, 23, 0.5) 100%
+            );
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 120px 0 80px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 158, 255, 0.12);
+            border: 1px solid rgba(59, 158, 255, 0.25);
+            border-radius: 40px;
+            padding: 8px 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #3b9eff;
+            margin-bottom: 28px;
+            animation: fadeInDown 0.8s ease;
+        }
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            animation: pulse-dot 2s infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+            max-width: 700px;
+        }
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #3b9eff, #60b8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-sub {
+            font-size: 1.15rem;
+            color: #8a93a8;
+            max-width: 520px;
+            margin-bottom: 36px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+            line-height: 1.8;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 60px;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+        .hero-stat h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+        }
+        .hero-stat p {
+            font-size: 0.85rem;
+            color: #8a93a8;
+            margin-top: 4px;
+        }
+        .hero-stat h3 .counter { display: inline; }
+
+        /* ── Google Rating Float ── */
+        .google-rating {
+            position: absolute;
+            bottom: 80px;
+            right: 60px;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .google-rating img {
+            width: 120px;
+            border-radius: 12px;
+        }
+        .google-rating-text { font-size: 0.85rem; }
+        .google-rating-stars {
+            color: #fbbf24;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        /* ── Trust Bar ── */
+        .trust-bar {
+            background: linear-gradient(90deg, rgba(59, 158, 255, 0.08), rgba(59, 158, 255, 0.04));
+            border-top: 1px solid rgba(59, 158, 255, 0.1);
+            border-bottom: 1px solid rgba(59, 158, 255, 0.1);
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        .trust-track {
+            display: flex;
+            gap: 48px;
+            animation: scroll-left 25s linear infinite;
+            width: max-content;
+        }
+        .trust-track:hover { animation-play-state: paused; }
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #8a93a8;
+        }
+        .trust-item .icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3b9eff;
+        }
+
+        /* ── Services ── */
+        .services { padding: 120px 0; }
+        .services-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .services-header .section-subtitle { margin: 0 auto; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .service-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+            group: true;
+        }
+        .service-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+        .service-card:hover img {
+            transform: scale(1.08);
+        }
+        .service-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 14, 23, 0.95) 0%, rgba(10, 14, 23, 0.2) 50%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 28px;
+            transition: all 0.4s ease;
+        }
+        .service-card:hover .service-card-overlay {
+            background: linear-gradient(to top, rgba(11, 86, 136, 0.9) 0%, rgba(10, 14, 23, 0.4) 60%, transparent 100%);
+        }
+        .service-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .service-card p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            transform: translateY(10px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        .service-card:hover p {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .service-card-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        /* ── Before & After Gallery ── */
+        .gallery { padding: 120px 0; background: #080c14; }
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .gallery-header .section-subtitle { margin: 0 auto; }
+        .gallery-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 0 24px 20px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .gallery-scroll::-webkit-scrollbar { display: none; }
+        .gallery-item {
+            min-width: 320px;
+            border-radius: 20px;
+            overflow: hidden;
+            scroll-snap-align: start;
+            position: relative;
+            flex-shrink: 0;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover { transform: scale(1.03); }
+        .gallery-item img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+        .gallery-item-label {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(10, 14, 23, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #3b9eff;
+            border: 1px solid rgba(59, 158, 255, 0.3);
+        }
+        .gallery-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 32px;
+        }
+        .gallery-nav button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            background: transparent;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery-nav button:hover {
+            border-color: #3b9eff;
+            background: rgba(59, 158, 255, 0.1);
+            color: #3b9eff;
+        }
+
+        /* ── Reviews ── */
+        .reviews { padding: 120px 0; }
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .reviews-header .section-subtitle { margin: 0 auto; }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+        .review-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 24px;
+            padding: 36px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        .review-card:hover {
+            background: rgba(59, 158, 255, 0.06);
+            border-color: rgba(59, 158, 255, 0.2);
+            transform: translateY(-4px);
+        }
+        .review-card::before {
+            content: '\201C';
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            font-size: 4rem;
+            font-family: Georgia, serif;
+            color: rgba(59, 158, 255, 0.15);
+            line-height: 1;
+        }
+        .review-stars {
+            color: #fbbf24;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+        .review-text {
+            font-size: 0.95rem;
+            color: #b0b8cc;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .review-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b9eff, #0B5688);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #fff;
+        }
+        .review-author-name {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+        .review-author-role {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        /* ── FAQ ── */
+        .faq { padding: 120px 0; background: #080c14; }
+        .faq-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .faq-header .section-subtitle { margin: 0 auto; }
+        .faq-list {
+            max-width: 760px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            border-color: rgba(59, 158, 255, 0.2);
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 28px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #fff;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+        .faq-question .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(59, 158, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #3b9eff;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+        .faq-item.open .faq-question .icon { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+        }
+        .faq-answer p {
+            padding: 0 28px 24px;
+            color: #8a93a8;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ── Quote / CTA ── */
+        .cta {
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #0B5688, #0a2a4a);
+            z-index: 0;
+        }
+        .cta-bg::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: rgba(59, 158, 255, 0.08);
+            top: -200px;
+            right: -200px;
+        }
+        .cta-bg::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(59, 158, 255, 0.05);
+            bottom: -100px;
+            left: -100px;
+        }
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        .cta-content h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .cta-content p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 500px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .cta .btn-primary {
+            background: #fff;
+            color: #0B5688;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+        }
+        .cta .btn-primary:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .cta .btn-outline {
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        .cta-response {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .cta-response .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            animation: pulse-dot 2s infinite;
+        }
+
+        /* ── Contact Form ── */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding-top: 40px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .form-group.full { grid-column: 1 / -1; }
+        .form-group label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 14px 18px;
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: #3b9eff;
+        }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-group select option { background: #0a0e17; color: #fff; }
+        .form-submit {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .form-submit .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 16px;
+            font-size: 1rem;
+        }
+
+        /* ── Map ── */
+        .map-section {
+            padding: 0;
+        }
+        .map-section a {
+            display: block;
+            transition: opacity 0.3s;
+        }
+        .map-section a:hover { opacity: 0.9; }
+        .map-section img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            padding: 80px 0 32px;
+            background: #060912;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 60px;
+        }
+        .footer-brand .nav-logo { margin-bottom: 16px; }
+        .footer-brand p {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            max-width: 300px;
+        }
+        .footer h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .footer-links a {
+            font-size: 0.9rem;
+            color: #6b7280;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: #3b9eff; }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-bottom p {
+            font-size: 0.8rem;
+            color: #4b5563;
+        }
+        .footer-socials {
+            display: flex;
+            gap: 12px;
+        }
+        .footer-socials a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .footer-socials a:hover {
+            background: rgba(59, 158, 255, 0.15);
+            color: #3b9eff;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .google-rating { display: none; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: flex; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 14, 23, 0.97);
+                backdrop-filter: blur(20px);
+                padding: 24px;
+                gap: 20px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-stats { gap: 24px; flex-wrap: wrap; }
+            .hero-stat h3 { font-size: 1.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+        }
+
+        /* ── Parallax Shapes ── */
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(80px);
+        }
+        .bg-shape-1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(59, 158, 255, 0.06);
+            top: 20%;
+            left: -200px;
+        }
+        .bg-shape-2 {
+            width: 400px;
+            height: 400px;
+            background: rgba(59, 158, 255, 0.04);
+            bottom: 10%;
+            right: -150px;
+        }
+
+        /* ── Tilt on cards ── */
+        .tilt-card {
+            transition: transform 0.4s ease;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+    <div class="container">
+        <a href="#" class="nav-logo">H2<span>GLO</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#quote" class="btn btn-primary nav-cta">Get a Quote</a></li>
+        </ul>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+    <div class="hero-bg">
+        <img src="https://framerusercontent.com/images/N6uUV3QIOnR2X1fqPp8AimIUGD4.png?width=1920&height=1080" alt="H2GLO exterior cleaning" loading="eager">
+    </div>
+    <div class="container hero-content">
+        <div class="hero-badge"><span class="dot"></span> Now Booking Summer 2026</div>
+        <h1>Your Local Exterior <span class="highlight">Cleaning Specialists.</span></h1>
+        <p class="hero-sub">Family-run. Professional results. We bring your property back to life with expert pressure washing and exterior cleaning across the North East.</p>
+        <div class="hero-buttons">
+            <a href="https://api.whatsapp.com/send/?phone=447368292293&text&type=phone_number&app_absent=0" class="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.553 4.12 1.52 5.86L0 24l6.335-1.652A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.97 0-3.84-.528-5.47-1.507l-.393-.233-3.756.98.998-3.648-.257-.407A9.717 9.717 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+                Contact Us Now
+            </a>
+            <a href="#quote" class="btn btn-outline">Free Quote</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <h3><span class="counter" data-target="5">0</span>.0 <span style="color:#fbbf24;">&#9733;</span></h3>
+                <p>Google Rating</p>
+            </div>
+            <div class="hero-stat">
+                <h3><span class="counter" data-target="100">0</span>%</h3>
+                <p>Satisfaction Rate</p>
+            </div>
+            <div class="hero-stat">
+                <h3><span class="counter" data-target="500">0</span>+</h3>
+                <p>Properties Cleaned</p>
+            </div>
+        </div>
+    </div>
+    <a href="https://www.google.com/search?q=H2Glo+Professional+Exterior+Cleaning+Reviews" target="_blank" class="google-rating" aria-label="Google Reviews">
+        <img src="https://framerusercontent.com/images/njC9uV3FE83gyaVgn4tGQesYjA.png?width=1080&height=720" alt="Google Reviews">
+    </a>
+</section>
+
+<!-- Trust Bar -->
+<div class="trust-bar">
+    <div class="trust-track">
+        <div class="trust-item"><span class="icon">&#10003;</span> Fully Insured</div>
+        <div class="trust-item"><span class="icon">&#9733;</span> 5-Star Reviews</div>
+        <div class="trust-item"><span class="icon">&#9829;</span> Family Run</div>
+        <div class="trust-item"><span class="icon">&#9993;</span> Free Quotes</div>
+        <div class="trust-item"><span class="icon">&#9906;</span> North East Coverage</div>
+        <div class="trust-item"><span class="icon">&#9742;</span> Dedicated Support</div>
+        <div class="trust-item"><span class="icon">&#9201;</span> Quick Service</div>
+        <div class="trust-item"><span class="icon">&#10004;</span> Trusted Team</div>
+        <!-- Duplicate for seamless loop -->
+        <div class="trust-item"><span class="icon">&#10003;</span> Fully Insured</div>
+        <div class="trust-item"><span class="icon">&#9733;</span> 5-Star Reviews</div>
+        <div class="trust-item"><span class="icon">&#9829;</span> Family Run</div>
+        <div class="trust-item"><span class="icon">&#9993;</span> Free Quotes</div>
+        <div class="trust-item"><span class="icon">&#9906;</span> North East Coverage</div>
+        <div class="trust-item"><span class="icon">&#9742;</span> Dedicated Support</div>
+        <div class="trust-item"><span class="icon">&#9201;</span> Quick Service</div>
+        <div class="trust-item"><span class="icon">&#10004;</span> Trusted Team</div>
+    </div>
+</div>
+
+<!-- Services -->
+<section class="services" id="services">
+    <div class="container">
+        <div class="services-header reveal">
+            <p class="section-label">What We Do</p>
+            <h2 class="section-title">Why H2GLO?</h2>
+            <p class="section-subtitle">We're a family-run business in the North East, dedicated to transforming properties with professional-grade equipment and honest, reliable service.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal" style="transition-delay: 0.1s;">
+                <img src="https://framerusercontent.com/images/4vxtYXWDeQrddxfNH6IfKRpnESo.png?width=1080&height=1080" alt="Driveway cleaning" loading="lazy">
+                <div class="service-card-overlay">
+                    <h3>Driveway Cleaning</h3>
+                    <p>Restore curb appeal and safety with our professional driveway cleaning service.</p>
+                </div>
+                <div class="service-card-number">01</div>
+            </div>
+            <div class="service-card reveal" style="transition-delay: 0.2s;">
+                <img src="https://framerusercontent.com/images/PdF8i8g3XrpuTrEcJoF1qm3n5g.png?width=1080&height=1080" alt="Patio cleaning" loading="lazy">
+                <div class="service-card-overlay">
+                    <h3>Patio Cleaning</h3>
+                    <p>Eliminate moss, algae and grime to reveal your patio's true beauty.</p>
+                </div>
+                <div class="service-card-number">02</div>
+            </div>
+            <div class="service-card reveal" style="transition-delay: 0.3s;">
+                <img src="https://framerusercontent.com/images/oiFmALdWrecqDRj8N3e7m3Nhk.png?width=1080&height=1080" alt="Fascia and soffit cleaning" loading="lazy">
+                <div class="service-card-overlay">
+                    <h3>Fascia & Soffit Cleaning</h3>
+                    <p>Prolong roof life and enhance your property's appearance from top to bottom.</p>
+                </div>
+                <div class="service-card-number">03</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Before & After Gallery -->
+<section class="gallery" id="gallery">
+    <div class="container">
+        <div class="gallery-header reveal">
+            <p class="section-label">Results</p>
+            <h2 class="section-title">See the H2GLO Difference</h2>
+            <p class="section-subtitle">Swipe to view incredible before & after transformations from real jobs across the North East.</p>
+        </div>
+    </div>
+    <div class="gallery-scroll" id="galleryScroll">
+        <div class="gallery-item reveal-scale" style="transition-delay: 0.1s;">
+            <img src="https://framerusercontent.com/images/Uhu6nidUlsAArZ04753OHgFg.png?width=1080&height=1080" alt="Before and after 1" loading="lazy">
+            <span class="gallery-item-label">Before & After</span>
+        </div>
+        <div class="gallery-item reveal-scale" style="transition-delay: 0.2s;">
+            <img src="https://framerusercontent.com/images/k092zmwQ7MmlJoSuEOhIxGC0I.png?width=1080&height=1080" alt="Before and after 2" loading="lazy">
+            <span class="gallery-item-label">Before & After</span>
+        </div>
+        <div class="gallery-item reveal-scale" style="transition-delay: 0.3s;">
+            <img src="https://framerusercontent.com/images/avZHiFJY26xls72yUoYyFhS8uc.png?width=1080&height=1080" alt="Before and after 3" loading="lazy">
+            <span class="gallery-item-label">Before & After</span>
+        </div>
+        <div class="gallery-item reveal-scale" style="transition-delay: 0.4s;">
+            <img src="https://framerusercontent.com/images/1KJBTueryWpsSxlJ6hbAINl8h9w.png?width=1080&height=1080" alt="Before and after 4" loading="lazy">
+            <span class="gallery-item-label">Before & After</span>
+        </div>
+    </div>
+    <div class="gallery-nav">
+        <button id="galleryPrev" aria-label="Previous">&#8592;</button>
+        <button id="galleryNext" aria-label="Next">&#8594;</button>
+    </div>
+</section>
+
+<!-- Reviews -->
+<section class="reviews" id="reviews">
+    <div class="container" style="position:relative;">
+        <div class="bg-shape bg-shape-1"></div>
+        <div class="bg-shape bg-shape-2"></div>
+        <div class="reviews-header reveal">
+            <p class="section-label">Testimonials</p>
+            <h2 class="section-title">What Our Customers Say</h2>
+            <p class="section-subtitle">Real feedback from real customers across the North East.</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card reveal tilt-card" style="transition-delay: 0.1s;">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">"Used H2Glo to undertake cleaning of the patios and pathways outside of my house. What can I say, their service was exceptional. They ensured everything was done to an amazing standard. The guys were very professional throughout, kept me updated with progress and I was very happy with the results once completed."</p>
+                <div class="review-author">
+                    <div class="review-avatar">C</div>
+                    <div>
+                        <div class="review-author-name">Chris</div>
+                        <div class="review-author-role">Homeowner</div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card reveal tilt-card" style="transition-delay: 0.2s;">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">"We were delighted with the job Marc carried out on our drive. He gave a very fair price, talked us through what to expect and completed the job with attention to detail and worked non stop. Marc is very pleasant and we would thoroughly recommend him and wouldn't hesitate to use his services again."</p>
+                <div class="review-author">
+                    <div class="review-avatar">D</div>
+                    <div>
+                        <div class="review-author-name">David R.</div>
+                        <div class="review-author-role">Property Owner</div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card reveal tilt-card" style="transition-delay: 0.3s;">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">"Professional and personable service, highly recommended! Patio was well overdue some attention and the lads have it looking like new. Would definitely use them again."</p>
+                <div class="review-author">
+                    <div class="review-avatar">J</div>
+                    <div>
+                        <div class="review-author-name">J Johnson</div>
+                        <div class="review-author-role">Homeowner</div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card reveal tilt-card" style="transition-delay: 0.4s;">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">"Brilliant job on our block paving. It was in a terrible state after years of neglect but the lads brought it back to life. The re-sanding really finished it off perfectly. Looks like a brand new driveway. Can't recommend these lads enough!"</p>
+                <div class="review-author">
+                    <div class="review-avatar">M</div>
+                    <div>
+                        <div class="review-author-name">Mark T.</div>
+                        <div class="review-author-role">Homeowner, Durham</div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card reveal tilt-card" style="transition-delay: 0.5s;">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">"Had the full works done - driveway, patio, and fascias. The difference is unbelievable. Marc and the team were punctual, professional, and left everything spotless. Best money we've spent on the house in years. Already booked them for next year!"</p>
+                <div class="review-author">
+                    <div class="review-avatar">S</div>
+                    <div>
+                        <div class="review-author-name">Sarah W.</div>
+                        <div class="review-author-role">Homeowner, Gateshead</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+    <div class="container">
+        <div class="faq-header reveal">
+            <p class="section-label">FAQ</p>
+            <h2 class="section-title">Common Questions</h2>
+            <p class="section-subtitle">Everything you need to know before booking.</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item reveal" style="transition-delay: 0.1s;">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    How are your prices determined?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Our pricing is based on the size and scope of the area to be cleaned. Complete our enquiry form for a bespoke quote tailored to your property.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal" style="transition-delay: 0.2s;">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    What service do customers choose the most?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Our most popular service is our complete package that consists of a clean, chemical application, and re-sand of block paving. It gives the best long-lasting results.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal" style="transition-delay: 0.3s;">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    What areas do you cover?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We serve the entire North East of England, including Tyne & Wear, County Durham, and Northumberland.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal" style="transition-delay: 0.4s;">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    How long does a typical job take?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Most residential driveways and patios are completed within a single day. Larger properties or combined services may take a day and a half. We'll always give you a clear timeframe before we start.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA / Quote -->
+<section class="cta" id="quote">
+    <div class="cta-bg"></div>
+    <div class="container cta-content">
+        <p class="section-label" style="color: rgba(255,255,255,0.6);">Get Started</p>
+        <h2>Get Your Free Quote Today</h2>
+        <p>Fill in the form below and we'll get back to you within 12 hours. No obligation, no pressure.</p>
+        <div class="cta-buttons">
+            <a href="https://api.whatsapp.com/send/?phone=447368292293&text=Hi%2C%20I%27d%20like%20a%20quote%20please" class="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.553 4.12 1.52 5.86L0 24l6.335-1.652A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.97 0-3.84-.528-5.47-1.507l-.393-.233-3.756.98.998-3.648-.257-.407A9.717 9.717 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+                WhatsApp Us
+            </a>
+            <a href="tel:+447368292293" class="btn btn-outline">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                Call Us
+            </a>
+        </div>
+        <div class="cta-response"><span class="dot"></span> Average response time: under 2 hours</div>
+
+        <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="07xxx xxx xxx">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="postcode">Postcode *</label>
+                    <input type="text" id="postcode" name="postcode" required placeholder="NE1 1AA">
+                </div>
+                <div class="form-group">
+                    <label for="contact-pref">Preferred Contact</label>
+                    <select id="contact-pref" name="contact-pref">
+                        <option value="whatsapp">WhatsApp</option>
+                        <option value="phone">Phone Call</option>
+                        <option value="email">Email</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="town">Town *</label>
+                    <input type="text" id="town" name="town" required placeholder="e.g. Newcastle">
+                </div>
+                <div class="form-group full">
+                    <label for="message">Describe the Job *</label>
+                    <textarea id="message" name="message" required placeholder="Tell us what you need cleaning and any details about your property..."></textarea>
+                </div>
+            </div>
+            <div class="form-submit">
+                <button type="submit" class="btn btn-primary">Submit Enquiry</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Map -->
+<div class="map-section">
+    <a href="https://www.google.com/maps/place/H2Glo+Professional+Exterior+Cleaning/@54.8984286,-1.6427544,10z" target="_blank" aria-label="View on Google Maps">
+        <img src="https://framerusercontent.com/images/E3t0fXcBEH9Uom0f0tUiHNfCxAo.png?width=1080&height=720" alt="H2GLO service area map" loading="lazy">
+    </a>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="nav-logo">H2<span>GLO</span></div>
+                <p>Professional exterior cleaning services across the North East. Family-run, fully insured, and committed to exceptional results.</p>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#services">Driveway Cleaning</a></li>
+                    <li><a href="#services">Patio Cleaning</a></li>
+                    <li><a href="#services">Fascia & Soffits</a></li>
+                    <li><a href="#services">Block Paving</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="https://api.whatsapp.com/send/?phone=447368292293">WhatsApp</a></li>
+                    <li><a href="mailto:infoh2glo@gmail.com">infoh2glo@gmail.com</a></li>
+                    <li><a href="tel:+447368292293">+44 7368 292293</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 H2GLO Professional Exterior Cleaning. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/profile.php?id=61581550989062" target="_blank" aria-label="Facebook">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/h2gloofficial/" target="_blank" aria-label="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+                </a>
+                <a href="https://www.google.com/search?q=H2Glo+Professional+Exterior+Cleaning+Reviews" target="_blank" aria-label="Google Reviews">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // ── Nav scroll ──
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ── Mobile menu ──
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // ── Scroll Reveal ──
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ── Counter Animation ──
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.dataset.target);
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        el.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        el.textContent = Math.floor(current);
+                    }
+                }, 16);
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+    counters.forEach(el => counterObserver.observe(el));
+
+    // ── Gallery Scroll ──
+    const galleryScroll = document.getElementById('galleryScroll');
+    document.getElementById('galleryPrev').addEventListener('click', () => {
+        galleryScroll.scrollBy({ left: -340, behavior: 'smooth' });
+    });
+    document.getElementById('galleryNext').addEventListener('click', () => {
+        galleryScroll.scrollBy({ left: 340, behavior: 'smooth' });
+    });
+
+    // ── FAQ Toggle ──
+    function toggleFaq(btn) {
+        const item = btn.parentElement;
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+    }
+
+    // ── Tilt on Review Cards ──
+    document.querySelectorAll('.tilt-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / centerY * -4;
+            const rotateY = (x - centerX) / centerX * 4;
+            card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+
+    // ── Form Submit ──
+    function handleSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        const btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        // Build WhatsApp message as fallback
+        const name = form.name.value;
+        const phone = form.phone.value;
+        const postcode = form.postcode.value;
+        const town = form.town.value;
+        const message = form.message.value;
+        const text = encodeURIComponent(
+            `Hi, I'd like a quote please.\n\nName: ${name}\nPhone: ${phone}\nPostcode: ${postcode}\nTown: ${town}\n\n${message}`
+        );
+        setTimeout(() => {
+            btn.textContent = 'Sent! Redirecting to WhatsApp...';
+            setTimeout(() => {
+                window.open(`https://api.whatsapp.com/send/?phone=447368292293&text=${text}`, '_blank');
+                btn.textContent = 'Submit Enquiry';
+                btn.disabled = false;
+                form.reset();
+            }, 1000);
+        }, 800);
+    }
+
+    // ── Smooth parallax on hero background ──
+    window.addEventListener('scroll', () => {
+        const hero = document.querySelector('.hero-bg img');
+        if (hero) {
+            const scrolled = window.scrollY;
+            hero.style.transform = `translateY(${scrolled * 0.3}px) scale(1.1)`;
+        }
+    });
+</script>
+
+</body>
+</html>
