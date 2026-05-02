@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Audit - The O Co. | Fusion Creative</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #f5f6fa; --bg-alt: #ecedf1; --card: #ffffff; --card-border: rgba(0,0,0,0.08);
+            --coral: #E8553C; --coral-light: #ff7a64; --coral-dark: #c4412b;
+            --text: #1a1d23; --text-secondary: #4a4f5c; --text-muted: #7c8090;
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); } 50% { box-shadow: 0 0 40px rgba(232,85,60,0.55); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 48px 0 40px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+        .brand { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); }
+        .brand-dot { display: inline-block; width: 6px; height: 6px; background: var(--coral); border-radius: 50%; margin-right: 8px; vertical-align: middle; position: relative; top: -1px; }
+        .header-date { font-size: 13px; color: var(--text-muted); font-weight: 400; }
+        .hero { padding: 64px 0 56px; animation: fadeInUp 0.6s ease both; }
+        .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; }
+        .hero h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(42px, 7vw, 64px); font-weight: 400; line-height: 1.05; letter-spacing: -1px; margin-bottom: 24px; }
+        .hero h1 span { background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral)); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s linear infinite; }
+        .hero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 600px; line-height: 1.7; font-weight: 400; }
+        .section { padding: 48px 0; animation: fadeInUp 0.6s ease both; }
+        .section-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent); }
+        .card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 40px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .card-sm { padding: 28px 32px; }
+        .section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 12px; }
+        .section-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 34px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 24px; line-height: 1.2; }
+        .section-text { color: var(--text-secondary); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+        .section-text:last-child { margin-bottom: 0; }
+        .intro-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); }
+        .intro-card .greeting { font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; color: var(--text); }
+        .stats-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .stats-table tr { border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .stats-table tr:last-child { border-bottom: none; }
+        .stats-table tr:nth-child(even) { background: rgba(0,0,0,0.02); }
+        .stats-table td { padding: 14px 0; }
+        .stats-table td:first-child { color: var(--text-secondary); font-weight: 400; padding-right: 24px; white-space: nowrap; }
+        .stats-table td:last-child { font-weight: 600; color: var(--text); text-align: right; }
+        .stat-highlight { color: var(--coral) !important; font-weight: 700 !important; }
+        .stat-badge { display: inline-block; background: rgba(232,85,60,0.15); color: var(--coral-light); padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-green { display: inline-block; background: rgba(52,199,89,0.15); color: #4cd97d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-amber { display: inline-block; background: rgba(255,159,10,0.15); color: #ffb84d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .working-item { margin-bottom: 28px; }
+        .working-item:last-child { margin-bottom: 0; }
+        .working-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+        .working-item p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+        .check-icon { display: inline-block; color: #4cd97d; margin-right: 6px; font-weight: 700; }
+        .opportunity-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--coral); color: white; border-radius: 8px; font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.35); }
+        .opportunity-heading { display: flex; align-items: center; margin-bottom: 14px; }
+        .opportunity-heading h3 { font-size: 19px; font-weight: 600; color: var(--text); }
+        .opportunity-card { margin-bottom: 20px; }
+        .opportunity-card:last-child { margin-bottom: 0; }
+        .case-study-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); border-left: 4px solid var(--coral); overflow: hidden; position: relative; }
+        .case-study-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--coral), var(--coral-light)); }
+        .case-study-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin: 32px 0; }
+        .case-study-stat { text-align: center; padding: 24px 16px; background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; animation: scaleIn 0.5s ease both; }
+        .case-study-stat .number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(30px, 5vw, 44px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1; margin-bottom: 6px; }
+        .case-study-stat .label { font-size: 12px; color: var(--text-secondary); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        .viral-callout { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 12px; padding: 24px 28px; margin-top: 24px; }
+        .viral-callout .big-number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(28px, 5vw, 40px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1.15; }
+        .viral-callout .context { font-size: 14px; color: var(--text-secondary); margin-top: 8px; line-height: 1.6; }
+        .viral-callout .context strong { color: var(--text); }
+        .takeaway { margin-top: 24px; font-size: 15px; color: var(--text-secondary); font-style: italic; line-height: 1.7; }
+        .video-ideas-grid { display: grid; gap: 20px; }
+        .video-idea-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 32px; position: relative; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .video-idea-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .video-idea-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--coral); border-radius: 4px 0 0 4px; }
+        .idea-number { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); margin-bottom: 10px; }
+        .idea-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; font-weight: 400; margin-bottom: 16px; line-height: 1.3; color: var(--text); }
+        .idea-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+        .idea-tag { font-size: 12px; font-weight: 600; color: var(--text-muted); background: rgba(0,0,0,0.04); padding: 4px 12px; border-radius: 6px; }
+        .idea-description { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+        .idea-why { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--card-border); }
+        .idea-why strong { color: var(--coral); font-weight: 600; }
+        .enhancement-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px 32px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .enhancement-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .enhancement-card:last-child { margin-bottom: 0; }
+        .enhancement-card h4 { font-size: 17px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+        .enhancement-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+        .enhancement-card p:last-child { margin-bottom: 0; }
+        .enhancement-list { list-style: none; margin: 12px 0; }
+        .enhancement-list li { font-size: 14px; color: var(--text-secondary); padding: 6px 0 6px 18px; position: relative; line-height: 1.6; }
+        .enhancement-list li::before { content: ''; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; background: var(--coral); border-radius: 50%; }
+        .highlight-box { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 10px; padding: 18px 22px; margin-top: 14px; }
+        .highlight-box p { font-size: 14px; color: var(--text-secondary); margin-bottom: 0; }
+        .highlight-box strong { color: var(--coral); }
+        .next-steps-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 80%); border-color: rgba(232,85,60,0.2); }
+        .steps-list { list-style: none; counter-reset: steps; }
+        .steps-list li { counter-increment: steps; display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--card-border); font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+        .steps-list li:last-child { border-bottom: none; }
+        .steps-list li::before { content: counter(steps); display: flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; background: var(--coral); color: white; border-radius: 10px; font-size: 14px; font-weight: 700; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.3); }
+        .about-fc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+        .about-fc-stat { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; padding: 20px 24px; text-align: center; animation: scaleIn 0.5s ease both; }
+        .about-fc-stat-val { font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; font-weight: 400; color: var(--coral); letter-spacing: -0.5px; }
+        .about-fc-stat-label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+        .about-fc-text { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+        .about-fc-services { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .about-fc-tag { background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+        .cta-wrap { text-align: center; margin-top: 32px; }
+        .cta-btn { display: inline-block; background: var(--coral); color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 40px; border-radius: 999px; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; animation: pulseGlow 3s ease-in-out infinite; }
+        .cta-btn:hover { background: var(--coral-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,85,60,0.5); animation: none; }
+        .cta-sub { font-size: 13px; color: var(--text-muted); margin-top: 12px; }
+        .closing-note { margin-top: 24px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+        .signature { padding: 48px 0; }
+        .signature-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 24px; font-weight: 400; margin-bottom: 4px; color: var(--text); }
+        .signature-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 2px; }
+        .signature-link { font-size: 14px; color: var(--coral); text-decoration: none; font-weight: 500; }
+        .signature-link:hover { text-decoration: underline; }
+        .footer { padding: 32px 0; border-top: 1px solid rgba(0,0,0,0.08); text-align: center; background: var(--bg-alt); }
+        .footer-confidential { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+        .footer-note { font-size: 12px; color: var(--text-muted); font-style: italic; }
+        .footer-brand { margin-top: 16px; font-size: 12px; color: var(--text-muted); }
+        .footer-brand span { color: var(--coral); font-weight: 600; }
+        @media (max-width: 640px) {
+            .container { padding: 0 16px; } .card { padding: 28px 22px; } .hero { padding: 40px 0 36px; } .section { padding: 32px 0; }
+            .case-study-grid { grid-template-columns: repeat(2, 1fr); } .video-idea-card { padding: 24px 22px; }
+            .header-inner { flex-direction: column; gap: 8px; } .about-fc-grid { grid-template-columns: 1fr 1fr; gap: 12px; } .about-fc-stat-val { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand"><span class="brand-dot"></span>Fusion Creative</div>
+                <div class="header-date">2 May 2026</div>
+            </div>
+        </header>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <div class="hero-label">Free Social Media Audit</div>
+            <h1><span>The O Co.</span></h1>
+            <p class="hero-subtitle">Mobile Oyster Bar &amp; Event Catering, Tynemouth | Prepared by Fusion Creative | 2 May 2026</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Hey Liberty,</div>
+                <p class="section-text">Thanks so much for giving us a follow. We spotted your account and honestly could not stop scrolling. What you have built with The O Co. is brilliant. A mobile oyster bar with Lindisfarne oysters, grilled on a Japanese Konro, popping up at the best spots in the North East. It is one of the most unique and visually stunning food concepts we have come across.</p>
+                <p class="section-text">We thought it would be fun to put together a quick audit of your social media and online presence. No strings attached, just some honest observations and a few ideas we think you would find useful. We are Fusion Creative, a content and marketing agency based in Newcastle that works exclusively with hospitality businesses.</p>
+                <p class="section-text">This is completely free. Even if we never speak again, it is yours to keep.</p>
+            </div>
+
+            <div class="card" style="margin-top:8px;">
+                <div style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--coral); margin-bottom:6px;">Client Results</div>
+                <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Generated for a single local restaurant in Newcastle</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">60M+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">791K+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Interactions</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">5,900+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">47M</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
+                    </div>
+                </div>
+                <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">We generated 60M+ combined views across Instagram and TikTok in 30 days for a local Newcastle restaurant. One single reel hit 47 million views. The O Co. has something most food businesses would kill for: a product that is inherently cinematic. Oysters being shucked live, charcoal flames, the theatre of it all. That is the kind of content that stops people mid-scroll.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Current Snapshot</div>
+            <div class="section-title">Where You Are Right Now</div>
+            <div class="card card-sm">
+                <table class="stats-table">
+                    <tr><td>Instagram (@the_o_co_shuck)</td><td>1,621 followers, 188 posts <span class="stat-badge-green">Active</span></td></tr>
+                    <tr><td>TikTok</td><td class="stat-highlight">No account <span class="stat-badge">Missing</span></td></tr>
+                    <tr><td>Website</td><td class="stat-highlight">None found <span class="stat-badge">Missing</span></td></tr>
+                    <tr><td>Facebook</td><td>Listed <span class="stat-badge-amber">Minimal</span></td></tr>
+                    <tr><td>Hitched (Wedding Directory)</td><td>5.0/5 (4 reviews) <span class="stat-badge-green">Perfect</span></td></tr>
+                    <tr><td>Press</td><td>Living North Magazine (Feb 2026) <span class="stat-badge-green">Featured</span></td></tr>
+                    <tr><td>Pricing</td><td>From &pound;300 per event, up to 250 guests</td></tr>
+                    <tr><td>Location</td><td>Tynemouth / North Tyneside (mobile)</td></tr>
+                    <tr><td>USP</td><td>Mobile oyster bar, Lindisfarne oysters, Japanese Konro grill, live shucking</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">What Is Already Working Well</div>
+            <div class="section-title">Credit Where It Is Due</div>
+            <div class="card">
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The concept is genuinely unique</h4>
+                    <p>A mobile oyster bar using Lindisfarne oysters and a Japanese Konro charcoal grill is not something anyone else in the North East is doing. That uniqueness is your single biggest asset. Every piece of content you post is immediately distinctive because nobody can replicate what you are doing. In a world of identikit street food vans, The O Co. stands completely on its own.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The branding is sharp</h4>
+                    <p>The new logo from @miarose_studio, the cart design, the way you present the product. It all looks premium without being pretentious. That is a really hard balance to strike. The visual identity already feels like a brand, not just a stall. That matters more than most people realise because it means every photo and every video starts from a strong position.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> You are showing up at the right places</h4>
+                    <p>Wylam Brewery, By The River Brew Co, Jesmond Food Market, Ouseburn. These are the venues that the food-obsessed crowd in Newcastle already follows. Being at these locations means you are in front of the right audience. Now the job is making sure the content captures that and reaches the thousands of people who were not there on the day.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Perfect reviews on Hitched</h4>
+                    <p>5.0 out of 5 with a 100% recommendation rate on Hitched is exactly the social proof that converts wedding enquiries. Brides and grooms trust reviews above everything else. That perfect score is working for you right now, even when you are not actively promoting it.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Living North feature is serious credibility</h4>
+                    <p>Being featured in Living North Magazine puts The O Co. in front of the exact demographic that books oyster bars for weddings, parties, and corporate events. That is earned press, not paid. It shows the product is noteworthy enough that editors are choosing to write about you. That credibility compounds over time.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Where The Opportunity Is</div>
+            <div class="section-title">Five Areas With Real Potential</div>
+            <p class="section-text" style="margin-bottom: 32px;">The O Co. has a product that is built for social media. These are the five areas where focused effort would turn a brilliant concept into a brand that people book months in advance.</p>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">1</span>
+                    <h3>TikTok Does Not Exist Yet</h3>
+                </div>
+                <p class="section-text">Oyster shucking, charcoal grilling, live food theatre. This is the exact content that goes viral on TikTok every single day. The satisfying sound of a shell cracking open, the sizzle of an oyster hitting the Konro, the first bite reaction from a guest who has never tried one before. You are sitting on a goldmine of content and there is no TikTok account to capture it.</p>
+                <p class="section-text">Mobile food businesses that crack TikTok see a direct impact on bookings because event planners and brides scroll TikTok for inspiration. One viral oyster shucking video could fill your calendar for the rest of the year. The format is already proven. You just need to start posting.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">2</span>
+                    <h3>No Website Means No Search Presence</h3>
+                </div>
+                <p class="section-text">When someone in Newcastle searches "mobile oyster bar hire" or "oyster catering North East" or "unique wedding food ideas Newcastle," The O Co. does not show up. You have no website, so Google has nowhere to send those people. Right now, every one of those searches is going to a competitor or just nowhere.</p>
+                <p class="section-text">A simple, beautiful one-page site with your story, photos, the menu, testimonials, and a booking enquiry form would immediately capture traffic from people who are actively looking for exactly what you offer. It also gives you a professional link to put in every email, every Instagram bio, every DM when someone asks "do you have a website?"</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">3</span>
+                    <h3>Instagram Is Active But Not Growing</h3>
+                </div>
+                <p class="section-text">1,621 followers after 188 posts means the content is not reaching beyond your existing audience. The posting is consistent, which is great, but the formats need to shift towards what the algorithm actually pushes. Reels under 20 seconds with strong hooks in the first frame. Right now, the feed looks good to someone who already follows you, but it is not built to be discovered by new people.</p>
+                <p class="section-text">The fix is not posting more. It is posting smarter. One well-crafted 15-second Reel of an oyster being shucked with the right audio and a strong opening frame will reach more people than ten static posts combined. The product is already cinematic. The content strategy just needs to match.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">4</span>
+                    <h3>The Wedding Market Is Under-Exploited</h3>
+                </div>
+                <p class="section-text">You have a perfect 5.0 on Hitched, you are listed as a wedding supplier, and your product is exactly the kind of "wow moment" that brides want at their reception. But the online presence does not lean into this hard enough. There is no dedicated wedding content series on Instagram, no wedding highlight reel, no "what it looks like when we set up at your wedding" video.</p>
+                <p class="section-text">Wedding suppliers who create aspirational content on Instagram and TikTok get booked 6-12 months in advance. A single video showing The O Co. cart at a beautiful venue, guests gathering around for freshly shucked oysters, the bride and groom taking their first bite together. That is the video that gets saved, shared, and sent to a wedding planner with the message "we need this."</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">5</span>
+                    <h3>Corporate and Brand Events Are an Untapped Revenue Stream</h3>
+                </div>
+                <p class="section-text">Oyster bars are a premium, experiential food offering. That makes them perfect for corporate events, brand launches, gallery openings, and private parties where the host wants something memorable. But if someone at a brand agency searches for "experiential food catering Newcastle," The O Co. does not appear anywhere.</p>
+                <p class="section-text">Building content around corporate and brand events, even if you have only done a handful, positions you as the go-to for that market. A short case study reel showing a setup at a gallery or a brand launch, with a text overlay like "corporate oyster bar hire, North East," would start capturing enquiries from a market with much higher average booking values than weddings.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Case Study</div>
+            <div class="section-title">What We Did for New Greek</div>
+            <div class="card case-study-card">
+                <p class="section-text">New Greek is a small independent restaurant in Newcastle. No brand head start, no existing following, no ad budget. They started from zero. Here is where they are now after working with Fusion Creative.</p>
+                <div class="case-study-grid">
+                    <div class="case-study-stat"><div class="number">60M+</div><div class="label">Total Views</div></div>
+                    <div class="case-study-stat"><div class="number">47M</div><div class="label">Single Reel Views</div></div>
+                    <div class="case-study-stat"><div class="number">791K+</div><div class="label">Interactions</div></div>
+                    <div class="case-study-stat"><div class="number">5,900+</div><div class="label">Followers Grown</div></div>
+                </div>
+                <div class="viral-callout">
+                    <div class="big-number">60 million views. One restaurant. Zero head start.</div>
+                    <div class="context"><strong>New Greek had no followers, no content history, and no brand recognition.</strong> We built their social presence from scratch with short-form video. One single reel hit 47 million views. They went from empty tables to fully booked with a waiting list. The O Co. has something New Greek did not have at the start: a product that is inherently theatrical. Live shucking, charcoal grilling, the whole experience. That is content that creates itself. Imagine what happens when someone films it properly.</div>
+                </div>
+                <p class="takeaway">The O Co. does not need to manufacture moments. The moments are already happening at every event. The job is capturing them and putting them in front of the right audience.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Ready-Made Content</div>
+            <div class="section-title">4 Video Ideas You Could Film This Week</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are formats working right now on TikTok and Instagram Reels, tailored specifically to a mobile oyster bar. Film any one of these at your next pop-up and it could be the video that fills your booking calendar.</p>
+
+            <div class="video-ideas-grid">
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 01</div>
+                    <div class="idea-title">"How we shuck a Lindisfarne oyster in under 10 seconds"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Craft</span>
+                        <span class="idea-tag">Satisfying</span>
+                        <span class="idea-tag">ASMR</span>
+                    </div>
+                    <p class="idea-description">Close-up on the hands. The knife slides in. Twist. Pop. The shell opens. Clean the oyster. Place it on ice. Squeeze of lemon. Push it across to the guest. All in one continuous close-up shot. Pure ambient sound or trending ASMR audio. Text overlay: "Lindisfarne oysters. Shucked fresh in front of you." Under 15 seconds.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Shucking videos are one of the most reliably viral formats in food content. The skill, the sound, the reveal. People watch them on repeat. It also answers the question every potential customer has: "what actually happens when I book The O Co.?" This is both a brand video and a conversion tool in one shot.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 02</div>
+                    <div class="idea-title">"POV: you hired an oyster bar for your wedding"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Wedding</span>
+                        <span class="idea-tag">POV</span>
+                        <span class="idea-tag">Aspirational</span>
+                    </div>
+                    <p class="idea-description">The cart arrives. Set up timelapse. Ice goes down. Oysters stacked. First guests approach. Wide shot of the scene. Bride walks over. First oyster of the night. Guests laughing, clinking glasses, the sun going down. Text overlay: "The O Co. Wedding packages from just 300 pounds." Cinematic trending audio. 20-30 seconds.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Brides plan weddings on Instagram and TikTok. This is the video that gets saved to a "Wedding Ideas" folder and sent to a wedding planner. The price point in the text overlay removes the "I bet I can not afford this" barrier immediately. This single video could generate more wedding enquiries than a month of static posts.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 03</div>
+                    <div class="idea-title">"Grilled oysters on a Japanese Konro: the process"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Process</span>
+                        <span class="idea-tag">Fire</span>
+                        <span class="idea-tag">Premium</span>
+                    </div>
+                    <p class="idea-description">The Konro lit with Bincho charcoal. Oysters placed on the grill. Truffle butter melting into the shell. Close-up of the bubbling. Lift it off with tongs. Garnish. Serve. The charcoal glow in the background. Text overlay: "Not your average oyster. Grilled on Japanese Bincho charcoal." Trending moody audio. Under 20 seconds.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Fire and food is one of the most engaging combinations on social media. The Konro grill sets you apart from every other oyster bar in the country. Most people have never seen a Japanese charcoal grill. That novelty is the hook. People will ask "what is that grill?" in the comments, which drives engagement and makes the algorithm push the video further.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 04</div>
+                    <div class="idea-title">"First time trying an oyster: guest reactions at our pop-up"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Reactions</span>
+                        <span class="idea-tag">People</span>
+                        <span class="idea-tag">Fun</span>
+                    </div>
+                    <p class="idea-description">Quick cuts of different guests trying their first oyster. The nervous face. The slurp. The reaction. Some love it, some pull a face, everyone laughs. Keep it fast and fun. Text overlay: "First oyster reactions at The O Co." Upbeat trending audio. 15-20 seconds. Film this at every pop-up and you have an endless series.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Reaction content is one of the highest-engagement formats on both platforms. It is relatable, funny, and shareable. People tag friends with "this would be you." It also humanises the brand and shows that The O Co. is not just about oysters, it is about the experience and the energy around it. This is the series that builds a community, not just an audience.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Digital Enhancements</div>
+            <div class="section-title">Beyond Social Media</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are strategic changes that would make a real difference alongside the content work.</p>
+
+            <div class="enhancement-card">
+                <h4>Build a Simple Website</h4>
+                <p>You need a home on the internet that is not Instagram. A one-page site with your story, the menu, testimonials, photos, and a booking enquiry form. This is the page you send when someone asks "can you do our event?" and it is the page Google shows when someone searches "mobile oyster bar hire North East."</p>
+                <ul class="enhancement-list">
+                    <li>Hero section with your best event photo and a clear "Book Us" CTA</li>
+                    <li>What We Offer section showing the different packages</li>
+                    <li>Testimonials pulled from Hitched (5.0 rating, 100% recommendation)</li>
+                    <li>Photo gallery from weddings, pop-ups, and events</li>
+                    <li>Simple enquiry form (event type, date, guest count, email)</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Quick win:</strong> We can build this for you. A clean, mobile-first site that loads fast and converts enquiries. It would pay for itself with the first booking it generates.</p>
+                </div>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Launch TikTok Before Summer</h4>
+                <p>Summer is your peak season. Pop-ups, festivals, weddings, outdoor events. Every one of those is a filming opportunity. If you launch TikTok now and post consistently through May, June, and July, you will have a library of content and a growing audience before the busiest months of the year. Waiting until next year means missing this entire season.</p>
+                <ul class="enhancement-list">
+                    <li>Create @theocoshuck on TikTok (match the brand)</li>
+                    <li>Post 3-4 short videos per week from pop-ups and events</li>
+                    <li>Use food, wedding, and North East location hashtags</li>
+                    <li>Cross-post every TikTok as an Instagram Reel</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Create a Wedding Content Series</h4>
+                <p>Your perfect Hitched score is brilliant but only reaches people who are already on Hitched. A dedicated wedding content series on Instagram and TikTok puts you in front of brides who are scrolling for inspiration months before they start looking at supplier directories.</p>
+                <div class="highlight-box">
+                    <p><strong>The opportunity:</strong> Wedding content has a long shelf life. A beautiful 20-second video of The O Co. at a wedding venue gets saved, shared, and revisited for months. One bride sees it, sends it to her maid of honour, who sends it to her friend who is also getting married. That compound sharing is how wedding suppliers fill their calendars a year in advance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">About Fusion Creative</div>
+            <div class="card intro-card">
+                <p class="about-fc-text">Fusion Creative is a content and marketing agency based in Newcastle. We produce short-form video content, manage social media accounts, run paid campaigns, build websites, and handle branding. Everything under one roof.</p>
+                <p class="about-fc-text">We work exclusively with hospitality businesses. Restaurants, bars, hotels, and events. We know what works in this space because it is all we do. No stock footage, no generic templates, no recycled ideas. Every piece of content is original and tailored to the venue.</p>
+                <p class="about-fc-text">Our headline result is New Greek, a small independent restaurant in Newcastle that went from zero followers to over 60 million combined views across Instagram and TikTok in 30 days, including a single reel that hit 47 million views. We know what makes hospitality content perform, and we know how to turn great food into a packed room.</p>
+                <div class="about-fc-grid">
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">250M+</div><div class="about-fc-stat-label">Views generated</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">20+</div><div class="about-fc-stat-label">Videos per month</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">6+</div><div class="about-fc-stat-label">Years in content</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">100%</div><div class="about-fc-stat-label">Impressions guarantee</div></div>
+                </div>
+                <div class="about-fc-services">
+                    <span class="about-fc-tag">Short-Form Video</span>
+                    <span class="about-fc-tag">TikTok Management</span>
+                    <span class="about-fc-tag">Instagram Reels</span>
+                    <span class="about-fc-tag">Paid Ads</span>
+                    <span class="about-fc-tag">Website Design</span>
+                    <span class="about-fc-tag">Branding</span>
+                    <span class="about-fc-tag">SEO</span>
+                    <span class="about-fc-tag">Social Media Management</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a read through this audit. The short version: The O Co. has one of the most visually compelling and unique food concepts in the North East. The product is already incredible. The opportunity is making sure the online presence matches, because right now 99% of the people who would book you do not know you exist yet.</li>
+                    <li>If any of this resonates, Liberty, we would love to jump on a quick call. No pitch, just a friendly conversation about where the biggest wins are and what we could do together.</li>
+                    <li>We can put together a content plan showing exactly what the first month would look like across TikTok, Instagram Reels, wedding content, and pop-up coverage.</li>
+                </ol>
+                <p class="closing-note">No pressure at all. But with summer pop-up season, wedding season, and festival season all about to kick off, the next few months are the most important window to turn The O Co. into the brand people book months in advance. The product is already there. We would genuinely love to help you get it in front of the right people.</p>
+                <div class="cta-wrap">
+                    <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="cta-btn">Schedule a Call</a>
+                    <div class="cta-sub">30 minutes. No obligation. Pick a time that suits you.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <footer class="footer">
+            <div class="footer-confidential">Confidential - Prepared for The O Co.</div>
+            <div class="footer-note">This audit was put together using live data from your social media accounts and online listings on 2 May 2026.</div>
+            <div class="footer-brand"><span>Fusion Creative</span></div>
+        </footer>
+    </div>
+
+</body>
+</html>
