@@ -982,6 +982,174 @@
       color: var(--signal);
     }
 
+    /* Audit Application Form */
+    .ar-audit-section {
+      padding: 6vmax 0;
+      background: var(--off-white);
+      border-top: 1px solid var(--border);
+    }
+    .ar-audit-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (min-width: 900px) {
+      .ar-audit-container { grid-template-columns: 1fr 1.3fr; gap: 4rem; }
+    }
+    .ar-audit-intro h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 0.5rem 0 1.5rem;
+    }
+    .ar-audit-lead {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .ar-audit-bullets {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .ar-audit-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      font-size: 0.95rem;
+      color: #333;
+      border-top: 1px solid var(--border);
+    }
+    .ar-audit-bullets li:last-child { border-bottom: 1px solid var(--border); }
+    .ar-audit-bullets li span {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--signal);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .ar-audit-form {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--rad-md);
+      padding: 2rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.05);
+      position: relative;
+    }
+    @media (min-width: 600px) {
+      .ar-audit-form { padding: 2.5rem; }
+    }
+    .ar-audit-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (min-width: 600px) {
+      .ar-audit-row { grid-template-columns: 1fr 1fr; }
+    }
+    .ar-audit-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .ar-audit-field-full { grid-column: 1 / -1; }
+    .ar-audit-field span {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--mid);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .ar-audit-field input,
+    .ar-audit-field select,
+    .ar-audit-field textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      color: var(--black);
+      background: #fafaf7;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      outline: none;
+    }
+    .ar-audit-field textarea {
+      resize: vertical;
+      min-height: 100px;
+      font-family: var(--font-head);
+    }
+    .ar-audit-field input:focus,
+    .ar-audit-field select:focus,
+    .ar-audit-field textarea:focus {
+      border-color: var(--signal);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(230,59,46,0.08);
+    }
+    .ar-audit-field input.error,
+    .ar-audit-field select.error {
+      border-color: var(--signal);
+      background: rgba(230,59,46,0.05);
+    }
+    .ar-audit-submit-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .ar-audit-disclaimer {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--mid);
+      letter-spacing: 0.05em;
+    }
+    .ar-audit-success {
+      position: absolute;
+      inset: 0;
+      background: #fff;
+      border-radius: var(--rad-md);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 2rem;
+      gap: 1rem;
+      z-index: 10;
+    }
+    .ar-audit-success.visible { display: flex; }
+    .ar-audit-success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--signal);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+    .ar-audit-success-icon svg { width: 28px; height: 28px; }
+    .ar-audit-success h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    .ar-audit-success p {
+      color: #555;
+      max-width: 420px;
+      line-height: 1.6;
+    }
+
     /* Responsive tweaks */
     @media (max-width: 600px) {
       .ar-hero { padding: 110px 5vw 60px; min-height: auto; }
@@ -1021,7 +1189,7 @@
         <h1 class="ar-hero-title">Your dishes. <br><span class="highlight">On their table.</span></h1>
         <p class="ar-hero-sub">Let customers see every plate in 3D augmented reality before they order. We photograph your food, build the models, and deploy your AR menu. You just share the QR code.</p>
         <div class="ar-hero-ctas">
-          <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="btn btn-signal"><span>Book a Demo</span></a>
+          <a href="#audit-form" class="btn btn-signal"><span>Apply for AR Menu Audit</span></a>
           <a href="#demo" class="btn btn-ghost"><span>See it live</span></a>
         </div>
       </div>
@@ -1263,7 +1431,7 @@
           <li>Works on iPhone and Android</li>
           <li>Hosted and maintained for 12 months</li>
         </ul>
-        <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="btn btn-outline" style="width:100%"><span>Get Started</span></a>
+        <a href="#audit-form" class="btn btn-outline" style="width:100%"><span>Apply for Audit</span></a>
       </div>
       <div class="ar-pricing-card featured">
         <p class="ar-pricing-tier">Full Menu</p>
@@ -1277,10 +1445,112 @@
           <li>Hosted and maintained for 12 months</li>
           <li>Priority support and seasonal updates</li>
         </ul>
-        <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="btn btn-signal" style="width:100%"><span>Book a Demo</span></a>
+        <a href="#audit-form" class="btn btn-signal" style="width:100%"><span>Apply for Audit</span></a>
       </div>
     </div>
     <p style="margin-top:2rem;font-size:0.85rem;color:var(--mid);padding:0 5vw;">Need more dishes or ongoing updates? Add new dishes any time for &pound;75 each. Monthly hosting after year one is &pound;50/month.</p>
+  </section>
+
+  <!-- ===== AUDIT APPLICATION FORM ===== -->
+  <section class="ar-audit-section" id="audit-form">
+    <div class="container ar-audit-container">
+      <div class="ar-audit-intro">
+        <p class="section-label" style="color:var(--signal)">AR Menu Audit</p>
+        <h2>Apply for your AR menu audit</h2>
+        <p class="ar-audit-lead">Tell us about your business and we will review your website, socials and existing food photography to see how your AR menu would come together. We come back within 48 hours with a tailored quote.</p>
+        <ul class="ar-audit-bullets">
+          <li><span>1</span> We review your website + Instagram for existing food photography</li>
+          <li><span>2</span> We assess your menu size and which dishes will work best in AR</li>
+          <li><span>3</span> We send you a tailored quote (no obligation)</li>
+        </ul>
+      </div>
+      <form class="ar-audit-form" id="ar-audit-form" novalidate>
+        <div class="ar-audit-row">
+          <label class="ar-audit-field">
+            <span>Business name *</span>
+            <input type="text" name="business_name" required autocomplete="organization">
+          </label>
+          <label class="ar-audit-field">
+            <span>Cuisine / type</span>
+            <input type="text" name="cuisine" placeholder="e.g. Greek, Italian, Coffee shop" autocomplete="off">
+          </label>
+        </div>
+        <div class="ar-audit-row">
+          <label class="ar-audit-field">
+            <span>Your name *</span>
+            <input type="text" name="contact_name" required autocomplete="name">
+          </label>
+          <label class="ar-audit-field">
+            <span>Role</span>
+            <input type="text" name="role" placeholder="e.g. Owner, Manager" autocomplete="off">
+          </label>
+        </div>
+        <div class="ar-audit-row">
+          <label class="ar-audit-field">
+            <span>Email *</span>
+            <input type="email" name="email" required autocomplete="email">
+          </label>
+          <label class="ar-audit-field">
+            <span>Phone</span>
+            <input type="tel" name="phone" autocomplete="tel">
+          </label>
+        </div>
+        <div class="ar-audit-row">
+          <label class="ar-audit-field">
+            <span>Website URL</span>
+            <input type="url" name="website" placeholder="https://" autocomplete="url">
+          </label>
+          <label class="ar-audit-field">
+            <span>Instagram handle</span>
+            <input type="text" name="instagram" placeholder="@yourbusiness" autocomplete="off">
+          </label>
+        </div>
+        <div class="ar-audit-row">
+          <label class="ar-audit-field">
+            <span>TikTok handle</span>
+            <input type="text" name="tiktok" placeholder="@yourbusiness" autocomplete="off">
+          </label>
+          <label class="ar-audit-field">
+            <span>Approx menu size</span>
+            <select name="menu_size">
+              <option value="">Choose one</option>
+              <option value="small">Small (under 15 dishes)</option>
+              <option value="medium">Medium (15-30 dishes)</option>
+              <option value="large">Large (30+ dishes)</option>
+            </select>
+          </label>
+        </div>
+        <div class="ar-audit-row">
+          <label class="ar-audit-field ar-audit-field-full">
+            <span>Do you have professional food photos?</span>
+            <select name="has_photos">
+              <option value="">Choose one</option>
+              <option value="yes_full">Yes, professional photos for most dishes</option>
+              <option value="yes_some">Some dishes have good photos</option>
+              <option value="phone_only">Mostly phone photos</option>
+              <option value="none">No food photography yet</option>
+            </select>
+          </label>
+        </div>
+        <label class="ar-audit-field ar-audit-field-full">
+          <span>Anything else we should know?</span>
+          <textarea name="notes" rows="4" placeholder="Top-selling dishes you'd want in AR, target launch date, anything else..."></textarea>
+        </label>
+        <div class="ar-audit-submit-row">
+          <button type="submit" class="btn btn-signal" id="ar-audit-submit"><span>Submit application</span></button>
+          <p class="ar-audit-disclaimer">No obligation. We respond within 48 hours.</p>
+        </div>
+        <div class="ar-audit-success" id="ar-audit-success">
+          <div class="ar-audit-success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h3>Application received</h3>
+          <p>Thanks. We'll review your website and socials, then come back within 48 hours with a tailored quote for your AR menu build.</p>
+        </div>
+      </form>
+    </div>
   </section>
 
   <!-- ===== FAQ ===== -->
@@ -1322,8 +1592,8 @@
     <div class="container">
       <p class="section-label center" style="color:var(--signal)">Ready?</p>
       <h2>Your food deserves to be seen</h2>
-      <p>Book a 30-minute call. We'll walk you through a live demo and show you exactly what your AR menu would look like.</p>
-      <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="btn btn-signal"><span>Book a Free Demo Call</span></a>
+      <p>Apply for an AR menu audit. We will review your website, socials and existing food photography, then come back with a tailored quote within 48 hours.</p>
+      <a href="#audit-form" class="btn btn-signal"><span>Apply for AR Menu Audit</span></a>
     </div>
   </section>
 
@@ -1334,6 +1604,92 @@
 
   <!-- Site-wide nav script (navbar scroll behavior + mobile toggle) -->
   <script src="/scripts/main.js"></script>
+
+  <!-- AR Menu audit form submission -->
+  <script>
+    (function() {
+      var form = document.getElementById('ar-audit-form');
+      if (!form) return;
+      var submitBtn = document.getElementById('ar-audit-submit');
+      var success = document.getElementById('ar-audit-success');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var data = {};
+        new FormData(form).forEach(function(v, k) { data[k] = (v || '').toString().trim(); });
+
+        // Basic validation
+        var required = ['business_name', 'contact_name', 'email'];
+        var missing = false;
+        form.querySelectorAll('input,select,textarea').forEach(function(el) { el.classList.remove('error'); });
+        required.forEach(function(field) {
+          if (!data[field]) {
+            var el = form.querySelector('[name="' + field + '"]');
+            if (el) el.classList.add('error');
+            missing = true;
+          }
+        });
+        if (missing) {
+          var first = form.querySelector('.error');
+          if (first) first.focus();
+          return;
+        }
+
+        var notesParts = [
+          'Source: AR Menu Audit Form',
+          data.role ? 'Role: ' + data.role : '',
+          data.cuisine ? 'Cuisine: ' + data.cuisine : '',
+          data.tiktok ? 'TikTok: ' + data.tiktok : '',
+          data.menu_size ? 'Menu size: ' + data.menu_size : '',
+          data.has_photos ? 'Photo status: ' + data.has_photos : '',
+          data.notes ? 'Notes: ' + data.notes : ''
+        ].filter(Boolean).join(' / ');
+
+        var btnText = submitBtn.querySelector('span');
+        var originalText = btnText ? btnText.textContent : 'Submit application';
+        if (btnText) btnText.textContent = 'Submitting...';
+        submitBtn.disabled = true;
+
+        fetch('https://newgreek.fusioncreative.uk/api/audit-lead/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            business_type: 'hospitality',
+            goal: 'ar_menu_audit',
+            social_status: data.has_photos || 'unknown',
+            business_name: data.business_name,
+            social_handle: data.instagram || null,
+            website: data.website || null,
+            name: data.contact_name,
+            email: data.email,
+            phone: data.phone || null,
+            notes: notesParts
+          })
+        }).then(function(res) {
+          if (!res.ok) throw new Error('Server error');
+          return res.json();
+        }).then(function() {
+          if (typeof fbq === 'function') {
+            fbq('track', 'Lead', { content_name: 'AR Menu Audit', content_category: 'AR Menu' });
+          }
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', { event_category: 'AR Menu', event_label: data.business_name });
+          }
+          if (success) success.classList.add('visible');
+        }).catch(function(err) {
+          console.error('AR audit submit error:', err);
+          if (btnText) btnText.textContent = originalText;
+          submitBtn.disabled = false;
+          alert('Something went wrong. Please try again or email jay@fusioncreative.uk directly.');
+        });
+      });
+
+      // Clear error state on input
+      form.addEventListener('input', function(e) {
+        if (e.target.classList) e.target.classList.remove('error');
+      });
+    })();
+  </script>
 
   <!-- FAQ toggle -->
   <script>
