@@ -43,13 +43,29 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: radial-gradient(ellipse at 50% 60%, rgba(230,59,46,0.08) 0%, transparent 60%);
+      background:
+        radial-gradient(ellipse at 75% 45%, rgba(230,59,46,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 20% 70%, rgba(184,137,42,0.10) 0%, transparent 60%);
+      pointer-events: none;
     }
-    .ar-hero-content {
+    .ar-hero-grid {
       position: relative;
       z-index: 10;
-      max-width: 800px;
+      width: 100%;
+      max-width: 1280px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .ar-hero-grid { grid-template-columns: 1.2fr 1fr; gap: 4rem; }
+    }
+    .ar-hero-content {
       text-align: center;
+    }
+    @media (min-width: 900px) {
+      .ar-hero-content { text-align: left; }
     }
     .ar-hero-eyebrow {
       font-family: var(--font-mono);
@@ -61,7 +77,7 @@
     }
     .ar-hero-title {
       font-family: var(--font-serif);
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-size: clamp(2.6rem, 6vw, 5rem);
       font-weight: 700;
       color: var(--off-white);
       line-height: 1.05;
@@ -72,11 +88,14 @@
       color: var(--signal);
     }
     .ar-hero-sub {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      color: #999;
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      color: #b0b0b0;
       max-width: 560px;
       margin: 0 auto 2.5rem;
       line-height: 1.6;
+    }
+    @media (min-width: 900px) {
+      .ar-hero-sub { margin-left: 0; }
     }
     .ar-hero-ctas {
       display: flex;
@@ -84,19 +103,98 @@
       justify-content: center;
       flex-wrap: wrap;
     }
-
-    /* Floating phone mockup in hero */
-    .ar-hero-visual {
-      position: absolute;
-      right: 5vw;
-      bottom: 10%;
-      z-index: 5;
-      width: 220px;
-      opacity: 0.15;
-      pointer-events: none;
+    @media (min-width: 900px) {
+      .ar-hero-ctas { justify-content: flex-start; }
     }
-    @media (min-width: 1200px) {
-      .ar-hero-visual { opacity: 0.3; width: 280px; }
+
+    /* Hero phone visual */
+    .ar-hero-phone {
+      position: relative;
+      justify-self: center;
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 9 / 19.5;
+      animation: phoneFloat 6s ease-in-out infinite;
+    }
+    @keyframes phoneFloat {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-12px) rotate(-1deg); }
+    }
+    .ar-hero-phone::before {
+      content: '';
+      position: absolute;
+      inset: -20% -25%;
+      background: radial-gradient(ellipse at center, rgba(230,59,46,0.35) 0%, transparent 60%);
+      filter: blur(40px);
+      z-index: 0;
+    }
+    .ar-hero-phone-frame {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background: #0a0a0a;
+      border-radius: 36px;
+      padding: 8px;
+      box-shadow:
+        0 50px 100px rgba(0,0,0,0.5),
+        0 0 0 2px #2a2a2a,
+        inset 0 0 0 4px #1a1a1a;
+    }
+    .ar-hero-phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      background: #000;
+    }
+    .ar-hero-phone-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ar-hero-phone-notch {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 32%;
+      height: 24px;
+      background: #000;
+      border-radius: 999px;
+      z-index: 5;
+    }
+    .ar-hero-phone-tag {
+      position: absolute;
+      top: 16px;
+      right: -16px;
+      background: var(--signal);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      z-index: 6;
+      box-shadow: 0 8px 24px rgba(230,59,46,0.4);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .ar-hero-phone-tag::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: #fff;
+      border-radius: 50%;
+      animation: blink 1.5s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
 
     /* Live Demo Section */
@@ -825,8 +923,9 @@
 
     /* Responsive tweaks */
     @media (max-width: 600px) {
-      .ar-hero { padding: 140px 5vw 60px; min-height: auto; }
+      .ar-hero { padding: 110px 5vw 60px; min-height: auto; }
       .ar-hero-title { font-size: clamp(2.2rem, 9vw, 3.5rem); }
+      .ar-hero-phone { max-width: 240px; }
       .ar-proof-stat { display: block; margin: 1.5rem 0; }
       .ar-pricing-cards { grid-template-columns: 1fr; }
       .ar-demo-viewer model-viewer { height: 280px; }
@@ -837,13 +936,33 @@
 
   <!-- ===== HERO ===== -->
   <section class="ar-hero">
-    <div class="ar-hero-content">
-      <p class="ar-hero-eyebrow">AR Menus by Fusion Creative</p>
-      <h1 class="ar-hero-title">Your dishes. <br><span class="highlight">On their table.</span></h1>
-      <p class="ar-hero-sub">Let customers see every plate in 3D augmented reality before they order. We photograph your food, build the models, and deploy your AR menu. You just share the QR code.</p>
-      <div class="ar-hero-ctas">
-        <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="btn btn-signal"><span>Book a Demo</span></a>
-        <a href="#demo" class="btn btn-ghost"><span>See it live</span></a>
+    <div class="ar-hero-grid">
+      <div class="ar-hero-content">
+        <p class="ar-hero-eyebrow">AR Menus by Fusion Creative</p>
+        <h1 class="ar-hero-title">Your dishes. <br><span class="highlight">On their table.</span></h1>
+        <p class="ar-hero-sub">Let customers see every plate in 3D augmented reality before they order. We photograph your food, build the models, and deploy your AR menu. You just share the QR code.</p>
+        <div class="ar-hero-ctas">
+          <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="btn btn-signal"><span>Book a Demo</span></a>
+          <a href="#demo" class="btn btn-ghost"><span>See it live</span></a>
+        </div>
+      </div>
+      <div class="ar-hero-phone">
+        <div class="ar-hero-phone-tag">Live AR</div>
+        <div class="ar-hero-phone-frame">
+          <div class="ar-hero-phone-screen">
+            <div class="ar-hero-phone-notch"></div>
+            <video
+              class="ar-hero-phone-video"
+              src="/ar-menu/videos/ar-hero.mp4"
+              poster="/ar-menu/videos/ar-hero-poster.jpg"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -955,20 +1074,19 @@
     </div>
   </section>
 
-  <!-- ===== VIDEO PREVIEW ===== -->
+  <!-- ===== FULL DEMO VIDEO ===== -->
   <section class="ar-video-section">
     <div class="container container-center">
-      <p class="section-label center">In action</p>
-      <h2>See how it works on a phone</h2>
-      <p class="ar-video-sub">A quick walkthrough of the AR menu experience your customers get when they scan a QR code at the table.</p>
+      <p class="section-label center">Full walkthrough</p>
+      <h2>The complete experience</h2>
+      <p class="ar-video-sub">From QR scan to placing the dish on the table. This is exactly what your customers get on their own phone.</p>
     </div>
     <div class="ar-video-wrap">
       <div class="ar-video-glow"></div>
       <video
         class="ar-video"
-        src="/ar-menu/videos/ar-menu-promo.mp4"
-        poster="/ar-menu/videos/ar-menu-promo-poster.jpg"
-        autoplay
+        src="/ar-menu/videos/ar-full-demo.mp4"
+        poster="/ar-menu/videos/ar-hero-poster.jpg"
         muted
         loop
         playsinline
