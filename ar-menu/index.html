@@ -1706,35 +1706,21 @@
       var progressOverlay = document.getElementById('ar-progress-overlay');
       var progressEl = document.getElementById('ar-loading-progress');
       var hint = document.getElementById('ar-drag-hint');
-      var clicked = false;
-
-      function startLoad(e) {
-        if (clicked) return;
-        if (e) { e.preventDefault(); e.stopPropagation(); }
-        clicked = true;
-        // Tell model-viewer to dismiss poster and start loading
-        if (typeof mv.dismissPoster === 'function') {
-          mv.dismissPoster();
-        }
-        // Show our custom progress overlay over the loading state
-        if (progressOverlay) progressOverlay.style.display = 'flex';
-      }
-
-      if (loadBtn) loadBtn.addEventListener('click', startLoad);
-
-      // Track download progress
-      mv.addEventListener('progress', function(e) {
-        var p = (e.detail && typeof e.detail.totalProgress === 'number') ? e.detail.totalProgress : 0;
-        var pct = Math.round(p * 100);
-        if (progressEl) progressEl.textContent = pct + '%';
-      });
-
       var arBtn = document.getElementById('ar-place-btn');
       var desktopMsg = document.getElementById('ar-desktop-msg');
 
-      function onModelReady() {
-        if (progressOverlay) progressOverlay.classList.add('hidden');
-        // Show AR button on AR-capable devices, otherwise show desktop message
+      var clicked = false;
+      var revealed = false;
+      var pollId = null;
+
+      function reveal() {
+        if (revealed) return;
+        revealed = true;
+        if (pollId) { clearInterval(pollId); pollId = null; }
+        if (progressOverlay) {
+          progressOverlay.classList.add('hidden');
+          progressOverlay.style.setProperty('display', 'none', 'important');
+        }
         if (mv.canActivateAR) {
           if (arBtn) arBtn.classList.add('visible');
         } else {
@@ -1746,13 +1732,47 @@
         }
       }
 
-      // Hide progress overlay when model is actually visible
-      mv.addEventListener('model-visibility', function(e) {
-        if (e.detail && e.detail.visible) onModelReady();
+      function startLoad(e) {
+        if (clicked) return;
+        if (e) { e.preventDefault(); e.stopPropagation(); }
+        clicked = true;
+        if (typeof mv.dismissPoster === 'function') {
+          mv.dismissPoster();
+        }
+        if (progressOverlay) progressOverlay.style.display = 'flex';
+
+        // Poll mv state every 250ms - model-visibility event is unreliable on mobile
+        pollId = setInterval(function() {
+          if (mv.loaded || mv.modelIsVisible) reveal();
+        }, 250);
+
+        // Hard timeout: 25s max
+        setTimeout(reveal, 25000);
+      }
+
+      if (loadBtn) loadBtn.addEventListener('click', startLoad);
+
+      // Track download progress
+      var hit100At = null;
+      mv.addEventListener('progress', function(e) {
+        var p = (e.detail && typeof e.detail.totalProgress === 'number') ? e.detail.totalProgress : 0;
+        var pct = Math.round(p * 100);
+        if (progressEl) progressEl.textContent = pct + '%';
+        // Once download hits 100%, give the parser at most 4s before we force-reveal
+        if (p >= 0.99 && !hit100At) {
+          hit100At = Date.now();
+          setTimeout(reveal, 4000);
+        }
       });
 
-      // Backup: load event
-      mv.addEventListener('load', onModelReady);
+      mv.addEventListener('model-visibility', function(e) {
+        if (e.detail && e.detail.visible) reveal();
+      });
+      mv.addEventListener('load', reveal);
+      mv.addEventListener('error', function(e) {
+        console.error('model-viewer error:', e);
+        if (progressEl) progressEl.textContent = 'Could not load. Refresh and try again.';
+      });
     })();
   </script>
 
