@@ -72,6 +72,33 @@
     @media (min-width: 900px) {
       .ar-hero-content { text-align: left; }
     }
+    /* Reveal animations on load */
+    @keyframes heroReveal {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes phoneEntrance {
+      0% {
+        opacity: 0;
+        transform: translateY(80px) rotateY(-25deg) rotateX(8deg) rotateZ(-4deg) scale(0.92);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) rotateY(-12deg) rotateX(4deg) rotateZ(-2deg) scale(1);
+      }
+    }
+    .ar-hero-eyebrow,
+    .ar-hero-title,
+    .ar-hero-sub,
+    .ar-hero-ctas {
+      opacity: 0;
+      animation: heroReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .ar-hero-eyebrow { animation-delay: 0.15s; }
+    .ar-hero-title { animation-delay: 0.3s; }
+    .ar-hero-sub { animation-delay: 0.55s; }
+    .ar-hero-ctas { animation-delay: 0.75s; }
+
     .ar-hero-eyebrow {
       font-family: var(--font-mono);
       font-size: 0.75rem;
@@ -84,7 +111,7 @@
       font-family: var(--font-serif);
       font-size: clamp(2.6rem, 6vw, 5rem);
       font-weight: 700;
-      color: var(--off-white);
+      color: var(--black);
       line-height: 1.05;
       letter-spacing: -0.04em;
       margin-bottom: 1.5rem;
@@ -112,7 +139,7 @@
       .ar-hero-ctas { justify-content: flex-start; }
     }
 
-    /* Hero phone visual - floats with 3D bob */
+    /* Hero phone visual - entrance + float */
     .ar-hero-phone {
       position: relative;
       justify-self: center;
@@ -120,7 +147,10 @@
       max-width: 300px;
       aspect-ratio: 9 / 19.5;
       transform-style: preserve-3d;
-      animation: phoneFloat3d 7s ease-in-out infinite;
+      opacity: 0;
+      animation:
+        phoneEntrance 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards,
+        phoneFloat3d 7s ease-in-out 1.8s infinite;
       will-change: transform;
     }
     @keyframes phoneFloat3d {
