@@ -581,8 +581,8 @@
     .ar-poster-ar-btn:active { transform: scale(0.98); }
     .ar-poster-ar-btn svg { width: 20px; height: 20px; }
 
-    /* Hide the slotted AR button while poster is up - it shows after model loads via .visible class */
-    .ar-place-btn:not(.visible) { display: none !important; opacity: 0 !important; pointer-events: none !important; }
+    /* Slotted AR button is fully hidden - we use the poster button on mobile and desktop message on desktop */
+    .ar-place-btn { display: none !important; opacity: 0 !important; pointer-events: none !important; }
 
     /* Mobile status overlay (Opening AR / fallback message) */
     .ar-mobile-status {
