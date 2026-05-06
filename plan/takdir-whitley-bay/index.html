@@ -82,10 +82,13 @@
         .reference-card.client::before { content: 'Our client'; position: absolute; top: 12px; right: 12px; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; background: var(--coral); color: white; padding: 3px 8px; border-radius: 6px; box-shadow: 0 2px 6px rgba(232,85,60,0.4); }
         .reference-card.client .desc strong { color: var(--coral); }
         .reference-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 24px; }
-        .reference-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 14px; padding: 20px; transition: transform 0.2s; }
-        .reference-card:hover { transform: translateY(-2px); }
-        .reference-card .handle { font-family: 'DM Serif Display', Georgia, serif; font-size: 18px; color: var(--coral); margin-bottom: 6px; word-break: break-word; }
+        .reference-card { display: block; text-decoration: none; color: inherit; background: var(--card); border: 1px solid var(--card-border); border-radius: 14px; padding: 20px; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+        .reference-card:hover { transform: translateY(-3px); border-color: rgba(232,85,60,0.3); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+        .reference-card .handle { font-family: 'DM Serif Display', Georgia, serif; font-size: 18px; color: var(--coral); margin-bottom: 6px; word-break: break-word; display: flex; align-items: center; gap: 6px; }
+        .reference-card .handle .ext-icon { font-size: 12px; opacity: 0.6; transition: opacity 0.2s, transform 0.2s; }
+        .reference-card:hover .handle .ext-icon { opacity: 1; transform: translate(2px, -2px); }
         .reference-card .desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+        .reference-card .visit { display: inline-block; margin-top: 12px; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--coral); }
         .highlight-box { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 12px; padding: 20px 24px; margin-top: 20px; }
         .highlight-box p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 0; }
         .highlight-box strong { color: var(--coral); }
@@ -361,18 +364,21 @@
             <p class="section-text">This is the difference between a "trendy" restaurant and a regular one online. Trendy restaurants are watched. Regular ones are scrolled past. The accounts below are doing this brilliantly and we will be using them as creative reference for Takdir.</p>
 
             <div class="reference-grid">
-                <div class="reference-card">
-                    <div class="handle">@acaiberry</div>
+                <a class="reference-card" href="https://www.instagram.com/acaiberry/" target="_blank" rel="noopener noreferrer">
+                    <div class="handle">@acaiberry <span class="ext-icon">&#x2197;</span></div>
                     <div class="desc">165k+ followers. Acai bowl content that goes viral consistently. Pure visual entertainment, almost zero "buy now" energy. Great for masterclass-style food shots.</div>
-                </div>
-                <div class="reference-card client">
-                    <div class="handle">@newgreek.ncl</div>
+                    <span class="visit">View profile</span>
+                </a>
+                <a class="reference-card client" href="https://www.instagram.com/newgreek.ncl/" target="_blank" rel="noopener noreferrer">
+                    <div class="handle">@newgreek.ncl <span class="ext-icon">&#x2197;</span></div>
                     <div class="desc"><strong>This is one of our clients.</strong> Greek restaurant in Newcastle. We took them from zero to 63M+ views in 30 days, including a single reel that hit 47M. Living proof of what entertainment-led food content can do from a small independent. This is the standard we will be aiming for with Takdir.</div>
-                </div>
-                <div class="reference-card">
-                    <div class="handle">@afrikanakitchen</div>
+                    <span class="visit">View profile</span>
+                </a>
+                <a class="reference-card" href="https://www.instagram.com/afrikanakitchen/" target="_blank" rel="noopener noreferrer">
+                    <div class="handle">@afrikanakitchen <span class="ext-icon">&#x2197;</span></div>
                     <div class="desc">110k+ followers. Afrikana Peri &amp; Grill, UK chain. Mix of food close-ups, behind-the-grill, customer reactions, founder content. Excellent template for restaurants combining cuisine identity with everyday social moments.</div>
-                </div>
+                    <span class="visit">View profile</span>
+                </a>
             </div>
 
             <div class="highlight-box">
