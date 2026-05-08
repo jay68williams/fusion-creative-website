@@ -28,15 +28,15 @@ Without a way to track that full chain, you are operating blind. You might be cr
 
 <div class="blog-stat-highlight">
 <div class="blog-stat-item">
-<div class="stat-num">56.2M</div>
+<div class="stat-num">37M</div>
 <div class="stat-label">Views in 30 days for one client</div>
 </div>
 <div class="blog-stat-item">
-<div class="stat-num">824.6K</div>
+<div class="stat-num">576K</div>
 <div class="stat-label">Interactions tracked and attributed</div>
 </div>
 <div class="blog-stat-item">
-<div class="stat-num">6,200</div>
+<div class="stat-num">4,300</div>
 <div class="stat-label">New followers in a single month</div>
 </div>
 </div>
@@ -68,17 +68,17 @@ This is exactly why we built a dedicated performance dashboard for our clients. 
 </div>
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px;">
 <div style="background: rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center;">
-<div style="color: #ff6b6b; font-size: 28px; font-weight: 700;">56.2M</div>
+<div style="color: #ff6b6b; font-size: 28px; font-weight: 700;">37M</div>
 <div style="color: rgba(255,255,255,0.6); font-size: 13px; margin-top: 4px;">Total Views</div>
 <div style="color: #6bff8d; font-size: 12px; margin-top: 4px;">+18.2% vs last period</div>
 </div>
 <div style="background: rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center;">
-<div style="color: #ffd93d; font-size: 28px; font-weight: 700;">824.6K</div>
+<div style="color: #ffd93d; font-size: 28px; font-weight: 700;">576K</div>
 <div style="color: rgba(255,255,255,0.6); font-size: 13px; margin-top: 4px;">Interactions</div>
 <div style="color: #6bff8d; font-size: 12px; margin-top: 4px;">+12.4% vs last period</div>
 </div>
 <div style="background: rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center;">
-<div style="color: #64b5f6; font-size: 28px; font-weight: 700;">6,200</div>
+<div style="color: #64b5f6; font-size: 28px; font-weight: 700;">4,300</div>
 <div style="color: rgba(255,255,255,0.6); font-size: 13px; margin-top: 4px;">New Followers</div>
 <div style="color: #6bff8d; font-size: 12px; margin-top: 4px;">+8.7% vs last period</div>
 </div>
