@@ -5,10 +5,34 @@ import { InstagramBeforeAfter } from './InstagramBeforeAfter';
 import { SmokedSmashedMenu } from './SmokedSmashedMenu';
 import { SmokedSmashedMenuWide } from './SmokedSmashedMenuWide';
 import { ARMenuPromo } from './ARMenuPromo';
+import { NewGreekCaseStudyAd } from './NewGreekCaseStudyAd';
+import { ARMenuAd } from './ARMenuAd';
+import { ARMenuCarouselSlide1, ARMenuCarouselSlide2, ARMenuCarouselSlide3, ARMenuCarouselSlide4, ARMenuCarouselSlide5 } from './ARMenuCarousel';
 
 function Root() {
   return (
     <>
+      <Composition
+        id="ARMenuAd"
+        component={ARMenuAd}
+        durationInFrames={750}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="ARMenuAd4x5"
+        component={ARMenuAd}
+        durationInFrames={750}
+        fps={30}
+        width={1080}
+        height={1350}
+      />
+      <Composition id="ARCarousel1" component={ARMenuCarouselSlide1} durationInFrames={1} fps={30} width={1080} height={1350} />
+      <Composition id="ARCarousel2" component={ARMenuCarouselSlide2} durationInFrames={1} fps={30} width={1080} height={1350} />
+      <Composition id="ARCarousel3" component={ARMenuCarouselSlide3} durationInFrames={1} fps={30} width={1080} height={1350} />
+      <Composition id="ARCarousel4" component={ARMenuCarouselSlide4} durationInFrames={1} fps={30} width={1080} height={1350} />
+      <Composition id="ARCarousel5" component={ARMenuCarouselSlide5} durationInFrames={1} fps={30} width={1080} height={1350} />
       <Composition
         id="ARMenuPromo"
         component={ARMenuPromo}
@@ -16,6 +40,30 @@ function Root() {
         fps={30}
         width={1080}
         height={1920}
+      />
+      <Composition
+        id="NewGreekCaseStudy"
+        component={NewGreekCaseStudyAd}
+        durationInFrames={600}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="NewGreekCaseStudySquare"
+        component={NewGreekCaseStudyAd}
+        durationInFrames={600}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="NewGreekCaseStudy4x5"
+        component={NewGreekCaseStudyAd}
+        durationInFrames={600}
+        fps={30}
+        width={1080}
+        height={1350}
       />
       <Composition
         id="ARMenuPromoSquare"
