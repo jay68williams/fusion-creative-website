@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
     <style>
         /* ── Brand tokens ── */
         :root {
@@ -947,21 +948,111 @@
             font-size: 1rem;
         }
 
-        /* ── Map ── */
+        /* ── Map (service area) ── */
         .map-section {
-            padding: 0;
+            padding: 80px 24px 100px;
+            position: relative;
         }
-        .map-section a {
-            display: block;
-            transition: opacity 0.3s;
+        .map-card {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 28px;
+            border: 1px solid var(--line);
+            box-shadow: 0 30px 80px -20px rgba(11, 86, 136, 0.25), 0 8px 24px rgba(11, 86, 136, 0.08);
+            overflow: hidden;
         }
-        .map-section a:hover { opacity: 0.9; }
-        .map-section img,
-        .map-section iframe {
+        .map-card-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 26px 32px 22px;
+            border-bottom: 1px solid var(--line);
+            background: linear-gradient(180deg, #fbfdff 0%, #ffffff 100%);
+        }
+        .map-card-head h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--ink);
+            margin: 0 0 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .map-card-head h3 .pin {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(34,197,94,0.14);
+            color: var(--green-deep);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        .map-card-head p {
+            font-size: 0.9rem;
+            color: var(--ink-muted);
+            margin: 0;
+        }
+        .map-card-head .map-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(34,197,94,0.10);
+            border: 1px solid rgba(34,197,94,0.30);
+            color: var(--green-deep);
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .map-card-head .map-pill .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse-dot 2s infinite;
+        }
+        #serviceMap {
+            height: 420px;
             width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
+            background: #e7f0fa;
+        }
+        .leaflet-container { font-family: 'Inter', sans-serif; }
+        .map-card-foot {
+            padding: 18px 32px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 28px;
+            border-top: 1px solid var(--line);
+            background: #fbfdff;
+        }
+        .map-card-foot .chip {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--ink-soft);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .map-card-foot .chip::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--blue);
+            display: inline-block;
+        }
+        @media (max-width: 640px) {
+            .map-section { padding: 56px 16px 72px; }
+            .map-card-head { flex-direction: column; gap: 14px; padding: 22px 22px 18px; }
+            .map-card-head .map-pill { align-self: flex-start; }
+            #serviceMap { height: 360px; }
+            .map-card-foot { padding: 16px 22px; gap: 12px 20px; }
         }
 
         /* ── Footer ── */
@@ -1542,17 +1633,27 @@
     </div>
 </section>
 
-<!-- Map -->
-<div class="map-section">
-    <iframe
-        src="https://www.google.com/maps?q=H2Glo+Professional+Exterior+Cleaning&output=embed"
-        width="100%"
-        height="300"
-        style="border:0; display:block;"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="H2GLO service area map"></iframe>
-</div>
+<!-- Service Area Map -->
+<section class="map-section" id="service-area">
+    <div class="map-card">
+        <div class="map-card-head">
+            <div>
+                <h3><span class="pin">&#9733;</span> We Serve the North East</h3>
+                <p>Family-run team based near Newcastle. Available across a 50 mile radius.</p>
+            </div>
+            <span class="map-pill"><span class="dot"></span> Currently Booking Summer 2026</span>
+        </div>
+        <div id="serviceMap" aria-label="H2GLO service area map covering the North East of England"></div>
+        <div class="map-card-foot">
+            <span class="chip">Newcastle &amp; Gateshead</span>
+            <span class="chip">Sunderland</span>
+            <span class="chip">Durham</span>
+            <span class="chip">Northumberland</span>
+            <span class="chip">North Tyneside</span>
+            <span class="chip">Tees Valley</span>
+        </div>
+    </div>
+</section>
 
 <!-- Footer -->
 <footer class="footer">
@@ -1730,6 +1831,110 @@
         }
     });
 </script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+<script>
+    // Service-area map - initialised after Leaflet loads
+    window.addEventListener('load', function () {
+        if (typeof L === 'undefined') return;
+        const el = document.getElementById('serviceMap');
+        if (!el) return;
+
+        // Centre near Newcastle upon Tyne
+        const centre = [54.978, -1.617];
+
+        const map = L.map('serviceMap', {
+            center: centre,
+            zoom: 8,
+            zoomControl: true,
+            scrollWheelZoom: false,
+            attributionControl: true,
+            dragging: true
+        });
+
+        // Soft, low-contrast tile layer (Carto Positron) - works without API key
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            subdomains: 'abcd',
+            maxZoom: 19,
+            attribution: '&copy; OpenStreetMap &copy; CARTO'
+        }).addTo(map);
+
+        // Organic service-area polygon - irregular ~50mi radius around Newcastle
+        // Points walk clockwise starting north; distances vary slightly so it reads as natural, not a perfect circle.
+        const serviceArea = [
+            [55.78, -1.55],   // far north (Berwick-ish coast)
+            [55.55, -1.20],   // NE coast
+            [55.30, -1.30],   // Amble/coast
+            [55.08, -1.30],   // Tynemouth/coast
+            [54.86, -1.18],   // Sunderland coast
+            [54.62, -1.05],   // Hartlepool
+            [54.42, -1.10],   // Saltburn/Redcar
+            [54.30, -1.30],   // North York Moors
+            [54.32, -1.85],   // Richmond area
+            [54.50, -2.10],   // Stainmore
+            [54.78, -2.40],   // Alston
+            [55.05, -2.55],   // Haltwhistle
+            [55.30, -2.50],   // Kielder
+            [55.55, -2.30],   // Coldstream
+            [55.75, -2.00],   // Border
+            [55.78, -1.55]    // close back to start
+        ];
+
+        const greenStroke = '#16a34a';
+        const greenFill   = '#22c55e';
+        const blueStroke  = '#0B5688';
+
+        L.polygon(serviceArea, {
+            color: greenStroke,
+            weight: 2,
+            opacity: 0.85,
+            fillColor: greenFill,
+            fillOpacity: 0.12,
+            dashArray: '6 6',
+            lineJoin: 'round',
+            smoothFactor: 1.5
+        }).addTo(map).bindTooltip('H2GLO service area · ~50 mile radius', {
+            permanent: false,
+            direction: 'top',
+            offset: [0, -10],
+            className: 'h2glo-tip'
+        });
+
+        // Base location pin
+        const pinIcon = L.divIcon({
+            className: 'h2glo-pin',
+            iconSize: [22, 22],
+            iconAnchor: [11, 11],
+            html: '<span style="display:block;width:22px;height:22px;border-radius:50%;background:' + blueStroke + ';border:3px solid #fff;box-shadow:0 4px 12px rgba(11,86,136,0.4);"></span>'
+        });
+
+        L.marker(centre, { icon: pinIcon })
+            .addTo(map)
+            .bindPopup('<strong style="color:#0a1628;">H2GLO HQ</strong><br><span style="color:#5a6478;font-size:.85rem;">Newcastle upon Tyne</span>');
+
+        // Fit polygon nicely into view
+        map.fitBounds(L.latLngBounds(serviceArea), { padding: [24, 24] });
+    });
+</script>
+
+<style>
+    .leaflet-popup-content-wrapper {
+        border-radius: 14px !important;
+        box-shadow: 0 8px 24px rgba(11,86,136,0.18) !important;
+    }
+    .leaflet-popup-content { margin: 12px 16px !important; font-size: 0.9rem; }
+    .h2glo-tip {
+        background: #0a1628 !important;
+        color: #fff !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 6px 10px !important;
+        font-size: 0.78rem !important;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .h2glo-tip::before { border-top-color: #0a1628 !important; }
+</style>
 
 </body>
 </html>
