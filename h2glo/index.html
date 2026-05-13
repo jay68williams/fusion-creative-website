@@ -1023,6 +1023,103 @@
             background: #e7f0fa;
         }
         .leaflet-container { font-family: 'Inter', sans-serif; }
+
+        /* Postcode coverage checker */
+        .pc-check {
+            padding: 22px 32px;
+            border-bottom: 1px solid var(--line);
+            background: linear-gradient(180deg, #ffffff, #f7fbff);
+        }
+        .pc-check h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin: 0 0 12px;
+        }
+        .pc-check h4 .accent { color: var(--green-deep); }
+        .pc-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .pc-form input {
+            flex: 1 1 220px;
+            min-width: 0;
+            background: #ffffff;
+            border: 1px solid var(--line-strong);
+            border-radius: 999px;
+            padding: 13px 20px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--ink);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            outline: none;
+            transition: border-color 0.25s, box-shadow 0.25s;
+        }
+        .pc-form input::placeholder { color: var(--ink-muted); letter-spacing: 0; text-transform: none; }
+        .pc-form input:focus {
+            border-color: var(--green);
+            box-shadow: 0 0 0 4px rgba(34,197,94,0.15);
+        }
+        .pc-form button {
+            background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            padding: 13px 26px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 16px rgba(11,86,136,0.2);
+        }
+        .pc-form button:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(11,86,136,0.28); }
+        .pc-form button:disabled { opacity: 0.6; cursor: wait; transform: none; }
+        .pc-result {
+            margin-top: 14px;
+            padding: 14px 18px;
+            border-radius: 14px;
+            font-size: 0.9rem;
+            display: none;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.55;
+        }
+        .pc-result.show { display: flex; }
+        .pc-result .icn {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        .pc-result strong { display: block; margin-bottom: 2px; color: var(--ink); }
+        .pc-result p { margin: 0; color: var(--ink-soft); font-size: 0.85rem; }
+        .pc-result.ok      { background: rgba(34,197,94,0.10); border: 1px solid rgba(34,197,94,0.35); }
+        .pc-result.ok .icn { background: var(--green); color: #fff; }
+        .pc-result.warn    { background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.40); }
+        .pc-result.warn .icn { background: #f59e0b; color: #fff; }
+        .pc-result.bad     { background: rgba(239,68,68,0.08);  border: 1px solid rgba(239,68,68,0.35); }
+        .pc-result.bad .icn { background: #ef4444; color: #fff; }
+        .pc-result .cta-link {
+            display: inline-block;
+            margin-top: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--blue-deep);
+            border-bottom: 2px solid rgba(11,86,136,0.25);
+        }
+        .pc-result .cta-link:hover { color: var(--green-deep); border-bottom-color: var(--green); }
+
+        @media (max-width: 480px) {
+            .pc-check { padding: 18px 22px; }
+            .pc-form button { flex: 1 1 100%; }
+        }
         .map-card-foot {
             padding: 18px 32px;
             display: flex;
@@ -1643,6 +1740,24 @@
             </div>
             <span class="map-pill"><span class="dot"></span> Currently Booking Summer 2026</span>
         </div>
+        <div class="pc-check">
+            <h4>Check if we cover you <span class="accent">— instant answer</span></h4>
+            <form class="pc-form" id="pcForm" autocomplete="off" novalidate>
+                <input
+                    type="text"
+                    id="pcInput"
+                    name="postcode"
+                    placeholder="Enter your postcode (e.g. NE1 1AA)"
+                    maxlength="10"
+                    aria-label="Postcode"
+                    required>
+                <button type="submit" id="pcBtn">Check Coverage</button>
+            </form>
+            <div id="pcResult" class="pc-result" role="status" aria-live="polite">
+                <span class="icn"></span>
+                <div class="pc-result-body"></div>
+            </div>
+        </div>
         <div id="serviceMap" aria-label="H2GLO service area map covering the North East of England"></div>
         <div class="map-card-foot">
             <span class="chip">Newcastle &amp; Gateshead</span>
@@ -1914,6 +2029,130 @@
 
         // Fit polygon nicely into view
         map.fitBounds(L.latLngBounds(serviceArea), { padding: [24, 24] });
+
+        // ── Postcode coverage checker ──
+        const form     = document.getElementById('pcForm');
+        const input    = document.getElementById('pcInput');
+        const btn      = document.getElementById('pcBtn');
+        const resultEl = document.getElementById('pcResult');
+        if (!form) return;
+
+        const HQ_LAT = centre[0], HQ_LNG = centre[1];
+        let userMarker = null, userCircle = null;
+
+        // Haversine - miles
+        function distanceMiles(lat1, lon1, lat2, lon2) {
+            const R = 3958.8; // earth radius in miles
+            const toRad = d => d * Math.PI / 180;
+            const dLat = toRad(lat2 - lat1);
+            const dLon = toRad(lon2 - lon1);
+            const a = Math.sin(dLat/2) ** 2 +
+                Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+                Math.sin(dLon/2) ** 2;
+            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        }
+
+        function showResult(kind, title, body, ctaHref, ctaLabel) {
+            const icn = resultEl.querySelector('.icn');
+            const bodyEl = resultEl.querySelector('.pc-result-body');
+            resultEl.classList.remove('ok', 'warn', 'bad');
+            resultEl.classList.add('show', kind);
+            icn.textContent = kind === 'ok' ? '✓' : (kind === 'warn' ? '!' : '✕');
+            let html = '<strong>' + title + '</strong><p>' + body + '</p>';
+            if (ctaHref && ctaLabel) {
+                html += '<a class="cta-link" href="' + ctaHref + '">' + ctaLabel + ' →</a>';
+            }
+            bodyEl.innerHTML = html;
+        }
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const raw = (input.value || '').trim();
+            const cleaned = raw.replace(/\s+/g, '').toUpperCase();
+
+            if (cleaned.length < 5) {
+                showResult('bad', 'Postcode too short', 'Please enter a full UK postcode (e.g. NE1 1AA).');
+                return;
+            }
+
+            btn.disabled = true;
+            const originalBtn = btn.textContent;
+            btn.textContent = 'Checking…';
+
+            try {
+                const res = await fetch('https://api.postcodes.io/postcodes/' + encodeURIComponent(cleaned));
+                if (!res.ok) {
+                    showResult('bad', 'Postcode not recognised', 'Double-check your postcode and try again, or message us on WhatsApp.', 'https://api.whatsapp.com/send/?phone=447368292293&text=Hi%2C%20can%20you%20check%20if%20you%20cover%20my%20postcode%3F', 'Ask on WhatsApp');
+                    return;
+                }
+                const data = await res.json();
+                const r = data.result;
+                if (!r || !r.latitude || !r.longitude) {
+                    showResult('bad', 'Postcode not found', 'Try again, or message us on WhatsApp and we will check manually.', 'https://api.whatsapp.com/send/?phone=447368292293&text=Hi%2C%20can%20you%20check%20if%20you%20cover%20my%20postcode%3F', 'Ask on WhatsApp');
+                    return;
+                }
+
+                const lat = r.latitude, lng = r.longitude;
+                const miles = distanceMiles(HQ_LAT, HQ_LNG, lat, lng);
+                const milesRounded = Math.round(miles);
+                const town = r.admin_district || r.parish || r.region || 'your area';
+                const formattedPc = (r.postcode || raw).toUpperCase();
+                const waMsg = encodeURIComponent('Hi, I would like a quote. My postcode is ' + formattedPc + '.');
+                const waUrl = 'https://api.whatsapp.com/send/?phone=447368292293&text=' + waMsg;
+
+                // Drop pin + range circle
+                if (userMarker) map.removeLayer(userMarker);
+                if (userCircle) map.removeLayer(userCircle);
+
+                const ringColor = miles <= 30 ? '#16a34a' : (miles <= 50 ? '#f59e0b' : '#ef4444');
+
+                userCircle = L.circle([lat, lng], {
+                    radius: 1600, // metres, just a soft glow under pin
+                    color: ringColor,
+                    weight: 2,
+                    opacity: 0.6,
+                    fillColor: ringColor,
+                    fillOpacity: 0.18
+                }).addTo(map);
+
+                const userIcon = L.divIcon({
+                    className: 'h2glo-user-pin',
+                    iconSize: [18, 18],
+                    iconAnchor: [9, 9],
+                    html: '<span style="display:block;width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid ' + ringColor + ';box-shadow:0 4px 12px rgba(0,0,0,0.25);"></span>'
+                });
+                userMarker = L.marker([lat, lng], { icon: userIcon }).addTo(map)
+                    .bindPopup('<strong style="color:#0a1628;">' + formattedPc + '</strong><br><span style="color:#5a6478;font-size:.85rem;">' + town + ' · ' + milesRounded + ' mi away</span>');
+
+                // Fit both HQ and user nicely
+                const group = L.latLngBounds([[HQ_LAT, HQ_LNG], [lat, lng]]).pad(0.4);
+                map.fitBounds(group, { padding: [32, 32], maxZoom: 11 });
+
+                // Show result banner
+                if (miles <= 30) {
+                    showResult('ok',
+                        'Yes — you are fully covered! 🎉',
+                        formattedPc + ' is in ' + town + ', roughly ' + milesRounded + ' miles from our base. No travel charge.',
+                        waUrl, 'Get your free quote');
+                } else if (miles <= 50) {
+                    showResult('warn',
+                        'Yes — covered, with travel surcharge',
+                        formattedPc + ' is roughly ' + milesRounded + ' miles from us. We can still serve you, but a travel charge applies. Message us for an exact quote.',
+                        waUrl, 'Get a quote on WhatsApp');
+                } else {
+                    showResult('bad',
+                        'Sorry — outside our service area',
+                        formattedPc + ' sits roughly ' + milesRounded + ' miles from our base, beyond our 50-mile range. For larger jobs we may still travel — drop us a message.',
+                        waUrl, 'Message us anyway');
+                }
+            } catch (err) {
+                console.error('Postcode lookup failed:', err);
+                showResult('bad', 'Couldn’t check right now', 'Our coverage checker had a hiccup. Please try again, or contact us on WhatsApp.', 'https://api.whatsapp.com/send/?phone=447368292293', 'Message on WhatsApp');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = originalBtn;
+            }
+        });
     });
 </script>
 
