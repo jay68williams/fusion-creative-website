@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Audit - Rustic Revive | Fusion Creative</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #f5f6fa; --bg-alt: #ecedf1; --card: #ffffff; --card-border: rgba(0,0,0,0.08);
+            --coral: #E8553C; --coral-light: #ff7a64; --coral-dark: #c4412b;
+            --text: #1a1d23; --text-secondary: #4a4f5c; --text-muted: #7c8090;
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); } 50% { box-shadow: 0 0 40px rgba(232,85,60,0.55); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 48px 0 40px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+        .brand { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); }
+        .brand-dot { display: inline-block; width: 6px; height: 6px; background: var(--coral); border-radius: 50%; margin-right: 8px; vertical-align: middle; position: relative; top: -1px; }
+        .header-date { font-size: 13px; color: var(--text-muted); font-weight: 400; }
+        .hero { padding: 64px 0 56px; animation: fadeInUp 0.6s ease both; }
+        .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; }
+        .hero h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(42px, 7vw, 64px); font-weight: 400; line-height: 1.05; letter-spacing: -1px; margin-bottom: 24px; }
+        .hero h1 span { background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral)); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s linear infinite; }
+        .hero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 600px; line-height: 1.7; font-weight: 400; }
+        .section { padding: 48px 0; animation: fadeInUp 0.6s ease both; }
+        .section-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent); }
+        .card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 40px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .card-sm { padding: 28px 32px; }
+        .section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 12px; }
+        .section-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 34px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 24px; line-height: 1.2; }
+        .section-text { color: var(--text-secondary); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+        .section-text:last-child { margin-bottom: 0; }
+        .intro-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); }
+        .intro-card .greeting { font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; color: var(--text); }
+        .stats-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .stats-table tr { border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .stats-table tr:last-child { border-bottom: none; }
+        .stats-table tr:nth-child(even) { background: rgba(0,0,0,0.02); }
+        .stats-table td { padding: 14px 0; }
+        .stats-table td:first-child { color: var(--text-secondary); font-weight: 400; padding-right: 24px; white-space: nowrap; }
+        .stats-table td:last-child { font-weight: 600; color: var(--text); text-align: right; }
+        .stat-highlight { color: var(--coral) !important; font-weight: 700 !important; }
+        .stat-badge { display: inline-block; background: rgba(232,85,60,0.15); color: var(--coral-light); padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-green { display: inline-block; background: rgba(52,199,89,0.15); color: #4cd97d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-amber { display: inline-block; background: rgba(255,159,10,0.15); color: #ffb84d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .working-item { margin-bottom: 28px; }
+        .working-item:last-child { margin-bottom: 0; }
+        .working-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+        .working-item p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+        .check-icon { display: inline-block; color: #4cd97d; margin-right: 6px; font-weight: 700; }
+        .opportunity-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--coral); color: white; border-radius: 8px; font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.35); }
+        .opportunity-heading { display: flex; align-items: center; margin-bottom: 14px; }
+        .opportunity-heading h3 { font-size: 19px; font-weight: 600; color: var(--text); }
+        .opportunity-card { margin-bottom: 20px; }
+        .opportunity-card:last-child { margin-bottom: 0; }
+        .case-study-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); border-left: 4px solid var(--coral); overflow: hidden; position: relative; }
+        .case-study-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--coral), var(--coral-light)); }
+        .case-study-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin: 32px 0; }
+        .case-study-stat { text-align: center; padding: 24px 16px; background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; animation: scaleIn 0.5s ease both; }
+        .case-study-stat .number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(30px, 5vw, 44px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1; margin-bottom: 6px; }
+        .case-study-stat .label { font-size: 12px; color: var(--text-secondary); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        .viral-callout { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 12px; padding: 24px 28px; margin-top: 24px; }
+        .viral-callout .big-number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(28px, 5vw, 40px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1.15; }
+        .viral-callout .context { font-size: 14px; color: var(--text-secondary); margin-top: 8px; line-height: 1.6; }
+        .viral-callout .context strong { color: var(--text); }
+        .takeaway { margin-top: 24px; font-size: 15px; color: var(--text-secondary); font-style: italic; line-height: 1.7; }
+        .video-ideas-grid { display: grid; gap: 20px; }
+        .video-idea-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 32px; position: relative; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .video-idea-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .video-idea-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--coral); border-radius: 4px 0 0 4px; }
+        .idea-number { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); margin-bottom: 10px; }
+        .idea-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; font-weight: 400; margin-bottom: 16px; line-height: 1.3; color: var(--text); }
+        .idea-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+        .idea-tag { font-size: 12px; font-weight: 600; color: var(--text-muted); background: rgba(0,0,0,0.04); padding: 4px 12px; border-radius: 6px; }
+        .idea-description { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+        .idea-why { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--card-border); }
+        .idea-why strong { color: var(--coral); font-weight: 600; }
+        .enhancement-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px 32px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .enhancement-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .enhancement-card:last-child { margin-bottom: 0; }
+        .enhancement-card h4 { font-size: 17px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+        .enhancement-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+        .enhancement-card p:last-child { margin-bottom: 0; }
+        .enhancement-list { list-style: none; margin: 12px 0; }
+        .enhancement-list li { font-size: 14px; color: var(--text-secondary); padding: 6px 0 6px 18px; position: relative; line-height: 1.6; }
+        .enhancement-list li::before { content: ''; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; background: var(--coral); border-radius: 50%; }
+        .highlight-box { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 10px; padding: 18px 22px; margin-top: 14px; }
+        .highlight-box p { font-size: 14px; color: var(--text-secondary); margin-bottom: 0; }
+        .highlight-box strong { color: var(--coral); }
+        .next-steps-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 80%); border-color: rgba(232,85,60,0.2); }
+        .steps-list { list-style: none; counter-reset: steps; }
+        .steps-list li { counter-increment: steps; display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--card-border); font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+        .steps-list li:last-child { border-bottom: none; }
+        .steps-list li::before { content: counter(steps); display: flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; background: var(--coral); color: white; border-radius: 10px; font-size: 14px; font-weight: 700; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.3); }
+        .about-fc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+        .about-fc-stat { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; padding: 20px 24px; text-align: center; animation: scaleIn 0.5s ease both; }
+        .about-fc-stat-val { font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; font-weight: 400; color: var(--coral); letter-spacing: -0.5px; }
+        .about-fc-stat-label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+        .about-fc-text { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+        .about-fc-services { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .about-fc-tag { background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+        .cta-wrap { text-align: center; margin-top: 32px; }
+        .cta-btn { display: inline-block; background: var(--coral); color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 40px; border-radius: 999px; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; animation: pulseGlow 3s ease-in-out infinite; }
+        .cta-btn:hover { background: var(--coral-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,85,60,0.5); animation: none; }
+        .cta-sub { font-size: 13px; color: var(--text-muted); margin-top: 12px; }
+        .closing-note { margin-top: 24px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+        .signature { padding: 48px 0; }
+        .signature-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 24px; font-weight: 400; margin-bottom: 4px; color: var(--text); }
+        .signature-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 2px; }
+        .signature-link { font-size: 14px; color: var(--coral); text-decoration: none; font-weight: 500; }
+        .signature-link:hover { text-decoration: underline; }
+        .footer { padding: 32px 0; border-top: 1px solid rgba(0,0,0,0.08); text-align: center; background: var(--bg-alt); }
+        .footer-confidential { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+        .footer-note { font-size: 12px; color: var(--text-muted); font-style: italic; }
+        .footer-brand { margin-top: 16px; font-size: 12px; color: var(--text-muted); }
+        .footer-brand span { color: var(--coral); font-weight: 600; }
+        @media (max-width: 640px) {
+            .container { padding: 0 16px; } .card { padding: 28px 22px; } .hero { padding: 40px 0 36px; } .section { padding: 32px 0; }
+            .case-study-grid { grid-template-columns: repeat(2, 1fr); } .video-idea-card { padding: 24px 22px; }
+            .header-inner { flex-direction: column; gap: 8px; } .about-fc-grid { grid-template-columns: 1fr 1fr; gap: 12px; } .about-fc-stat-val { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand"><span class="brand-dot"></span>Fusion Creative</div>
+                <div class="header-date">14 May 2026</div>
+            </div>
+        </header>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <div class="hero-label">Free Social Media Audit</div>
+            <h1><span>Rustic Revive</span></h1>
+            <p class="hero-subtitle">Handcrafted Industrial Furniture, Langley Park, County Durham | Prepared by Fusion Creative | 14 May 2026</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Hey Jonathan,</div>
+                <p class="section-text">Sarah from New Greek mentioned you had a chat about content and that you might be interested in a proper look at where Rustic Revive sits online. So we sat down and went through everything: the Instagram, the website, the Facebook page, the TikTok, the Living North feature, all of it.</p>
+                <p class="section-text">First off, the product is genuinely brilliant. The bespoke industrial pieces, the R2 droid bar, the motorbike conversion, the heavy steel-and-wood dining tables, that is the kind of work that should be flooding people's feeds in the North East. The craft is there, the showroom is there, the founder story is there. Twenty years of fabrication and design backing every piece. That is a foundation most brands would kill for.</p>
+                <p class="section-text">We are Fusion Creative, a content and marketing agency based in Newcastle. We work with New Greek (Sarah's team), Northumberland Candle Co, Takdir in Whitley Bay, and a handful of other North East brands. When Sarah mentioned you, we had a look and thought there was so much potential here that we'd put a proper audit together. Inside you will find a snapshot of where things stand, what is already working, <strong>five areas where there is real room to grow</strong>, and four content ideas tailored specifically to Rustic Revive.</p>
+                <p class="section-text">Even if we never speak again, this is yours to keep. We genuinely hope it is useful.</p>
+            </div>
+
+            <div class="card" style="margin-top:8px;">
+                <div style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--coral); margin-bottom:6px;">Our Track Record</div>
+                <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">What we achieved for a single local brand in Newcastle</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">65M+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">576K+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Interactions</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">4,300+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">62.8M</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
+                    </div>
+                </div>
+                <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">We generated 65M+ combined views across Instagram and TikTok in 30 days for a small local brand in Newcastle. One single reel hit 62.8 million views. Rustic Revive sits in a really interesting position: a craft business with a showroom, a strong product range, and a story that nobody is telling on video. The audience is there. They are scrolling Reels and TikTok looking for exactly this kind of content. The job is putting it in front of them.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Current Snapshot</div>
+            <div class="section-title">Where You Are Right Now</div>
+            <div class="card card-sm">
+                <table class="stats-table">
+                    <tr><td>Website</td><td>rusticrevive.co.uk <span class="stat-badge-green">Live</span></td></tr>
+                    <tr><td>Instagram (@rusticrevivene)</td><td>Active, posting almost daily <span class="stat-badge-amber">Low Engagement</span></td></tr>
+                    <tr><td>TikTok (@rusticrevive)</td><td>Listed <span class="stat-badge-amber">Underused</span></td></tr>
+                    <tr><td>Facebook (@RusticreviveNE)</td><td>Active <span class="stat-badge-green">Live</span></td></tr>
+                    <tr><td>Engagement signal</td><td><span class="stat-highlight">0-11 likes per post</span></td></tr>
+                    <tr><td>Showroom</td><td>Unit 3A, Riverside Industrial Estate, Langley Park, Durham DH7 9TT</td></tr>
+                    <tr><td>Hours</td><td>Mon-Fri 9-5, Sat 10-2:30, Sun closed</td></tr>
+                    <tr><td>Press</td><td>Living North magazine, Absolutely Yorkshire <span class="stat-badge-green">Credible</span></td></tr>
+                    <tr><td>Events</td><td>Exhibited at Living North LIVE, Newcastle Racecourse</td></tr>
+                    <tr><td>Product range</td><td>Bespoke dining tables, home bars, business fittings, novelty builds (R2 droid bar, motorbike bar), house signs</td></tr>
+                    <tr><td>USP</td><td>Handcrafted industrial style using local steel and wood, fully bespoke, nationwide delivery</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">What Is Already Working Well</div>
+            <div class="section-title">Credit Where It Is Due</div>
+            <div class="card">
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The product is genuinely standout</h4>
+                    <p>The R2 droid drinks unit. The motorbike bar. The heavy industrial dining tables. These are not generic furniture pieces. They are conversation starters, and conversation starters are exactly what social media rewards. Most furniture companies sell flat-pack lookalikes. Rustic Revive is doing the kind of bespoke craft that makes people stop scrolling. That is rare and it is valuable.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Press coverage gives you legitimacy</h4>
+                    <p>Living North magazine and Absolutely Yorkshire are serious regional credentials. Most independent furniture makers at this stage have zero press. You have features in two well-respected magazines and an appearance at Living North LIVE. That kind of editorial validation is what builds trust with high-ticket customers, and it should be plastered across every page of the website and every Instagram bio.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Posting cadence is solid</h4>
+                    <p>You are showing up almost daily on Instagram, which most small craft businesses do not manage. That consistency means when the right format clicks, you have the muscle memory to keep it going. The work ethic is already there. What is missing is the format, not the effort.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The showroom is a huge asset</h4>
+                    <p>Most people selling furniture online have no physical space. You do. That means customers can walk in, touch the wood, feel the weight of the steel, see the finish in real light. That credibility is impossible to fake. It is also a brilliant content backdrop. Every piece of furniture in that showroom is a potential Reel, and every conversation with a customer is a potential testimonial.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Twenty years of craft behind the name</h4>
+                    <p>Founder credibility is one of the strongest assets a small brand can have, and yours is rock solid. Two decades of fabrication and design experience means every piece you make has a story behind it. Customers buying a high-ticket bespoke table are not just paying for wood and steel. They are paying for the hands that made it. That story is not being told yet, but the moment it is, the brand changes shape entirely.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Where The Opportunity Is</div>
+            <div class="section-title">Five Areas With Real Potential</div>
+            <p class="section-text" style="margin-bottom: 32px;">Rustic Revive has the product, the showroom, the press, and the founder story. These are the five areas where focused content effort would turn a craft business with great work into a brand that people in the North East and beyond know by name.</p>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">1</span>
+                    <h3>The Content Is Not Built For The Algorithm</h3>
+                </div>
+                <p class="section-text">You are posting almost daily, which is fantastic. But the format is mostly static product photos with functional captions like "message for details" or price drops. That style of content does not get pushed by Instagram or TikTok any more. The algorithm rewards Reels with a strong hook in the first second, motion, transformation, and a reason to keep watching. Static photos sit at the bottom of the feed and get seen by almost nobody. The good news: the raw material for great Reels is already in the workshop every single day. Sparks flying. Hot metal being shaped. A flat piece of timber becoming a dining table over the course of 30 seconds of timelapse. That content is the difference between 11 likes and 100,000 views.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">2</span>
+                    <h3>The Maker Story Is Not Being Told On Video</h3>
+                </div>
+                <p class="section-text">Twenty years of fabrication. Local steel. Local wood. A real workshop in County Durham. That is the kind of story that the "buy British, buy local, buy handmade" audience is actively searching for, and the algorithm pushes hard when it surfaces. But right now there is no founder content. No face. No voice. No process. The brands winning in the craft furniture space (Benchmark Furniture, A Rustic Garden, House of Hackney, smaller makers on TikTok with hundreds of thousands of followers) all lead with the maker. People do not buy a table. They buy from the person who made the table. Once your face is in the content, everything changes.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">3</span>
+                    <h3>TikTok Is Massively Underused For Furniture Content</h3>
+                </div>
+                <p class="section-text">Right now TikTok is the biggest discovery engine for craft and home content in the UK. #FurnitureRestoration, #WoodworkingTikTok, #BespokeBuild, all have millions of views. People are obsessed with watching a piece of furniture be built from scratch. The transformation arc, raw material to finished piece, is the most binge-able format on the platform. You have a separate @rusticrevive TikTok handle that is listed but barely being used. That is leaving the biggest free distribution channel in the UK completely on the table. One properly produced build video on TikTok could reach more people than 12 months of Instagram posts combined.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">4</span>
+                    <h3>Captions Are Selling Hard When They Should Be Storytelling</h3>
+                </div>
+                <p class="section-text">Most of the current captions read like classified ads. Prices, "message for details", direct calls to buy. That style worked five years ago, but the platforms now penalise it. The captions that win in 2026 are the ones that tell a story or share a thought. "This table started life as a pile of scrap steel from a yard in Durham. Twelve hours later, this." That kind of caption rewards the scroll. It makes people read, share, and remember. Once the captions match the quality of the work, the engagement starts climbing.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">5</span>
+                    <h3>The Website Is Doing The Job, Not Selling The Story</h3>
+                </div>
+                <p class="section-text">rusticrevive.co.uk is clean, has a shop, has the basics, but it is not doing the brand justice. The press features should be front and centre. The bespoke process should be a dedicated page with photos and a video walkthrough. There should be customer testimonials, finished installations in real homes and businesses, and a gallery of past commissions that proves the breadth of what you can build. Right now the site asks people to take a leap of faith. It could be doing the heavy lifting and converting curious visitors into deposit-paying enquiries before they even pick up the phone.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Case Study</div>
+            <div class="section-title">What We Did for a Local Newcastle Brand</div>
+            <div class="card case-study-card">
+                <p class="section-text">We took a small independent brand in Newcastle from zero social presence to a household name in the North East. No ad budget, no existing following. Just short-form video content, the right strategy, and consistency.</p>
+                <div class="case-study-grid">
+                    <div class="case-study-stat"><div class="number">65M+</div><div class="label">Total Views</div></div>
+                    <div class="case-study-stat"><div class="number">62.8M</div><div class="label">Single Reel Views</div></div>
+                    <div class="case-study-stat"><div class="number">576K+</div><div class="label">Interactions</div></div>
+                    <div class="case-study-stat"><div class="number">4,300+</div><div class="label">Followers Grown</div></div>
+                </div>
+                <div class="viral-callout">
+                    <div class="big-number">65 million views. One brand. Zero head start.</div>
+                    <div class="context"><strong>This is New Greek, the restaurant Sarah works with.</strong> They had no followers, no content history, and no brand recognition. We built their social presence from scratch with short-form video. One single reel hit 62.8 million views. Rustic Revive has something even more visual to work with: real craft, real fire and sparks, real transformations. The kind of content that performs better than food because it is genuinely rare to see online.</div>
+                </div>
+                <p class="takeaway">Rustic Revive does not need to invent anything. The story, the product, the workshop, the showroom, the press, the founder, it is all already there. The job is capturing it in the formats that the algorithm rewards.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Ready-Made Content</div>
+            <div class="section-title">4 Video Ideas You Could Film This Week</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are formats working right now on TikTok and Instagram Reels, tailored specifically to a bespoke craft furniture brand. Film any one of these and it could be the video that puts Rustic Revive in front of hundreds of thousands of new people.</p>
+
+            <div class="video-ideas-grid">
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 01</div>
+                    <div class="idea-title">"Scrap to centrepiece. 12 hours condensed into 30 seconds."</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Build</span>
+                        <span class="idea-tag">Timelapse</span>
+                        <span class="idea-tag">Transformation</span>
+                    </div>
+                    <p class="idea-description">Pick one bespoke piece currently being built. Lock a phone on a tripod in the workshop. Film every stage: raw material delivery, cutting, welding (sparks!), sanding, finishing, the final install in the customer's space. Cut it down to a 30-second timelapse with a satisfying audio track. Text overlay: "Scrap steel to dining table. Made in County Durham." That is it.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Transformation timelapses are the single highest-performing format on TikTok and Reels right now. The hook is built into the format: the viewer cannot help but watch to see the finished result. This one video on its own could reach more people than every Instagram post Rustic Revive has ever published, combined.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 02</div>
+                    <div class="idea-title">"I've been making furniture for 20 years. Here is the piece I am most proud of."</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Founder</span>
+                        <span class="idea-tag">Story</span>
+                        <span class="idea-tag">Authenticity</span>
+                    </div>
+                    <p class="idea-description">You, Jonathan, talking to camera in the workshop. Keep it raw and honest. Pick one piece you have built that means the most to you and tell the story. Who was it for? What was the brief? What challenged you? What did the customer say when they saw it? 45-60 seconds. Cut to shots of the piece being made and the finished install. Trending workshop audio underneath.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Founder story videos are the single most effective format for building a craft brand on social media. People follow people. Once the audience knows your name, your voice, and the level of care that goes into every piece, the brand stops being "another furniture maker" and starts being "Jonathan from Rustic Revive in Durham." That is a completely different sales conversation.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 03</div>
+                    <div class="idea-title">"The R2 droid bar. The full story behind the most bizarre thing we have ever built."</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Standout</span>
+                        <span class="idea-tag">Story</span>
+                        <span class="idea-tag">Shareable</span>
+                    </div>
+                    <p class="idea-description">The novelty pieces are gold. R2 droid drinks unit. Motorbike bar. These are the pieces that make people stop and ask "wait, you can do THAT?" Pick one. Tell the full story. Who asked for it. How you built it. The mad welds, the wiring, the finish. Pan around the finished piece in the showroom or in the customer's space. End on "what would you commission us to build?" Comments will explode.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Novelty and "I did not know you could commission that" content is one of the most shared formats in the bespoke craft space. The R2 droid alone has the potential to go viral on its own merits. These are not just product videos. They are conversation starters. And every share puts Rustic Revive in front of someone with a "wouldn't it be cool if..." idea of their own.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 04</div>
+                    <div class="idea-title">"This is what £4,000 of dining table actually looks like."</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Value</span>
+                        <span class="idea-tag">Reveal</span>
+                        <span class="idea-tag">Justification</span>
+                    </div>
+                    <p class="idea-description">Camera on you, Jonathan, beside a finished dining table in the showroom. Talk through what makes it cost what it costs. The hardwood. The hand-finished steel base. The hours of welding. The fact that it will outlast a flat-pack equivalent by 50 years. End with "or you can buy three IKEA tables and bin them every five years. Up to you." Light humour, real authority.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Price-justification content quietly does some of the heaviest lifting in any high-ticket product business. People scroll past expensive furniture because they cannot see why it costs what it costs. The moment you show them, the price stops being a barrier and starts being a feature. This content also pre-qualifies enquiries: anyone watching to the end already understands the value. They are ready to buy.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Digital Enhancements</div>
+            <div class="section-title">Beyond Social Media</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are strategic changes that would make a real difference alongside the content work.</p>
+
+            <div class="enhancement-card">
+                <h4>Surface The Press On The Website</h4>
+                <p>Featured in Living North magazine. Featured in Absolutely Yorkshire. Exhibited at Living North LIVE. None of this is visible the moment someone lands on rusticrevive.co.uk. That is press credibility being wasted. A simple "As Featured In" banner on the homepage with the magazine logos, plus a dedicated press page, would meaningfully shift how visitors perceive the brand within the first three seconds of being on the site.</p>
+                <ul class="enhancement-list">
+                    <li>Add "As Featured In" logo strip to homepage hero</li>
+                    <li>Create a dedicated /press page with images of the magazine spreads</li>
+                    <li>Reference the press in every product description</li>
+                    <li>Add a quote from the Living North feature to the about page</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Quick win:</strong> Even a single line under the logo on the homepage saying "Featured in Living North magazine" would lift conversion without any other change required.</p>
+                </div>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Build A Dedicated "Bespoke Process" Page</h4>
+                <p>Right now the website assumes visitors already know how to commission a piece. A dedicated bespoke process page would walk them through it: initial enquiry, consultation, design, materials, build, install. Photos of every stage. A timeline. A "starting from" price. That single page would turn casual browsers into qualified enquiries because it removes the friction of "I'd love something but I don't know where to start."</p>
+                <ul class="enhancement-list">
+                    <li>Step-by-step process with photos from a real recent commission</li>
+                    <li>Indicative pricing bands ("Dining tables from &pound;1,500. Bar builds from &pound;3,000.")</li>
+                    <li>A 60-second video walkthrough of the process</li>
+                    <li>An enquiry form at the bottom optimised for high-intent leads</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Add Customer Testimonials And Real Installs</h4>
+                <p>You have a showroom, but the website does not show the pieces in real customer spaces. That is a missed trust signal. A "Past Commissions" gallery showing finished pieces in real homes, bars, and businesses, with a short caption about what the customer asked for, would be one of the highest-converting changes possible on the site.</p>
+                <div class="highlight-box">
+                    <p><strong>The opportunity:</strong> The next time you deliver a piece, take 10 minutes to photograph it in the customer's space and grab a one-sentence quote. That single habit, applied to every install, builds a content and trust library that compounds for the lifetime of the business.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">About Fusion Creative</div>
+            <div class="card intro-card">
+                <p class="about-fc-text">Fusion Creative is a content and marketing agency based in Newcastle. We produce short-form video content, manage social media accounts, run paid campaigns, build websites, and handle branding. Everything under one roof.</p>
+                <p class="about-fc-text">We work primarily with brands in the North East, and our headline result speaks for itself: we took a small local brand from zero followers to over 65 million combined views across Instagram and TikTok in 30 days, including a single reel that hit 62.8 million views. We know what makes content perform, and we know how to turn a great product into a packed order book.</p>
+                <div class="about-fc-grid">
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">250M+</div><div class="about-fc-stat-label">Views generated</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">20+</div><div class="about-fc-stat-label">Videos per month</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">6+</div><div class="about-fc-stat-label">Years in content</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">100%</div><div class="about-fc-stat-label">Impressions guarantee</div></div>
+                </div>
+                <div class="about-fc-services">
+                    <span class="about-fc-tag">Short-Form Video</span>
+                    <span class="about-fc-tag">TikTok Management</span>
+                    <span class="about-fc-tag">Instagram Reels</span>
+                    <span class="about-fc-tag">Paid Ads</span>
+                    <span class="about-fc-tag">Website Design</span>
+                    <span class="about-fc-tag">Branding</span>
+                    <span class="about-fc-tag">SEO</span>
+                    <span class="about-fc-tag">Social Media Management</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a read through this audit. The short version: Rustic Revive has the product, the press, the showroom, and the founder story most craft brands would love to have. The content just is not catching up to the quality of the work yet. That is fixable.</li>
+                    <li>If any of this resonates, Jonathan, we would love to jump on a quick call. No pitch, just a friendly conversation about where the biggest wins are for Rustic Revive specifically and what we could do together.</li>
+                    <li>We can put together a content plan showing exactly what the first month would look like across TikTok, Instagram Reels, and the website, and what the realistic timeline is for the build content to start pulling proper traction.</li>
+                </ol>
+                <p class="closing-note">No pressure at all, Jonathan. Sarah said you were genuinely interested in seeing what is possible, so we put the time in to give you an honest read. Whatever you decide, we hope it is useful.</p>
+                <div class="cta-wrap">
+                    <a href="https://cal.com/jason-williams-fwj7sj/30min" target="_blank" class="cta-btn">Schedule a Call</a>
+                    <div class="cta-sub">30 minutes. No obligation. Pick a time that suits you.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <footer class="footer">
+            <div class="footer-confidential">Confidential - Prepared for Rustic Revive</div>
+            <div class="footer-note">This audit was put together using live data from your website, social media accounts, and online listings on 14 May 2026.</div>
+            <div class="footer-brand"><span>Fusion Creative</span></div>
+        </footer>
+    </div>
+
+</body>
+</html>
