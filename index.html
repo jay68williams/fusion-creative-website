@@ -482,471 +482,291 @@
           </div>
         </div>
 
-        <!-- Interactive Chart Card -->
-        <div class="win-card chart-card reveal-card" style="padding:0;overflow:hidden;">
-          <div style="padding:24px 28px 0;">
-            <div class="chart-header">
-              <span class="chart-label">Instagram + TikTok combined views / since launch</span>
-              <span class="chart-badge" style="white-space:nowrap;">&uarr; 60M+ combined in 30 days</span>
-            </div>
-          </div>
-          <div style="position:relative;width:100%;height:280px;cursor:crosshair;-webkit-tap-highlight-color:transparent;" id="chartWrap">
-            <canvas id="perfChart" style="width:100%;height:100%;display:block;"></canvas>
-            <div id="chartTooltip" style="display:none;position:absolute;pointer-events:none;background:rgba(17,17,17,0.92);border:1px solid rgba(230,59,46,0.3);border-radius:10px;padding:10px 14px;font-family:var(--font-head);z-index:10;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);min-width:130px;">
-              <div id="ttDate" style="font-size:11px;color:#888;margin-bottom:4px;"></div>
-              <div id="ttVal" style="font-size:18px;font-weight:700;color:#E63B2E;"></div>
-              <div id="ttDelta" style="font-size:11px;color:#888;margin-top:2px;"></div>
-            </div>
-            <div id="chartLine" style="display:none;position:absolute;top:0;width:1px;height:100%;background:rgba(230,59,46,0.4);pointer-events:none;z-index:5;"></div>
-            <div id="chartDot" style="display:none;position:absolute;width:10px;height:10px;border-radius:50%;background:#E63B2E;border:2px solid #fff;box-shadow:0 0 12px rgba(230,59,46,0.5);pointer-events:none;z-index:6;transform:translate(-50%,-50%);"></div>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:8px 28px 16px;font-size:12px;color:#666;">
-            <span>Oct 2025</span>
-            <span>May 2026</span>
-          </div>
-        </div>
+        <!-- Performance deck: swipeable Instagram / TikTok / YouTube -->
+        <style>
+          .chart-deck{display:flex;flex-direction:column;gap:1.2rem;}
+          .deck-stack{position:relative;width:100%;height:440px;margin-bottom:24px;}
+          .deck-card{position:absolute;inset:0;background:var(--black);border-radius:var(--rad-md);overflow:hidden;display:flex;flex-direction:column;transform-origin:50% 100%;transition:transform .58s cubic-bezier(.22,1,.36,1),opacity .42s ease;will-change:transform,opacity;box-shadow:0 24px 64px rgba(0,0,0,.20),0 4px 16px rgba(0,0,0,.12);}
+          .deck-card.dragging{transition:none;}
+          .deck-card.dragging .deck-chart{pointer-events:none;}
+          .deck-card.is-front{cursor:grab;}
+          .deck-card.is-front:active{cursor:grabbing;}
+          .deck-card .cc-pad{padding:24px 28px 0;}
+          .deck-card .chart-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;}
+          .deck-card .chart-label{font-family:var(--font-mono);color:var(--mid);font-size:.85rem;}
+          .deck-card .chart-badge{background:var(--signal);color:var(--off-white);font-family:var(--font-mono);font-size:.72rem;padding:.4rem .8rem;border-radius:99px;white-space:nowrap;}
+          .deck-card .chart-sub{font-size:12px;color:#8c8c8c;margin:8px 0 0;line-height:1.5;}
+          .deck-chart{position:relative;width:100%;flex:1;min-height:0;-webkit-tap-highlight-color:transparent;}
+          .deck-chart canvas{width:100%;height:100%;display:block;}
+          .deck-tip{display:none;position:absolute;pointer-events:none;background:rgba(17,17,17,.92);border:1px solid rgba(230,59,46,.3);border-radius:10px;padding:10px 14px;font-family:var(--font-mono);z-index:10;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);min-width:140px;}
+          .deck-tip .t-d{font-size:11px;color:#888;margin-bottom:4px;}
+          .deck-tip .t-v{font-size:18px;font-weight:700;color:#E63B2E;}
+          .deck-tip .t-s{font-size:11px;color:#888;margin-top:2px;}
+          .deck-vline{display:none;position:absolute;top:0;width:1px;height:100%;background:rgba(230,59,46,.4);pointer-events:none;z-index:5;}
+          .deck-dot{display:none;position:absolute;width:10px;height:10px;border-radius:50%;background:#E63B2E;border:2px solid #fff;box-shadow:0 0 12px rgba(230,59,46,.5);pointer-events:none;z-index:6;transform:translate(-50%,-50%);}
+          .deck-foot{display:flex;justify-content:space-between;padding:8px 28px 18px;font-size:12px;color:#666;font-family:var(--font-mono);}
+          .deck-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+          .deck-btn{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;padding:.55rem 1rem;border-radius:99px;border:1px solid var(--border);background:transparent;color:var(--mid);cursor:pointer;transition:background .25s,color .25s,border-color .25s;display:flex;align-items:center;gap:.5rem;}
+          .deck-btn:hover{color:var(--black);border-color:var(--black);}
+          .deck-btn .bdot{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.45;transition:opacity .25s;}
+          .deck-btn.active{background:var(--signal);border-color:var(--signal);color:var(--off-white);}
+          .deck-btn.active .bdot{opacity:1;background:var(--off-white);}
+          .deck-hint{margin-left:auto;font-family:var(--font-mono);font-size:.68rem;color:var(--mid);display:flex;align-items:center;gap:.45rem;opacity:.75;}
+          .deck-hint svg{display:block;}
+          @media (max-width:860px){
+            .deck-stack{height:404px;}
+            .deck-hint{order:3;width:100%;margin:.2rem 0 0;}
+          }
+          @media (prefers-reduced-motion:reduce){
+            .deck-card{transition:opacity .2s ease;}
+          }
+        </style>
 
-        <!-- YouTube Repurpose Chart Card -->
-        <div class="win-card chart-card reveal-card" style="padding:0;overflow:hidden;">
-          <div style="padding:24px 28px 0;">
-            <div class="chart-header">
-              <span class="chart-label">YouTube channel growth / from zero</span>
-              <span class="chart-badge" style="white-space:nowrap;">&uarr; 159K views in 3 weeks</span>
-            </div>
-            <p style="font-size:12px; color:#888; margin:8px 0 0; line-height:1.5;">Auto-repurposed from Instagram. 29 videos, 20 subscribers, growing daily on autopilot.</p>
+        <div class="chart-deck reveal-card" id="chartDeck" role="group" aria-roledescription="carousel" aria-label="New Greek performance by platform">
+          <div class="deck-stack" id="deckStack">
+
+            <article class="deck-card" data-idx="0" data-name="Instagram" aria-label="Instagram performance">
+              <div class="cc-pad">
+                <div class="chart-header">
+                  <span class="chart-label">Instagram views / since launch</span>
+                  <span class="chart-badge">&uarr; 65M+ views since launch</span>
+                </div>
+              </div>
+              <div class="deck-chart" data-chart="ig">
+                <canvas></canvas>
+                <div class="deck-tip"><div class="t-d"></div><div class="t-v"></div><div class="t-s"></div></div>
+                <div class="deck-vline"></div><div class="deck-dot"></div>
+              </div>
+              <div class="deck-foot"><span>Oct 2025</span><span>May 2026</span></div>
+            </article>
+
+            <article class="deck-card" data-idx="1" data-name="TikTok" aria-label="TikTok performance">
+              <div class="cc-pad">
+                <div class="chart-header">
+                  <span class="chart-label">TikTok views / since launch</span>
+                  <span class="chart-badge">&uarr; 10M+ views since launch</span>
+                </div>
+              </div>
+              <div class="deck-chart" data-chart="tt">
+                <canvas></canvas>
+                <div class="deck-tip"><div class="t-d"></div><div class="t-v"></div><div class="t-s"></div></div>
+                <div class="deck-vline"></div><div class="deck-dot"></div>
+              </div>
+              <div class="deck-foot"><span>Apr 2025</span><span>May 2026</span></div>
+            </article>
+
+            <article class="deck-card" data-idx="2" data-name="YouTube" aria-label="YouTube performance">
+              <div class="cc-pad">
+                <div class="chart-header">
+                  <span class="chart-label">YouTube channel growth / from zero</span>
+                  <span class="chart-badge">&uarr; 159K views in 3 weeks</span>
+                </div>
+                <p class="chart-sub">Auto-repurposed from Instagram. 29 videos, 20 subscribers, growing daily on autopilot.</p>
+              </div>
+              <div class="deck-chart" data-chart="yt">
+                <canvas></canvas>
+                <div class="deck-tip"><div class="t-d"></div><div class="t-v"></div><div class="t-s"></div></div>
+                <div class="deck-vline"></div><div class="deck-dot"></div>
+              </div>
+              <div class="deck-foot"><span>22 Apr</span><span>12 May</span></div>
+            </article>
+
           </div>
-          <div style="position:relative;width:100%;height:280px;cursor:crosshair;-webkit-tap-highlight-color:transparent;" id="ytChartWrap">
-            <canvas id="ytPerfChart" style="width:100%;height:100%;display:block;"></canvas>
-            <div id="ytChartTooltip" style="display:none;position:absolute;pointer-events:none;background:rgba(17,17,17,0.92);border:1px solid rgba(230,59,46,0.3);border-radius:10px;padding:10px 14px;font-family:var(--font-head);z-index:10;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);min-width:130px;">
-              <div id="ytTtDate" style="font-size:11px;color:#888;margin-bottom:4px;"></div>
-              <div id="ytTtVal" style="font-size:18px;font-weight:700;color:#E63B2E;"></div>
-              <div id="ytTtDelta" style="font-size:11px;color:#888;margin-top:2px;"></div>
-            </div>
-            <div id="ytChartLine" style="display:none;position:absolute;top:0;width:1px;height:100%;background:rgba(230,59,46,0.4);pointer-events:none;z-index:5;"></div>
-            <div id="ytChartDot" style="display:none;position:absolute;width:10px;height:10px;border-radius:50%;background:#E63B2E;border:2px solid #fff;box-shadow:0 0 12px rgba(230,59,46,0.5);pointer-events:none;z-index:6;transform:translate(-50%,-50%);"></div>
+
+          <div class="deck-controls" id="deckControls">
+            <button type="button" class="deck-btn active" data-go="0" aria-label="Show Instagram performance"><span class="bdot"></span>Instagram</button>
+            <button type="button" class="deck-btn" data-go="1" aria-label="Show TikTok performance"><span class="bdot"></span>TikTok</button>
+            <button type="button" class="deck-btn" data-go="2" aria-label="Show YouTube performance"><span class="bdot"></span>YouTube</button>
+            <span class="deck-hint" aria-hidden="true">
+              <svg width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 1 4 6l5 5M17 1l5 5-5 5"/></svg>
+              Swipe or tap a platform
+            </span>
           </div>
-          <div style="display:flex;justify-content:space-between;padding:8px 28px 16px;font-size:12px;color:#666;">
-            <span>22 Apr</span>
-            <span>12 May</span>
-          </div>
+          <p aria-live="polite" id="deckLive" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);margin:-1px;">Showing Instagram</p>
         </div>
 
         <script>
         (function(){
-          var rawData = [
-            {date:'2026-04-22',views:0,videos:0,subs:0},
-            {date:'2026-04-29',views:936,videos:2,subs:0},
-            {date:'2026-05-01',views:3984,videos:5,subs:2},
-            {date:'2026-05-02',views:8301,videos:8,subs:5},
-            {date:'2026-05-03',views:24042,videos:10,subs:6},
-            {date:'2026-05-04',views:47787,videos:12,subs:9},
-            {date:'2026-05-05',views:56880,videos:14,subs:11},
-            {date:'2026-05-06',views:92112,videos:16,subs:12},
-            {date:'2026-05-08',views:101548,videos:21,subs:13},
-            {date:'2026-05-09',views:125356,videos:23,subs:18},
-            {date:'2026-05-10',views:149605,videos:25,subs:17},
-            {date:'2026-05-11',views:152106,videos:27,subs:17},
-            {date:'2026-05-12',views:159229,videos:29,subs:20}
-          ];
+          var IG=[{d:'2025-10-15',v:0,b:1},{d:'2025-11-01',v:0,b:1},{d:'2025-11-15',v:0,b:1},{d:'2025-12-01',v:0,b:1},{d:'2025-12-15',v:0,b:1},{d:'2026-01-17',v:0,b:0},{d:'2026-01-24',v:35700,b:0},{d:'2026-01-31',v:89900,b:0},{d:'2026-02-07',v:155700,b:0},{d:'2026-02-14',v:253442,b:0},{d:'2026-02-28',v:489176,b:0},{d:'2026-03-17',v:829058,b:0},{d:'2026-03-27',v:1064792,b:0},{d:'2026-04-01',v:1244792,b:0},{d:'2026-04-03',v:1403244,b:0},{d:'2026-04-04',v:1927346,b:0},{d:'2026-04-05',v:17496002,b:0},{d:'2026-04-06',v:22994967,b:0},{d:'2026-04-07',v:26194967,b:0},{d:'2026-04-08',v:28594967,b:0},{d:'2026-04-09',v:30444967,b:0},{d:'2026-04-10',v:31914967,b:0},{d:'2026-04-11',v:32875765,b:0},{d:'2026-04-12',v:33783961,b:0},{d:'2026-04-13',v:35138385,b:0},{d:'2026-04-14',v:35954133,b:0},{d:'2026-04-15',v:37499901,b:0},{d:'2026-04-16',v:40029117,b:0},{d:'2026-04-17',v:41909081,b:0},{d:'2026-04-18',v:43668379,b:0},{d:'2026-04-19',v:44894408,b:0},{d:'2026-04-20',v:46020567,b:0},{d:'2026-04-21',v:46954799,b:0},{d:'2026-04-22',v:48044690,b:0},{d:'2026-04-23',v:49020967,b:0},{d:'2026-04-24',v:50075965,b:0},{d:'2026-04-25',v:51357440,b:0},{d:'2026-04-26',v:52557440,b:0},{d:'2026-04-27',v:53458499,b:0},{d:'2026-04-28',v:54400814,b:0},{d:'2026-04-29',v:55445811,b:0},{d:'2026-04-30',v:56296604,b:0},{d:'2026-05-01',v:57176029,b:0},{d:'2026-05-02',v:58276029,b:0},{d:'2026-05-03',v:59052262,b:0},{d:'2026-05-04',v:59930448,b:0},{d:'2026-05-05',v:60850448,b:0},{d:'2026-05-06',v:61608438,b:0},{d:'2026-05-07',v:62447983,b:0},{d:'2026-05-08',v:63257575,b:0},{d:'2026-05-09',v:64036052,b:0},{d:'2026-05-10',v:64787117,b:0},{d:'2026-05-11',v:65527379,b:0}];
+          var TT=[{d:'2025-04-15',v:10193,b:1},{d:'2025-06-15',v:30788,b:1},{d:'2025-08-15',v:41475,b:1},{d:'2025-10-15',v:56740,b:1},{d:'2025-12-15',v:108570,b:1},{d:'2026-01-06',v:1250532,b:0},{d:'2026-01-20',v:1456926,b:0},{d:'2026-02-03',v:1622324,b:0},{d:'2026-02-17',v:1716627,b:0},{d:'2026-03-03',v:2421011,b:0},{d:'2026-03-17',v:2485417,b:0},{d:'2026-03-31',v:2725903,b:0},{d:'2026-04-07',v:6324229,b:0},{d:'2026-04-14',v:7745432,b:0},{d:'2026-04-22',v:8738563,b:0},{d:'2026-04-28',v:9232439,b:0},{d:'2026-05-03',v:9830991,b:0},{d:'2026-05-08',v:10145678,b:0},{d:'2026-05-13',v:10412808,b:0},{d:'2026-05-18',v:10596091,b:0}];
+          var YT=[{d:'2026-04-22',v:0,vid:0,subs:0},{d:'2026-04-29',v:936,vid:2,subs:0},{d:'2026-05-01',v:3984,vid:5,subs:2},{d:'2026-05-02',v:8301,vid:8,subs:5},{d:'2026-05-03',v:24042,vid:10,subs:6},{d:'2026-05-04',v:47787,vid:12,subs:9},{d:'2026-05-05',v:56880,vid:14,subs:11},{d:'2026-05-06',v:92112,vid:16,subs:12},{d:'2026-05-08',v:101548,vid:21,subs:13},{d:'2026-05-09',v:125356,vid:23,subs:18},{d:'2026-05-10',v:149605,vid:25,subs:17},{d:'2026-05-11',v:152106,vid:27,subs:17},{d:'2026-05-12',v:159229,vid:29,subs:20}];
 
-          var canvas = document.getElementById('ytPerfChart');
-          var wrap = document.getElementById('ytChartWrap');
-          var tooltip = document.getElementById('ytChartTooltip');
-          var vLine = document.getElementById('ytChartLine');
-          var dot = document.getElementById('ytChartDot');
-          var ttDate = document.getElementById('ytTtDate');
-          var ttVal = document.getElementById('ytTtVal');
-          var ttDelta = document.getElementById('ytTtDelta');
+          function fmtNum(n){ if(n>=1e6) return (n/1e6).toFixed(1)+'M'; if(n>=1e3) return Math.round(n/1e3)+'K'; return ''+Math.round(n); }
+          var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+          function fmtDate(d){ var p=d.split('-'); return parseInt(p[2],10)+' '+MON[parseInt(p[1],10)-1]+' '+p[0].slice(2); }
 
-          function fmtNum(n) {
-            if (n >= 1000000) return (n/1000000).toFixed(1) + 'M';
-            if (n >= 1000) return (n/1000).toFixed(0) + 'K';
-            return n.toString();
-          }
-
-          function fmtDate(d) {
-            var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-            var parts = d.split('-');
-            return parseInt(parts[2]) + ' ' + months[parseInt(parts[1])-1];
-          }
-
-          var maxV = rawData[rawData.length-1].views;
-          function yScale(v) { return v / maxV; }
-
-          function draw() {
-            var dpr = window.devicePixelRatio || 1;
-            var rect = canvas.getBoundingClientRect();
-            canvas.width = rect.width * dpr;
-            canvas.height = rect.height * dpr;
-            var ctx = canvas.getContext('2d');
-            ctx.scale(dpr, dpr);
-            var w = rect.width;
-            var h = rect.height;
-            var padL = 28, padR = 28, padT = 30, padB = 24;
-            var cw = w - padL - padR;
-            var ch = h - padT - padB;
-
-            ctx.clearRect(0, 0, w, h);
-
-            // Horizontal grid
-            ctx.strokeStyle = 'rgba(255,255,255,0.06)';
-            ctx.lineWidth = 1;
-            for (var i = 0; i <= 4; i++) {
-              var gy = padT + (ch * i / 4);
-              ctx.beginPath();
-              ctx.moveTo(padL, gy);
-              ctx.lineTo(w - padR, gy);
-              ctx.stroke();
-            }
-
-            // Y-axis labels
-            ctx.font = '10px Inter, system-ui, sans-serif';
-            ctx.fillStyle = 'rgba(255,255,255,0.4)';
-            ctx.textAlign = 'right';
-            for (var i = 0; i <= 4; i++) {
-              var val = maxV * (1 - i / 4);
-              ctx.fillText(fmtNum(val), padL - 6, padT + (ch * i / 4) + 3);
-            }
-
-            // Build points
-            var points = [];
-            for (var i = 0; i < rawData.length; i++) {
-              var x = padL + (cw * i / (rawData.length - 1));
-              var y = padT + ch - (ch * yScale(rawData[i].views));
-              points.push({x:x, y:y});
-            }
-
-            // Gradient fill under curve
-            var grad = ctx.createLinearGradient(0, padT, 0, h - padB);
-            grad.addColorStop(0, 'rgba(230,59,46,0.35)');
-            grad.addColorStop(1, 'rgba(230,59,46,0.02)');
-            ctx.fillStyle = grad;
-            ctx.beginPath();
-            ctx.moveTo(points[0].x, h - padB);
-            for (var i = 0; i < points.length; i++) {
-              ctx.lineTo(points[i].x, points[i].y);
-            }
-            ctx.lineTo(points[points.length-1].x, h - padB);
-            ctx.closePath();
-            ctx.fill();
-
-            // Line
-            ctx.strokeStyle = '#E63B2E';
-            ctx.lineWidth = 2.5;
-            ctx.beginPath();
-            ctx.moveTo(points[0].x, points[0].y);
-            for (var i = 1; i < points.length; i++) {
-              ctx.lineTo(points[i].x, points[i].y);
-            }
-            ctx.stroke();
-
-            // Dots
-            for (var i = 0; i < points.length; i++) {
-              ctx.beginPath();
-              ctx.arc(points[i].x, points[i].y, 3, 0, Math.PI * 2);
-              ctx.fillStyle = '#E63B2E';
-              ctx.fill();
-            }
-
-            return {points:points, padL:padL, padR:padR, padT:padT, padB:padB, cw:cw, ch:ch, w:w, h:h};
-          }
-
-          var chartState = draw();
-          window.addEventListener('resize', function() { chartState = draw(); });
-
-          function handleMove(clientX, clientY) {
-            var rect = canvas.getBoundingClientRect();
-            var mx = clientX - rect.left;
-            var nearest = 0;
-            var minDist = Infinity;
-            for (var i = 0; i < chartState.points.length; i++) {
-              var d = Math.abs(chartState.points[i].x - mx);
-              if (d < minDist) { minDist = d; nearest = i; }
-            }
-            var pt = chartState.points[nearest];
-            var data = rawData[nearest];
-
-            vLine.style.display = 'block';
-            vLine.style.left = pt.x + 'px';
-            dot.style.display = 'block';
-            dot.style.left = pt.x + 'px';
-            dot.style.top = pt.y + 'px';
-
-            ttDate.textContent = fmtDate(data.date);
-            ttVal.textContent = fmtNum(data.views) + ' views';
-            ttDelta.textContent = data.videos + ' videos / ' + data.subs + ' subs';
-
-            tooltip.style.display = 'block';
-            var ttW = 150;
-            var ttLeft = pt.x - ttW/2;
-            if (ttLeft < 8) ttLeft = 8;
-            if (ttLeft + ttW > rect.width - 8) ttLeft = rect.width - ttW - 8;
-            tooltip.style.left = ttLeft + 'px';
-            tooltip.style.top = (pt.y - 70) + 'px';
-          }
-
-          function handleLeave() {
-            vLine.style.display = 'none';
-            dot.style.display = 'none';
-            tooltip.style.display = 'none';
-          }
-
-          wrap.addEventListener('mousemove', function(e) { handleMove(e.clientX, e.clientY); });
-          wrap.addEventListener('mouseleave', handleLeave);
-          wrap.addEventListener('touchmove', function(e) {
-            if (e.touches[0]) handleMove(e.touches[0].clientX, e.touches[0].clientY);
-          });
-          wrap.addEventListener('touchend', handleLeave);
-        })();
-        </script>
-
-        <script>
-        (function(){
-          // Pre-FC data (before Fusion Creative) + post-FC data
-          var fcStartIndex = 5; // index where Fusion Creative started
-          var rawData = [
-            // Before Fusion Creative - flat, minimal organic views (IG + TikTok combined)
-            {date:'2025-10-15',views:1240,cum:1240,before:true},
-            {date:'2025-11-01',views:34598,cum:35838,before:true},
-            {date:'2025-11-15',views:6860,cum:42698,before:true},
-            {date:'2025-12-01',views:11061,cum:53759,before:true},
-            {date:'2025-12-15',views:6511,cum:60270,before:true},
-            // Fusion Creative starts here (late Dec 2025 / Jan 2026)
-            {date:'2026-01-17',views:1379806,cum:1440076},
-            {date:'2026-01-24',views:73039,cum:1513115},
-            {date:'2026-01-31',views:134050,cum:1647165},
-            {date:'2026-02-07',views:155993,cum:1803158},
-            {date:'2026-02-14',views:127473,cum:1930631},
-            {date:'2026-02-28',views:952066,cum:2882697},
-            {date:'2026-03-17',views:431778,cum:3314475},
-            {date:'2026-03-27',views:356697,cum:3671172},
-            {date:'2026-04-01',views:321607,cum:3992779},
-            {date:'2026-04-03',views:176076,cum:4168855},
-            {date:'2026-04-04',views:562704,cum:4731559},
-            {date:'2026-04-05',views:16911874,cum:21643433},
-            {date:'2026-04-06',views:7073615,cum:28717048},
-            {date:'2026-04-07',views:3802148,cum:32519196},
-            {date:'2026-04-08',views:2806850,cum:35326046},
-            {date:'2026-04-09',views:2111992,cum:37438038},
-            {date:'2026-04-10',views:1640880,cum:39078918},
-            {date:'2026-04-11',views:1071596,cum:40150514},
-            {date:'2026-04-12',views:1060334,cum:41210848},
-            {date:'2026-04-13',views:1530105,cum:42740953},
-            {date:'2026-04-14',views:958612,cum:43699565},
-            {date:'2026-04-15',views:1752357,cum:45451922},
-            {date:'2026-04-16',views:2823949,cum:48275871},
-            {date:'2026-04-17',views:2101008,cum:50376879},
-            {date:'2026-04-18',views:2022500,cum:52399379},
-            {date:'2026-04-19',views:1226029,cum:53625408},
-            {date:'2026-04-20',views:1126159,cum:54751567},
-            {date:'2026-04-21',views:934232,cum:55685799},
-            {date:'2026-04-22',views:1097454,cum:56783253},
-            {date:'2026-04-23',views:1050000,cum:57833253},
-            {date:'2026-04-24',views:1100000,cum:58933253},
-            {date:'2026-04-25',views:1350000,cum:60283253},
-            {date:'2026-04-26',views:1200000,cum:61483253},
-            {date:'2026-04-27',views:1100000,cum:62583253},
-            {date:'2026-04-28',views:1050000,cum:63633253},
-            {date:'2026-04-29',views:1150000,cum:64783253},
-            {date:'2026-04-30',views:950000,cum:65733253},
-            {date:'2026-05-01',views:1000000,cum:66733253},
-            {date:'2026-05-02',views:1100000,cum:67833253},
-            {date:'2026-05-03',views:1050000,cum:68883253},
-            {date:'2026-05-04',views:980000,cum:69863253},
-            {date:'2026-05-05',views:920000,cum:70783253},
-            {date:'2026-05-06',views:900000,cum:71683253},
-            {date:'2026-05-07',views:870000,cum:72553253},
-            {date:'2026-05-08',views:850000,cum:73403253},
-            {date:'2026-05-09',views:830000,cum:74233253},
-            {date:'2026-05-10',views:810000,cum:75043253},
-            {date:'2026-05-11',views:800000,cum:75843253}
-          ];
-
-          var canvas = document.getElementById('perfChart');
-          var wrap = document.getElementById('chartWrap');
-          var tooltip = document.getElementById('chartTooltip');
-          var vLine = document.getElementById('chartLine');
-          var dot = document.getElementById('chartDot');
-          var ttDate = document.getElementById('ttDate');
-          var ttVal = document.getElementById('ttVal');
-          var ttDelta = document.getElementById('ttDelta');
-
-          function fmtNum(n) {
-            if (n >= 1000000) return (n/1000000).toFixed(1) + 'M';
-            if (n >= 1000) return (n/1000).toFixed(0) + 'K';
-            return n.toString();
-          }
-
-          function fmtDate(d) {
-            var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-            var parts = d.split('-');
-            return parseInt(parts[2]) + ' ' + months[parseInt(parts[1])-1];
-          }
-
-          // Use sqrt scale for y-axis to show early growth
-          var maxCum = rawData[rawData.length-1].cum;
-          function yScale(v) { return Math.sqrt(v / maxCum); }
-
-          function draw() {
-            var dpr = window.devicePixelRatio || 1;
-            var rect = canvas.getBoundingClientRect();
-            canvas.width = rect.width * dpr;
-            canvas.height = rect.height * dpr;
-            var ctx = canvas.getContext('2d');
-            ctx.scale(dpr, dpr);
-            var w = rect.width;
-            var h = rect.height;
-            var padL = 0, padR = 0, padT = 20, padB = 10;
-            var cw = w - padL - padR;
-            var ch = h - padT - padB;
-
-            // Grid lines
-            ctx.strokeStyle = 'rgba(255,255,255,0.06)';
-            ctx.lineWidth = 1;
-            for (var i = 0; i < 5; i++) {
-              var gy = padT + ch - (ch * (i/4));
-              ctx.beginPath();
-              ctx.moveTo(padL, gy);
-              ctx.lineTo(w - padR, gy);
-              ctx.stroke();
-            }
-
-            // Build points
-            var points = [];
-            for (var i = 0; i < rawData.length; i++) {
-              var x = padL + (i / (rawData.length - 1)) * cw;
-              var y = padT + ch - yScale(rawData[i].cum) * ch;
-              points.push({x:x, y:y});
-            }
-
-            // Gradient fill
-            var grad = ctx.createLinearGradient(0, padT, 0, h);
-            grad.addColorStop(0, 'rgba(230,59,46,0.25)');
-            grad.addColorStop(1, 'rgba(230,59,46,0)');
-            ctx.beginPath();
-            ctx.moveTo(points[0].x, h - padB);
-            for (var i = 0; i < points.length; i++) {
-              if (i === 0) ctx.lineTo(points[i].x, points[i].y);
-              else {
-                var cpx = (points[i-1].x + points[i].x) / 2;
-                ctx.bezierCurveTo(cpx, points[i-1].y, cpx, points[i].y, points[i].x, points[i].y);
+          function makeChart(root, data, opts){
+            var canvas=root.querySelector('canvas');
+            var tip=root.querySelector('.deck-tip');
+            var tD=tip.querySelector('.t-d'), tV=tip.querySelector('.t-v'), tS=tip.querySelector('.t-s');
+            var vline=root.querySelector('.deck-vline');
+            var dot=root.querySelector('.deck-dot');
+            var maxV=0; for(var i=0;i<data.length;i++){ if(data[i].v>maxV) maxV=data[i].v; }
+            if(maxV<=0) maxV=1;
+            function yScale(v){ return opts.scale==='sqrt'? Math.sqrt(v/maxV) : (v/maxV); }
+            var st=null;
+            function draw(){
+              var dpr=window.devicePixelRatio||1;
+              var w=root.clientWidth, h=root.clientHeight;
+              if(!w||!h) return;
+              canvas.width=w*dpr; canvas.height=h*dpr;
+              var ctx=canvas.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+              var padL=opts.yAxis?34:0, padR=opts.yAxis?12:0, padT=22, padB=12;
+              var cw=w-padL-padR, ch=h-padT-padB;
+              ctx.clearRect(0,0,w,h);
+              ctx.strokeStyle='rgba(255,255,255,0.06)'; ctx.lineWidth=1;
+              for(var g=0;g<=4;g++){ var gy=padT+ch*g/4; ctx.beginPath(); ctx.moveTo(padL,gy); ctx.lineTo(w-padR,gy); ctx.stroke(); }
+              if(opts.yAxis){
+                ctx.font='10px Inter,system-ui,sans-serif'; ctx.fillStyle='rgba(255,255,255,0.4)'; ctx.textAlign='right';
+                for(var g2=0;g2<=4;g2++){ var val=maxV*(1-g2/4); ctx.fillText(fmtNum(val),padL-6,padT+ch*g2/4+3); }
               }
+              var pts=[];
+              for(var i=0;i<data.length;i++){ var x=padL+(data.length>1? cw*i/(data.length-1):cw/2); var y=padT+ch-yScale(data[i].v)*ch; pts.push({x:x,y:y}); }
+              var grad=ctx.createLinearGradient(0,padT,0,h);
+              grad.addColorStop(0,'rgba(230,59,46,0.28)'); grad.addColorStop(1,'rgba(230,59,46,0)');
+              ctx.beginPath(); ctx.moveTo(pts[0].x,h-padB);
+              for(var i=0;i<pts.length;i++){ if(i===0) ctx.lineTo(pts[i].x,pts[i].y); else { var cxa=(pts[i-1].x+pts[i].x)/2; ctx.bezierCurveTo(cxa,pts[i-1].y,cxa,pts[i].y,pts[i].x,pts[i].y); } }
+              ctx.lineTo(pts[pts.length-1].x,h-padB); ctx.closePath(); ctx.fillStyle=grad; ctx.fill();
+              ctx.beginPath(); ctx.moveTo(pts[0].x,pts[0].y);
+              for(var i=1;i<pts.length;i++){ var cxb=(pts[i-1].x+pts[i].x)/2; ctx.bezierCurveTo(cxb,pts[i-1].y,cxb,pts[i].y,pts[i].x,pts[i].y); }
+              ctx.strokeStyle='#E63B2E'; ctx.lineWidth=2.5; ctx.stroke();
+              if(opts.beforeRegion){
+                var fi=-1; for(var i=0;i<data.length;i++){ if(!data[i].b){ fi=i; break; } }
+                if(fi>0){
+                  var fx=pts[fi].x;
+                  ctx.fillStyle='rgba(255,255,255,0.03)'; ctx.fillRect(padL,padT,fx-padL,ch);
+                  if(fx-padL>118){ ctx.font='500 11px Inter,system-ui,sans-serif'; ctx.fillStyle='rgba(255,255,255,0.22)'; ctx.textAlign='center'; ctx.fillText('Before Fusion Creative',padL+(fx-padL)/2,padT+18); }
+                  ctx.beginPath(); ctx.setLineDash([4,4]); ctx.moveTo(fx,padT); ctx.lineTo(fx,h-padB);
+                  ctx.strokeStyle='#E63B2E'; ctx.lineWidth=1.5; ctx.stroke(); ctx.setLineDash([]);
+                  ctx.font='700 11px Inter,system-ui,sans-serif'; ctx.fillStyle='#E63B2E'; ctx.textAlign='left';
+                  ctx.fillText('We started here',fx+8,padT+14);
+                }
+              }
+              for(var i=0;i<pts.length;i++){ ctx.beginPath(); ctx.arc(pts[i].x,pts[i].y,3,0,Math.PI*2); ctx.fillStyle=(data[i].b?'rgba(255,255,255,0.3)':'#E63B2E'); ctx.fill(); }
+              st={pts:pts,w:w};
             }
-            ctx.lineTo(points[points.length-1].x, h - padB);
-            ctx.closePath();
-            ctx.fillStyle = grad;
-            ctx.fill();
-
-            // Line
-            ctx.beginPath();
-            ctx.moveTo(points[0].x, points[0].y);
-            for (var i = 1; i < points.length; i++) {
-              var cpx = (points[i-1].x + points[i].x) / 2;
-              ctx.bezierCurveTo(cpx, points[i-1].y, cpx, points[i].y, points[i].x, points[i].y);
+            function move(cx){
+              if(!st) return;
+              var rect=canvas.getBoundingClientRect();
+              var mx=cx-rect.left, n=0, md=Infinity;
+              for(var i=0;i<st.pts.length;i++){ var dd=Math.abs(st.pts[i].x-mx); if(dd<md){ md=dd; n=i; } }
+              var p=st.pts[n], d=data[n];
+              vline.style.display='block'; vline.style.left=p.x+'px';
+              dot.style.display='block'; dot.style.left=p.x+'px'; dot.style.top=p.y+'px';
+              tD.textContent=fmtDate(d.d);
+              tV.textContent=fmtNum(d.v)+' views';
+              tS.textContent=opts.sub(d,n,data);
+              tip.style.display='block';
+              var tw=tip.offsetWidth, tx=p.x+16;
+              if(tx+tw>st.w-8) tx=p.x-tw-16; if(tx<8) tx=8;
+              var ty=p.y-30; if(ty<5) ty=p.y+18;
+              tip.style.left=tx+'px'; tip.style.top=ty+'px';
             }
-            ctx.strokeStyle = '#E63B2E';
-            ctx.lineWidth = 2.5;
-            ctx.stroke();
-
-            // "Before" shaded region
-            var fcX = points[fcStartIndex].x;
-            ctx.fillStyle = 'rgba(255,255,255,0.03)';
-            ctx.fillRect(padL, padT, fcX - padL, ch);
-
-            // "Before" label
-            ctx.font = '500 11px Inter, system-ui, sans-serif';
-            ctx.fillStyle = 'rgba(255,255,255,0.2)';
-            ctx.textAlign = 'center';
-            var beforeMid = padL + (fcX - padL) / 2;
-            ctx.fillText('Before Fusion Creative', beforeMid, padT + 20);
-
-            // Vertical reference line at FC start
-            ctx.beginPath();
-            ctx.setLineDash([4, 4]);
-            ctx.moveTo(fcX, padT);
-            ctx.lineTo(fcX, h - padB);
-            ctx.strokeStyle = '#E63B2E';
-            ctx.lineWidth = 1.5;
-            ctx.stroke();
-            ctx.setLineDash([]);
-
-            // "We started here" label
-            ctx.font = '700 11px Inter, system-ui, sans-serif';
-            ctx.fillStyle = '#E63B2E';
-            ctx.textAlign = 'left';
-            ctx.fillText('We started here', fcX + 8, padT + 16);
-
-            // Small dots at each data point
-            for (var i = 0; i < points.length; i++) {
-              ctx.beginPath();
-              ctx.arc(points[i].x, points[i].y, 3, 0, Math.PI * 2);
-              ctx.fillStyle = rawData[i].before ? 'rgba(255,255,255,0.3)' : '#E63B2E';
-              ctx.fill();
-            }
-
-            return {points:points, padL:padL, padR:padR, padT:padT, padB:padB, cw:cw, ch:ch, w:w, h:h};
+            function leave(){ vline.style.display='none'; dot.style.display='none'; tip.style.display='none'; }
+            root.addEventListener('mousemove',function(e){ move(e.clientX); });
+            root.addEventListener('mouseleave',leave);
+            return { draw:draw, leave:leave };
           }
 
-          var chartState = draw();
-          window.addEventListener('resize', function() { chartState = draw(); });
+          var deck=document.getElementById('chartDeck');
+          var stack=document.getElementById('deckStack');
+          var cards=[].slice.call(stack.querySelectorAll('.deck-card'));
+          var btns=[].slice.call(document.querySelectorAll('#deckControls .deck-btn'));
+          var live=document.getElementById('deckLive');
+          var N=cards.length, active=0;
 
-          function handleMove(clientX, clientY) {
-            var rect = canvas.getBoundingClientRect();
-            var mx = clientX - rect.left;
-            var my = clientY - rect.top;
+          function cumSub(d,i,arr){ if(d.b) return 'Organic only'; var pv=i>0?arr[i-1].v:0; var dl=d.v-pv; return dl>0?('+'+fmtNum(dl)+' since last'):'Cumulative total'; }
+          var charts=[
+            makeChart(cards[0].querySelector('.deck-chart'), IG, {scale:'sqrt',beforeRegion:true,yAxis:false,sub:cumSub}),
+            makeChart(cards[1].querySelector('.deck-chart'), TT, {scale:'sqrt',beforeRegion:true,yAxis:false,sub:cumSub}),
+            makeChart(cards[2].querySelector('.deck-chart'), YT, {scale:'linear',beforeRegion:false,yAxis:true,sub:function(d){ return d.vid+' videos / '+d.subs+' subs'; }})
+          ];
 
-            // Find nearest data point
-            var nearest = 0;
-            var minDist = Infinity;
-            for (var i = 0; i < chartState.points.length; i++) {
-              var d = Math.abs(chartState.points[i].x - mx);
-              if (d < minDist) { minDist = d; nearest = i; }
+          var POS=[{y:0,s:1,o:1,z:30},{y:18,s:0.95,o:0.5,z:20},{y:32,s:0.90,o:0.28,z:10}];
+          function rel(i){ return (i-active+N)%N; }
+          function place(card,r,withT){
+            var p=POS[Math.min(r,POS.length-1)];
+            card.style.transition = withT? '' : 'none';
+            card.style.zIndex=p.z;
+            card.style.opacity=p.o;
+            card.style.pointerEvents = r===0?'auto':'none';
+            card.style.transform='translateY('+p.y+'px) scale('+p.s+')';
+            card.classList.toggle('is-front', r===0);
+            card.setAttribute('aria-hidden', r===0?'false':'true');
+          }
+          function render(withT){
+            cards.forEach(function(c){ place(c, rel(+c.dataset.idx), withT!==false); });
+            btns.forEach(function(b,i){ b.classList.toggle('active', i===active); });
+            if(live) live.textContent='Showing '+cards[active].dataset.name;
+          }
+          function go(i,flung){
+            active=((i%N)+N)%N;
+            if(flung){
+              flung.style.transition='none';
+              place(flung, rel(+flung.dataset.idx), false);
+              void flung.offsetHeight;
+              flung.style.transition='';
             }
-
-            var pt = chartState.points[nearest];
-            var data = rawData[nearest];
-
-            vLine.style.display = 'block';
-            vLine.style.left = pt.x + 'px';
-
-            dot.style.display = 'block';
-            dot.style.left = pt.x + 'px';
-            dot.style.top = pt.y + 'px';
-
-            ttDate.textContent = fmtDate(data.date) + (data.before ? '  (before FC)' : '');
-            ttVal.textContent = fmtNum(data.cum) + ' views';
-            ttDelta.textContent = data.before ? 'Organic only' : '+' + fmtNum(data.views) + ' this period';
-
-            tooltip.style.display = 'block';
-            var tw = tooltip.offsetWidth;
-            var tx = pt.x + 16;
-            if (tx + tw > chartState.w - 10) tx = pt.x - tw - 16;
-            var ty = pt.y - 30;
-            if (ty < 5) ty = pt.y + 20;
-            tooltip.style.left = tx + 'px';
-            tooltip.style.top = ty + 'px';
+            render(true);
+            charts.forEach(function(c){ c.leave(); });
+            requestAnimationFrame(function(){ charts[active].draw(); });
           }
 
-          function handleLeave() {
-            tooltip.style.display = 'none';
-            vLine.style.display = 'none';
-            dot.style.display = 'none';
-          }
-
-          wrap.addEventListener('mousemove', function(e) { handleMove(e.clientX, e.clientY); });
-          wrap.addEventListener('mouseleave', handleLeave);
-          wrap.addEventListener('touchmove', function(e) {
-            e.preventDefault();
-            var t = e.touches[0];
-            handleMove(t.clientX, t.clientY);
-          }, {passive:false});
-          wrap.addEventListener('touchstart', function(e) {
-            var t = e.touches[0];
-            handleMove(t.clientX, t.clientY);
-          }, {passive:true});
-          wrap.addEventListener('touchend', function() {
-            setTimeout(handleLeave, 2000);
+          var drag=null;
+          stack.addEventListener('pointerdown',function(e){
+            var card=cards[active];
+            if(!card.contains(e.target)) return;
+            drag={ id:e.pointerId, x:e.clientX, y:e.clientY, t:Date.now(), axis:null, card:card };
           });
+          window.addEventListener('pointermove',function(e){
+            if(!drag||e.pointerId!==drag.id) return;
+            var dx=e.clientX-drag.x, dy=e.clientY-drag.y;
+            if(!drag.axis){
+              if(Math.abs(dx)<6 && Math.abs(dy)<6) return;
+              drag.axis = Math.abs(dx)>Math.abs(dy)?'x':'y';
+              if(drag.axis==='x'){ drag.card.classList.add('dragging'); charts[active].leave(); try{ stack.setPointerCapture(e.pointerId); }catch(_){ } }
+            }
+            if(drag.axis!=='x') return;
+            e.preventDefault();
+            drag.card.style.transform='translate('+dx+'px,0) rotate('+(dx*0.035)+'deg)';
+            drag.card.style.opacity=Math.max(0.35,1-Math.abs(dx)/640);
+            var nxt=cards[(active+1)%N], pr=Math.min(1,Math.abs(dx)/120);
+            nxt.style.transition='none';
+            nxt.style.transform='translateY('+(18-8*pr)+'px) scale('+(0.95+0.05*pr)+')';
+            nxt.style.opacity=0.5+0.5*pr;
+          },{passive:false});
+          function endDrag(e){
+            if(!drag||(e&&e.pointerId!==drag.id)) return;
+            var card=drag.card, ax=drag.axis, dx=e?e.clientX-drag.x:0, dt=Date.now()-drag.t;
+            card.classList.remove('dragging');
+            try{ stack.releasePointerCapture(drag.id); }catch(_){ }
+            drag=null;
+            if(ax!=='x'){ render(true); return; }
+            if(Math.abs(dx)>96 || (Math.abs(dx)>44 && dt<280)){
+              var dir = dx<0?1:-1;
+              card.style.transition='transform .26s ease, opacity .26s ease';
+              card.style.transform='translate('+(dir*130)+'%,0) rotate('+(dir*9)+'deg)';
+              card.style.opacity='0';
+              setTimeout(function(){ go(active+dir, card); }, 240);
+            } else {
+              render(true);
+            }
+          }
+          window.addEventListener('pointerup',endDrag);
+          window.addEventListener('pointercancel',endDrag);
+
+          btns.forEach(function(b){ b.addEventListener('click',function(){ go(parseInt(b.dataset.go,10)); }); });
+          deck.tabIndex=0;
+          deck.addEventListener('keydown',function(e){
+            if(e.key==='ArrowRight'){ e.preventDefault(); go(active+1); }
+            else if(e.key==='ArrowLeft'){ e.preventDefault(); go(active-1); }
+          });
+
+          function drawAll(){ charts.forEach(function(c){ c.draw(); }); }
+          render(false);
+          requestAnimationFrame(function(){ requestAnimationFrame(drawAll); });
+          window.addEventListener('load',drawAll);
+          var rt; window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(drawAll,150); });
         })();
         </script>
       </div>
