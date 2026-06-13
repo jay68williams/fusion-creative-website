@@ -244,6 +244,97 @@
             font-weight: 600;
         }
 
+        /* Steps explanation */
+        .how-it-works {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .step {
+            flex: 1;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            position: relative;
+        }
+
+        .step-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin: 0 auto 0.5rem;
+        }
+
+        .step-active .step-number {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .step-later .step-number {
+            background: #e2e8f0;
+            color: var(--text-light);
+        }
+
+        .step h4 {
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .step-active h4 { color: var(--blue); }
+        .step-later h4 { color: var(--text-light); }
+
+        .step p {
+            font-size: 0.72rem;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .step-arrow {
+            position: absolute;
+            right: -14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #cbd5e0;
+            font-size: 1rem;
+            z-index: 1;
+        }
+
+        /* Viewing section header */
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--blue);
+        }
+
+        .section-label .label-badge {
+            background: var(--blue);
+            color: var(--white);
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-label span:last-child {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
         /* Footer */
         .footer {
             text-align: center;
@@ -268,7 +359,21 @@
 
     <div class="hero-text">
         <h2>Book Your Free Site Visit</h2>
-        <p>We will come to your property, assess the job in person, and give you a quote on the spot. No obligation, completely free.</p>
+        <p>We come to you, look at the job, and give you a quote on the spot. No obligation, completely free.</p>
+    </div>
+
+    <div class="how-it-works">
+        <div class="step step-active">
+            <span class="step-arrow">&#8250;</span>
+            <div class="step-number">1</div>
+            <h4>Free Viewing</h4>
+            <p>We visit your property and quote the job</p>
+        </div>
+        <div class="step step-later">
+            <div class="step-number">2</div>
+            <h4>Cleaning Day</h4>
+            <p>Booked separately once you are happy with the quote</p>
+        </div>
     </div>
 
     <div class="badges">
@@ -316,14 +421,18 @@
                 <label for="postcode">Postcode *</label>
                 <input type="text" id="postcode" name="postcode" placeholder="NE1 4ST" required autocomplete="postal-code">
             </div>
-            <p style="font-size:0.78rem;color:var(--text-light);margin-bottom:0.5rem;margin-top:0.25rem;">We will visit your property to assess the job and give you a quote on the spot. The cleaning itself is booked separately once you are happy.</p>
+            <div class="section-label" style="margin-top:0.5rem;">
+                <span class="label-badge">Step 1</span>
+                <span>When should we come for your free viewing?</span>
+            </div>
+            <p style="font-size:0.78rem;color:var(--text-light);margin-bottom:0.75rem;">This is just for the viewing and quote. The actual cleaning day is arranged separately after you have seen the quote.</p>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="preferredDate">Best Day for Viewing</label>
+                    <label for="preferredDate">Preferred Viewing Date</label>
                     <input type="date" id="preferredDate" name="preferred_date">
                 </div>
                 <div class="form-group">
-                    <label for="preferredTime">Best Time</label>
+                    <label for="preferredTime">Preferred Time</label>
                     <select id="preferredTime" name="preferred_time">
                         <option value="">Any time</option>
                         <option value="Morning (8am-12pm)">Morning</option>
