@@ -908,6 +908,57 @@
             box-shadow: 0 4px 12px rgba(30, 107, 184, 0.3);
         }
 
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-success {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .form-success .success-icon {
+            width: 64px;
+            height: 64px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+        }
+
+        .form-success h3 {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-success p {
+            font-size: 0.95rem;
+            color: var(--text-mid);
+            line-height: 1.6;
+        }
+
+        .form-error {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: #dc2626;
+            display: none;
+        }
+
         /* Footer */
         footer {
             background: var(--text-dark);
@@ -1295,36 +1346,59 @@
                 </div>
                 <div class="contact-form reveal">
                     <h3>Get a Free Quote</h3>
-                    <form>
+                    <div id="formError" class="form-error"></div>
+                    <form id="leadForm">
                         <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" placeholder="John Smith">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" placeholder="John Smith" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" placeholder="07xxx xxx xxx">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" placeholder="07xxx xxx xxx" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" placeholder="john@example.com">
                         </div>
                         <div class="form-group">
-                            <label for="service">Service Required</label>
-                            <select id="service">
+                            <label for="service">Service Required *</label>
+                            <select id="service" required>
                                 <option value="">Select a service</option>
-                                <option value="driveway">Driveway Cleaning</option>
-                                <option value="patio">Patio Cleaning</option>
-                                <option value="fascia">Fascia &amp; Soffit Cleaning</option>
-                                <option value="block">Block Paving</option>
-                                <option value="other">Other</option>
+                                <option value="Driveway Cleaning">Driveway Cleaning</option>
+                                <option value="Patio Cleaning">Patio Cleaning</option>
+                                <option value="Fascia &amp; Soffit Cleaning">Fascia &amp; Soffit Cleaning</option>
+                                <option value="Block Paving">Block Paving</option>
+                                <option value="Other">Other</option>
                             </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="preferredDate">Preferred Date</label>
+                                <input type="date" id="preferredDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="preferredTime">Preferred Time</label>
+                                <select id="preferredTime">
+                                    <option value="">Any time</option>
+                                    <option value="Morning (8am-12pm)">Morning (8am-12pm)</option>
+                                    <option value="Afternoon (12pm-4pm)">Afternoon (12pm-4pm)</option>
+                                    <option value="Evening (4pm-6pm)">Evening (4pm-6pm)</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="message">Tell us about the job</label>
                             <textarea id="message" placeholder="Approximate size, condition, any specific requirements..."></textarea>
                         </div>
-                        <button type="submit" class="form-submit">Request Free Quote</button>
+                        <button type="submit" class="form-submit" id="submitBtn">Request Free Quote</button>
                     </form>
+                    <div id="formSuccess" class="form-success" style="display:none;">
+                        <div class="success-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <h3>Quote Request Sent</h3>
+                        <p>Thanks for getting in touch. We will get back to you within 24 hours with a free, no-obligation quote.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1342,6 +1416,59 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script>
+        // Supabase lead form
+        const SUPABASE_URL = 'https://hjmmefphhckinejctqhs.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhqbW1lZnBoaGNraW5lamN0cWhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2MDY4NTksImV4cCI6MjA4OTE4Mjg1OX0.6jd5neNNxiiq8Avs2mdAB5o3T05iVCBbHeVq4DnDzH0';
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        const leadForm = document.getElementById('leadForm');
+        const formError = document.getElementById('formError');
+        const formSuccess = document.getElementById('formSuccess');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Set min date to today
+        const dateInput = document.getElementById('preferredDate');
+        dateInput.min = new Date().toISOString().split('T')[0];
+
+        leadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            formError.style.display = 'none';
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            const data = {
+                name: document.getElementById('name').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                email: document.getElementById('email').value.trim() || null,
+                service: document.getElementById('service').value,
+                preferred_date: dateInput.value || null,
+                preferred_time: document.getElementById('preferredTime').value || null,
+                message: document.getElementById('message').value.trim() || null
+            };
+
+            const { error } = await supabase.from('h2glo_leads').insert([data]);
+
+            if (error) {
+                formError.textContent = 'Something went wrong. Please call us on 07465 621 099 instead.';
+                formError.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Request Free Quote';
+                return;
+            }
+
+            // Send WhatsApp notification (fire and forget)
+            fetch(SUPABASE_URL + '/functions/v1/h2glo-notify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).catch(() => {});
+
+            leadForm.style.display = 'none';
+            formSuccess.style.display = 'block';
+        });
+    </script>
     <script>
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
