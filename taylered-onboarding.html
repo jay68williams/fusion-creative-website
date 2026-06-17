@@ -394,13 +394,46 @@
 <script>
 /* ====================== CONFIG ====================== */
 const CONFIG = {
-  endpoint: "",                       // <-- paste your Formspree / webhook URL (accepts multipart/form-data)
+  endpoint: "https://fusion-dashboard-sigma.vercel.app/api/taylered-onboarding/",  // Fusion dashboard intake -> Supabase. Trailing slash is required (dashboard uses trailingSlash:true).
   storageKey: "taylered_onboarding_v1"
 };
 /* =================================================== */
 
 const form = document.getElementById('form');
 const memos = {};   // id -> {blob, mime, ext, seconds}
+
+/* ---------- voice-memo persistence (survives refresh) ----------
+   Recorded audio is held in IndexedDB (blobs are too big for localStorage),
+   so a client who reloads mid-form does not lose their voice notes. */
+const MEMO_DB = CONFIG.storageKey + '_memos';
+function memoIDB(){ return new Promise((res,rej)=>{ try{
+  const r=indexedDB.open(MEMO_DB,1);
+  r.onupgradeneeded=()=>r.result.createObjectStore('m');
+  r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error);
+}catch(e){ rej(e); } }); }
+function memoTx(mode,fn){ return memoIDB().then(db=>new Promise((res,rej)=>{
+  const t=db.transaction('m',mode), s=t.objectStore('m'); let rq;
+  try{ rq=fn(s); }catch(e){ rej(e); return; }
+  t.oncomplete=()=>res(rq&&rq.result); t.onerror=()=>rej(t.error);
+})); }
+function memoSave(id,m){ return memoTx('readwrite',s=>s.put({blob:m.blob,mime:m.mime,ext:m.ext,seconds:m.seconds},id)).catch(()=>{}); }
+function memoDelete(id){ return memoTx('readwrite',s=>s.delete(id)).catch(()=>{}); }
+function memoClear(){ return memoTx('readwrite',s=>s.clear()).catch(()=>{}); }
+async function restoreMemos(){
+  let keys=[],vals=[];
+  try{ keys=await memoTx('readonly',s=>s.getAllKeys())||[]; vals=await memoTx('readonly',s=>s.getAll())||[]; }catch(e){ return; }
+  keys.forEach((id,i)=>{
+    const m=vals[i]; if(!m||!m.blob) return;
+    memos[id]={blob:m.blob,mime:m.mime,ext:m.ext,seconds:m.seconds};
+    const el=document.querySelector('.memo[data-memo="'+CSS.escape(String(id))+'"]'); if(!el) return;
+    const status=el.querySelector('.memo-status'), audio=el.querySelector('.memo-audio'),
+          delBtn=el.querySelector('.memo-del'), recBtn=el.querySelector('.memo-rec');
+    audio.src=URL.createObjectURL(m.blob); audio.hidden=false; delBtn.hidden=false;
+    recBtn.lastChild.textContent='Re-record';
+    status.textContent='Voice note saved · '+fmt(m.seconds);
+  });
+  updateProgress();
+}
 
 /* ---------- microphone capability hint ---------- */
 if(!navigator.mediaDevices || !window.MediaRecorder){
@@ -443,13 +476,14 @@ function setupMemo(el){
       const ext=type.includes('mp4')?'m4a':type.includes('ogg')?'ogg':'webm';
       const secs=(Date.now()-startT)/1000;
       memos[id]={blob,mime:type,ext,seconds:secs};
+      memoSave(id,memos[id]);
       audio.src=URL.createObjectURL(blob); audio.hidden=false; delBtn.hidden=false;
       status.textContent='Voice note saved · '+fmt(secs);
     };
     rec.start();
   });
   delBtn.addEventListener('click',()=>{
-    delete memos[id]; audio.hidden=true; audio.removeAttribute('src'); delBtn.hidden=true;
+    delete memos[id]; memoDelete(id); audio.hidden=true; audio.removeAttribute('src'); delBtn.hidden=true;
     recBtn.lastChild.textContent='Record'; status.textContent='No voice note yet';
   });
 }
@@ -490,7 +524,7 @@ function restore(){
   }catch(e){}
 }
 form.addEventListener('input',()=>{ updateProgress(); save(); });
-restore(); updateProgress();
+restore(); updateProgress(); restoreMemos();
 
 /* ---------- helpers ---------- */
 function downloadBlob(blob,name){
@@ -514,6 +548,7 @@ function showThanks(downloaded){
     "Your answers and voice notes have downloaded. Please email them to your Taylered account manager and you're all set."; }
   document.getElementById('thanks').classList.add('show');
   try{ localStorage.removeItem(CONFIG.storageKey); }catch(e){}
+  memoClear();
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function setStatus(t){ document.getElementById('formStatus').textContent=t; }
