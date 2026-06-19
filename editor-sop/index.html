@@ -56,12 +56,8 @@
   .op h3{margin:0 0 4px}
   .videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-top:14px}
   .vid{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-  .vid .frame{position:relative;display:block;width:100%;aspect-ratio:9/16;background:#0a0a0b;overflow:hidden}
-  .vid .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-  .vid .frame .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.18);transition:background .2s}
-  .vid .frame:hover .play{background:rgba(0,0,0,0.34)}
-  .vid .frame .play i{width:54px;height:54px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center}
-  .vid .frame .play i::after{content:"";border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff;margin-left:3px}
+  .vid .frame{position:relative;width:100%;aspect-ratio:9/16;background:#0a0a0b;overflow:hidden}
+  .vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#000}
   .vid .cap{padding:11px 13px;font-size:.88rem;font-weight:600}
   /* safe zone diagram */
   .sz-wrap{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start;margin-top:10px}
@@ -224,11 +220,11 @@
     <h2>Reference &amp; example edits</h2>
     <p class="lead">These are finished Fusion edits. They are the standard. Watch how the captions, sound, pacing and annotations are used, and match that style. Full files are in the <a href="https://drive.google.com/drive/folders/1LzDm9cWRcZBVmb6G3FJTUGjiEbu1qHmC" target="_blank">Video examples folder</a>.</p>
     <div class="videos">
-      <div class="vid"><a class="frame" href="https://drive.google.com/file/d/1cWeh82BX0Ei90asEs9A5IwRgRfrIvaDj/view" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1cWeh82BX0Ei90asEs9A5IwRgRfrIvaDj&sz=w640" alt="" loading="lazy"><span class="play"><i></i></span></a><div class="cap">Who's in England's Squad</div></div>
-      <div class="vid"><a class="frame" href="https://drive.google.com/file/d/18IhygLxTkXmV1ElDuR4rmgv5n7IJSOH1/view" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=18IhygLxTkXmV1ElDuR4rmgv5n7IJSOH1&sz=w640" alt="" loading="lazy"><span class="play"><i></i></span></a><div class="cap">Masala vs Mossalla</div></div>
-      <div class="vid"><a class="frame" href="https://drive.google.com/file/d/1xTL601J32LBmXSmHj_QMXHjfLnTtCrLW/view" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1xTL601J32LBmXSmHj_QMXHjfLnTtCrLW&sz=w640" alt="" loading="lazy"><span class="play"><i></i></span></a><div class="cap">Aayan Lighthouse</div></div>
-      <div class="vid"><a class="frame" href="https://drive.google.com/file/d/13eDoKB7mAZjl6vzrNwsiAT9T1HCIq-qt/view" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=13eDoKB7mAZjl6vzrNwsiAT9T1HCIq-qt&sz=w640" alt="" loading="lazy"><span class="play"><i></i></span></a><div class="cap">Mild to Hot, 3 Dishes</div></div>
-      <div class="vid"><a class="frame" href="https://drive.google.com/file/d/1cyyfi5zSoiS7aMRyQxSfWXUQtsqeLPNw/view" target="_blank" rel="noopener"><img src="https://drive.google.com/thumbnail?id=1cyyfi5zSoiS7aMRyQxSfWXUQtsqeLPNw&sz=w640" alt="" loading="lazy"><span class="play"><i></i></span></a><div class="cap">6 Bites, Onion Bhaji</div></div>
+      <div class="vid"><div class="frame"><video src="clips/whos-in-englands-squad.mp4" controls preload="metadata" playsinline></video></div><div class="cap">Who's in England's Squad</div></div>
+      <div class="vid"><div class="frame"><video src="clips/masala-vs-mossalla.mp4" controls preload="metadata" playsinline></video></div><div class="cap">Masala vs Mossalla</div></div>
+      <div class="vid"><div class="frame"><video src="clips/aayan-lighthouse.mp4" controls preload="metadata" playsinline></video></div><div class="cap">Aayan Lighthouse</div></div>
+      <div class="vid"><div class="frame"><video src="clips/mild-to-hot-3-dishes.mp4" controls preload="metadata" playsinline></video></div><div class="cap">Mild to Hot, 3 Dishes</div></div>
+      <div class="vid"><div class="frame"><video src="clips/6-bites-onion-bhaji.mp4" controls preload="metadata" playsinline></video></div><div class="cap">6 Bites, Onion Bhaji</div></div>
     </div>
   </section>
 
