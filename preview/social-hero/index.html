@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Scroll hero preview — Fusion Creative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/main.css">
+<style>
+  :root { --p: 0; --draw: 0; }
+  * { box-sizing: border-box; }
+  /* main.css sets overflow-x:hidden on html/body, which makes them scroll
+     containers and breaks position:sticky. overflow-x:clip prevents h-scroll
+     without creating a scroll container, so the sticky pin works. */
+  html, body { overflow-x: clip !important; overflow-y: visible !important; }
+  body { margin: 0; background: #000; color: var(--off-white); font-family: var(--font-head); }
+
+  .sh { height: 230vh; position: relative; background: radial-gradient(120% 80% at 50% 0%, #1a0d0b 0%, #000 60%); }
+  .sh-sticky {
+    position: sticky; top: 0; height: 100vh; overflow: hidden;
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+    perspective: 1300px; padding-top: 9vh;
+  }
+  .sh-title { text-align: center; max-width: 60rem; padding: 0 24px; will-change: transform, opacity; z-index: 4; }
+  .sh-eyebrow { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--signal); margin: 0 0 14px; }
+  .sh-title h1 { margin: 0; font-family: var(--font-head); font-weight: 500; font-size: clamp(1.5rem, 3.4vw, 2.4rem); line-height: 1.1; }
+  .sh-title h1 .big { display: block; font-family: var(--font-serif); font-weight: 700; font-size: clamp(3rem, 9vw, 7rem); line-height: 1; letter-spacing: -.02em; margin-top: .2rem; }
+  .sh-title h1 .big em { color: var(--signal); font-style: normal; }
+
+  .sh-stage { position: relative; margin-top: 2.4vh; transform-style: preserve-3d; }
+
+  .phone {
+    position: relative; width: 320px; height: 650px;
+    border-radius: 52px; background: linear-gradient(160deg, #2a2a2a, #0d0d0d);
+    border: 1px solid rgba(255,255,255,.08); padding: 12px;
+    transform-origin: 50% 100%; will-change: transform;
+    box-shadow: 0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003;
+  }
+  .phone::before { content: ''; position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 96px; height: 26px; background: #000; border-radius: 99px; z-index: 5; }
+  .phone__screen { position: relative; width: 100%; height: 100%; border-radius: 42px; overflow: hidden; background: #0c0c0c; }
+
+  .dash { position: absolute; inset: 0; padding: 46px 18px 18px; display: flex; flex-direction: column; gap: 14px; }
+  .dash-top { display: flex; align-items: center; gap: 10px; }
+  .dash-av { width: 34px; height: 34px; border-radius: 50%; background: var(--signal); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 700; font-size: .8rem; color: #fff; }
+  .dash-han { font-family: var(--font-mono); font-size: .72rem; color: var(--off-white); }
+  .dash-live { margin-left: auto; display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: .58rem; color: var(--mid); text-transform: uppercase; letter-spacing: .1em; }
+  .dash-live i { width: 7px; height: 7px; border-radius: 50%; background: #36d399; box-shadow: 0 0 8px #36d399; }
+
+  .dash-hero { margin-top: 2px; }
+  .dash-hero .lbl { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); }
+  .dash-hero .num { font-family: var(--font-serif); font-size: 2.5rem; line-height: 1; color: var(--off-white); }
+  .dash-hero .up { font-family: var(--font-mono); font-size: .68rem; color: #36d399; margin-left: 4px; }
+
+  .dash-chart { position: relative; flex: 1; min-height: 150px; border-radius: 16px; background: linear-gradient(180deg, rgba(230,59,46,.10), rgba(230,59,46,0) 70%); border: 1px solid var(--border-dark); overflow: hidden; }
+  .dash-chart svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .chart-line { fill: none; stroke: var(--signal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--draw)); filter: drop-shadow(0 0 6px rgba(230,59,46,.55)); }
+  .chart-area { fill: url(#cg); opacity: calc(var(--draw) * 0.9); }
+  .chart-dot { fill: #fff; stroke: var(--signal); stroke-width: 3; opacity: var(--draw); }
+
+  .dash-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .dash-stat { background: rgba(255,255,255,.04); border: 1px solid var(--border-dark); border-radius: 12px; padding: 9px 8px; text-align: left; }
+  .dash-stat .v { font-family: var(--font-head); font-weight: 700; font-size: .92rem; color: var(--off-white); }
+  .dash-stat .k { font-family: var(--font-mono); font-size: .52rem; letter-spacing: .08em; text-transform: uppercase; color: var(--mid); margin-top: 2px; }
+
+  .react { position: absolute; left: 50%; top: 50%; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; will-change: transform, opacity; box-shadow: 0 10px 24px rgba(0,0,0,.35); z-index: 6; pointer-events: none; }
+  .react svg { width: 24px; height: 24px; }
+  .react.heart { background: #ff3b6b; --x: -210px; --y: 120px; }
+  .react.like  { background: #2d8cff; --x: 190px; --y: 60px; }
+  .react.smile { background: #ffc83d; --x: -180px; --y: -40px; }
+  .react.fire  { background: var(--signal); --x: 210px; --y: -90px; }
+  .react.star  { background: #a855f7; --x: -150px; --y: 200px; }
+  .react.eye   { background: #14b8a6; --x: 160px; --y: 200px; }
+
+  .next { min-height: 100vh; background: var(--off-white); color: var(--black); display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 24px; }
+  .next h2 { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3.4rem); max-width: 18ch; margin: 0 auto 14px; }
+  .next p { font-family: var(--font-head); color: var(--mid); max-width: 40ch; margin: 0 auto; line-height: 1.7; }
+
+  @media (max-width: 768px) {
+    .phone { width: 240px; height: 500px; border-radius: 40px; }
+    .phone__screen { border-radius: 32px; }
+    .react { width: 40px; height: 40px; }
+    .react svg { width: 20px; height: 20px; }
+    .react.heart { --x: -120px; --y: 120px; } .react.like { --x: 110px; --y: 60px; }
+    .react.smile { --x: -110px; --y: -30px; } .react.fire { --x: 120px; --y: -70px; }
+    .react.star { --x: -90px; --y: 180px; } .react.eye { --x: 95px; --y: 180px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .phone { transform: none !important; } }
+</style>
+</head>
+<body>
+
+  <section class="sh" id="sh">
+    <div class="sh-sticky">
+      <div class="sh-title" id="shTitle">
+        <p class="sh-eyebrow">Fusion Creative</p>
+        <h1>Unleash the power of<span class="big">Social <em>Media</em></span></h1>
+      </div>
+
+      <div class="sh-stage">
+        <span class="react heart" data-start="0.10"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-6.7-4.35-9.3-8.5C.9 9.6 2.2 6 5.5 6c2 0 3.2 1.3 3.9 2.4C10 7.3 11.2 6 13.2 6c3.3 0 4.6 3.6 2.8 6.5C18.7 16.65 12 21 12 21z"/></svg></span>
+        <span class="react like" data-start="0.18"><svg viewBox="0 0 24 24" fill="#fff"><path d="M2 10h3v11H2zM22 11a2 2 0 0 0-2-2h-5l.8-4a1.6 1.6 0 0 0-3-1L8 9v12h10.5a2 2 0 0 0 2-1.6L22 12z"/></svg></span>
+        <span class="react smile" data-start="0.26"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5a4 4 0 0 0 7 0"/><circle cx="9" cy="10" r="1" fill="#fff"/><circle cx="15" cy="10" r="1" fill="#fff"/></svg></span>
+        <span class="react fire" data-start="0.34"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2s4 4 4 8a4 4 0 0 1-8 0c0-1 .3-2 .8-2.8C8 8 7 9.5 6.5 11A6.5 6.5 0 1 0 18 13c0-5-6-11-6-11z"/></svg></span>
+        <span class="react star" data-start="0.42"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3l2.5 5.6L20 9.3l-4 4 1 5.7-5-2.8-5 2.8 1-5.7-4-4 5.5-.7z"/></svg></span>
+        <span class="react eye" data-start="0.50"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3" fill="#fff" stroke="none"/></svg></span>
+
+        <div class="phone" id="phone">
+          <div class="phone__screen">
+            <div class="dash">
+              <div class="dash-top">
+                <span class="dash-av">FC</span>
+                <span class="dash-han">@yourbrand</span>
+                <span class="dash-live"><i></i> Live</span>
+              </div>
+              <div class="dash-hero">
+                <div class="lbl">Views this month</div>
+                <div class="num">2.4M<span class="up">&uarr; 38%</span></div>
+              </div>
+              <div class="dash-chart">
+                <svg viewBox="0 0 300 160" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#E63B2E" stop-opacity="0.5"/>
+                      <stop offset="100%" stop-color="#E63B2E" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path class="chart-area" d="M0,150 L0,140 C40,138 70,128 110,118 C150,108 175,70 210,52 C245,34 275,20 300,10 L300,160 L0,160 Z"/>
+                  <path class="chart-line" pathLength="1" d="M0,140 C40,138 70,128 110,118 C150,108 175,70 210,52 C245,34 275,20 300,10"/>
+                  <circle class="chart-dot" cx="300" cy="10" r="4.5"/>
+                </svg>
+              </div>
+              <div class="dash-stats">
+                <div class="dash-stat"><div class="v">184K</div><div class="k">Likes</div></div>
+                <div class="dash-stat"><div class="v">12.4K</div><div class="k">Comments</div></div>
+                <div class="dash-stat"><div class="v">+1,240</div><div class="k">Followers</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="next">
+    <div>
+      <h2>This is what we build for every client.</h2>
+      <p>Short-form content, real analytics, and growth you can watch happen. All under one roof.</p>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var hero = document.getElementById('sh');
+      var phone = document.getElementById('phone');
+      var title = document.getElementById('shTitle');
+      var reacts = [].slice.call(document.querySelectorAll('.react'));
+      var root = document.documentElement;
+      var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function lerp(a, b, t) { return a + (b - a) * t; }
+      function clamp(x, a, b) { a = a || 0; b = b || 1; return Math.max(a, Math.min(b, x)); }
+      var ticking = false;
+      function update() {
+        ticking = false;
+        var rect = hero.getBoundingClientRect();
+        var total = rect.height - window.innerHeight;
+        var p = total > 0 ? clamp(-rect.top / total) : 0;
+        if (reduce) p = 1;
+        var mobile = window.innerWidth <= 768;
+        var rot = lerp(26, 0, p);
+        var scale = mobile ? lerp(0.8, 0.94, p) : lerp(0.92, 1.04, p);
+        var ty = lerp(30, -34, p);
+        phone.style.transform = 'translateY(' + ty + 'px) rotateX(' + rot + 'deg) scale(' + scale + ')';
+        title.style.transform = 'translateY(' + lerp(0, -70, p) + 'px)';
+        title.style.opacity = lerp(1, 0.55, clamp((p - 0.4) / 0.6));
+        root.style.setProperty('--draw', String(clamp((p - 0.05) / 0.7)));
+        reacts.forEach(function (el, i) {
+          var start = parseFloat(el.dataset.start);
+          var lp = clamp((p - start) / 0.3);
+          var op = clamp(lp * 1.5);
+          var sc = lp < 0.45 ? lerp(0.2, 1.15, lp / 0.45) : lerp(1.15, 1, (lp - 0.45) / 0.55);
+          var rise = -lp * (70 + i * 10);
+          el.style.opacity = op;
+          el.style.transform = 'translate(-50%, -50%) translate(var(--x), calc(var(--y) + ' + rise + 'px)) scale(' + sc + ')';
+        });
+      }
+      addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+      addEventListener('resize', update);
+      update();
+    })();
+  </script>
+</body>
+</html>
