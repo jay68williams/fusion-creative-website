@@ -31,12 +31,16 @@
   .contact a:hover{text-decoration:underline;}
   em{font-style:italic;}
   .examples{margin:6px 0 0;}
-  .ex{display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 10px;transition:border-color .15s, background .15s;}
+  .ex{display:flex;gap:14px;align-items:center;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:12px;margin:0 0 10px;transition:border-color .15s, background .15s;}
   .ex:hover{border-color:var(--coral);background:rgba(214,81,47,0.04);}
-  .ex .v{display:block;font-family:'DM Serif Display',Georgia,serif;font-size:1.55rem;color:var(--coral);line-height:1;}
-  .ex .m{display:block;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:var(--soft);margin-top:6px;}
-  .ex .d{display:block;font-size:15px;color:var(--ink);margin-top:7px;}
-  .ex .w{display:block;font-size:13px;font-weight:600;color:var(--coral);margin-top:9px;}
+  .ex .ph{position:relative;flex:0 0 auto;width:72px;height:100px;border-radius:8px;overflow:hidden;background:#e7e2da;}
+  .ex .ph img{width:100%;height:100%;object-fit:cover;display:block;}
+  .ex .ph::after{content:"\25B6";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#fff;font-size:14px;text-shadow:0 1px 5px rgba(0,0,0,0.65);opacity:0.95;}
+  .ex .tx{display:block;min-width:0;}
+  .ex .v{display:block;font-family:'DM Serif Display',Georgia,serif;font-size:1.5rem;color:var(--coral);line-height:1;}
+  .ex .m{display:block;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:var(--soft);margin-top:5px;}
+  .ex .d{display:block;font-size:15px;color:var(--ink);margin-top:6px;}
+  .ex .w{display:block;font-size:13px;font-weight:600;color:var(--coral);margin-top:7px;}
 </style>
 </head>
 <body>
@@ -75,11 +79,11 @@
     <p style="color:var(--soft); font-size:16px;">A few trend-led videos we have made for other Newcastle food brands, and the views they pulled. Have a watch:</p>
 
     <div class="examples">
-      <a class="ex" href="https://www.instagram.com/p/DWwjCXCKQrY/" target="_blank" rel="noopener"><span class="v">69.7M views</span><span class="m">New Greek &middot; Instagram</span><span class="d">The gyros "impatient customer" reaction.</span><span class="w">Watch &rarr;</span></a>
-      <a class="ex" href="https://www.tiktok.com/@new.greek/video/7624969320166100246" target="_blank" rel="noopener"><span class="v">7.1M views</span><span class="m">New Greek &middot; TikTok</span><span class="d">A quick reaction skit on a trending sound.</span><span class="w">Watch &rarr;</span></a>
-      <a class="ex" href="https://www.instagram.com/p/DZAB3c5uN9K/" target="_blank" rel="noopener"><span class="v">1.8M views</span><span class="m">Takdir &middot; Instagram</span><span class="d">"Never get between a girl and her post."</span><span class="w">Watch &rarr;</span></a>
-      <a class="ex" href="https://www.tiktok.com/@takdir_whitleybay/video/7646421454053051650" target="_blank" rel="noopener"><span class="v">1.1M views</span><span class="m">Takdir &middot; TikTok</span><span class="d">The same idea, big again on TikTok.</span><span class="w">Watch &rarr;</span></a>
-      <a class="ex" href="https://www.tiktok.com/@new.greek/video/7620129637829512470" target="_blank" rel="noopener"><span class="v">865K views</span><span class="m">New Greek &middot; TikTok</span><span class="d">"Our food is breath taking."</span><span class="w">Watch &rarr;</span></a>
+      <a class="ex" href="https://www.instagram.com/p/DWwjCXCKQrY/" target="_blank" rel="noopener"><span class="ph"><img src="thumbs/1.jpg" alt="New Greek reel" loading="lazy"></span><span class="tx"><span class="v">69.7M views</span><span class="m">New Greek &middot; Instagram</span><span class="d">The gyros "impatient customer" reaction.</span><span class="w">Watch &rarr;</span></span></a>
+      <a class="ex" href="https://www.tiktok.com/@new.greek/video/7624969320166100246" target="_blank" rel="noopener"><span class="ph"><img src="thumbs/2.jpg" alt="New Greek TikTok" loading="lazy"></span><span class="tx"><span class="v">7.1M views</span><span class="m">New Greek &middot; TikTok</span><span class="d">A quick reaction skit on a trending sound.</span><span class="w">Watch &rarr;</span></span></a>
+      <a class="ex" href="https://www.instagram.com/p/DZAB3c5uN9K/" target="_blank" rel="noopener"><span class="ph"><img src="thumbs/3.jpg" alt="Takdir reel" loading="lazy"></span><span class="tx"><span class="v">1.8M views</span><span class="m">Takdir &middot; Instagram</span><span class="d">"Never get between a girl and her post."</span><span class="w">Watch &rarr;</span></span></a>
+      <a class="ex" href="https://www.tiktok.com/@takdir_whitleybay/video/7646421454053051650" target="_blank" rel="noopener"><span class="ph"><img src="thumbs/4.jpg" alt="Takdir TikTok" loading="lazy"></span><span class="tx"><span class="v">1.1M views</span><span class="m">Takdir &middot; TikTok</span><span class="d">The same idea, big again on TikTok.</span><span class="w">Watch &rarr;</span></span></a>
+      <a class="ex" href="https://www.tiktok.com/@new.greek/video/7620129637829512470" target="_blank" rel="noopener"><span class="ph"><img src="thumbs/5.jpg" alt="New Greek TikTok" loading="lazy"></span><span class="tx"><span class="v">865K views</span><span class="m">New Greek &middot; TikTok</span><span class="d">"Our food is breath taking."</span><span class="w">Watch &rarr;</span></span></a>
     </div>
 
     <div class="rule"></div>
