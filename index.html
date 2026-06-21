@@ -134,30 +134,151 @@
     </div>
   </nav>
 
-  <!-- B. HERO SECTION -->
-  <section class="hero" id="hero">
-    <canvas class="hero-shader" id="heroShader" aria-hidden="true"></canvas>
-    <div class="hero-content">
-      <div class="hero-eyebrow eyebrow-stagger">Full-Stack Digital Agency · Newcastle upon Tyne</div>
-      <h1 class="hero-line1 stagger">We Make Your <span class="hero-cycler">
-        <span class="cycler-word active">Business</span>
-        <span class="cycler-word">Brand</span>
-        <span class="cycler-word">Agency</span>
-        <span class="cycler-word">Startup</span>
-        <span class="cycler-word">E-Commerce</span>
-        <span class="cycler-word">Clinic</span>
-        <span class="cycler-word">Gym</span>
-        <span class="cycler-word">Studio</span>
-        <span class="cycler-word">Store</span>
-      </span></h1>
-      <h2 class="hero-line2 stagger">Go Viral.</h2>
-      <p class="hero-sub stagger">Short-form video. Website design. SEO. Branding. Photo shoots. Email marketing. Paid ads. Everything your business needs to grow online, all under one roof.</p>
-      <div class="hero-ctas stagger">
-        <a href="#contact" class="btn btn-signal"><span>Start Growing &rarr;</span></a>
-        <a href="#results" class="btn btn-ghost">See Client Results &darr;</a>
+  <!-- B. HERO SECTION (split hero: looping client-video wall) -->
+  <style>
+  .sp-hero { position: relative; min-height: 100vh; overflow: hidden; display: flex; align-items: center; background: var(--off-white); }
+  .sp-hero::before, .sp-hero::after { content: ''; position: absolute; border-radius: 50%; filter: blur(90px); z-index: 0; pointer-events: none; }
+  .sp-hero::before { width: 460px; height: 460px; background: rgba(230,59,46,.18); top: -130px; left: -120px; animation: spDrift1 16s ease-in-out infinite alternate; }
+  .sp-hero::after { width: 320px; height: 320px; background: rgba(255,150,90,.16); bottom: -110px; left: 14%; animation: spDrift2 20s ease-in-out infinite alternate; }
+  @keyframes spDrift1 { from { transform: translate(0,0) scale(1); } to { transform: translate(40px, 36px) scale(1.12); } }
+  @keyframes spDrift2 { from { transform: translate(0,0) scale(1); } to { transform: translate(-34px, -22px) scale(1.1); } }
+  .sp-wall { position: absolute; top: 0; bottom: 0; right: 0; left: 33%; display: flex; gap: 14px; padding: 0 14px; z-index: 1; }
+  .sp-col { flex: 1; min-width: 0; overflow: hidden; }
+  .sp-track { will-change: transform; }
+  .sp-track.up { animation: spScrollUp 90s linear infinite; }
+  .sp-track.down { animation: spScrollDown 100s linear infinite; }
+  .sp-col:hover .sp-track { animation-play-state: paused; }
+  @keyframes spScrollUp { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+  @keyframes spScrollDown { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+  .sp-tile { position: relative; display: block; margin-bottom: 14px; border-radius: 16px; overflow: hidden; box-shadow: 0 16px 38px rgba(0,0,0,.18); transition: transform .35s ease, box-shadow .35s ease; }
+  .sp-tile:hover { transform: scale(1.03); box-shadow: 0 24px 50px rgba(230,59,46,.22); z-index: 4; }
+  .sp-tile img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+  .sp-vbadge { position: absolute; left: 8px; bottom: 8px; display: flex; align-items: center; gap: 4px; background: rgba(0,0,0,.5); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff; font-family: var(--font-mono); font-size: .64rem; font-weight: 700; padding: 4px 9px 4px 7px; border-radius: 99px; border: 1px solid rgba(255,255,255,.18); }
+  .sp-vbadge svg { width: 11px; height: 11px; color: #ff7a5c; flex: none; }
+  .sp-fade { position: absolute; inset: 0; z-index: 3; pointer-events: none; background: linear-gradient(to right, var(--off-white) 30%, rgba(245,243,238,.86) 40%, rgba(245,243,238,.35) 52%, rgba(245,243,238,0) 64%); }
+  .sp-inner { position: relative; z-index: 5; width: 100%; max-width: 72rem; margin: 0 auto; padding: 120px 24px 90px; }
+  .sp-copy { max-width: 33rem; }
+  .sp-badge { display: inline-flex; align-items: center; gap: 10px; border-radius: 11px; padding: 5px 12px; text-decoration: none; color: var(--black); background: rgba(255,255,255,.55); backdrop-filter: blur(14px) saturate(160%); -webkit-backdrop-filter: blur(14px) saturate(160%); border: 1px solid rgba(255,255,255,.7); box-shadow: 0 6px 20px rgba(0,0,0,.06); }
+  .sp-badge.live { border-color: rgba(230,59,46,.45); animation: spLiveGlow 2.6s ease-in-out infinite; }
+  .sp-badge .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--signal); flex: none; animation: spLiveDot 1.8s ease-out infinite; }
+  .sp-badge .txt { font-size: .85rem; color: #333; }
+  .sp-badge .txt b { color: var(--signal); font-weight: 700; }
+  .sp-badge .arr { color: var(--signal); display: flex; }
+  @keyframes spLiveGlow { 0%,100% { box-shadow: 0 6px 20px rgba(0,0,0,.06), 0 0 0 0 rgba(230,59,46,0); } 50% { box-shadow: 0 6px 20px rgba(0,0,0,.06), 0 0 24px 2px rgba(230,59,46,.42); } }
+  @keyframes spLiveDot { 0% { box-shadow: 0 0 0 0 rgba(230,59,46,.55); } 70% { box-shadow: 0 0 0 9px rgba(230,59,46,0); } 100% { box-shadow: 0 0 0 0 rgba(230,59,46,0); } }
+  .sp-hero h1 { font-family: var(--font-serif); font-weight: 700; font-size: clamp(2.1rem, 5.2vw, 4rem); line-height: 1.05; letter-spacing: -.02em; margin: 26px 0 0; color: var(--black); }
+  .sp-hero h1 em { color: var(--signal); font-style: normal; }
+  .sp-cycler { display: inline-grid; grid-template-columns: 1fr; align-items: baseline; vertical-align: baseline; }
+  .sp-cword { grid-area: 1 / 1; opacity: 0; transform: translateY(0.2em); transition: opacity .55s cubic-bezier(.4,0,.2,1), transform .55s cubic-bezier(.34,1.56,.64,1); font-style: italic; font-weight: 400; color: var(--signal); white-space: nowrap; }
+  .sp-cword.active { opacity: 1; transform: translateY(0); z-index: 2; }
+  .sp-cword.out { opacity: 0; transform: translateY(-0.2em); z-index: 1; }
+  .sp-lead { font-size: 1.08rem; color: #46453f; line-height: 1.7; margin: 22px 0 0; max-width: 30rem; }
+  .sp-form { display: flex; align-items: center; gap: 8px; border-radius: 14px; padding: 6px 6px 6px 16px; margin: 28px 0 12px; max-width: 26rem; background: rgba(255,255,255,.6); backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%); border: 1px solid rgba(255,255,255,.7); box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+  .sp-form svg.mail { width: 18px; height: 18px; color: var(--mid); flex: none; }
+  .sp-form input { flex: 1; border: 0; outline: none; background: transparent; font-family: var(--font-head); font-size: .98rem; height: 44px; color: var(--black); min-width: 0; }
+  .sp-form input::placeholder { color: #8a8a86; }
+  .sp-form button { flex: none; background: var(--signal); color: #fff; border: 0; font-family: var(--font-head); font-weight: 600; font-size: .92rem; padding: 0 18px; height: 44px; border-radius: 9px; cursor: pointer; white-space: nowrap; transition: transform .15s ease, box-shadow .3s ease; box-shadow: 0 6px 18px rgba(230,59,46,.3); animation: spBtnGlow 2.8s ease-in-out infinite; }
+  .sp-form button:hover { transform: translateY(-1px); box-shadow: 0 8px 30px rgba(230,59,46,.6); }
+  @keyframes spBtnGlow { 0%,100% { box-shadow: 0 6px 18px rgba(230,59,46,.28); } 50% { box-shadow: 0 8px 30px rgba(230,59,46,.55); } }
+  .sp-note { font-family: var(--font-mono); font-size: .72rem; color: var(--mid); margin: 0 0 26px; }
+  .sp-bullets { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 22px; }
+  .sp-bullets li { display: flex; align-items: center; gap: 8px; font-size: .95rem; color: #3a3a38; }
+  .sp-bullets li::before { content: ''; width: 16px; height: 16px; border-radius: 50%; background: var(--signal); flex: none; -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/12px no-repeat; mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/12px no-repeat; }
+  @media (prefers-reduced-motion: reduce) { .sp-badge.live, .sp-badge .dot, .sp-form button, .sp-hero::before, .sp-hero::after, .sp-track { animation: none !important; } .sp-cword { transition: none; } }
+  @media (max-width: 900px) {
+    .sp-hero { display: block; min-height: 0; }
+    .sp-inner { padding: 116px 24px 26px; }
+    .sp-copy { max-width: none; text-align: center; margin: 0 auto; }
+    .sp-badge, .sp-form, .sp-lead { margin-left: auto; margin-right: auto; }
+    .sp-bullets { justify-content: center; }
+    .sp-fade { display: none; }
+    .sp-wall { position: static; left: auto; right: auto; height: 76vh; padding: 0 16px 40px; gap: 9px; }
+    .sp-tile { margin-bottom: 9px; }
+  }
+  </style>
+
+  <section class="sp-hero" id="hero">
+    <div class="sp-inner">
+      <div class="sp-copy">
+        <a href="/case-studies" class="sp-badge live">
+          <span class="dot"></span>
+          <span class="txt">Client case studies are <b>live</b></span>
+          <span class="arr"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <h1>We make your <span class="sp-cycler" aria-label="business">
+          <span class="sp-cword active">Brand</span><span class="sp-cword">Business</span><span class="sp-cword">Restaurant</span><span class="sp-cword">Cafe</span><span class="sp-cword">Takeaway</span><span class="sp-cword">Gym</span><span class="sp-cword">Salon</span><span class="sp-cword">Bar</span><span class="sp-cword">Store</span>
+        </span><br>grow online.</h1>
+        <p class="sp-lead">Short-form video, websites, branding, SEO, and paid ads. One team, one monthly price, and real results you can watch happen.</p>
+        <form class="sp-form" onsubmit="return spGotoAudit(this);">
+          <svg class="mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <input type="email" placeholder="Your email address" aria-label="Your email address">
+          <button type="submit">Get a free audit</button>
+        </form>
+        <p class="sp-note">We deep-dive your socials, site, and competitors. Free, within 24 hours.</p>
+        <ul class="sp-bullets">
+          <li>Short-form video that performs</li>
+          <li>Real analytics, not vanity metrics</li>
+          <li>Everything under one roof</li>
+        </ul>
       </div>
     </div>
+
+    <div class="sp-wall" id="wall"></div>
+    <div class="sp-fade"></div>
   </section>
+
+  <script>
+    (function () {
+      var TILES = [
+        { src: '/assets/showcase/sc-01.jpg', v: 69702430, f: '69.7M' },
+        { src: '/assets/showcase/sc-02.jpg', v: 7053986, f: '7.1M' },
+        { src: '/assets/showcase/sc-03.jpg', v: 1833266, f: '1.8M' },
+        { src: '/assets/showcase/sc-04.jpg', v: 1136284, f: '1.1M' },
+        { src: '/assets/showcase/sc-05.jpg', v: 865754, f: '866K' },
+        { src: '/assets/showcase/sc-06.jpg', v: 856186, f: '856K' },
+        { src: '/assets/showcase/sc-07.jpg', v: 824659, f: '825K' },
+        { src: '/assets/showcase/sc-08.jpg', v: 578995, f: '579K' },
+        { src: '/assets/showcase/sc-09.jpg', v: 366007, f: '366K' },
+        { src: '/assets/showcase/sc-10.jpg', v: 254239, f: '254K' },
+        { src: '/assets/showcase/sc-11.jpg', v: 217477, f: '217K' },
+        { src: '/assets/showcase/sc-12.jpg', v: 178970, f: '179K' },
+        { src: '/assets/showcase/sc-13.jpg', v: 166421, f: '166K' },
+        { src: '/assets/showcase/sc-14.jpg', v: 160454, f: '160K' },
+        { src: '/assets/showcase/sc-15.jpg', v: 155283, f: '155K' },
+        { src: '/assets/showcase/sc-16.jpg', v: 117234, f: '117K' },
+        { src: '/assets/showcase/sc-17.jpg', v: 83797, f: '84K' },
+        { src: '/assets/showcase/sc-18.jpg', v: 83585, f: '84K' },
+        { src: '/assets/showcase/sc-19.jpg', v: 81489, f: '81K' },
+        { src: '/assets/showcase/sc-20.jpg', v: 73185, f: '73K' },
+        { src: '/assets/showcase/sc-21.jpg', v: 65033, f: '65K' },
+        { src: '/assets/showcase/sc-22.jpg', v: 63710, f: '64K' },
+        { src: '/assets/showcase/sc-23.jpg', v: 60539, f: '61K' },
+        { src: '/assets/showcase/sc-24.jpg', v: 58073, f: '58K' },
+        { src: '/assets/showcase/sc-25.jpg', v: 57301, f: '57K' },
+        { src: '/assets/showcase/sc-26.jpg', v: 53934, f: '54K' },
+        { src: '/assets/showcase/sc-27.jpg', v: 50160, f: '50K' }
+      ];
+      var EYE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="2.6" fill="currentColor" stroke="none"/></svg>';
+      var sorted = TILES.slice().sort(function (a, b) { return b.v - a.v; });
+      var cols = [[], [], []];
+      sorted.forEach(function (t, i) { cols[i % 3].push(t); });
+      var dir = ['down', 'up', 'down'];
+      var tileHtml = function (t) { return '<div class="sp-tile"><img src="' + t.src + '" alt="Client video"><span class="sp-vbadge">' + EYE + t.f + '</span></div>'; };
+      var wall = document.getElementById('wall');
+      if (wall) wall.innerHTML = cols.map(function (col, ci) { var set = col.map(tileHtml).join(''); return '<div class="sp-col"><div class="sp-track ' + dir[ci] + '">' + set + set + '</div></div>'; }).join('');
+      var cw = document.querySelectorAll('.sp-cword');
+      var k = 0;
+      if (cw.length > 1) setInterval(function () { var cur = cw[k]; cur.classList.remove('active'); cur.classList.add('out'); setTimeout(function () { cur.classList.remove('out'); }, 600); k = (k + 1) % cw.length; cw[k].classList.add('active'); }, 2400);
+    })();
+    function spGotoAudit(form) {
+      var em = form.querySelector('input[type=email]');
+      var email = em ? em.value.trim() : '';
+      var t = document.getElementById('audit-cta-email'); if (t && email) t.value = email;
+      var sec = document.getElementById('free-audit'); if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+      var url = document.getElementById('audit-cta-url'); if (url) setTimeout(function () { url.focus(); }, 600);
+      return false;
+    }
+  </script>
 
   <!-- SERVICES TICKER -->
   <div style="background:#111; padding:14px 0; overflow:hidden; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06);">
