@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Audit - Panna Gelato | Fusion Creative</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #f5f6fa; --bg-alt: #ecedf1; --card: #ffffff; --card-border: rgba(0,0,0,0.08);
+            --coral: #E8553C; --coral-light: #ff7a64; --coral-dark: #c4412b;
+            --text: #1a1d23; --text-secondary: #4a4f5c; --text-muted: #7c8090;
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); } 50% { box-shadow: 0 0 40px rgba(232,85,60,0.55); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 48px 0 40px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+        .brand { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); }
+        .brand-dot { display: inline-block; width: 6px; height: 6px; background: var(--coral); border-radius: 50%; margin-right: 8px; vertical-align: middle; position: relative; top: -1px; }
+        .header-date { font-size: 13px; color: var(--text-muted); font-weight: 400; }
+        .hero { padding: 64px 0 56px; animation: fadeInUp 0.6s ease both; }
+        .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; }
+        .hero h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(42px, 7vw, 64px); font-weight: 400; line-height: 1.05; letter-spacing: -1px; margin-bottom: 24px; }
+        .hero h1 span { background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral)); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s linear infinite; }
+        .hero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 600px; line-height: 1.7; font-weight: 400; }
+        .section { padding: 48px 0; animation: fadeInUp 0.6s ease both; }
+        .section-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent); }
+        .card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 40px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .card-sm { padding: 28px 32px; }
+        .section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 12px; }
+        .section-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 34px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 24px; line-height: 1.2; }
+        .section-text { color: var(--text-secondary); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+        .section-text:last-child { margin-bottom: 0; }
+        .intro-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); }
+        .intro-card .greeting { font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; color: var(--text); }
+        .stats-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .stats-table tr { border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .stats-table tr:last-child { border-bottom: none; }
+        .stats-table tr:nth-child(even) { background: rgba(0,0,0,0.02); }
+        .stats-table td { padding: 14px 0; }
+        .stats-table td:first-child { color: var(--text-secondary); font-weight: 400; padding-right: 24px; white-space: nowrap; }
+        .stats-table td:last-child { font-weight: 600; color: var(--text); text-align: right; }
+        .stat-highlight { color: var(--coral) !important; font-weight: 700 !important; }
+        .stat-badge { display: inline-block; background: rgba(232,85,60,0.15); color: var(--coral-light); padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-green { display: inline-block; background: rgba(52,199,89,0.15); color: #4cd97d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-amber { display: inline-block; background: rgba(255,159,10,0.15); color: #ffb84d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .working-item { margin-bottom: 28px; }
+        .working-item:last-child { margin-bottom: 0; }
+        .working-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+        .working-item p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+        .check-icon { display: inline-block; color: #4cd97d; margin-right: 6px; font-weight: 700; }
+        .opportunity-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--coral); color: white; border-radius: 8px; font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.35); }
+        .opportunity-heading { display: flex; align-items: center; margin-bottom: 14px; }
+        .opportunity-heading h3 { font-size: 19px; font-weight: 600; color: var(--text); }
+        .opportunity-card { margin-bottom: 20px; }
+        .opportunity-card:last-child { margin-bottom: 0; }
+        .case-study-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); border-left: 4px solid var(--coral); overflow: hidden; position: relative; }
+        .case-study-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--coral), var(--coral-light)); }
+        .case-study-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin: 32px 0; }
+        .case-study-stat { text-align: center; padding: 24px 16px; background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; animation: scaleIn 0.5s ease both; }
+        .case-study-stat .number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(30px, 5vw, 44px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1; margin-bottom: 6px; }
+        .case-study-stat .label { font-size: 12px; color: var(--text-secondary); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        .viral-callout { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 12px; padding: 24px 28px; margin-top: 24px; }
+        .viral-callout .big-number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(28px, 5vw, 40px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1.15; }
+        .viral-callout .context { font-size: 14px; color: var(--text-secondary); margin-top: 8px; line-height: 1.6; }
+        .viral-callout .context strong { color: var(--text); }
+        .takeaway { margin-top: 24px; font-size: 15px; color: var(--text-secondary); font-style: italic; line-height: 1.7; }
+        .video-ideas-grid { display: grid; gap: 20px; }
+        .video-idea-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 32px; position: relative; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .video-idea-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .video-idea-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--coral); border-radius: 4px 0 0 4px; }
+        .idea-number { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); margin-bottom: 10px; }
+        .idea-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; font-weight: 400; margin-bottom: 16px; line-height: 1.3; color: var(--text); }
+        .idea-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+        .idea-tag { font-size: 12px; font-weight: 600; color: var(--text-muted); background: rgba(0,0,0,0.04); padding: 4px 12px; border-radius: 6px; }
+        .idea-description { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+        .idea-why { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--card-border); }
+        .idea-why strong { color: var(--coral); font-weight: 600; }
+        .enhancement-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px 32px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .enhancement-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .enhancement-card:last-child { margin-bottom: 0; }
+        .enhancement-card h4 { font-size: 17px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+        .enhancement-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+        .enhancement-card p:last-child { margin-bottom: 0; }
+        .enhancement-list { list-style: none; margin: 12px 0; }
+        .enhancement-list li { font-size: 14px; color: var(--text-secondary); padding: 6px 0 6px 18px; position: relative; line-height: 1.6; }
+        .enhancement-list li::before { content: ''; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; background: var(--coral); border-radius: 50%; }
+        .highlight-box { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 10px; padding: 18px 22px; margin-top: 14px; }
+        .highlight-box p { font-size: 14px; color: var(--text-secondary); margin-bottom: 0; }
+        .highlight-box strong { color: var(--coral); }
+        .next-steps-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 80%); border-color: rgba(232,85,60,0.2); }
+        .steps-list { list-style: none; counter-reset: steps; }
+        .steps-list li { counter-increment: steps; display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--card-border); font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+        .steps-list li:last-child { border-bottom: none; }
+        .steps-list li::before { content: counter(steps); display: flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; background: var(--coral); color: white; border-radius: 10px; font-size: 14px; font-weight: 700; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.3); }
+        .about-fc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+        .about-fc-stat { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; padding: 20px 24px; text-align: center; animation: scaleIn 0.5s ease both; }
+        .about-fc-stat-val { font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; font-weight: 400; color: var(--coral); letter-spacing: -0.5px; }
+        .about-fc-stat-label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+        .about-fc-text { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+        .about-fc-services { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .about-fc-tag { background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+        .cta-wrap { text-align: center; margin-top: 32px; }
+        .cta-btn { display: inline-block; background: var(--coral); color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 40px; border-radius: 999px; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; animation: pulseGlow 3s ease-in-out infinite; }
+        .cta-btn:hover { background: var(--coral-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,85,60,0.5); animation: none; }
+        .cta-sub { font-size: 13px; color: var(--text-muted); margin-top: 12px; }
+        .closing-note { margin-top: 24px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+        .signature { padding: 48px 0; }
+        .signature-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 24px; font-weight: 400; margin-bottom: 4px; color: var(--text); }
+        .signature-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 2px; }
+        .signature-link { font-size: 14px; color: var(--coral); text-decoration: none; font-weight: 500; }
+        .signature-link:hover { text-decoration: underline; }
+        .footer { padding: 32px 0; border-top: 1px solid rgba(0,0,0,0.08); text-align: center; background: var(--bg-alt); }
+        .footer-confidential { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+        .footer-note { font-size: 12px; color: var(--text-muted); font-style: italic; }
+        .footer-brand { margin-top: 16px; font-size: 12px; color: var(--text-muted); }
+        .footer-brand span { color: var(--coral); font-weight: 600; }
+        @media (max-width: 640px) {
+            .container { padding: 0 16px; } .card { padding: 28px 22px; } .hero { padding: 40px 0 36px; } .section { padding: 32px 0; }
+            .case-study-grid { grid-template-columns: repeat(2, 1fr); } .video-idea-card { padding: 24px 22px; }
+            .header-inner { flex-direction: column; gap: 8px; } .about-fc-grid { grid-template-columns: 1fr 1fr; gap: 12px; } .about-fc-stat-val { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="container">
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand"><span class="brand-dot"></span>Fusion Creative</div>
+                <div class="header-date">21 June 2026</div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-label">Audit + Proposal</div>
+            <h1><span>Panna Gelato</span></h1>
+            <p class="hero-subtitle">Bespoke Italian Gelato Cart, Newcastle | Prepared by Fusion Creative | 21 June 2026</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Intro -->
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Hey Paddy,</div>
+                <p class="section-text">Thanks for requesting your free audit for Panna. As promised, here is the full write-up: where things stand right now and exactly what we would do to grow it.</p>
+                <p class="section-text">First off, credit where it is due. What you have built with Panna looks genuinely premium. The branding is consistent, the cart and the gelato look the part, the captions have a real voice, and the engagement on a small account is excellent. Your "meet the owner" posts are already your best performers, which tells us a lot. The product and the aesthetic are not the issue. The issue is reach: not enough people have seen you yet, and the content is not yet built to spread.</p>
+                <p class="section-text">Inside you will find a snapshot of where things stand right now, what is already working, <strong>five areas where there is real room to grow</strong>, four ready-made video ideas you can film straight away, the recommended strategy including paid ads and a booking flow, and the proposal covering pricing and what is included.</p>
+                <p class="section-text">This is yours to keep either way. Hope it is useful.</p>
+            </div>
+
+            <!-- Fusion Creative metrics card -->
+            <div class="card" style="margin-top:8px;">
+                <div style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--coral); margin-bottom:6px;">Client Results</div>
+                <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Generated for a single local restaurant in Newcastle</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">63M+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">824K+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Interactions</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">6,200+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">62.8M</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
+                    </div>
+                </div>
+                <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">We generated 63M+ combined views across Instagram and TikTok in 30 days for a local Newcastle restaurant. One single reel hit 62.8 million views. They went from a standing start to a household name in the North East. Panna already has the brand and the product nailed. The job is making content that actually spreads, so the people booking weddings and events across the North East discover you.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Snapshot -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Current Snapshot</div>
+            <div class="section-title">Where Panna Is Right Now</div>
+            <div class="card card-sm">
+                <table class="stats-table">
+                    <tr><td>Instagram (@panna_gelato)</td><td class="stat-highlight">~417 followers, 26 posts <span class="stat-badge-green">Premium look</span></td></tr>
+                    <tr><td>Engagement rate</td><td class="stat-highlight">~10% <span class="stat-badge-green">Excellent</span></td></tr>
+                    <tr><td>Avg likes / comments</td><td>~44 / ~2 per post <span class="stat-badge-green">Loyal audience</span></td></tr>
+                    <tr><td>Top post</td><td>"Meet the owner" (Paddy), 118 likes, 15 comments <span class="stat-badge-green">Personality wins</span></td></tr>
+                    <tr><td>Top reel</td><td>Calendar launch, ~1,900 views <span class="stat-badge-amber">Reach is the cap</span></td></tr>
+                    <tr><td>Content style</td><td>Polished product, flavours, venues, packages <span class="stat-badge-green">On brand</span></td></tr>
+                    <tr><td>TikTok</td><td class="stat-highlight">Not found <span class="stat-badge">Missing</span></td></tr>
+                    <tr><td>Website</td><td>pannagelato.uk <span class="stat-badge-green">Live, looks good</span></td></tr>
+                    <tr><td>Bio</td><td>Clear and strong (cart, events, enquire) <span class="stat-badge-green">Solid</span></td></tr>
+                    <tr><td>Packages</td><td>Como / Lucca / Roma, from £395, up to 500 guests <span class="stat-badge-green">Clear offer</span></td></tr>
+                    <tr><td>Owner</td><td>Paddy Condon <span class="stat-badge-green">Brand face</span></td></tr>
+                    <tr><td>Serves</td><td>Weddings, corporate and private events across the North East</td></tr>
+                    <tr><td>USP</td><td>Bespoke Italian gelato cart, custom menus and branded wafers, premium experience</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- What Is Working -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">What Is Already Working Well</div>
+            <div class="section-title">Credit Where It Is Due</div>
+            <div class="card">
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The brand and aesthetic are genuinely premium</h4>
+                    <p>The look is consistent, the cart is beautiful, the gelato is presented properly, and the tone of voice ("stay smooth") is distinctive and ownable. This is the single hardest thing to get right and you have nailed it. Most businesses we audit need their whole look rebuilt. Panna does not. We get to build on a strong foundation rather than fix one.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The engagement is excellent for the size</h4>
+                    <p>Around 417 followers but an engagement rate near 10%, with posts regularly pulling 40 to 70+ likes and your best hitting 118. That is a loyal, warm audience. It means the people who do find you genuinely like what they see. The only ceiling is reach. The content converts attention well, there is just not enough attention yet.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The owner content already outperforms everything</h4>
+                    <p>Your two top posts are both about people: "Meet the gaffer" (Paddy) at 118 likes and 15 comments, and "Meet Lucy". That is the clearest signal in the whole account. Your audience responds to faces and personality far more than to product shots. This is exactly the lane we would double down on, and it costs nothing to film.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The offer is clear and well packaged</h4>
+                    <p>Como, Lucca and Roma packages from £395, up to 500 guests, custom menus, branded wafers, vegan options. The offer is easy to understand and genuinely premium. Plenty of event businesses leave people guessing on price and scope. You do not, which makes the path from "saw a reel" to "enquired" much shorter.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> A high-value, high-margin product in a growing market</h4>
+                    <p>Wedding and event hire is booming, gelato carts photograph beautifully, and a single booking is worth hundreds. You do not need to go viral to thousands of locals every week, you need to reach the right couples and event planners. That is a very achievable content and ads target, and the lifetime value per customer makes the maths work easily.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Real social proof from real events</h4>
+                    <p>You are already at proper venues, Middleton Lodge, Doxford Barns, Tapyard, corporate dos, with real couples and real teams. That is a goldmine of authentic content and credibility. Right now it shows up as nice recap posts. With the right approach it becomes reaction-led content that actually sells the experience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Where The Opportunity Is -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Where The Opportunity Is</div>
+            <div class="section-title">Five Areas With Real Potential</div>
+            <p class="section-text" style="margin-bottom: 32px;">Panna already has the product, the brand and the engagement. The gap is reach, and the kind of content that actually spreads. These are the five areas where focused effort would turn a beautiful but small account into a name every couple and event planner in the North East knows.</p>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">1</span>
+                    <h3>Reactions Sell, And They Are Missing From the Content</h3>
+                </div>
+                <p class="section-text">The content is polished and on brand, but it is mostly the product and the finished setup. What it does not capture is the thing that actually sells an experience: people's faces when they taste it, and the moment guests spot the cart roll in. Reaction is the most shareable thing in food content. A bride lighting up, a guest's eyes going wide on the first spoon, a whole room grinning. That is what makes someone watching at home think "I want that at my wedding".</p>
+                <p class="section-text">We would make reaction the core format: film guests tasting, film the reveal of the cart at a venue, film the room when it arrives. It costs nothing extra to capture at events you are already booked for, and it is the single biggest unlock for reach. This is the format we would lead with.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">2</span>
+                    <h3>Put Paddy and the Team Front and Centre</h3>
+                </div>
+                <p class="section-text">Your own numbers have already proven this. "Meet the gaffer" is your top post and "Meet Lucy" is right up there. People follow people. Right now Paddy appears occasionally, but he should be the face of the brand: talking about the gelato, why it is different, how it is made, what goes into a custom menu. An owner who clearly loves the craft is far more compelling than another product shot.</p>
+                <p class="section-text">A regular Paddy series, him explaining flavours, walking through how a wedding booking works, reacting to events, talking about what makes Panna special, would build real connection. This is exactly the content your data says performs best, and it is some of the cheapest to make.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">3</span>
+                    <h3>Build Viral, Reaction-Led Challenge Formats</h3>
+                </div>
+                <p class="section-text">This is where the reach comes from. Simple, repeatable challenge formats at events travel far beyond your followers and put real people and real joy on camera:</p>
+                <p class="section-text">Going round wedding guests asking them to <strong>guess the flavour</strong>. Asking guests to <strong>pick which one is best</strong>. The <strong>"double it or pass it on"</strong> trend with a tray of gelato. Handing gelato down a line of guests and capturing <strong>every reaction</strong>. These are low effort and high return, built to be shared, which is exactly what a small account needs to break out. One of these landing could put you in front of tens of thousands of the right people overnight.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">4</span>
+                    <h3>Show the Events and How It Actually Works</h3>
+                </div>
+                <p class="section-text">A lot of people do not know what hiring a gelato cart involves, and that uncertainty stops enquiries. Content that educates while it entertains, Paddy talking to the bride and groom, the cart being set up at the venue, how a couple choose their custom menu, the branded wafers with a company logo for a corporate event, demystifies the whole thing.</p>
+                <p class="section-text">This does two jobs at once. It sells the premium, bespoke nature of what you do, and it answers the questions a couple has before they have to message you. The more the content explains, the warmer and more frequent the enquiries become.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading">
+                    <span class="opportunity-num">5</span>
+                    <h3>Reach Is the Only Real Ceiling, And There Is No TikTok</h3>
+                </div>
+                <p class="section-text">Everything points to the same thing: the content converts well, there just is not enough of it reaching enough people. A top reel around 1,900 views is a small ceiling for a product this photogenic. And there is no TikTok account at all, which is currently the single best platform for visual, reaction-led, event content.</p>
+                <p class="section-text">Launching TikTok, posting reaction and challenge content consistently, and cross-posting to Reels would multiply your reach. For an events business where one booking is worth hundreds, even a modest lift in reach pays for itself many times over.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Case Study -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Case Study</div>
+            <div class="section-title">What We Did for New Greek</div>
+            <div class="card case-study-card">
+                <p class="section-text">New Greek is a small independent Greek restaurant in Newcastle. No brand head start, no following, no ad budget. They started from zero. Here is where they are now after working with Fusion Creative.</p>
+
+                <div class="case-study-grid">
+                    <div class="case-study-stat"><div class="number">63M+</div><div class="label">Total Views</div></div>
+                    <div class="case-study-stat"><div class="number">62.8M</div><div class="label">Single Reel Views</div></div>
+                    <div class="case-study-stat"><div class="number">824K+</div><div class="label">Interactions</div></div>
+                    <div class="case-study-stat"><div class="number">6,200+</div><div class="label">Followers Grown</div></div>
+                </div>
+
+                <div class="viral-callout">
+                    <div class="big-number">63 million views. One restaurant. Zero head start.</div>
+                    <div class="context"><strong>New Greek had no followers, no content history, and no brand recognition.</strong> We built their social presence from scratch with short-form video. One single reel hit 62.8 million views. They went from empty tables to fully booked with a waiting list. Panna starts ahead of where they did: the brand, the product and the engagement are already there. The only missing piece is reach, and that is exactly what we build.</div>
+                </div>
+
+                <p class="takeaway">Panna does not need to fix the product or the look. They are already excellent. The job is making content that spreads, so the couples and planners booking events across the North East actually find you.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Video Ideas -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Ready-Made Content</div>
+            <div class="section-title">4 Video Ideas You Could Film This Week</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are formats working right now on TikTok and Instagram Reels, tailored to Panna's gelato, the events, and Paddy. They are reaction-led and built to spread. Any one of these could be filmed on a phone at your next event.</p>
+
+            <div class="video-ideas-grid">
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 01</div>
+                    <div class="idea-title">"We asked wedding guests to guess the flavour"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Reaction</span>
+                        <span class="idea-tag">Challenge</span>
+                        <span class="idea-tag">Guests</span>
+                    </div>
+                    <p class="idea-description">At a wedding, go round guests with a spoon of each gelato and ask them to guess the flavour blind. Capture the faces, the confusion, the delight, the "oh my god that is amazing". Quick cuts between guests, caption their guesses. Trending audio. Under 30 seconds.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Reaction plus challenge is the most shareable combination in food content. Real guests, real reactions, at a real wedding. It shows the product tasting incredible and the experience being fun, and it is exactly the format that breaks a small account out to new audiences.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 02</div>
+                    <div class="idea-title">"Handing out gelato at a wedding and filming every reaction"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Reaction</span>
+                        <span class="idea-tag">Hero Format</span>
+                        <span class="idea-tag">Joy</span>
+                    </div>
+                    <p class="idea-description">Set up the cart, then film the line of guests as they get their gelato. Every face lighting up, the first spoon, the "this is unreal", kids and grandparents alike, the bride and groom getting theirs. End on the room buzzing. Warm trending audio. Under 25 seconds.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Pure joy sells an experience better than any product shot. This is the reel a couple watches and instantly pictures at their own wedding. Reaction content like this consistently outperforms polished setups, and it is free to capture at every event.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 03</div>
+                    <div class="idea-title">"How a Panna wedding booking actually works, with Paddy"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Owner</span>
+                        <span class="idea-tag">Education</span>
+                        <span class="idea-tag">Trust</span>
+                    </div>
+                    <p class="idea-description">Paddy to camera, in his element. What makes the gelato different, how a couple choose their custom menu, the branded wafers, how it all comes together on the day. Cut between Paddy talking and shots of the cart, the gelato, a real event. Honest and passionate. 45 to 60 seconds.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Your owner content is already your best performing. People buy from people. This builds trust, demystifies the booking, and answers the questions a couple has before they enquire. The more Paddy explains, the warmer the enquiries get.</div>
+                </div>
+
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 04</div>
+                    <div class="idea-title">"Double it or pass it on, wedding edition"</div>
+                    <div class="idea-meta">
+                        <span class="idea-tag">Trend</span>
+                        <span class="idea-tag">Challenge</span>
+                        <span class="idea-tag">Reaction</span>
+                    </div>
+                    <p class="idea-description">The trending "double it or pass it on" format with a tray of gelato going round the wedding. Each guest decides whether to keep one or double up for the table, with their reaction each time. Fun, fast, full of personality. Trending audio. Under 30 seconds.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Plugging your product into a trend people already know gives it a head start with the algorithm. It is playful, reaction-led, and shows the gelato being passed around a happy room. Exactly the kind of low-effort, high-reach content that grows a small account fast.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Digital Enhancements -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Digital Enhancements</div>
+            <div class="section-title">Beyond Social Media</div>
+            <p class="section-text" style="margin-bottom: 32px;">A few extra digital wins that would complement the content work.</p>
+
+            <div class="enhancement-card">
+                <h4>Launch TikTok and Double Your Reach</h4>
+                <p>There is no TikTok account yet, and it is currently the best platform for reaction-led, visual event content. Every reel you make for Instagram can be cross-posted, so it is free reach you are leaving on the table.</p>
+                <ul class="enhancement-list">
+                    <li>Set up TikTok with the @panna_gelato handle</li>
+                    <li>Cross-post every reel to TikTok and YouTube Shorts</li>
+                    <li>Use Newcastle and North East location tags, plus wedding and event hashtags</li>
+                    <li>Lean into the reaction and challenge formats, which over-perform on TikTok</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Run Paid Ads to the People Planning Events</h4>
+                <p>This is a perfect business for paid ads. Bookings happen months in advance, one booking is worth hundreds, and Meta lets you target exactly the right people, recently engaged couples, event planners, anyone interested in weddings in your area. A small, well-targeted budget can fill the calendar well ahead of time.</p>
+                <ul class="enhancement-list">
+                    <li>Target engaged couples and event planners across the North East, and wider for destination venues</li>
+                    <li>Use your best reaction and owner content as the ads, the same content that performs organically</li>
+                    <li>Retarget anyone who watches a reel or visits the site but does not enquire</li>
+                    <li>Track cost per enquiry and cost per booking so the spend is always accountable</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Why it fits Panna:</strong> For an events business, ads are not a gamble. One booking covers the spend many times over, and because you book so far ahead, ads let you fill quieter months on purpose.</p>
+                </div>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Build a Booking Flow on the Website</h4>
+                <p>The site looks great, but right now enquiries mean a back-and-forth by email or DM. A proper booking flow, where a couple can pick their date, package, guest numbers and custom options in a few steps, would capture more enquiries and cut the admin massively. It is also exactly where your ads should send people.</p>
+                <ul class="enhancement-list">
+                    <li>A step-by-step enquiry form: date, venue, package, guest count, custom menu and wafers</li>
+                    <li>Instant confirmation and a clear next step, so hot leads do not go cold</li>
+                    <li>A dedicated landing page for ad traffic, built to convert</li>
+                    <li>Availability so couples can see and secure a date with less back-and-forth</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>The opportunity:</strong> Ads and content drive people to the site, and a clean booking flow turns that traffic into booked events with far less manual chasing. This is how you scale beyond word of mouth.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- About Fusion Creative -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">About Fusion Creative</div>
+            <div class="card intro-card">
+                <p class="about-fc-text">Fusion Creative is a content and marketing agency based in Newcastle. We produce short-form video content, manage social media accounts, run paid campaigns, build websites, and handle branding. Everything under one roof.</p>
+                <p class="about-fc-text">We work exclusively with hospitality businesses. Restaurants, bars, hotels, and events. We know what works in this space because it is all we do. No stock footage, no generic templates, no recycled ideas. Every piece of content is original and tailored to the venue.</p>
+                <p class="about-fc-text">Our headline result is New Greek, a small independent restaurant in Newcastle that went from zero followers to over 63 million combined views across Instagram and TikTok in 30 days, including a single reel that hit 62.8 million views. We know what makes hospitality content perform, and we know how to turn great food into a packed room.</p>
+                <div class="about-fc-grid">
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">250M+</div><div class="about-fc-stat-label">Views generated</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">20+</div><div class="about-fc-stat-label">Videos per month</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">6+</div><div class="about-fc-stat-label">Years in content</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">100%</div><div class="about-fc-stat-label">Impressions guarantee</div></div>
+                </div>
+                <div class="about-fc-services">
+                    <span class="about-fc-tag">Short-Form Video</span>
+                    <span class="about-fc-tag">TikTok Management</span>
+                    <span class="about-fc-tag">Instagram Reels</span>
+                    <span class="about-fc-tag">Paid Ads</span>
+                    <span class="about-fc-tag">Website Design</span>
+                    <span class="about-fc-tag">Branding</span>
+                    <span class="about-fc-tag">SEO</span>
+                    <span class="about-fc-tag">Social Media Management</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Proposal -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Proposal</div>
+            <div class="section-title">What We Would Do for Panna</div>
+            <p class="section-text" style="margin-bottom: 32px;">This is the package we would recommend to get Panna in front of the couples and planners booking events across the North East. The focus is reach and bookings, not vanity metrics, and it is built around the reaction-led, owner-led content your numbers say works best.</p>
+
+            <div class="enhancement-card">
+                <h4>Content Production - At Your Events + Shoot Days</h4>
+                <p>We capture content where it matters: at your events. Guest reactions, the cart reveal, Paddy talking, the gelato and the custom details. Plus dedicated shoot days for evergreen flavour and product content between events.</p>
+                <ul class="enhancement-list">
+                    <li><strong>15 to 20 finished videos per month</strong> across Instagram Reels, TikTok, and YouTube Shorts</li>
+                    <li>Filming at your events (with permission) plus monthly shoot days, fully managed by our team</li>
+                    <li>Editing, captions, hashtags, hooks, posting, and audio research all done for you</li>
+                    <li>Reaction-led and owner-led content, modelled on the New Greek work</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Social Media Management</h4>
+                <p>End to end ownership of the Instagram and TikTok accounts, plus cross-posting to YouTube Shorts. We handle posting, community management, hashtags, audio trends, and reporting.</p>
+                <ul class="enhancement-list">
+                    <li>Run the Instagram and launch the TikTok, keeping the premium look consistent</li>
+                    <li>A recurring reaction and challenge series, plus a regular Paddy series</li>
+                    <li>Community management, hashtags, audio trends, and posting all handled</li>
+                    <li>Monthly reporting on reach, follower growth, enquiries, and best performing content</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Booking Flow + Paid Ads (Add-Ons)</h4>
+                <p>The site already looks great, so this is not a rebuild. It is adding a proper booking flow plus a dedicated landing page, then running paid ads to it. Together they turn reach into booked events. Scoped and priced separately so you can add them when you are ready.</p>
+                <ul class="enhancement-list">
+                    <li>A step-by-step booking flow: date, venue, package, guest count, custom options</li>
+                    <li>A dedicated ad landing page built to convert enquiries</li>
+                    <li>Paid ad campaigns targeting engaged couples and event planners, managed end to end</li>
+                    <li>SEO on the site for "gelato cart Newcastle", "wedding gelato North East" and similar</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Note:</strong> We scope ads and the booking flow separately and send a fixed price. Both are optional and can be added once the organic content is building momentum.</p>
+                </div>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Pricing</h4>
+                <p style="font-size:16px; color:var(--text); font-weight:600; margin-bottom:6px;">£1,600 per month</p>
+                <p>Covers content production (15 to 20 videos), social media management, posting, reporting, and filming at your events plus a monthly shoot day. No hidden fees. No long lock-ins.</p>
+                <ul class="enhancement-list">
+                    <li>£1,600/month rolling, cancel anytime after the first 3 months</li>
+                    <li>Booking flow and paid ads priced separately, added when you are ready</li>
+                    <li>Everything is reaction-led and owner-led, the content your numbers already favour</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Why us:</strong> We are based in Newcastle, we film in person at your events, all content is original. New Greek is just up the road, and what we did for them, 63M+ views in 30 days, was all shot locally.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Next Steps -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a read through this audit and proposal. Everything is in here, including the £1,600 monthly pricing for 15 to 20 videos plus full social media management.</li>
+                    <li>Our next available start date is <strong>early July 2026</strong>. That gives us a couple of weeks to plan content, set up the TikTok, and line up filming around your upcoming events.</li>
+                    <li>Between now and then, you can absolutely film any of the four video ideas above on a phone, especially a guess-the-flavour or reaction reel at your next event. Anything you shoot now can be reused once we officially start. Happy to share a few quick filming tips over WhatsApp or email if useful.</li>
+                    <li>Once you are ready, just reply to confirm and we will send across the contract, lock in the first shoot date, and start planning month one. The booking flow and ads can be scoped at the same time if you want to bundle them in.</li>
+                </ol>
+                <p class="closing-note">Honestly, Paddy, you have done the hard part. The brand, the product and the experience are genuinely excellent. The only thing missing is reach, and reaction-led content is exactly how we fix that. The early July slot is yours if you want it. Just let me know.</p>
+                <div class="cta-wrap">
+                    <a href="mailto:jay@fusioncreative.uk?subject=Panna%20-%20Getting%20Started" class="cta-btn">Let's Get Started</a>
+                    <div class="cta-sub">Reply to this email or pop me a WhatsApp whenever you are ready.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Signature -->
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="footer">
+            <div class="footer-confidential">Confidential - Prepared for Panna Gelato</div>
+            <div class="footer-note">This audit was put together using live data from your Instagram, your website, and online listings on 21 June 2026.</div>
+            <div class="footer-brand"><span>Fusion Creative</span></div>
+        </footer>
+    </div>
+
+</body>
+</html>
