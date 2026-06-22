@@ -365,20 +365,20 @@ h2{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:7
           <p style="font-weight:600;margin-bottom:1rem;">Tell us about your business.</p>
           <div style="display:flex;flex-direction:column;gap:14px;">
             <label for="f-business_name" class="sr-only">Business Name</label>
-            <input class="form-input" id="f-business_name" name="business_name" placeholder="Business Name" autocomplete="organization" />
-            <label for="f-social_handle" class="sr-only">Instagram or TikTok handle</label>
-            <input class="form-input" id="f-social_handle" name="social_handle" placeholder="Instagram or TikTok handle" />
+            <input class="form-input" id="f-business_name" name="business_name" placeholder="Business Name" autocomplete="organization" required />
+            <label for="f-social_handle" class="sr-only">Your Instagram or TikTok @handle</label>
+            <input class="form-input" id="f-social_handle" name="social_handle" placeholder="Your @handle (e.g. @yourcafe)" autocomplete="off" required />
             <label for="f-website" class="sr-only">Website</label>
-            <input class="form-input" id="f-website" name="website" placeholder="Website (optional)" autocomplete="url" />
+            <input class="form-input" id="f-website" name="website" placeholder="Website (e.g. yourcafe.co.uk)" autocomplete="url" required />
           </div>
         </div>
         <div class="form-step" id="step-2">
           <p style="font-weight:600;margin-bottom:1rem;">Where do we send your audit?</p>
           <div style="display:flex;flex-direction:column;gap:14px;">
             <label for="f-name" class="sr-only">Your Name</label>
-            <input class="form-input" id="f-name" name="name" placeholder="Your Name" autocomplete="name" />
+            <input class="form-input" id="f-name" name="name" placeholder="Your Name" autocomplete="name" required />
             <label for="f-email" class="sr-only">Email Address</label>
-            <input class="form-input" id="f-email" name="email" type="email" placeholder="Email Address" autocomplete="email" />
+            <input class="form-input" id="f-email" name="email" type="email" placeholder="Email Address" autocomplete="email" required />
             <label for="f-phone" class="sr-only">Phone Number</label>
             <input class="form-input" id="f-phone" name="phone" type="tel" placeholder="Phone Number (optional)" autocomplete="tel" />
           </div>
@@ -456,8 +456,16 @@ initGSAP();
 var formData={business_name:'',social_handle:'',website:'',name:'',email:'',phone:''};
 var currentStep=1;
 
+function looksLikeHandle(v){
+  v=(v||'').trim().toLowerCase().replace(/^@+/,'');
+  if(!v)return false;
+  var junk=['both','instagram','insta','ig','tiktok','tik tok','tt','facebook','fb','meta','x','twitter','none','n/a','na','nil','nope','yes','no','idk','-','.','/'];
+  if(junk.indexOf(v)!==-1)return false;
+  if(/\s/.test(v))return false;
+  return /^[a-z0-9._]{2,30}$/.test(v);
+}
 function canNext(){
-  if(currentStep===1)return!!document.getElementById('f-business_name').value.trim();
+  if(currentStep===1)return!!document.getElementById('f-business_name').value.trim()&&looksLikeHandle(document.getElementById('f-social_handle').value)&&!!document.getElementById('f-website').value.trim();
   if(currentStep===2)return!!document.getElementById('f-name').value.trim()&&!!document.getElementById('f-email').value.trim();
   return false;
 }
@@ -485,8 +493,11 @@ function nextStep(){
     btn.classList.add('shake');
     setTimeout(function(){btn.classList.remove('shake')},500);
     var step=document.getElementById('step-'+currentStep);
-    var inputs=step.querySelectorAll('.form-input');
-    if(inputs.length){inputs.forEach(function(inp){if(!inp.value.trim()){inp.classList.add('highlight-required');setTimeout(function(){inp.classList.remove('highlight-required')},1500)}})}
+    var inputs=step.querySelectorAll('.form-input[required]');
+    var firstEmpty=null;
+    inputs.forEach(function(inp){if(!inp.value.trim()){inp.classList.add('highlight-required');setTimeout(function(){inp.classList.remove('highlight-required')},2000);if(!firstEmpty)firstEmpty=inp;}});
+    if(firstEmpty){firstEmpty.setCustomValidity('Please fill this in to continue');firstEmpty.reportValidity();firstEmpty.focus();firstEmpty.oninput=function(){firstEmpty.setCustomValidity('');firstEmpty.classList.remove('highlight-required');};}
+    else if(currentStep===1){var hh=document.getElementById('f-social_handle');if(!looksLikeHandle(hh.value)){hh.classList.add('highlight-required');setTimeout(function(){hh.classList.remove('highlight-required')},2000);hh.setCustomValidity('Please enter your actual @handle, like @yourcafe (not the platform name)');hh.reportValidity();hh.focus();hh.oninput=function(){hh.setCustomValidity('');hh.classList.remove('highlight-required');};}}
     return;
   }
   if(currentStep===1){formData.business_name=document.getElementById('f-business_name').value.trim();formData.social_handle=document.getElementById('f-social_handle').value.trim();formData.website=document.getElementById('f-website').value.trim()}
