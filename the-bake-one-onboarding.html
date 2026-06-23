@@ -65,6 +65,21 @@
   .chip input:checked + span{border-color:var(--coral);color:var(--coral);
     background:rgba(232,85,60,.08);box-shadow:0 0 0 1px rgba(232,85,60,.25) inset}
 
+  /* toggle switch */
+  .switch-row{display:flex;align-items:center;justify-content:space-between;gap:16px;
+    background:#fbfaf8;border:1px solid var(--line2);border-radius:14px;padding:14px 16px;margin-top:4px;transition:border .2s,background .2s}
+  .switch-row.on{border-color:var(--coral);background:rgba(232,85,60,.05)}
+  .switch-text{flex:1;min-width:0}
+  .switch-q{font-size:14.5px;font-weight:600}
+  .switch-sub{font-size:12.5px;color:var(--muted);margin-top:3px}
+  .switch{position:relative;display:inline-block;width:52px;height:30px;flex-shrink:0}
+  .switch input{opacity:0;width:0;height:0;margin:0}
+  .slider{position:absolute;inset:0;cursor:pointer;background:#d8d6cf;border-radius:99px;transition:.25s}
+  .slider:before{content:"";position:absolute;height:24px;width:24px;left:3px;top:3px;background:#fff;
+    border-radius:50%;transition:.25s;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+  .switch input:checked + .slider{background:var(--coral)}
+  .switch input:checked + .slider:before{transform:translateX(22px)}
+
   .submit-bar{text-align:center;margin:30px 0 0}
   .btn{display:inline-flex;align-items:center;gap:10px;border:none;cursor:pointer;font:inherit;font-weight:700;
     border-radius:99px;padding:15px 36px;font-size:16px;color:#fff;background:var(--coral);
@@ -136,7 +151,16 @@
       <div class="field"><label>Instagram handle</label><input type="text" name="instagram" value="@thebakeonegosforth"></div>
       <div class="field"><label>Facebook page</label><input type="text" name="facebook" placeholder="facebook.com/..."></div>
     </div>
-    <div class="field"><label>Preferred handle for your new TikTok <span class="hint">we'll set it up for you</span></label><input type="text" name="tiktok_handle" placeholder="@thebakeone"></div>
+    <div class="field"><label>Your new TikTok</label>
+      <div class="switch-row" id="ttRow">
+        <div class="switch-text">
+          <div class="switch-q">Do you want us to set up your new TikTok account?</div>
+          <div class="switch-sub">Flip this on and we'll create and run the whole thing for you. Prefer to set it up yourself? Just leave it off.</div>
+        </div>
+        <label class="switch"><input type="checkbox" id="ttSetup" name="tiktok_setup" value="Yes - please set up our new TikTok"><span class="slider"></span></label>
+      </div>
+      <label id="ttHandleLabel" style="margin-top:14px">Your new TikTok handle <span class="hint" id="ttHint">set it up yourself and pop the handle here once it's live</span></label>
+      <input type="text" name="tiktok_handle" placeholder="@thebakeone"></div>
     <div class="field"><label>How would you like us to handle posting?</label>
       <div class="chips">
         <label class="chip"><input type="radio" name="access_pref" value="Add us as managers"><span>Add us as managers</span></label>
@@ -294,6 +318,9 @@ function collect(){
     else if(el.type==='checkbox'){ if(el.checked){ (d[el.name]=d[el.name]||[]).push(el.value); } }
     else { d[el.name]=el.value; }
   });
+  // explicit yes/no for the TikTok setup switch
+  const _tt=document.getElementById('ttSetup');
+  d.tiktok_setup = (_tt && _tt.checked) ? 'Yes - please set up our new TikTok' : "No - we'll set it up ourselves";
   return d;
 }
 
@@ -327,7 +354,18 @@ form.addEventListener('submit', async (e)=>{
   }
 });
 
-restore(); updateProgress();
+const ttSetup=document.getElementById('ttSetup');
+const ttRow=document.getElementById('ttRow');
+const ttLabel=document.getElementById('ttHandleLabel');
+const ttHint=document.getElementById('ttHint');
+function ttUpdate(){
+  const on=ttSetup.checked;
+  ttRow.classList.toggle('on', on);
+  ttLabel.firstChild.textContent = on ? 'Preferred handle for your new TikTok ' : 'Your new TikTok handle ';
+  ttHint.textContent = on ? "perfect, choose a handle and we'll get it set up" : "set it up yourself and pop the handle here once it's live";
+}
+ttSetup.addEventListener('change', ttUpdate);
+restore(); ttUpdate(); updateProgress();
 </script>
 </body>
 </html>
