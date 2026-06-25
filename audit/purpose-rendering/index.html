@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Audit - Purpose Rendering | Fusion Creative</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #f5f6fa; --bg-alt: #ecedf1; --card: #ffffff; --card-border: rgba(0,0,0,0.08);
+            --coral: #E8553C; --coral-light: #ff7a64; --coral-dark: #c4412b;
+            --text: #1a1d23; --text-secondary: #4a4f5c; --text-muted: #7c8090;
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); } 50% { box-shadow: 0 0 40px rgba(232,85,60,0.55); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 48px 0 40px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+        .brand { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); }
+        .brand-dot { display: inline-block; width: 6px; height: 6px; background: var(--coral); border-radius: 50%; margin-right: 8px; vertical-align: middle; position: relative; top: -1px; }
+        .header-date { font-size: 13px; color: var(--text-muted); font-weight: 400; }
+        .hero { padding: 64px 0 56px; animation: fadeInUp 0.6s ease both; }
+        .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; }
+        .hero h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(42px, 7vw, 64px); font-weight: 400; line-height: 1.05; letter-spacing: -1px; margin-bottom: 24px; }
+        .hero h1 span { background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral)); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s linear infinite; }
+        .hero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 600px; line-height: 1.7; font-weight: 400; }
+        .section { padding: 48px 0; animation: fadeInUp 0.6s ease both; }
+        .section-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent); }
+        .card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 40px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .card-sm { padding: 28px 32px; }
+        .section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 12px; }
+        .section-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 34px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 24px; line-height: 1.2; }
+        .section-text { color: var(--text-secondary); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+        .section-text:last-child { margin-bottom: 0; }
+        .intro-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); }
+        .intro-card .greeting { font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; color: var(--text); }
+        .note-box { background: rgba(232,85,60,0.07); border: 1px dashed rgba(232,85,60,0.4); border-radius: 12px; padding: 16px 20px; margin-top: 20px; font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .note-box strong { color: var(--coral); }
+        .stats-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .stats-table tr { border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .stats-table tr:last-child { border-bottom: none; }
+        .stats-table tr:nth-child(even) { background: rgba(0,0,0,0.02); }
+        .stats-table td { padding: 14px 0; }
+        .stats-table td:first-child { color: var(--text-secondary); font-weight: 400; padding-right: 24px; white-space: nowrap; }
+        .stats-table td:last-child { font-weight: 600; color: var(--text); text-align: right; }
+        .stat-highlight { color: var(--coral) !important; font-weight: 700 !important; }
+        .stat-badge { display: inline-block; background: rgba(232,85,60,0.15); color: var(--coral-light); padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-green { display: inline-block; background: rgba(52,199,89,0.15); color: #4cd97d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-amber { display: inline-block; background: rgba(255,159,10,0.15); color: #ffb84d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .working-item { margin-bottom: 28px; }
+        .working-item:last-child { margin-bottom: 0; }
+        .working-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+        .working-item p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+        .check-icon { display: inline-block; color: #4cd97d; margin-right: 6px; font-weight: 700; }
+        .opportunity-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--coral); color: white; border-radius: 8px; font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.35); }
+        .opportunity-heading { display: flex; align-items: center; margin-bottom: 14px; }
+        .opportunity-heading h3 { font-size: 19px; font-weight: 600; color: var(--text); }
+        .opportunity-card { margin-bottom: 20px; }
+        .opportunity-card:last-child { margin-bottom: 0; }
+        .case-study-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); border-left: 4px solid var(--coral); overflow: hidden; position: relative; }
+        .case-study-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--coral), var(--coral-light)); }
+        .case-study-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin: 32px 0; }
+        .case-study-stat { text-align: center; padding: 24px 16px; background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; animation: scaleIn 0.5s ease both; }
+        .case-study-stat .number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(30px, 5vw, 44px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1; margin-bottom: 6px; }
+        .case-study-stat .label { font-size: 12px; color: var(--text-secondary); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        .viral-callout { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 12px; padding: 24px 28px; margin-top: 24px; }
+        .viral-callout .big-number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(28px, 5vw, 40px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1.15; }
+        .viral-callout .context { font-size: 14px; color: var(--text-secondary); margin-top: 8px; line-height: 1.6; }
+        .viral-callout .context strong { color: var(--text); }
+        .takeaway { margin-top: 24px; font-size: 15px; color: var(--text-secondary); font-style: italic; line-height: 1.7; }
+        .video-ideas-grid { display: grid; gap: 20px; }
+        .video-idea-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 32px; position: relative; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .video-idea-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .video-idea-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--coral); border-radius: 4px 0 0 4px; }
+        .idea-number { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); margin-bottom: 10px; }
+        .idea-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; font-weight: 400; margin-bottom: 16px; line-height: 1.3; color: var(--text); }
+        .idea-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+        .idea-tag { font-size: 12px; font-weight: 600; color: var(--text-muted); background: rgba(0,0,0,0.04); padding: 4px 12px; border-radius: 6px; }
+        .idea-description { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+        .idea-why { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--card-border); }
+        .idea-why strong { color: var(--coral); font-weight: 600; }
+        .enhancement-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px 32px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .enhancement-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .enhancement-card:last-child { margin-bottom: 0; }
+        .enhancement-card h4 { font-size: 17px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+        .enhancement-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+        .enhancement-card p:last-child { margin-bottom: 0; }
+        .enhancement-list { list-style: none; margin: 12px 0; }
+        .enhancement-list li { font-size: 14px; color: var(--text-secondary); padding: 6px 0 6px 18px; position: relative; line-height: 1.6; }
+        .enhancement-list li::before { content: ''; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; background: var(--coral); border-radius: 50%; }
+        .highlight-box { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 10px; padding: 18px 22px; margin-top: 14px; }
+        .highlight-box p { font-size: 14px; color: var(--text-secondary); margin-bottom: 0; }
+        .highlight-box strong { color: var(--coral); }
+        .next-steps-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 80%); border-color: rgba(232,85,60,0.2); }
+        .steps-list { list-style: none; counter-reset: steps; }
+        .steps-list li { counter-increment: steps; display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--card-border); font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+        .steps-list li:last-child { border-bottom: none; }
+        .steps-list li::before { content: counter(steps); display: flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; background: var(--coral); color: white; border-radius: 10px; font-size: 14px; font-weight: 700; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.3); }
+        .about-fc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+        .about-fc-stat { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; padding: 20px 24px; text-align: center; animation: scaleIn 0.5s ease both; }
+        .about-fc-stat-val { font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; font-weight: 400; color: var(--coral); letter-spacing: -0.5px; }
+        .about-fc-stat-label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+        .about-fc-text { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+        .about-fc-services { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .about-fc-tag { background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+        .cta-wrap { text-align: center; margin-top: 32px; }
+        .cta-btn { display: inline-block; background: var(--coral); color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 40px; border-radius: 999px; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; animation: pulseGlow 3s ease-in-out infinite; }
+        .cta-btn:hover { background: var(--coral-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,85,60,0.5); animation: none; }
+        .cta-sub { font-size: 13px; color: var(--text-muted); margin-top: 12px; }
+        .closing-note { margin-top: 24px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+        .signature { padding: 48px 0; }
+        .signature-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 24px; font-weight: 400; margin-bottom: 4px; color: var(--text); }
+        .signature-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 2px; }
+        .signature-link { font-size: 14px; color: var(--coral); text-decoration: none; font-weight: 500; }
+        .signature-link:hover { text-decoration: underline; }
+        .footer { padding: 32px 0; border-top: 1px solid rgba(0,0,0,0.08); text-align: center; background: var(--bg-alt); }
+        .footer-confidential { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+        .footer-note { font-size: 12px; color: var(--text-muted); font-style: italic; }
+        .footer-brand { margin-top: 16px; font-size: 12px; color: var(--text-muted); }
+        .footer-brand span { color: var(--coral); font-weight: 600; }
+        @media (max-width: 640px) {
+            .container { padding: 0 16px; } .card { padding: 28px 22px; } .hero { padding: 40px 0 36px; } .section { padding: 32px 0; }
+            .case-study-grid { grid-template-columns: repeat(2, 1fr); } .video-idea-card { padding: 24px 22px; }
+            .header-inner { flex-direction: column; gap: 8px; } .about-fc-grid { grid-template-columns: 1fr 1fr; gap: 12px; } .about-fc-stat-val { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+  <!-- Audit intro / shader welcome screen -->
+  <style>
+    #fc-intro{position:fixed;inset:0;z-index:99999;background:#0e0c14;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity .85s ease;}
+    #fc-intro.fc-out{opacity:0;pointer-events:none;}
+    #fc-intro canvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
+    .fc-intro-inner{position:relative;z-index:2;text-align:center;padding:24px;max-width:780px;color:#fff;}
+    .fc-intro-eyebrow{font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:24px;}
+    .fc-intro-eyebrow b{color:#ff7d5e;font-weight:700;}
+    .fc-intro-title{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.1rem,6vw,4.4rem);line-height:1.06;font-weight:400;letter-spacing:-0.01em;text-shadow:0 2px 50px rgba(0,0,0,0.4);}
+    .fc-intro-hint{font-family:Inter,system-ui,sans-serif;font-size:14px;font-weight:500;letter-spacing:0.05em;color:rgba(255,255,255,0.88);margin-top:38px;display:inline-flex;align-items:center;gap:10px;animation:fcPulse 2.4s ease-in-out infinite;}
+    .fc-intro-hint .fc-dot{width:7px;height:7px;border-radius:50%;background:#ff7d5e;box-shadow:0 0 12px rgba(255,125,94,0.9);}
+    @keyframes fcPulse{0%,100%{opacity:.55;}50%{opacity:1;}}
+    body.fc-locked{overflow:hidden;}
+  </style>
+  <div id="fc-intro">
+    <canvas id="fc-intro-canvas"></canvas>
+    <div class="fc-intro-inner">
+      <div class="fc-intro-eyebrow"><b>Fusion Creative</b> &middot; Private Audit</div>
+      <div class="fc-intro-title">Paul, welcome to your audit.</div>
+      <div class="fc-intro-hint"><span class="fc-dot"></span> Click anywhere to view</div>
+    </div>
+  </div>
+  <script>document.body.classList.add('fc-locked');</script>
+
+    <!-- Header -->
+    <div class="container">
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand"><span class="brand-dot"></span>Fusion Creative</div>
+                <div class="header-date">25 June 2026</div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-label">Audit + Proposal</div>
+            <h1><span>Purpose Rendering</span></h1>
+            <p class="hero-subtitle">Turning 25 years of craft into the most-watched rendering content in the North East | Prepared by Fusion Creative | 25 June 2026</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Intro -->
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Hey Paul,</div>
+                <p class="section-text">Thanks for requesting your free audit. I had a proper look through <strong>Purpose Rendering</strong>, the website, your Facebook, and your Checkatrade, and there is one thing that jumped out straight away: you run a brilliant, trusted, 25-year family business, but almost none of that craft is being filmed. For a rendering company, that is the single biggest open goal there is.</p>
+                <p class="section-text">Here is why it matters who you work with on this. We are a Newcastle agency. We film in person, we know this patch, and our headline result, New Greek, is a local Newcastle business we took to over 70 million views with short-form video. Rendering and plastering are some of the most satisfying things on the internet to watch, the pebble dash coming off, the float gliding across fresh render, the before and after reveal. You are sitting on that content every single day. Right now it is going in the skip instead of in front of thousands of local homeowners.</p>
+                <p class="section-text">Inside you will find a snapshot of where Purpose Rendering is online today, what is already working in your favour, <strong>five things we would focus on to turn your jobs into a steady stream of local enquiries</strong>, four ready-made video ideas you could film on your next job, and the proposal.</p>
+                <div class="note-box">
+                    <strong>Quick note:</strong> the request came through with a different web address than the one that actually works, so I have based this audit on <strong>purposerendering.co.uk</strong>, your Facebook page, and your Checkatrade profile. If I have picked up the wrong details anywhere, just reply and I will fix it. And if you have an Instagram or TikTok I could not find, send the handle over and I will fold it in.
+                </div>
+            </div>
+
+            <!-- Fusion Creative metrics card -->
+            <div class="card" style="margin-top:8px;">
+                <div style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--coral); margin-bottom:6px;">Client Results</div>
+                <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Generated for a single local business in Newcastle</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">70M+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">824K+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Interactions</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">6,200+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">60M</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
+                    </div>
+                </div>
+                <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">We generated over 70 million views across Instagram and TikTok in 30 days for a single local Newcastle business, from a steady stream of short-form videos. One reel alone hit 60 million views. They went from a standing start to a household name in the North East, all shot locally. The exact same engine, transformation and process video, is what makes trades like rendering blow up. Purpose Rendering already does the hard part, the work. The job now is to put it on camera and in front of local homeowners.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Snapshot -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Current Snapshot</div>
+            <div class="section-title">Where Purpose Rendering Is Online Today</div>
+            <div class="card card-sm">
+                <table class="stats-table">
+                    <tr><td>Website</td><td class="stat-highlight">purposerendering.co.uk <span class="stat-badge-green">Live &amp; clear</span></td></tr>
+                    <tr><td>Checkatrade</td><td>170+ reviews <span class="stat-badge-green">Outstanding trust</span></td></tr>
+                    <tr><td>Years trading</td><td>25+ years, family run <span class="stat-badge-green">Real heritage</span></td></tr>
+                    <tr><td>Google Business Profile</td><td>Listed <span class="stat-badge-amber">Underused</span></td></tr>
+                    <tr><td>Facebook</td><td>Active page <span class="stat-badge-amber">Photos only, no video</span></td></tr>
+                    <tr><td>Instagram</td><td class="stat-highlight">None found <span class="stat-badge">The big gap</span></td></tr>
+                    <tr><td>TikTok</td><td class="stat-highlight">None found <span class="stat-badge">Wide open</span></td></tr>
+                    <tr><td>Short-form video</td><td>None <span class="stat-badge">Your best content, unfilmed</span></td></tr>
+                    <tr><td>Service area</td><td>Whitley Bay, North Tyneside &amp; Northumberland</td></tr>
+                    <tr><td>The offer</td><td>External render, plastering, commercial, pebble dash removal</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- What Is Working -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">What Is Already Working Well</div>
+            <div class="section-title">Credit Where It Is Due</div>
+            <div class="card">
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The reputation is rock solid</h4>
+                    <p>170-plus Checkatrade reviews is not a small thing, it is years of doing the job properly. That level of trust is exactly what most trades businesses are desperate for and cannot buy. Right now it lives on Checkatrade, where people only land once they are already looking for a renderer. Put that same proof on social, and it works for you with people who were not even searching yet.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> 25 years and family run is a story people back</h4>
+                    <p>Homeowners are nervous about who they let near their house. A quarter of a century, family run, no deposit, staged payments as the work progresses, that is reassurance built right in. It is a genuine brand story, and stories like that are what make a local business the obvious choice.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The website is clean and does its job</h4>
+                    <p>The site is clear, the services are easy to understand, and the areas you cover are spelled out. That is a solid foundation. It tells people what you do, it just needs a steady flow of new local visitors arriving at it, which is exactly what content and local visibility bring.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The work itself is the content</h4>
+                    <p>This is the bit most businesses would kill for. Rendering and plastering are visual, satisfying and transformational by nature. Every job is a before and after. Every fresh coat of render is a "this is so satisfying" clip. You do not need to invent content, you are standing in front of it on every single site.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> You are already on Facebook</h4>
+                    <p>You have an active Facebook presence, so the habit of posting is there. The missing piece is short-form video and the platforms built for it. The photos prove the work, but it is the moving before-and-after that travels and gets shared, and that is the upgrade.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Where The Opportunity Is -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Where The Opportunity Is</div>
+            <div class="section-title">Five Things We Would Focus On</div>
+            <p class="section-text" style="margin-bottom: 32px;">You already have the reputation, the experience and the work. The job is to turn that into reach and enquiries: get the transformations filmed, put them in front of local homeowners, and make Purpose Rendering the name people in the North East already know before they ever need a renderer. These are the five areas we would focus on.</p>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">1</span><h3>Film Every Before and After</h3></div>
+                <p class="section-text">This is the whole game for a rendering business. A tired, cracked, pebble-dashed house turning into a crisp, smooth, freshly rendered home is one of the most shareable things on social. A quick clip of the property before, a few seconds of the work, then the big reveal, that format alone can carry your entire account. The transformation sells itself, no script needed.</p>
+                <p class="section-text">You complete these jobs constantly. Capturing each one is two minutes of filming on a phone, and it builds a library of proof that runs for years.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">2</span><h3>Lean Into the Satisfying Process</h3></div>
+                <p class="section-text">The internet loves watching skilled trade work. The float gliding across wet render, pebble dash being stripped back, a wall going from rough to glass-smooth, this is the "oddly satisfying" content that racks up views and rewatches. Sound up, close in, no talking needed. It shows your skill and it holds attention, which is exactly what the algorithm rewards.</p>
+                <p class="section-text">Most local renderers never film this. Whoever owns the satisfying-process content in this area owns the attention, and right now that space is wide open.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">3</span><h3>Start an Instagram and TikTok From Scratch</h3></div>
+                <p class="section-text">There is no Instagram or TikTok for Purpose Rendering yet, and that is an opportunity, not a problem. These are the two platforms where transformation and trade content travels furthest, and almost no renderer in the North East is using them properly. You would be early, in your own backyard, with the best raw material going.</p>
+                <p class="section-text">We build and run both from day one, so it is done right, posted consistently, and tuned to the local homeowners who actually book jobs, not just a follower count for the sake of it.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">4</span><h3>Put Your Reviews and Story on Camera</h3></div>
+                <p class="section-text">170 Checkatrade reviews is a goldmine you are barely using. Real, on-site reactions from happy customers standing in front of their newly rendered home are worth more than any advert. Pair that with the "family run, 25 years" story and the staged-payment reassurance, and you answer the exact worries every homeowner has before they pick up the phone.</p>
+                <p class="section-text">Trust is the deciding factor in trades. You already have it in spades, this just makes it visible to people before they are even looking.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">5</span><h3>Local Ads to Turn Reach Into Booked Jobs</h3></div>
+                <p class="section-text">Rendering is a high-value job, which makes paid ads almost a no-brainer. A modest, tightly targeted budget around Whitley Bay, North Tyneside and Northumberland puts your best before-and-after reel in front of homeowners in the exact streets you want to work in. One booked render pays for months of ad spend.</p>
+                <p class="section-text">Content builds the trust and the audience, ads put it in front of people ready to book now. Together they turn your social from a portfolio into a steady enquiry machine.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Case Study -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Case Study</div>
+            <div class="section-title">What We Did for New Greek</div>
+            <div class="card case-study-card">
+                <p class="section-text">New Greek is a small independent business in Newcastle. No following, no content history, no ad budget. They started from zero. Here is where they got to after working with Fusion Creative.</p>
+                <div class="case-study-grid">
+                    <div class="case-study-stat"><div class="number">70M+</div><div class="label">Total Views</div></div>
+                    <div class="case-study-stat"><div class="number">60M</div><div class="label">Single Reel Views</div></div>
+                    <div class="case-study-stat"><div class="number">824K+</div><div class="label">Interactions</div></div>
+                    <div class="case-study-stat"><div class="number">6,200+</div><div class="label">Followers Grown</div></div>
+                </div>
+                <div class="viral-callout">
+                    <div class="big-number">70 million views. One local business. Zero head start.</div>
+                    <div class="context"><strong>New Greek had no followers, no content history and no brand recognition.</strong> We built their presence from scratch with short-form video, over 70 million views across Instagram and TikTok in 30 days, one reel alone hitting 60 million. They went from unknown to fully booked. The format that did it, transformation and satisfying process video, is exactly the content rendering produces naturally on every job.</div>
+                </div>
+                <p class="takeaway">Purpose Rendering does not need fixing. It needs filming, so 25 years of craft and 170 happy customers finally get seen by the people who have not booked you yet.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Video Ideas -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Ready-Made Content</div>
+            <div class="section-title">4 Video Ideas You Could Film on Your Next Job</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are formats working right now on TikTok and Instagram Reels, built around what you already do every day: the transformation, the process, the proof. Each one could be filmed on a phone on site, no extra time off the tools.</p>
+            <div class="video-ideas-grid">
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 01</div>
+                    <div class="idea-title">"This house hadn't been touched in 30 years"</div>
+                    <div class="idea-meta"><span class="idea-tag">Before / After</span><span class="idea-tag">Transformation</span><span class="idea-tag">Reveal</span></div>
+                    <p class="idea-description">The classic, and the best. A few seconds of the tired, cracked, pebble-dashed house, a quick montage of the render going on, then the full reveal of the finished home. Strong hook on frame one. Trending audio underneath. Under 25 seconds.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Transformation is the most shareable content there is, and a render before-and-after is about as dramatic as it gets. It sells the result with zero words.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 02</div>
+                    <div class="idea-title">"Tell me this isn't the most satisfying job going"</div>
+                    <div class="idea-meta"><span class="idea-tag">ASMR</span><span class="idea-tag">Satisfying</span><span class="idea-tag">Process</span></div>
+                    <p class="idea-description">Close and slow: the float gliding across wet render, the smooth finish appearing behind it, the sound of the tools. No talking, sound up, hook text on screen ("wait for the finish"). End on the perfect smooth wall. Under 20 seconds.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Satisfying trade content gets enormous reach and rewatches. It quietly shows off your skill while holding attention, which is exactly what the For You page rewards.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 03</div>
+                    <div class="idea-title">"Ripping 30 years of pebble dash off this house"</div>
+                    <div class="idea-meta"><span class="idea-tag">Satisfying</span><span class="idea-tag">Before</span><span class="idea-tag">Process</span></div>
+                    <p class="idea-description">Pebble dash removal is its own genre of satisfying. The dated coating coming away in sheets, the clean wall underneath, the sense of a fresh start. Lead with the worst-looking corner, end with it stripped back and ready. Punchy and fast.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> It hooks on the "ugly to clean" instinct people cannot scroll past, and it speaks directly to the exact homeowners googling "pebble dash removal near me".</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 04</div>
+                    <div class="idea-title">"The customer's reaction said it all"</div>
+                    <div class="idea-meta"><span class="idea-tag">Reaction</span><span class="idea-tag">Trust</span><span class="idea-tag">Local</span></div>
+                    <p class="idea-description">A quick clip of a happy customer seeing their finished home for the first time, or a few words to camera on why they chose you. Cut it with the before-and-after of their house. Tag the local area. Real people, real results.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> It turns your 170 reviews into something people feel. Genuine local reactions are the most persuasive content a trades business can post, and they build trust before anyone calls.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Digital Enhancements -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Digital Enhancements</div>
+            <div class="section-title">Beyond the Main Feed</div>
+            <p class="section-text" style="margin-bottom: 32px;">A few extra wins that would compound the content work and turn more of your local visibility into booked jobs.</p>
+
+            <div class="enhancement-card">
+                <h4>Get the Google Business Profile Pulling Its Weight</h4>
+                <p>For a trades business, the Google profile and the map pack are where ready-to-book customers actually look. Yours is listed but underused. Tightened up properly, it puts you in front of people searching "renderer near me" in your area at the exact moment they want a quote.</p>
+                <ul class="enhancement-list">
+                    <li>Fully complete and optimise the profile for rendering and plastering searches</li>
+                    <li>Funnel your happy customers into fresh Google reviews, not just Checkatrade</li>
+                    <li>Add finished-job photos and before-and-afters regularly</li>
+                    <li>Local SEO for "rendering Whitley Bay", "pebble dash removal North Tyneside" and similar</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>A Simple System to Capture Every Job</h4>
+                <p>The hardest part of trade content is remembering to film while you are working. A dead-simple shot list fixes that: a handful of quick clips per job, captured on a phone, sent to us. We turn the raw footage into polished, posted content.</p>
+                <ul class="enhancement-list">
+                    <li>A quick what-to-film guide so nothing is missed on site</li>
+                    <li>Before, a few process clips, and the final reveal, that is all it takes</li>
+                    <li>We handle the editing, captions, hooks, audio and posting</li>
+                    <li>Monthly reporting on reach, growth and enquiries</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Run Local Ads Behind the Best Content</h4>
+                <p>Because a single render is a high-value job, paid ads pay back fast. Put your strongest before-and-after in front of homeowners in the streets you want to work in, and let it drive quote requests straight to you.</p>
+                <ul class="enhancement-list">
+                    <li>Tightly target Whitley Bay, North Tyneside and Northumberland</li>
+                    <li>Use your best transformation reels as the ads</li>
+                    <li>Drive enquiries to a simple quote form or straight to a call</li>
+                    <li>Track cost per enquiry so the spend is always accountable</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Why it fits Purpose Rendering:</strong> One booked job covers months of ad spend, which makes local ads one of the highest-return things a renderer can do.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- About Fusion Creative -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">About Fusion Creative</div>
+            <div class="card intro-card">
+                <p class="about-fc-text">Fusion Creative is a content and marketing agency based in Newcastle. We produce short-form video content, manage social media accounts, run paid campaigns, build websites, and handle branding. Everything under one roof.</p>
+                <p class="about-fc-text">We work with local and growing businesses across the North East, and we film in person, on the ground, right here. No stock footage, no generic templates, no recycled ideas. Every piece of content is original and tailored to the business.</p>
+                <p class="about-fc-text">Our headline result is New Greek, a small independent Newcastle business that went from zero followers to over 70 million views across Instagram and TikTok in 30 days, including one reel that hit 60 million views. We know how to take a great local business and make it impossible to scroll past.</p>
+                <div class="about-fc-grid">
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">250M+</div><div class="about-fc-stat-label">Views generated</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">20+</div><div class="about-fc-stat-label">Videos per month</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">6+</div><div class="about-fc-stat-label">Years in content</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">100%</div><div class="about-fc-stat-label">Original content</div></div>
+                </div>
+                <div class="about-fc-services">
+                    <span class="about-fc-tag">Short-Form Video</span>
+                    <span class="about-fc-tag">TikTok Management</span>
+                    <span class="about-fc-tag">Instagram Reels</span>
+                    <span class="about-fc-tag">Paid Ads</span>
+                    <span class="about-fc-tag">Local SEO</span>
+                    <span class="about-fc-tag">Website Design</span>
+                    <span class="about-fc-tag">Branding</span>
+                    <span class="about-fc-tag">Social Media Management</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Proposal -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Proposal</div>
+            <div class="section-title">What We Would Do for Purpose Rendering</div>
+            <p class="section-text" style="margin-bottom: 32px;">This is the package we would recommend to build Purpose Rendering a proper social presence from scratch and turn your jobs into a steady flow of local enquiries. The focus is transformation and process video, filmed around your real jobs, with the channels built and run for you.</p>
+
+            <div class="enhancement-card">
+                <h4>Content Production - Filmed Around Your Real Jobs</h4>
+                <p>A steady engine of before-and-after, satisfying-process and customer-reaction video, built from footage captured on your sites and turned into polished, posted content.</p>
+                <ul class="enhancement-list">
+                    <li><strong>8 to 12 finished videos per month</strong> across Instagram Reels, TikTok and Facebook</li>
+                    <li>Before-and-after reveals, satisfying process clips and customer reactions</li>
+                    <li>Editing, captions, hooks, hashtags, audio research and posting all done for you</li>
+                    <li>A simple shot list so capturing footage on site takes minutes, not hours</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Social Media Management</h4>
+                <p>We build and run your Instagram and TikTok from day one, plus your Facebook, all tuned to the local homeowners who actually book rendering jobs.</p>
+                <ul class="enhancement-list">
+                    <li>Set up and grow Instagram and TikTok from scratch, done properly</li>
+                    <li>Consistent, hooky posting rhythm across all platforms</li>
+                    <li>Local hashtags, area tags and community management</li>
+                    <li>Monthly reporting on reach, follower growth and best-performing content</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Local Lead Ads (Add-On)</h4>
+                <p>A tightly targeted local ad campaign that puts your best transformations in front of homeowners in your area and drives quote requests straight to you. Scoped and priced separately so you can add it when you are ready.</p>
+                <ul class="enhancement-list">
+                    <li>Targeted to Whitley Bay, North Tyneside and Northumberland</li>
+                    <li>Your best before-and-after reels used as the ads</li>
+                    <li>Enquiries sent to a simple quote form or straight to a call</li>
+                    <li>Local SEO and Google profile work to catch ready-to-book searchers</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Note:</strong> We scope the lead ads separately and send a fixed price. They are optional and can be added whenever you want to turn the dial up on enquiries.</p>
+                </div>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Pricing</h4>
+                <p style="font-size:16px; color:var(--text); font-weight:600; margin-bottom:6px;">Content + social package, &pound;899 per month</p>
+                <p>Covers content production (8 to 12 videos), full social media management across Instagram, TikTok and Facebook, posting and reporting, with both new channels built from scratch. No hidden fees. No long lock-ins.</p>
+                <ul class="enhancement-list">
+                    <li>&pound;899/month rolling, channels built and run for you</li>
+                    <li>Local lead ads priced separately, added when you are ready</li>
+                    <li>Everything filmed around your real jobs, here in the North East</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Why us:</strong> We are based in Newcastle and film in person, all content original. New Greek, a local business just like yours, did 70M+ views in 30 days, and the transformation video that did it is exactly what rendering produces on every job.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Next Steps -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a read through this audit and proposal. Everything is in here, including the pricing for 8 to 12 videos a month plus full social media management across Instagram, TikTok and Facebook.</li>
+                    <li>Let me know roughly how many jobs you run in a typical month and whether you would want me to set up the Instagram and TikTok, and I will tailor the plan around it.</li>
+                    <li>The ideal first step is a single job we can film start to finish, so you can see exactly what a before-and-after reel looks like with your work in it.</li>
+                    <li>Once you are happy, just reply to confirm and I will send the simple agreement, get the channels set up, and line up that first shoot.</li>
+                </ol>
+                <p class="closing-note">Honestly, Paul, you have spent 25 years building the reputation and the skill, which is the hard part most businesses never get. The content is the easy bit, it is happening on your sites every day, it is just not being filmed yet. As a Newcastle agency that films in person and took a local business to 70 million views, we are well placed to make Purpose Rendering the name people round here already know. Let's get the first transformation on camera.</p>
+                <div class="cta-wrap">
+                    <a href="mailto:jay@fusioncreative.uk?subject=Purpose%20Rendering%20-%20Getting%20Started" class="cta-btn">Let's Get Started</a>
+                    <div class="cta-sub">Reply to this email or give me a call whenever you are ready.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Signature -->
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="footer">
+            <div class="footer-confidential">Confidential - Prepared for Purpose Rendering</div>
+            <div class="footer-note">Prepared for Purpose Rendering using the purposerendering.co.uk website, Facebook and Checkatrade profiles on 25 June 2026.</div>
+            <div class="footer-brand"><span>Fusion Creative</span></div>
+        </footer>
+    </div>
+
+  <script>
+  (function(){
+    var intro=document.getElementById('fc-intro');if(!intro)return;
+    var canvas=document.getElementById('fc-intro-canvas');
+    var gl=canvas.getContext('webgl')||canvas.getContext('experimental-webgl');
+    var raf=0,dismissed=false;
+    function dismiss(){if(dismissed)return;dismissed=true;intro.classList.add('fc-out');document.body.classList.remove('fc-locked');setTimeout(function(){if(raf)cancelAnimationFrame(raf);intro.style.display='none';},900);}
+    intro.addEventListener('click',dismiss);
+    if(!gl)return;
+    var vsrc='attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
+    var fsrc=['precision highp float;','uniform vec2 u_res;uniform float u_time;uniform vec2 u_mouse;',
+      'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
+      'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);',
+      'return mix(mix(hash(i),hash(i+vec2(1.0,0.0)),u.x),mix(hash(i+vec2(0.0,1.0)),hash(i+vec2(1.0,1.0)),u.x),u.y);}',
+      'float fbm(vec2 p){float v=0.0,a=0.5;for(int i=0;i<5;i++){v+=a*noise(p);p*=2.0;a*=0.5;}return v;}',
+      'void main(){vec2 uv=gl_FragCoord.xy/u_res.xy;float asp=u_res.x/u_res.y;vec2 p=uv;p.x*=asp;vec2 mo=u_mouse;mo.x*=asp;float t=u_time*0.05;',
+      'vec2 q=p*1.5+vec2(t,-t*0.7);q+=(mo-p)*0.3;float w=fbm(q+fbm(q+t));float w2=fbm(q*1.4-t*0.5+w);',
+      'vec3 cDark=vec3(0.07,0.06,0.11);vec3 cBlue=vec3(0.30,0.34,0.58);vec3 cPink=vec3(0.74,0.40,0.52);vec3 cCoral=vec3(0.91,0.36,0.20);',
+      'vec3 col=mix(cDark,cBlue,smoothstep(0.15,0.85,w));col=mix(col,cPink,smoothstep(0.35,0.95,w2));',
+      'float d=distance(p,mo);col+=cCoral*smoothstep(0.75,0.0,d)*0.55*(0.6+0.4*sin(u_time*0.6));',
+      'col*=1.0-0.28*pow(distance(uv,vec2(0.5)),2.0);gl_FragColor=vec4(col,1.0);}'].join('\n');
+    function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
+    var prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,vsrc));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fsrc));gl.linkProgram(prog);gl.useProgram(prog);
+    var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+    var loc=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    var uRes=gl.getUniformLocation(prog,'u_res'),uTime=gl.getUniformLocation(prog,'u_time'),uMouse=gl.getUniformLocation(prog,'u_mouse');
+    var mouse=[0.5,0.55],tgt=[0.5,0.55];
+    function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.floor(innerWidth*dpr);canvas.height=Math.floor(innerHeight*dpr);gl.viewport(0,0,canvas.width,canvas.height);}
+    window.addEventListener('resize',resize);resize();
+    window.addEventListener('pointermove',function(e){tgt[0]=e.clientX/innerWidth;tgt[1]=1.0-e.clientY/innerHeight;});
+    var start=performance.now();
+    function frame(now){mouse[0]+=(tgt[0]-mouse[0])*0.06;mouse[1]+=(tgt[1]-mouse[1])*0.06;gl.uniform2f(uRes,canvas.width,canvas.height);gl.uniform1f(uTime,(now-start)/1000);gl.uniform2f(uMouse,mouse[0],mouse[1]);gl.drawArrays(gl.TRIANGLES,0,3);raf=requestAnimationFrame(frame);}
+    raf=requestAnimationFrame(frame);
+  })();
+  </script>
+</body>
+</html>
