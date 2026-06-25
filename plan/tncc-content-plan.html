@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TNCC Content Plan | 29 Jun - 14 Jul</title>
+<style>
+  :root{ --cream:#EFE9E0; --card:#FAF5EE; --ink:#2a2421; --coral:#9C5560; --muted:#6e605a; --line:#e4dccf; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--cream); color:var(--ink); font-family:'Helvetica Neue',Arial,sans-serif; line-height:1.5; }
+  .wrap{ max-width:920px; margin:0 auto; padding:28px 16px 80px; }
+  .logo{ display:block; margin:0 auto 16px; width:190px; }
+  h1{ font-family:'Tenor Sans','Times New Roman',serif; font-weight:400; font-size:30px; text-align:center; margin:0 0 4px; }
+  .sub{ text-align:center; color:var(--muted); font-size:14px; margin:0 0 6px; }
+  .intro{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; font-size:14px; color:#5b524c; margin:18px 0 26px; }
+  h2{ font-family:'Tenor Sans','Times New Roman',serif; font-weight:400; font-size:22px; margin:30px 0 12px; }
+  .eyebrow{ font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--coral); font-weight:700; }
+  /* calendar */
+  .cal{ display:grid; grid-template-columns:repeat(7,1fr); gap:6px; }
+  .cal .dow{ font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-align:center; padding:2px 0; font-weight:700; }
+  .cell{ background:var(--card); border:1px solid var(--line); border-radius:10px; min-height:84px; padding:7px; }
+  .cell.empty{ background:transparent; border:1px dashed #ddd3c4; }
+  .cell .d{ font-size:11px; font-weight:700; color:var(--ink); margin-bottom:5px; }
+  .chip{ display:block; font-size:10.5px; line-height:1.25; padding:4px 6px; border-radius:6px; margin-bottom:4px; background:#f3e3e7; color:#6e2f44; }
+  .chip.email{ background:#f6eccf; color:#7a5b00; }
+  @media(max-width:680px){ .cal{ grid-template-columns:repeat(2,1fr); } .cal .dow{ display:none; } .cell{ min-height:0; } }
+  /* review cards */
+  .item{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-bottom:14px; transition:border-color .2s; }
+  .item.approve{ border-color:#b9dec2; background:#f1f8f3; }
+  .item.decline{ border-color:#f0c0d1; background:#fdf0f4; }
+  .item .meta{ font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--coral); margin-bottom:4px; }
+  .item .meta .tag{ display:inline-block; background:#efe1e5; color:#6e2f44; border-radius:20px; padding:1px 8px; margin-left:6px; }
+  .item .meta .tag.email{ background:#f6eccf; color:#7a5b00; }
+  .item h3{ font-family:'Tenor Sans','Times New Roman',serif; font-weight:400; font-size:18px; margin:2px 0 8px; }
+  .item .desc{ font-size:13px; color:#5b524c; white-space:pre-line; margin-bottom:12px; }
+  .btns{ display:flex; gap:8px; margin-bottom:10px; }
+  .btn{ flex:1; border:1.5px solid var(--line); background:#fff; border-radius:999px; padding:9px 10px; font-size:12px; font-weight:700; letter-spacing:0.04em; cursor:pointer; color:var(--muted); }
+  .btn.yes.on{ background:#1a7d3a; border-color:#1a7d3a; color:#fff; }
+  .btn.no.on{ background:var(--coral); border-color:var(--coral); color:#fff; }
+  textarea,input[type=text]{ width:100%; border:1px solid var(--line); border-radius:10px; padding:9px 11px; font-family:inherit; font-size:13px; background:#fff; color:var(--ink); }
+  textarea{ min-height:46px; resize:vertical; }
+  .note-lbl{ font-size:11px; color:var(--muted); display:block; margin-bottom:4px; }
+  .submitbar{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; margin-top:24px; }
+  .field{ margin-bottom:14px; }
+  .field label{ font-size:12px; color:var(--muted); display:block; margin-bottom:5px; font-weight:700; }
+  .send{ width:100%; background:var(--coral); color:#fff; border:0; border-radius:999px; padding:15px; font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer; }
+  .send:hover{ background:#8a4555; }
+  .count{ text-align:center; font-size:12px; color:var(--muted); margin-top:10px; }
+  .ok{ display:none; text-align:center; background:#f1f8f3; border:1px solid #b9dec2; border-radius:14px; padding:40px 20px; }
+  .ok h2{ color:#1a7d3a; }
+  .foot{ text-align:center; font-size:11px; color:var(--muted); margin-top:30px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img class="logo" src="https://cdn.shopify.com/s/files/1/0624/3618/0153/files/logotncc.png?v=1653647069" alt="The Northumberland Candle Company">
+  <p class="eyebrow" style="text-align:center;">Content plan for your approval</p>
+  <h1>Content Plan</h1>
+  <p class="sub">Monday 29 June to Monday 14 July 2026</p>
+
+  <div class="intro">
+    Hi Ravi, here's the content we're proposing for the next couple of weeks: short-form videos plus the Wednesday and Friday emails. Have a look at the calendar below, then go through each concept and hit <strong>Approve</strong> or <strong>No</strong>. Add a note on anything you'd like changed or swapped, then submit at the bottom and it'll come straight to Jay.
+  </div>
+
+  <div id="app">
+    <h2>Calendar view</h2>
+    <div id="calendar"></div>
+
+    <h2>Review &amp; confirm <span style="font-size:13px;color:var(--muted);font-weight:400;">(<span id="approveCount">0</span> approved, <span id="declineCount">0</span> declined)</span></h2>
+    <div id="review"></div>
+
+    <div class="submitbar">
+      <div class="field"><label>Your name</label><input type="text" id="reviewerName" value="Ravi"></div>
+      <div class="field"><label>Anything else for Jay? (general notes, ideas, dates to avoid)</label><textarea id="overallNotes"></textarea></div>
+      <button class="send" id="sendBtn">Submit to Jay</button>
+      <div class="count" id="status"></div>
+    </div>
+  </div>
+
+  <div class="ok" id="thanks">
+    <h2>Thanks, Ravi!</h2>
+    <p style="color:#5b524c;">Your responses have been sent to Jay. He'll build out everything you've approved and tweak anything you've flagged.</p>
+  </div>
+
+  <p class="foot">The Northumberland Candle Company &middot; content plan by Fusion Creative</p>
+</div>
+
+<script>
+  var ENDPOINT = "https://ncc.fusioncreative.uk/api/tncc/plan-review";
+  var ITEMS = [
+    {date:"2026-06-29",day:"Mon 29 Jun",type:"Reel",title:"Hinch Wax Melt Selection Box",desc:"Hook: 'The cleaning girlies' favourite box' / POV unboxing.\nFormat: top-down ASMR unboxing, fold the candy tissue out, reveal the melts.\nProduct: Hinch Selection Box (£15).\nCTA: Shop selection boxes."},
+    {date:"2026-06-30",day:"Tue 30 Jun",type:"Reel",title:"Monthly Wax Melt Subscription",desc:"Hook: 'New scents on your doormat every single month.'\nFormat: unbox the monthly box, talk through value + variety.\nProduct: Monthly Wax Melt Subscription (£14.99/mo).\nCTA: Start a subscription."},
+    {date:"2026-07-01",day:"Wed 1 Jul",type:"Email",title:"New in: Sweet Shop box + bestselling boxes",desc:"Lead with the NEW Sweet Shop Favourites box, then a grid of best-selling selection boxes (Hinch, Hinch 2.0, Harry's, Barbie). All £15. Free shipping over £55."},
+    {date:"2026-07-01",day:"Wed 1 Jul",type:"Reel",title:"Hinch 2.0 Selection Box",desc:"Hook: 'You asked, so we made Hinch 2.0.'\nFormat: new-scents reveal, side by side with the original.\nProduct: Hinch 2.0 (£15).\nCTA: Shop selection boxes."},
+    {date:"2026-07-02",day:"Thu 2 Jul",type:"Reel",title:"White vs Black Highland Cow burners",desc:"Hook: 'Which Highland Cow are you?'\nFormat: both burners glowing in a cosy room, satisfying reveal.\nProduct: White/Black Highland Cow burners (£9.99-£17.49).\nCTA: Shop Highland Cow."},
+    {date:"2026-07-03",day:"Fri 3 Jul",type:"Reel",title:"3 reasons wax melts beat candles",desc:"Hook: '3 reasons you should ditch candles for wax melts.'\nFormat: viral informational, fast cuts + text hooks.\nProduct: Snap bars 3 for £10.\nCTA: Try the snap bars."},
+    {date:"2026-07-03",day:"Fri 3 Jul",type:"Email",title:"Weekend pick-and-mix: 3 snap bars for £10",desc:"Weekend flash feel. Snap bars any 3 for £10 (mix & match) + up to 40% off across the store."},
+    {date:"2026-07-04",day:"Sat 4 Jul",type:"Reel",title:"Harry's Wax Melt Selection Box",desc:"Hook: 'If you grew up on Harry Potter...'\nFormat: themed reveal, magical styling.\nProduct: Harry's Selection Box (£15).\nCTA: Shop selection boxes."},
+    {date:"2026-07-05",day:"Sun 5 Jul",type:"Reel",title:"Highland Cow wax melt tins + tealight burner",desc:"Hook: 'The cosiest £15 setup.'\nFormat: melt the tin in the ceramic burner, warm aesthetic.\nProduct: Highland Cow tins (£5.50) + tealight burner (£9.99).\nCTA: Shop Highland Cow."},
+    {date:"2026-07-06",day:"Mon 6 Jul",type:"Reel",title:"Barbie Wax Melt Selection Box",desc:"Hook: 'Come on Barbie, let's go party.'\nFormat: all-pink themed reveal, trending audio.\nProduct: Barbie Selection Box (£15).\nCTA: Shop selection boxes."},
+    {date:"2026-07-07",day:"Tue 7 Jul",type:"Reel",title:"Monthly Snap Bar Subscription",desc:"Hook: 'The £9.99 habit that makes your home smell unreal.'\nFormat: unbox + show the variety of snap bars.\nProduct: Monthly Snap Bar Subscription (£9.99/mo).\nCTA: Start a subscription."},
+    {date:"2026-07-08",day:"Wed 8 Jul",type:"Email",title:"Never run out: meet the subscriptions",desc:"Push all three subscription boxes (Snap Bar £9.99, Wax Melt £14.99, Ultimate Scent Lovers £34.99). Value + variety framing, cancel anytime."},
+    {date:"2026-07-08",day:"Wed 8 Jul",type:"Reel",title:"NEW Sweet Shop Favourites box",desc:"Hook: 'Every sweet from the corner shop, now a wax melt.'\nFormat: nostalgic reveal of the 5 sweet-shop scents.\nProduct: Sweet Shop Favourites (£15, NEW).\nCTA: Shop the new box."},
+    {date:"2026-07-09",day:"Thu 9 Jul",type:"Reel",title:"Wax melt mistakes you're making",desc:"Hook: 'You're using your wax melts wrong.'\nFormat: viral informational, common mistakes + quick fixes.\nProduct: Melts + burners.\nCTA: Shop melts."},
+    {date:"2026-07-10",day:"Fri 10 Jul",type:"Reel",title:"Ultimate Scent Lovers Subscription",desc:"Hook: 'The ultimate box for scent obsessives.'\nFormat: unbox the biggest subscription, show everything you get.\nProduct: Ultimate Scent Lovers (£34.99/mo).\nCTA: Start a subscription."},
+    {date:"2026-07-10",day:"Fri 10 Jul",type:"Email",title:"Meet the herd: Highland Cow collection",desc:"Feature the Highland Cow range (burners, tins, figurines). Cute / gift angle. Optionally a small bundle offer."},
+    {date:"2026-07-11",day:"Sat 11 Jul",type:"Reel",title:"Highland Cow figurines & home decor",desc:"Hook: 'Highland Cow home haul.'\nFormat: cosy styling of the full Highland Cow range.\nProduct: Highland Cow figurines & decor (£4.99-£17.99).\nCTA: Shop Highland Cow."},
+    {date:"2026-07-12",day:"Sun 12 Jul",type:"Reel",title:"POV: everyone asks why your house smells so good",desc:"Hook: 'POV: everyone who walks in asks what that smell is.'\nFormat: relatable skit, reveal the melts at the end.\nProduct: Bestsellers.\nCTA: Shop bestsellers."},
+    {date:"2026-07-13",day:"Mon 13 Jul",type:"Reel",title:"Make your home smell amazing for under £10",desc:"Hook: 'How to make your whole house smell amazing for under £10.'\nFormat: informational.\nProduct: Snap bars 3 for £10.\nCTA: Shop snap bars."},
+    {date:"2026-07-14",day:"Mon 14 Jul",type:"Reel",title:"Which selection box are you?",desc:"Hook: 'Comment which one you'd pick.'\nFormat: rapid showcase of the 5 selection boxes, interactive prompt.\nProduct: Selection boxes (£15 each).\nCTA: Shop selection boxes."}
+  ];
+  ITEMS.forEach(function(it,i){ it.id=i; it.decision="approve"; it.notes=""; });
+
+  // ---- calendar ----
+  function buildCalendar(){
+    var byDate={}; ITEMS.forEach(function(it){ (byDate[it.date]=byDate[it.date]||[]).push(it); });
+    var start=new Date("2026-06-29T00:00:00"); // Monday
+    var weeks=3, html='<div class="cal">';
+    ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].forEach(function(d){ html+='<div class="dow">'+d+'</div>'; });
+    for(var w=0; w<weeks; w++){
+      for(var d=0; d<7; d++){
+        var dt=new Date(start); dt.setDate(start.getDate()+w*7+d);
+        var iso=dt.toISOString().slice(0,10);
+        var items=byDate[iso]||[];
+        var inRange = iso>="2026-06-29" && iso<="2026-07-14";
+        if(!inRange){ html+='<div class="cell empty"></div>'; continue; }
+        html+='<div class="cell"><div class="d">'+dt.getDate()+' '+dt.toLocaleDateString("en-GB",{month:"short"})+'</div>';
+        items.forEach(function(it){ html+='<span class="chip '+(it.type==="Email"?"email":"")+'">'+(it.type==="Email"?"✉ ":"")+it.title+'</span>'; });
+        html+='</div>';
+      }
+    }
+    html+='</div>';
+    document.getElementById("calendar").innerHTML=html;
+  }
+
+  // ---- review ----
+  function counts(){
+    var a=ITEMS.filter(function(i){return i.decision==="approve";}).length;
+    var n=ITEMS.filter(function(i){return i.decision==="decline";}).length;
+    document.getElementById("approveCount").textContent=a;
+    document.getElementById("declineCount").textContent=n;
+  }
+  function buildReview(){
+    var c=document.getElementById("review"); c.innerHTML="";
+    ITEMS.forEach(function(it){
+      var div=document.createElement("div"); div.className="item "+it.decision; div.id="item-"+it.id;
+      div.innerHTML='<div class="meta">'+it.day+'<span class="tag '+(it.type==="Email"?"email":"")+'">'+it.type+'</span></div>'+
+        '<h3>'+it.title+'</h3><div class="desc">'+it.desc+'</div>'+
+        '<div class="btns"><button class="btn yes on" data-a="approve">Approve</button><button class="btn no" data-a="decline">No</button></div>'+
+        '<span class="note-lbl">Notes / what you\'d change (optional)</span><textarea data-note placeholder="e.g. swap the product, change the hook, different day..."></textarea>';
+      div.querySelectorAll(".btn").forEach(function(b){
+        b.addEventListener("click",function(){
+          it.decision=b.getAttribute("data-a");
+          div.className="item "+it.decision;
+          div.querySelector(".yes").classList.toggle("on",it.decision==="approve");
+          div.querySelector(".no").classList.toggle("on",it.decision==="decline");
+          counts();
+        });
+      });
+      div.querySelector("[data-note]").addEventListener("input",function(e){ it.notes=e.target.value; });
+      c.appendChild(div);
+    });
+    counts();
+  }
+
+  function summaryText(){
+    var name=document.getElementById("reviewerName").value||"Ravi";
+    var lines=ITEMS.map(function(it){ return "["+it.decision.toUpperCase()+"] "+it.day+" ("+it.type+") "+it.title+(it.notes?" - NOTE: "+it.notes:""); });
+    return "TNCC content plan review from "+name+"\n\n"+lines.join("\n")+"\n\nOverall: "+(document.getElementById("overallNotes").value||"-");
+  }
+
+  document.getElementById("sendBtn").addEventListener("click",function(){
+    var btn=this, st=document.getElementById("status");
+    btn.disabled=true; st.textContent="Sending...";
+    var payload={ reviewer_name:document.getElementById("reviewerName").value, plan_label:"TNCC content plan 29 Jun - 14 Jul",
+      overall_notes:document.getElementById("overallNotes").value,
+      items:ITEMS.map(function(it){ return {date:it.day,type:it.type,title:it.title,decision:it.decision,notes:it.notes}; }) };
+    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
+      .then(function(r){ if(!r.ok) throw new Error("bad status"); return r.json(); })
+      .then(function(){ document.getElementById("app").style.display="none"; document.getElementById("thanks").style.display="block"; window.scrollTo(0,0); })
+      .catch(function(){
+        btn.disabled=false;
+        st.innerHTML='Could not send automatically. <a href="mailto:jay@fusioncreative.uk?subject='+encodeURIComponent("TNCC content plan review")+'&body='+encodeURIComponent(summaryText())+'">Click here to email it to Jay instead</a>.';
+      });
+  });
+
+  buildCalendar(); buildReview();
+</script>
+</body>
+</html>
