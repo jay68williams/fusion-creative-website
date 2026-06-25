@@ -107,24 +107,24 @@
     {date:"2026-07-11",day:"Sat 11 Jul",type:"Reel",title:"Highland Cow figurines & home decor",desc:"Hook: 'Highland Cow home haul.'\nFormat: cosy styling of the full Highland Cow range.\nProduct: Highland Cow figurines & decor (£4.99-£17.99).\nCTA: Shop Highland Cow."},
     {date:"2026-07-12",day:"Sun 12 Jul",type:"Reel",title:"POV: everyone asks why your house smells so good",desc:"Hook: 'POV: everyone who walks in asks what that smell is.'\nFormat: relatable skit, reveal the melts at the end.\nProduct: Bestsellers.\nCTA: Shop bestsellers."},
     {date:"2026-07-13",day:"Mon 13 Jul",type:"Reel",title:"Make your home smell amazing for under £10",desc:"Hook: 'How to make your whole house smell amazing for under £10.'\nFormat: informational.\nProduct: Snap bars 3 for £10.\nCTA: Shop snap bars."},
-    {date:"2026-07-14",day:"Mon 14 Jul",type:"Reel",title:"Which selection box are you?",desc:"Hook: 'Comment which one you'd pick.'\nFormat: rapid showcase of the 5 selection boxes, interactive prompt.\nProduct: Selection boxes (£15 each).\nCTA: Shop selection boxes."}
+    {date:"2026-07-14",day:"Tue 14 Jul",type:"Reel",title:"Which selection box are you?",desc:"Hook: 'Comment which one you'd pick.'\nFormat: rapid showcase of the 5 selection boxes, interactive prompt.\nProduct: Selection boxes (£15 each).\nCTA: Shop selection boxes."}
   ];
   ITEMS.forEach(function(it,i){ it.id=i; it.decision="approve"; it.notes=""; });
 
   // ---- calendar ----
   function buildCalendar(){
     var byDate={}; ITEMS.forEach(function(it){ (byDate[it.date]=byDate[it.date]||[]).push(it); });
-    var start=new Date("2026-06-29T00:00:00"); // Monday
+    var start=new Date(Date.UTC(2026,5,29)); // Monday 29 Jun (UTC so day label + lookup key stay aligned)
     var weeks=3, html='<div class="cal">';
     ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].forEach(function(d){ html+='<div class="dow">'+d+'</div>'; });
     for(var w=0; w<weeks; w++){
       for(var d=0; d<7; d++){
-        var dt=new Date(start); dt.setDate(start.getDate()+w*7+d);
+        var dt=new Date(start); dt.setUTCDate(start.getUTCDate()+w*7+d);
         var iso=dt.toISOString().slice(0,10);
         var items=byDate[iso]||[];
         var inRange = iso>="2026-06-29" && iso<="2026-07-14";
         if(!inRange){ html+='<div class="cell empty"></div>'; continue; }
-        html+='<div class="cell"><div class="d">'+dt.getDate()+' '+dt.toLocaleDateString("en-GB",{month:"short"})+'</div>';
+        html+='<div class="cell"><div class="d">'+dt.getUTCDate()+' '+dt.toLocaleDateString("en-GB",{month:"short",timeZone:"UTC"})+'</div>';
         items.forEach(function(it){ html+='<span class="chip '+(it.type==="Email"?"email":"")+'">'+(it.type==="Email"?"✉ ":"")+it.title+'</span>'; });
         html+='</div>';
       }
