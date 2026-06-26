@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Audit - 12Muqam | Fusion Creative</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #f5f6fa; --bg-alt: #ecedf1; --card: #ffffff; --card-border: rgba(0,0,0,0.08);
+            --coral: #E8553C; --coral-light: #ff7a64; --coral-dark: #c4412b;
+            --text: #1a1d23; --text-secondary: #4a4f5c; --text-muted: #7c8090;
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); } 50% { box-shadow: 0 0 40px rgba(232,85,60,0.55); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 48px 0 40px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+        .brand { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); }
+        .brand-dot { display: inline-block; width: 6px; height: 6px; background: var(--coral); border-radius: 50%; margin-right: 8px; vertical-align: middle; position: relative; top: -1px; }
+        .header-date { font-size: 13px; color: var(--text-muted); font-weight: 400; }
+        .hero { padding: 64px 0 56px; animation: fadeInUp 0.6s ease both; }
+        .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; }
+        .hero h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(42px, 7vw, 64px); font-weight: 400; line-height: 1.05; letter-spacing: -1px; margin-bottom: 24px; }
+        .hero h1 span { background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral)); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s linear infinite; }
+        .hero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 620px; line-height: 1.7; font-weight: 400; }
+        .section { padding: 48px 0; animation: fadeInUp 0.6s ease both; }
+        .section-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent); }
+        .card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 40px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .card-sm { padding: 28px 32px; }
+        .section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 12px; }
+        .section-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 34px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 24px; line-height: 1.2; }
+        .section-text { color: var(--text-secondary); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+        .section-text:last-child { margin-bottom: 0; }
+        .intro-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); }
+        .intro-card .greeting { font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; color: var(--text); }
+        .note-box { background: rgba(232,85,60,0.07); border: 1px dashed rgba(232,85,60,0.4); border-radius: 12px; padding: 16px 20px; margin-top: 20px; font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .note-box strong { color: var(--coral); }
+        .stats-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .stats-table tr { border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .stats-table tr:last-child { border-bottom: none; }
+        .stats-table tr:nth-child(even) { background: rgba(0,0,0,0.02); }
+        .stats-table td { padding: 14px 0; }
+        .stats-table td:first-child { color: var(--text-secondary); font-weight: 400; padding-right: 24px; white-space: nowrap; }
+        .stats-table td:last-child { font-weight: 600; color: var(--text); text-align: right; }
+        .stat-highlight { color: var(--coral) !important; font-weight: 700 !important; }
+        .stat-badge { display: inline-block; background: rgba(232,85,60,0.15); color: var(--coral-light); padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-green { display: inline-block; background: rgba(52,199,89,0.15); color: #4cd97d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-amber { display: inline-block; background: rgba(255,159,10,0.15); color: #ffb84d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .working-item { margin-bottom: 28px; }
+        .working-item:last-child { margin-bottom: 0; }
+        .working-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+        .working-item p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+        .check-icon { display: inline-block; color: #4cd97d; margin-right: 6px; font-weight: 700; }
+        .opportunity-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--coral); color: white; border-radius: 8px; font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.35); }
+        .opportunity-heading { display: flex; align-items: center; margin-bottom: 14px; }
+        .opportunity-heading h3 { font-size: 19px; font-weight: 600; color: var(--text); }
+        .opportunity-card { margin-bottom: 20px; }
+        .opportunity-card:last-child { margin-bottom: 0; }
+        .case-study-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); border-left: 4px solid var(--coral); overflow: hidden; position: relative; }
+        .case-study-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--coral), var(--coral-light)); }
+        .case-study-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin: 32px 0; }
+        .case-study-stat { text-align: center; padding: 24px 16px; background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; animation: scaleIn 0.5s ease both; }
+        .case-study-stat .number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(30px, 5vw, 44px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1; margin-bottom: 6px; }
+        .case-study-stat .label { font-size: 12px; color: var(--text-secondary); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        .viral-callout { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 12px; padding: 24px 28px; margin-top: 24px; }
+        .viral-callout .big-number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(28px, 5vw, 40px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1.15; }
+        .viral-callout .context { font-size: 14px; color: var(--text-secondary); margin-top: 8px; line-height: 1.6; }
+        .viral-callout .context strong { color: var(--text); }
+        .takeaway { margin-top: 24px; font-size: 15px; color: var(--text-secondary); font-style: italic; line-height: 1.7; }
+        .video-ideas-grid { display: grid; gap: 20px; }
+        .video-idea-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 32px; position: relative; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .video-idea-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .video-idea-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--coral); border-radius: 4px 0 0 4px; }
+        .idea-number { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); margin-bottom: 10px; }
+        .idea-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; font-weight: 400; margin-bottom: 16px; line-height: 1.3; color: var(--text); }
+        .idea-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+        .idea-tag { font-size: 12px; font-weight: 600; color: var(--text-muted); background: rgba(0,0,0,0.04); padding: 4px 12px; border-radius: 6px; }
+        .idea-description { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+        .idea-why { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--card-border); }
+        .idea-why strong { color: var(--coral); font-weight: 600; }
+        .enhancement-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px 32px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .enhancement-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .enhancement-card:last-child { margin-bottom: 0; }
+        .enhancement-card h4 { font-size: 17px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+        .enhancement-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+        .enhancement-card p:last-child { margin-bottom: 0; }
+        .enhancement-list { list-style: none; margin: 12px 0; }
+        .enhancement-list li { font-size: 14px; color: var(--text-secondary); padding: 6px 0 6px 18px; position: relative; line-height: 1.6; }
+        .enhancement-list li::before { content: ''; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; background: var(--coral); border-radius: 50%; }
+        .highlight-box { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 10px; padding: 18px 22px; margin-top: 14px; }
+        .highlight-box p { font-size: 14px; color: var(--text-secondary); margin-bottom: 0; }
+        .highlight-box strong { color: var(--coral); }
+        .next-steps-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 80%); border-color: rgba(232,85,60,0.2); }
+        .steps-list { list-style: none; counter-reset: steps; }
+        .steps-list li { counter-increment: steps; display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--card-border); font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+        .steps-list li:last-child { border-bottom: none; }
+        .steps-list li::before { content: counter(steps); display: flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; background: var(--coral); color: white; border-radius: 10px; font-size: 14px; font-weight: 700; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.3); }
+        .about-fc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+        .about-fc-stat { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; padding: 20px 24px; text-align: center; animation: scaleIn 0.5s ease both; }
+        .about-fc-stat-val { font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; font-weight: 400; color: var(--coral); letter-spacing: -0.5px; }
+        .about-fc-stat-label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+        .about-fc-text { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+        .about-fc-services { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .about-fc-tag { background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+        .cta-wrap { text-align: center; margin-top: 32px; }
+        .cta-btn { display: inline-block; background: var(--coral); color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 40px; border-radius: 999px; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; animation: pulseGlow 3s ease-in-out infinite; }
+        .cta-btn:hover { background: var(--coral-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,85,60,0.5); animation: none; }
+        .cta-btn-wa { display: inline-block; background: #25D366; color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 34px; border-radius: 999px; text-decoration: none; margin: 14px 0 0 12px; box-shadow: 0 4px 18px rgba(37,211,102,0.35); transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
+        .cta-btn-wa:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.5); }
+        .cta-sub { font-size: 13px; color: var(--text-muted); margin-top: 12px; }
+        @media (max-width: 520px) { .cta-btn, .cta-btn-wa { display: block; width: 100%; margin: 0 auto; } .cta-btn-wa { margin-top: 14px; } }
+        .closing-note { margin-top: 24px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+        .signature { padding: 48px 0; }
+        .signature-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 24px; font-weight: 400; margin-bottom: 4px; color: var(--text); }
+        .signature-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 2px; }
+        .signature-link { font-size: 14px; color: var(--coral); text-decoration: none; font-weight: 500; }
+        .signature-link:hover { text-decoration: underline; }
+        .footer { padding: 32px 0; border-top: 1px solid rgba(0,0,0,0.08); text-align: center; background: var(--bg-alt); }
+        .footer-confidential { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+        .footer-note { font-size: 12px; color: var(--text-muted); font-style: italic; }
+        .footer-brand { margin-top: 16px; font-size: 12px; color: var(--text-muted); }
+        .footer-brand span { color: var(--coral); font-weight: 600; }
+        @media (max-width: 640px) {
+            .container { padding: 0 16px; } .card { padding: 28px 22px; } .hero { padding: 40px 0 36px; } .section { padding: 32px 0; }
+            .case-study-grid { grid-template-columns: repeat(2, 1fr); } .video-idea-card { padding: 24px 22px; }
+            .header-inner { flex-direction: column; gap: 8px; } .about-fc-grid { grid-template-columns: 1fr 1fr; gap: 12px; } .about-fc-stat-val { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+  <!-- Audit intro / shader welcome screen -->
+  <style>
+    #fc-intro{position:fixed;inset:0;z-index:99999;background:#0e0c14;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity .85s ease;}
+    #fc-intro.fc-out{opacity:0;pointer-events:none;}
+    #fc-intro canvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
+    .fc-intro-inner{position:relative;z-index:2;text-align:center;padding:24px;max-width:780px;color:#fff;}
+    .fc-intro-eyebrow{font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:24px;}
+    .fc-intro-eyebrow b{color:#ff7d5e;font-weight:700;}
+    .fc-intro-title{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.1rem,6vw,4.4rem);line-height:1.06;font-weight:400;letter-spacing:-0.01em;text-shadow:0 2px 50px rgba(0,0,0,0.4);}
+    .fc-intro-hint{font-family:Inter,system-ui,sans-serif;font-size:14px;font-weight:500;letter-spacing:0.05em;color:rgba(255,255,255,0.88);margin-top:38px;display:inline-flex;align-items:center;gap:10px;animation:fcPulse 2.4s ease-in-out infinite;}
+    .fc-intro-hint .fc-dot{width:7px;height:7px;border-radius:50%;background:#ff7d5e;box-shadow:0 0 12px rgba(255,125,94,0.9);}
+    @keyframes fcPulse{0%,100%{opacity:.55;}50%{opacity:1;}}
+    body.fc-locked{overflow:hidden;}
+  </style>
+  <div id="fc-intro">
+    <canvas id="fc-intro-canvas"></canvas>
+    <div class="fc-intro-inner">
+      <div class="fc-intro-eyebrow"><b>Fusion Creative</b> &middot; Private Audit</div>
+      <div class="fc-intro-title">Emrain, welcome to your audit.</div>
+      <div class="fc-intro-hint"><span class="fc-dot"></span> Click anywhere to view</div>
+    </div>
+  </div>
+  <script>document.body.classList.add('fc-locked');</script>
+
+    <!-- Header -->
+    <div class="container">
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand"><span class="brand-dot"></span>Fusion Creative</div>
+                <div class="header-date">26 June 2026</div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-label">Audit + Ideas</div>
+            <h1><span>12Muqam</span></h1>
+            <p class="hero-subtitle">Your food already went viral once. It just was not on your account. Prepared by Fusion Creative, 26 June 2026.</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Intro -->
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Hi Emrain,</div>
+                <p class="section-text">Thanks for requesting your free audit. I had a proper look through <strong>12Muqam</strong>, and one thing jumped out straight away. Your food has already gone viral on Instagram. A Newcastle food creator posted a reel about you that pulled <strong>over 42,000 views and more than 1,500 likes</strong>. The catch is that it happened on their account, not yours. On your own page, the same incredible food is sitting in still photos getting around 20 likes each.</p>
+                <p class="section-text">That gap is the whole opportunity. The demand for 12Muqam content is proven. People clearly want to watch this food. You are just not the one filming and posting it yet, so the reach, the followers and the bookings are landing on other people's pages instead of yours.</p>
+                <p class="section-text">Here is why it matters who you work with on this. We are a Newcastle agency. We film in person, we know this patch, and our headline result, New Greek, is a local Newcastle food business we took to over 70 million views with short-form video. Uyghur cuisine is one of the rarest, most curious things you can put in front of a UK audience, and curiosity is exactly what makes short-form video travel. Inside you will find a snapshot of where 12Muqam is online today, what is already working in your favour, five things we would focus on, four video ideas you could film this week, and how we would help.</p>
+                <div class="note-box">
+                    <strong>Quick note:</strong> this audit is based on your public Instagram (@12muqam) captured on 26 June 2026, so the figures are a live snapshot and will move day to day. If you have a TikTok, a website or a Google listing I should fold in, just reply and I will add it.
+                </div>
+            </div>
+
+            <!-- Fusion Creative metrics card -->
+            <div class="card" style="margin-top:8px;">
+                <div style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--coral); margin-bottom:6px;">Client Results</div>
+                <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Generated for a single local food business in Newcastle</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">70M+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">824K+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Interactions</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">6,200+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">60M</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
+                    </div>
+                </div>
+                <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">We generated over 70 million views across Instagram and TikTok in 30 days for a single local Newcastle food business, from a steady stream of short-form videos. One reel alone hit 60 million views. They went from a standing start to a household name in the North East, all shot locally. The exact same engine, close-up food video with a strong hook, is what makes restaurants like 12Muqam blow up. You already do the hard part, the food. The job now is to film it properly and put it in front of hungry Newcastle locals.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Snapshot -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Current Snapshot</div>
+            <div class="section-title">Where 12Muqam Is Online Today</div>
+            <div class="card card-sm">
+                <table class="stats-table">
+                    <tr><td>Instagram</td><td class="stat-highlight">@12muqam <span class="stat-badge-green">Active business page</span></td></tr>
+                    <tr><td>Followers</td><td>1,646 <span class="stat-badge-amber">Small for the demand</span></td></tr>
+                    <tr><td>Posts</td><td>62 <span class="stat-badge-green">Posting regularly</span></td></tr>
+                    <tr><td>Your own reels</td><td class="stat-highlight">None <span class="stat-badge">The big gap</span></td></tr>
+                    <tr><td>Avg likes on your posts</td><td>~20 <span class="stat-badge-amber">Photos only</span></td></tr>
+                    <tr><td>Best creator reel about you</td><td class="stat-highlight">42,000+ views <span class="stat-badge">On their page, not yours</span></td></tr>
+                    <tr><td>Cuisine</td><td>Halal Uyghur <span class="stat-badge-green">Rare, high curiosity</span></td></tr>
+                    <tr><td>Location</td><td>20 Stowell St, Chinatown, NE1 4XQ</td></tr>
+                    <tr><td>TikTok</td><td class="stat-highlight">None found <span class="stat-badge">Wide open</span></td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- The proof callout -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Proof</div>
+            <div class="section-title">Your Food Already Pulls Big Numbers</div>
+            <div class="card case-study-card">
+                <p class="section-text">This is not a hunch. When Newcastle food creators have filmed 12Muqam, the videos have taken off. The standout was a reel from a local food page that reached a huge audience, far beyond their own following, simply because the food and the cuisine are so eye-catching.</p>
+                <div class="viral-callout">
+                    <div class="big-number">42,000+ views. 1,500+ likes. One reel about your food.</div>
+                    <div class="context"><strong>Posted on a creator's account, not yours.</strong> Other creators who visited pulled hundreds of likes and thousands of views too. Meanwhile your own posts, all still photos with no reels, sit at around 20 likes. The audience is there and hungry for this content. Right now the growth from it is going to other people's pages instead of building 12Muqam.</div>
+                </div>
+                <p class="takeaway">Imagine that reach landing on your account every week, turning into followers, bookings and a fully booked dining room. That is exactly what filming your own short-form video does.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- What Is Working -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">What Is Already Working Well</div>
+            <div class="section-title">Credit Where It Is Due</div>
+            <div class="card">
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The cuisine is a genuine standout</h4>
+                    <p>Halal Uyghur food is rare in the UK, and almost nobody in Newcastle is doing it. Every creator who visits says the same thing, that it is unlike anything they have tried. That novelty is rocket fuel for short-form video, because curiosity and "I have never seen this before" are two of the strongest reasons people stop scrolling and share.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Creators already love you</h4>
+                    <p>You have had multiple Newcastle food influencers visit and post about you, with real enthusiasm and big results. That is social proof most new restaurants would kill for, and it tells you the product more than delivers. The relationships are there, they just need to become a proper, repeatable engine rather than the occasional one-off.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The location is a gift</h4>
+                    <p>Stowell Street, right in the heart of Chinatown, is one of the best food footfall spots in Newcastle. People come to that street specifically to eat. Strong local content puts you top of mind for exactly those people before they have even decided where to go.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> You are already posting</h4>
+                    <p>62 posts means the habit is there and the dishes look great in your photos. That is a solid base. The upgrade is simple, the same food, filmed as short-form video with a hook, which is what travels and gets shared rather than just sitting in the feed for existing followers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Where The Opportunity Is -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Where The Opportunity Is</div>
+            <div class="section-title">Five Things We Would Focus On</div>
+            <p class="section-text" style="margin-bottom: 32px;">You have the food, the cuisine and the location. The job is to capture the reach yourself: film the food the way the creators do, post it consistently on your own page, and make 12Muqam the Newcastle spot people already know about before they walk down Stowell Street. These are the five areas we would focus on.</p>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">1</span><h3>Start Posting Your Own Reels</h3></div>
+                <p class="section-text">This is the single biggest one. You have zero reels of your own, yet a reel about your food pulled 42,000 views. Reels are how Instagram pushes content to people who do not already follow you, which is exactly the reach you are missing. Static photos almost never leave your existing followers. Video does. Switching the focus from photos to reels is the change that unlocks everything else.</p>
+                <p class="section-text">The good news is you do not need a studio. The best food reels are shot on a phone, close up, with the sizzle and the steam doing the selling.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">2</span><h3>Film the Food the Way It Deserves</h3></div>
+                <p class="section-text">Your dishes are made for video. The big plate chicken reveal, hand-pulled noodles being stretched, lamb skewers over flame, the noodle pull, the salt tea poured from height. These are exactly the close-up, satisfying shots that rack up views and rewatches. Sound up, tight on the food, a strong first frame, no script needed.</p>
+                <p class="section-text">Right now this content is being captured by visiting creators rather than by you. Filming it yourself means you own the footage, the reach and the audience it brings.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">3</span><h3>Lean Hard Into "You Have Never Tried This"</h3></div>
+                <p class="section-text">Uyghur cuisine is your superpower. Most people in Newcastle have never heard of it, let alone tasted it, and that curiosity is your best hook. Content built around discovery, what is this, where is it from, why is it different, performs far better than a generic "great food here" post. Your captions currently read a bit like an encyclopedia. We would turn that knowledge into curiosity-driven hooks that make people want to come and try it.</p>
+                <p class="section-text">Novelty is rare and valuable. You have it built in. Most restaurants have to manufacture a hook, you already have one on the plate.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">4</span><h3>Turn Creator Visits Into a Repeatable Engine</h3></div>
+                <p class="section-text">The influencer posts are working, so let's make them deliberate rather than occasional. A steady rhythm of the right Newcastle food creators, paired with your own content capturing the same dishes, compounds fast. Their reach plus your consistent posting is how a new restaurant becomes the talked-about spot in the city.</p>
+                <p class="section-text">We know the Newcastle food creator scene and can line up the right collaborations alongside the content we film for you, so it all points back to your page and your bookings.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">5</span><h3>Local Ads and Google to Catch Ready Diners</h3></div>
+                <p class="section-text">Once the content is working, a small, tightly targeted ad budget puts your best food reel in front of hungry people in Newcastle deciding where to eat tonight. On top of that, a tidy Google Business Profile catches everyone searching "halal restaurant Newcastle" or "Chinatown food" at the exact moment they want a table.</p>
+                <p class="section-text">Content builds the audience and the buzz, ads and search put you in front of people ready to book a table right now. Together they keep the dining room full.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Case Study -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Case Study</div>
+            <div class="section-title">What We Did for New Greek</div>
+            <div class="card case-study-card">
+                <p class="section-text">New Greek is a small independent food business in Newcastle. No following, no content history, no ad budget. They started from zero. Here is where they got to after working with Fusion Creative.</p>
+                <div class="case-study-grid">
+                    <div class="case-study-stat"><div class="number">70M+</div><div class="label">Total Views</div></div>
+                    <div class="case-study-stat"><div class="number">60M</div><div class="label">Single Reel Views</div></div>
+                    <div class="case-study-stat"><div class="number">824K+</div><div class="label">Interactions</div></div>
+                    <div class="case-study-stat"><div class="number">6,200+</div><div class="label">Followers Grown</div></div>
+                </div>
+                <div class="viral-callout">
+                    <div class="big-number">70 million views. One local food spot. Zero head start.</div>
+                    <div class="context"><strong>New Greek had no followers and no brand recognition.</strong> We built their presence with short-form food video, over 70 million views across Instagram and TikTok in 30 days, one reel alone hitting 60 million. They went from unknown to fully booked. 12Muqam actually starts ahead of where they did, because your food has already proven it can go viral.</div>
+                </div>
+                <p class="takeaway">12Muqam does not need fixing. It needs filming, so the reach your food already earns starts building your account instead of someone else's.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Video Ideas -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Ready-Made Content</div>
+            <div class="section-title">4 Video Ideas You Could Film This Week</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are formats working right now on Instagram Reels and TikTok, built around dishes you already serve. Each one can be filmed on a phone in the restaurant, no extra kit, lead with a strong first frame and let the food do the talking.</p>
+            <div class="video-ideas-grid">
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 01</div>
+                    <div class="idea-title">"POV: you have never tried Uyghur food"</div>
+                    <div class="idea-meta"><span class="idea-tag">Discovery</span><span class="idea-tag">Novelty</span><span class="idea-tag">Hook-first</span></div>
+                    <p class="idea-description">Open on the big plate chicken or a steaming bowl of noodles, with a bold text hook on the first frame. Quick cuts through two or three signature dishes, sound up, under 20 seconds. The whole point is "I bet you have never seen this".</p>
+                    <div class="idea-why"><strong>Why it works:</strong> curiosity is the strongest scroll-stopper there is, and Uyghur cuisine is genuinely new to most people. This is your number one format and your best shot at a breakout reel.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 02</div>
+                    <div class="idea-title">The hand-pulled noodle, up close</div>
+                    <div class="idea-meta"><span class="idea-tag">ASMR</span><span class="idea-tag">Satisfying</span><span class="idea-tag">Process</span></div>
+                    <p class="idea-description">Tight, slow shots of the noodles being pulled and stretched, the dough working, the steam, the final plated bowl. No talking, sound up, a "wait for it" hook on screen. End on the finished dish.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> watching skilled food prep is some of the most rewatched content on the internet. The noodle pull is hypnotic, and almost nobody in Newcastle is showing this.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 03</div>
+                    <div class="idea-title">The spicy noodle challenge</div>
+                    <div class="idea-meta"><span class="idea-tag">Challenge</span><span class="idea-tag">Reaction</span><span class="idea-tag">Proven</span></div>
+                    <p class="idea-description">Your red chilli lehman is already a talking point, and a creator's spicy noodle reel about you did well. Make it your own running format: real people taking on the heat, the reactions, the "can you finish it" hook. Invite locals to come and try.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> challenge and reaction content is endlessly shareable, drives comments, and turns one dish into a reason to visit. You already have proof this angle lands.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 04</div>
+                    <div class="idea-title">"The tea that confuses everyone"</div>
+                    <div class="idea-meta"><span class="idea-tag">Curiosity</span><span class="idea-tag">Talking point</span><span class="idea-tag">Local</span></div>
+                    <p class="idea-description">Your salted milk tea surprises everyone who tries it, which makes it perfect content. Film a first-timer's honest reaction, or a quick "salty tea, would you try it" to camera, with the pour shot front and centre. Tag Newcastle and Chinatown.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> an unexpected, slightly polarising item gets people commenting and tagging friends, which pushes the reel further. It is memorable and unmistakably yours.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Digital Enhancements -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Digital Enhancements</div>
+            <div class="section-title">Beyond the Main Feed</div>
+            <p class="section-text" style="margin-bottom: 32px;">A few extra wins that would compound the content work and turn more of your reach into booked tables.</p>
+
+            <div class="enhancement-card">
+                <h4>Launch TikTok Alongside Instagram</h4>
+                <p>There is no TikTok for 12Muqam yet, and for a food spot chasing reach that is a wide-open lane. TikTok pushes content to new people harder than anywhere else, and novel, close-up food video travels beautifully there. The same reels we film for Instagram get a second life and a whole new audience.</p>
+                <ul class="enhancement-list">
+                    <li>Set up and run TikTok from day one, tuned to Newcastle foodies</li>
+                    <li>Repurpose every reel so nothing is filmed twice</li>
+                    <li>Lean into trends and audio while they are hot</li>
+                    <li>A second front door bringing new diners in</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Get the Google Business Profile Pulling Its Weight</h4>
+                <p>When someone searches "halal restaurant Newcastle" or "Chinatown food", the Google listing and the map pack are where ready-to-book diners look. Tightened up properly, with great photos and fresh reviews, it puts you in front of people at the exact moment they are choosing where to eat.</p>
+                <ul class="enhancement-list">
+                    <li>Fully complete and optimise the profile for halal and Uyghur searches</li>
+                    <li>Funnel happy diners into fresh Google reviews</li>
+                    <li>Keep the photos current with your best dishes</li>
+                    <li>Local SEO for "halal Newcastle", "Uyghur food Newcastle" and Chinatown terms</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Run Local Ads Behind the Best Content</h4>
+                <p>Once a reel is performing, a small budget puts it in front of hungry people nearby who are deciding where to eat. For a restaurant, that is one of the most direct ways to turn reach into tables.</p>
+                <ul class="enhancement-list">
+                    <li>Tightly target Newcastle and the surrounding area</li>
+                    <li>Use your best food reels as the ads</li>
+                    <li>Drive to bookings, your menu or straight to a visit</li>
+                    <li>Track cost per booking so the spend is always accountable</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Why it fits 12Muqam:</strong> the content already proves people want to watch your food. Ads simply put that proven content in front of more local diners, on demand.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- About Fusion Creative -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">About Fusion Creative</div>
+            <div class="card intro-card">
+                <p class="about-fc-text">Fusion Creative is a content and marketing agency based in Newcastle. We produce short-form video content, manage social media accounts, run paid campaigns, build websites, and handle branding. Everything under one roof.</p>
+                <p class="about-fc-text">We work with local and growing businesses across the North East, and we film in person, on the ground, right here. No stock footage, no generic templates, no recycled ideas. Every piece of content is original and tailored to the business.</p>
+                <p class="about-fc-text">Our headline result is New Greek, a small independent Newcastle food business that went from zero followers to over 70 million views across Instagram and TikTok in 30 days, including one reel that hit 60 million views. We know how to take a great local food spot and make it impossible to scroll past.</p>
+                <p class="about-fc-text">Restaurants are right in our wheelhouse. Close-up food video, with the right hook and a consistent posting rhythm, is exactly the engine we would point at 12Muqam, where the demand is already proven.</p>
+                <div class="about-fc-grid">
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">250M+</div><div class="about-fc-stat-label">Views generated</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">20+</div><div class="about-fc-stat-label">Videos per month</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">6+</div><div class="about-fc-stat-label">Years in content</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">100%</div><div class="about-fc-stat-label">Original content</div></div>
+                </div>
+                <div class="about-fc-services">
+                    <span class="about-fc-tag">Short-Form Video</span>
+                    <span class="about-fc-tag">TikTok Management</span>
+                    <span class="about-fc-tag">Instagram Reels</span>
+                    <span class="about-fc-tag">Paid Ads</span>
+                    <span class="about-fc-tag">Local SEO</span>
+                    <span class="about-fc-tag">Website Design</span>
+                    <span class="about-fc-tag">Branding</span>
+                    <span class="about-fc-tag">Social Media Management</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- How We'd Help -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">How We'd Help</div>
+            <div class="section-title">What We Could Do for 12Muqam</div>
+            <p class="section-text" style="margin-bottom: 32px;">Here is how we would help turn your proven food content into steady reach, new followers and fuller tables. It all centres on close-up food video, filmed in person at the restaurant, with the channels run for you.</p>
+
+            <div class="enhancement-card">
+                <h4>Content Production, Filmed in Your Restaurant</h4>
+                <p>A steady engine of close-up food, process and reaction video, filmed on site and turned into polished, posted reels designed to reach new diners.</p>
+                <ul class="enhancement-list">
+                    <li><strong>A steady stream of finished reels</strong> across Instagram and TikTok</li>
+                    <li>Signature dish reveals, noodle pulls, challenges and first-timer reactions</li>
+                    <li>Editing, captions, hooks, hashtags, audio research and posting all done for you</li>
+                    <li>We come to you, so it takes none of your time off the floor</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Social Media Management</h4>
+                <p>We run your Instagram and launch your TikTok, tuned to the Newcastle foodies who actually book tables.</p>
+                <ul class="enhancement-list">
+                    <li>Shift the focus from photos to reels that reach new people</li>
+                    <li>Consistent, hooky posting across both platforms</li>
+                    <li>Local hashtags, Chinatown and Newcastle tags, and community management</li>
+                    <li>Monthly reporting on reach, follower growth and best-performing content</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Creator Collaborations and Local Ads</h4>
+                <p>We line up the right Newcastle food creators and run tightly targeted local ads, so the reach points back to your page and your bookings.</p>
+                <ul class="enhancement-list">
+                    <li>Deliberate, repeatable collaborations with the right local creators</li>
+                    <li>Your best food reels used as targeted local ads</li>
+                    <li>Google Business Profile and local SEO to catch ready-to-book searchers</li>
+                    <li>Everything pointed at filling tables, not just vanity numbers</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Why us:</strong> we are based in Newcastle and film in person, all content original. We took New Greek, a local food business, to 70M+ views in 30 days. 12Muqam already has the rarest ingredient, food people want to watch. We turn that into reach you own.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Next Steps -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a read through this audit. Everything is in here, the proof, the gaps, the ideas, and the ways we could help.</li>
+                    <li>Let me know your quieter nights and your signature dishes, and I will tailor the plan and the first set of reels around them.</li>
+                    <li>The ideal first step is a single filming session at the restaurant, so you can see exactly what your food looks like as proper short-form video.</li>
+                    <li>Once you are happy, just reply to confirm and I will send a simple plan, set up the channels, and book that first shoot.</li>
+                </ol>
+                <p class="closing-note">Honestly, Emrain, the hardest part is already done. The food is incredible, the cuisine is rare, and you have proof it can go viral. The only thing missing is you being the one who films it and posts it. As a Newcastle agency that films in person and took a local food spot to 70 million views, we are well placed to make 12Muqam the name people in this city already know. Let's get your food on camera.</p>
+                <div class="cta-wrap">
+                    <a href="mailto:jay@fusioncreative.uk?subject=12Muqam%20-%20Getting%20Started" class="cta-btn">Let's Get Started</a>
+                    <a href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%2012Muqam%20audit" target="_blank" rel="noopener" class="cta-btn-wa">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align:-3px; margin-right:8px;"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp
+                    </a>
+                    <div class="cta-sub">Reply to this email, message me on WhatsApp, or give me a call whenever you are ready.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Signature -->
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative, Newcastle</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="footer">
+            <div class="footer-confidential">Confidential, Prepared for 12Muqam</div>
+            <div class="footer-note">Prepared for 12Muqam using the public @12muqam Instagram profile on 26 June 2026. Figures are a live snapshot.</div>
+            <div class="footer-brand"><span>Fusion Creative</span></div>
+        </footer>
+    </div>
+
+  <script>
+  (function(){
+    var intro=document.getElementById('fc-intro');if(!intro)return;
+    var canvas=document.getElementById('fc-intro-canvas');
+    var gl=canvas.getContext('webgl')||canvas.getContext('experimental-webgl');
+    var raf=0,dismissed=false;
+    function dismiss(){if(dismissed)return;dismissed=true;intro.classList.add('fc-out');document.body.classList.remove('fc-locked');setTimeout(function(){if(raf)cancelAnimationFrame(raf);intro.style.display='none';},900);}
+    intro.addEventListener('click',dismiss);
+    if(!gl)return;
+    var vsrc='attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
+    var fsrc=['precision highp float;','uniform vec2 u_res;uniform float u_time;uniform vec2 u_mouse;',
+      'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
+      'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);',
+      'return mix(mix(hash(i),hash(i+vec2(1.0,0.0)),u.x),mix(hash(i+vec2(0.0,1.0)),hash(i+vec2(1.0,1.0)),u.x),u.y);}',
+      'float fbm(vec2 p){float v=0.0,a=0.5;for(int i=0;i<5;i++){v+=a*noise(p);p*=2.0;a*=0.5;}return v;}',
+      'void main(){vec2 uv=gl_FragCoord.xy/u_res.xy;float asp=u_res.x/u_res.y;vec2 p=uv;p.x*=asp;vec2 mo=u_mouse;mo.x*=asp;float t=u_time*0.05;',
+      'vec2 q=p*1.5+vec2(t,-t*0.7);q+=(mo-p)*0.3;float w=fbm(q+fbm(q+t));float w2=fbm(q*1.4-t*0.5+w);',
+      'vec3 cDark=vec3(0.07,0.06,0.11);vec3 cBlue=vec3(0.30,0.34,0.58);vec3 cPink=vec3(0.74,0.40,0.52);vec3 cCoral=vec3(0.91,0.36,0.20);',
+      'vec3 col=mix(cDark,cBlue,smoothstep(0.15,0.85,w));col=mix(col,cPink,smoothstep(0.35,0.95,w2));',
+      'float d=distance(p,mo);col+=cCoral*smoothstep(0.75,0.0,d)*0.55*(0.6+0.4*sin(u_time*0.6));',
+      'col*=1.0-0.28*pow(distance(uv,vec2(0.5)),2.0);gl_FragColor=vec4(col,1.0);}'].join('\n');
+    function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
+    var prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,vsrc));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fsrc));gl.linkProgram(prog);gl.useProgram(prog);
+    var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+    var loc=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    var uRes=gl.getUniformLocation(prog,'u_res'),uTime=gl.getUniformLocation(prog,'u_time'),uMouse=gl.getUniformLocation(prog,'u_mouse');
+    var mouse=[0.5,0.55],tgt=[0.5,0.55];
+    function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.floor(innerWidth*dpr);canvas.height=Math.floor(innerHeight*dpr);gl.viewport(0,0,canvas.width,canvas.height);}
+    window.addEventListener('resize',resize);resize();
+    window.addEventListener('pointermove',function(e){tgt[0]=e.clientX/innerWidth;tgt[1]=1.0-e.clientY/innerHeight;});
+    var start=performance.now();
+    function frame(now){mouse[0]+=(tgt[0]-mouse[0])*0.06;mouse[1]+=(tgt[1]-mouse[1])*0.06;gl.uniform2f(uRes,canvas.width,canvas.height);gl.uniform1f(uTime,(now-start)/1000);gl.uniform2f(uMouse,mouse[0],mouse[1]);gl.drawArrays(gl.TRIANGLES,0,3);raf=requestAnimationFrame(frame);}
+    raf=requestAnimationFrame(frame);
+  })();
+  </script>
+</body>
+</html>
