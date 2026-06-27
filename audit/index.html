@@ -161,6 +161,9 @@ h2{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:7
 .form-step{display:none}.form-step.active{display:block}
 .form-success{display:none;text-align:center;padding:3rem 0}.form-success.active{display:block}
 .form-content.hidden{display:none}
+.followup-callout{background:rgba(230,59,46,0.08);border:1px solid rgba(230,59,46,0.35);border-radius:var(--rad-sm);padding:1.1rem 1.25rem;max-width:440px;margin:1.5rem auto 0;text-align:left}
+.followup-title{font-weight:700;color:var(--signal);font-size:1.05rem;margin-bottom:0.4rem}
+.followup-callout p{color:var(--off-white);font-size:0.92rem;line-height:1.6;margin:0;opacity:0.92}
 
 .opt-btn{display:flex;align-items:center;gap:12px;padding:1rem 1.25rem;border-radius:var(--rad-sm);border:1px solid var(--border-dark);background:rgba(255,255,255,0.03);cursor:pointer;transition:all 0.2s;font-family:var(--font-head);font-size:0.95rem;color:var(--off-white);width:100%;text-align:left}
 .opt-btn:hover{border-color:rgba(230,59,46,0.3);background:rgba(230,59,46,0.06);transform:translateY(-1px)}
@@ -358,7 +361,7 @@ h2{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:7
       <div id="form-content" class="form-content">
         <div class="section-label" style="color:var(--signal);">/ Free Social Media Audit</div>
         <h2 style="font-size:clamp(2rem,4vw,3rem);">Get your free <em>audit.</em></h2>
-        <p style="color:var(--mid);margin-bottom:2rem;">Share your details and we will deep dive your socials, your website, and your competitors. Full branded report delivered to your inbox.</p>
+        <p style="color:var(--mid);margin-bottom:2rem;">Share your details and we will deep dive your socials, your website, and your competitors. Full branded report delivered to your inbox. Right after, we send a quick follow-up form, and taking a minute to fill it in makes your audit much sharper.</p>
         <div class="progress-track"><div class="progress-seg filled" id="seg-1"></div><div class="progress-seg" id="seg-2"></div></div>
 
         <div class="form-step active" id="step-1">
@@ -392,7 +395,12 @@ h2{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:7
       <div class="form-success" id="form-success">
         <div style="font-size:3.5rem;margin-bottom:1rem;">&#9889;</div>
         <h2 style="font-size:2.2rem;">We are on <em>it.</em></h2>
-        <p style="color:var(--mid);font-size:1.05rem;line-height:1.7;max-width:440px;margin:0 auto;">Our team is already diving into your socials, your website, and your competitors. You will receive a full branded audit report in your inbox shortly. In the meantime, follow <strong style="color:var(--signal);">@fusioncreative.uk</strong> on TikTok and Instagram to see what we do every day.</p>
+        <p style="color:var(--mid);font-size:1.05rem;line-height:1.7;max-width:440px;margin:0 auto;">Our team is already diving into your socials, your website, and your competitors. You will receive a full branded audit report in your inbox shortly.</p>
+        <div class="followup-callout">
+          <div class="followup-title">&#128231; Check your inbox now</div>
+          <p>We have just emailed you a quick follow-up form. It takes under a minute, and the more you tell us about your business and your goals, the sharper and more useful your audit will be. Please do fill it in, it genuinely makes a real difference to what we send back.</p>
+        </div>
+        <p style="color:var(--mid);font-size:0.95rem;line-height:1.7;max-width:440px;margin:1.25rem auto 0;">In the meantime, follow <strong style="color:var(--signal);">@fusioncreative.uk</strong> on TikTok and Instagram to see what we do every day.</p>
         <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:2rem;max-width:340px;margin-left:auto;margin-right:auto;">
           <a href="https://fusioncreative.uk/#results" class="btn btn-signal" style="width:100%;justify-content:center;"><span>See Our Results &rarr;</span></a>
           <a href="https://fusioncreative.uk/#services" class="btn btn-outline" style="width:100%;justify-content:center;"><span>View Our Services</span></a>

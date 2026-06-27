@@ -103,6 +103,11 @@ em{font-family:var(--font-serif);font-style:italic;font-weight:400}
 .footer-note a{color:var(--mid);text-decoration:underline}
 .footer-note a:hover{color:var(--off-white)}
 
+/* Follow-up callout */
+.followup-callout{background:rgba(230,59,46,0.08);border:1px solid rgba(230,59,46,0.35);border-radius:var(--rad-sm);padding:1.1rem 1.25rem;max-width:420px;margin:1.5rem auto 0;text-align:left}
+.followup-title{font-weight:700;color:var(--signal);font-size:1rem;margin-bottom:0.4rem}
+.followup-callout p{color:var(--off-white);font-size:0.9rem;line-height:1.6;margin:0;opacity:0.92}
+
 /* Reassurance */
 .reassurance{display:flex;justify-content:center;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap}
 .reassurance span{font-family:var(--font-mono);font-size:0.75rem;color:var(--mid);display:flex;align-items:center;gap:6px}
@@ -146,7 +151,7 @@ em{font-family:var(--font-serif);font-style:italic;font-weight:400}
   <div class="form-card">
     <div id="form-content" class="form-content">
       <div class="form-title">Get your free <em>audit.</em></div>
-      <p class="form-sub">Share your details and we will deep dive your socials, website, and competitors. Full branded report delivered to your inbox.</p>
+      <p class="form-sub">Share your details and we will deep dive your socials, website, and competitors. Full branded report delivered to your inbox. Right after, we send a quick follow-up form, and taking a minute to fill it in makes your audit much sharper.</p>
       <div class="progress-track"><div class="progress-seg filled" id="seg-1"></div><div class="progress-seg" id="seg-2"></div></div>
 
       <div class="form-step active" id="step-1">
@@ -180,7 +185,12 @@ em{font-family:var(--font-serif);font-style:italic;font-weight:400}
     <div class="form-success" id="form-success">
       <div style="font-size:3.5rem;margin-bottom:1rem;">&#9889;</div>
       <h2 style="font-size:2rem;font-weight:700;letter-spacing:-0.03em;">We are on <em>it.</em></h2>
-      <p style="color:var(--mid);font-size:0.95rem;line-height:1.7;max-width:400px;margin:1rem auto 0;">Our team is already diving into your socials, website, and competitors. You will receive a full branded audit report in your inbox shortly. Follow <strong style="color:var(--signal);">@fusioncreative.uk</strong> on TikTok and Instagram to see what we do.</p>
+      <p style="color:var(--mid);font-size:0.95rem;line-height:1.7;max-width:400px;margin:1rem auto 0;">Our team is already diving into your socials, website, and competitors. You will receive a full branded audit report in your inbox shortly.</p>
+      <div class="followup-callout">
+        <div class="followup-title">&#128231; Check your inbox now</div>
+        <p>We have just emailed you a quick follow-up form. It takes under a minute, and the more you tell us about your business and your goals, the sharper and more useful your audit will be. Please do fill it in, it genuinely makes a real difference to what we send back.</p>
+      </div>
+      <p style="color:var(--mid);font-size:0.9rem;line-height:1.7;max-width:400px;margin:1.25rem auto 0;">Follow <strong style="color:var(--signal);">@fusioncreative.uk</strong> on TikTok and Instagram to see what we do.</p>
     </div>
   </div>
 
