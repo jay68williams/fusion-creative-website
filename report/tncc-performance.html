@@ -67,6 +67,8 @@
   .bar .nm{font-size:14px;color:#e7ddd3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .track{height:26px;background:rgba(255,255,255,.05);border-radius:7px;overflow:hidden}
   .fill{height:100%;border-radius:7px;background:linear-gradient(90deg,#E63B2E,#E8553C)}
+  .fill.grey{background:linear-gradient(90deg,#544b43,#6b6058)}
+  .nm .muted{color:var(--dim);font-size:12px}
   .bar .vv{font-family:'Space Mono',monospace;font-size:13px;text-align:right;color:var(--cream)}
   .bar .vv span{color:var(--dim)}
   .soldout{color:var(--red);font-size:10px;border:1px solid var(--red);border-radius:20px;padding:1px 7px;margin-left:7px;vertical-align:middle}
@@ -164,6 +166,19 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- BEFORE vs AFTER -->
+  <section>
+    <div class="label mono">Is this normal?</div>
+    <h2>New customers per day: before vs after</h2>
+    <p class="sub">The clearest proof the ads are working is the pace of new customers coming in. Before launch the store brought in a handful a day. Since the ads went live, that rate has more than doubled.</p>
+    <div class="bars">
+      <div class="bar"><div class="nm">Longer-term average <span class="muted">(3 months)</span></div><div class="track"><div class="fill grey" style="width:20%"></div></div><div class="vv">~2.4 <span>/day</span></div></div>
+      <div class="bar"><div class="nm">Weeks before launch</div><div class="track"><div class="fill grey" style="width:42%"></div></div><div class="vv">~4.8 <span>/day</span></div></div>
+      <div class="bar"><div class="nm">During the campaign</div><div class="track"><div class="fill" style="width:100%"></div></div><div class="vv">~11.5 <span>/day</span></div></div>
+    </div>
+    <div class="statement" style="margin-top:30px"><b>2.4×</b> the rate of the weeks right before launch, and roughly <b>5×</b> the longer-term average. That jump lines up exactly with the ads going live on 18 June.</div>
   </section>
 
   <!-- BEST SELLERS -->
