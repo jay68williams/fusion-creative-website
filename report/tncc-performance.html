@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Performance Brief | The Northumberland Candle Company</title>
+<script>document.documentElement.className+=' js';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -26,32 +27,26 @@
   .mono{font-family:'Space Mono',monospace;letter-spacing:.12em;text-transform:uppercase}
   .topbar{display:flex;justify-content:space-between;align-items:center;padding:30px 0 0;font-size:11px;color:var(--mut)}
   .topbar .brand{color:var(--cream);font-weight:700}
-  .dot{color:var(--red)}
-  /* hero */
   .hero{padding:70px 0 40px;border-bottom:1px solid var(--line)}
   .kick{font-size:11.5px;color:var(--red);margin-bottom:22px}
   h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(44px,7vw,82px);line-height:1.02;letter-spacing:-.01em}
   h1 em{font-style:italic;color:var(--red)}
   .daterange{margin-top:18px;font-size:14px;color:var(--mut)}
   .lead{margin-top:26px;max-width:640px;font-size:17px;color:#ddd2c8}
-  /* headline statement */
   .statement{margin:40px 0;padding:30px 32px;border:1px solid var(--line);border-radius:18px;
     background:linear-gradient(120deg,rgba(232,85,60,.12),rgba(255,255,255,.02));
     font-family:'DM Serif Display',serif;font-size:clamp(20px,3vw,30px);line-height:1.4}
   .statement b{color:var(--red)}
-  /* sections */
   section{padding:46px 0;border-bottom:1px solid var(--line)}
   .label{font-size:11px;color:var(--red);margin-bottom:6px}
   h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(26px,4vw,38px);margin-bottom:8px;letter-spacing:-.01em}
   .sub{color:var(--mut);font-size:14.5px;margin-bottom:30px;max-width:640px}
-  /* kpi grid */
   .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 20px;backdrop-filter:blur(8px)}
   .kpi .v{font-family:'DM Serif Display',serif;font-size:38px;line-height:1;color:var(--cream)}
   .kpi .v.red{color:var(--red)}
   .kpi .k{margin-top:12px;font-size:11px;color:var(--mut)}
   .kpi .note{margin-top:4px;font-size:12px;color:var(--dim)}
-  /* split */
   .split{display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:center}
   .donut{display:flex;flex-direction:column;align-items:center}
   .donutlbl{margin-top:14px;font-size:12px;color:var(--mut);text-align:center}
@@ -61,18 +56,16 @@
   .leg .lt{font-size:15px;font-weight:600}
   .leg .ls{font-size:13px;color:var(--mut)}
   .leg .lv{font-family:'DM Serif Display',serif;font-size:26px}
-  /* bars */
-  .bars{display:flex;flex-direction:column;gap:14px}
-  .bar{display:grid;grid-template-columns:230px 1fr 120px;gap:14px;align-items:center}
-  .bar .nm{font-size:14px;color:#e7ddd3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bars{display:flex;flex-direction:column;gap:16px}
+  .bar{display:grid;grid-template-columns:260px 1fr 116px;gap:16px;align-items:center}
+  .bar .nm{font-size:14px;color:#e7ddd3;line-height:1.3}
   .track{height:26px;background:rgba(255,255,255,.05);border-radius:7px;overflow:hidden}
-  .fill{height:100%;border-radius:7px;background:linear-gradient(90deg,#E63B2E,#E8553C)}
+  .fill{height:100%;border-radius:7px;background:linear-gradient(90deg,#E63B2E,#E8553C);width:var(--w)}
   .fill.grey{background:linear-gradient(90deg,#544b43,#6b6058)}
   .nm .muted{color:var(--dim);font-size:12px}
   .bar .vv{font-family:'Space Mono',monospace;font-size:13px;text-align:right;color:var(--cream)}
   .bar .vv span{color:var(--dim)}
-  .soldout{color:var(--red);font-size:10px;border:1px solid var(--red);border-radius:20px;padding:1px 7px;margin-left:7px;vertical-align:middle}
-  /* compare */
+  .soldout{color:var(--red);font-size:10px;border:1px solid var(--red);border-radius:20px;padding:1px 7px;margin-left:7px;white-space:nowrap}
   .cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:26px}
   .cmpcard{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--card)}
   .cmpcard.live{border-color:rgba(232,85,60,.5);background:linear-gradient(160deg,rgba(232,85,60,.12),rgba(255,255,255,.02))}
@@ -83,22 +76,55 @@
   .cmprow b{color:var(--cream);font-family:'Space Mono',monospace}
   .explain{font-size:15px;color:#d8cdc2;line-height:1.7}
   .explain b{color:var(--cream)}
-  /* recs */
-  .recs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .rec{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--card)}
+  .recs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .rec{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--card)}
   .rec .n{font-family:'DM Serif Display',serif;color:var(--red);font-size:30px;line-height:1}
-  .rec .rt{margin:12px 0 8px;font-size:16px;font-weight:600}
-  .rec .rd{font-size:13.5px;color:var(--mut);line-height:1.6}
-  /* footer */
+  .rec .rt{margin:12px 0 8px;font-size:17px;font-weight:600}
+  .rec .rd{font-size:14px;color:var(--mut);line-height:1.6}
+  /* CTA */
+  .cta{border:1px solid rgba(232,85,60,.5);border-radius:20px;padding:42px 40px;
+    background:linear-gradient(140deg,rgba(232,85,60,.16),rgba(255,255,255,.02))}
+  .ctatext{color:#ddd2c8;font-size:16px;max-width:600px;margin:14px 0 28px;line-height:1.7}
+  .ctabtn{display:inline-block;background:linear-gradient(90deg,#E63B2E,#E8553C);color:#fff;font-weight:600;
+    font-size:15px;padding:16px 32px;border-radius:999px;letter-spacing:.02em;transition:filter .2s,transform .2s}
+  .ctabtn:hover{filter:brightness(1.08);transform:translateY(-1px)}
   footer{padding:40px 0 60px;color:var(--dim);font-size:12px}
   footer .fb{color:var(--cream);font-weight:700;letter-spacing:.1em}
   .method{margin-top:10px;font-size:11px;color:#5f554c;max-width:680px}
+  /* ---- scroll animation (only when JS on; degrades to fully visible without JS) ---- */
+  .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+  .js .reveal.in{opacity:1;transform:none}
+  .js .reveal .kpi,.js .reveal .rec,.js .reveal .cmpcard,.js .reveal .leg{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .js .reveal.in .kpi,.js .reveal.in .rec,.js .reveal.in .cmpcard,.js .reveal.in .leg{opacity:1;transform:none}
+  .js .reveal.in .kpi:nth-child(2){transition-delay:.08s}
+  .js .reveal.in .kpi:nth-child(3){transition-delay:.16s}
+  .js .reveal.in .kpi:nth-child(4){transition-delay:.24s}
+  .js .reveal.in .kpi:nth-child(5){transition-delay:.32s}
+  .js .reveal.in .kpi:nth-child(6){transition-delay:.40s}
+  .js .reveal.in .rec:nth-child(2),.js .reveal.in .cmpcard:nth-child(2),.js .reveal.in .leg:nth-child(2){transition-delay:.14s}
+  .js .fill{width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1) .15s}
+  .js .reveal.in .fill{width:var(--w)}
+  .arc-new{stroke-dashoffset:0}
+  .js .arc-new{stroke-dashoffset:354.9;transition:stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1) .2s}
+  .js .reveal.in .arc-new{stroke-dashoffset:0}
+  .js .arc-ret{opacity:0;transition:opacity .6s ease 1s}
+  .js .reveal.in .arc-ret{opacity:1}
+  .js .donut svg text{opacity:0;transition:opacity .6s ease .8s}
+  .js .reveal.in .donut svg text{opacity:1}
+  @media (prefers-reduced-motion:reduce){
+    .js .reveal,.js .reveal .kpi,.js .reveal .rec,.js .reveal .cmpcard,.js .reveal .leg{opacity:1!important;transform:none!important;transition:none!important}
+    .js .fill{width:var(--w)!important;transition:none!important}
+    .js .arc-new{stroke-dashoffset:0!important;transition:none!important}
+    .js .arc-ret,.js .donut svg text{opacity:1!important;transition:none!important}
+  }
   @media(max-width:720px){
-    .kpis,.recs{grid-template-columns:1fr 1fr}
+    .kpis{grid-template-columns:1fr 1fr}
+    .recs{grid-template-columns:1fr}
     .split{grid-template-columns:1fr;gap:28px}
     .cmp{grid-template-columns:1fr}
-    .bar{grid-template-columns:130px 1fr 96px;gap:8px}
+    .bar{grid-template-columns:120px 1fr 70px;gap:10px}
     .bar .nm{font-size:12px}
+    .cta{padding:30px 24px}
   }
 </style>
 </head>
@@ -112,19 +138,19 @@
   </div>
 
   <!-- HERO -->
-  <div class="hero">
+  <div class="hero reveal">
     <div class="kick mono">The Northumberland Candle Company &nbsp;·&nbsp; Paid Social</div>
     <h1>The first<br>numbers <em>are in.</em></h1>
     <div class="daterange mono">18 to 26 June 2026 &nbsp;·&nbsp; first 8 days live</div>
     <p class="lead">A snapshot of what the ads have done since launch: spend, the new customers we've brought through the door, and the products flying off the shelf.</p>
   </div>
 
-  <div class="statement">
+  <div class="statement reveal">
     <b>£383</b> in ad spend brought in <b>100 brand-new customers</b> worth <b>~£3,150</b> in first orders, an <b>8.2× return</b> on new business, at just <b>£3.83</b> to win each customer.
   </div>
 
   <!-- KPIs -->
-  <section>
+  <section class="reveal">
     <div class="label mono">At a glance</div>
     <h2>The headline figures</h2>
     <div class="kpis">
@@ -138,7 +164,7 @@
   </section>
 
   <!-- SPLIT donut -->
-  <section>
+  <section class="reveal">
     <div class="label mono">Where the revenue came from</div>
     <h2>New vs returning</h2>
     <p class="sub">Nearly three quarters of revenue this window came from people buying for the very first time, the clearest sign the ads are bringing in fresh demand, not just recycling existing customers.</p>
@@ -146,9 +172,9 @@
       <div class="donut">
         <svg width="200" height="200" viewBox="0 0 200 200">
           <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="26"/>
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#E8553C" stroke-width="26"
-            stroke-dasharray="354.9 502.65" stroke-dashoffset="0" transform="rotate(-90 100 100)" stroke-linecap="butt"/>
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#6b6058" stroke-width="26"
+          <circle class="arc-new" cx="100" cy="100" r="80" fill="none" stroke="#E8553C" stroke-width="26"
+            stroke-dasharray="354.9 502.65" transform="rotate(-90 100 100)"/>
+          <circle class="arc-ret" cx="100" cy="100" r="80" fill="none" stroke="#6b6058" stroke-width="26"
             stroke-dasharray="147.75 502.65" stroke-dashoffset="-354.9" transform="rotate(-90 100 100)"/>
           <text x="100" y="94" text-anchor="middle" fill="#f5f0e8" font-family="DM Serif Display" font-size="34">71%</text>
           <text x="100" y="118" text-anchor="middle" fill="#b3a59a" font-family="Space Mono" font-size="10" letter-spacing="1">NEW</text>
@@ -169,37 +195,37 @@
   </section>
 
   <!-- BEFORE vs AFTER -->
-  <section>
+  <section class="reveal">
     <div class="label mono">Is this normal?</div>
     <h2>New customers per day: before vs after</h2>
     <p class="sub">The clearest proof the ads are working is the pace of new customers coming in. Before launch the store brought in a handful a day. Since the ads went live, that rate has more than doubled.</p>
     <div class="bars">
-      <div class="bar"><div class="nm">Longer-term average <span class="muted">(3 months)</span></div><div class="track"><div class="fill grey" style="width:20%"></div></div><div class="vv">~2.4 <span>/day</span></div></div>
-      <div class="bar"><div class="nm">Weeks before launch</div><div class="track"><div class="fill grey" style="width:42%"></div></div><div class="vv">~4.8 <span>/day</span></div></div>
-      <div class="bar"><div class="nm">During the campaign</div><div class="track"><div class="fill" style="width:100%"></div></div><div class="vv">~11.5 <span>/day</span></div></div>
+      <div class="bar"><div class="nm">Longer-term average <span class="muted">(3 months)</span></div><div class="track"><div class="fill grey" style="--w:20%"></div></div><div class="vv">~2.4 <span>/day</span></div></div>
+      <div class="bar"><div class="nm">Weeks before launch</div><div class="track"><div class="fill grey" style="--w:42%"></div></div><div class="vv">~4.8 <span>/day</span></div></div>
+      <div class="bar"><div class="nm">During the campaign</div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="vv">~11.5 <span>/day</span></div></div>
     </div>
     <div class="statement" style="margin-top:30px"><b>2.4×</b> the rate of the weeks right before launch, and roughly <b>5×</b> the longer-term average. That jump lines up exactly with the ads going live on 18 June.</div>
   </section>
 
   <!-- BEST SELLERS -->
-  <section>
+  <section class="reveal">
     <div class="label mono">Top performers</div>
     <h2>Best sellers</h2>
-    <p class="sub">By revenue over the window. The Highland Cow Spring Bundle was the runaway winner, and is the priority restock.</p>
+    <p class="sub">By revenue over the window. The Highland Cow Spring Bundle was the runaway winner before it sold out.</p>
     <div class="bars">
-      <div class="bar"><div class="nm">Highland Cow Spring Bundle <span class="soldout mono">SOLD OUT</span></div><div class="track"><div class="fill" style="width:100%"></div></div><div class="vv">£860 <span>· 43</span></div></div>
-      <div class="bar"><div class="nm">Woodbridge Reed Diffuser 1000ml</div><div class="track"><div class="fill" style="width:37.5%"></div></div><div class="vv">£323 <span>· 17</span></div></div>
-      <div class="bar"><div class="nm">Desire Luxury Reed Diffuser 1000ml</div><div class="track"><div class="fill" style="width:34.9%"></div></div><div class="vv">£300 <span>· 15</span></div></div>
-      <div class="bar"><div class="nm">£20 Spring Bundle</div><div class="track"><div class="fill" style="width:30.2%"></div></div><div class="vv">£260 <span>· 13</span></div></div>
-      <div class="bar"><div class="nm">Sizzlers</div><div class="track"><div class="fill" style="width:23.3%"></div></div><div class="vv">£200 <span>· 18</span></div></div>
-      <div class="bar"><div class="nm">Monthly Wax Melt Subscription</div><div class="track"><div class="fill" style="width:22.7%"></div></div><div class="vv">£195 <span>· 13</span></div></div>
-      <div class="bar"><div class="nm">LED Ceramic Air Diffuser</div><div class="track"><div class="fill" style="width:19.2%"></div></div><div class="vv">£165 <span>· 11</span></div></div>
-      <div class="bar"><div class="nm">Wax Melt Mystery Box £10</div><div class="track"><div class="fill" style="width:16.3%"></div></div><div class="vv">£140 <span>· 14</span></div></div>
+      <div class="bar"><div class="nm">Highland Cow Spring Bundle <span class="soldout mono">SOLD OUT</span></div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="vv">£860 <span>· 43</span></div></div>
+      <div class="bar"><div class="nm">Woodbridge Reed Diffuser 1000ml</div><div class="track"><div class="fill" style="--w:37.5%"></div></div><div class="vv">£323 <span>· 17</span></div></div>
+      <div class="bar"><div class="nm">Desire Luxury Reed Diffuser 1000ml</div><div class="track"><div class="fill" style="--w:34.9%"></div></div><div class="vv">£300 <span>· 15</span></div></div>
+      <div class="bar"><div class="nm">£20 Spring Bundle</div><div class="track"><div class="fill" style="--w:30.2%"></div></div><div class="vv">£260 <span>· 13</span></div></div>
+      <div class="bar"><div class="nm">Sizzlers</div><div class="track"><div class="fill" style="--w:23.3%"></div></div><div class="vv">£200 <span>· 18</span></div></div>
+      <div class="bar"><div class="nm">Monthly Wax Melt Subscription</div><div class="track"><div class="fill" style="--w:22.7%"></div></div><div class="vv">£195 <span>· 13</span></div></div>
+      <div class="bar"><div class="nm">LED Ceramic Air Diffuser</div><div class="track"><div class="fill" style="--w:19.2%"></div></div><div class="vv">£165 <span>· 11</span></div></div>
+      <div class="bar"><div class="nm">Wax Melt Mystery Box £10</div><div class="track"><div class="fill" style="--w:16.3%"></div></div><div class="vv">£140 <span>· 14</span></div></div>
     </div>
   </section>
 
   <!-- COMPARE / attribution -->
-  <section>
+  <section class="reveal">
     <div class="label mono">Reading the numbers</div>
     <h2>Our figures vs Facebook</h2>
     <p class="sub">You'll notice our numbers are higher than what Facebook Ads Manager shows. That's expected. Here's why, and why we're confident in the real picture.</p>
@@ -224,21 +250,45 @@
   </section>
 
   <!-- RECS -->
-  <section>
+  <section class="reveal">
     <div class="label mono">Next moves</div>
     <h2>What we'd do next</h2>
     <div class="recs">
-      <div class="rec"><div class="n">01</div><div class="rt">Restock the Highland Cow Bundle</div><div class="rd">Your #1 seller (43 units, £860) is sold out and its ad is paused. Every day out is lost revenue, so it's top priority to get back in stock.</div></div>
-      <div class="rec"><div class="n">02</div><div class="rt">Scale the spend</div><div class="rd">At £3.83 to win a customer there's real headroom. We can lift budget on the winning campaign while staying comfortably profitable.</div></div>
-      <div class="rec"><div class="n">03</div><div class="rt">Lean into the winners</div><div class="rd">Reed diffusers and the bundles are pulling high revenue and order values. We'll build the next round of creative around them.</div></div>
+      <div class="rec"><div class="n">01</div><div class="rt">Scale the spend</div><div class="rd">At £3.83 to win a customer there's real headroom. We can lift budget on the winning campaign while staying comfortably profitable.</div></div>
+      <div class="rec"><div class="n">02</div><div class="rt">Lean into the winners</div><div class="rd">Reed diffusers and the bundles are pulling high revenue and order values. We'll build the next round of creative around them.</div></div>
+    </div>
+  </section>
+
+  <!-- CONTENT PLAN CTA -->
+  <section class="reveal">
+    <div class="cta">
+      <div class="label mono">One quick thing from you</div>
+      <h2>Lock in next month's content</h2>
+      <p class="ctatext">We've lined up the content calendar for the weeks ahead, from 30 June. To get it rolling, give it a quick look and add anything you'd like to see. It only takes a couple of minutes, and we'll start producing as soon as it's in.</p>
+      <a class="ctabtn" href="https://fusioncreative.uk/plan/tncc-content-plan">Fill in the content form →</a>
     </div>
   </section>
 
   <footer>
     <span class="fb mono">FUSION CREATIVE</span> &nbsp;·&nbsp; Performance Brief &nbsp;·&nbsp; 18 to 26 June 2026
-    <div class="method">Method: ad spend from Meta (whole account). New customer = first-ever order placed in the window (Shopify). "What Facebook reports" = Meta pixel-attributed purchases. Revenue figures are gross of refunds. Period covers the first 8 days since launch.</div>
+    <div class="method">Method: ad spend from Meta (whole account). New customer = first-ever order placed in the window (Shopify). Baseline = new customers per day by first-order date over the periods shown. "What Facebook reports" = Meta pixel-attributed purchases. Revenue figures are gross of refunds. Period covers the first 8 days since launch.</div>
   </footer>
 
 </div>
+
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+    return;
+  }
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  },{threshold:0.15, rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+})();
+</script>
 </body>
 </html>
