@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Shoot List | The Northumberland Candle Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d0b0a; --card:rgba(255,255,255,0.045); --card-done:rgba(95,185,139,0.07); --line:rgba(255,255,255,0.1);
+    --cream:#f5f0e8; --mut:#b3a59a; --dim:#7d7066;
+    --red:#E8553C; --red2:#E63B2E; --green:#5fb98b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--cream);font-family:'Space Grotesk',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px 80px}
+  .mono{font-family:'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:26px 0 0;font-size:11px;color:var(--mut)}
+  .topbar .brand{color:var(--cream);font-weight:700}
+  header{padding:42px 0 28px;border-bottom:1px solid var(--line)}
+  .kick{font-size:11px;color:var(--red);margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(34px,6vw,54px);letter-spacing:-.01em;line-height:1.05}
+  .sub{margin-top:14px;font-size:14.5px;color:var(--mut);max-width:600px}
+  /* progress */
+  .progresswrap{margin-top:26px;display:flex;align-items:center;gap:14px}
+  .pbar{flex:1;height:10px;border-radius:6px;background:rgba(255,255,255,.06);overflow:hidden}
+  .pfill{height:100%;width:0%;background:linear-gradient(90deg,#E63B2E,#5fb98b);border-radius:6px;transition:width .3s ease}
+  .ptext{font-family:'Space Mono',monospace;font-size:12px;color:var(--mut);white-space:nowrap}
+  /* gather list */
+  section{padding:36px 0;border-bottom:1px solid var(--line)}
+  .label{font-size:11px;color:var(--red);margin-bottom:6px}
+  h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(22px,3.4vw,30px);margin-bottom:6px}
+  .gnote{color:var(--mut);font-size:13.5px;margin-bottom:20px;max-width:600px}
+  .gather{display:flex;flex-direction:column;gap:10px}
+  .gitem{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:12px;cursor:pointer;user-select:none}
+  .gitem input{margin-top:3px;width:18px;height:18px;accent-color:var(--green);flex:none;cursor:pointer}
+  .gitem .gt{font-size:14.5px;color:#e7ddd3}
+  .gitem .gt b{color:var(--cream)}
+  .gitem.flag{border-color:rgba(232,85,60,.55)}
+  .gitem.flag .gt{color:#f0c9bd}
+  .gitem .flagtag{display:inline-block;margin-left:8px;font-size:9.5px;letter-spacing:.08em;color:var(--red);border:1px solid var(--red);border-radius:20px;padding:1px 7px;vertical-align:middle;text-transform:uppercase}
+  .gitem.checked{opacity:.5}
+  .gitem.checked .gt{text-decoration:line-through}
+  /* shots */
+  .shot{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;margin-bottom:16px;transition:background .2s,border-color .2s}
+  .shot.done{background:var(--card-done);border-color:rgba(95,185,139,.4)}
+  .shead{display:flex;align-items:flex-start;gap:14px}
+  .shead input{margin-top:5px;width:20px;height:20px;accent-color:var(--green);flex:none;cursor:pointer}
+  .snum{font-family:'Space Mono',monospace;font-size:12px;color:var(--red);letter-spacing:.05em}
+  .sdate{font-family:'Space Mono',monospace;font-size:11px;color:var(--dim);margin-left:10px}
+  .stitle{font-family:'DM Serif Display',serif;font-size:21px;margin:6px 0 14px;line-height:1.25}
+  .shot.done .stitle{color:var(--mut)}
+  .srows{display:flex;flex-direction:column;gap:9px;margin-left:0}
+  .srow{display:grid;grid-template-columns:84px 1fr;gap:12px;font-size:13.5px}
+  .srow .k{color:var(--dim);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-family:'Space Mono',monospace;padding-top:2px}
+  .srow .v{color:#e7ddd3}
+  .srow .v.hook{font-style:italic;color:var(--cream)}
+  .slink{display:inline-block;margin-top:14px;font-size:12px;color:var(--red);text-decoration:none;border-bottom:1px solid rgba(232,85,60,.4)}
+  footer{padding:36px 0 10px;color:var(--dim);font-size:11.5px}
+  /* print */
+  @media print{
+    body{background:#fff;color:#111}
+    .topbar,.progresswrap{display:none}
+    .shot,.gitem{break-inside:avoid;background:#fff;border:1px solid #ccc}
+    .stitle,h1,h2{color:#111}
+    .srow .v,.gt{color:#111}
+    .slink{display:none}
+  }
+  @media(max-width:600px){
+    .srow{grid-template-columns:1fr}
+    .srow .k{padding-top:0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span class="brand mono">FUSION CREATIVE</span>
+    <span class="mono">Shoot List</span>
+  </div>
+
+  <header>
+    <div class="kick mono">The Northumberland Candle Company &middot; Production</div>
+    <h1>Shoot list</h1>
+    <p class="sub">All 20 video concepts approved for 29 June through 31 July, in one filming-ready checklist. Tick items off as you shoot, your progress is saved on this device.</p>
+    <div class="progresswrap">
+      <div class="pbar"><div class="pfill" id="pfill"></div></div>
+      <div class="ptext" id="ptext">0 / 20 shot</div>
+    </div>
+  </header>
+
+  <section>
+    <div class="label mono">Before you start</div>
+    <h2>What to gather</h2>
+    <p class="gnote">Pull all of this together first so the shoot runs without stopping. Two items are flagged, they don't have a live product yet, so those two shots can't be filmed until that's sorted.</p>
+    <div class="gather" id="gather"></div>
+  </section>
+
+  <section style="border-bottom:none;">
+    <div class="label mono">The shots</div>
+    <h2>20 concepts, in posting order</h2>
+    <div id="shots"></div>
+  </section>
+
+  <footer>
+    FUSION CREATIVE &middot; TNCC Shoot List &middot; pulled from the approved 29 Jun to 31 Jul content plan
+  </footer>
+
+</div>
+
+<script>
+  var BASE = "https://www.thenorthumberlandcandlecompany.com";
+
+  var GATHER = [
+    {id:"g1", t:"5 selection boxes: <b>Hinch</b>, <b>Hinch 2.0</b>, <b>Harry's</b>, <b>Barbie</b>, <b>Sweet Shop Favourites</b>"},
+    {id:"g2", t:"<b>Monthly Wax Melt Subscription</b> box (a full month's box to unbox)"},
+    {id:"g3", t:"<b>Monthly Snap Bar Subscription</b> box (a full month's box to unbox)"},
+    {id:"g4", t:"<b>Ultimate Scent Lovers Subscription</b> box (the biggest one, everything inside)"},
+    {id:"g5", t:"Full <b>Highland Cow range</b>: white + black burners, wax melt tins, tealight burner, figurines &amp; home decor (needed across 4 different shots)"},
+    {id:"g6", t:"<b>Snap bars</b>, enough for a 3-for-&pound;10 display (needed across 2 shots)"},
+    {id:"g7", t:"<b>Reed diffusers</b>: Woodbridge 1000ml + Desire Luxury 1000ml"},
+    {id:"g8", t:"A general assortment of <b>melts + burners</b> for the informational/POV videos (can reuse stock from above)"},
+    {id:"g9", t:"<b>Teacher gift sets</b>: not live in store yet, needs sourcing or building before this shoot can happen", flag:true},
+    {id:"g10", t:"<b>NEW box launch</b>: product not confirmed yet, can't shoot until this exists", flag:true}
+  ];
+
+  var SHOTS = [
+   {date:"2026-06-29",day:"Mon 29 Jun",title:"Hinch Wax Melt Selection Box",hook:"The cleaning girlies' favourite box / POV unboxing.",format:"Top-down ASMR unboxing, fold the candy tissue out, reveal the melts.",product:"Hinch Selection Box (£15).",cta:"Shop selection boxes.",link:"/products/hinch-wax-melt-selection-box"},
+   {date:"2026-06-30",day:"Tue 30 Jun",title:"Monthly Wax Melt Subscription",hook:"New scents on your doormat every single month.",format:"Unbox the monthly box, talk through value + variety.",product:"Monthly Wax Melt Subscription (£14.99/mo).",cta:"Start a subscription.",link:"/products/monthly-wax-melt-subscription-box"},
+   {date:"2026-07-01",day:"Wed 1 Jul",title:"Hinch 2.0 Selection Box",hook:"You asked, so we made Hinch 2.0.",format:"New-scents reveal, side by side with the original.",product:"Hinch 2.0 (£15).",cta:"Shop selection boxes.",link:"/products/hinch-2-0-wax-melt-selection-box"},
+   {date:"2026-07-02",day:"Thu 2 Jul",title:"White vs Black Highland Cow burners",hook:"Which Highland Cow are you?",format:"Both burners glowing in a cosy room, satisfying reveal.",product:"White/Black Highland Cow burners (£9.99-£17.49).",cta:"Shop Highland Cow.",link:"/collections/highland-cows"},
+   {date:"2026-07-03",day:"Fri 3 Jul",title:"Teacher gift sets: end of term thank-yous",hook:"Last day of term? Sorted.",format:"Quick styled gift-wrap reveal of a melt/mini set as a teacher gift, handwritten note touch.",product:"Teacher gift sets (not live yet, see flagged item above).",cta:"Shop gifts.",link:"/collections/all"},
+   {date:"2026-07-04",day:"Sat 4 Jul",title:"Harry's Wax Melt Selection Box",hook:"If you grew up on Harry Potter...",format:"Themed reveal, magical styling.",product:"Harry's Selection Box (£15).",cta:"Shop selection boxes.",link:"/products/harrys-wax-melt-selection-box"},
+   {date:"2026-07-05",day:"Sun 5 Jul",title:"Highland Cow wax melt tins + tealight burner",hook:"The cosiest £15 setup.",format:"Melt the tin in the ceramic burner, warm aesthetic.",product:"Highland Cow tins (£5.50) + tealight burner (£9.99).",cta:"Shop Highland Cow.",link:"/products/highland-cow-wax-melt-tins"},
+   {date:"2026-07-06",day:"Mon 6 Jul",title:"Barbie Wax Melt Selection Box",hook:"Come on Barbie, let's go party.",format:"All-pink themed reveal, trending audio.",product:"Barbie Selection Box (£15).",cta:"Shop selection boxes.",link:"/products/barbie-wax-melt-selection-box"},
+   {date:"2026-07-07",day:"Tue 7 Jul",title:"Monthly Snap Bar Subscription",hook:"The £9.99 habit that makes your home smell unreal.",format:"Unbox + show the variety of snap bars.",product:"Monthly Snap Bar Subscription (£9.99/mo).",cta:"Start a subscription.",link:"/products/monthly-candy-wax-melt-subscription-box-copy"},
+   {date:"2026-07-08",day:"Wed 8 Jul",title:"Which reed diffuser is right for you?",hook:"Stop guessing, here's which reed diffuser to pick.",format:"Side-by-side comparison of the bestselling reed diffusers, scent throw + room size guide.",product:"Reed diffuser range (Woodbridge & Desire Luxury 1000ml, top sellers).",cta:"Shop reed diffusers.",link:"/collections/reed-diffusers"},
+   {date:"2026-07-09",day:"Thu 9 Jul",title:"Wax melt mistakes you're making",hook:"You're using your wax melts wrong.",format:"Viral informational, common mistakes + quick fixes.",product:"Melts + burners.",cta:"Shop melts.",link:"/collections/wax-melts"},
+   {date:"2026-07-10",day:"Fri 10 Jul",title:"NEW box launch (details TBC)",hook:"TBC once the box is confirmed, reveal-style launch video.",format:"Unboxing/reveal of the new box, hype build.",product:"NEW box launching 10 Jul (not live yet, see flagged item above).",cta:"Shop the new box.",link:"/collections/all"},
+   {date:"2026-07-11",day:"Sat 11 Jul",title:"Highland Cow figurines & home decor",hook:"Highland Cow home haul.",format:"Cosy styling of the full Highland Cow range.",product:"Highland Cow figurines & decor (£4.99-£17.99).",cta:"Shop Highland Cow.",link:"/collections/highland-cows"},
+   {date:"2026-07-12",day:"Sun 12 Jul",title:"POV: everyone asks why your house smells so good",hook:"POV: everyone who walks in asks what that smell is.",format:"Relatable skit, reveal the melts at the end.",product:"Bestsellers.",cta:"Shop bestsellers.",link:"/collections/bestsellers"},
+   {date:"2026-07-13",day:"Mon 13 Jul",title:"Make your home smell amazing for under £10",hook:"How to make your whole house smell amazing for under £10.",format:"Informational.",product:"Snap bars 3 for £10.",cta:"Shop snap bars.",link:"/collections/50g-snap-bars-3-for-10"},
+   {date:"2026-07-14",day:"Tue 14 Jul",title:"Which selection box are you?",hook:"Comment which one you'd pick.",format:"Rapid showcase of the 5 selection boxes, interactive prompt.",product:"Selection boxes (£15 each).",cta:"Shop selection boxes.",link:"/collections/wax-melt-selection-boxes"},
+   {date:"2026-07-15",day:"Wed 15 Jul",title:"3 reasons wax melts beat candles",hook:"3 reasons you should ditch candles for wax melts.",format:"Viral informational, fast cuts + text hooks.",product:"Snap bars 3 for £10.",cta:"Try the snap bars.",link:"/collections/50g-snap-bars-3-for-10"},
+   {date:"2026-07-22",day:"Wed 22 Jul",title:"Sweet Shop Favourites: a wax melt full of nostalgia",hook:"Every sweet from the corner shop, now a wax melt.",format:"Nostalgic reveal of the 5 sweet-shop scents.",product:"Sweet Shop Favourites (£15).",cta:"Shop the box.",link:"/products/sweet-shop-favourites-selection-box"},
+   {date:"2026-07-24",day:"Fri 24 Jul",title:"Ultimate Scent Lovers Subscription",hook:"The ultimate box for scent obsessives.",format:"Unbox the biggest subscription, show everything you get.",product:"Ultimate Scent Lovers (£34.99/mo).",cta:"Start a subscription.",link:"/products/ultimate-scent-lovers-subscription-box"},
+   {date:"2026-07-31",day:"Fri 31 Jul",title:"Build your own Highland Cow set",hook:"Mix and match your favourite Highland Cow pieces.",format:"Styled flat-lay/tabletop, mixing burners + tins + figurines, quick swap demo.",product:"Best-selling Highland Cow range (mix & match).",cta:"Shop Highland Cow.",link:"/collections/highland-cows"}
+  ];
+  SHOTS.forEach(function(s,i){ s.id = "s" + i; });
+
+  var STORE_KEY = "tncc_shootlist_v1";
+  function loadState(){ try{ return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; }catch(e){ return {}; } }
+  function saveState(s){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(s)); }catch(e){} }
+  var state = loadState();
+
+  function updateProgress(){
+    var done = SHOTS.filter(function(s){ return !!state[s.id]; }).length;
+    document.getElementById("ptext").textContent = done + " / " + SHOTS.length + " shot";
+    document.getElementById("pfill").style.width = Math.round(done / SHOTS.length * 100) + "%";
+  }
+
+  function buildGather(){
+    var c = document.getElementById("gather");
+    GATHER.forEach(function(g){
+      var row = document.createElement("label");
+      row.className = "gitem" + (g.flag ? " flag" : "") + (state[g.id] ? " checked" : "");
+      row.innerHTML = '<input type="checkbox" ' + (state[g.id] ? "checked" : "") + '><span class="gt">' + g.t + (g.flag ? '<span class="flagtag">Blocked</span>' : '') + '</span>';
+      row.querySelector("input").addEventListener("change", function(e){
+        state[g.id] = e.target.checked; saveState(state);
+        row.classList.toggle("checked", e.target.checked);
+      });
+      c.appendChild(row);
+    });
+  }
+
+  function buildShots(){
+    var c = document.getElementById("shots");
+    SHOTS.forEach(function(s, i){
+      var div = document.createElement("div");
+      div.className = "shot" + (state[s.id] ? " done" : "");
+      div.innerHTML =
+        '<div class="shead">' +
+          '<input type="checkbox" ' + (state[s.id] ? "checked" : "") + '>' +
+          '<div style="flex:1">' +
+            '<span class="snum">SHOT ' + (i+1) + ' / ' + SHOTS.length + '</span><span class="sdate">posts ' + s.day + '</span>' +
+            '<div class="stitle">' + s.title + '</div>' +
+            '<div class="srows">' +
+              '<div class="srow"><span class="k">Hook</span><span class="v hook">&ldquo;' + s.hook + '&rdquo;</span></div>' +
+              '<div class="srow"><span class="k">Format</span><span class="v">' + s.format + '</span></div>' +
+              '<div class="srow"><span class="k">Product</span><span class="v">' + s.product + '</span></div>' +
+              '<div class="srow"><span class="k">End card</span><span class="v">' + s.cta + '</span></div>' +
+            '</div>' +
+            '<a class="slink" href="' + BASE + s.link + '" target="_blank" rel="noopener">View product &#8599;</a>' +
+          '</div>' +
+        '</div>';
+      div.querySelector("input").addEventListener("change", function(e){
+        state[s.id] = e.target.checked; saveState(state);
+        div.classList.toggle("done", e.target.checked);
+        updateProgress();
+      });
+      c.appendChild(div);
+    });
+  }
+
+  buildGather(); buildShots(); updateProgress();
+</script>
+</body>
+</html>
