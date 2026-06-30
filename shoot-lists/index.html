@@ -31,10 +31,24 @@
   .wrap{max-width:640px;margin:0 auto;padding:28px 20px 40px;}
 
   header{margin-bottom:18px;}
+  .eyebrow-row{
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+    margin-bottom:8px;
+  }
   .eyebrow{
     font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--coral);font-weight:700;margin-bottom:8px;
+    color:var(--coral);font-weight:700;
   }
+  .sync-status{
+    font-size:11px;font-weight:600;color:var(--ink-soft);
+    display:flex;align-items:center;gap:5px;white-space:nowrap;
+  }
+  .sync-status::before{
+    content:"";width:6px;height:6px;border-radius:99px;background:var(--line);flex:0 0 auto;
+  }
+  .sync-status.ok::before{background:var(--done);}
+  .sync-status.busy::before{background:#d6a23a;}
+  .sync-status.err::before{background:var(--coral);}
   h1{
     font-family:'Fraunces',serif;
     font-weight:600;
@@ -201,7 +215,10 @@
 <div class="wrap">
 
   <header>
-    <div class="eyebrow">Fusion Creative · Production Reference</div>
+    <div class="eyebrow-row">
+      <div class="eyebrow">Fusion Creative · Production Reference</div>
+      <div class="sync-status" id="syncStatus">Loading…</div>
+    </div>
     <h1>Shoot Concept Lists</h1>
     <div class="sub">Idea → concept → reference → done. Build a list per client shoot, add as many as you like.</div>
   </header>
@@ -226,12 +243,13 @@
 
   <div id="cardList"></div>
 
-  <div class="credit">Saves automatically on this device. Tap + to add a list for the next client/shoot.</div>
+  <div class="credit">Synced across every device automatically. Tap + to add a list for the next client/shoot.</div>
 
 </div>
 
 <script>
 const STORAGE_KEY = "fusion-shoot-lists-v2";
+const API = "https://newgreek.fusioncreative.uk/api/shoot-lists/";
 
 function uid(){ return 'id-' + Math.random().toString(36).slice(2, 10); }
 
@@ -244,22 +262,77 @@ function defaultData(){
   };
 }
 
-function loadState(){
+function loadLocal(){
   try{
     const raw = localStorage.getItem(STORAGE_KEY);
-    if(!raw) return defaultData();
+    if(!raw) return null;
     const parsed = JSON.parse(raw);
-    if(!parsed.lists || !parsed.lists.length) return defaultData();
+    if(!parsed.lists || !parsed.lists.length) return null;
     return parsed;
   }catch(e){
-    return defaultData();
+    return null;
   }
 }
-function saveState(){
+function cacheLocal(){
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
-let data = loadState();
+function setSyncStatus(state, label){
+  const el = document.getElementById("syncStatus");
+  el.className = "sync-status" + (state ? " " + state : "");
+  el.textContent = label;
+}
+
+let data = loadLocal() || defaultData();
+let saveTimer = null;
+let savePending = false;
+
+function saveState(){
+  cacheLocal();
+  savePending = true;
+  setSyncStatus("busy", "Saving…");
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(pushToServer, 700);
+}
+
+async function pushToServer(){
+  const payload = data;
+  try{
+    const res = await fetch(API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if(!res.ok) throw new Error("bad status " + res.status);
+    savePending = false;
+    setSyncStatus("ok", "Synced");
+  }catch(e){
+    setSyncStatus("err", "Offline — saved on this device");
+  }
+}
+
+async function pullFromServer(initial){
+  if(!initial) setSyncStatus("busy", "Syncing…");
+  try{
+    const res = await fetch(API, { cache: "no-store" });
+    if(!res.ok) throw new Error("bad status " + res.status);
+    const body = await res.json();
+    if(body && body.data && Array.isArray(body.data.lists) && body.data.lists.length){
+      data = body.data;
+      cacheLocal();
+      renderAll();
+      setSyncStatus("ok", "Synced");
+    } else if(initial){
+      // Nothing saved server-side yet (first ever load) - seed it with whatever we have locally.
+      setSyncStatus("ok", "Synced");
+      await pushToServer();
+    } else {
+      setSyncStatus("ok", "Synced");
+    }
+  }catch(e){
+    setSyncStatus("err", loadLocal() ? "Offline — showing last saved copy" : "Offline — no saved copy yet");
+  }
+}
 
 function activeList(){
   return data.lists.find(l => l.id === data.activeId) || data.lists[0];
@@ -429,6 +502,13 @@ document.getElementById("deleteListBtn").addEventListener("click", () => {
 });
 
 renderAll();
+pullFromServer(true);
+
+document.addEventListener("visibilitychange", () => {
+  if(document.visibilityState === "visible" && !savePending){
+    pullFromServer(false);
+  }
+});
 </script>
 </body>
 </html>
