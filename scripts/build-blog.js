@@ -99,7 +99,7 @@ const FOOTER = `
       <div class="footer-grid">
         <div class="f-col-large">
           <div class="footer-logo">Fusion Creative</div>
-          <p>Short-form content that gets your restaurant in front of millions.<br/>Based in Newcastle upon Tyne. Working with restaurants worldwide.</p>
+          <p>Short-form content that gets your business in front of millions.<br/>Based in Newcastle upon Tyne. Working with local businesses worldwide.</p>
         </div>
         <div class="f-col">
           <h4>Company</h4>
@@ -256,10 +256,10 @@ function buildListingPage(posts) {
   }
 
   return `${HEAD_OPEN}
-  <title>Blog - Fusion Creative | Restaurant Social Media Marketing Newcastle</title>
-  <meta name="description" content="Expert insights on restaurant social media marketing in Newcastle upon Tyne. Tips on TikTok, Instagram Reels, and short-form video content for restaurants." />
-  <meta property="og:title" content="Blog - Fusion Creative | Restaurant Marketing Newcastle" />
-  <meta property="og:description" content="Expert insights on restaurant social media marketing in Newcastle upon Tyne." />
+  <title>Blog - Fusion Creative | Social Media Marketing for Local Businesses Newcastle</title>
+  <meta name="description" content="Expert insights on social media marketing for local businesses in Newcastle upon Tyne. Tips on TikTok, Instagram Reels, and short-form video for restaurants, trades, salons, gyms and more." />
+  <meta property="og:title" content="Blog - Fusion Creative | Local Business Marketing Newcastle" />
+  <meta property="og:description" content="Expert insights on social media marketing for local businesses in Newcastle upon Tyne." />
   <meta property="og:url" content="https://fusioncreative.uk/blog" />
   <link rel="canonical" href="https://fusioncreative.uk/blog" />
 ${FONTS}
@@ -274,8 +274,8 @@ ${navbar(false)}
   <section class="blog-hero">
     <div class="container">
       <div class="section-label">/ Blog</div>
-      <h1>Insights for <em>restaurants</em></h1>
-      <p>Tips, strategies, and case studies on how restaurants in Newcastle upon Tyne and beyond are winning with short-form content.</p>
+      <h1>Insights for <em>local businesses</em></h1>
+      <p>Tips, strategies, and case studies on how local businesses in Newcastle upon Tyne and beyond are winning with short-form content.</p>
     </div>
   </section>
 
