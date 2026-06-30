@@ -10,8 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0d0b0a; --card:rgba(255,255,255,0.045); --card-done:rgba(95,185,139,0.07); --line:rgba(255,255,255,0.1);
-    --cream:#f5f0e8; --mut:#b3a59a; --dim:#7d7066;
+    --bg:#000000; --card:rgba(255,255,255,0.045); --card-done:rgba(95,185,139,0.07); --line:rgba(255,255,255,0.12);
+    --cream:#ffffff; --mut:#a8a8a8; --dim:#707070;
     --red:#E8553C; --red2:#E63B2E; --green:#5fb98b;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -35,7 +35,7 @@
     padding:8px 14px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--mut);
     cursor:pointer;white-space:nowrap;
   }
-  .tab.active{background:var(--cream);border-color:var(--cream);color:#16110d;font-weight:700}
+  .tab.active{background:var(--cream);border-color:var(--cream);color:#0a0a0a;font-weight:700}
   .tab.add-tab{color:var(--red);border-style:dashed;border-color:rgba(232,85,60,.55)}
   .list-tools{display:flex;justify-content:flex-end;gap:18px;margin:10px 0 0}
   .tool-link{
@@ -100,7 +100,7 @@
   .srow .k{color:var(--dim);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-family:'Space Mono',monospace;padding-top:6px}
   .field-concept{
     width:100%;border:none;background:transparent;outline:none;resize:vertical;
-    font-family:inherit;font-size:13.5px;line-height:1.55;color:#e7ddd3;
+    font-family:inherit;font-size:13.5px;line-height:1.55;color:#e5e5e5;
     min-height:42px;padding:5px 0;border-bottom:1px solid transparent;
   }
   .field-concept:focus{border-bottom-color:rgba(232,85,60,.5)}
