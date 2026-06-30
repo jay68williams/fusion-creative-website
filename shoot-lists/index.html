@@ -1,249 +1,184 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Shoot Concept Lists — Fusion Creative</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cream:#f6f1e8;
-    --cream-card:#fffdf9;
-    --ink:#2a2420;
-    --ink-soft:#6b6258;
-    --coral:#e2472b;
-    --coral-soft:#fbe3dd;
-    --line:#e7ddcd;
-    --done:#3f7a52;
-    --done-bg:#e7f1e9;
+    --bg:#0d0b0a; --card:rgba(255,255,255,0.045); --card-done:rgba(95,185,139,0.07); --line:rgba(255,255,255,0.1);
+    --cream:#f5f0e8; --mut:#b3a59a; --dim:#7d7066;
+    --red:#E8553C; --red2:#E63B2E; --green:#5fb98b;
   }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    background:var(--cream);
-    color:var(--ink);
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-    -webkit-font-smoothing:antialiased;
-    padding-bottom:80px;
-  }
-  .wrap{max-width:640px;margin:0 auto;padding:28px 20px 40px;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--cream);font-family:'Space Grotesk',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px 80px}
+  .mono{font-family:'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:26px 0 0;font-size:11px;color:var(--mut)}
+  .topbar .brand{color:var(--cream);font-weight:700}
+  .sync-status{display:flex;align-items:center;gap:7px;white-space:nowrap}
+  .sync-status::before{content:"";width:6px;height:6px;border-radius:99px;background:var(--mut);flex:0 0 auto}
+  .sync-status.ok::before{background:var(--green)}
+  .sync-status.busy::before{background:#d6a23a}
+  .sync-status.err::before{background:var(--red)}
 
-  header{margin-bottom:18px;}
-  .eyebrow-row{
-    display:flex;justify-content:space-between;align-items:center;gap:10px;
-    margin-bottom:8px;
-  }
-  .eyebrow{
-    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--coral);font-weight:700;
-  }
-  .sync-status{
-    font-size:11px;font-weight:600;color:var(--ink-soft);
-    display:flex;align-items:center;gap:5px;white-space:nowrap;
-  }
-  .sync-status::before{
-    content:"";width:6px;height:6px;border-radius:99px;background:var(--line);flex:0 0 auto;
-  }
-  .sync-status.ok::before{background:var(--done);}
-  .sync-status.busy::before{background:#d6a23a;}
-  .sync-status.err::before{background:var(--coral);}
-  h1{
-    font-family:'Fraunces',serif;
-    font-weight:600;
-    font-size:28px;
-    line-height:1.15;
-    margin:0 0 6px;
-    letter-spacing:-0.01em;
-  }
-  .sub{color:var(--ink-soft);font-size:14px;line-height:1.5;}
-
-  /* tabs */
-  .tabs{
-    display:flex;gap:8px;overflow-x:auto;padding:18px 0 4px;
-    -webkit-overflow-scrolling:touch;
-  }
-  .tabs::-webkit-scrollbar{display:none;}
+  /* tabs / list switcher */
+  .tabs{display:flex;gap:8px;overflow-x:auto;padding:22px 0 0;-webkit-overflow-scrolling:touch}
+  .tabs::-webkit-scrollbar{display:none}
   .tab{
-    flex:0 0 auto;
-    padding:8px 14px;border-radius:99px;border:1px solid var(--line);
-    background:var(--cream-card);color:var(--ink-soft);
-    font-size:13.5px;font-weight:600;cursor:pointer;white-space:nowrap;
+    flex:0 0 auto;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    padding:8px 14px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--mut);
+    cursor:pointer;white-space:nowrap;
   }
-  .tab.active{background:var(--ink);border-color:var(--ink);color:#fff;}
-  .tab.add-tab{color:var(--coral);border-style:dashed;border-color:var(--coral);background:transparent;}
-
-  .list-tools{
-    display:flex;justify-content:flex-end;gap:14px;margin:6px 2px 18px;
-  }
+  .tab.active{background:var(--cream);border-color:var(--cream);color:#16110d;font-weight:700}
+  .tab.add-tab{color:var(--red);border-style:dashed;border-color:rgba(232,85,60,.55)}
+  .list-tools{display:flex;justify-content:flex-end;gap:18px;margin:10px 0 0}
   .tool-link{
-    font-size:12px;font-weight:600;color:var(--ink-soft);background:none;border:none;
-    cursor:pointer;padding:0;font-family:inherit;
+    font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--dim);background:none;border:none;cursor:pointer;padding:0;
   }
-  .tool-link:hover{color:var(--coral);}
-  .tool-link.danger:hover{color:#b3261e;}
+  .tool-link:hover{color:var(--red)}
+
+  header{padding:30px 0 28px;border-bottom:1px solid var(--line)}
+  .kick{font-size:11px;color:var(--red);margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(34px,6vw,54px);letter-spacing:-.01em;line-height:1.05}
+  .sub{margin-top:14px;font-size:14.5px;color:var(--mut);max-width:600px}
+  .progresswrap{margin-top:26px;display:flex;align-items:center;gap:14px}
+  .pbar{flex:1;height:10px;border-radius:6px;background:rgba(255,255,255,.06);overflow:hidden}
+  .pfill{height:100%;width:0%;background:linear-gradient(90deg,#E63B2E,#5fb98b);border-radius:6px;transition:width .3s ease}
+  .ptext{font-family:'Space Mono',monospace;font-size:12px;color:var(--mut);white-space:nowrap}
+
+  section{padding:36px 0;border-bottom:1px solid var(--line)}
+  .label{font-size:11px;color:var(--red);margin-bottom:6px}
+  h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(22px,3.4vw,30px);margin-bottom:6px}
+  .gnote{color:var(--mut);font-size:13.5px;margin-bottom:20px;max-width:600px}
 
   /* notes */
-  .notes-box{
-    background:var(--cream-card);
-    border:1px solid var(--line);
-    border-radius:14px;
-    padding:14px 16px;
-    margin-bottom:20px;
-  }
-  .notes-box h2{
-    font-size:11px;text-transform:uppercase;letter-spacing:.1em;
-    color:var(--ink-soft);margin:0 0 8px;font-weight:700;
-  }
   .notes-box textarea{
-    width:100%;border:none;background:transparent;resize:vertical;
-    font-family:inherit;font-size:13.5px;line-height:1.6;color:var(--ink);
-    min-height:60px;padding:0;outline:none;
+    width:100%;border:none;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    resize:vertical;font-family:inherit;font-size:13.5px;line-height:1.6;color:var(--cream);
+    min-height:64px;padding:14px 16px;outline:none;
   }
-  .notes-box textarea::placeholder{color:#b3a896;}
-
-  .progress-bar{
-    position:sticky;top:0;z-index:10;
-    background:var(--cream);
-    padding:8px 0 14px;
-    display:flex;align-items:center;gap:12px;
-  }
-  .progress-track{
-    flex:1;height:8px;border-radius:99px;background:var(--line);overflow:hidden;
-  }
-  .progress-fill{
-    height:100%;background:var(--coral);width:0%;
-    transition:width .3s ease;
-  }
-  .progress-label{font-size:12.5px;font-weight:600;color:var(--ink-soft);white-space:nowrap;}
+  .notes-box textarea::placeholder{color:var(--dim)}
+  .notes-box textarea:focus{border-color:rgba(232,85,60,.5)}
 
   .add-card-btn{
-    width:100%;
-    background:var(--cream-card);
-    border:1.5px dashed var(--line);
-    border-radius:14px;
-    padding:14px;
-    color:var(--coral);font-weight:700;font-size:14px;font-family:inherit;
-    cursor:pointer;margin-bottom:14px;
+    width:100%;background:transparent;border:1.5px dashed var(--line);border-radius:14px;padding:14px;
+    font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--red);cursor:pointer;margin-bottom:18px;
   }
-  .add-card-btn:hover{border-color:var(--coral);background:var(--coral-soft);}
+  .add-card-btn:hover{border-color:rgba(232,85,60,.55);background:rgba(232,85,60,.06)}
 
-  .empty-state{
-    text-align:center;color:var(--ink-soft);font-size:13.5px;
-    padding:30px 10px;line-height:1.6;
-  }
+  .empty-state{text-align:center;color:var(--dim);font-size:13.5px;padding:36px 10px;line-height:1.6}
 
-  .card{
-    background:var(--cream-card);
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:16px 16px 14px;
-    margin-bottom:14px;
-    transition:border-color .2s ease;
-  }
-  .card.done{border-color:var(--done);background:var(--done-bg);}
-
-  .card-number{
-    font-family:'Fraunces',serif;
-    font-size:12.5px;color:var(--coral);font-weight:600;
-    margin-bottom:6px;
-    display:flex;justify-content:space-between;align-items:center;
-  }
-  .del-card{
-    background:none;border:none;color:#b3a896;cursor:pointer;font-size:16px;
-    line-height:1;padding:2px 4px;font-family:inherit;
-  }
-  .del-card:hover{color:#b3261e;}
+  /* concept cards (TNCC .shot style) */
+  .shot{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;margin-bottom:16px;transition:background .2s,border-color .2s}
+  .shot.done{background:var(--card-done);border-color:rgba(95,185,139,.4)}
+  .shead{display:flex;align-items:flex-start;gap:14px}
+  .shead input[type=checkbox]{margin-top:5px;width:20px;height:20px;accent-color:var(--green);flex:none;cursor:pointer}
+  .smeta{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .snum{font-family:'Space Mono',monospace;font-size:12px;color:var(--red);letter-spacing:.05em}
+  .del-card{background:none;border:none;color:var(--dim);cursor:pointer;font-size:17px;line-height:1;padding:2px 4px;font-family:inherit}
+  .del-card:hover{color:var(--red)}
 
   .field-idea{
     width:100%;border:none;background:transparent;outline:none;
-    font-family:'Fraunces',serif;font-size:18px;font-weight:600;
-    color:var(--ink);margin:0 0 8px;padding:2px 0;
-    border-bottom:1px solid transparent;
+    font-family:'DM Serif Display',serif;font-size:21px;color:var(--cream);
+    margin:6px 0 14px;padding:2px 0;border-bottom:1px solid transparent;
   }
-  .field-idea:focus{border-bottom-color:var(--line);}
-  .field-idea::placeholder{color:#b3a896;font-weight:500;}
-  .card.done .field-idea{ text-decoration: line-through; text-decoration-color: var(--done); opacity:.75; }
+  .field-idea:focus{border-bottom-color:rgba(232,85,60,.5)}
+  .field-idea::placeholder{color:var(--dim);font-style:italic}
+  .shot.done .field-idea{color:var(--mut);text-decoration:line-through;text-decoration-color:var(--green)}
 
+  .srows{display:flex;flex-direction:column;gap:10px}
+  .srow{display:grid;grid-template-columns:84px 1fr;gap:12px;font-size:13.5px;align-items:start}
+  .srow .k{color:var(--dim);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-family:'Space Mono',monospace;padding-top:6px}
   .field-concept{
     width:100%;border:none;background:transparent;outline:none;resize:vertical;
-    font-family:inherit;font-size:14.5px;line-height:1.55;color:var(--ink);
-    margin:0 0 10px;min-height:44px;padding:2px 0;
-    border-bottom:1px solid transparent;
+    font-family:inherit;font-size:13.5px;line-height:1.55;color:#e7ddd3;
+    min-height:42px;padding:5px 0;border-bottom:1px solid transparent;
   }
-  .field-concept:focus{border-bottom-color:var(--line);}
-  .field-concept::placeholder{color:#b3a896;}
+  .field-concept:focus{border-bottom-color:rgba(232,85,60,.5)}
+  .field-concept::placeholder{color:var(--dim)}
 
-  .ref-row{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+  .ref-row{display:flex;align-items:center;gap:8px}
   .field-ref{
-    flex:1;min-width:0;
-    border:none;background:transparent;outline:none;
-    font-family:inherit;font-size:13px;font-weight:600;color:var(--coral);
-    padding:4px 0;border-bottom:1px solid transparent;
+    flex:1;min-width:0;border:none;background:transparent;outline:none;
+    font-family:inherit;font-size:13px;color:var(--red);padding:5px 0;border-bottom:1px solid transparent;
   }
-  .field-ref:focus{border-bottom-color:var(--line);}
-  .field-ref::placeholder{color:#b3a896;font-weight:500;}
+  .field-ref:focus{border-bottom-color:rgba(232,85,60,.5)}
+  .field-ref::placeholder{color:var(--dim);font-style:italic}
   .open-ref{
-    flex:0 0 auto;width:26px;height:26px;border-radius:8px;border:1px solid var(--line);
-    background:var(--cream-card);color:var(--ink-soft);text-decoration:none;
-    display:flex;align-items:center;justify-content:center;font-size:13px;
+    flex:0 0 auto;width:24px;height:24px;border-radius:7px;border:1px solid var(--line);
+    color:var(--mut);text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:12px;
   }
-  .open-ref:hover{border-color:var(--coral);color:var(--coral);}
-  .open-ref.disabled{opacity:.35;pointer-events:none;}
+  .open-ref:hover{border-color:var(--red);color:var(--red)}
+  .open-ref.disabled{opacity:.3;pointer-events:none}
 
-  .card-foot{display:flex;justify-content:flex-end;align-items:center;}
+  footer{padding:36px 0 10px;color:var(--dim);font-size:11.5px}
 
-  .check{
-    display:flex;align-items:center;gap:8px;cursor:pointer;
-    user-select:none;font-size:13px;font-weight:600;color:var(--ink-soft);
+  @media print{
+    body{background:#fff;color:#111}
+    .topbar,.progresswrap,.tabs,.list-tools,.add-card-btn{display:none}
+    .shot{break-inside:avoid;background:#fff;border:1px solid #ccc}
+    h1,h2,.field-idea{color:#111}
+    .field-concept,.field-ref{color:#111}
+    .open-ref,.del-card{display:none}
   }
-  .box{
-    width:20px;height:20px;border-radius:6px;border:2px solid var(--line);
-    display:flex;align-items:center;justify-content:center;flex-shrink:0;
-    background:var(--cream-card);transition:all .15s ease;
+  @media(max-width:600px){
+    .srow{grid-template-columns:1fr}
+    .srow .k{padding-top:0}
   }
-  .card.done .box{background:var(--done);border-color:var(--done);}
-  .box svg{width:12px;height:12px;opacity:0;transition:opacity .15s ease;}
-  .card.done .box svg{opacity:1;}
-  .card.done .check{color:var(--done);}
-
-  .credit{font-size:11.5px;color:var(--ink-soft);opacity:.7;text-align:center;margin-top:18px;}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <header>
-    <div class="eyebrow-row">
-      <div class="eyebrow">Fusion Creative · Production Reference</div>
-      <div class="sync-status" id="syncStatus">Loading…</div>
-    </div>
-    <h1>Shoot Concept Lists</h1>
-    <div class="sub">Idea → concept → reference → done. Build a list per client shoot, add as many as you like.</div>
-  </header>
+  <div class="topbar">
+    <span class="brand mono">Fusion Creative</span>
+    <span class="mono sync-status" id="syncStatus">Loading…</span>
+  </div>
 
   <div class="tabs" id="tabs"></div>
   <div class="list-tools">
     <button class="tool-link" id="renameBtn">Rename list</button>
-    <button class="tool-link danger" id="deleteListBtn">Delete list</button>
+    <button class="tool-link" id="deleteListBtn">Delete list</button>
   </div>
 
-  <div class="notes-box">
+  <header>
+    <div class="kick mono" id="kick">Production</div>
+    <h1>Shoot list</h1>
+    <p class="sub">Idea → concept → reference → done. Build it yourself — synced everywhere, on the Mac or on set.</p>
+    <div class="progresswrap">
+      <div class="pbar"><div class="pfill" id="progressFill"></div></div>
+      <div class="ptext" id="progressLabel">0 / 0 shot</div>
+    </div>
+  </header>
+
+  <section>
+    <div class="label mono">Before you start</div>
     <h2>Notes for this list</h2>
-    <textarea id="notesField" placeholder="Aesthetic notes, brand reminders, anything worth remembering on set..." rows="2"></textarea>
-  </div>
+    <p class="gnote">Aesthetic notes, brand reminders, anything worth remembering on set.</p>
+    <div class="notes-box">
+      <textarea id="notesField" placeholder="e.g. clean minimal backgrounds, warm tones, hero items..." rows="2"></textarea>
+    </div>
+  </section>
 
-  <div class="progress-bar">
-    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    <div class="progress-label" id="progressLabel">0 / 0 shot</div>
-  </div>
+  <section style="border-bottom:none;">
+    <div class="label mono">The shots</div>
+    <h2>Concepts</h2>
+    <button class="add-card-btn" id="addCardBtn">+ Add concept</button>
+    <div id="cardList"></div>
+  </section>
 
-  <button class="add-card-btn" id="addCardBtn">+ Add concept</button>
-
-  <div id="cardList"></div>
-
-  <div class="credit">Synced across every device automatically. Tap + to add a list for the next client/shoot.</div>
+  <footer>
+    Fusion Creative &middot; Shoot Concept Lists &middot; synced automatically across every device
+  </footer>
 
 </div>
 
@@ -279,7 +214,7 @@ function cacheLocal(){
 
 function setSyncStatus(state, label){
   const el = document.getElementById("syncStatus");
-  el.className = "sync-status" + (state ? " " + state : "");
+  el.className = "mono sync-status" + (state ? " " + state : "");
   el.textContent = label;
 }
 
@@ -367,6 +302,10 @@ function renderTabs(){
   tabs.appendChild(addTab);
 }
 
+function renderKick(){
+  document.getElementById("kick").textContent = (activeList().name || "Untitled list") + " · Production";
+}
+
 function renderNotes(){
   const field = document.getElementById("notesField");
   field.value = activeList().notes || "";
@@ -392,31 +331,41 @@ function renderCards(){
 
   list.cards.forEach((c, i) => {
     const card = document.createElement("div");
-    card.className = "card" + (c.done ? " done" : "");
+    card.className = "shot" + (c.done ? " done" : "");
 
     const refHref = /^https?:\/\//i.test(c.ref.trim()) ? c.ref.trim() : "";
 
     card.innerHTML = `
-      <div class="card-number">
-        <span>Concept ${String(i+1).padStart(2,'0')}</span>
-        <button class="del-card" title="Delete concept">&times;</button>
-      </div>
-      <input class="field-idea" type="text" placeholder="Idea name" value="${escapeAttr(c.idea)}">
-      <textarea class="field-concept" placeholder="What are we shooting, and how (angle, pacing, mood)?" rows="2">${escapeHtml(c.concept)}</textarea>
-      <div class="ref-row">
-        <input class="field-ref" type="url" placeholder="Paste reference video link" value="${escapeAttr(c.ref)}">
-        <a class="open-ref${refHref ? "" : " disabled"}" href="${refHref || "#"}" target="_blank" rel="noopener">&#8599;</a>
-      </div>
-      <div class="card-foot">
-        <div class="check">
-          <div class="box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      <div class="shead">
+        <input type="checkbox" ${c.done ? "checked" : ""}>
+        <div style="flex:1">
+          <div class="smeta">
+            <span class="snum mono">Concept ${String(i+1).padStart(2,'0')} / ${String(list.cards.length).padStart(2,'0')}</span>
+            <button class="del-card" title="Delete concept">&times;</button>
           </div>
-          <span>${c.done ? "Shot" : "Not shot"}</span>
+          <input class="field-idea" type="text" placeholder="Idea name" value="${escapeAttr(c.idea)}">
+          <div class="srows">
+            <div class="srow">
+              <span class="k">Concept</span>
+              <textarea class="field-concept" placeholder="What are we shooting, and how (angle, pacing, mood)?" rows="2">${escapeHtml(c.concept)}</textarea>
+            </div>
+            <div class="srow">
+              <span class="k">Reference</span>
+              <div class="ref-row">
+                <input class="field-ref" type="url" placeholder="Paste reference video link" value="${escapeAttr(c.ref)}">
+                <a class="open-ref${refHref ? "" : " disabled"}" href="${refHref || "#"}" target="_blank" rel="noopener">&#8599;</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     `;
 
+    card.querySelector('input[type=checkbox]').addEventListener("change", (e) => {
+      c.done = e.target.checked;
+      saveState();
+      renderCards();
+    });
     card.querySelector(".field-idea").addEventListener("input", (e) => {
       c.idea = e.target.value; saveState();
     });
@@ -437,11 +386,6 @@ function renderCards(){
         saveState();
         renderCards();
       }
-    });
-    card.querySelector(".check").addEventListener("click", () => {
-      c.done = !c.done;
-      saveState();
-      renderCards();
     });
 
     container.appendChild(card);
@@ -467,6 +411,7 @@ function escapeAttr(str){
 
 function renderAll(){
   renderTabs();
+  renderKick();
   renderNotes();
   renderCards();
 }
@@ -486,6 +431,7 @@ document.getElementById("renameBtn").addEventListener("click", () => {
   list.name = name.trim() || list.name;
   saveState();
   renderTabs();
+  renderKick();
 });
 
 document.getElementById("deleteListBtn").addEventListener("click", () => {
