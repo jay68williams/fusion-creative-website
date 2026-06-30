@@ -147,10 +147,7 @@
   <section class="card">
     <div class="sec-head"><span class="sec-num">02</span><h2>Your socials &amp; access</h2></div>
     <p class="sec-sub">So we can post for you, and set up your brand new TikTok.</p>
-    <div class="grid2">
-      <div class="field"><label>Instagram handle</label><input type="text" name="instagram" value="@thebakeonegosforth"></div>
-      <div class="field"><label>Facebook page</label><input type="text" name="facebook" placeholder="facebook.com/..."></div>
-    </div>
+    <div class="field"><label>Instagram handle</label><input type="text" name="instagram" value="@thebakeonegosforth"></div>
     <div class="field"><label>Your new TikTok</label>
       <div class="switch-row" id="ttRow">
         <div class="switch-text">
@@ -161,12 +158,7 @@
       </div>
       <label id="ttHandleLabel" style="margin-top:14px">Your new TikTok handle <span class="hint" id="ttHint">set it up yourself and pop the handle here once it's live</span></label>
       <input type="text" name="tiktok_handle" placeholder="@thebakeone"></div>
-    <div class="field"><label>How would you like us to handle posting?</label>
-      <div class="chips">
-        <label class="chip"><input type="radio" name="access_pref" value="Add us as managers"><span>Add us as managers</span></label>
-        <label class="chip"><input type="radio" name="access_pref" value="We send, you post"><span>We send, you post</span></label>
-        <label class="chip"><input type="radio" name="access_pref" value="Not sure yet"><span>Not sure yet</span></label>
-      </div></div>
+    <div class="field"><label>Posting</label><p class="hint" style="margin-top:6px;line-height:1.55;">We'll handle all the posting for you. We post to Instagram and it cross-posts automatically to Facebook, so there is nothing for you to set up here.</p></div>
     <div class="field"><label>Link to your logo / brand assets <span class="hint">Drive, Dropbox, WeTransfer</span></label><input type="text" name="brand_assets" placeholder="Paste a link, or leave blank"></div>
     <div class="field"><label>Link to any existing photos or videos of the food</label><input type="text" name="media_library" placeholder="Paste a link, or leave blank"></div>
   </section>
@@ -192,21 +184,9 @@
   <!-- 4 -->
   <section class="card">
     <div class="sec-head"><span class="sec-num">04</span><h2>The shoot</h2></div>
-    <p class="sec-sub">A few practical things so the filming day runs smoothly.</p>
-    <div class="grid2">
-      <div class="field"><label>Best days / times to film <span class="hint">your quietest service</span></label><input type="text" name="shoot_days" placeholder="e.g. weekday afternoons"></div>
-      <div class="field"><label>How much notice do you need?</label><input type="text" name="shoot_notice" placeholder="e.g. a few days"></div>
-    </div>
-    <div class="field"><label>Who is our contact on the day?</label><input type="text" name="shoot_contact" placeholder="Name & number of who'll be there"></div>
-    <div class="field"><label>Anything that needs pre-ordering or has a long prep time?<span class="hint">so we can have it ready to film</span></label>
-      <textarea name="prep_notes" placeholder="e.g. the mixed grill takes 30 mins, let us know in advance"></textarea></div>
+    <p class="sec-sub">Your first shoot is booked for <strong>Thursday 2 July</strong>, at your Gosforth High Street location.</p>
+    <div class="field"><label>Best time of day to film <span class="hint">your quietest service</span></label><input type="text" name="shoot_days" placeholder="e.g. weekday afternoons"></div>
     <div class="field"><label>Halal / dietary notes worth knowing</label><input type="text" name="dietary_notes" placeholder="e.g. fully halal, vegan options on request"></div>
-    <div class="field"><label>Which location should we film at first?</label>
-      <div class="chips">
-        <label class="chip"><input type="radio" name="shoot_locations" value="Gosforth High Street"><span>Gosforth High Street</span></label>
-        <label class="chip"><input type="radio" name="shoot_locations" value="Eldon Square"><span>Eldon Square</span></label>
-        <label class="chip"><input type="radio" name="shoot_locations" value="Both"><span>Both</span></label>
-      </div></div>
     <div class="field"><label>Where can we film?</label>
       <div class="chips">
         <label class="chip"><input type="checkbox" name="filming_areas" value="Kitchen"><span>Kitchen</span></label>
@@ -327,7 +307,7 @@ function collect(){
 /* ---- download fallback ---- */
 document.getElementById('downloadBtn').addEventListener('click', ()=>{
   const d=collect();
-  let txt="THE BAKE ONE — CONTENT ONBOARDING\n\n";
+  let txt="THE BAKE ONE - CONTENT ONBOARDING\n\n";
   Object.keys(d).forEach(k=>{ const v=Array.isArray(d[k])?d[k].join(', '):d[k]; if(String(v).trim()) txt+=k+": "+v+"\n\n"; });
   const blob=new Blob([txt],{type:'text/plain'});
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
