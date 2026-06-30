@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Audit - Jules B | Fusion Creative</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #f5f6fa; --bg-alt: #ecedf1; --card: #ffffff; --card-border: rgba(0,0,0,0.08);
+            --coral: #E8553C; --coral-light: #ff7a64; --coral-dark: #c4412b;
+            --text: #1a1d23; --text-secondary: #4a4f5c; --text-muted: #7c8090;
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); } 50% { box-shadow: 0 0 40px rgba(232,85,60,0.55); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 48px 0 40px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+        .brand { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); }
+        .brand-dot { display: inline-block; width: 6px; height: 6px; background: var(--coral); border-radius: 50%; margin-right: 8px; vertical-align: middle; position: relative; top: -1px; }
+        .header-date { font-size: 13px; color: var(--text-muted); font-weight: 400; }
+        .hero { padding: 64px 0 56px; animation: fadeInUp 0.6s ease both; }
+        .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; }
+        .hero h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(42px, 7vw, 64px); font-weight: 400; line-height: 1.05; letter-spacing: -1px; margin-bottom: 24px; }
+        .hero h1 span { background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral)); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s linear infinite; }
+        .hero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 620px; line-height: 1.7; font-weight: 400; }
+        .section { padding: 48px 0; animation: fadeInUp 0.6s ease both; }
+        .section-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent); }
+        .card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 40px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .card-sm { padding: 28px 32px; }
+        .section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 12px; }
+        .section-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 34px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 24px; line-height: 1.2; }
+        .section-text { color: var(--text-secondary); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+        .section-text:last-child { margin-bottom: 0; }
+        .intro-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); }
+        .intro-card .greeting { font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; color: var(--text); }
+        .note-box { background: rgba(232,85,60,0.07); border: 1px dashed rgba(232,85,60,0.4); border-radius: 12px; padding: 16px 20px; margin-top: 20px; font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .note-box strong { color: var(--coral); }
+        .stats-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .stats-table tr { border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .stats-table tr:last-child { border-bottom: none; }
+        .stats-table tr:nth-child(even) { background: rgba(0,0,0,0.02); }
+        .stats-table td { padding: 14px 0; }
+        .stats-table td:first-child { color: var(--text-secondary); font-weight: 400; padding-right: 24px; white-space: nowrap; }
+        .stats-table td:last-child { font-weight: 600; color: var(--text); text-align: right; }
+        .stat-highlight { color: var(--coral) !important; font-weight: 700 !important; }
+        .stat-badge { display: inline-block; background: rgba(232,85,60,0.15); color: var(--coral-light); padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-green { display: inline-block; background: rgba(52,199,89,0.15); color: #4cd97d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-amber { display: inline-block; background: rgba(255,159,10,0.15); color: #ffb84d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .working-item { margin-bottom: 28px; }
+        .working-item:last-child { margin-bottom: 0; }
+        .working-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+        .working-item p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+        .check-icon { display: inline-block; color: #4cd97d; margin-right: 6px; font-weight: 700; }
+        .opportunity-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--coral); color: white; border-radius: 8px; font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.35); }
+        .opportunity-heading { display: flex; align-items: center; margin-bottom: 14px; }
+        .opportunity-heading h3 { font-size: 19px; font-weight: 600; color: var(--text); }
+        .opportunity-card { margin-bottom: 20px; }
+        .opportunity-card:last-child { margin-bottom: 0; }
+        .case-study-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); border-left: 4px solid var(--coral); overflow: hidden; position: relative; }
+        .case-study-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--coral), var(--coral-light)); }
+        .case-study-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin: 32px 0; }
+        .case-study-stat { text-align: center; padding: 24px 16px; background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; animation: scaleIn 0.5s ease both; }
+        .case-study-stat .number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(30px, 5vw, 44px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1; margin-bottom: 6px; }
+        .case-study-stat .label { font-size: 12px; color: var(--text-secondary); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        .viral-callout { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 12px; padding: 24px 28px; margin-top: 24px; }
+        .viral-callout .big-number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(28px, 5vw, 40px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1.15; }
+        .viral-callout .context { font-size: 14px; color: var(--text-secondary); margin-top: 8px; line-height: 1.6; }
+        .viral-callout .context strong { color: var(--text); }
+        .takeaway { margin-top: 24px; font-size: 15px; color: var(--text-secondary); font-style: italic; line-height: 1.7; }
+        .video-ideas-grid { display: grid; gap: 20px; }
+        .video-idea-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 32px; position: relative; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .video-idea-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .video-idea-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--coral); border-radius: 4px 0 0 4px; }
+        .idea-number { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); margin-bottom: 10px; }
+        .idea-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; font-weight: 400; margin-bottom: 16px; line-height: 1.3; color: var(--text); }
+        .idea-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+        .idea-tag { font-size: 12px; font-weight: 600; color: var(--text-muted); background: rgba(0,0,0,0.04); padding: 4px 12px; border-radius: 6px; }
+        .idea-description { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+        .idea-why { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--card-border); }
+        .idea-why strong { color: var(--coral); font-weight: 600; }
+        .enhancement-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px 32px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .enhancement-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .enhancement-card:last-child { margin-bottom: 0; }
+        .enhancement-card h4 { font-size: 17px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+        .enhancement-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+        .enhancement-card p:last-child { margin-bottom: 0; }
+        .enhancement-list { list-style: none; margin: 12px 0; }
+        .enhancement-list li { font-size: 14px; color: var(--text-secondary); padding: 6px 0 6px 18px; position: relative; line-height: 1.6; }
+        .enhancement-list li::before { content: ''; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; background: var(--coral); border-radius: 50%; }
+        .highlight-box { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 10px; padding: 18px 22px; margin-top: 14px; }
+        .highlight-box p { font-size: 14px; color: var(--text-secondary); margin-bottom: 0; }
+        .highlight-box strong { color: var(--coral); }
+        .cta-wrap { text-align: center; margin-top: 32px; }
+        .cta-btn { display: inline-block; background: var(--coral); color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 40px; border-radius: 999px; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; animation: pulseGlow 3s ease-in-out infinite; }
+        .cta-btn:hover { background: var(--coral-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,85,60,0.5); animation: none; }
+        .cta-btn-wa { display: inline-block; background: #25D366; color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 34px; border-radius: 999px; text-decoration: none; margin: 14px 0 0 12px; box-shadow: 0 4px 18px rgba(37,211,102,0.35); transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
+        .cta-btn-wa:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.5); }
+        .cta-sub { font-size: 13px; color: var(--text-muted); margin-top: 12px; }
+        @media (max-width: 520px) { .cta-btn, .cta-btn-wa { display: block; width: 100%; margin: 0 auto; } .cta-btn-wa { margin-top: 14px; } }
+        .next-steps-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 80%); border-color: rgba(232,85,60,0.2); }
+        .steps-list { list-style: none; counter-reset: steps; }
+        .steps-list li { counter-increment: steps; display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--card-border); font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+        .steps-list li:last-child { border-bottom: none; }
+        .steps-list li::before { content: counter(steps); display: flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; background: var(--coral); color: white; border-radius: 10px; font-size: 14px; font-weight: 700; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.3); }
+        .about-fc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+        .about-fc-stat { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; padding: 20px 24px; text-align: center; animation: scaleIn 0.5s ease both; }
+        .about-fc-stat-val { font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; font-weight: 400; color: var(--coral); letter-spacing: -0.5px; }
+        .about-fc-stat-label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+        .about-fc-text { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+        .about-fc-services { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .about-fc-tag { background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+        .closing-note { margin-top: 24px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+        .signature { padding: 48px 0; }
+        .signature-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 24px; font-weight: 400; margin-bottom: 4px; color: var(--text); }
+        .signature-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 2px; }
+        .signature-link { font-size: 14px; color: var(--coral); text-decoration: none; font-weight: 500; }
+        .signature-link:hover { text-decoration: underline; }
+        .footer { padding: 32px 0; border-top: 1px solid rgba(0,0,0,0.08); text-align: center; background: var(--bg-alt); }
+        .footer-confidential { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+        .footer-note { font-size: 12px; color: var(--text-muted); font-style: italic; }
+        .footer-brand { margin-top: 16px; font-size: 12px; color: var(--text-muted); }
+        .footer-brand span { color: var(--coral); font-weight: 600; }
+        @media (max-width: 640px) {
+            .container { padding: 0 16px; } .card { padding: 28px 22px; } .hero { padding: 40px 0 36px; } .section { padding: 32px 0; }
+            .case-study-grid { grid-template-columns: repeat(2, 1fr); } .video-idea-card { padding: 24px 22px; }
+            .header-inner { flex-direction: column; gap: 8px; } .about-fc-grid { grid-template-columns: 1fr 1fr; gap: 12px; } .about-fc-stat-val { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+<!-- fc-build: status=new leadid=86f4bb70-5e2f-4236-a0ea-6433eba1b707 date=2026-06-30 -->
+
+  <!-- Audit intro / shader welcome screen -->
+  <style>
+    #fc-intro{position:fixed;inset:0;z-index:99999;background:#0e0c14;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity .85s ease;}
+    #fc-intro.fc-out{opacity:0;pointer-events:none;}
+    #fc-intro canvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
+    .fc-intro-inner{position:relative;z-index:2;text-align:center;padding:24px;max-width:780px;color:#fff;}
+    .fc-intro-eyebrow{font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:24px;}
+    .fc-intro-eyebrow b{color:#ff7d5e;font-weight:700;}
+    .fc-intro-title{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.1rem,6vw,4.4rem);line-height:1.06;font-weight:400;letter-spacing:-0.01em;text-shadow:0 2px 50px rgba(0,0,0,0.4);}
+    .fc-intro-hint{font-family:Inter,system-ui,sans-serif;font-size:14px;font-weight:500;letter-spacing:0.05em;color:rgba(255,255,255,0.88);margin-top:38px;display:inline-flex;align-items:center;gap:10px;animation:fcPulse 2.4s ease-in-out infinite;}
+    .fc-intro-hint .fc-dot{width:7px;height:7px;border-radius:50%;background:#ff7d5e;box-shadow:0 0 12px rgba(255,125,94,0.9);}
+    @keyframes fcPulse{0%,100%{opacity:.55;}50%{opacity:1;}}
+    body.fc-locked{overflow:hidden;}
+  </style>
+  <div id="fc-intro">
+    <canvas id="fc-intro-canvas"></canvas>
+    <div class="fc-intro-inner">
+      <div class="fc-intro-eyebrow"><b>Fusion Creative</b> &middot; Private Audit</div>
+      <div class="fc-intro-title">Frances, welcome to your audit.</div>
+      <div class="fc-intro-hint"><span class="fc-dot"></span> Click anywhere to view</div>
+    </div>
+  </div>
+  <script>document.body.classList.add('fc-locked');</script>
+
+    <!-- Header -->
+    <div class="container">
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand"><span class="brand-dot"></span>Fusion Creative</div>
+                <div class="header-date">30 June 2026</div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-label">Audit + Ideas</div>
+            <h1><span>Jules B</span></h1>
+            <p class="hero-subtitle">Turning 40 years of independent luxury retail into the most-watched fashion content in the North East | Prepared by Fusion Creative | 30 June 2026</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Intro -->
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Hey Frances,</div>
+                <p class="section-text">Thanks for requesting your free audit. I had a proper look through <strong>Jules B</strong>, the website, your Instagram, TikTok and Facebook, and one thing stood out straight away. You have an incredible brand, over 180 designer labels, six stores and four decades of credibility, but the short-form video side is not yet doing the heavy lifting it could be. In fashion retail, the businesses winning on social right now are the ones turning their product and their people into scroll-stopping content.</p>
+                <p class="section-text">Here is why it matters who you work with on this. We are a Newcastle agency. We film in person, we know this patch, and our headline result, New Greek, is a local North East business we took to over 70 million views with short-form video. For a luxury retailer like Jules B, the opportunity is massive: styling content, new arrivals, behind-the-scenes with your buyers, and the personality of your stores all translate directly into the kind of short-form video that drives discovery and sales.</p>
+                <p class="section-text">Inside you will find a snapshot of where Jules B is online today, what is already working in your favour, <strong>five things we would focus on to turn your content into reach and revenue</strong>, four ready-made video ideas you could film in store, and how we would help you get there.</p>
+                <div class="note-box">
+                    <strong>Quick note:</strong> the request came in through our homepage, so I have based this on <strong>julesb.co.uk</strong>, your Instagram <strong>@julesb</strong>, your TikTok <strong>@julesbofficial</strong> and your Facebook. If I have picked up the wrong details anywhere, just reply and I will fix it.
+                </div>
+            </div>
+
+            <!-- Fusion Creative metrics card -->
+            <div class="card" style="margin-top:8px;">
+                <div style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--coral); margin-bottom:6px;">Client Results</div>
+                <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Generated for a single local business in the North East</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">70M+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">824K+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Interactions</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">6,200+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">60M</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
+                    </div>
+                </div>
+                <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">We generated over 70 million views across Instagram and TikTok in 30 days for a single local North East business, from a steady stream of short-form videos. One reel alone hit 60 million views. They went from a standing start to a household name in the region, all shot locally. The same engine (content built to travel rather than just be posted) is what turns a luxury retailer into the most talked-about fashion destination in the North East. Jules B has the heritage, the brands and the stores. The job is reach.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Snapshot -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Current Snapshot</div>
+            <div class="section-title">Where Jules B Is Online Today</div>
+            <div class="card card-sm">
+                <table class="stats-table">
+                    <tr><td>Website</td><td class="stat-highlight">julesb.co.uk <span class="stat-badge-green">Strong e-commerce</span></td></tr>
+                    <tr><td>Heritage</td><td>Founded 1985, over 40 years in fashion <span class="stat-badge-green">Real credibility</span></td></tr>
+                    <tr><td>Stores</td><td>Six locations across North East and North West <span class="stat-badge-green">Physical presence</span></td></tr>
+                    <tr><td>Brands</td><td>180+ designer labels (Paul Smith, BOSS, Mulberry, Barbour and more) <span class="stat-badge-green">Curated range</span></td></tr>
+                    <tr><td>Recognition</td><td>Vogue "Best 100 Stores Outside London", Drapers Lifetime Achievement <span class="stat-badge-green">Industry respect</span></td></tr>
+                    <tr><td>Instagram (@julesb)</td><td>Active, editorial content <span class="stat-badge-amber">Room to scale</span></td></tr>
+                    <tr><td>TikTok (@julesbofficial)</td><td>Present <span class="stat-badge-amber">Early stage, big opportunity</span></td></tr>
+                    <tr><td>Facebook (@julesbofficial)</td><td>Active page <span class="stat-badge-green">Community engagement</span></td></tr>
+                    <tr><td>Content style</td><td>Editorial product photography <span class="stat-badge-amber">Not built for discovery</span></td></tr>
+                    <tr><td>Trustpilot</td><td>Substantial review base <span class="stat-badge-green">Social proof</span></td></tr>
+                    <tr><td>Area</td><td>Jesmond, Newcastle (HQ) &amp; stores across the North</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- What Is Working -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">What Is Already Working Well</div>
+            <div class="section-title">Credit Where It Is Due</div>
+            <div class="card">
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The brand has genuine heritage and credibility</h4>
+                    <p>Over 40 years in luxury fashion retail, featured in Vogue, a Drapers Lifetime Achievement Award, and six physical stores. That is not something you can fake or fast-track. It is the kind of trust that, once shown off properly on social, makes everything else land harder.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The curation is a content goldmine</h4>
+                    <p>Over 180 brands, hand-picked by your buyers. That is 180 reasons to post, 180 stories to tell, and a constant stream of "what is new this week" content. Most fashion retailers post product shots. Jules B can tell the story behind why each brand made the edit.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> You have beautiful physical stores</h4>
+                    <p>Six stores means six sets for filming. The Jesmond store alone is a content backdrop most fashion brands would pay for. In-store content, styling sessions, new arrivals unpacked on camera, try-on hauls surrounded by real product: that is the content people stop scrolling for.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The editorial eye is already there</h4>
+                    <p>Your website and Instagram already have a polished, editorial feel. The photography is strong, the styling is considered, and the tone is right. The foundation is solid. The next step is translating that same eye into short-form video, where the reach lives.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> E-commerce is strong</h4>
+                    <p>A well-built online store with international shipping means that when content does travel, the path to purchase is already there. You are not building from scratch. The infrastructure is ready, it just needs more people finding it through social discovery.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Where The Opportunity Is -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Where The Opportunity Is</div>
+            <div class="section-title">Five Things We Would Focus On</div>
+            <p class="section-text" style="margin-bottom: 32px;">Jules B already has the heritage, the brands and the stores. The job is to turn that into reach and revenue: get in front of fashion-conscious shoppers who have never walked into a Jules B store (or visited the website), and make the brand impossible to scroll past. These are the five areas we would focus on.</p>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">1</span><h3>Turn New Arrivals Into Weekly Content Events</h3></div>
+                <p class="section-text">With 180+ brands and constant new drops, you have a built-in content calendar that never runs dry. A weekly "what just landed" reel, filmed in store, showing the standout pieces styled and on a person rather than a hanger, gives followers a reason to check back every week and gives the algorithm a consistent signal.</p>
+                <p class="section-text">This is the single fastest way to make your Instagram and TikTok feel alive rather than like a lookbook.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">2</span><h3>Let People See Behind the Buying</h3></div>
+                <p class="section-text">Independent retailers have one thing the big chains never will: a real person choosing every brand on the floor. The story of why a brand made the Jules B edit, what your buyers spotted at a trade show, what nearly made the cut but did not, that is the kind of insider content that builds loyalty and positions you as the authority rather than just another stockist.</p>
+                <p class="section-text">It also differentiates Jules B from every other retailer carrying the same labels. The brands are the same. The curation is yours.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">3</span><h3>Use TikTok as a Discovery Engine</h3></div>
+                <p class="section-text">TikTok is where fashion discovery happens now. Outfit inspiration, styling tips, hauls, "what I would wear" and brand deep-dives are some of the highest-performing content categories on the platform. Jules B has the product range, the stores and the expertise to own this space locally and beyond.</p>
+                <p class="section-text">The TikTok presence is early, which means there is a clear runway to build it properly from the start rather than retrofitting later.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">4</span><h3>Put the Team and the Stores on Camera</h3></div>
+                <p class="section-text">People buy from people, especially in luxury fashion. The staff who know the product, the store managers with their own style, the founders who built the business over four decades: that is the personality that turns followers into customers. A face on camera builds familiarity, and familiarity is what makes someone choose Jules B over ordering from a faceless marketplace.</p>
+                <p class="section-text">Personality-led content is consistently the highest-performing format in fashion retail on both Instagram and TikTok.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">5</span><h3>Short-Form Video for Reach, Targeted Ads for Conversion</h3></div>
+                <p class="section-text">Organic short-form video builds the audience and the brand recognition. Pair that with a targeted ad strategy, retargeting people who have engaged with your content and lookalike audiences of your existing customers, and you turn that attention into website visits and sales.</p>
+                <p class="section-text">For a retailer with a strong e-commerce platform already in place, the path from "saw a reel" to "placed an order" is short, which makes the return on content and ads very direct.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Case Study -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Case Study</div>
+            <div class="section-title">What We Did for New Greek</div>
+            <div class="card case-study-card">
+                <p class="section-text">New Greek is a small independent business in Newcastle. No following, no content history, no ad budget. They started from zero. Here is where they got to after working with Fusion Creative.</p>
+                <div class="case-study-grid">
+                    <div class="case-study-stat"><div class="number">70M+</div><div class="label">Total Views</div></div>
+                    <div class="case-study-stat"><div class="number">60M</div><div class="label">Single Reel Views</div></div>
+                    <div class="case-study-stat"><div class="number">824K+</div><div class="label">Interactions</div></div>
+                    <div class="case-study-stat"><div class="number">6,200+</div><div class="label">Followers Grown</div></div>
+                </div>
+                <div class="viral-callout">
+                    <div class="big-number">70 million views. One local business. Zero head start.</div>
+                    <div class="context"><strong>New Greek had no followers, no content history and no brand recognition.</strong> We built their presence from scratch with short-form video, over 70 million views across Instagram and TikTok in 30 days, one reel alone hitting 60 million. They went from unknown to a household name in the North East. Jules B starts miles ahead of where they did: the brand, the heritage and the customer base are already there. The job is reach, and that is exactly what we build.</div>
+                </div>
+                <p class="takeaway">Jules B does not need reinventing. It needs amplifying, so that 40 years of expertise and 180 brands are finally seen by the fashion shoppers who have not discovered you yet.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Video Ideas -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Ready-Made Content</div>
+            <div class="section-title">4 Video Ideas You Could Film This Week</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are formats working right now on TikTok and Instagram Reels, built around what Jules B already has: the brands, the stores, the styling expertise and the people. Each one could be filmed in store on a phone.</p>
+            <div class="video-ideas-grid">
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 01</div>
+                    <div class="idea-title">"What just landed at Jules B"</div>
+                    <div class="idea-meta"><span class="idea-tag">New Arrivals</span><span class="idea-tag">Weekly</span><span class="idea-tag">Discovery</span></div>
+                    <p class="idea-description">A fast, visually led reel of three to five new pieces that just hit the floor. Styled, on a person, filmed in store. Strong hook on frame one ("these just arrived and they will not last"). Trending audio. Under 30 seconds. A weekly appointment your followers look forward to.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> It creates a reason to follow, a reason to check back, and a direct path to purchase. New arrivals content is one of the highest-performing formats in fashion retail.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 02</div>
+                    <div class="idea-title">"Why we picked this brand"</div>
+                    <div class="idea-meta"><span class="idea-tag">Buyer</span><span class="idea-tag">Behind the Scenes</span><span class="idea-tag">Authority</span></div>
+                    <p class="idea-description">A buyer or store manager on camera, holding a piece, explaining what made a brand earn its place at Jules B. Keep it honest, keep it short. "We have carried Paul Smith since 1992. Here is why." The insider perspective no chain store can replicate.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> It positions Jules B as the authority, not just a stockist. It builds trust, differentiates from competitors carrying the same labels, and gives the audience a reason to buy from you specifically.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 03</div>
+                    <div class="idea-title">"3 ways to style this jacket"</div>
+                    <div class="idea-meta"><span class="idea-tag">Styling</span><span class="idea-tag">Outfit</span><span class="idea-tag">Shoppable</span></div>
+                    <p class="idea-description">Take one hero piece and show three complete outfits built around it, from casual to dressed up. Quick cuts, good music, each look tagged with the brands. Filmed on a real person in the store, not on a mannequin. Practical, watchable, and built to be saved.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Styling content is the most saved and shared format in fashion. It helps the viewer picture themselves in the outfit, which is the step right before they buy.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 04</div>
+                    <div class="idea-title">"40 years of Jules B in 40 seconds"</div>
+                    <div class="idea-meta"><span class="idea-tag">Heritage</span><span class="idea-tag">Founder</span><span class="idea-tag">Story</span></div>
+                    <p class="idea-description">A fast-paced montage of the Jules B story: archive photos, the first store, the brands that have come and gone, the team today, the Jesmond shop floor. Overlay with a voiceover or text. A brand story that no competitor can match, told in a format built to travel.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Heritage is rare. Most fashion brands on social are new and disposable. Showing four decades of staying power, while the trends changed around you, builds the kind of trust that converts browsers into loyal customers.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Digital Enhancements -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Digital Enhancements</div>
+            <div class="section-title">Beyond the Main Feed</div>
+            <p class="section-text" style="margin-bottom: 32px;">A few extra wins that would compound the content work and turn more of your visibility into website visits and sales.</p>
+
+            <div class="enhancement-card">
+                <h4>Influencer and Styling Collaborations</h4>
+                <p>Jules B carries brands that fashion influencers already wear and talk about. Structured collaborations, whether in-store styling sessions filmed as content, or gifted pieces with a brief, let you tap into established audiences that already trust the recommender.</p>
+                <ul class="enhancement-list">
+                    <li>Partner with North East and national fashion creators who align with your brand positioning</li>
+                    <li>Film collaborations in store so the content doubles as a Jules B showcase</li>
+                    <li>Repurpose collaboration content across your own channels</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Leverage Trustpilot and Customer Reviews</h4>
+                <p>You have a substantial review base on Trustpilot. Turn the best reviews into social content: screenshot reels, "our customers said this" story highlights, and review-led ads. Real customer voices are more persuasive than any copy you could write.</p>
+                <ul class="enhancement-list">
+                    <li>Turn five-star reviews into branded quote graphics or short video overlays</li>
+                    <li>Use customer reviews in ad creative for social proof at the point of conversion</li>
+                    <li>Encourage post-purchase reviews with a follow-up flow</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Seasonal and Sale Campaigns as Content Moments</h4>
+                <p>Sales and seasonal launches are natural content peaks. Rather than just updating the website banner, treat each one as a content event: a behind-the-scenes "setting up the sale" reel, a "what I would buy in the sale" pick from a team member, a countdown to new season arrivals.</p>
+                <ul class="enhancement-list">
+                    <li>Build anticipation with teaser content before each drop or sale launch</li>
+                    <li>Film the team preparing for the sale or unpacking new season stock</li>
+                    <li>Post "staff picks" to personalise the moment and drive urgency</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Why it fits Jules B:</strong> You already have these calendar moments built into the retail cycle. Turning them into content events costs nothing extra and drives traffic at the exact point when purchase intent is highest.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- About Fusion Creative -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">About Fusion Creative</div>
+            <div class="card intro-card">
+                <p class="about-fc-text">Fusion Creative is a content and marketing agency based in Newcastle. We produce short-form video content, manage social media accounts, run paid campaigns, build websites, and handle branding. Everything under one roof.</p>
+                <p class="about-fc-text">We work with local and growing businesses across the North East, and we film in person, on the ground, right here. No stock footage, no generic templates, no recycled ideas. Every piece of content is original and tailored to the business.</p>
+                <p class="about-fc-text">Our headline result is New Greek, a small independent North East business that went from zero followers to over 70 million views across Instagram and TikTok in 30 days, including one reel that hit 60 million views. We know how to take a great local business and make it impossible to scroll past.</p>
+                <p class="about-fc-text">We also work hands-on with local businesses beyond hospitality. For H2Glo, a North East exterior cleaning company, we are rebuilding the website, running the social, handling the bookings and keeping the calendar full with campaigns, the same end-to-end approach we would bring to Jules B. <a href="https://h2glo-website-amber.vercel.app/h2glo/" target="_blank" rel="noopener" style="color:var(--coral); font-weight:700; text-decoration:none;">View the H2Glo site &rarr;</a></p>
+                <div class="about-fc-grid">
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">250M+</div><div class="about-fc-stat-label">Views generated</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">20+</div><div class="about-fc-stat-label">Videos per month</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">6+</div><div class="about-fc-stat-label">Years in content</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">100%</div><div class="about-fc-stat-label">Original content</div></div>
+                </div>
+                <div class="about-fc-services">
+                    <span class="about-fc-tag">Short-Form Video</span>
+                    <span class="about-fc-tag">TikTok Management</span>
+                    <span class="about-fc-tag">Instagram Reels</span>
+                    <span class="about-fc-tag">Paid Ads</span>
+                    <span class="about-fc-tag">Local SEO</span>
+                    <span class="about-fc-tag">Website Design</span>
+                    <span class="about-fc-tag">Branding</span>
+                    <span class="about-fc-tag">Social Media Management</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- How We'd Help -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">How We'd Help</div>
+            <div class="section-title">What We Could Do for Jules B</div>
+            <p class="section-text" style="margin-bottom: 32px;">Here is how we would help turn Jules B's heritage and product range into reach and revenue. It all centres on short-form video, filmed in your stores and around your brands, with the channels built and run for you. It is the same full-service approach we run for New Greek, the Newcastle business we took to over 70 million views.</p>
+
+            <div class="enhancement-card">
+                <h4>Content &amp; Short-Form Video</h4>
+                <p>A steady stream of short-form video built around your new arrivals, styling, brand stories and team, edited to travel and posted across your channels to build reach and drive sales.</p>
+                <ul class="enhancement-list">
+                    <li>New arrivals reels, styling content, brand spotlights, behind-the-scenes, team-led pieces</li>
+                    <li>Posted across Instagram, TikTok and Facebook, built to reach not just to fill the feed</li>
+                    <li>Editing, captions, hooks, hashtags, audio and posting all handled for you</li>
+                    <li>Monthly reporting on reach, growth and best-performing content</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Social Media Management</h4>
+                <p>We run your Instagram, TikTok and Facebook properly, tuned to fashion discovery, so the effort finally turns into reach, followers and website traffic.</p>
+                <ul class="enhancement-list">
+                    <li>A consistent, hooky posting rhythm across all channels</li>
+                    <li>Fashion and lifestyle hashtags, location tags and community management</li>
+                    <li>The strategy shifted from editorial stills to content built to travel</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Targeted Paid Campaigns</h4>
+                <p>We can run targeted ads that put your best styling and new arrivals content in front of fashion shoppers, retarget people who have engaged with your content, and drive traffic straight to the product pages on your site.</p>
+                <ul class="enhancement-list">
+                    <li>Retargeting warm audiences who have watched your content or visited your site</li>
+                    <li>Lookalike audiences based on your existing customer base</li>
+                    <li>Your best-performing organic content repurposed as high-converting ads</li>
+                    <li>Tracked so the spend is always accountable</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Website &amp; Conversion</h4>
+                <p>We also build and optimise websites, so the new attention from social turns into actual sales on your e-commerce platform.</p>
+                <ul class="enhancement-list">
+                    <li>Landing pages built to convert social traffic into purchases</li>
+                    <li>Everything joined up: content, social, ads and website under one roof</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>See examples:</strong> here are two sites we built and run, the New Greek restaurant and the New Greek Bakery, with menus, ordering and bookings. <a href="https://newgreek.co.uk" target="_blank" rel="noopener" style="color:var(--coral); font-weight:700; text-decoration:none;">View New Greek &rarr;</a> &nbsp; <a href="https://newgreekbakery.co.uk" target="_blank" rel="noopener" style="color:var(--coral); font-weight:700; text-decoration:none;">View New Greek Bakery &rarr;</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Next Steps -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a read through this audit. Everything is in here: the gaps, the ideas, and the ways we could help, from the content right through to the ads.</li>
+                    <li>Let me know which areas feel most relevant for Jules B right now (new arrivals content, TikTok, paid campaigns, or all of the above) and I will tailor the plan around it.</li>
+                    <li>The ideal first step is a half-day shoot in one of your stores, filming a batch of content you can see and feel before committing to anything ongoing.</li>
+                    <li>Once you are happy, just reply to confirm and I will get things lined up.</li>
+                </ol>
+                <p class="closing-note">Honestly, Frances, Jules B has something most fashion brands on social would love to have: real heritage, real stores, real curation and real credibility. That is the hard part. The content is the easy bit, because every new arrival, every store visit and every brand story is a piece of content waiting to happen, it just is not travelling yet. As a North East agency that films in person and took a local business to 70 million views, we are well placed to make Jules B the fashion account the North East follows. Let's get in your store with a camera.</p>
+                <div class="cta-wrap">
+                    <a href="mailto:jay@fusioncreative.uk?subject=Jules%20B%20-%20Getting%20Started" class="cta-btn">Let's Get Started</a>
+                    <a href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Jules%20B%20audit" target="_blank" rel="noopener" class="cta-btn-wa">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align:-3px; margin-right:8px;"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp
+                    </a>
+                    <div class="cta-sub">Reply to this email, message me on WhatsApp, or give me a call whenever you are ready.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Signature -->
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="footer">
+            <div class="footer-confidential">Confidential - Prepared for Jules B</div>
+            <div class="footer-note">Prepared for Jules B using the julesb.co.uk website, Instagram, TikTok and Facebook on 30 June 2026.</div>
+            <div class="footer-brand"><span>Fusion Creative</span></div>
+        </footer>
+    </div>
+
+  <script>
+  (function(){
+    var intro=document.getElementById('fc-intro');if(!intro)return;
+    var canvas=document.getElementById('fc-intro-canvas');
+    var gl=canvas.getContext('webgl')||canvas.getContext('experimental-webgl');
+    var raf=0,dismissed=false;
+    function dismiss(){if(dismissed)return;dismissed=true;intro.classList.add('fc-out');document.body.classList.remove('fc-locked');setTimeout(function(){if(raf)cancelAnimationFrame(raf);intro.style.display='none';},900);}
+    intro.addEventListener('click',dismiss);
+    if(!gl)return;
+    var vsrc='attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
+    var fsrc=['precision highp float;','uniform vec2 u_res;uniform float u_time;uniform vec2 u_mouse;',
+      'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
+      'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);',
+      'return mix(mix(hash(i),hash(i+vec2(1.0,0.0)),u.x),mix(hash(i+vec2(0.0,1.0)),hash(i+vec2(1.0,1.0)),u.x),u.y);}',
+      'float fbm(vec2 p){float v=0.0,a=0.5;for(int i=0;i<5;i++){v+=a*noise(p);p*=2.0;a*=0.5;}return v;}',
+      'void main(){vec2 uv=gl_FragCoord.xy/u_res.xy;float asp=u_res.x/u_res.y;vec2 p=uv;p.x*=asp;vec2 mo=u_mouse;mo.x*=asp;float t=u_time*0.05;',
+      'vec2 q=p*1.5+vec2(t,-t*0.7);q+=(mo-p)*0.3;float w=fbm(q+fbm(q+t));float w2=fbm(q*1.4-t*0.5+w);',
+      'vec3 cDark=vec3(0.07,0.06,0.11);vec3 cBlue=vec3(0.30,0.34,0.58);vec3 cPink=vec3(0.74,0.40,0.52);vec3 cCoral=vec3(0.91,0.36,0.20);',
+      'vec3 col=mix(cDark,cBlue,smoothstep(0.15,0.85,w));col=mix(col,cPink,smoothstep(0.35,0.95,w2));',
+      'float d=distance(p,mo);col+=cCoral*smoothstep(0.75,0.0,d)*0.55*(0.6+0.4*sin(u_time*0.6));',
+      'col*=1.0-0.28*pow(distance(uv,vec2(0.5)),2.0);gl_FragColor=vec4(col,1.0);}'].join('\n');
+    function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
+    var prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,vsrc));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fsrc));gl.linkProgram(prog);gl.useProgram(prog);
+    var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+    var loc=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    var uRes=gl.getUniformLocation(prog,'u_res'),uTime=gl.getUniformLocation(prog,'u_time'),uMouse=gl.getUniformLocation(prog,'u_mouse');
+    var mouse=[0.5,0.55],tgt=[0.5,0.55];
+    function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.floor(innerWidth*dpr);canvas.height=Math.floor(innerHeight*dpr);gl.viewport(0,0,canvas.width,canvas.height);}
+    window.addEventListener('resize',resize);resize();
+    window.addEventListener('pointermove',function(e){tgt[0]=e.clientX/innerWidth;tgt[1]=1.0-e.clientY/innerHeight;});
+    var start=performance.now();
+    function frame(now){mouse[0]+=(tgt[0]-mouse[0])*0.06;mouse[1]+=(tgt[1]-mouse[1])*0.06;gl.uniform2f(uRes,canvas.width,canvas.height);gl.uniform1f(uTime,(now-start)/1000);gl.uniform2f(uMouse,mouse[0],mouse[1]);gl.drawArrays(gl.TRIANGLES,0,3);raf=requestAnimationFrame(frame);}
+    raf=requestAnimationFrame(frame);
+  })();
+  </script>
+</body>
+</html>
