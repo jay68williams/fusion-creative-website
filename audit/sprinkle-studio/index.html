@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Audit - Sprinkle Studio | Fusion Creative</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #f5f6fa; --bg-alt: #ecedf1; --card: #ffffff; --card-border: rgba(0,0,0,0.08);
+            --coral: #E8553C; --coral-light: #ff7a64; --coral-dark: #c4412b;
+            --text: #1a1d23; --text-secondary: #4a4f5c; --text-muted: #7c8090;
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); } 50% { box-shadow: 0 0 40px rgba(232,85,60,0.55); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 48px 0 40px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+        .brand { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); }
+        .brand-dot { display: inline-block; width: 6px; height: 6px; background: var(--coral); border-radius: 50%; margin-right: 8px; vertical-align: middle; position: relative; top: -1px; }
+        .header-date { font-size: 13px; color: var(--text-muted); font-weight: 400; }
+        .hero { padding: 64px 0 56px; animation: fadeInUp 0.6s ease both; }
+        .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; }
+        .hero h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(42px, 7vw, 64px); font-weight: 400; line-height: 1.05; letter-spacing: -1px; margin-bottom: 24px; }
+        .hero h1 span { background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral)); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s linear infinite; }
+        .hero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 620px; line-height: 1.7; font-weight: 400; }
+        .section { padding: 48px 0; animation: fadeInUp 0.6s ease both; }
+        .section-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent); }
+        .card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 40px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .card-sm { padding: 28px 32px; }
+        .section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 12px; }
+        .section-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 34px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 24px; line-height: 1.2; }
+        .section-text { color: var(--text-secondary); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+        .section-text:last-child { margin-bottom: 0; }
+        .intro-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); }
+        .intro-card .greeting { font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; color: var(--text); }
+        .note-box { background: rgba(232,85,60,0.07); border: 1px dashed rgba(232,85,60,0.4); border-radius: 12px; padding: 16px 20px; margin-top: 20px; font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .note-box strong { color: var(--coral); }
+        .stats-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .stats-table tr { border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .stats-table tr:last-child { border-bottom: none; }
+        .stats-table tr:nth-child(even) { background: rgba(0,0,0,0.02); }
+        .stats-table td { padding: 14px 0; }
+        .stats-table td:first-child { color: var(--text-secondary); font-weight: 400; padding-right: 24px; white-space: nowrap; }
+        .stats-table td:last-child { font-weight: 600; color: var(--text); text-align: right; }
+        .stat-highlight { color: var(--coral) !important; font-weight: 700 !important; }
+        .stat-badge { display: inline-block; background: rgba(232,85,60,0.15); color: var(--coral-light); padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-green { display: inline-block; background: rgba(52,199,89,0.15); color: #4cd97d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-amber { display: inline-block; background: rgba(255,159,10,0.15); color: #ffb84d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .working-item { margin-bottom: 28px; }
+        .working-item:last-child { margin-bottom: 0; }
+        .working-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+        .working-item p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+        .check-icon { display: inline-block; color: #4cd97d; margin-right: 6px; font-weight: 700; }
+        .opportunity-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--coral); color: white; border-radius: 8px; font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.35); }
+        .opportunity-heading { display: flex; align-items: center; margin-bottom: 14px; }
+        .opportunity-heading h3 { font-size: 19px; font-weight: 600; color: var(--text); }
+        .opportunity-card { margin-bottom: 20px; }
+        .opportunity-card:last-child { margin-bottom: 0; }
+        .case-study-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); border-left: 4px solid var(--coral); overflow: hidden; position: relative; }
+        .case-study-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--coral), var(--coral-light)); }
+        .case-study-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin: 32px 0; }
+        .case-study-stat { text-align: center; padding: 24px 16px; background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; animation: scaleIn 0.5s ease both; }
+        .case-study-stat .number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(30px, 5vw, 44px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1; margin-bottom: 6px; }
+        .case-study-stat .label { font-size: 12px; color: var(--text-secondary); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        .viral-callout { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 12px; padding: 24px 28px; margin-top: 24px; }
+        .viral-callout .big-number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(28px, 5vw, 40px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1.15; }
+        .viral-callout .context { font-size: 14px; color: var(--text-secondary); margin-top: 8px; line-height: 1.6; }
+        .viral-callout .context strong { color: var(--text); }
+        .takeaway { margin-top: 24px; font-size: 15px; color: var(--text-secondary); font-style: italic; line-height: 1.7; }
+        .video-ideas-grid { display: grid; gap: 20px; }
+        .video-idea-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 32px; position: relative; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .video-idea-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .video-idea-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--coral); border-radius: 4px 0 0 4px; }
+        .idea-number { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); margin-bottom: 10px; }
+        .idea-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; font-weight: 400; margin-bottom: 16px; line-height: 1.3; color: var(--text); }
+        .idea-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+        .idea-tag { font-size: 12px; font-weight: 600; color: var(--text-muted); background: rgba(0,0,0,0.04); padding: 4px 12px; border-radius: 6px; }
+        .idea-description { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+        .idea-why { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--card-border); }
+        .idea-why strong { color: var(--coral); font-weight: 600; }
+        .enhancement-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px 32px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .enhancement-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .enhancement-card:last-child { margin-bottom: 0; }
+        .enhancement-card h4 { font-size: 17px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+        .enhancement-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+        .enhancement-card p:last-child { margin-bottom: 0; }
+        .enhancement-list { list-style: none; margin: 12px 0; }
+        .enhancement-list li { font-size: 14px; color: var(--text-secondary); padding: 6px 0 6px 18px; position: relative; line-height: 1.6; }
+        .enhancement-list li::before { content: ''; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; background: var(--coral); border-radius: 50%; }
+        .highlight-box { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 10px; padding: 18px 22px; margin-top: 14px; }
+        .highlight-box p { font-size: 14px; color: var(--text-secondary); margin-bottom: 0; }
+        .highlight-box strong { color: var(--coral); }
+        .cta-wrap { text-align: center; margin-top: 32px; }
+        .cta-btn { display: inline-block; background: var(--coral); color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 40px; border-radius: 999px; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; animation: pulseGlow 3s ease-in-out infinite; }
+        .cta-btn:hover { background: var(--coral-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,85,60,0.5); animation: none; }
+        .cta-btn-wa { display: inline-block; background: #25D366; color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 34px; border-radius: 999px; text-decoration: none; margin: 14px 0 0 12px; box-shadow: 0 4px 18px rgba(37,211,102,0.35); transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
+        .cta-btn-wa:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.5); }
+        .cta-sub { font-size: 13px; color: var(--text-muted); margin-top: 12px; }
+        @media (max-width: 520px) { .cta-btn, .cta-btn-wa { display: block; width: 100%; margin: 0 auto; } .cta-btn-wa { margin-top: 14px; } }
+        .next-steps-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 80%); border-color: rgba(232,85,60,0.2); }
+        .steps-list { list-style: none; counter-reset: steps; }
+        .steps-list li { counter-increment: steps; display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--card-border); font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+        .steps-list li:last-child { border-bottom: none; }
+        .steps-list li::before { content: counter(steps); display: flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; background: var(--coral); color: white; border-radius: 10px; font-size: 14px; font-weight: 700; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.3); }
+        .about-fc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+        .about-fc-stat { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; padding: 20px 24px; text-align: center; animation: scaleIn 0.5s ease both; }
+        .about-fc-stat-val { font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; font-weight: 400; color: var(--coral); letter-spacing: -0.5px; }
+        .about-fc-stat-label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+        .about-fc-text { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+        .about-fc-services { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .about-fc-tag { background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+        .closing-note { margin-top: 24px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+        .signature { padding: 48px 0; }
+        .signature-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 24px; font-weight: 400; margin-bottom: 4px; color: var(--text); }
+        .signature-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 2px; }
+        .signature-link { font-size: 14px; color: var(--coral); text-decoration: none; font-weight: 500; }
+        .signature-link:hover { text-decoration: underline; }
+        .footer { padding: 32px 0; border-top: 1px solid rgba(0,0,0,0.08); text-align: center; background: var(--bg-alt); }
+        .footer-confidential { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+        .footer-note { font-size: 12px; color: var(--text-muted); font-style: italic; }
+        .footer-brand { margin-top: 16px; font-size: 12px; color: var(--text-muted); }
+        .footer-brand span { color: var(--coral); font-weight: 600; }
+        @media (max-width: 640px) {
+            .container { padding: 0 16px; } .card { padding: 28px 22px; } .hero { padding: 40px 0 36px; } .section { padding: 32px 0; }
+            .case-study-grid { grid-template-columns: repeat(2, 1fr); } .video-idea-card { padding: 24px 22px; }
+            .header-inner { flex-direction: column; gap: 8px; } .about-fc-grid { grid-template-columns: 1fr 1fr; gap: 12px; } .about-fc-stat-val { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+<!-- fc-build: status=new leadid=be221f3c-2b6e-476e-a074-50802d806749 date=2026-06-30 -->
+
+  <!-- Audit intro / shader welcome screen -->
+  <style>
+    #fc-intro{position:fixed;inset:0;z-index:99999;background:#0e0c14;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity .85s ease;}
+    #fc-intro.fc-out{opacity:0;pointer-events:none;}
+    #fc-intro canvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
+    .fc-intro-inner{position:relative;z-index:2;text-align:center;padding:24px;max-width:780px;color:#fff;}
+    .fc-intro-eyebrow{font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:24px;}
+    .fc-intro-eyebrow b{color:#ff7d5e;font-weight:700;}
+    .fc-intro-title{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.1rem,6vw,4.4rem);line-height:1.06;font-weight:400;letter-spacing:-0.01em;text-shadow:0 2px 50px rgba(0,0,0,0.4);}
+    .fc-intro-hint{font-family:Inter,system-ui,sans-serif;font-size:14px;font-weight:500;letter-spacing:0.05em;color:rgba(255,255,255,0.88);margin-top:38px;display:inline-flex;align-items:center;gap:10px;animation:fcPulse 2.4s ease-in-out infinite;}
+    .fc-intro-hint .fc-dot{width:7px;height:7px;border-radius:50%;background:#ff7d5e;box-shadow:0 0 12px rgba(255,125,94,0.9);}
+    @keyframes fcPulse{0%,100%{opacity:.55;}50%{opacity:1;}}
+    body.fc-locked{overflow:hidden;}
+  </style>
+  <div id="fc-intro">
+    <canvas id="fc-intro-canvas"></canvas>
+    <div class="fc-intro-inner">
+      <div class="fc-intro-eyebrow"><b>Fusion Creative</b> &middot; Private Audit</div>
+      <div class="fc-intro-title">Sara, welcome to your audit.</div>
+      <div class="fc-intro-hint"><span class="fc-dot"></span> Click anywhere to view</div>
+    </div>
+  </div>
+  <script>document.body.classList.add('fc-locked');</script>
+
+    <!-- Header -->
+    <div class="container">
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand"><span class="brand-dot"></span>Fusion Creative</div>
+                <div class="header-date">30 June 2026</div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-label">Audit + Ideas</div>
+            <h1><span>Sprinkle Studio</span></h1>
+            <p class="hero-subtitle">Turning a brand-new cake decorating experience into the most shareable thing at the Metrocentre | Prepared by Fusion Creative | 30 June 2026</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Intro -->
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Hey Sara,</div>
+                <p class="section-text">Thanks for requesting your free audit. We are Fusion Creative, a content marketing agency based in Newcastle. We produce short-form video, manage social media, run paid campaigns and build websites for local and growing businesses across the North East, all under one roof. Our headline result is New Greek, a small independent North East business we took from zero followers to over 70 million views with short-form video.</p>
+                <p class="section-text">I had a look through <strong>Sprinkle Studio</strong>, the website, your Instagram and what is out there about the business online. You have launched something that is tailor-made for social media. Cake decorating is inherently visual, satisfying and shareable, and you are sitting inside one of the busiest shopping centres in the region. The opportunity to turn every session into content that fills your booking calendar is huge.</p>
+                <p class="section-text">The challenge right now is that you are a brand-new business (opened March 2026), which means building awareness and a following from scratch while also filling sessions. That is exactly where the right content strategy makes the biggest difference, because one strong piece of video can do more for bookings than weeks of paid ads alone.</p>
+                <p class="section-text">Inside you will find a snapshot of where Sprinkle Studio is online today, what is already working in your favour, <strong>five things we would focus on to turn your content into reach and bookings</strong>, four ready-made video ideas you could film in your next session, and how we would help you get there.</p>
+                <div class="note-box">
+                    <strong>Quick note:</strong> the request came in through our ad landing page, so I have based this on <strong>sprinklestudio.co.uk</strong> and your Instagram <strong>@sprinklestudioltd</strong>. If I have picked up the wrong details anywhere, just reply and I will fix it.
+                </div>
+            </div>
+
+            <!-- Fusion Creative metrics card -->
+            <div class="card" style="margin-top:8px;">
+                <div style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--coral); margin-bottom:6px;">Client Results</div>
+                <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Generated for a single local business in the North East</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">70M+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">824K+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Interactions</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">6,200+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">60M</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
+                    </div>
+                </div>
+                <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">We generated over 70 million views across Instagram and TikTok in 30 days for a single local North East business, from a steady stream of short-form videos. One reel alone hit 60 million views. They went from a standing start to a household name in the region, all shot locally. Cake decorating content is one of the most naturally viral categories on social media, and with the right approach Sprinkle Studio could become the go-to experience in the North East.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Snapshot -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Current Snapshot</div>
+            <div class="section-title">Where Sprinkle Studio Is Online Today</div>
+            <div class="card card-sm">
+                <table class="stats-table">
+                    <tr><td>Website</td><td class="stat-highlight">sprinklestudio.co.uk <span class="stat-badge-green">Clean and clear</span></td></tr>
+                    <tr><td>Concept</td><td>Self-guided cake decorating experience <span class="stat-badge-green">Highly shareable</span></td></tr>
+                    <tr><td>Location</td><td>Metrocentre, Gateshead <span class="stat-badge-green">High footfall</span></td></tr>
+                    <tr><td>Opened</td><td>March 2026 <span class="stat-badge-amber">Brand new, building awareness</span></td></tr>
+                    <tr><td>Instagram (@sprinklestudioltd)</td><td class="stat-highlight">Active <span class="stat-badge-amber">Early stage, growing</span></td></tr>
+                    <tr><td>TikTok</td><td>Not yet established <span class="stat-badge">Opportunity</span></td></tr>
+                    <tr><td>Sessions</td><td>75-90 minutes, bento cakes baked fresh daily <span class="stat-badge-green">Great product</span></td></tr>
+                    <tr><td>Extras planned</td><td>Parents and Tots, evening sessions, at-home kits <span class="stat-badge-green">Smart expansion</span></td></tr>
+                    <tr><td>Content style</td><td>Photos and some video <span class="stat-badge-amber">Room to grow</span></td></tr>
+                    <tr><td>Area</td><td>Gateshead / Tyneside</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- What Is Working -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">What Is Already Working Well</div>
+            <div class="section-title">Credit Where It Is Due</div>
+            <div class="card">
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The concept is built for social media</h4>
+                    <p>Cake decorating is one of the most naturally shareable activities on TikTok and Instagram. The process is satisfying to watch, the finished cakes are colourful and photogenic, and every single customer creates something unique. Most businesses have to work hard to make their product look good on camera. Yours does it by default.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The Metrocentre location is a huge advantage</h4>
+                    <p>You are inside one of the biggest shopping centres in the North East, which means high footfall, easy access for families, and a built-in audience of people already out looking for something to do. That location alone gives you a head start most small businesses would love.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Fresh daily baking shows real quality</h4>
+                    <p>The fact that the cakes are baked fresh on-site every day is a proper differentiator. It signals quality and care, and it gives you a daily behind-the-scenes content moment that most experience businesses simply do not have.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> You are already planning smart expansions</h4>
+                    <p>Parents and Tots sessions, evening events, at-home kits. These show you are thinking beyond the core product, and each new format is a fresh content angle and a new audience to reach.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The website and booking flow are clean</h4>
+                    <p>The site is straightforward, the booking process is clear, and the group discount structure encourages bigger bookings. That is a solid foundation to send traffic to.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Where The Opportunity Is -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Where The Opportunity Is</div>
+            <div class="section-title">Five Things We Would Focus On</div>
+            <p class="section-text" style="margin-bottom: 32px;">You have a concept that is made for short-form video and a location that puts you in front of thousands of people every day. The job now is to turn that into a steady stream of content that fills your sessions, builds a following and makes Sprinkle Studio the experience everyone in the North East knows about. These are the five areas we would focus on.</p>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">1</span><h3>Short-Form Video of the Decorating Process</h3></div>
+                <p class="section-text">This is the single biggest lever. Cake decorating videos are one of the most watched categories on TikTok and Reels because the process itself is satisfying: piping, smoothing, choosing sprinkles, the before and after reveal. Every session produces content, you just need to capture it the right way.</p>
+                <p class="section-text">A steady stream of 15 to 30 second process videos, well shot and well edited with a strong hook on frame one, is what turns a small local page into something that travels.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">2</span><h3>Turn Every Customer Into a Content Moment</h3></div>
+                <p class="section-text">Every person who walks through the door is decorating a unique cake. That is a constant supply of fresh, original content that never runs out. With permission, you can capture the best creations, the funniest reactions, the proudest reveals, and turn them into reels that feel authentic and relatable.</p>
+                <p class="section-text">User-generated content and reaction videos perform brilliantly in this space, and they do double duty: they entertain and they show a potential customer exactly what the experience looks and feels like.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">3</span><h3>Build a TikTok Presence From Day One</h3></div>
+                <p class="section-text">TikTok is where cake decorating content gets the most organic reach, and right now Sprinkle Studio does not appear to have an established TikTok account. That is a gap worth closing quickly, because TikTok rewards new accounts that post consistently, and your content type is exactly what the algorithm pushes.</p>
+                <p class="section-text">A dedicated TikTok account, posting three to five times a week with process videos, customer reactions and behind-the-scenes clips, could build a meaningful local following within the first few months.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">4</span><h3>Use the "Fresh Daily" Story</h3></div>
+                <p class="section-text">Baking fresh every morning is something most competitors cannot claim. That daily routine is a content series in itself: the early morning prep, the batter going in, the cakes cooling, the crumb-coated blanks lined up and ready. It humanises the brand, shows the care behind the product and gives you a recurring, reliable posting format.</p>
+                <p class="section-text">Think of it as a daily "open" moment that invites people into the studio before the first customer arrives.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">5</span><h3>Targeted Local Ads to Fill Sessions</h3></div>
+                <p class="section-text">Organic reach builds the brand, but a small, tightly targeted ad budget puts your best content in front of the people most likely to book: families, couples, friend groups and hen parties within driving distance of the Metrocentre. Your best-performing reels become the ads, which means the creative is already proven before you spend a penny on it.</p>
+                <p class="section-text">For an experience business, even a modest ad spend can move the needle on midweek and off-peak sessions, which is usually where the empty slots sit.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Case Study -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Case Study</div>
+            <div class="section-title">What We Did for New Greek</div>
+            <div class="card case-study-card">
+                <p class="section-text">New Greek is a small independent business in Newcastle. No following, no content history, no ad budget. They started from zero. Here is where they got to after working with Fusion Creative.</p>
+                <div class="case-study-grid">
+                    <div class="case-study-stat"><div class="number">70M+</div><div class="label">Total Views</div></div>
+                    <div class="case-study-stat"><div class="number">60M</div><div class="label">Single Reel Views</div></div>
+                    <div class="case-study-stat"><div class="number">824K+</div><div class="label">Interactions</div></div>
+                    <div class="case-study-stat"><div class="number">6,200+</div><div class="label">Followers Grown</div></div>
+                </div>
+                <div class="viral-callout">
+                    <div class="big-number">70 million views. One local business. Zero head start.</div>
+                    <div class="context"><strong>New Greek had no followers, no content history and no brand recognition.</strong> We built their presence from scratch with short-form video, over 70 million views across Instagram and TikTok in 30 days, one reel alone hitting 60 million. They went from unknown to a household name in the North East. Sprinkle Studio is in an even stronger position: the product is visually stunning, the Metrocentre gives you a built-in audience, and every session produces fresh content. The job is getting it in front of the right people.</div>
+                </div>
+                <p class="takeaway">Sprinkle Studio does not need a new concept. It needs the content engine that turns a great experience into a full booking calendar.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Video Ideas -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Ready-Made Content</div>
+            <div class="section-title">4 Video Ideas You Could Film This Week</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are formats working right now on TikTok and Instagram Reels, built around what you already do: the baking, the decorating, the reactions and the finished cakes. Each one could be filmed on a phone during a normal day at the studio.</p>
+            <div class="video-ideas-grid">
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 01</div>
+                    <div class="idea-title">"Watch me decorate my first ever cake"</div>
+                    <div class="idea-meta"><span class="idea-tag">POV</span><span class="idea-tag">Process</span><span class="idea-tag">Satisfying</span></div>
+                    <p class="idea-description">A first-person angle of a customer (or you) decorating a bento cake from start to finish: choosing the colours, piping the frosting, picking the sprinkles, the finished reveal. Trending audio, quick cuts, under 30 seconds. The kind of satisfying process video that stops people mid-scroll.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Process and ASMR-style decorating videos are among the most viewed categories on TikTok. It shows exactly what the experience feels like and makes people want to try it.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 02</div>
+                    <div class="idea-title">"We bake 50 cakes before you even arrive"</div>
+                    <div class="idea-meta"><span class="idea-tag">Behind the scenes</span><span class="idea-tag">Daily routine</span><span class="idea-tag">Trust</span></div>
+                    <p class="idea-description">A quick morning montage: the early alarm, the batter mixing, the ovens, the crumb-coated cakes lined up ready for the day. Strong hook ("most cake decorating places use pre-made bases, we bake ours fresh every single morning"). Under 20 seconds.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Behind-the-scenes content builds trust and separates you from competitors. The "fresh daily" angle is a genuine differentiator worth showing off.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 03</div>
+                    <div class="idea-title">"Her face when she saw the finished cake"</div>
+                    <div class="idea-meta"><span class="idea-tag">Reaction</span><span class="idea-tag">Emotional</span><span class="idea-tag">Shareable</span></div>
+                    <p class="idea-description">A quick reveal reaction: a child, a friend, a hen party seeing their finished cake for the first time. Capture the genuine delight. These moments happen every session, you just need a phone ready to film them (with permission). Lead with the reaction, show the cake after.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> Reaction and reveal videos are some of the most shared content on social media. Real, unscripted joy is impossible to fake, and it makes the viewer want to create that moment for themselves.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 04</div>
+                    <div class="idea-title">"Date night, but make it cake"</div>
+                    <div class="idea-meta"><span class="idea-tag">Couples</span><span class="idea-tag">Lifestyle</span><span class="idea-tag">Date idea</span></div>
+                    <p class="idea-description">Position Sprinkle Studio as a unique date night. Two people decorating side by side, comparing their creations, laughing at the results. Tag it as a date idea for the Metrocentre. Quick, fun, lifestyle-led. Think "things to do in Gateshead" and "date ideas North East".</p>
+                    <div class="idea-why"><strong>Why it works:</strong> "Date idea" and "things to do" are high-search categories on TikTok and Instagram. Positioning the studio as a date night widens your audience beyond families and friend groups.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Digital Enhancements -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Digital Enhancements</div>
+            <div class="section-title">Beyond the Main Feed</div>
+            <p class="section-text" style="margin-bottom: 32px;">A few extra wins that would compound the content work and help turn more of your visibility into booked sessions.</p>
+
+            <div class="enhancement-card">
+                <h4>Google Business Profile and Reviews</h4>
+                <p>When someone searches "things to do at the Metrocentre" or "cake decorating Gateshead", your Google profile is often the first thing they see. Getting it fully set up, posting regularly and actively collecting reviews from happy customers will build trust and improve your local search visibility at the same time.</p>
+                <ul class="enhancement-list">
+                    <li>Optimise the profile for "cake decorating Gateshead" and "Metrocentre activities"</li>
+                    <li>Encourage every happy customer to leave a Google review</li>
+                    <li>Add photos and updates regularly</li>
+                    <li>Turn your best reviews into shareable content</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Seasonal and Event-Led Content</h4>
+                <p>Cake decorating is naturally seasonal. Halloween, Christmas, Valentine's Day, Mother's Day, Easter, school holidays. Each one is a chance to create themed sessions and themed content that reaches people searching for gift ideas, activities and things to do during the holidays.</p>
+                <ul class="enhancement-list">
+                    <li>Plan themed sessions around major holidays and school breaks</li>
+                    <li>Create content in advance so it catches the search wave early</li>
+                    <li>Promote gift vouchers as a low-effort, high-margin product</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Hen Parties, Team Days and Private Events</h4>
+                <p>Group bookings are higher value and bring in audiences who might never have searched for cake decorating on their own. A dedicated push for hen parties, birthday parties, team-building days and corporate events, with content and landing pages built around each, could fill a lot of midweek and evening slots.</p>
+                <ul class="enhancement-list">
+                    <li>Create short content showing real group events at the studio</li>
+                    <li>Target hen party and team day searches with local ads</li>
+                    <li>Make group booking easy and visible on the website</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Why it matters:</strong> A single hen party or team day fills more seats than individual walk-ins, and groups share more content from the experience, giving you free reach with every event.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- About Fusion Creative -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">About Fusion Creative</div>
+            <div class="card intro-card">
+                <p class="about-fc-text">Fusion Creative is a content and marketing agency based in Newcastle. We produce short-form video content, manage social media accounts, run paid campaigns, build websites, and handle branding. Everything under one roof.</p>
+                <p class="about-fc-text">We work with local and growing businesses across the North East, and we film in person, on the ground, right here. No stock footage, no generic templates, no recycled ideas. Every piece of content is original and tailored to the business.</p>
+                <p class="about-fc-text">Our headline result is New Greek, a small independent North East business that went from zero followers to over 70 million views across Instagram and TikTok in 30 days, including one reel that hit 60 million views. We know how to take a great local business and make it impossible to scroll past.</p>
+                <p class="about-fc-text">We also build and run websites for the businesses we work with. For New Greek we built the website (<a href="https://newgreek.co.uk" target="_blank" rel="noopener" style="color:var(--coral); font-weight:600; text-decoration:none;">newgreek.co.uk</a>) and the New Greek Bakery site (<a href="https://newgreekbakery.co.uk" target="_blank" rel="noopener" style="color:var(--coral); font-weight:600; text-decoration:none;">newgreekbakery.co.uk</a>), and run all of their content, the same end-to-end approach we would bring to Sprinkle Studio.</p>
+                <div class="about-fc-grid">
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">250M+</div><div class="about-fc-stat-label">Views generated</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">20+</div><div class="about-fc-stat-label">Videos per month</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">6+</div><div class="about-fc-stat-label">Years in content</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">100%</div><div class="about-fc-stat-label">Original content</div></div>
+                </div>
+                <div class="about-fc-services">
+                    <span class="about-fc-tag">Short-Form Video</span>
+                    <span class="about-fc-tag">TikTok Management</span>
+                    <span class="about-fc-tag">Instagram Reels</span>
+                    <span class="about-fc-tag">Paid Ads</span>
+                    <span class="about-fc-tag">Local SEO</span>
+                    <span class="about-fc-tag">Website Design</span>
+                    <span class="about-fc-tag">Branding</span>
+                    <span class="about-fc-tag">Social Media Management</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- How We'd Help -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">How We'd Help</div>
+            <div class="section-title">What We Could Do for Sprinkle Studio</div>
+            <p class="section-text" style="margin-bottom: 32px;">Here is how we would help turn Sprinkle Studio into the most talked-about experience at the Metrocentre and fill your booking calendar with a steady flow of sessions. It all centres on short-form video filmed at the studio, with the channels built and run for you. It is the same full-service approach we run for New Greek, the Newcastle business we took to over 70 million views.</p>
+
+            <div class="enhancement-card">
+                <h4>Content &amp; Social Media</h4>
+                <p>A steady stream of short-form video built around your real sessions, decorating processes, customer reactions, behind-the-scenes baking and seasonal moments, edited to travel and posted across your channels to build reach and bookings.</p>
+                <ul class="enhancement-list">
+                    <li>Process and ASMR-style decorating videos, reaction reveals, behind-the-scenes baking, lifestyle and date-night content</li>
+                    <li>Posted across Instagram, TikTok and Facebook, built to reach, not just to fill the feed</li>
+                    <li>Editing, captions, hooks, hashtags, audio and posting all handled for you</li>
+                    <li>Monthly reporting on reach, growth and best-performing content</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Social Media Management</h4>
+                <p>We run your Instagram, TikTok and Facebook properly, tuned to the Gateshead and Tyneside audience, so every post is working towards filling sessions rather than just sitting in the feed.</p>
+                <ul class="enhancement-list">
+                    <li>A consistent, hooky posting rhythm across all channels</li>
+                    <li>Local hashtags, area tags and community management</li>
+                    <li>Strategy shifted from static photos to content built to travel</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Targeted Local Ads</h4>
+                <p>We can run tightly targeted local ads that put your best content in front of the people most likely to book: families, friend groups, couples and event planners within driving distance of the Metrocentre.</p>
+                <ul class="enhancement-list">
+                    <li>Targeted to Gateshead, Newcastle and the wider Tyneside area</li>
+                    <li>Your best-performing reels used as the ads</li>
+                    <li>Bookings driven straight to your website</li>
+                    <li>Tracked so the spend is always accountable</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Website &amp; Booking Optimisation</h4>
+                <p>We also build and optimise websites and booking flows, so the attention you earn turns into sessions booked, not just page views.</p>
+                <ul class="enhancement-list">
+                    <li>A booking flow optimised to convert visitors into confirmed sessions</li>
+                    <li>Everything joined up: content, social, ads and website under one roof</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>See examples:</strong> here are two sites we built and run for a local North East food business, with menus, ordering and bookings. <a href="https://newgreek.co.uk" target="_blank" rel="noopener" style="color:var(--coral); font-weight:700; text-decoration:none;">View New Greek &rarr;</a> &nbsp; <a href="https://newgreekbakery.co.uk" target="_blank" rel="noopener" style="color:var(--coral); font-weight:700; text-decoration:none;">View New Greek Bakery &rarr;</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Next Steps -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a read through this audit. Everything is in here: where you are now, the ideas, and how we could help, from content right through to the ads and the booking flow.</li>
+                    <li>Reply with any questions, or let me know if anything needs adjusting. I am happy to dig deeper into any section.</li>
+                    <li>The ideal first step is a single session we can film and turn into your first proper set of content, so you can see exactly what it looks like with your cakes and your customers in it.</li>
+                    <li>Once you are happy, just reply to confirm and I will get everything lined up.</li>
+                </ol>
+                <p class="closing-note">Sara, you have built something that is genuinely made for social media, and the Metrocentre location gives you a head start most new businesses would love. Cake decorating is one of the most naturally viral content categories out there, and right now the opportunity is to turn every session into content that fills the next one. As a Newcastle agency that films in person and took a local business to 70 million views, we are well placed to help Sprinkle Studio become the experience everyone in the North East knows about. Let's get it on camera.</p>
+                <div class="cta-wrap">
+                    <a href="mailto:jay@fusioncreative.uk?subject=Sprinkle%20Studio%20-%20Getting%20Started" class="cta-btn">Let's Get Started</a>
+                    <a href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Sprinkle%20Studio%20audit" target="_blank" rel="noopener" class="cta-btn-wa">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align:-3px; margin-right:8px;"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp
+                    </a>
+                    <div class="cta-sub">Reply to this email, message me on WhatsApp, or give me a call whenever you are ready.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Signature -->
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="footer">
+            <div class="footer-confidential">Confidential - Prepared for Sprinkle Studio</div>
+            <div class="footer-note">Prepared for Sprinkle Studio using sprinklestudio.co.uk and Instagram on 30 June 2026.</div>
+            <div class="footer-brand"><span>Fusion Creative</span></div>
+        </footer>
+    </div>
+
+  <script>
+  (function(){
+    var intro=document.getElementById('fc-intro');if(!intro)return;
+    var canvas=document.getElementById('fc-intro-canvas');
+    var gl=canvas.getContext('webgl')||canvas.getContext('experimental-webgl');
+    var raf=0,dismissed=false;
+    function dismiss(){if(dismissed)return;dismissed=true;intro.classList.add('fc-out');document.body.classList.remove('fc-locked');setTimeout(function(){if(raf)cancelAnimationFrame(raf);intro.style.display='none';},900);}
+    intro.addEventListener('click',dismiss);
+    if(!gl)return;
+    var vsrc='attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
+    var fsrc=['precision highp float;','uniform vec2 u_res;uniform float u_time;uniform vec2 u_mouse;',
+      'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
+      'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);',
+      'return mix(mix(hash(i),hash(i+vec2(1.0,0.0)),u.x),mix(hash(i+vec2(0.0,1.0)),hash(i+vec2(1.0,1.0)),u.x),u.y);}',
+      'float fbm(vec2 p){float v=0.0,a=0.5;for(int i=0;i<5;i++){v+=a*noise(p);p*=2.0;a*=0.5;}return v;}',
+      'void main(){vec2 uv=gl_FragCoord.xy/u_res.xy;float asp=u_res.x/u_res.y;vec2 p=uv;p.x*=asp;vec2 mo=u_mouse;mo.x*=asp;float t=u_time*0.05;',
+      'vec2 q=p*1.5+vec2(t,-t*0.7);q+=(mo-p)*0.3;float w=fbm(q+fbm(q+t));float w2=fbm(q*1.4-t*0.5+w);',
+      'vec3 cDark=vec3(0.07,0.06,0.11);vec3 cBlue=vec3(0.30,0.34,0.58);vec3 cPink=vec3(0.74,0.40,0.52);vec3 cCoral=vec3(0.91,0.36,0.20);',
+      'vec3 col=mix(cDark,cBlue,smoothstep(0.15,0.85,w));col=mix(col,cPink,smoothstep(0.35,0.95,w2));',
+      'float d=distance(p,mo);col+=cCoral*smoothstep(0.75,0.0,d)*0.55*(0.6+0.4*sin(u_time*0.6));',
+      'col*=1.0-0.28*pow(distance(uv,vec2(0.5)),2.0);gl_FragColor=vec4(col,1.0);}'].join('\n');
+    function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
+    var prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,vsrc));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fsrc));gl.linkProgram(prog);gl.useProgram(prog);
+    var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+    var loc=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    var uRes=gl.getUniformLocation(prog,'u_res'),uTime=gl.getUniformLocation(prog,'u_time'),uMouse=gl.getUniformLocation(prog,'u_mouse');
+    var mouse=[0.5,0.55],tgt=[0.5,0.55];
+    function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.floor(innerWidth*dpr);canvas.height=Math.floor(innerHeight*dpr);gl.viewport(0,0,canvas.width,canvas.height);}
+    window.addEventListener('resize',resize);resize();
+    window.addEventListener('pointermove',function(e){tgt[0]=e.clientX/innerWidth;tgt[1]=1.0-e.clientY/innerHeight;});
+    var start=performance.now();
+    function frame(now){mouse[0]+=(tgt[0]-mouse[0])*0.06;mouse[1]+=(tgt[1]-mouse[1])*0.06;gl.uniform2f(uRes,canvas.width,canvas.height);gl.uniform1f(uTime,(now-start)/1000);gl.uniform2f(uMouse,mouse[0],mouse[1]);gl.drawArrays(gl.TRIANGLES,0,3);raf=requestAnimationFrame(frame);}
+    raf=requestAnimationFrame(frame);
+  })();
+  </script>
+</body>
+</html>
