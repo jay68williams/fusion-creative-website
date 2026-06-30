@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Shoot Concept Lists — Fusion Creative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f6f1e8;
+    --cream-card:#fffdf9;
+    --ink:#2a2420;
+    --ink-soft:#6b6258;
+    --coral:#e2472b;
+    --coral-soft:#fbe3dd;
+    --line:#e7ddcd;
+    --done:#3f7a52;
+    --done-bg:#e7f1e9;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:80px;
+  }
+  .wrap{max-width:640px;margin:0 auto;padding:28px 20px 40px;}
+
+  header{margin-bottom:18px;}
+  .eyebrow{
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--coral);font-weight:700;margin-bottom:8px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:28px;
+    line-height:1.15;
+    margin:0 0 6px;
+    letter-spacing:-0.01em;
+  }
+  .sub{color:var(--ink-soft);font-size:14px;line-height:1.5;}
+
+  /* tabs */
+  .tabs{
+    display:flex;gap:8px;overflow-x:auto;padding:18px 0 4px;
+    -webkit-overflow-scrolling:touch;
+  }
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab{
+    flex:0 0 auto;
+    padding:8px 14px;border-radius:99px;border:1px solid var(--line);
+    background:var(--cream-card);color:var(--ink-soft);
+    font-size:13.5px;font-weight:600;cursor:pointer;white-space:nowrap;
+  }
+  .tab.active{background:var(--ink);border-color:var(--ink);color:#fff;}
+  .tab.add-tab{color:var(--coral);border-style:dashed;border-color:var(--coral);background:transparent;}
+
+  .list-tools{
+    display:flex;justify-content:flex-end;gap:14px;margin:6px 2px 18px;
+  }
+  .tool-link{
+    font-size:12px;font-weight:600;color:var(--ink-soft);background:none;border:none;
+    cursor:pointer;padding:0;font-family:inherit;
+  }
+  .tool-link:hover{color:var(--coral);}
+  .tool-link.danger:hover{color:#b3261e;}
+
+  /* notes */
+  .notes-box{
+    background:var(--cream-card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 16px;
+    margin-bottom:20px;
+  }
+  .notes-box h2{
+    font-size:11px;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--ink-soft);margin:0 0 8px;font-weight:700;
+  }
+  .notes-box textarea{
+    width:100%;border:none;background:transparent;resize:vertical;
+    font-family:inherit;font-size:13.5px;line-height:1.6;color:var(--ink);
+    min-height:60px;padding:0;outline:none;
+  }
+  .notes-box textarea::placeholder{color:#b3a896;}
+
+  .progress-bar{
+    position:sticky;top:0;z-index:10;
+    background:var(--cream);
+    padding:8px 0 14px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .progress-track{
+    flex:1;height:8px;border-radius:99px;background:var(--line);overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;background:var(--coral);width:0%;
+    transition:width .3s ease;
+  }
+  .progress-label{font-size:12.5px;font-weight:600;color:var(--ink-soft);white-space:nowrap;}
+
+  .add-card-btn{
+    width:100%;
+    background:var(--cream-card);
+    border:1.5px dashed var(--line);
+    border-radius:14px;
+    padding:14px;
+    color:var(--coral);font-weight:700;font-size:14px;font-family:inherit;
+    cursor:pointer;margin-bottom:14px;
+  }
+  .add-card-btn:hover{border-color:var(--coral);background:var(--coral-soft);}
+
+  .empty-state{
+    text-align:center;color:var(--ink-soft);font-size:13.5px;
+    padding:30px 10px;line-height:1.6;
+  }
+
+  .card{
+    background:var(--cream-card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:16px 16px 14px;
+    margin-bottom:14px;
+    transition:border-color .2s ease;
+  }
+  .card.done{border-color:var(--done);background:var(--done-bg);}
+
+  .card-number{
+    font-family:'Fraunces',serif;
+    font-size:12.5px;color:var(--coral);font-weight:600;
+    margin-bottom:6px;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .del-card{
+    background:none;border:none;color:#b3a896;cursor:pointer;font-size:16px;
+    line-height:1;padding:2px 4px;font-family:inherit;
+  }
+  .del-card:hover{color:#b3261e;}
+
+  .field-idea{
+    width:100%;border:none;background:transparent;outline:none;
+    font-family:'Fraunces',serif;font-size:18px;font-weight:600;
+    color:var(--ink);margin:0 0 8px;padding:2px 0;
+    border-bottom:1px solid transparent;
+  }
+  .field-idea:focus{border-bottom-color:var(--line);}
+  .field-idea::placeholder{color:#b3a896;font-weight:500;}
+  .card.done .field-idea{ text-decoration: line-through; text-decoration-color: var(--done); opacity:.75; }
+
+  .field-concept{
+    width:100%;border:none;background:transparent;outline:none;resize:vertical;
+    font-family:inherit;font-size:14.5px;line-height:1.55;color:var(--ink);
+    margin:0 0 10px;min-height:44px;padding:2px 0;
+    border-bottom:1px solid transparent;
+  }
+  .field-concept:focus{border-bottom-color:var(--line);}
+  .field-concept::placeholder{color:#b3a896;}
+
+  .ref-row{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+  .field-ref{
+    flex:1;min-width:0;
+    border:none;background:transparent;outline:none;
+    font-family:inherit;font-size:13px;font-weight:600;color:var(--coral);
+    padding:4px 0;border-bottom:1px solid transparent;
+  }
+  .field-ref:focus{border-bottom-color:var(--line);}
+  .field-ref::placeholder{color:#b3a896;font-weight:500;}
+  .open-ref{
+    flex:0 0 auto;width:26px;height:26px;border-radius:8px;border:1px solid var(--line);
+    background:var(--cream-card);color:var(--ink-soft);text-decoration:none;
+    display:flex;align-items:center;justify-content:center;font-size:13px;
+  }
+  .open-ref:hover{border-color:var(--coral);color:var(--coral);}
+  .open-ref.disabled{opacity:.35;pointer-events:none;}
+
+  .card-foot{display:flex;justify-content:flex-end;align-items:center;}
+
+  .check{
+    display:flex;align-items:center;gap:8px;cursor:pointer;
+    user-select:none;font-size:13px;font-weight:600;color:var(--ink-soft);
+  }
+  .box{
+    width:20px;height:20px;border-radius:6px;border:2px solid var(--line);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    background:var(--cream-card);transition:all .15s ease;
+  }
+  .card.done .box{background:var(--done);border-color:var(--done);}
+  .box svg{width:12px;height:12px;opacity:0;transition:opacity .15s ease;}
+  .card.done .box svg{opacity:1;}
+  .card.done .check{color:var(--done);}
+
+  .credit{font-size:11.5px;color:var(--ink-soft);opacity:.7;text-align:center;margin-top:18px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Fusion Creative · Production Reference</div>
+    <h1>Shoot Concept Lists</h1>
+    <div class="sub">Idea → concept → reference → done. Build a list per client shoot, add as many as you like.</div>
+  </header>
+
+  <div class="tabs" id="tabs"></div>
+  <div class="list-tools">
+    <button class="tool-link" id="renameBtn">Rename list</button>
+    <button class="tool-link danger" id="deleteListBtn">Delete list</button>
+  </div>
+
+  <div class="notes-box">
+    <h2>Notes for this list</h2>
+    <textarea id="notesField" placeholder="Aesthetic notes, brand reminders, anything worth remembering on set..." rows="2"></textarea>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 / 0 shot</div>
+  </div>
+
+  <button class="add-card-btn" id="addCardBtn">+ Add concept</button>
+
+  <div id="cardList"></div>
+
+  <div class="credit">Saves automatically on this device. Tap + to add a list for the next client/shoot.</div>
+
+</div>
+
+<script>
+const STORAGE_KEY = "fusion-shoot-lists-v2";
+
+function uid(){ return 'id-' + Math.random().toString(36).slice(2, 10); }
+
+function defaultData(){
+  return {
+    activeId: "list-bake-one",
+    lists: [
+      { id: "list-bake-one", name: "The Bake One", notes: "", cards: [] }
+    ]
+  };
+}
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return defaultData();
+    const parsed = JSON.parse(raw);
+    if(!parsed.lists || !parsed.lists.length) return defaultData();
+    return parsed;
+  }catch(e){
+    return defaultData();
+  }
+}
+function saveState(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+let data = loadState();
+
+function activeList(){
+  return data.lists.find(l => l.id === data.activeId) || data.lists[0];
+}
+
+function renderTabs(){
+  const tabs = document.getElementById("tabs");
+  tabs.innerHTML = "";
+  data.lists.forEach(l => {
+    const tab = document.createElement("button");
+    tab.className = "tab" + (l.id === data.activeId ? " active" : "");
+    tab.textContent = l.name || "Untitled list";
+    tab.addEventListener("click", () => {
+      data.activeId = l.id;
+      saveState();
+      renderAll();
+    });
+    tabs.appendChild(tab);
+  });
+  const addTab = document.createElement("button");
+  addTab.className = "tab add-tab";
+  addTab.textContent = "+ New list";
+  addTab.addEventListener("click", () => {
+    const name = prompt("Name this list (e.g. client or shoot name):", "");
+    if(name === null) return;
+    const list = { id: uid(), name: name.trim() || "Untitled list", notes: "", cards: [] };
+    data.lists.push(list);
+    data.activeId = list.id;
+    saveState();
+    renderAll();
+  });
+  tabs.appendChild(addTab);
+}
+
+function renderNotes(){
+  const field = document.getElementById("notesField");
+  field.value = activeList().notes || "";
+  field.oninput = (e) => {
+    activeList().notes = e.target.value;
+    saveState();
+  };
+}
+
+function renderCards(){
+  const list = activeList();
+  const container = document.getElementById("cardList");
+  container.innerHTML = "";
+
+  if(!list.cards.length){
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "No concepts yet — tap “+ Add concept” to start building this list.";
+    container.appendChild(empty);
+    updateProgress();
+    return;
+  }
+
+  list.cards.forEach((c, i) => {
+    const card = document.createElement("div");
+    card.className = "card" + (c.done ? " done" : "");
+
+    const refHref = /^https?:\/\//i.test(c.ref.trim()) ? c.ref.trim() : "";
+
+    card.innerHTML = `
+      <div class="card-number">
+        <span>Concept ${String(i+1).padStart(2,'0')}</span>
+        <button class="del-card" title="Delete concept">&times;</button>
+      </div>
+      <input class="field-idea" type="text" placeholder="Idea name" value="${escapeAttr(c.idea)}">
+      <textarea class="field-concept" placeholder="What are we shooting, and how (angle, pacing, mood)?" rows="2">${escapeHtml(c.concept)}</textarea>
+      <div class="ref-row">
+        <input class="field-ref" type="url" placeholder="Paste reference video link" value="${escapeAttr(c.ref)}">
+        <a class="open-ref${refHref ? "" : " disabled"}" href="${refHref || "#"}" target="_blank" rel="noopener">&#8599;</a>
+      </div>
+      <div class="card-foot">
+        <div class="check">
+          <div class="box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <span>${c.done ? "Shot" : "Not shot"}</span>
+        </div>
+      </div>
+    `;
+
+    card.querySelector(".field-idea").addEventListener("input", (e) => {
+      c.idea = e.target.value; saveState();
+    });
+    card.querySelector(".field-concept").addEventListener("input", (e) => {
+      c.concept = e.target.value; saveState();
+    });
+    const refInput = card.querySelector(".field-ref");
+    const openLink = card.querySelector(".open-ref");
+    refInput.addEventListener("input", (e) => {
+      c.ref = e.target.value; saveState();
+      const href = /^https?:\/\//i.test(c.ref.trim()) ? c.ref.trim() : "";
+      if(href){ openLink.href = href; openLink.classList.remove("disabled"); }
+      else { openLink.href = "#"; openLink.classList.add("disabled"); }
+    });
+    card.querySelector(".del-card").addEventListener("click", () => {
+      if(confirm("Delete this concept?")){
+        list.cards.splice(i, 1);
+        saveState();
+        renderCards();
+      }
+    });
+    card.querySelector(".check").addEventListener("click", () => {
+      c.done = !c.done;
+      saveState();
+      renderCards();
+    });
+
+    container.appendChild(card);
+  });
+
+  updateProgress();
+}
+
+function updateProgress(){
+  const list = activeList();
+  const total = list.cards.length;
+  const done = list.cards.filter(c => c.done).length;
+  document.getElementById("progressFill").style.width = (total ? done/total*100 : 0) + "%";
+  document.getElementById("progressLabel").textContent = `${done} / ${total} shot`;
+}
+
+function escapeHtml(str){
+  return (str || "").replace(/[&<>]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]));
+}
+function escapeAttr(str){
+  return escapeHtml(str).replace(/"/g, "&quot;");
+}
+
+function renderAll(){
+  renderTabs();
+  renderNotes();
+  renderCards();
+}
+
+document.getElementById("addCardBtn").addEventListener("click", () => {
+  activeList().cards.push({ idea: "", concept: "", ref: "", done: false });
+  saveState();
+  renderCards();
+  const inputs = document.querySelectorAll(".field-idea");
+  if(inputs.length) inputs[inputs.length - 1].focus();
+});
+
+document.getElementById("renameBtn").addEventListener("click", () => {
+  const list = activeList();
+  const name = prompt("Rename this list:", list.name);
+  if(name === null) return;
+  list.name = name.trim() || list.name;
+  saveState();
+  renderTabs();
+});
+
+document.getElementById("deleteListBtn").addEventListener("click", () => {
+  if(data.lists.length <= 1){
+    alert("You need at least one list — rename it instead, or add a new one first.");
+    return;
+  }
+  if(confirm(`Delete the list "${activeList().name}"? This can't be undone.`)){
+    data.lists = data.lists.filter(l => l.id !== data.activeId);
+    data.activeId = data.lists[0].id;
+    saveState();
+    renderAll();
+  }
+});
+
+renderAll();
+</script>
+</body>
+</html>

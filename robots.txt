@@ -6,6 +6,7 @@ Disallow: /dashboard/
 Disallow: /login
 Disallow: /proposals/
 Disallow: /plan/
+Disallow: /shoot-lists/
 Disallow: /ar-menu/
 Disallow: /remotion/
 Disallow: /scripts/
