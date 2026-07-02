@@ -13,19 +13,21 @@ const ADDRESS = '8 Clayton Road, Jesmond, Newcastle upon Tyne, NE2 4RP';
 
 const PRODUCTS = [
   { src: 'newgreek-bakery/01-feta-baguette.jpg', name: 'Feta & Herb Baguette' },
+  { src: 'newgreek-bakery/02-caprese-tomato-bread.jpg', name: 'Caprese & Balsamic Bread' },
   { src: 'newgreek-bakery/08-round-pie.jpg', name: 'Golden Filo Pie' },
+  { src: 'newgreek-bakery/04-swirl-pie.jpg', name: 'Filo Swirl Pie' },
   { src: 'newgreek-bakery/06-pistachio-croissant.jpg', name: 'Pistachio Croissant' },
 ];
 
-// ── Timeline (300 frames @ 30fps = 10s) ────────────────────────────────────────
+// ── Timeline (900 frames @ 30fps = 30s) ─────────────────────────────────────────
 
 const HOOK_START = 0;
-const HOOK_END = 95;
-const PRODUCT_DUR = 90; // slow, generous hold per food shot (3s @ 30fps)
+const HOOK_END = 110;
+const PRODUCT_DUR = 110; // slow, generous hold per food shot (~3.7s @ 30fps)
 const SHOWCASE_START = HOOK_END;
-const SHOWCASE_END = SHOWCASE_START + PRODUCT_DUR * PRODUCTS.length; // 365
-const INFO_START = SHOWCASE_END; // 365
-const TOTAL = INFO_START + 85; // 450 (15s)
+const SHOWCASE_END = SHOWCASE_START + PRODUCT_DUR * PRODUCTS.length; // 660
+const INFO_START = SHOWCASE_END; // 660
+const TOTAL = INFO_START + 240; // 900 (30s) — long, generous hold on the info card
 const CROSS = 16; // crossfade window between acts (Hook/Showcase/Info handoffs)
 const PRODUCT_CROSS = 34; // slow, gentle crossfade between individual food photos
 
