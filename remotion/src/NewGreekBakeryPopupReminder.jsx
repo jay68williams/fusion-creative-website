@@ -21,12 +21,13 @@ const PRODUCTS = [
 
 const HOOK_START = 0;
 const HOOK_END = 95;
-const PRODUCT_DUR = 40;
+const PRODUCT_DUR = 90; // slow, generous hold per food shot (3s @ 30fps)
 const SHOWCASE_START = HOOK_END;
-const SHOWCASE_END = SHOWCASE_START + PRODUCT_DUR * PRODUCTS.length; // 215
-const INFO_START = SHOWCASE_END; // 215
-const TOTAL = 300;
-const CROSS = 16; // crossfade window between acts
+const SHOWCASE_END = SHOWCASE_START + PRODUCT_DUR * PRODUCTS.length; // 365
+const INFO_START = SHOWCASE_END; // 365
+const TOTAL = INFO_START + 85; // 450 (15s)
+const CROSS = 16; // crossfade window between acts (Hook/Showcase/Info handoffs)
+const PRODUCT_CROSS = 34; // slow, gentle crossfade between individual food photos
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -230,7 +231,7 @@ function ProductShowcase({ width, height }) {
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
-  if (local < -CROSS || local > SHOWCASE_END - SHOWCASE_START + CROSS) return null;
+  if (local < -CROSS || local > SHOWCASE_END - SHOWCASE_START + PRODUCT_CROSS) return null;
 
   const w = 860;
   const h = 560;
@@ -256,11 +257,11 @@ function ProductShowcase({ width, height }) {
         {PRODUCTS.map((p, i) => {
           const slotStart = i * PRODUCT_DUR;
           const slotLocal = local - slotStart;
-          if (slotLocal < -CROSS || slotLocal > PRODUCT_DUR + CROSS) return null;
+          if (slotLocal < -PRODUCT_CROSS || slotLocal > PRODUCT_DUR + PRODUCT_CROSS) return null;
 
           const opacity = interpolate(
             slotLocal,
-            [0, 10, PRODUCT_DUR - CROSS, PRODUCT_DUR],
+            [0, PRODUCT_CROSS, PRODUCT_DUR - PRODUCT_CROSS, PRODUCT_DUR],
             [0, 1, 1, 0],
             { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
           );
@@ -269,8 +270,8 @@ function ProductShowcase({ width, height }) {
             extrapolateRight: 'clamp',
           });
 
-          const labelSpring = spring({ frame: slotLocal - 10, fps, from: 16, to: 0, config: { damping: 13, stiffness: 130, mass: 0.6 } });
-          const labelOpacity = interpolate(slotLocal, [10, 20, PRODUCT_DUR - CROSS, PRODUCT_DUR], [0, 1, 1, 0], {
+          const labelSpring = spring({ frame: slotLocal - 14, fps, from: 16, to: 0, config: { damping: 15, stiffness: 70, mass: 0.8 } });
+          const labelOpacity = interpolate(slotLocal, [14, 34, PRODUCT_DUR - PRODUCT_CROSS, PRODUCT_DUR], [0, 1, 1, 0], {
             extrapolateLeft: 'clamp',
             extrapolateRight: 'clamp',
           });
