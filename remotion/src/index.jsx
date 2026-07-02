@@ -9,6 +9,7 @@ import { NewGreekCaseStudyAd } from './NewGreekCaseStudyAd';
 import { ARMenuAd } from './ARMenuAd';
 import { ARMenuCarouselSlide1, ARMenuCarouselSlide2, ARMenuCarouselSlide3, ARMenuCarouselSlide4, ARMenuCarouselSlide5 } from './ARMenuCarousel';
 import { NewGreekBakeryMenu } from './NewGreekBakeryMenu';
+import { NewGreekBakeryPopupReminder } from './NewGreekBakeryPopupReminder';
 
 function Root() {
   return (
@@ -121,6 +122,14 @@ function Root() {
         fps={30}
         width={1080}
         height={1920}
+      />
+      <Composition
+        id="NewGreekBakeryPopupReminder"
+        component={NewGreekBakeryPopupReminder}
+        durationInFrames={300}
+        fps={30}
+        width={1920}
+        height={1080}
       />
     </>
   );
