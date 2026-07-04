@@ -12,7 +12,7 @@
   :root{
     --bg:#ffffff; --card:rgba(0,0,0,0.035); --card-done:rgba(95,185,139,0.12); --line:rgba(0,0,0,0.12);
     --cream:#0a0a0a; --mut:#595959; --dim:#7a7a7a;
-    --red:#E8553C; --red2:#E63B2E; --green:#3f9c6e;
+    --red:#E8553C; --red2:#E63B2E; --green:#3f9c6e; --blue:#3d7fd6;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--cream);font-family:'Space Grotesk',system-ui,sans-serif;
@@ -49,8 +49,10 @@
   h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(34px,6vw,54px);letter-spacing:-.01em;line-height:1.05}
   .sub{margin-top:14px;font-size:14.5px;color:var(--mut);max-width:600px}
   .progresswrap{margin-top:26px;display:flex;align-items:center;gap:14px}
+  .progresswrap + .progresswrap{margin-top:10px}
   .pbar{flex:1;height:10px;border-radius:6px;background:rgba(0,0,0,.07);overflow:hidden}
   .pfill{height:100%;width:0%;background:linear-gradient(90deg,#E63B2E,#5fb98b);border-radius:6px;transition:width .3s ease}
+  .pfill.edited{background:linear-gradient(90deg,#3d7fd6,#5fb98b)}
   .ptext{font-family:'Space Mono',monospace;font-size:12px;color:var(--mut);white-space:nowrap}
 
   section{padding:36px 0;border-bottom:1px solid var(--line)}
@@ -99,10 +101,19 @@
   /* concept cards (TNCC .shot style) */
   .shot{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;margin-bottom:16px;transition:background .2s,border-color .2s}
   .shot.done{background:var(--card-done);border-color:rgba(95,185,139,.4)}
-  .shead{display:flex;align-items:flex-start;gap:14px}
-  .shead input[type=checkbox]{margin-top:5px;width:20px;height:20px;accent-color:var(--green);flex:none;cursor:pointer}
+  .shead{display:flex;align-items:flex-start;gap:16px}
+  .checks{display:flex;flex-direction:column;gap:9px;flex:none;padding-top:4px}
+  .chk{display:flex;align-items:center;gap:7px;cursor:pointer}
+  .chk input[type=checkbox]{width:18px;height:18px;accent-color:var(--green);flex:none;cursor:pointer;margin:0}
+  .chk input.chk-edited{accent-color:var(--blue)}
+  .chk span{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--dim)}
   .smeta{display:flex;justify-content:space-between;align-items:center;gap:10px}
   .snum{font-family:'Space Mono',monospace;font-size:12px;color:var(--red);letter-spacing:.05em}
+  .edited-badge{
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--blue);border:1px solid rgba(61,127,214,.35);background:rgba(61,127,214,.08);
+    border-radius:20px;padding:2px 9px;
+  }
   .del-card{background:none;border:none;color:var(--dim);cursor:pointer;font-size:17px;line-height:1;padding:2px 4px;font-family:inherit}
   .del-card:hover{color:var(--red)}
 
@@ -177,6 +188,10 @@
     <div class="progresswrap">
       <div class="pbar"><div class="pfill" id="progressFill"></div></div>
       <div class="ptext" id="progressLabel">0 / 0 shot</div>
+    </div>
+    <div class="progresswrap">
+      <div class="pbar"><div class="pfill edited" id="progressFillEdited"></div></div>
+      <div class="ptext" id="progressLabelEdited">0 / 0 edited</div>
     </div>
   </header>
 
@@ -379,17 +394,23 @@ function renderCards(){
 
   list.cards.forEach((c, i) => {
     const card = document.createElement("div");
-    card.className = "shot" + (c.done ? " done" : "");
+    card.className = "shot" + (c.done ? " done" : "") + (c.edited ? " edited" : "");
 
     const refHref = /^https?:\/\//i.test(c.ref.trim()) ? c.ref.trim() : "";
 
     card.innerHTML = `
       <div class="shead">
-        <input type="checkbox" ${c.done ? "checked" : ""}>
+        <div class="checks">
+          <label class="chk"><input type="checkbox" class="chk-shot" ${c.done ? "checked" : ""}><span>Shot</span></label>
+          <label class="chk"><input type="checkbox" class="chk-edited" ${c.edited ? "checked" : ""}><span>Edited</span></label>
+        </div>
         <div style="flex:1">
           <div class="smeta">
             <span class="snum mono">Concept ${String(i+1).padStart(2,'0')} / ${String(list.cards.length).padStart(2,'0')}</span>
-            <button class="del-card" title="Delete concept">&times;</button>
+            <span style="display:flex;align-items:center;gap:8px">
+              ${c.edited ? '<span class="edited-badge">&#10003; Edited</span>' : ""}
+              <button class="del-card" title="Delete concept">&times;</button>
+            </span>
           </div>
           <input class="field-idea" type="text" placeholder="Idea name" value="${escapeAttr(c.idea)}">
           <div class="srows">
@@ -409,8 +430,13 @@ function renderCards(){
       </div>
     `;
 
-    card.querySelector('input[type=checkbox]').addEventListener("change", (e) => {
+    card.querySelector('.chk-shot').addEventListener("change", (e) => {
       c.done = e.target.checked;
+      saveState();
+      renderCards();
+    });
+    card.querySelector('.chk-edited').addEventListener("change", (e) => {
+      c.edited = e.target.checked;
       saveState();
       renderCards();
     });
@@ -448,6 +474,10 @@ function updateProgress(){
   const done = list.cards.filter(c => c.done).length;
   document.getElementById("progressFill").style.width = (total ? done/total*100 : 0) + "%";
   document.getElementById("progressLabel").textContent = `${done} / ${total} shot`;
+
+  const edited = list.cards.filter(c => c.edited).length;
+  document.getElementById("progressFillEdited").style.width = (total ? edited/total*100 : 0) + "%";
+  document.getElementById("progressLabelEdited").textContent = `${edited} / ${total} edited`;
 }
 
 function escapeHtml(str){
@@ -521,7 +551,7 @@ document.querySelectorAll(".subtab").forEach(btn => {
 });
 
 document.getElementById("addCardBtn").addEventListener("click", () => {
-  activeList().cards.push({ idea: "", concept: "", ref: "", done: false });
+  activeList().cards.push({ idea: "", concept: "", ref: "", done: false, edited: false });
   saveState();
   renderCards();
   const inputs = document.querySelectorAll(".field-idea");
