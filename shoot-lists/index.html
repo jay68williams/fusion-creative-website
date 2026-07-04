@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Shoot Concept Lists — Fusion Creative</title>
+<title>Shoot Concept Lists · Fusion Creative</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -75,6 +75,26 @@
   .add-card-btn:hover{border-color:rgba(232,85,60,.55);background:rgba(232,85,60,.06)}
 
   .empty-state{text-align:center;color:var(--dim);font-size:13.5px;padding:36px 10px;line-height:1.6}
+
+  /* concepts / products sub-tabs */
+  .subtabs{display:flex;gap:8px;margin-bottom:22px}
+  .subtab{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--mut);cursor:pointer;
+  }
+  .subtab.active{background:rgba(232,85,60,.1);border-color:rgba(232,85,60,.4);color:var(--red);font-weight:700}
+
+  /* product pull-list rows */
+  .prow{display:flex;align-items:center;gap:12px;padding:13px 16px;background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:8px}
+  .prow.done{background:var(--card-done);border-color:rgba(95,185,139,.4)}
+  .prow input[type=checkbox]{width:19px;height:19px;accent-color:var(--green);flex:none;cursor:pointer}
+  .prow .field-product{
+    flex:1;min-width:0;border:none;background:transparent;outline:none;
+    font-family:inherit;font-size:14px;color:var(--cream);padding:4px 0;border-bottom:1px solid transparent;
+  }
+  .prow .field-product:focus{border-bottom-color:rgba(232,85,60,.5)}
+  .prow .field-product::placeholder{color:var(--dim)}
+  .prow.done .field-product{color:var(--mut);text-decoration:line-through;text-decoration-color:var(--green)}
 
   /* concept cards (TNCC .shot style) */
   .shot{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;margin-bottom:16px;transition:background .2s,border-color .2s}
@@ -153,7 +173,7 @@
   <header>
     <div class="kick mono" id="kick">Production</div>
     <h1>Shoot list</h1>
-    <p class="sub">Idea → concept → reference → done. Build it yourself — synced everywhere, on the Mac or on set.</p>
+    <p class="sub">Idea → concept → reference → done. Build it yourself, synced everywhere, on the Mac or on set.</p>
     <div class="progresswrap">
       <div class="pbar"><div class="pfill" id="progressFill"></div></div>
       <div class="ptext" id="progressLabel">0 / 0 shot</div>
@@ -170,10 +190,25 @@
   </section>
 
   <section style="border-bottom:none;">
-    <div class="label mono">The shots</div>
-    <h2>Concepts</h2>
-    <button class="add-card-btn" id="addCardBtn">+ Add concept</button>
-    <div id="cardList"></div>
+    <div class="subtabs" id="subtabs">
+      <button class="subtab" data-view="concepts">Concepts</button>
+      <button class="subtab" data-view="products">Products to pull</button>
+    </div>
+
+    <div id="viewConcepts">
+      <div class="label mono">The shots</div>
+      <h2>Concepts</h2>
+      <button class="add-card-btn" id="addCardBtn">+ Add concept</button>
+      <div id="cardList"></div>
+    </div>
+
+    <div id="viewProducts" style="display:none">
+      <div class="label mono">Before you shoot</div>
+      <h2>Products to pull</h2>
+      <p class="gnote">Everything you need pulled from stock before you start filming.</p>
+      <button class="add-card-btn" id="addProductBtn">+ Add product</button>
+      <div id="productList"></div>
+    </div>
   </section>
 
   <footer>
@@ -221,8 +256,17 @@ function setSyncStatus(state, label){
 let data = loadLocal() || defaultData();
 let saveTimer = null;
 let savePending = false;
+let viewMode = "concepts";
+
+// Nothing is allowed to push to the server until we've pulled the latest
+// copy at least once. Without this gate, a stale local cache renders first,
+// and any click before the pull resolves (or a slow network) can schedule a
+// save that overwrites the server with old data, which is how a whole list
+// can vanish. Never remove this guard.
+let initialSyncDone = false;
 
 function saveState(){
+  if(!initialSyncDone) return;
   cacheLocal();
   savePending = true;
   setSyncStatus("busy", "Saving…");
@@ -242,7 +286,7 @@ async function pushToServer(){
     savePending = false;
     setSyncStatus("ok", "Synced");
   }catch(e){
-    setSyncStatus("err", "Offline — saved on this device");
+    setSyncStatus("err", "Offline, saved on this device");
   }
 }
 
@@ -257,15 +301,19 @@ async function pullFromServer(initial){
       cacheLocal();
       renderAll();
       setSyncStatus("ok", "Synced");
+      initialSyncDone = true;
     } else if(initial){
       // Nothing saved server-side yet (first ever load) - seed it with whatever we have locally.
       setSyncStatus("ok", "Synced");
+      initialSyncDone = true;
       await pushToServer();
     } else {
       setSyncStatus("ok", "Synced");
+      initialSyncDone = true;
     }
   }catch(e){
-    setSyncStatus("err", loadLocal() ? "Offline — showing last saved copy" : "Offline — no saved copy yet");
+    initialSyncDone = true;
+    setSyncStatus("err", loadLocal() ? "Offline, showing last saved copy" : "Offline, no saved copy yet");
   }
 }
 
@@ -323,7 +371,7 @@ function renderCards(){
   if(!list.cards.length){
     const empty = document.createElement("div");
     empty.className = "empty-state";
-    empty.textContent = "No concepts yet — tap “+ Add concept” to start building this list.";
+    empty.textContent = "No concepts yet, tap “+ Add concept” to start building this list.";
     container.appendChild(empty);
     updateProgress();
     return;
@@ -409,18 +457,84 @@ function escapeAttr(str){
   return escapeHtml(str).replace(/"/g, "&quot;");
 }
 
+function renderSubtabs(){
+  document.querySelectorAll(".subtab").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.view === viewMode);
+  });
+  document.getElementById("viewConcepts").style.display = viewMode === "concepts" ? "" : "none";
+  document.getElementById("viewProducts").style.display = viewMode === "products" ? "" : "none";
+}
+
+function renderProducts(){
+  const list = activeList();
+  list.products = list.products || [];
+  const container = document.getElementById("productList");
+  container.innerHTML = "";
+
+  if(!list.products.length){
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "No products yet, tap “+ Add product” to start the pull list.";
+    container.appendChild(empty);
+    return;
+  }
+
+  list.products.forEach((p, i) => {
+    const row = document.createElement("div");
+    row.className = "prow" + (p.done ? " done" : "");
+    row.innerHTML = `
+      <input type="checkbox" ${p.done ? "checked" : ""}>
+      <input class="field-product" type="text" placeholder="Product name" value="${escapeAttr(p.name)}">
+      <button class="del-card" title="Remove product">&times;</button>
+    `;
+    row.querySelector('input[type=checkbox]').addEventListener("change", (e) => {
+      p.done = e.target.checked;
+      saveState();
+      renderProducts();
+    });
+    row.querySelector(".field-product").addEventListener("input", (e) => {
+      p.name = e.target.value; saveState();
+    });
+    row.querySelector(".del-card").addEventListener("click", () => {
+      list.products.splice(i, 1);
+      saveState();
+      renderProducts();
+    });
+    container.appendChild(row);
+  });
+}
+
 function renderAll(){
   renderTabs();
   renderKick();
   renderNotes();
   renderCards();
+  renderSubtabs();
+  renderProducts();
 }
+
+document.querySelectorAll(".subtab").forEach(btn => {
+  btn.addEventListener("click", () => {
+    viewMode = btn.dataset.view;
+    renderSubtabs();
+  });
+});
 
 document.getElementById("addCardBtn").addEventListener("click", () => {
   activeList().cards.push({ idea: "", concept: "", ref: "", done: false });
   saveState();
   renderCards();
   const inputs = document.querySelectorAll(".field-idea");
+  if(inputs.length) inputs[inputs.length - 1].focus();
+});
+
+document.getElementById("addProductBtn").addEventListener("click", () => {
+  const list = activeList();
+  list.products = list.products || [];
+  list.products.push({ name: "", done: false });
+  saveState();
+  renderProducts();
+  const inputs = document.querySelectorAll(".field-product");
   if(inputs.length) inputs[inputs.length - 1].focus();
 });
 
@@ -436,7 +550,7 @@ document.getElementById("renameBtn").addEventListener("click", () => {
 
 document.getElementById("deleteListBtn").addEventListener("click", () => {
   if(data.lists.length <= 1){
-    alert("You need at least one list — rename it instead, or add a new one first.");
+    alert("You need at least one list, rename it instead, or add a new one first.");
     return;
   }
   if(confirm(`Delete the list "${activeList().name}"? This can't be undone.`)){
