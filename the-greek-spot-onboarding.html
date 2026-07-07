@@ -147,18 +147,10 @@
   <!-- 2 -->
   <section class="card">
     <div class="sec-head"><span class="sec-num">02</span><h2>Your socials &amp; access</h2></div>
-    <p class="sec-sub">So we can post for you, and set up your brand new TikTok.</p>
+    <p class="sec-sub">So we can post for you on the accounts you already have.</p>
     <div class="field"><label>Instagram handle</label><input type="text" name="instagram" placeholder="@thegreekspot"></div>
-    <div class="field"><label>Your new TikTok</label>
-      <div class="switch-row" id="ttRow">
-        <div class="switch-text">
-          <div class="switch-q">Do you want us to set up your new TikTok account?</div>
-          <div class="switch-sub">Flip this on and we'll create and run the whole thing for you. Prefer to set it up yourself? Just leave it off.</div>
-        </div>
-        <label class="switch"><input type="checkbox" id="ttSetup" name="tiktok_setup" value="Yes - please set up our new TikTok"><span class="slider"></span></label>
-      </div>
-      <label id="ttHandleLabel" style="margin-top:14px">Your new TikTok handle <span class="hint" id="ttHint">set it up yourself and pop the handle here once it's live</span></label>
-      <input type="text" name="tiktok_handle" placeholder="@thegreekspot"></div>
+    <div class="field"><label>TikTok handle <span class="hint">we found this one, correct it if it's wrong</span></label>
+      <input type="text" name="tiktok_handle" value="@thegreekspot_"></div>
     <div class="field"><label>Posting</label><p class="hint" style="margin-top:6px;line-height:1.55;">We'll handle all the posting for you. We post to Instagram and it cross-posts automatically to Facebook, so there is nothing for you to set up here.</p></div>
     <div class="field"><label>Link to your logo / brand assets <span class="hint">Drive, Dropbox, WeTransfer</span></label><input type="text" name="brand_assets" placeholder="Paste a link, or leave blank"></div>
     <div class="field"><label>Link to any existing photos or videos of the food</label><input type="text" name="media_library" placeholder="Paste a link, or leave blank"></div>
@@ -304,9 +296,6 @@ function collect(){
     else if(el.type==='checkbox'){ if(el.checked){ (d[el.name]=d[el.name]||[]).push(el.value); } }
     else { d[el.name]=el.value; }
   });
-  // explicit yes/no for the TikTok setup switch
-  const _tt=document.getElementById('ttSetup');
-  d.tiktok_setup = (_tt && _tt.checked) ? 'Yes - please set up our new TikTok' : "No - we'll set it up ourselves";
   return d;
 }
 
@@ -340,18 +329,7 @@ form.addEventListener('submit', async (e)=>{
   }
 });
 
-const ttSetup=document.getElementById('ttSetup');
-const ttRow=document.getElementById('ttRow');
-const ttLabel=document.getElementById('ttHandleLabel');
-const ttHint=document.getElementById('ttHint');
-function ttUpdate(){
-  const on=ttSetup.checked;
-  ttRow.classList.toggle('on', on);
-  ttLabel.firstChild.textContent = on ? 'Preferred handle for your new TikTok ' : 'Your new TikTok handle ';
-  ttHint.textContent = on ? "perfect, choose a handle and we'll get it set up" : "set it up yourself and pop the handle here once it's live";
-}
-ttSetup.addEventListener('change', ttUpdate);
-restore(); ttUpdate(); updateProgress();
+restore(); updateProgress();
 </script>
 </body>
 </html>
