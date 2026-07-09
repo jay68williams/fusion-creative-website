@@ -205,6 +205,31 @@
     .flags,.two{grid-template-columns:1fr}
     .phase{grid-template-columns:120px 1fr}
   }
+
+  /* ---- unit economics ---- */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+  .cmp{border-radius:var(--rad-md);padding:28px}
+  .cmp.loss{background:var(--paper);border-left:5px solid var(--signal)}
+  .cmp.win{background:var(--black);color:var(--off-white);box-shadow:0 0 0 1px var(--signal),0 0 44px rgba(230,59,46,.2)}
+  .cmp .h{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--signal);margin-bottom:6px}
+  .cmp h3{margin-bottom:16px}
+  .cmp ul{list-style:none;padding:0;margin:0;display:grid;gap:11px}
+  .cmp li{display:flex;gap:11px;font-size:.96rem;line-height:1.4}
+  .cmp.loss li::before{content:"\00d7";font-family:var(--font-mono);color:var(--signal);font-weight:700}
+  .cmp.win li::before{content:"+";font-family:var(--font-mono);color:var(--signal);font-weight:700}
+  .cmp.win li{color:rgba(245,243,238,.85)}
+  .cmp .tot{margin-top:18px;padding-top:15px;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:.9rem}
+  .cmp.win .tot{border-top-color:var(--border-dark)}
+  .falls{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+  .fall{background:var(--paper);border-radius:var(--rad-sm);padding:18px 16px;text-align:center}
+  .fall .n{font-weight:700;font-size:1.7rem;letter-spacing:-.03em}
+  .fall .l{font-family:var(--font-mono);font-size:.66rem;text-transform:uppercase;color:var(--mid);margin-top:7px;letter-spacing:.04em}
+  .gloss{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+  .term{background:var(--paper);border-radius:var(--rad-md);padding:22px 24px}
+  .term .abbr{font-family:var(--font-mono);font-weight:700;font-size:.98rem;color:var(--signal)}
+  .term .full{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--mid);margin-left:8px}
+  .term p{font-size:.94rem;color:#2b2b28;margin-top:9px;line-height:1.45}
+  @media (max-width:860px){.compare,.falls,.gloss{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -389,6 +414,84 @@
       <div class="card"><div class="tag">Budget</div><h3>Start lean, scale on results</h3>
         <p>A test at roughly £15 to 25 a day split across the two campaigns. We scale what pays and cut what does not,
           reported monthly.</p></div>
+    </div>
+  </div></section>
+
+
+  <!-- UNIT ECONOMICS -->
+  <section><div class="container">
+    <div class="section-label">The maths</div>
+    <h2>A £9 commission is gone. A £9 customer is <em>yours</em>.</h2>
+    <p class="prose mt">This is the most important idea in the plan, so it is worth spelling out. There is a big
+      difference between a cost that vanishes and a cost that pays you back. The numbers below are illustrative, using a
+      round £9 to keep it clear.</p>
+
+    <div class="compare">
+      <div class="cmp loss">
+        <div class="h">Money that leaves</div>
+        <h3>App commission</h3>
+        <ul>
+          <li>Uber Eats takes about £9 on the order</li>
+          <li>It repeats on every order, forever, even the 50th</li>
+          <li>You get no name, no number, no email</li>
+          <li>You cannot bring them back yourself</li>
+        </ul>
+        <div class="tot">12 orders in a year = <b style="color:var(--signal)">£108 gone</b></div>
+      </div>
+      <div class="cmp win">
+        <div class="h">Money that comes back</div>
+        <h3>Ad spend</h3>
+        <ul>
+          <li>About £9 to acquire the customer, once</li>
+          <li>You capture their number and email</li>
+          <li>You remarket for free: SMS, email, offers</li>
+          <li>Every repeat order costs about £0 to win</li>
+        </ul>
+        <div class="tot">12 orders in a year = <b style="color:#fff">£9 total</b></div>
+      </div>
+    </div>
+
+    <div class="subh">Your cost to win them falls every time they come back</div>
+    <p class="prose" style="margin-top:8px">Spend £9 once to acquire a customer. The more they order, the smaller that
+      one-off cost becomes per order. The app never does this, it charges the full cut every single time.</p>
+    <div class="falls">
+      <div class="fall"><div class="n">£9.00</div><div class="l">Per order after 1</div></div>
+      <div class="fall"><div class="n">£3.00</div><div class="l">Per order after 3</div></div>
+      <div class="fall"><div class="n">£1.50</div><div class="l">Per order after 6</div></div>
+      <div class="fall"><div class="n">£0.75</div><div class="l">Per order after 12</div></div>
+    </div>
+
+    <div class="note"><div class="t">Payback: the very first order</div>
+      <p>The commission you save on that customer's first direct order, about £9, already covers what it cost to acquire
+        them. From order two onward you are in profit, for as long as they keep coming back and booking in.</p></div>
+
+    <div class="subh">What one customer is worth over a year</div>
+    <p class="prose" style="margin-top:8px">Illustrative: one customer, roughly one order a month, and you keep about £9
+      more on a direct order than on an app order.</p>
+    <div class="money">
+      <div class="m bad"><div class="chan">If they stay on the app</div><div class="amt tnum">£108</div>
+        <div class="det">Commission paid out over the year, and you still do not own the customer</div></div>
+      <div class="m"><div class="chan">Cost to acquire via ads</div><div class="amt tnum">£9</div>
+        <div class="det">A one-off, in year one only. Year two is £0.</div></div>
+      <div class="m win"><div class="chan">Kept by owning them direct</div><div class="amt tnum">£99</div>
+        <div class="det">Roughly £108 saved commission minus the £9 to acquire, in year one alone</div></div>
+    </div>
+
+    <div class="subh">The words your ad manager will use</div>
+    <div class="gloss">
+      <div class="term"><span class="abbr">CPL</span><span class="full">Cost per lead</span>
+        <p>What you pay in ads for one person to click through and start an order or enquiry.</p></div>
+      <div class="term"><span class="abbr">CPA / CAC</span><span class="full">Cost to acquire a customer</span>
+        <p>What you pay in ads to turn a stranger into a paying customer. The goal is to keep it below the margin you
+          make back on their orders.</p></div>
+      <div class="term"><span class="abbr">AOV</span><span class="full">Average order value</span>
+        <p>What a typical order is worth. The higher it is, the more each new customer is worth winning.</p></div>
+      <div class="term"><span class="abbr">LTV</span><span class="full">Lifetime value</span>
+        <p>The total profit a customer brings across every order they ever make, not just the first one.</p></div>
+      <div class="term"><span class="abbr">ROAS</span><span class="full">Return on ad spend</span>
+        <p>Pounds back for every pound spent on ads. A 3x ROAS means £3 returned for every £1 in.</p></div>
+      <div class="term"><span class="abbr">Retargeting</span><span class="full">Warm audiences</span>
+        <p>Showing ads only to people who already visited your site or ordered. Cheaper, and far more likely to convert.</p></div>
     </div>
   </div></section>
 
