@@ -151,12 +151,14 @@
   .open-ref:hover{border-color:var(--red);color:var(--red)}
   .open-ref.disabled{opacity:.3;pointer-events:none}
 
-  /* reference video thumbnail preview */
-  .ref-thumb-link{position:relative;flex:0 0 auto;display:block;line-height:0}
-  .ref-thumb{width:52px;height:92px;object-fit:cover;border-radius:9px;border:1px solid var(--line);display:block;background:rgba(0,0,0,.05)}
-  .ref-thumb-link:hover .ref-thumb{border-color:var(--red)}
-  .ref-thumb-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:13px;
-    text-shadow:0 1px 5px rgba(0,0,0,.7);pointer-events:none;opacity:.95}
+  /* full-height reference video poster (left of card) */
+  .card-thumb-link{flex:0 0 104px;align-self:stretch;position:relative;display:block;min-height:170px;
+    border-radius:12px;overflow:hidden;border:1px solid var(--line);background:rgba(0,0,0,.05)}
+  .card-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .card-thumb-link:hover{border-color:var(--red)}
+  .card-thumb-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:18px;
+    text-shadow:0 1px 6px rgba(0,0,0,.75);pointer-events:none;opacity:.95;z-index:1}
+  @media(max-width:600px){ .card-thumb-link{flex-basis:84px;min-height:150px} }
 
   footer{padding:36px 0 10px;color:var(--dim);font-size:11.5px}
 
@@ -407,6 +409,7 @@ function renderCards(){
 
     card.innerHTML = `
       <div class="shead">
+        ${c.thumb ? `<a class="card-thumb-link" href="${refHref || "#"}" target="_blank" rel="noopener" title="Open reel"><img class="card-thumb" src="${escapeAttr(c.thumb)}" alt="preview" loading="lazy"><span class="card-thumb-play">&#9654;</span></a>` : ""}
         <div class="checks">
           <label class="chk"><input type="checkbox" class="chk-shot" ${c.done ? "checked" : ""}><span>Shot</span></label>
           <label class="chk"><input type="checkbox" class="chk-edited" ${c.edited ? "checked" : ""}><span>Edited</span></label>
@@ -428,7 +431,6 @@ function renderCards(){
             <div class="srow">
               <span class="k">Reference</span>
               <div class="ref-row">
-                ${c.thumb ? `<a class="ref-thumb-link" href="${refHref || "#"}" target="_blank" rel="noopener" title="Open reel"><img class="ref-thumb" src="${escapeAttr(c.thumb)}" alt="preview" loading="lazy"><span class="ref-thumb-play">&#9654;</span></a>` : ""}
                 <input class="field-ref" type="url" placeholder="Paste reference video link" value="${escapeAttr(c.ref)}">
                 <a class="open-ref${refHref ? "" : " disabled"}" href="${refHref || "#"}" target="_blank" rel="noopener">&#8599;</a>
               </div>
