@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Audit - Prime Meats | Fusion Creative</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #f5f6fa; --bg-alt: #ecedf1; --card: #ffffff; --card-border: rgba(0,0,0,0.08);
+            --coral: #E8553C; --coral-light: #ff7a64; --coral-dark: #c4412b;
+            --text: #1a1d23; --text-secondary: #4a4f5c; --text-muted: #7c8090;
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); } 50% { box-shadow: 0 0 40px rgba(232,85,60,0.55); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+        .header { padding: 48px 0 40px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+        .brand { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); }
+        .brand-dot { display: inline-block; width: 6px; height: 6px; background: var(--coral); border-radius: 50%; margin-right: 8px; vertical-align: middle; position: relative; top: -1px; }
+        .header-date { font-size: 13px; color: var(--text-muted); font-weight: 400; }
+        .hero { padding: 64px 0 56px; animation: fadeInUp 0.6s ease both; }
+        .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; }
+        .hero h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(42px, 7vw, 64px); font-weight: 400; line-height: 1.05; letter-spacing: -1px; margin-bottom: 24px; }
+        .hero h1 span { background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral)); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s linear infinite; }
+        .hero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 620px; line-height: 1.7; font-weight: 400; }
+        .section { padding: 48px 0; animation: fadeInUp 0.6s ease both; }
+        .section-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent); }
+        .card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 40px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .card-sm { padding: 28px 32px; }
+        .section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 12px; }
+        .section-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 34px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 24px; line-height: 1.2; }
+        .section-text { color: var(--text-secondary); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+        .section-text:last-child { margin-bottom: 0; }
+        .intro-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); }
+        .intro-card .greeting { font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; color: var(--text); }
+        .note-box { background: rgba(232,85,60,0.07); border: 1px dashed rgba(232,85,60,0.4); border-radius: 12px; padding: 16px 20px; margin-top: 20px; font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .note-box strong { color: var(--coral); }
+        .stats-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .stats-table tr { border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .stats-table tr:last-child { border-bottom: none; }
+        .stats-table tr:nth-child(even) { background: rgba(0,0,0,0.02); }
+        .stats-table td { padding: 14px 0; }
+        .stats-table td:first-child { color: var(--text-secondary); font-weight: 400; padding-right: 24px; white-space: nowrap; }
+        .stats-table td:last-child { font-weight: 600; color: var(--text); text-align: right; }
+        .stat-highlight { color: var(--coral) !important; font-weight: 700 !important; }
+        .stat-badge { display: inline-block; background: rgba(232,85,60,0.15); color: var(--coral-light); padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-green { display: inline-block; background: rgba(52,199,89,0.15); color: #4cd97d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .stat-badge-amber { display: inline-block; background: rgba(255,159,10,0.15); color: #ffb84d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .working-item { margin-bottom: 28px; }
+        .working-item:last-child { margin-bottom: 0; }
+        .working-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+        .working-item p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+        .check-icon { display: inline-block; color: #4cd97d; margin-right: 6px; font-weight: 700; }
+        .opportunity-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--coral); color: white; border-radius: 8px; font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.35); }
+        .opportunity-heading { display: flex; align-items: center; margin-bottom: 14px; }
+        .opportunity-heading h3 { font-size: 19px; font-weight: 600; color: var(--text); }
+        .opportunity-card { margin-bottom: 20px; }
+        .opportunity-card:last-child { margin-bottom: 0; }
+        .case-study-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); border-left: 4px solid var(--coral); overflow: hidden; position: relative; }
+        .case-study-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--coral), var(--coral-light)); }
+        .case-study-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin: 32px 0; }
+        .case-study-stat { text-align: center; padding: 24px 16px; background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; animation: scaleIn 0.5s ease both; }
+        .case-study-stat .number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(30px, 5vw, 44px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1; margin-bottom: 6px; }
+        .case-study-stat .label { font-size: 12px; color: var(--text-secondary); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        .viral-callout { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 12px; padding: 24px 28px; margin-top: 24px; }
+        .viral-callout .big-number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(28px, 5vw, 40px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1.15; }
+        .viral-callout .context { font-size: 14px; color: var(--text-secondary); margin-top: 8px; line-height: 1.6; }
+        .viral-callout .context strong { color: var(--text); }
+        .takeaway { margin-top: 24px; font-size: 15px; color: var(--text-secondary); font-style: italic; line-height: 1.7; }
+        .video-ideas-grid { display: grid; gap: 20px; }
+        .video-idea-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 32px; position: relative; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .video-idea-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .video-idea-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--coral); border-radius: 4px 0 0 4px; }
+        .idea-number { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); margin-bottom: 10px; }
+        .idea-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; font-weight: 400; margin-bottom: 16px; line-height: 1.3; color: var(--text); }
+        .idea-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+        .idea-tag { font-size: 12px; font-weight: 600; color: var(--text-muted); background: rgba(0,0,0,0.04); padding: 4px 12px; border-radius: 6px; }
+        .idea-description { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+        .idea-why { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--card-border); }
+        .idea-why strong { color: var(--coral); font-weight: 600; }
+        .enhancement-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px 32px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .enhancement-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
+        .enhancement-card:last-child { margin-bottom: 0; }
+        .enhancement-card h4 { font-size: 17px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+        .enhancement-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+        .enhancement-card p:last-child { margin-bottom: 0; }
+        .enhancement-list { list-style: none; margin: 12px 0; }
+        .enhancement-list li { font-size: 14px; color: var(--text-secondary); padding: 6px 0 6px 18px; position: relative; line-height: 1.6; }
+        .enhancement-list li::before { content: ''; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; background: var(--coral); border-radius: 50%; }
+        .highlight-box { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 10px; padding: 18px 22px; margin-top: 14px; }
+        .highlight-box p { font-size: 14px; color: var(--text-secondary); margin-bottom: 0; }
+        .highlight-box strong { color: var(--coral); }
+        .cta-wrap { text-align: center; margin-top: 32px; }
+        .cta-btn { display: inline-block; background: var(--coral); color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 40px; border-radius: 999px; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; animation: pulseGlow 3s ease-in-out infinite; }
+        .cta-btn:hover { background: var(--coral-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,85,60,0.5); animation: none; }
+        .cta-btn-wa { display: inline-block; background: #25D366; color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 34px; border-radius: 999px; text-decoration: none; margin: 14px 0 0 12px; box-shadow: 0 4px 18px rgba(37,211,102,0.35); transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
+        .cta-btn-wa:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.5); }
+        .cta-sub { font-size: 13px; color: var(--text-muted); margin-top: 12px; }
+        @media (max-width: 520px) { .cta-btn, .cta-btn-wa { display: block; width: 100%; margin: 0 auto; } .cta-btn-wa { margin-top: 14px; } }
+        .next-steps-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 80%); border-color: rgba(232,85,60,0.2); }
+        .steps-list { list-style: none; counter-reset: steps; }
+        .steps-list li { counter-increment: steps; display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--card-border); font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+        .steps-list li:last-child { border-bottom: none; }
+        .steps-list li::before { content: counter(steps); display: flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; background: var(--coral); color: white; border-radius: 10px; font-size: 14px; font-weight: 700; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.3); }
+        .about-fc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+        .about-fc-stat { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; padding: 20px 24px; text-align: center; animation: scaleIn 0.5s ease both; }
+        .about-fc-stat-val { font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; font-weight: 400; color: var(--coral); letter-spacing: -0.5px; }
+        .about-fc-stat-label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+        .about-fc-text { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+        .about-fc-services { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .about-fc-tag { background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+        .closing-note { margin-top: 24px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+        .signature { padding: 48px 0; }
+        .signature-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 24px; font-weight: 400; margin-bottom: 4px; color: var(--text); }
+        .signature-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 2px; }
+        .signature-link { font-size: 14px; color: var(--coral); text-decoration: none; font-weight: 500; }
+        .signature-link:hover { text-decoration: underline; }
+        .footer { padding: 32px 0; border-top: 1px solid rgba(0,0,0,0.08); text-align: center; background: var(--bg-alt); }
+        .footer-confidential { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+        .footer-note { font-size: 12px; color: var(--text-muted); font-style: italic; }
+        .footer-brand { margin-top: 16px; font-size: 12px; color: var(--text-muted); }
+        .footer-brand span { color: var(--coral); font-weight: 600; }
+        @media (max-width: 640px) {
+            .container { padding: 0 16px; } .card { padding: 28px 22px; } .hero { padding: 40px 0 36px; } .section { padding: 32px 0; }
+            .case-study-grid { grid-template-columns: repeat(2, 1fr); } .video-idea-card { padding: 24px 22px; }
+            .header-inner { flex-direction: column; gap: 8px; } .about-fc-grid { grid-template-columns: 1fr 1fr; gap: 12px; } .about-fc-stat-val { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+<!-- fc-build: status=manual-referral source=george-via-joanna date=2026-07-08 -->
+
+  <!-- Audit intro / shader welcome screen -->
+  <style>
+    #fc-intro{position:fixed;inset:0;z-index:99999;background:#0e0c14;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity .85s ease;}
+    #fc-intro.fc-out{opacity:0;pointer-events:none;}
+    #fc-intro canvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
+    .fc-intro-inner{position:relative;z-index:2;text-align:center;padding:24px;max-width:780px;color:#fff;}
+    .fc-intro-eyebrow{font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:24px;}
+    .fc-intro-eyebrow b{color:#ff7d5e;font-weight:700;}
+    .fc-intro-title{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.1rem,6vw,4.4rem);line-height:1.06;font-weight:400;letter-spacing:-0.01em;text-shadow:0 2px 50px rgba(0,0,0,0.4);}
+    .fc-intro-hint{font-family:Inter,system-ui,sans-serif;font-size:14px;font-weight:500;letter-spacing:0.05em;color:rgba(255,255,255,0.88);margin-top:38px;display:inline-flex;align-items:center;gap:10px;animation:fcPulse 2.4s ease-in-out infinite;}
+    .fc-intro-hint .fc-dot{width:7px;height:7px;border-radius:50%;background:#ff7d5e;box-shadow:0 0 12px rgba(255,125,94,0.9);}
+    @keyframes fcPulse{0%,100%{opacity:.55;}50%{opacity:1;}}
+    body.fc-locked{overflow:hidden;}
+  </style>
+  <div id="fc-intro">
+    <canvas id="fc-intro-canvas"></canvas>
+    <div class="fc-intro-inner">
+      <div class="fc-intro-eyebrow"><b>Fusion Creative</b> &middot; Private Audit</div>
+      <div class="fc-intro-title">Welcome to your Prime Meats audit.</div>
+      <div class="fc-intro-hint"><span class="fc-dot"></span> Click anywhere to view</div>
+    </div>
+  </div>
+  <script>document.body.classList.add('fc-locked');</script>
+
+    <!-- Header -->
+    <div class="container">
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand"><span class="brand-dot"></span>Fusion Creative</div>
+                <div class="header-date">8 July 2026</div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-label">Audit + Ideas</div>
+            <h1><span>Prime Meats</span></h1>
+            <p class="hero-subtitle">Turning a brand new Blyth butchery into the name people follow, save and share across the North East | Prepared by Fusion Creative | 8 July 2026</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Intro -->
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Hi, and thanks to George for the introduction.</div>
+                <p class="section-text">George mentioned you have just got <strong>Prime Meats</strong> off the ground in Blyth, and that content and socials are the next thing on the list. So we had a proper look at where the business stands online today, the website, the Instagram, and the wider picture, and put this together for you. Our honest take is a good one: you have the hardest part already sorted. A real product people want, a proper shop, a delivery service, and a catering and trade side supplying restaurants and businesses across the North East. The bit that is wide open is social, and being brand new there is genuinely the best possible time to start.</p>
+                <p class="section-text">That is exactly what we do. We are a content marketing agency based in Newcastle. We film in person, we know this area, and our headline result is New Greek, an independent North East food business we took from zero to over 70 million views with short-form video. We handle everything from filming to posting, so the business owner does not have to think about it. And here is the thing about a butchery: it is one of the most naturally viral businesses there is. The craft, the cuts, the knife work, the fire, the finished plate. It is made for video. Right now none of that is being captured.</p>
+                <p class="section-text">Inside you will find a clear snapshot of where Prime Meats is online today, what you already have going for you, <strong>five things we would focus on first</strong>, a look at what the biggest butchers in the world are doing to pull in hundreds of millions of views, <strong>six ready-made video ideas</strong> built around your shop and your cuts, and how we would help you get there.</p>
+                <div class="note-box">
+                    <strong>Quick note:</strong> this audit is based on your website <strong>primemeatsne.com</strong> and your Instagram <strong>@primemeatsne</strong> as they stand today. If I have picked up any details wrong, or you have a TikTok or Facebook I have not found, just reply and I will update it.
+                </div>
+            </div>
+
+            <!-- Fusion Creative metrics card -->
+            <div class="card" style="margin-top:8px;">
+                <div style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--coral); margin-bottom:6px;">Client Results</div>
+                <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Generated for a single local business in the North East</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">70M+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">824K+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Interactions</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">6,200+</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
+                    </div>
+                    <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
+                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">60M</div>
+                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
+                    </div>
+                </div>
+                <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">We generated over 70 million views across Instagram and TikTok in 30 days for a single local North East business, from a steady stream of short-form videos. One reel alone hit 60 million views. They went from a standing start to a household name in the region, all shot locally. That same engine, content built to travel rather than just be posted, is exactly what would take Prime Meats from a brand new account to the butcher everyone in Blyth and beyond is following.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Snapshot -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Current Snapshot</div>
+            <div class="section-title">Where Prime Meats Is Online Today</div>
+            <p class="section-text" style="margin-bottom: 24px;">This is the honest picture as it stands. Not a criticism, you are days into this, but it is worth seeing in black and white, because it shows just how much room there is to grow.</p>
+            <div class="card card-sm">
+                <table class="stats-table">
+                    <tr><td>Website</td><td class="stat-highlight">primemeatsne.com <span class="stat-badge-green">Live, good start</span></td></tr>
+                    <tr><td>Instagram (@primemeatsne)</td><td class="stat-highlight">2 posts, 76 followers <span class="stat-badge-amber">Barely started</span></td></tr>
+                    <tr><td>Video content</td><td>None yet <span class="stat-badge">Blank canvas</span></td></tr>
+                    <tr><td>TikTok</td><td>No presence found <span class="stat-badge">Biggest untapped channel</span></td></tr>
+                    <tr><td>Facebook</td><td>No presence found <span class="stat-badge">Untapped</span></td></tr>
+                    <tr><td>What you sell</td><td>Premium meats &amp; fresh seafood <span class="stat-badge-green">Strong range</span></td></tr>
+                    <tr><td>Catering &amp; trade</td><td>Supplying restaurants &amp; businesses across the NE <span class="stat-badge-amber">Second revenue stream, zero content</span></td></tr>
+                    <tr><td>Local delivery</td><td>Available <span class="stat-badge-green">Order-ready</span></td></tr>
+                    <tr><td>Business stage</td><td>Brand new <span class="stat-badge-green">Perfect time to build</span></td></tr>
+                    <tr><td>Location</td><td>Cowpen Road, Blyth NE24 4JF</td></tr>
+                </table>
+            </div>
+            <div class="note-box" style="margin-top: 20px;">
+                <strong>The headline:</strong> two posts and 76 followers is not a problem, it is a starting line. Every big butchery account you will see later in this audit started at exactly zero. The difference between them and a butcher nobody follows is not the meat, it is that somebody pointed a camera at the craft and posted it consistently. That is the entire gap, and it is the easiest kind of gap to close.
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- What Is Working -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">What You Already Have Going For You</div>
+            <div class="section-title">The Foundations Are Strong</div>
+            <div class="card">
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> The most visual product a business can have</h4>
+                    <p>Butchery is one of the single best niches on social media. A carcass being broken down, a knife gliding through a cut, marbling on a ribeye, a tray of fresh seafood on ice. This is content that stops the scroll everywhere in the world, and you produce it every single day without even trying. Most businesses have to invent something interesting to film. You just have to point a camera at what is already happening.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> Two revenue streams, not one</h4>
+                    <p>Prime Meats is a retail butcher and a catering and trade supplier serving restaurants and businesses across the North East. That is two audiences you can grow at once: local families who want quality meat for the weekend, and chefs and venues who need a reliable supplier. Most butchers only tell one of those stories. You can tell both.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> A clear identity from day one</h4>
+                    <p>"Freshness you can trust. Quality you can taste." You already have a clean name, a clear promise and a proper shop on Cowpen Road. The brand is not confused or half-formed. That means every piece of content we make can pull in the same direction from the very first video.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> You are already order-ready</h4>
+                    <p>A live website and local delivery means the moment a video reaches someone nearby, they can act on it. A lot of businesses build an audience with nowhere to send it. You have the shop, the delivery and the trade line already in place. The plumbing is done, we just need to turn on the tap.</p>
+                </div>
+                <div class="working-item">
+                    <h4><span class="check-icon">&#10003;</span> A clean slate is an advantage, not a setback</h4>
+                    <p>Starting from two posts means no bad habits to undo, no dated content to work around, and every early video helps define what Prime Meats looks like online. We get to build the account properly from the first frame, which is a much better position than most businesses ever hand us.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Where The Opportunity Is -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Where The Opportunity Is</div>
+            <div class="section-title">Five Things We Would Focus On First</div>
+            <p class="section-text" style="margin-bottom: 32px;">You have the shop, the product and the two revenue streams. The job now is reach, getting Prime Meats in front of the people in Blyth and across the North East who do not know you exist yet. These are the five areas we would start with.</p>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">1</span><h3>Start Filming the Craft</h3></div>
+                <p class="section-text">The single biggest opportunity is turning what already happens behind your counter into short-form video. The knife work, a cut being trimmed and tied, a tray of steaks laid out, the fresh seafood on ice. This is the exact content that racks up views for butchers all over the world, and right now none of it is being captured. One good video of a cut being broken down has more reach potential than a hundred photos.</p>
+                <p class="section-text">You do not need a studio or a script. The raw material is on your block every morning. We film it, edit it to travel, and post it.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">2</span><h3>Get on TikTok</h3></div>
+                <p class="section-text">There is no Prime Meats TikTok yet, and for a butcher that is the biggest single gap of all. TikTok is where local food businesses blow up, because the algorithm pushes content to people nearby regardless of how many followers you have. Butchery content in particular does huge numbers on there. Some of the biggest food accounts in the world are butchers, and they built it all on TikTok.</p>
+                <p class="section-text">You do not need to learn the platform or be a natural on camera. We set the account up, film, and run it for you.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">3</span><h3>Teach People Why Your Meat Is Better</h3></div>
+                <p class="section-text">The content that builds trust for a butcher is education. Why a properly aged steak beats a supermarket tray, how to spot good marbling, which cut to use for a Sunday roast, the best way to cook a piece so it is never dry. People save and share this content, and it positions you as the expert, which is exactly why they choose the local butcher over the big shop. You know all of this already. We just get it on camera.</p>
+                <p class="section-text">This is the difference between being a shop that sells meat and being the butcher people trust and follow.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">4</span><h3>Put the Catering and Trade Side On Camera</h3></div>
+                <p class="section-text">Your supply to restaurants and businesses is a whole second story most butchers never tell. A big trade order being prepped, a restaurant collection going out, the scale of what you produce for venues across the North East. Content like that does two jobs at once: it makes retail customers trust you more ("if the restaurants use them, they must be good") and it quietly puts you in front of other chefs and venues who could become trade clients.</p>
+                <p class="section-text">Nobody in your area is showing this. It is a genuinely open lane.</p>
+            </div>
+
+            <div class="card opportunity-card">
+                <div class="opportunity-heading"><span class="opportunity-num">5</span><h3>Build the Brand From the First Video</h3></div>
+                <p class="section-text">Because you are brand new, every early video is doing double duty: getting reach and defining who Prime Meats is. A consistent look, a recognisable face behind the counter, the same energy every week. That is how a new shop becomes "the Blyth butcher everyone talks about" rather than just another name on the high street. Starting now, with a clean account and a clear identity, means we build that reputation deliberately instead of by accident.</p>
+                <p class="section-text">Consistency is the thing most businesses cannot keep up. That is the part we take off your plate entirely.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Case Study -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Case Study</div>
+            <div class="section-title">What We Did for New Greek</div>
+            <div class="card case-study-card">
+                <p class="section-text">New Greek is a small independent food business in Newcastle. No following, no content history, no ad budget. They started from zero, exactly where a brand new account starts. Here is where they got to after working with Fusion Creative.</p>
+                <div class="case-study-grid">
+                    <div class="case-study-stat"><div class="number">70M+</div><div class="label">Total Views</div></div>
+                    <div class="case-study-stat"><div class="number">60M</div><div class="label">Single Reel Views</div></div>
+                    <div class="case-study-stat"><div class="number">824K+</div><div class="label">Interactions</div></div>
+                    <div class="case-study-stat"><div class="number">6,200+</div><div class="label">Followers Grown</div></div>
+                </div>
+                <div class="viral-callout">
+                    <div class="big-number">70 million views. One local food business. Zero head start.</div>
+                    <div class="context"><strong>New Greek had no followers, no content history and no brand recognition.</strong> We built their presence from scratch with short-form video, over 70 million views across Instagram and TikTok in 30 days, one reel alone hitting 60 million. They went from unknown to a household name in the North East. Prime Meats starts in the same spot they did, with one big advantage: butchery is even more visual than a takeaway. The craft does half the work for you.</div>
+                </div>
+                <p class="takeaway">A brand new account is not a disadvantage. It is exactly where our best results have started. The meat is the easy part. The reach is what we build.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- What The Big Butchers Are Doing -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Proof From The Niche</div>
+            <div class="section-title">What The Biggest Butchers In The World Are Doing</div>
+            <p class="section-text" style="margin-bottom: 28px;">You asked for a look at what is working for other butchers, so here it is. Butchery is one of the most quietly viral niches on social media, and the accounts winning at it are not doing anything you could not do. They are filming the craft, teaching people, and staying consistent. Here is the proof.</p>
+
+            <div class="card">
+                <div class="working-item">
+                    <h4>The Bearded Butchers, a small US butchery, built an audience of millions</h4>
+                    <p>Two brothers from a family butcher shop in Ohio started filming themselves breaking down cuts and explaining the craft. They now have around 776,000 followers on Instagram, 1.8 million on TikTok, and over 3.6 million subscribers on YouTube. One of their videos alone reached more than 127 million views across platforms. No fancy production, just a butcher, a block, and a camera showing the craft and teaching people. This is the clearest proof that butchery content travels.</p>
+                </div>
+                <div class="working-item">
+                    <h4>The UK's best butchers now sell through content</h4>
+                    <p>Premium British butchers like HG Walter, Thomas Joseph Butchery and Turner &amp; George have built serious reputations on the back of close-up cut footage, dry-aging content and cooking guidance. The formula is the same everywhere: show the quality up close, explain why it matters, make people hungry. It works because meat done well is genuinely beautiful on camera.</p>
+                </div>
+                <div class="working-item">
+                    <h4>The content formula that keeps winning for butchers</h4>
+                    <p>Across all of them, four formats do the heavy lifting, and every one of them is something you already do behind the counter every day:</p>
+                    <ul class="enhancement-list">
+                        <li><strong style="color:var(--text);">The craft:</strong> knife work, a cut being broken down, tying a joint, filleting fish. Satisfying to watch, endlessly shareable.</li>
+                        <li><strong style="color:var(--text);">The education:</strong> which cut for which dish, how to cook it right, why quality meat is worth it. The stuff people save and come back to.</li>
+                        <li><strong style="color:var(--text);">The finished result:</strong> a cooked steak, a loaded BBQ, a Sunday roast. Makes people hungry, drives them to the shop.</li>
+                        <li><strong style="color:var(--text);">The personality:</strong> the butcher behind the counter, the banter, the local character. This is what turns viewers into loyal regulars.</li>
+                    </ul>
+                </div>
+                <div class="highlight-box">
+                    <p><strong>The takeaway:</strong> none of these butchers had an advantage you do not have. They had a block, a camera and consistency. The reason they have millions of followers and most butchers have none is simply that they started filming and kept going. That is the entire game, and it is exactly the part we handle for you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Video Ideas -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Ready-Made Content</div>
+            <div class="section-title">6 Video Ideas We Could Film In One Visit</div>
+            <p class="section-text" style="margin-bottom: 32px;">These are formats working right now for butchers on TikTok and Instagram Reels, built around exactly what you already do. Every one of these could be filmed in a single morning behind your counter.</p>
+            <div class="video-ideas-grid">
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 01</div>
+                    <div class="idea-title">"This is why our meat is better"</div>
+                    <div class="idea-meta"><span class="idea-tag">Education</span><span class="idea-tag">Trust</span><span class="idea-tag">USP</span></div>
+                    <p class="idea-description">You, holding one of your steaks next to a standard supermarket one, talking through the difference: the marbling, the colour, the aging, where it comes from. Honest, straight to camera, no fluff. Strong hook on frame one ("Here is why our steak costs more, and why it is worth every penny").</p>
+                    <div class="idea-why"><strong>Why it works:</strong> It answers the exact question every customer has and turns your price into a selling point instead of a barrier. Education content builds trust faster than anything, and trust is why people choose a local butcher.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 02</div>
+                    <div class="idea-title">"The best way to cook the perfect steak"</div>
+                    <div class="idea-meta"><span class="idea-tag">How-to</span><span class="idea-tag">Save-bait</span><span class="idea-tag">Cooking</span></div>
+                    <p class="idea-description">Pick a cut, then show the exact method start to finish: how to season it, the pan or the fire, the timing, the rest. Under 30 seconds, clean and confident. Works for steak, then a whole series: lamb, pork belly, the perfect roast, a Sunday joint, how to cook fish.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> "How to cook it perfectly" is one of the most saved and re-watched formats for any food business. People save it to use later, which means they come back to you for the meat when they do.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 03</div>
+                    <div class="idea-title">"Watch this get broken down"</div>
+                    <div class="idea-meta"><span class="idea-tag">The craft</span><span class="idea-tag">Satisfying</span><span class="idea-tag">Skill</span></div>
+                    <p class="idea-description">A clean, close-up film of you breaking down a larger cut into portions, or tying a joint, or filleting a fish. No talking needed, just the sound of the knife and a tight edit. The kind of skill footage people watch three times over.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> This is the exact format that built the biggest butcher accounts in the world. Skilled knife work is mesmerising, endlessly shareable, and it shows off craftsmanship no supermarket can match.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 04</div>
+                    <div class="idea-title">"What goes into a restaurant order"</div>
+                    <div class="idea-meta"><span class="idea-tag">Trade</span><span class="idea-tag">Behind the scenes</span><span class="idea-tag">Credibility</span></div>
+                    <p class="idea-description">A behind-the-scenes look at prepping a big catering or restaurant order: the scale, the trays, the quality control, the collection or delivery going out. Lean into the fact that professional kitchens across the North East trust you to supply them.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> "The restaurants buy from them" is powerful social proof for retail customers, and it quietly markets your trade side to other chefs and venues at the same time. Two audiences, one video.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 05</div>
+                    <div class="idea-title">"Meet your Blyth butcher"</div>
+                    <div class="idea-meta"><span class="idea-tag">Personality</span><span class="idea-tag">Local</span><span class="idea-tag">Brand</span></div>
+                    <p class="idea-description">A short, warm intro to you and the shop: who you are, why you opened Prime Meats, where your meat comes from, what you care about. The local, family, quality story told in your own words. This is the video that turns a new shop into a name people root for.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> People buy from people, especially locally. Putting a face and a story to the shop builds the kind of loyalty a supermarket can never compete with, and it makes every future video feel personal.</div>
+                </div>
+                <div class="video-idea-card">
+                    <div class="idea-number">Idea 06</div>
+                    <div class="idea-title">"Your weekend BBQ, sorted"</div>
+                    <div class="idea-meta"><span class="idea-tag">Seasonal</span><span class="idea-tag">Shoppable</span><span class="idea-tag">Range</span></div>
+                    <p class="idea-description">A fast, mouth-watering showcase of a themed box or spread: a BBQ pack, a Sunday roast bundle, a seafood platter, whatever suits the season. Build the tray, show the price, end with "come grab one this weekend" or "order for local delivery". Pure appetite plus a clear call to action.</p>
+                    <div class="idea-why"><strong>Why it works:</strong> It shows the range, creates appetite, and drives a direct action. Seasonal and event-led content (BBQ weather, Christmas, a big match) gives people a reason to buy right now, not someday.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Digital Enhancements -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Digital Enhancements</div>
+            <div class="section-title">Beyond the Feed</div>
+            <p class="section-text" style="margin-bottom: 32px;">A few extra wins that would compound the content work and turn local visibility into actual footfall, orders and trade enquiries.</p>
+
+            <div class="enhancement-card">
+                <h4>Google Business Profile</h4>
+                <p>When someone in the area searches "butcher near me" or "butcher in Blyth", Google decides who shows up. For a brand new shop, a complete and active Google Business Profile is one of the highest-return things you can set up, and it is free. It is often the very first way a new local customer finds you.</p>
+                <ul class="enhancement-list">
+                    <li>Claim and fully complete the profile with your hours, address and photos</li>
+                    <li>Add fresh photos of your cuts and counter regularly (Google rewards it)</li>
+                    <li>Ask happy customers for a Google review at the counter to build up your rating</li>
+                    <li>Turn your best reviews into shareable social content</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>A Website Built to Convert and Take Orders</h4>
+                <p>Your site is a solid start. The next step is making sure someone who finds you through a video lands on a page that shows off the cuts, makes ordering or delivery dead simple, and has a clear line for catering and trade enquiries. As you grow, online ordering or click-and-collect for meat boxes is a natural add.</p>
+                <ul class="enhancement-list">
+                    <li>Strong food-first imagery and a clear "order local delivery" path</li>
+                    <li>A dedicated catering and trade enquiry section for restaurants and businesses</li>
+                    <li>Every social bio linked straight to it, so content turns into orders</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>See examples:</strong> here are two sites we built and run for a local North East food business, the New Greek restaurant and the New Greek Bakery, with menus, ordering and bookings all handled. <a href="https://newgreek.co.uk" target="_blank" rel="noopener" style="color:var(--coral); font-weight:700; text-decoration:none;">View New Greek &rarr;</a> &nbsp; <a href="https://newgreekbakery.co.uk" target="_blank" rel="noopener" style="color:var(--coral); font-weight:700; text-decoration:none;">View New Greek Bakery &rarr;</a></p>
+                </div>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Grow the Trade Side Alongside Retail</h4>
+                <p>Because you supply restaurants and businesses, content is not only a way to win shoppers, it is a quiet sales tool for new trade accounts. Showing the scale and quality of what you supply puts you on the radar of chefs and venues who are always looking for a better, more local supplier.</p>
+                <ul class="enhancement-list">
+                    <li>Behind-the-scenes trade content that doubles as a pitch to new venues</li>
+                    <li>A clear route for a chef to enquire about supply after seeing a video</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- About Fusion Creative -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Who We Are</div>
+            <div class="section-title">About Fusion Creative</div>
+            <div class="card intro-card">
+                <p class="about-fc-text">Fusion Creative is a content and marketing agency based in Newcastle. We produce short-form video content, manage social media accounts, run paid campaigns, build websites, and handle branding. Everything under one roof.</p>
+                <p class="about-fc-text">We work with local and growing businesses across the North East, and we film in person, on the ground, right here. No stock footage, no generic templates, no recycled ideas. Every piece of content is original and tailored to the business.</p>
+                <p class="about-fc-text">Our headline result is New Greek, a small independent North East food business that went from zero followers to over 70 million views across Instagram and TikTok in 30 days, including one reel that hit 60 million views. We know how to take a great local business and make it impossible to scroll past.</p>
+                <p class="about-fc-text">We also build and run websites for the businesses we work with. For New Greek we built the website (<a href="https://newgreek.co.uk" target="_blank" rel="noopener" style="color:var(--coral); text-decoration:none; font-weight:600;">newgreek.co.uk</a>) and the New Greek Bakery site too (<a href="https://newgreekbakery.co.uk" target="_blank" rel="noopener" style="color:var(--coral); text-decoration:none; font-weight:600;">newgreekbakery.co.uk</a>), and run all of their content, the same end-to-end approach we would bring to Prime Meats.</p>
+                <div class="about-fc-grid">
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">250M+</div><div class="about-fc-stat-label">Views generated</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">20+</div><div class="about-fc-stat-label">Videos per month</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">6+</div><div class="about-fc-stat-label">Years in content</div></div>
+                    <div class="about-fc-stat"><div class="about-fc-stat-val">100%</div><div class="about-fc-stat-label">Original content</div></div>
+                </div>
+                <div class="about-fc-services">
+                    <span class="about-fc-tag">Short-Form Video</span>
+                    <span class="about-fc-tag">TikTok Management</span>
+                    <span class="about-fc-tag">Instagram Reels</span>
+                    <span class="about-fc-tag">Paid Ads</span>
+                    <span class="about-fc-tag">Local SEO</span>
+                    <span class="about-fc-tag">Website Design</span>
+                    <span class="about-fc-tag">Branding</span>
+                    <span class="about-fc-tag">Social Media Management</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- How We'd Help -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">How We'd Help</div>
+            <div class="section-title">What We Could Do for Prime Meats</div>
+            <p class="section-text" style="margin-bottom: 32px;">Here is how we would take Prime Meats from a brand new account to a name people follow. It all centres on short-form video, filmed around your counter, your cuts and your trade side, with the channels built and run for you. You would not need to think about content, posting or platforms. It is the same hands-off approach we run for New Greek, the Newcastle food business we took to over 70 million views.</p>
+
+            <div class="enhancement-card">
+                <h4>Content &amp; Social Media</h4>
+                <p>A steady stream of short-form video built around your real craft: cuts being broken down, cooking guides, why-our-meat-is-better explainers, the trade side, and the finished results, edited to travel and posted across your channels to build reach and orders.</p>
+                <ul class="enhancement-list">
+                    <li>Craft footage, cooking how-tos, education, trade behind-the-scenes, seasonal showcases</li>
+                    <li>Posted across Instagram, TikTok and Facebook, built to reach not just to fill the feed</li>
+                    <li>Filming, editing, captions, hooks, hashtags, audio and posting all handled for you</li>
+                    <li>Monthly reporting on reach, growth and best-performing content</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Social Media Management, Built From Scratch</h4>
+                <p>We set up and run your Instagram, TikTok and Facebook properly from day one, so you can focus on the shop and the block. Because the accounts are new, we get to build them the right way with no bad habits to undo.</p>
+                <ul class="enhancement-list">
+                    <li>A consistent posting rhythm and a clear content identity from the first video</li>
+                    <li>Local hashtags, location tags and community engagement across Blyth and the NE</li>
+                    <li>TikTok set up and run properly, the channel with the most upside for a butcher</li>
+                    <li>Completely hands-off for you</li>
+                </ul>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Targeted Local Ads</h4>
+                <p>A small, tightly targeted ad budget that puts your best food content in front of people in Blyth and the surrounding area who have not found you yet, and drives them to the shop or to order.</p>
+                <ul class="enhancement-list">
+                    <li>Targeted to your local delivery area and the streets around Cowpen Road</li>
+                    <li>Your best craft and cooking videos used as the ads</li>
+                    <li>Footfall and orders driven directly, with the trade side promoted separately</li>
+                    <li>Tracked so the spend is always accountable</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Why it fits Prime Meats:</strong> as a brand new shop, a small local ad budget behind genuinely good food content is one of the fastest ways to get known in your area. It is the accelerator on top of the organic content engine.</p>
+                </div>
+            </div>
+
+            <div class="enhancement-card">
+                <h4>Website &amp; Branding</h4>
+                <p>We can sharpen the website and branding so everything joins up: a site that shows off the cuts, makes ordering and local delivery simple, and gives restaurants a clear line to enquire about trade supply.</p>
+                <ul class="enhancement-list">
+                    <li>A clean, modern site built around the meat, the quality and easy ordering</li>
+                    <li>A dedicated catering and trade section to grow that side of the business</li>
+                    <li>Content, social, ads and website all under one roof</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Next Steps -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a read through this audit. Everything is in here: where things stand, what the big butchers are doing, the six video ideas, and how we would help, from the content right through to the ads and the website.</li>
+                    <li>If you like what you see, the ideal first step is a single visit where we come to the shop, film the counter, the cuts and a couple of cooking or craft videos, and produce a few short pieces so you can see exactly what the content looks like with Prime Meats in it.</li>
+                    <li>We handle everything: filming, editing, posting, managing the accounts. You would not need to change anything about how you run the shop.</li>
+                    <li>Once you are happy, just reply to this email or message me on WhatsApp and I will get things lined up.</li>
+                </ol>
+                <p class="closing-note">Honestly, this is one of the most exciting kinds of business to work with, because the raw material is already brilliant and almost nobody in the area is filming it. You have the shop, the cuts, the quality and the trade side. All that is missing is somebody pointing a camera at the craft and posting it consistently, and that is exactly what we do. Starting now, while the account is fresh, is the best possible time to build Prime Meats into the butcher everyone in Blyth follows. Let me know if you would like to chat about it.</p>
+                <div class="cta-wrap">
+                    <a href="mailto:jay@fusioncreative.uk?subject=Prime%20Meats%20-%20Getting%20Started" class="cta-btn">Let's Get Started</a>
+                    <a href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Prime%20Meats%20audit" target="_blank" rel="noopener" class="cta-btn-wa">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align:-3px; margin-right:8px;"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp
+                    </a>
+                    <div class="cta-sub">Reply to this email, message me on WhatsApp, or give me a call whenever you are ready.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Signature -->
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="footer">
+            <div class="footer-confidential">Confidential - Prepared for Prime Meats</div>
+            <div class="footer-note">Prepared for Prime Meats using the primemeatsne.com website and the @primemeatsne Instagram on 8 July 2026.</div>
+            <div class="footer-brand"><span>Fusion Creative</span></div>
+        </footer>
+    </div>
+
+  <script>
+  (function(){
+    var intro=document.getElementById('fc-intro');if(!intro)return;
+    var canvas=document.getElementById('fc-intro-canvas');
+    var gl=canvas.getContext('webgl')||canvas.getContext('experimental-webgl');
+    var raf=0,dismissed=false;
+    function dismiss(){if(dismissed)return;dismissed=true;intro.classList.add('fc-out');document.body.classList.remove('fc-locked');setTimeout(function(){if(raf)cancelAnimationFrame(raf);intro.style.display='none';},900);}
+    intro.addEventListener('click',dismiss);
+    if(!gl)return;
+    var vsrc='attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
+    var fsrc=['precision highp float;','uniform vec2 u_res;uniform float u_time;uniform vec2 u_mouse;',
+      'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
+      'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);',
+      'return mix(mix(hash(i),hash(i+vec2(1.0,0.0)),u.x),mix(hash(i+vec2(0.0,1.0)),hash(i+vec2(1.0,1.0)),u.x),u.y);}',
+      'float fbm(vec2 p){float v=0.0,a=0.5;for(int i=0;i<5;i++){v+=a*noise(p);p*=2.0;a*=0.5;}return v;}',
+      'void main(){vec2 uv=gl_FragCoord.xy/u_res.xy;float asp=u_res.x/u_res.y;vec2 p=uv;p.x*=asp;vec2 mo=u_mouse;mo.x*=asp;float t=u_time*0.05;',
+      'vec2 q=p*1.5+vec2(t,-t*0.7);q+=(mo-p)*0.3;float w=fbm(q+fbm(q+t));float w2=fbm(q*1.4-t*0.5+w);',
+      'vec3 cDark=vec3(0.07,0.06,0.11);vec3 cBlue=vec3(0.30,0.34,0.58);vec3 cPink=vec3(0.74,0.40,0.52);vec3 cCoral=vec3(0.91,0.36,0.20);',
+      'vec3 col=mix(cDark,cBlue,smoothstep(0.15,0.85,w));col=mix(col,cPink,smoothstep(0.35,0.95,w2));',
+      'float d=distance(p,mo);col+=cCoral*smoothstep(0.75,0.0,d)*0.55*(0.6+0.4*sin(u_time*0.6));',
+      'col*=1.0-0.28*pow(distance(uv,vec2(0.5)),2.0);gl_FragColor=vec4(col,1.0);}'].join('\n');
+    function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
+    var prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,vsrc));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fsrc));gl.linkProgram(prog);gl.useProgram(prog);
+    var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+    var loc=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    var uRes=gl.getUniformLocation(prog,'u_res'),uTime=gl.getUniformLocation(prog,'u_time'),uMouse=gl.getUniformLocation(prog,'u_mouse');
+    var mouse=[0.5,0.55],tgt=[0.5,0.55];
+    function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.floor(innerWidth*dpr);canvas.height=Math.floor(innerHeight*dpr);gl.viewport(0,0,canvas.width,canvas.height);}
+    window.addEventListener('resize',resize);resize();
+    window.addEventListener('pointermove',function(e){tgt[0]=e.clientX/innerWidth;tgt[1]=1.0-e.clientY/innerHeight;});
+    var start=performance.now();
+    function frame(now){mouse[0]+=(tgt[0]-mouse[0])*0.06;mouse[1]+=(tgt[1]-mouse[1])*0.06;gl.uniform2f(uRes,canvas.width,canvas.height);gl.uniform1f(uTime,(now-start)/1000);gl.uniform2f(uMouse,mouse[0],mouse[1]);gl.drawArrays(gl.TRIANGLES,0,3);raf=requestAnimationFrame(frame);}
+    raf=requestAnimationFrame(frame);
+  })();
+  </script>
+</body>
+</html>
