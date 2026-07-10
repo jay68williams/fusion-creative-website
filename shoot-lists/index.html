@@ -322,6 +322,12 @@ async function pullFromServer(initial){
     const body = await res.json();
     if(body && body.data && Array.isArray(body.data.lists) && body.data.lists.length){
       data = body.data;
+      // Deep link: ?list=<id> opens that client's tab (view-only preference,
+      // not saved back unless the user makes a change).
+      if(initial){
+        const wanted = new URLSearchParams(location.search).get("list");
+        if(wanted && data.lists.some(l => l.id === wanted)) data.activeId = wanted;
+      }
       cacheLocal();
       renderAll();
       setSyncStatus("ok", "Synced");
