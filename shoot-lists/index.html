@@ -244,6 +244,13 @@
 <script>
 const STORAGE_KEY = "fusion-shoot-lists-v2";
 const API = "https://newgreek.fusioncreative.uk/api/shoot-lists/";
+// Resolves IG / TikTok / YouTube reference links to a thumbnail image.
+const THUMB_API = "https://newgreek.fusioncreative.uk/api/shoot-lists/thumb/";
+function thumbSrc(c, refHref){
+  if(c.thumb) return c.thumb;                       // manual override wins
+  if(refHref) return THUMB_API + "?url=" + encodeURIComponent(refHref);
+  return "";
+}
 
 function uid(){ return 'id-' + Math.random().toString(36).slice(2, 10); }
 
@@ -415,7 +422,7 @@ function renderCards(){
 
     card.innerHTML = `
       <div class="shead">
-        ${c.thumb ? `<a class="card-thumb-link" href="${refHref || "#"}" target="_blank" rel="noopener" title="Open reel"><img class="card-thumb" src="${escapeAttr(c.thumb)}" alt="preview" loading="lazy"><span class="card-thumb-play">&#9654;</span></a>` : ""}
+        ${thumbSrc(c, refHref) ? `<a class="card-thumb-link" href="${refHref || "#"}" target="_blank" rel="noopener" title="Open reel"><img class="card-thumb" src="${escapeAttr(thumbSrc(c, refHref))}" alt="preview" loading="lazy" onerror="this.closest('.card-thumb-link').style.display='none'"><span class="card-thumb-play">&#9654;</span></a>` : ""}
         <div class="checks">
           <label class="chk"><input type="checkbox" class="chk-shot" ${c.done ? "checked" : ""}><span>Shot</span></label>
           <label class="chk"><input type="checkbox" class="chk-edited" ${c.edited ? "checked" : ""}><span>Edited</span></label>
@@ -470,6 +477,8 @@ function renderCards(){
       if(href){ openLink.href = href; openLink.classList.remove("disabled"); }
       else { openLink.href = "#"; openLink.classList.add("disabled"); }
     });
+    // When the link is committed (blur/paste done), redraw so the thumbnail loads in
+    refInput.addEventListener("change", () => renderCards());
     card.querySelector(".del-card").addEventListener("click", () => {
       if(confirm("Delete this concept?")){
         list.cards.splice(i, 1);
