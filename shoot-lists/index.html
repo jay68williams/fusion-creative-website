@@ -263,12 +263,45 @@ function defaultData(){
   };
 }
 
+// Coerce any loaded blob (localStorage or server) into the exact shape the
+// renderer expects. A single card missing a field (e.g. `ref`) used to throw
+// inside renderCards and blank the whole list; normalizing on every load makes
+// bad data impossible to get stuck on. Never remove this.
+function normalizeData(blob){
+  if(!blob || !Array.isArray(blob.lists)) return null;
+  blob.lists = blob.lists.filter(l => l && typeof l === "object").map(l => ({
+    id: typeof l.id === "string" && l.id ? l.id : uid(),
+    name: typeof l.name === "string" ? l.name : "Untitled list",
+    notes: typeof l.notes === "string" ? l.notes : "",
+    products: Array.isArray(l.products) ? l.products.filter(p => p && typeof p === "object").map(p => ({
+      name: typeof p.name === "string" ? p.name : "",
+      done: !!p.done
+    })) : [],
+    cards: Array.isArray(l.cards) ? l.cards.filter(c => c && typeof c === "object").map(c => {
+      const card = {
+        idea: typeof c.idea === "string" ? c.idea : "",
+        concept: typeof c.concept === "string" ? c.concept : "",
+        ref: typeof c.ref === "string" ? c.ref : "",
+        done: !!c.done,
+        edited: !!c.edited
+      };
+      if(typeof c.thumb === "string" && c.thumb) card.thumb = c.thumb;
+      return card;
+    }) : []
+  }));
+  if(!blob.lists.length) return null;
+  if(typeof blob.activeId !== "string" || !blob.lists.some(l => l.id === blob.activeId)){
+    blob.activeId = blob.lists[0].id;
+  }
+  return blob;
+}
+
 function loadLocal(){
   try{
     const raw = localStorage.getItem(STORAGE_KEY);
     if(!raw) return null;
-    const parsed = JSON.parse(raw);
-    if(!parsed.lists || !parsed.lists.length) return null;
+    const parsed = normalizeData(JSON.parse(raw));
+    if(!parsed) return null;
     return parsed;
   }catch(e){
     return null;
@@ -327,8 +360,9 @@ async function pullFromServer(initial){
     const res = await fetch(API, { cache: "no-store" });
     if(!res.ok) throw new Error("bad status " + res.status);
     const body = await res.json();
-    if(body && body.data && Array.isArray(body.data.lists) && body.data.lists.length){
-      data = body.data;
+    const clean = body && body.data ? normalizeData(body.data) : null;
+    if(clean){
+      data = clean;
       // Deep link: ?list=<id> opens that client's tab (view-only preference,
       // not saved back unless the user makes a change).
       if(initial){
@@ -418,7 +452,8 @@ function renderCards(){
     const card = document.createElement("div");
     card.className = "shot" + (c.done ? " done" : "") + (c.edited ? " edited" : "");
 
-    const refHref = /^https?:\/\//i.test(c.ref.trim()) ? c.ref.trim() : "";
+    const refVal = (c.ref || "").trim();
+    const refHref = /^https?:\/\//i.test(refVal) ? refVal : "";
 
     card.innerHTML = `
       <div class="shead">
@@ -473,7 +508,8 @@ function renderCards(){
     const openLink = card.querySelector(".open-ref");
     refInput.addEventListener("input", (e) => {
       c.ref = e.target.value; saveState();
-      const href = /^https?:\/\//i.test(c.ref.trim()) ? c.ref.trim() : "";
+      const trimmed = (c.ref || "").trim();
+      const href = /^https?:\/\//i.test(trimmed) ? trimmed : "";
       if(href){ openLink.href = href; openLink.classList.remove("disabled"); }
       else { openLink.href = "#"; openLink.classList.add("disabled"); }
     });
@@ -616,7 +652,11 @@ document.getElementById("deleteListBtn").addEventListener("click", () => {
   }
 });
 
-renderAll();
+// The instant-render from the local cache must NEVER be able to stop the
+// server pull: if it throws (e.g. a bad cached card shape), the script used to
+// die here and the page could never fetch the good copy, permanently bricking
+// that browser until localStorage was cleared. Keep this guarded.
+try{ renderAll(); }catch(e){ console.error("initial render from cache failed:", e); }
 pullFromServer(true);
 
 document.addEventListener("visibilitychange", () => {
