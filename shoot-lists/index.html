@@ -119,6 +119,25 @@
   .copy-card{background:none;border:none;color:var(--dim);cursor:pointer;font-size:14px;line-height:1;padding:2px 4px;font-family:inherit}
   .copy-card:hover{color:var(--blue)}
 
+  /* posted */
+  .post-btn{
+    font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--green);border:1px solid rgba(95,185,139,.45);background:rgba(95,185,139,.08);
+    border-radius:20px;padding:3px 8px;cursor:pointer;margin-top:2px;white-space:nowrap;
+  }
+  .post-btn:hover{background:rgba(95,185,139,.18)}
+  .unpost-btn{
+    font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--blue);border:1px solid rgba(61,127,214,.4);background:rgba(61,127,214,.06);
+    border-radius:20px;padding:3px 10px;cursor:pointer;white-space:nowrap;
+  }
+  .unpost-btn:hover{background:rgba(61,127,214,.14)}
+  .posted-badge{
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--green);border:1px solid rgba(95,185,139,.4);background:rgba(95,185,139,.08);
+    border-radius:20px;padding:2px 9px;
+  }
+
   /* copy-to-list popover */
   .copy-menu{
     position:absolute;z-index:50;min-width:190px;background:var(--bg);border:1px solid var(--line);
@@ -187,7 +206,7 @@
     .shot{break-inside:avoid;background:#fff;border:1px solid #ccc}
     h1,h2,.field-idea{color:#111}
     .field-concept,.field-ref{color:#111}
-    .open-ref,.del-card{display:none}
+    .open-ref,.del-card,.copy-card,.post-btn,.unpost-btn,.subtabs{display:none}
   }
   @media(max-width:600px){
     .srow{grid-template-columns:1fr}
@@ -236,6 +255,7 @@
     <div class="subtabs" id="subtabs">
       <button class="subtab" data-view="concepts">Concepts</button>
       <button class="subtab" data-view="products">Products to pull</button>
+      <button class="subtab" data-view="posted" id="postedTab">Posted</button>
     </div>
 
     <div id="viewConcepts">
@@ -251,6 +271,13 @@
       <p class="gnote">Everything you need pulled from stock before you start filming.</p>
       <button class="add-card-btn" id="addProductBtn">+ Add product</button>
       <div id="productList"></div>
+    </div>
+
+    <div id="viewPosted" style="display:none">
+      <div class="label mono">Out in the world</div>
+      <h2>Posted</h2>
+      <p class="gnote">Concepts that have gone live. They keep their reference and thumbnail, and you can send any of them back to the shoot list.</p>
+      <div id="postedList"></div>
     </div>
   </section>
 
@@ -288,6 +315,17 @@ function defaultData(){
 // bad data impossible to get stuck on. Never remove this.
 function normalizeData(blob){
   if(!blob || !Array.isArray(blob.lists)) return null;
+  const normCard = (c) => {
+    const card = {
+      idea: typeof c.idea === "string" ? c.idea : "",
+      concept: typeof c.concept === "string" ? c.concept : "",
+      ref: typeof c.ref === "string" ? c.ref : "",
+      done: !!c.done,
+      edited: !!c.edited
+    };
+    if(typeof c.thumb === "string" && c.thumb) card.thumb = c.thumb;
+    return card;
+  };
   blob.lists = blob.lists.filter(l => l && typeof l === "object").map(l => ({
     id: typeof l.id === "string" && l.id ? l.id : uid(),
     name: typeof l.name === "string" ? l.name : "Untitled list",
@@ -296,17 +334,8 @@ function normalizeData(blob){
       name: typeof p.name === "string" ? p.name : "",
       done: !!p.done
     })) : [],
-    cards: Array.isArray(l.cards) ? l.cards.filter(c => c && typeof c === "object").map(c => {
-      const card = {
-        idea: typeof c.idea === "string" ? c.idea : "",
-        concept: typeof c.concept === "string" ? c.concept : "",
-        ref: typeof c.ref === "string" ? c.ref : "",
-        done: !!c.done,
-        edited: !!c.edited
-      };
-      if(typeof c.thumb === "string" && c.thumb) card.thumb = c.thumb;
-      return card;
-    }) : []
+    cards: Array.isArray(l.cards) ? l.cards.filter(c => c && typeof c === "object").map(normCard) : [],
+    posted: Array.isArray(l.posted) ? l.posted.filter(c => c && typeof c === "object").map(normCard) : []
   }));
   if(!blob.lists.length) return null;
   if(typeof blob.activeId !== "string" || !blob.lists.some(l => l.id === blob.activeId)){
@@ -431,7 +460,7 @@ function renderTabs(){
   addTab.addEventListener("click", () => {
     const name = prompt("Name this list (e.g. client or shoot name):", "");
     if(name === null) return;
-    const list = { id: uid(), name: name.trim() || "Untitled list", notes: "", cards: [] };
+    const list = { id: uid(), name: name.trim() || "Untitled list", notes: "", cards: [], products: [], posted: [] };
     data.lists.push(list);
     data.activeId = list.id;
     saveState();
@@ -476,10 +505,11 @@ function renderCards(){
 
     card.innerHTML = `
       <div class="shead">
-        ${thumbSrc(c, refHref) ? `<a class="card-thumb-link" href="${refHref || "#"}" target="_blank" rel="noopener" title="Open reel"><img class="card-thumb" src="${escapeAttr(thumbSrc(c, refHref))}" alt="preview" loading="lazy" onerror="this.closest('.card-thumb-link').style.display='none'"><span class="card-thumb-play">&#9654;</span></a>` : ""}
+        ${thumbSrc(c, refHref) ? `<a class="card-thumb-link" href="${escapeAttr(refHref) || "#"}" target="_blank" rel="noopener" title="Open reel"><img class="card-thumb" src="${escapeAttr(thumbSrc(c, refHref))}" alt="preview" loading="lazy" onerror="this.closest('.card-thumb-link').style.display='none'"><span class="card-thumb-play">&#9654;</span></a>` : ""}
         <div class="checks">
           <label class="chk"><input type="checkbox" class="chk-shot" ${c.done ? "checked" : ""}><span>Shot</span></label>
           <label class="chk"><input type="checkbox" class="chk-edited" ${c.edited ? "checked" : ""}><span>Edited</span></label>
+          <button class="post-btn" title="Move to the Posted section">Posted &#10148;</button>
         </div>
         <div style="flex:1">
           <div class="smeta">
@@ -500,7 +530,7 @@ function renderCards(){
               <span class="k">Reference</span>
               <div class="ref-row">
                 <input class="field-ref" type="url" placeholder="Paste reference video link" value="${escapeAttr(c.ref)}">
-                <a class="open-ref${refHref ? "" : " disabled"}" href="${refHref || "#"}" target="_blank" rel="noopener">&#8599;</a>
+                <a class="open-ref${refHref ? "" : " disabled"}" href="${escapeAttr(refHref) || "#"}" target="_blank" rel="noopener">&#8599;</a>
               </div>
             </div>
           </div>
@@ -538,6 +568,14 @@ function renderCards(){
     card.querySelector(".copy-card").addEventListener("click", (e) => {
       e.stopPropagation();
       openCopyMenu(e.currentTarget, c);
+    });
+    card.querySelector(".post-btn").addEventListener("click", () => {
+      list.posted = list.posted || [];
+      list.posted.unshift(c);   // newest posted first
+      list.cards.splice(i, 1);
+      saveState();
+      renderCards();
+      renderPosted();   // full re-render: stale #postedList DOM carries old index closures
     });
     card.querySelector(".del-card").addEventListener("click", () => {
       if(confirm("Delete this concept?")){
@@ -631,6 +669,79 @@ function renderSubtabs(){
   });
   document.getElementById("viewConcepts").style.display = viewMode === "concepts" ? "" : "none";
   document.getElementById("viewProducts").style.display = viewMode === "products" ? "" : "none";
+  document.getElementById("viewPosted").style.display = viewMode === "posted" ? "" : "none";
+}
+
+function renderPostedTab(){
+  const n = (activeList().posted || []).length;
+  document.getElementById("postedTab").textContent = n ? `Posted (${n})` : "Posted";
+}
+
+function renderPosted(){
+  const list = activeList();
+  list.posted = list.posted || [];
+  const container = document.getElementById("postedList");
+  container.innerHTML = "";
+  renderPostedTab();
+
+  if(!list.posted.length){
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "Nothing here yet, hit “Posted” on a concept once it's live and it moves in here.";
+    container.appendChild(empty);
+    return;
+  }
+
+  list.posted.forEach((c, i) => {
+    const card = document.createElement("div");
+    card.className = "shot done";
+
+    const refVal = (c.ref || "").trim();
+    const refHref = /^https?:\/\//i.test(refVal) ? refVal : "";
+
+    card.innerHTML = `
+      <div class="shead">
+        ${thumbSrc(c, refHref) ? `<a class="card-thumb-link" href="${escapeAttr(refHref) || "#"}" target="_blank" rel="noopener" title="Open reel"><img class="card-thumb" src="${escapeAttr(thumbSrc(c, refHref))}" alt="preview" loading="lazy" onerror="this.closest('.card-thumb-link').style.display='none'"><span class="card-thumb-play">&#9654;</span></a>` : ""}
+        <div style="flex:1">
+          <div class="smeta">
+            <span class="snum mono">Posted ${String(i+1).padStart(2,'0')} / ${String(list.posted.length).padStart(2,'0')}</span>
+            <span style="display:flex;align-items:center;gap:8px">
+              <span class="posted-badge">&#10003; Posted</span>
+              <button class="copy-card" title="Copy to another list">&#10697;</button>
+              <button class="del-card" title="Delete permanently">&times;</button>
+            </span>
+          </div>
+          <div class="field-idea" style="text-decoration:none;color:var(--cream)">${escapeHtml(c.idea) || '<span style="color:var(--dim);font-style:italic">Untitled concept</span>'}</div>
+          ${c.concept ? `<div class="srows"><div class="srow"><span class="k">Concept</span><div style="font-size:13.5px;color:#2b2b2b;padding:5px 0">${escapeHtml(c.concept)}</div></div></div>` : ""}
+          <div style="margin-top:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <button class="unpost-btn">&#8617; Back to shoot list</button>
+            ${refHref ? `<a class="open-ref" href="${escapeAttr(refHref)}" target="_blank" rel="noopener" title="Open reference">&#8599;</a>` : ""}
+          </div>
+        </div>
+      </div>
+    `;
+
+    card.querySelector(".unpost-btn").addEventListener("click", () => {
+      list.posted.splice(i, 1);
+      list.cards.push(c);
+      saveState();
+      renderPosted();
+      renderCards();
+    });
+    card.querySelector(".copy-card").addEventListener("click", (e) => {
+      e.stopPropagation();
+      openCopyMenu(e.currentTarget, c);
+    });
+    card.querySelector(".del-card").addEventListener("click", () => {
+      if(confirm("Delete this posted concept permanently?")){
+        list.posted.splice(i, 1);
+        saveState();
+        renderPosted();
+      }
+    });
+
+    container.appendChild(card);
+  });
 }
 
 function renderProducts(){
@@ -679,6 +790,7 @@ function renderAll(){
   renderCards();
   renderSubtabs();
   renderProducts();
+  renderPosted();
 }
 
 document.querySelectorAll(".subtab").forEach(btn => {
