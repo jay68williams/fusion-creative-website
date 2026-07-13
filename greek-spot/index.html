@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Greek Spot | Greek Bakery &amp; Cafe, Middlesbrough</title>
+<meta name="description" content="Authentic Greek pastries, handmade sweets and specialty coffee on Dundas Street, Middlesbrough. Family run. Baked fresh every morning. Open Monday to Saturday, 9am to 4pm.">
+<link rel="icon" type="image/jpeg" href="images/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Hanken+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "The Greek Spot",
+  "servesCuisine": "Greek",
+  "priceRange": "£",
+  "telephone": "+441642500844",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "41 Dundas Street",
+    "addressLocality": "Middlesbrough",
+    "postalCode": "TS1 1HR",
+    "addressCountry": "GB"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "16:00" }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/thegreekspotmiddlesbrough/",
+    "https://www.tiktok.com/@thegreekspot_"
+  ]
+}
+</script>
+<style>
+:root{
+  --whitewash:#FDFCF8;
+  --ink:#1C3A52;
+  --sea:#3E7CA6;
+  --honey:#C68A33;
+  --honey-deep:#A76F1F;
+  --olive:#7D8767;
+  --olive-text:#57614A;
+  --honey-text:#8F5E15;
+  --sea-deep:#2F5F82;
+  --mist:#EFF1EA;
+  --night:#12283C;
+  --line:rgba(28,58,82,.14);
+  --rail-w:88px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--whitewash);
+  color:var(--ink);
+  font-family:'Hanken Grotesk',system-ui,sans-serif;
+  font-size:16.5px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--sea)}
+.didot{font-family:'GFS Didot',serif;font-weight:400}
+
+/* ---------- side rail ---------- */
+.rail{
+  position:fixed;top:0;left:0;bottom:0;width:var(--rail-w);z-index:60;
+  display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+  padding:18px 0;border-right:1px solid var(--line);background:var(--whitewash);
+}
+.rail-logo{width:46px;height:46px;border-radius:50%;overflow:hidden;flex:0 0 auto;box-shadow:0 0 0 1px var(--line)}
+.rail-logo img{width:100%;height:100%;object-fit:cover}
+.rail-nav{display:flex;flex-direction:column;gap:26px;align-items:center}
+.rail-nav a{
+  writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);
+  text-decoration:none;color:var(--ink);opacity:.55;
+  font-size:11.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  transition:opacity .2s,color .2s;
+}
+.rail-nav a:hover{opacity:1;color:var(--sea)}
+.rail-nav a.active{opacity:1;color:var(--honey-deep)}
+.rail-status{display:flex;flex-direction:column;align-items:center;gap:10px}
+.status-dot{width:9px;height:9px;border-radius:50%;background:#9AA39B}
+.status-dot.on{background:#4C9A62;box-shadow:0 0 0 4px rgba(76,154,98,.15)}
+.status-dot.closed{background:#8F4A38;box-shadow:0 0 0 4px rgba(143,74,56,.13)}
+.rail-status span{
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--olive-text);
+}
+
+/* ---------- mobile top bar ---------- */
+.mobilebar{
+  display:none;position:fixed;top:0;left:0;right:0;z-index:70;
+  align-items:center;justify-content:space-between;padding:12px 18px;
+  background:rgba(253,252,248,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+}
+.mb-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.mb-brand img{width:34px;height:34px;border-radius:50%}
+.mb-brand strong{font-size:14px;letter-spacing:.02em}
+.mb-right{display:flex;align-items:center;gap:14px}
+.mb-status{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--olive-text)}
+.burger{background:none;border:none;cursor:pointer;padding:6px;display:flex;flex-direction:column;gap:5px}
+.burger span{width:22px;height:2px;background:var(--ink);transition:.25s}
+.overlay{
+  position:fixed;inset:0;background:var(--night);z-index:80;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;
+  opacity:0;pointer-events:none;visibility:hidden;transition:opacity .3s,visibility .3s;
+}
+.overlay.open{opacity:1;pointer-events:auto;visibility:visible}
+.overlay a{
+  color:var(--whitewash);text-decoration:none;font-family:'GFS Didot',serif;
+  font-size:clamp(30px,8vw,44px);padding:6px 0;opacity:.9;
+}
+.overlay a em{font-style:normal;color:var(--honey);font-size:.5em;letter-spacing:.25em;text-transform:uppercase;font-family:'Hanken Grotesk',sans-serif;display:block;text-align:center}
+.overlay .ov-close{position:absolute;top:16px;right:20px;background:none;border:none;color:var(--whitewash);font-size:34px;cursor:pointer;line-height:1}
+
+/* ---------- shared layout ---------- */
+main{margin-left:var(--rail-w)}
+.chapter{padding:110px min(7vw,90px);position:relative;overflow:hidden}
+.watermark{
+  position:absolute;z-index:0;pointer-events:none;user-select:none;
+  font-family:'GFS Didot',serif;color:var(--ink);opacity:.055;
+  font-size:clamp(120px,22vw,290px);line-height:.9;white-space:nowrap;
+  top:30px;left:-10px;
+}
+.eyebrow{
+  font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--sea-deep);margin-bottom:18px;
+}
+h1,h2{font-family:'GFS Didot',serif;font-weight:400;line-height:1.06;letter-spacing:-.01em}
+h2{font-size:clamp(34px,4.6vw,56px);margin-bottom:22px;position:relative;z-index:1}
+.lede{font-size:clamp(17px,1.6vw,20px);color:rgba(28,58,82,.78);max-width:56ch;position:relative;z-index:1}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;gap:min(5vw,64px);
+  align-items:center;padding:90px min(7vw,90px) 70px;position:relative;overflow:hidden;
+}
+.hero-copy{position:relative;z-index:2}
+.hero-kali{
+  font-family:'GFS Didot',serif;font-size:clamp(58px,8.5vw,116px);line-height:1;
+  margin-bottom:8px;
+}
+.hero-kali .accent{color:var(--honey-deep)}
+.hero-sub{
+  font-family:'GFS Didot',serif;font-size:clamp(24px,3vw,38px);color:var(--sea);
+  margin-bottom:26px;line-height:1.15;
+}
+.hero-lede{font-size:clamp(16px,1.5vw,19px);color:rgba(28,58,82,.75);max-width:46ch;margin-bottom:34px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:30px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;text-decoration:none;
+  font-weight:700;font-size:15px;letter-spacing:.02em;
+  padding:15px 30px;border-radius:3px;transition:transform .15s,box-shadow .2s,background .2s;
+}
+.btn-solid{background:var(--sea-deep);color:#fff;box-shadow:0 6px 24px rgba(47,95,130,.3)}
+.btn-solid:hover{background:var(--night);transform:translateY(-1px)}
+.btn-ghost{color:var(--ink);border:1.5px solid var(--line);background:transparent}
+.btn-ghost:hover{border-color:var(--sea);color:var(--sea)}
+.hero-open{
+  display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--olive-text);
+}
+.hero-open .status-dot{width:8px;height:8px}
+.hero-photos{position:relative;z-index:1;display:grid;grid-template-columns:1fr .72fr;gap:16px;align-items:end}
+.hp-main{border-radius:4px;overflow:hidden;box-shadow:0 30px 70px rgba(18,40,60,.22)}
+.hp-main img{height:min(72vh,640px);width:100%;object-fit:cover}
+.hp-side{border-radius:4px;overflow:hidden;box-shadow:0 20px 50px rgba(18,40,60,.18);margin-bottom:42px}
+.hp-side img{height:min(44vh,390px);width:100%;object-fit:cover}
+.hero .watermark{top:auto;bottom:-40px;left:-20px;opacity:.05}
+
+/* ---------- ticker ---------- */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--mist);overflow:hidden;padding:16px 0}
+.ticker-track{display:flex;gap:0;width:max-content;animation:tick 38s linear infinite}
+.ticker-track span{
+  font-family:'GFS Didot',serif;font-size:19px;color:var(--ink);white-space:nowrap;padding:0 18px;
+  display:flex;align-items:center;gap:36px;
+}
+.ticker-track span i{font-style:normal;color:var(--honey-text);font-size:12px}
+@keyframes tick{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media (prefers-reduced-motion:reduce){
+  .ticker-track{animation:none}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1 !important;transform:none !important}
+}
+
+/* ---------- story ---------- */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:min(6vw,80px);align-items:center}
+.story-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.story-photos figure{border-radius:4px;overflow:hidden}
+.story-photos img{height:340px;width:100%;object-fit:cover}
+.story-photos figure:last-child{margin-top:44px}
+.story-photos figure:last-child img{object-position:center 78%}
+.facts{display:flex;gap:0;margin-top:34px;border-top:1px solid var(--line)}
+.fact{flex:1;padding:18px 18px 0 0}
+.fact + .fact{padding-left:22px;border-left:1px solid var(--line)}
+.fact .didot{font-size:21px;color:var(--honey-text);display:block;margin-bottom:4px}
+.fact p{font-size:13.5px;color:rgba(28,58,82,.78);line-height:1.5}
+
+/* ---------- menu ---------- */
+.menu-ch{background:var(--mist)}
+.menu-intro{max-width:60ch;margin-bottom:12px}
+.menu-note{font-size:13.5px;color:var(--olive-text);font-weight:600;margin-bottom:48px}
+.mcat{margin-bottom:64px;position:relative;z-index:1}
+.mcat-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+.mcat-head h3{font-family:'GFS Didot',serif;font-weight:400;font-size:clamp(24px,2.6vw,32px)}
+.mcat-head .gr{font-family:'GFS Didot',serif;color:var(--honey-text);font-size:15px;letter-spacing:.14em}
+.mcat-sub{font-size:14px;color:rgba(28,58,82,.76);margin-bottom:22px;max-width:58ch}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px 44px}
+.mitem{display:flex;align-items:baseline;gap:10px;padding:10px 0;border-bottom:1px dotted rgba(28,58,82,.25)}
+.mitem .nm{font-weight:600;font-size:15.5px}
+.mitem .nm small{display:block;font-weight:400;font-size:13px;color:rgba(28,58,82,.76);line-height:1.45;margin-top:2px}
+.mitem .dots{flex:1}
+.mitem .pr{font-family:'GFS Didot',serif;font-size:17px;color:var(--honey-text);white-space:nowrap}
+.mcat-photo{
+  float:right;width:min(340px,38%);margin:6px 0 18px 34px;border-radius:4px;overflow:hidden;
+  box-shadow:0 18px 44px rgba(18,40,60,.16);
+}
+.mcat-photo img{width:100%;height:300px;object-fit:cover}
+.mcat-photo figcaption{font-size:12px;color:var(--olive-text);padding:8px 2px 0;font-weight:600}
+.counter-strip{
+  clear:both;background:var(--whitewash);border:1px solid var(--line);border-radius:4px;
+  padding:26px 30px;display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;position:relative;z-index:1;
+}
+.counter-strip .didot{font-size:20px;color:var(--ink);width:100%;margin-bottom:2px}
+.counter-strip span{font-size:14px;color:rgba(28,58,82,.8)}
+.counter-strip span::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--honey);margin-right:9px;vertical-align:2px}
+
+/* ---------- reviews ---------- */
+.reviews{background:var(--night);color:#EDF2F1}
+.reviews .eyebrow{color:var(--honey)}
+.reviews h2{color:#fff}
+.reviews .lede{color:rgba(237,242,241,.72)}
+.rev-score{display:flex;align-items:baseline;gap:16px;margin:8px 0 40px;position:relative;z-index:1}
+.rev-score .didot{font-size:64px;color:var(--honey)}
+.rev-score p{font-size:14px;color:rgba(237,242,241,.65);max-width:30ch;line-height:1.5}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative;z-index:1}
+.rev{
+  background:rgba(253,252,248,.045);border:1px solid rgba(237,242,241,.14);border-radius:4px;padding:28px 26px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.rev .stars{color:var(--honey);letter-spacing:3px;font-size:14px}
+.rev blockquote{font-family:'GFS Didot',serif;font-size:18.5px;line-height:1.45;color:#F2F5F4}
+.rev cite{font-style:normal;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,242,241,.55);margin-top:auto}
+.reviews .watermark{color:#fff;opacity:.035}
+
+/* ---------- gallery ---------- */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative;z-index:1}
+.gal-grid a{border-radius:4px;overflow:hidden;position:relative;display:block}
+.gal-grid img{height:250px;width:100%;object-fit:cover;transition:transform .5s}
+.gal-grid a:hover img{transform:scale(1.045)}
+.gal-follow{margin-top:26px;font-size:15px;position:relative;z-index:1}
+.gal-follow a{font-weight:700;text-decoration:none}
+.gal-follow a:hover{text-decoration:underline}
+.gal-grid a:nth-child(1) img{object-position:center 30%}
+
+/* ---------- find us ---------- */
+.find{display:grid;grid-template-columns:1.05fr .95fr;gap:min(6vw,80px);align-items:start}
+.hours{border-top:1px solid var(--line);margin:26px 0 30px}
+.hours .hrow{display:flex;justify-content:space-between;padding:11px 2px;border-bottom:1px solid var(--line);font-size:15px}
+.hours .hrow.today{background:rgba(198,138,51,.09);font-weight:700}
+.hours .hrow.today .d::after{content:"Today";font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--honey-deep);margin-left:10px;vertical-align:1px}
+.hours .closed-day{color:rgba(28,58,82,.72)}
+.find-details p{margin-bottom:6px;font-size:15.5px}
+.find-details .addr{font-family:'GFS Didot',serif;font-size:clamp(22px,2.4vw,28px);line-height:1.3;margin-bottom:14px}
+.find-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.find-photo{border-radius:4px;overflow:hidden;box-shadow:0 24px 60px rgba(18,40,60,.18)}
+.find-photo img{width:100%;height:520px;object-fit:cover}
+.find-photo figcaption{font-size:12.5px;color:var(--olive-text);padding:10px 2px 0;font-weight:600}
+
+/* ---------- footer ---------- */
+footer{
+  background:var(--night);color:rgba(237,242,241,.6);
+  padding:38px min(7vw,90px);font-size:13px;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+}
+footer .didot{color:#fff;font-size:17px}
+footer a{color:rgba(237,242,241,.75);text-decoration:none}
+footer a:hover{color:var(--honey)}
+footer .fsoc{display:flex;gap:18px}
+
+/* ---------- reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- focus ---------- */
+a:focus-visible,button:focus-visible{outline:2.5px solid var(--sea);outline-offset:3px;border-radius:2px}
+
+/* ---------- responsive ---------- */
+@media(max-width:1080px){
+  .mgrid{grid-template-columns:1fr}
+  .mcat-photo{width:min(300px,42%)}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .rev-grid{grid-template-columns:1fr}
+}
+@media(max-width:900px){
+  :root{--rail-w:0px}
+  .rail{display:none}
+  .mobilebar{display:flex}
+  main{margin-left:0}
+  .hero{grid-template-columns:1fr;min-height:auto;padding-top:120px;gap:44px}
+  .hero-photos{grid-template-columns:1fr .8fr}
+  .hp-main img{height:52vh}
+  .hp-side img{height:34vh}
+  .story{grid-template-columns:1fr}
+  .find{grid-template-columns:1fr}
+  .find-photo img{height:380px}
+  .chapter{padding:80px 6vw}
+  .mcat-photo{float:none;width:100%;margin:0 0 22px}
+  .mcat-photo img{height:240px}
+  .facts{flex-direction:column;gap:14px}
+  .fact + .fact{padding-left:0;border-left:none;padding-top:14px;border-top:1px solid var(--line)}
+}
+@media(max-width:520px){
+  .hero-photos{grid-template-columns:1fr}
+  .hp-side{display:none}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .gal-grid img{height:170px}
+}
+</style>
+</head>
+<body>
+
+<!-- side rail (desktop) -->
+<nav class="rail" aria-label="Site">
+  <a class="rail-logo" href="#top" aria-label="The Greek Spot home"><img src="images/logo.jpg" alt="The Greek Spot logo"></a>
+  <div class="rail-nav">
+    <a href="#story">The Spot</a>
+    <a href="#menu">Menu</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#find">Find us</a>
+  </div>
+  <div class="rail-status">
+    <span id="railStatusTxt">Mon-Sat</span>
+    <div class="status-dot" id="railDot"></div>
+  </div>
+</nav>
+
+<!-- mobile bar -->
+<div class="mobilebar">
+  <a class="mb-brand" href="#top"><img src="images/logo.jpg" alt=""><strong>The Greek Spot</strong></a>
+  <div class="mb-right">
+    <span class="mb-status"><span class="status-dot" id="mbDot" style="width:7px;height:7px"></span><span id="mbStatusTxt">9-4</span></span>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="overlay"><span></span><span></span><span></span></button>
+  </div>
+</div>
+<nav class="overlay" id="overlay" aria-label="Site menu">
+  <button class="ov-close" id="ovClose" aria-label="Close menu">&times;</button>
+  <a href="#story"><em>01</em>The Spot</a>
+  <a href="#menu"><em>02</em>Menu</a>
+  <a href="#reviews"><em>03</em>Reviews</a>
+  <a href="#gallery"><em>04</em>Gallery</a>
+  <a href="#find"><em>05</em>Find us</a>
+</nav>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="watermark" aria-hidden="true">ΚΑΛΗΜΕΡΑ</div>
+    <div class="hero-copy">
+      <h1 class="hero-kali"><span lang="el">Καλημέρα,</span><br><span class="accent">Boro.</span></h1>
+      <p class="hero-sub">Authentic Greek pastries &amp; specialty coffee.</p>
+      <p class="hero-lede">Handmade phyllo pies, syrup-soaked baklava and freddo espresso shaken the Greek way. Baked fresh every morning at 41 Dundas Street. Family run, Greek to the bone.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="#menu">See what's baking</a>
+        <a class="btn btn-ghost" href="https://www.ubereats.com/gb/store/the-greek-spot/KlmvoWTTS9mFfXp4U_4D3Q" target="_blank" rel="noopener">Order on Uber Eats</a>
+      </div>
+      <span class="hero-open"><span class="status-dot" id="heroDot"></span><span id="heroStatusTxt">Open Monday to Saturday, 9am to 4pm</span></span>
+    </div>
+    <div class="hero-photos">
+      <figure class="hp-main"><img src="images/hero-bougatsa-freddo.jpg" alt="Custard bougatsa dusted with icing sugar and a freddo espresso in a Greek Spot cup, on newspaper-print paper in the window light" fetchpriority="high"></figure>
+      <figure class="hp-side"><img src="images/sweets-honeycomb-pots.jpg" alt="Cheesecake pots arranged in a honeycomb pattern on dark slate"></figure>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="tickerTrack">
+      <span>Bougatsa <i>&#9671;</i> Baklava <i>&#9671;</i> Spanakopita <i>&#9671;</i> Freddo Espresso <i>&#9671;</i> Portokalopita <i>&#9671;</i> Peinirli <i>&#9671;</i> Galaktoboureko <i>&#9671;</i> Greek Frappe <i>&#9671;</i> Kataifi Nests <i>&#9671;</i> Milopita <i>&#9671;</i></span>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section class="chapter" id="story">
+    <div class="watermark" aria-hidden="true">ΦΡΕΣΚΟ</div>
+    <div class="story">
+      <div class="reveal">
+        <div class="eyebrow">The Spot</div>
+        <h2>Modern vibes,<br>Mediterranean soul.</h2>
+        <p class="lede">The Greek Spot is a small family bakery and cafe in the middle of Middlesbrough. The recipes are the ones we grew up with in Greece: phyllo stretched by hand in the air, syrup poured while the baklava is still warm, coffee shaken the way it is on every Greek street corner.</p>
+        <p class="lede" style="margin-top:14px">Everything in the counter is baked that morning. When a tray goes, it goes. Come early, stay a while, and let us recommend something.</p>
+        <div class="facts">
+          <div class="fact"><span class="didot">Family run</span><p>Opened on Dundas Street by the Vangeli family</p></div>
+          <div class="fact"><span class="didot">Baked daily</span><p>Fresh trays out of the oven every morning</p></div>
+          <div class="fact"><span class="didot">Greek recipes</span><p>Phyllo, syrup and coffee, the way Greece makes them</p></div>
+        </div>
+      </div>
+      <div class="story-photos reveal">
+        <figure><img src="images/shopfront.jpg" alt="The Greek Spot shopfront on Dundas Street with its black and gold sign"></figure>
+        <figure><img src="images/team-personality.jpg" alt="One of the team holding up a Greek Spot iced coffee in the cafe"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="chapter menu-ch" id="menu">
+    <div class="watermark" aria-hidden="true">ΠΙΤΕΣ &amp; ΓΛΥΚΑ</div>
+    <div class="eyebrow reveal">The Menu</div>
+    <h2 class="reveal">From the counter.</h2>
+    <p class="lede menu-intro reveal">Savoury pies, syruped sweets, proper coffee. This is our takeaway menu; the counter changes with the season and the baker's mood, so there is always something new to try in the shop.</p>
+    <p class="menu-note reveal">Takeaway prices. Everything is also available to order on Uber Eats.</p>
+
+    <div class="mcat reveal">
+      <figure class="mcat-photo"><img src="images/peinirli-cheese-boats.jpg" alt="Two freshly baked peinirli cheese boats on newspaper-print paper"><figcaption>Peinirli, straight from the oven</figcaption></figure>
+      <div class="mcat-head"><h3>Savoury pastries</h3><span class="gr" lang="el">ΠΙΤΕΣ</span></div>
+      <p class="mcat-sub">Handmade phyllo, opened in the air and stretched on the table so the layers stay paper thin.</p>
+      <div class="mgrid">
+        <div class="mitem"><span class="nm">Bougatsa, feta &amp; mizithra<small>Handmade phyllo pie with two Greek cheeses</small></span><span class="dots"></span><span class="pr">£5.00</span></div>
+        <div class="mitem"><span class="nm">Cheese pastry, sesame &amp; honey<small>Golden sesame crust, cheese filling, touch of honey</small></span><span class="dots"></span><span class="pr">£5.30</span></div>
+        <div class="mitem"><span class="nm">Double sausage &amp; cheese brioche<small>Soft brioche, two sausages, melted cheese, sesame</small></span><span class="dots"></span><span class="pr">£5.00</span></div>
+        <div class="mitem"><span class="nm">Potato roll<small>Soft baked roll with seasoned potato</small></span><span class="dots"></span><span class="pr">£4.70</span></div>
+      </div>
+    </div>
+
+    <div class="mcat reveal">
+      <figure class="mcat-photo"><img src="images/baklava-cups-counter.jpg" alt="Tray of mini filo baklava cups topped with cream and chocolate in the counter"><figcaption>Baklava cups in the counter</figcaption></figure>
+      <div class="mcat-head"><h3>Sweet pastries</h3><span class="gr" lang="el">ΓΛΥΚΑ</span></div>
+      <p class="mcat-sub">Siropiasta: baked first, then soaked in warm syrup. The Greek way.</p>
+      <div class="mgrid">
+        <div class="mitem"><span class="nm">Baklava with walnuts<small>Walnuts and cinnamon layered in phyllo, drizzled with syrup</small></span><span class="dots"></span><span class="pr">£5.00</span></div>
+        <div class="mitem"><span class="nm">Portokalopita<small>Traditional Greek orange cake, light and syrup-soaked</small></span><span class="dots"></span><span class="pr">£5.00</span></div>
+        <div class="mitem"><span class="nm">Walnut cake, syruped<small>Moist and nutty in every bite</small></span><span class="dots"></span><span class="pr">£5.00</span></div>
+      </div>
+    </div>
+
+    <div class="mcat reveal">
+      <div class="mcat-head"><h3>Kataifi nests &amp; mini sweets</h3><span class="gr" lang="el">ΚΑΝΤΑΪΦΙ</span></div>
+      <p class="mcat-sub">Handmade syruped nests, three pieces to a portion.</p>
+      <div class="mgrid">
+        <div class="mitem"><span class="nm">Praline cream nests</span><span class="dots"></span><span class="pr">£5.20</span></div>
+        <div class="mitem"><span class="nm">Pistachio nests, mantilaki</span><span class="dots"></span><span class="pr">£5.20</span></div>
+        <div class="mitem"><span class="nm">Bueno cream nests</span><span class="dots"></span><span class="pr">£4.90</span></div>
+        <div class="mitem"><span class="nm">Caramel cream nests</span><span class="dots"></span><span class="pr">£4.90</span></div>
+        <div class="mitem"><span class="nm">Wafer cones, chocolate</span><span class="dots"></span><span class="pr">£3.20</span></div>
+      </div>
+    </div>
+
+    <div class="mcat reveal">
+      <figure class="mcat-photo"><img src="images/strawberry-cheesecake-pot.jpg" alt="Layered strawberry cheesecake pot in sunlight"><figcaption>Handmade cheesecake pots</figcaption></figure>
+      <div class="mcat-head"><h3>Cakes &amp; baguettes</h3><span class="gr" lang="el">ΤΟΥΡΤΕΣ</span></div>
+      <p class="mcat-sub">Individual cakes made in the shop, and fresh baguettes built to order.</p>
+      <div class="mgrid">
+        <div class="mitem"><span class="nm">Mousse cake</span><span class="dots"></span><span class="pr">£6.00</span></div>
+        <div class="mitem"><span class="nm">Chocolate &amp; orange cake</span><span class="dots"></span><span class="pr">£6.00</span></div>
+        <div class="mitem"><span class="nm">Xoriatiki baguette<small>Feta, tomatoes, Kalamon olives, Greek olive oil, oregano</small></span><span class="dots"></span><span class="pr">£6.50</span></div>
+        <div class="mitem"><span class="nm">Ham &amp; avocado baguette<small>Smoked ham, gouda, cucumber, avocado, lettuce</small></span><span class="dots"></span><span class="pr">£6.50</span></div>
+        <div class="mitem"><span class="nm">Mortadella classico<small>Mortadella, mozzarella, tomatoes, cucumber</small></span><span class="dots"></span><span class="pr">£6.50</span></div>
+      </div>
+    </div>
+
+    <div class="mcat reveal">
+      <figure class="mcat-photo"><img src="images/freddo-branded-desserts.jpg" alt="Freddo cappuccino in a Greek Spot branded cup beside mini desserts"><figcaption>Freddo cappuccino, the house favourite</figcaption></figure>
+      <div class="mcat-head"><h3>Coffee</h3><span class="gr" lang="el">ΚΑΦΕΣ</span></div>
+      <p class="mcat-sub">Specialty coffee, hot or Greek-style over ice. Shaken, never stirred.</p>
+      <div class="mgrid">
+        <div class="mitem"><span class="nm">Freddo espresso<small>Greek-style iced espresso, shaken smooth and frothy</small></span><span class="dots"></span><span class="pr">£4.20</span></div>
+        <div class="mitem"><span class="nm">Freddo cappuccino<small>Iced espresso under cold frothed milk foam</small></span><span class="dots"></span><span class="pr">£4.50</span></div>
+        <div class="mitem"><span class="nm">Greek frappe<small>Foam-topped iced coffee, shaken over ice</small></span><span class="dots"></span><span class="pr">£4.00</span></div>
+        <div class="mitem"><span class="nm">Iced latte</span><span class="dots"></span><span class="pr">£4.50</span></div>
+        <div class="mitem"><span class="nm">Espresso</span><span class="dots"></span><span class="pr">£3.00</span></div>
+        <div class="mitem"><span class="nm">Macchiato</span><span class="dots"></span><span class="pr">£3.20</span></div>
+        <div class="mitem"><span class="nm">Americano</span><span class="dots"></span><span class="pr">£3.50</span></div>
+        <div class="mitem"><span class="nm">Latte</span><span class="dots"></span><span class="pr">£4.00</span></div>
+        <div class="mitem"><span class="nm">Flat white</span><span class="dots"></span><span class="pr">£4.20</span></div>
+        <div class="mitem"><span class="nm">Cappuccino</span><span class="dots"></span><span class="pr">£4.40</span></div>
+        <div class="mitem"><span class="nm">Hot chocolate</span><span class="dots"></span><span class="pr">£4.50</span></div>
+      </div>
+    </div>
+
+    <div class="mcat reveal">
+      <div class="mcat-head"><h3>Greek drinks &amp; treats</h3><span class="gr" lang="el">ΑΠΟ ΤΗΝ ΕΛΛΑΔΑ</span></div>
+      <p class="mcat-sub">Straight from home: Amita juices, Loux lemonades and the chocolate every Greek kid grew up on.</p>
+      <div class="mgrid">
+        <div class="mitem"><span class="nm">Amita peach / sour cherry</span><span class="dots"></span><span class="pr">£3.00</span></div>
+        <div class="mitem"><span class="nm">Amita Motion<small>9 fruits, 7 vitamins, no added sugar</small></span><span class="dots"></span><span class="pr">£3.50</span></div>
+        <div class="mitem"><span class="nm">Loux orange / lemon / gazoza / cherry<small>Greek soft drinks made with spring water</small></span><span class="dots"></span><span class="pr">£2.50</span></div>
+        <div class="mitem"><span class="nm">Chocofreta wafer</span><span class="dots"></span><span class="pr">£1.50</span></div>
+        <div class="mitem"><span class="nm">ION milk chocolate / with almonds</span><span class="dots"></span><span class="pr">£4.00</span></div>
+        <div class="mitem"><span class="nm">Papadopoulos Biscotello, cocoa</span><span class="dots"></span><span class="pr">£3.30</span></div>
+        <div class="mitem"><span class="nm">Lay's oregano crisps</span><span class="dots"></span><span class="pr">£3.00</span></div>
+      </div>
+    </div>
+
+    <div class="counter-strip reveal">
+      <span class="didot">Fresh from the counter this week</span>
+      <span>Galaktoboureko cream nests</span>
+      <span>Biscoff cheesecake</span>
+      <span>Biscoff tiramisu</span>
+      <span>Milopita apple pie</span>
+      <span>Chicken gyros filo pie</span>
+      <span>Greek salads at lunchtime</span>
+      <span>Birthday cakes to order</span>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="chapter reviews" id="reviews">
+    <div class="watermark" aria-hidden="true">ΕΥΧΑΡΙΣΤΩ</div>
+    <div class="eyebrow reveal">Reviews</div>
+    <h2 class="reveal">Word is getting around.</h2>
+    <div class="rev-score reveal">
+      <span class="didot">5.0</span>
+      <p>on TripAdvisor, and one of Middlesbrough's top-rated coffee spots</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <blockquote>The best bakery in Middlesbrough. Everything was perfect, couldn't ask for more.</blockquote>
+        <cite>Erjola · TripAdvisor</cite>
+      </div>
+      <div class="rev reveal">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <blockquote>An absolute gem. The aroma of freshly baked goods and coffee welcomes you the moment you step in.</blockquote>
+        <cite>Family visit · TripAdvisor</cite>
+      </div>
+      <div class="rev reveal">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <blockquote>The food was fresh, authentic, and full of flavour. You can really taste the quality ingredients. I'll 100% be coming back!</blockquote>
+        <cite>Arena, visiting from Italy · TripAdvisor</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="chapter" id="gallery">
+    <div class="watermark" aria-hidden="true">ΓΕΙΑ ΜΑΣ</div>
+    <div class="eyebrow reveal">Gallery</div>
+    <h2 class="reveal">The daily bake.</h2>
+    <div class="gal-grid reveal">
+      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/borek-sesame-dark.jpg" alt="Sesame-crusted filo rolls torn open to show flaky layers, on our Instagram" loading="lazy"></a>
+      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/flat-whites-latte-art.jpg" alt="Two flat whites with latte art on a black tray, on our Instagram" loading="lazy"></a>
+      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/praline-heart.jpg" alt="Heart-shaped white chocolate and praline dessert, on our Instagram" loading="lazy"></a>
+      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/chocolate-cake-window.jpg" alt="Chocolate ganache cake slice and freddo espresso at the window bench, on our Instagram" loading="lazy"></a>
+      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/syrup-swirls-freddo.jpg" alt="Syrup-soaked filo swirl pastries with an iced coffee behind, on our Instagram" loading="lazy"></a>
+      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/carrot-cake-counter.jpg" alt="Slices of walnut carrot cake with cream cheese frosting on the counter, on our Instagram" loading="lazy"></a>
+      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/greek-salad-branded.jpg" alt="Greek salad with feta and olives in a Greek Spot branded takeaway bowl, on our Instagram" loading="lazy"></a>
+      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/apple-braid-flat-white.jpg" alt="Golden braided apple pastry beside a flat white, on our Instagram" loading="lazy"></a>
+    </div>
+    <p class="gal-follow">More fresh out of the oven daily on <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener">Instagram</a> and <a href="https://www.tiktok.com/@thegreekspot_" target="_blank" rel="noopener">TikTok</a>.</p>
+  </section>
+
+  <!-- FIND US -->
+  <section class="chapter menu-ch" id="find">
+    <div class="watermark" aria-hidden="true">ΕΛΑ!</div>
+    <div class="find">
+      <div class="reveal">
+        <div class="eyebrow">Find us</div>
+        <h2>Two minutes from Centre Square.</h2>
+        <div class="find-details">
+          <p class="addr">41 Dundas Street,<br>Middlesbrough TS1 1HR</p>
+          <p><a href="tel:+441642500844">01642 500844</a></p>
+          <p>Right in the town centre, a short walk from Centre Square, the Cleveland Centre and Teesside University.</p>
+        </div>
+        <div class="hours" id="hoursTable">
+          <div class="hrow" data-day="1"><span class="d">Monday</span><span>9:00 - 16:00</span></div>
+          <div class="hrow" data-day="2"><span class="d">Tuesday</span><span>9:00 - 16:00</span></div>
+          <div class="hrow" data-day="3"><span class="d">Wednesday</span><span>9:00 - 16:00</span></div>
+          <div class="hrow" data-day="4"><span class="d">Thursday</span><span>9:00 - 16:00</span></div>
+          <div class="hrow" data-day="5"><span class="d">Friday</span><span>9:00 - 16:00</span></div>
+          <div class="hrow" data-day="6"><span class="d">Saturday</span><span>9:00 - 16:00</span></div>
+          <div class="hrow closed-day" data-day="0"><span class="d">Sunday</span><span>Closed</span></div>
+        </div>
+        <div class="find-links">
+          <a class="btn btn-solid" href="https://maps.google.com/?q=The+Greek+Spot,+41+Dundas+Street,+Middlesbrough+TS1+1HR" target="_blank" rel="noopener">Get directions</a>
+          <a class="btn btn-ghost" href="https://www.ubereats.com/gb/store/the-greek-spot/KlmvoWTTS9mFfXp4U_4D3Q" target="_blank" rel="noopener">Order delivery</a>
+        </div>
+      </div>
+      <figure class="find-photo reveal">
+        <img src="images/peinirli-window-bench.jpg" alt="Peinirli and a cappuccino on the window bench looking out at Dundas Street" loading="lazy">
+        <figcaption>The window seat, best in the house</figcaption>
+      </figure>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>
+    <span class="didot">The Greek Spot</span><br>
+    Bakery &amp; Cafe · Middlesbrough
+  </div>
+  <div class="fsoc">
+    <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.tiktok.com/@thegreekspot_" target="_blank" rel="noopener">TikTok</a>
+    <a href="tel:+441642500844">01642 500844</a>
+  </div>
+  <div>&copy; <span id="yr">2026</span> Aegean Bites Ltd · Site by <a href="https://fusioncreative.uk" target="_blank" rel="noopener">Fusion Creative</a></div>
+</footer>
+
+<script>
+// ---- live open/closed from real hours (Europe/London, Mon-Sat 9:00-16:00) ----
+(function(){
+  var now = new Date();
+  var fmt = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',weekday:'short',hour:'numeric',minute:'numeric',hour12:false});
+  var parts = {};
+  fmt.formatToParts(now).forEach(function(p){ parts[p.type]=p.value; });
+  var dayMap = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+  var day = dayMap[parts.weekday];
+  var mins = parseInt(parts.hour,10)*60 + parseInt(parts.minute,10);
+  var open = day >= 1 && day <= 6 && mins >= 540 && mins < 960;
+  var txt;
+  if(open){
+    txt = mins >= 900 ? 'Open, closes 4pm' : 'Open now until 4pm';
+  } else if(day >= 1 && day <= 6 && mins < 540){
+    txt = 'Opens 9am today';
+  } else if(day === 6 && mins >= 960){
+    txt = 'Closed, back Monday 9am';
+  } else if(day === 0){
+    txt = 'Closed Sundays, back 9am Monday';
+  } else {
+    txt = 'Closed, opens 9am tomorrow';
+  }
+  ['railDot','mbDot','heroDot'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.classList.add(open ? 'on' : 'closed');
+  });
+  var short = open ? 'Open' : 'Closed';
+  var r = document.getElementById('railStatusTxt'); if(r) r.textContent = short;
+  var m = document.getElementById('mbStatusTxt'); if(m) m.textContent = short;
+  var h = document.getElementById('heroStatusTxt'); if(h) h.textContent = txt;
+  // highlight today's row
+  var row = document.querySelector('.hrow[data-day="'+day+'"]');
+  if(row) row.classList.add('today');
+  document.getElementById('yr').textContent = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',year:'numeric'}).format(now);
+})();
+
+// ---- duplicate ticker for seamless loop ----
+(function(){
+  var t = document.getElementById('tickerTrack');
+  t.innerHTML = t.innerHTML + t.innerHTML;
+})();
+
+// ---- mobile overlay ----
+(function(){
+  var ov = document.getElementById('overlay');
+  var burger = document.getElementById('burger');
+  function setOpen(open){
+    ov.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if(open) document.getElementById('ovClose').focus();
+  }
+  burger.addEventListener('click', function(){ setOpen(!ov.classList.contains('open')); });
+  document.getElementById('ovClose').addEventListener('click', function(){ setOpen(false); burger.focus(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && ov.classList.contains('open')){ setOpen(false); burger.focus(); } });
+  ov.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
+})();
+
+// ---- scroll reveals ----
+(function(){
+  if(!('IntersectionObserver' in window)){ document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+
+// ---- rail active state ----
+(function(){
+  var links = document.querySelectorAll('.rail-nav a');
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(a){ a.classList.remove('active'); });
+        var a = map[e.target.id];
+        if(a) a.classList.add('active');
+      }
+    });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  ['story','menu','reviews','gallery','find'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) io.observe(el);
+  });
+})();
+</script>
+</body>
+</html>
