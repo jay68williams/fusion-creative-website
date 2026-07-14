@@ -801,11 +801,13 @@ document.querySelectorAll(".subtab").forEach(btn => {
 });
 
 document.getElementById("addCardBtn").addEventListener("click", () => {
-  activeList().cards.push({ idea: "", concept: "", ref: "", done: false, edited: false });
+  // Add to the TOP so it appears right under the "+ Add concept" button and
+  // everything else pushes down - no scrolling to the bottom to fill it in.
+  activeList().cards.unshift({ idea: "", concept: "", ref: "", done: false, edited: false });
   saveState();
   renderCards();
-  const inputs = document.querySelectorAll(".field-idea");
-  if(inputs.length) inputs[inputs.length - 1].focus();
+  const first = document.querySelector(".field-idea");
+  if(first) first.focus();
 });
 
 document.getElementById("addProductBtn").addEventListener("click", () => {
