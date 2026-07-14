@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Content Plan | Fusion Creative x The Northumberland Candle Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#19140f; --text:#f4efe7; --muted:#a59e94;
+    --red:#E63B2E; --red2:#E8553C; --emerald:#3ad79f;
+    --amber:#E8B24E;
+    --line:rgba(245,240,232,0.13); --glass:rgba(255,255,255,0.07); --glass-bd:rgba(255,255,255,0.15);
+    --display:'DM Serif Display',Georgia,serif; --head:'Space Grotesk',sans-serif; --mono:'Space Mono',ui-monospace,monospace;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--bg); color:var(--text); font-family:var(--head); line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  body::before{ content:''; position:fixed; inset:0; z-index:-2; background:
+      radial-gradient(62% 48% at 50% -8%, rgba(232,85,60,0.24), transparent 64%),
+      radial-gradient(40% 38% at 88% 12%, rgba(230,59,46,0.13), transparent 62%),
+      radial-gradient(46% 42% at 6% 86%, rgba(232,85,60,0.11), transparent 62%),
+      var(--bg); }
+  body::after{ content:''; position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.5;
+      background-image:radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px); background-size:3px 3px; }
+  .wrap{ max-width:940px; margin:0 auto; padding:40px 18px 90px; animation:fadeUp .7s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes fadeUp{ from{ opacity:0; transform:translateY(16px);} to{ opacity:1; transform:none;} }
+
+  .brand{ text-align:center; font-family:var(--head); font-weight:500; font-size:13px; letter-spacing:0.34em; text-transform:uppercase; margin-bottom:26px; }
+  .brand .brand-accent{ color:var(--red2); text-shadow:0 0 18px rgba(232,85,60,0.6); }
+  .eyebrow{ text-align:center; font-family:var(--mono); font-size:11px; letter-spacing:0.32em; text-transform:uppercase; color:var(--red2); margin:0 0 10px; }
+  h1{ font-family:var(--display); font-weight:400; font-size:clamp(46px,9vw,86px); line-height:0.96; text-align:center; margin:0 0 14px; letter-spacing:-0.01em;
+      background:linear-gradient(180deg,#fff,#e9c9bf 70%,#E8553C); -webkit-background-clip:text; background-clip:text; color:transparent;
+      filter:drop-shadow(0 0 46px rgba(232,85,60,0.35)); }
+  .sub{ text-align:center; font-family:var(--mono); color:var(--muted); font-size:12px; letter-spacing:0.06em; margin:0; }
+  .intro{ background:var(--glass); border:1px solid var(--glass-bd); border-radius:18px; padding:18px 20px; font-size:15px; color:rgba(243,238,230,0.82); line-height:1.7; margin:26px 0 8px;
+      -webkit-backdrop-filter:blur(16px) saturate(160%); backdrop-filter:blur(16px) saturate(160%); box-shadow:0 12px 44px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06); }
+  .intro strong{ color:var(--red2); font-weight:600; }
+
+  h2{ font-family:var(--head); font-weight:600; font-size:20px; letter-spacing:-0.01em; margin:42px 0 14px; display:flex; align-items:center; gap:11px; }
+  h2::before{ content:''; width:22px; height:2px; border-radius:2px; background:linear-gradient(90deg,var(--red2),transparent); box-shadow:0 0 12px rgba(232,85,60,0.7); }
+  h2 span{ font-family:var(--mono); font-weight:400; font-size:12px; color:var(--muted); letter-spacing:0; }
+
+  /* calendar */
+  .cal{ display:grid; grid-template-columns:repeat(7,1fr); gap:8px; }
+  .cal .dow{ font-family:var(--mono); font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); text-align:center; padding:2px 0 4px; }
+  .cell{ background:var(--glass); border:1px solid var(--line); border-radius:13px; min-height:96px; padding:9px;
+      -webkit-backdrop-filter:blur(12px) saturate(150%); backdrop-filter:blur(12px) saturate(150%);
+      box-shadow:0 8px 26px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.05); transition:transform .25s, border-color .25s; }
+  .cell:hover{ transform:translateY(-2px); border-color:rgba(232,85,60,0.4); }
+  .cell.empty{ background:rgba(255,255,255,0.015); border:1px dashed rgba(245,240,232,0.07); box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none; }
+  .cell .d{ font-family:var(--mono); font-size:11px; color:rgba(243,238,230,0.78); margin-bottom:7px; }
+  .chip{ display:block; font-family:var(--head); font-weight:500; font-size:10.5px; line-height:1.28; padding:5px 7px; border-radius:8px; margin-bottom:5px;
+      background:rgba(230,59,46,0.16); color:#ffb7aa; border:1px solid rgba(230,59,46,0.24); }
+  .chip.email{ background:rgba(232,178,78,0.14); color:#f1cf8e; border-color:rgba(232,178,78,0.26); }
+  @media(max-width:680px){ .cal{ grid-template-columns:repeat(2,1fr); } .cal .dow{ display:none; } .cell{ min-height:0; } }
+
+  /* review cards */
+  .item{ background:var(--glass); border:1px solid var(--line); border-radius:18px; padding:18px 20px; margin-bottom:15px; transition:transform .25s, border-color .25s, box-shadow .25s;
+      -webkit-backdrop-filter:blur(16px) saturate(160%); backdrop-filter:blur(16px) saturate(160%); box-shadow:0 12px 40px rgba(0,0,0,0.26), inset 0 1px 0 rgba(255,255,255,0.05); }
+  .item.approve{ border-color:rgba(58,215,159,0.28); background:rgba(58,215,159,0.03); box-shadow:0 12px 40px rgba(0,0,0,0.26), inset 0 1px 0 rgba(255,255,255,0.05); }
+  .item.decline{ border-color:rgba(230,59,46,0.5); box-shadow:0 0 0 1px rgba(230,59,46,0.12), 0 0 38px rgba(230,59,46,0.16), inset 0 1px 0 rgba(255,255,255,0.05); background:rgba(230,59,46,0.06); }
+  .item .meta{ font-family:var(--mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--red2); margin-bottom:5px; }
+  .item .meta .tag{ display:inline-block; font-family:var(--mono); font-size:10px; background:rgba(230,59,46,0.18); color:#ffb7aa; border:1px solid rgba(230,59,46,0.28); border-radius:20px; padding:2px 9px; margin-left:8px; }
+  .item .meta .tag.email{ background:rgba(232,178,78,0.16); color:#f1cf8e; border-color:rgba(232,178,78,0.3); }
+  .item h3{ font-family:var(--display); font-weight:400; font-size:22px; margin:3px 0 9px; color:var(--text); }
+  .item .desc{ font-family:var(--head); font-size:13px; color:rgba(243,238,230,0.68); white-space:pre-line; line-height:1.6; margin-bottom:10px; }
+  .prod-link{ display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:0.05em; color:rgba(243,238,230,0.48); text-decoration:none; margin-bottom:14px; transition:.2s; }
+  .prod-link:hover{ color:var(--red2); }
+  a.chip{ text-decoration:none; cursor:pointer; }
+  a.chip:hover{ filter:brightness(1.22); }
+  .btns{ display:flex; gap:10px; margin-bottom:11px; }
+  .btn{ flex:1; font-family:var(--head); border:1px solid var(--glass-bd); background:rgba(255,255,255,0.04); border-radius:999px; padding:11px 10px; font-size:12px; font-weight:600; letter-spacing:0.05em; cursor:pointer; color:var(--muted); transition:.2s; -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); }
+  .btn:hover{ color:var(--text); border-color:rgba(245,240,232,0.25); }
+  .btn.yes.on{ background:rgba(58,215,159,0.16); border-color:rgba(58,215,159,0.55); color:#86f0cb; box-shadow:0 0 16px rgba(58,215,159,0.22); }
+  .btn.no.on{ background:rgba(230,59,46,0.18); border-color:rgba(230,59,46,0.6); color:#ffb0a1; box-shadow:0 0 18px rgba(230,59,46,0.28); }
+  textarea,input[type=text]{ width:100%; background:rgba(255,255,255,0.04); border:1px solid var(--glass-bd); border-radius:12px; padding:11px 13px; font-family:var(--head); font-size:13px; color:var(--text); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); transition:.2s; }
+  textarea:focus,input[type=text]:focus{ outline:none; border-color:rgba(232,85,60,0.55); box-shadow:0 0 0 3px rgba(232,85,60,0.14); }
+  textarea::placeholder{ color:rgba(243,238,230,0.32); }
+  textarea{ min-height:48px; resize:vertical; }
+  .note-lbl{ font-family:var(--mono); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:5px; }
+  .submitbar{ background:var(--glass); border:1px solid var(--glass-bd); border-radius:18px; padding:22px; margin-top:26px;
+      -webkit-backdrop-filter:blur(16px) saturate(160%); backdrop-filter:blur(16px) saturate(160%); box-shadow:0 14px 46px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06); }
+  .field{ margin-bottom:15px; }
+  .field label{ font-family:var(--mono); font-size:11px; letter-spacing:0.05em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:6px; }
+  .send{ width:100%; background:linear-gradient(135deg,#E8553C,#E63B2E); color:#fff; border:0; border-radius:999px; padding:16px; font-family:var(--head); font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; cursor:pointer; box-shadow:0 12px 32px rgba(230,59,46,0.4); transition:transform .2s, box-shadow .2s; }
+  .send:hover{ transform:translateY(-1px); box-shadow:0 16px 44px rgba(230,59,46,0.55); }
+  .send:disabled{ opacity:.6; cursor:default; transform:none; }
+  .count{ font-family:var(--mono); text-align:center; font-size:12px; color:var(--muted); margin-top:12px; }
+  .count a{ color:var(--red2); }
+  .ok{ display:none; text-align:center; background:var(--glass); border:1px solid rgba(58,215,159,0.4); border-radius:18px; padding:52px 26px; margin-top:26px;
+      -webkit-backdrop-filter:blur(16px) saturate(160%); backdrop-filter:blur(16px) saturate(160%); box-shadow:0 0 60px rgba(58,215,159,0.14), inset 0 1px 0 rgba(255,255,255,0.06); }
+  .ok h2{ display:block; font-family:var(--display); font-weight:400; font-size:32px; color:var(--emerald); margin:0 0 10px; }
+  .ok h2::before{ display:none; }
+  .ok p{ color:rgba(243,238,230,0.72); font-size:15px; }
+  .foot{ font-family:var(--mono); text-align:center; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-top:40px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">Fusion <span class="brand-accent">Creative</span></div>
+  <p class="eyebrow">Content plan &middot; for your approval</p>
+  <h1>Content Plan</h1>
+  <p class="sub">The Northumberland Candle Co.&nbsp;&nbsp;/&nbsp;&nbsp;15 Jul &rarr; 15 Aug 2026</p>
+
+  <div class="intro">
+    Hi Ravi, here's the content plan for the month ahead, 15 July through to 15 August: the short-form videos plus your emails. Have a look at the calendar below, then go through each concept and hit <strong>Approve</strong> or <strong>No</strong>. Add a note on anything you'd like changed or swapped, then submit at the bottom and it'll come straight to me.
+  </div>
+
+  <div id="app">
+    <h2>Calendar view</h2>
+    <div id="calendar"></div>
+
+    <h2>Review &amp; confirm <span style="font-size:13px;color:var(--muted);font-weight:400;">(<span id="approveCount">0</span> approved, <span id="declineCount">0</span> declined)</span></h2>
+    <div id="review"></div>
+
+    <div class="submitbar">
+      <div class="field"><label>Your name</label><input type="text" id="reviewerName" value="Ravi"></div>
+      <div class="field"><label>Anything else? (general notes, ideas, dates to avoid)</label><textarea id="overallNotes"></textarea></div>
+      <button class="send" id="sendBtn">Submit plan</button>
+      <div class="count" id="status"></div>
+    </div>
+  </div>
+
+  <div class="ok" id="thanks">
+    <h2>Thanks, Ravi!</h2>
+    <p style="color:#5b524c;">Your responses have been sent. I'll build out everything you've approved and tweak anything you've flagged.</p>
+  </div>
+
+  <p class="foot">The Northumberland Candle Company &middot; content plan by Fusion Creative</p>
+</div>
+
+<script>
+  var ENDPOINT = "https://ncc.fusioncreative.uk/api/tncc/plan-review/";
+  var ITEMS = [{"date": "2026-07-15", "day": "Wed 15 Jul", "type": "Reel", "title": "Designer perfume, but for your whole home", "desc": "Hook: 'Your favourite designer scent, now a room spray.'\nFormat: fast cuts of the coloured Desire Aroma bottles, spritz + slow-mo mist, name-drop the inspirations.\nProduct: Designer-inspired room sprays (£5.50).\nCTA: Shop room sprays."}, {"date": "2026-07-16", "day": "Thu 16 Jul", "type": "Reel", "title": "Which designer scent are you?", "desc": "Hook: 'Comment your signature scent.'\nFormat: rapid showcase of the 8 designer dupes (Aventus, Sauvage, Libre, Baccarat 540...), interactive prompt.\nProduct: Designer room spray range (£5.50).\nCTA: Shop the collection."}, {"date": "2026-07-18", "day": "Sat 18 Jul", "type": "Email", "title": "Back in stock: the designer room sprays (very limited)", "desc": "SCHEDULED: restock email for the Desire Aroma designer-inspired room sprays. Strictly limited numbers, scarcity framing, 8 clickable scent cards, £5.50 each. Sends to the full list the morning after Thursday's restock."}, {"date": "2026-07-18", "day": "Sat 18 Jul", "type": "Reel", "title": "Restock alert: they sold out fast", "desc": "Hook: 'They flew out last time, so we got more (but not many).'\nFormat: restock-drop energy, boxes opening, limited-stock urgency.\nProduct: Designer room sprays (£5.50).\nCTA: Get yours before they're gone."}, {"date": "2026-07-19", "day": "Sun 19 Jul", "type": "Reel", "title": "45 wax melts in one bag", "desc": "Hook: 'One bag. 45 melts. Endless scent.'\nFormat: ASMR pour of the star, heart and rose melts from the refill bag into a burner.\nProduct: Box/Jar Wax Melt Refills (£14.99, 45 melts).\nCTA: Shop refill bags."}, {"date": "2026-07-21", "day": "Tue 21 Jul", "type": "Reel", "title": "POV: everyone asks why your house smells so good", "desc": "Hook: 'POV: every guest asks what that smell is.'\nFormat: relatable skit, reveal the melts and sprays at the end.\nProduct: Bestsellers.\nCTA: Shop bestsellers."}, {"date": "2026-07-22", "day": "Wed 22 Jul", "type": "Reel", "title": "Refill your burner for less", "desc": "Hook: 'Stop rebuying, just refill.'\nFormat: show the resealable bag topping a burner back up, value angle.\nProduct: Box/Jar Wax Melt Refills (£14.99).\nCTA: Shop refills."}, {"date": "2026-07-23", "day": "Thu 23 Jul", "type": "Email", "title": "Mix and match your melts: the refill bags", "desc": "Feature the Box/Jar Wax Melt Refills (45 star, heart and rose melts per bag, £14.99). Mix-and-match-your-scents angle, plus a bundle-and-save if the offer is confirmed."}, {"date": "2026-07-24", "day": "Fri 24 Jul", "type": "Reel", "title": "Wax melt mistakes you're making", "desc": "Hook: 'You're using your wax melts wrong.'\nFormat: viral informational, common mistakes plus quick fixes.\nProduct: Melts and burners.\nCTA: Shop melts."}, {"date": "2026-07-25", "day": "Sat 25 Jul", "type": "Email", "title": "Payday treat: free snap bar over £20", "desc": "Payday weekend offer. Free 50g snap bar on orders over £20, sitewide. Lead with bestsellers and the snap bar range. (Confirm the exact threshold and gift.)"}, {"date": "2026-07-26", "day": "Sun 26 Jul", "type": "Reel", "title": "Highland Cow home haul", "desc": "Hook: 'The cosiest corner of my home.'\nFormat: styling the full Highland Cow range (burners, tins, figurines).\nProduct: Highland Cow range (£4.99 to £17.99).\nCTA: Shop Highland Cow."}, {"date": "2026-07-27", "day": "Mon 27 Jul", "type": "Reel", "title": "Build your own Highland Cow set", "desc": "Hook: 'Mix and match your favourite Highland Cow pieces.'\nFormat: styled tabletop, swapping burners, tins and figurines.\nProduct: Highland Cow range (mix and match).\nCTA: Build your herd."}, {"date": "2026-07-28", "day": "Tue 28 Jul", "type": "Reel", "title": "The £9.99 habit that makes your home smell unreal", "desc": "Hook: 'New snap bars on your doormat every month.'\nFormat: unbox the monthly snap bar subscription, show the variety.\nProduct: Monthly Snap Bar Subscription (£9.99/mo).\nCTA: Start a subscription."}, {"date": "2026-07-29", "day": "Wed 29 Jul", "type": "Email", "title": "Build your herd: Highland Cow mix and match", "desc": "SCHEDULED: Highland Cow 'Build Your Herd' email, mix-and-match the best-selling Highland Cow pieces. Goes out Wed 29 Jul 10am. Highland Cow was a top seller."}, {"date": "2026-07-30", "day": "Thu 30 Jul", "type": "Reel", "title": "Reed diffuser 101: which one for your room", "desc": "Hook: 'Stop guessing which diffuser to buy.'\nFormat: side by side of the bestselling reed diffusers, scent-throw and room-size guide.\nProduct: Reed diffuser range.\nCTA: Shop reed diffusers."}, {"date": "2026-08-01", "day": "Sat 1 Aug", "type": "Reel", "title": "New month, refresh every room", "desc": "Hook: 'New month, new scent for every room.'\nFormat: quick tour, a different scent in each room (spray, diffuser, melts).\nProduct: Diffusers and room sprays.\nCTA: Refresh your home."}, {"date": "2026-08-01", "day": "Sat 1 Aug", "type": "Email", "title": "New month, new scents for every room", "desc": "Fresh-start August email. A scent for every room: room sprays, reed diffusers and melts. Summer-fresh framing, lead with the designer sprays and diffusers."}, {"date": "2026-08-04", "day": "Tue 4 Aug", "type": "Reel", "title": "Never run out again", "desc": "Hook: 'Never run out of your favourite scent.'\nFormat: unbox all three subscription boxes, value and variety.\nProduct: Subscriptions (Snap Bar £9.99, Wax Melt £14.99, Ultimate £34.99).\nCTA: Start a subscription."}, {"date": "2026-08-05", "day": "Wed 5 Aug", "type": "Reel", "title": "Dubai-inspired diffusers: Spiced Amber and Tonka Oud", "desc": "Hook: 'The Dubai-inspired scents everyone's after.'\nFormat: moody, luxe styling of the amber and blue bottles, warm-spice mood.\nProduct: Maison Parfum reed diffusers (Spiced Amber, Tonka and Oud).\nCTA: Shop reed diffusers."}, {"date": "2026-08-06", "day": "Thu 6 Aug", "type": "Email", "title": "Never run out: meet the subscriptions", "desc": "Subscriptions push. All three boxes, value plus variety, cancel anytime, 'never run out' hook. Snap Bar £9.99, Wax Melt £14.99, Ultimate Scent Lovers £34.99."}, {"date": "2026-08-07", "day": "Fri 7 Aug", "type": "Reel", "title": "3 reasons wax melts beat candles", "desc": "Hook: '3 reasons to ditch candles for wax melts.'\nFormat: viral informational, fast cuts and text hooks.\nProduct: Snap bars and melts.\nCTA: Try the snap bars."}, {"date": "2026-08-08", "day": "Sat 8 Aug", "type": "Email", "title": "The reed diffuser edit", "desc": "Reed diffuser feature. The bestselling and new diffusers (Woodbridge, Desire Luxury, Dubai-inspired Maison Parfum), scent-throw and room-size guide, gifting-ready."}, {"date": "2026-08-10", "day": "Mon 10 Aug", "type": "Reel", "title": "Make your home smell amazing for under £10", "desc": "Hook: 'Your whole house smelling amazing for under £10.'\nFormat: informational, snap bars 3 for £10 in a burner.\nProduct: Snap bars 3 for £10.\nCTA: Shop snap bars."}, {"date": "2026-08-12", "day": "Wed 12 Aug", "type": "Reel", "title": "Which selection box are you?", "desc": "Hook: 'Comment which box you'd pick.'\nFormat: rapid showcase of the selection boxes (Hinch, Harry's, Sweet Shop and more).\nProduct: Selection boxes (£15).\nCTA: Shop selection boxes."}, {"date": "2026-08-13", "day": "Thu 13 Aug", "type": "Email", "title": "Any 3 snap bars for £10, mix and match", "desc": "Snap bar bundle email (run once restocked). Any 3 50g snap bars for £10, mix and match your scents, weekend-treat framing."}, {"date": "2026-08-14", "day": "Fri 14 Aug", "type": "Reel", "title": "Your home, your signature scent", "desc": "Hook: 'Build your home's signature scent.'\nFormat: layering a room spray, diffuser and melts in the same scent family.\nProduct: Diffusers and room sprays.\nCTA: Find your signature."}, {"date": "2026-08-15", "day": "Sat 15 Aug", "type": "Email", "title": "Bestsellers, back in stock", "desc": "Mid-month bestsellers round-up. What's flying out and back in stock, social proof, easy re-order. Lead with the month's top movers."}];
+  var BASE="https://www.thenorthumberlandcandlecompany.com";
+  var LINKS=["/products/250ml-room-spray-designer-scents", "/collections/room-spray", "/products/250ml-room-spray-designer-scents", "/products/250ml-room-spray-designer-scents", "/products/box-jar-wax-melt-refills", "/collections/bestsellers", "/collections/box-jar-refills", "/products/box-jar-wax-melt-refills", "/collections/wax-melts", "/collections/bestsellers", "/collections/highland-cows", "/collections/highland-cows", "/collections/subscriptions", "/collections/highland-cows", "/collections/reed-diffusers", "/collections/diffusers-and-room-sprays", "/collections/diffusers-and-room-sprays", "/collections/subscriptions", "/collections/reed-diffusers", "/collections/subscriptions", "/collections/wax-melts", "/collections/reed-diffusers", "/collections/50g-snap-bars-3-for-10", "/collections/wax-melt-selection-boxes", "/collections/50g-snap-bars-3-for-10", "/collections/diffusers-and-room-sprays", "/collections/bestsellers"];
+  ITEMS.forEach(function(it,i){ it.id=i; it.decision="approve"; it.notes=""; it.link=BASE+LINKS[i]; });
+
+  // ---- calendar ----
+  function buildCalendar(){
+    var byDate={}; ITEMS.forEach(function(it){ (byDate[it.date]=byDate[it.date]||[]).push(it); });
+    var start=new Date(Date.UTC(2026,6,13)); // Monday 13 Jul (UTC so day label + lookup key stay aligned)
+    var weeks=5, html='<div class="cal">';
+    ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].forEach(function(d){ html+='<div class="dow">'+d+'</div>'; });
+    for(var w=0; w<weeks; w++){
+      for(var d=0; d<7; d++){
+        var dt=new Date(start); dt.setUTCDate(start.getUTCDate()+w*7+d);
+        var iso=dt.toISOString().slice(0,10);
+        var items=byDate[iso]||[];
+        var inRange = iso>="2026-06-29" && iso<="2026-07-31";
+        if(!inRange){ html+='<div class="cell empty"></div>'; continue; }
+        html+='<div class="cell"><div class="d">'+dt.getUTCDate()+' '+dt.toLocaleDateString("en-GB",{month:"short",timeZone:"UTC"})+'</div>';
+        items.forEach(function(it){ html+='<a class="chip '+(it.type==="Email"?"email":"")+'" href="'+it.link+'" target="_blank" rel="noopener">'+(it.type==="Email"?"✉ ":"")+it.title+'</a>'; });
+        html+='</div>';
+      }
+    }
+    html+='</div>';
+    document.getElementById("calendar").innerHTML=html;
+  }
+
+  // ---- review ----
+  function counts(){
+    var a=ITEMS.filter(function(i){return i.decision==="approve";}).length;
+    var n=ITEMS.filter(function(i){return i.decision==="decline";}).length;
+    document.getElementById("approveCount").textContent=a;
+    document.getElementById("declineCount").textContent=n;
+  }
+  function buildReview(){
+    var c=document.getElementById("review"); c.innerHTML="";
+    ITEMS.forEach(function(it){
+      var div=document.createElement("div"); div.className="item "+it.decision; div.id="item-"+it.id;
+      div.innerHTML='<div class="meta">'+it.day+'<span class="tag '+(it.type==="Email"?"email":"")+'">'+it.type+'</span></div>'+
+        '<h3>'+it.title+'</h3><div class="desc">'+it.desc+'</div>'+
+        '<a class="prod-link" href="'+it.link+'" target="_blank" rel="noopener">View product &#8599;</a>'+
+        '<div class="btns"><button class="btn yes on" data-a="approve">Approve</button><button class="btn no" data-a="decline">No</button></div>'+
+        '<span class="note-lbl">Notes / what you\'d change (optional)</span><textarea data-note placeholder="e.g. swap the product, change the hook, different day..."></textarea>';
+      div.querySelectorAll(".btn").forEach(function(b){
+        b.addEventListener("click",function(){
+          it.decision=b.getAttribute("data-a");
+          div.className="item "+it.decision;
+          div.querySelector(".yes").classList.toggle("on",it.decision==="approve");
+          div.querySelector(".no").classList.toggle("on",it.decision==="decline");
+          counts();
+        });
+      });
+      div.querySelector("[data-note]").addEventListener("input",function(e){ it.notes=e.target.value; });
+      c.appendChild(div);
+    });
+    counts();
+  }
+
+  function summaryText(){
+    var name=document.getElementById("reviewerName").value||"Ravi";
+    var lines=ITEMS.map(function(it){ return "["+it.decision.toUpperCase()+"] "+it.day+" ("+it.type+") "+it.title+(it.notes?" - NOTE: "+it.notes:""); });
+    return "TNCC content plan review from "+name+"\n\n"+lines.join("\n")+"\n\nOverall: "+(document.getElementById("overallNotes").value||"-");
+  }
+
+  document.getElementById("sendBtn").addEventListener("click",function(){
+    var btn=this, st=document.getElementById("status");
+    btn.disabled=true; st.textContent="Sending...";
+    var payload={ reviewer_name:document.getElementById("reviewerName").value, plan_label:"TNCC content plan 15 Jul - 15 Aug",
+      overall_notes:document.getElementById("overallNotes").value,
+      items:ITEMS.map(function(it){ return {date:it.day,type:it.type,title:it.title,decision:it.decision,notes:it.notes}; }) };
+    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
+      .then(function(r){ if(!r.ok) throw new Error("bad status"); return r.json(); })
+      .then(function(){ document.getElementById("app").style.display="none"; document.getElementById("thanks").style.display="block"; window.scrollTo(0,0); })
+      .catch(function(){
+        btn.disabled=false;
+        st.innerHTML='Could not send automatically. <a href="mailto:jay@fusioncreative.uk?subject='+encodeURIComponent("TNCC content plan review")+'&body='+encodeURIComponent(summaryText())+'">Click here to email it to Jay instead</a>.';
+      });
+  });
+
+  buildCalendar(); buildReview();
+</script>
+</body>
+</html>
