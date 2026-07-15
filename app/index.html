@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="apple-mobile-web-app-title" content="Fusion Creative">
+  <meta name="theme-color" content="#E63B2E">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TS8XCRSG4W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TS8XCRSG4W');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Own Ordering App, Zero Commission | Fusion Creative</title>
+  <meta name="description" content="Your own branded restaurant ordering app for £249 setup and £99 a month, with zero commission on every order. Stop paying Deliveroo, Uber Eats and Just Eat a cut of everything you sell." />
+  <link rel="canonical" href="https://fusioncreative.uk/app/" />
+  <meta property="og:title" content="Your Own Ordering App, Zero Commission | Fusion Creative" />
+  <meta property="og:description" content="Your own branded ordering app for £249 setup and £99 a month. Zero commission on every order, forever." />
+  <meta property="og:url" content="https://fusioncreative.uk/app/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/main.css" />
+
+  <!-- Facebook Pixel (deferred until consent) -->
+  <script>
+    window._fbPixelLoaded=false;
+    function loadFBPixel(){
+      if(window._fbPixelLoaded)return;window._fbPixelLoaded=true;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init','1631577007728254');fbq('track','PageView');
+    }
+    if(localStorage.getItem('fc_cookie_consent')==='accepted')loadFBPixel();
+  </script>
+
+  <style>
+    /* App landing page specifics (shared system comes from main.css) */
+    /* main.css .dark-section does not carry a dark background here, so set it
+       explicitly and make all text light on those sections. */
+    .dark-section { background: var(--black); color: var(--off-white); }
+    .dark-section h2 { color: var(--off-white); }
+    .dark-section h2 em { color: var(--signal); }
+    .dark-section .section-label { color: var(--signal); }
+    .dark-section .step h3 { color: var(--off-white); }
+    .dark-section .step p { color: rgba(245,243,238,0.7); }
+    .dark-section.footer { background: var(--black); }
+
+    .app-hero { padding: calc(var(--nav-height) + 5vmax) 0 4vmax; }
+    .app-hero h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.02; letter-spacing: -0.04em; margin: 1.2rem 0 1.5rem; max-width: 16ch; }
+    .app-hero h1 em { color: var(--signal); font-style: normal; }
+    .app-hero .lede { font-size: clamp(1.05rem, 2vw, 1.35rem); color: #4a4a44; max-width: 46ch; line-height: 1.6; margin-bottom: 2.2rem; }
+    .app-ctas { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+    .app-ctas .note { font-family: var(--font-mono); font-size: 0.8rem; color: var(--mid); }
+
+    .statbar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 2.5rem 0; margin-top: 3.5rem; }
+    .statbar .stat .n { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.8rem, 3.5vw, 2.8rem); letter-spacing: -0.03em; }
+    .statbar .stat .l { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); margin-top: 0.4rem; }
+    .statbar .stat .n.signal { color: var(--signal); }
+    @media (max-width: 720px){ .statbar { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
+
+    /* Comparison table */
+    .compare-wrap { overflow-x: auto; }
+    .compare { width: 100%; border-collapse: collapse; min-width: 560px; background: var(--off-white); border: 1px solid var(--border); border-radius: var(--rad-md); overflow: hidden; }
+    .compare th, .compare td { text-align: left; padding: 1.15rem 1.5rem; border-bottom: 1px solid var(--border); font-size: 1rem; }
+    .compare thead th { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); font-weight: 400; }
+    .compare thead th.you { color: var(--signal); }
+    .compare td.you { font-weight: 600; }
+    .compare td.them { color: #6a6a63; }
+    .compare tr:last-child td { border-bottom: none; }
+    .compare .row-label { font-weight: 600; }
+    .compare tbody tr:hover { background: rgba(230,59,46,0.03); }
+
+    /* Pricing card */
+    .price-card { background: var(--black); color: var(--off-white); border-radius: var(--rad-md); padding: 3rem; text-align: center; max-width: 620px; margin: 0 auto; }
+    .price-card .amt { font-family: var(--font-head); font-weight: 700; font-size: clamp(2.6rem, 6vw, 4rem); letter-spacing: -0.03em; line-height: 1.05; }
+    .price-card .amt .plus { color: var(--signal); }
+    .price-card .sub { color: rgba(245,243,238,0.7); margin: 1rem 0 0.4rem; font-size: 1.05rem; }
+    .price-card .zero { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--signal); margin-top: 1.2rem; }
+    .price-card .btn { margin-top: 2rem; }
+
+    /* Steps */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    @media (max-width: 860px){ .steps { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 520px){ .steps { grid-template-columns: 1fr; } }
+    .step .num { font-family: var(--font-mono); color: var(--signal); font-size: 0.85rem; letter-spacing: 0.1em; }
+    .step h3 { font-family: var(--font-head); font-weight: 600; font-size: 1.2rem; margin: 0.6rem 0 0.5rem; }
+    .step p { color: #5a5a54; font-size: 0.95rem; line-height: 1.6; }
+
+    /* FAQ */
+    .faq { max-width: 780px; margin: 0 auto; }
+    .faq details { border-bottom: 1px solid var(--border); padding: 1.4rem 0; }
+    .faq summary { font-family: var(--font-head); font-weight: 600; font-size: 1.1rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; color: var(--signal); font-weight: 400; }
+    .faq details[open] summary::after { content: '−'; }
+    .faq p { color: #5a5a54; line-height: 1.7; margin-top: 0.9rem; }
+
+    /* Apply form */
+    .app-form { max-width: 640px; margin: 0 auto; background: var(--off-white); border: 1px solid var(--border); border-radius: var(--rad-md); padding: 2.5rem; }
+    .app-form .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 560px){ .app-form .frow { grid-template-columns: 1fr; } }
+    .app-form .fg { margin-bottom: 1.1rem; display: flex; flex-direction: column; }
+    .app-form label { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--mid); margin-bottom: 0.5rem; }
+    .app-form input, .app-form select, .app-form textarea { font-family: var(--font-head); font-size: 1rem; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: var(--rad-sm); background: #fff; color: var(--black); width: 100%; }
+    .app-form input:focus, .app-form select:focus, .app-form textarea:focus { outline: none; border-color: var(--signal); }
+    .app-form textarea { min-height: 100px; resize: vertical; }
+    .app-form .submit { width: 100%; margin-top: 0.5rem; font-family: var(--font-head); font-weight: 600; font-size: 1.05rem; background: var(--signal); color: #fff; border: none; padding: 1.1rem; border-radius: 999px; cursor: pointer; transition: transform 0.15s var(--ease-btn), background 0.2s; }
+    .app-form .submit:hover { background: var(--black); }
+    .app-form .submit:disabled { opacity: 0.6; cursor: default; }
+    .app-form .form-success { display: none; text-align: center; padding: 1rem 0; }
+    .app-form .form-success.show { display: block; }
+    .app-form .form-success h3 { font-family: var(--font-head); font-size: 1.6rem; margin-bottom: 0.6rem; }
+    .app-form .form-success p { color: #5a5a54; line-height: 1.6; }
+    .app-form .tiny { font-size: 0.78rem; color: var(--mid); text-align: center; margin-top: 1rem; }
+
+    /* Cookie banner */
+    .cookie-banner { position: fixed; bottom: 1rem; left: 1rem; right: 1rem; max-width: 640px; margin: 0 auto; background: var(--black); color: var(--off-white); border-radius: var(--rad-sm); padding: 1rem 1.25rem; display: none; align-items: center; justify-content: space-between; gap: 1rem; z-index: 200; flex-wrap: wrap; }
+    .cookie-banner.visible { display: flex; }
+    .cookie-banner p { font-size: 0.82rem; margin: 0; color: rgba(245,243,238,0.85); }
+    .cookie-banner a { color: var(--signal); }
+    .cookie-btns { display: flex; gap: 0.5rem; }
+    .cookie-btns button { font-family: var(--font-head); font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 999px; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: var(--off-white); }
+    .cookie-btns .cookie-accept { background: var(--signal); border-color: var(--signal); color: #fff; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Fusion Creative</a>
+      <ul class="nav-links">
+        <li><a href="/#results">Results</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/why-us">Why Us</a></li>
+        <li><a href="/case-studies">Case Studies</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+      <a href="#apply" class="btn btn-signal"><span>Apply Now</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="app-hero">
+    <div class="container">
+      <div class="section-label">/ New from Fusion Creative</div>
+      <h1>Your own ordering app. <em>Zero commission.</em></h1>
+      <p class="lede">Stop handing Deliveroo, Uber Eats and Just Eat 20 to 35 percent of every order. We build you your own branded ordering app so every order comes straight to you, and you keep the lot.</p>
+      <div class="app-ctas">
+        <a href="#apply" class="btn btn-signal"><span>Apply Now &rarr;</span></a>
+        <a href="#maths" class="btn btn-outline"><span>See the maths</span></a>
+        <span class="note">£249 setup · £99/month · 0% commission</span>
+      </div>
+
+      <div class="statbar">
+        <div class="stat"><div class="n signal">0%</div><div class="l">Commission per order</div></div>
+        <div class="stat"><div class="n">£99</div><div class="l">Flat monthly cost</div></div>
+        <div class="stat"><div class="n">£249</div><div class="l">One-off setup</div></div>
+        <div class="stat"><div class="n">You</div><div class="l">Own the customer</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="dark-section section-pad">
+    <div class="container">
+      <div class="section-label">/ The Problem</div>
+      <h2>The delivery apps take a <em>third of everything</em> you sell.</h2>
+      <p style="max-width:56ch;color:rgba(245,243,238,0.75);font-size:1.1rem;line-height:1.7;margin-top:1.5rem;">
+        Deliveroo and Uber Eats charge around 30 percent commission, up to 35, and once you add the VAT on their fee the real deduction is closer to 36 percent. On a £15 order you keep about £9.75. Do £8,000 a month and you are handing over roughly £2,400, every month, on orders you generated yourself. That is nearly £29,000 a year, gone.
+      </p>
+      <p style="max-width:56ch;color:rgba(245,243,238,0.75);font-size:1.1rem;line-height:1.7;margin-top:1.2rem;">
+        Worse, you never own the customer. The app owns the relationship, the data and the reorder. You cannot bring them back with an offer, because they are the app's customer, not yours.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT WE BUILD -->
+  <section class="section-pad" id="what">
+    <div class="container">
+      <div class="section-label">/ What We Build</div>
+      <h2>The same app the <em>big chains</em> use, built for you.</h2>
+      <div class="features-grid" style="margin-top:2.5rem;">
+        <div class="feature-card"><div class="feature-label">01</div><h3>Your own branded app</h3><p>Your colours, your menu, your logo. Customers add it to their phone home screen and order from you directly, not from a marketplace full of your competitors.</p></div>
+        <div class="feature-card"><div class="feature-label">02</div><h3>Collection &amp; delivery</h3><p>Customers browse the menu, pay, and choose collection or delivery. Live order tracking shows them exactly where their food is, the same experience the big apps give.</p></div>
+        <div class="feature-card"><div class="feature-label">03</div><h3>Push notifications</h3><p>Message every customer straight to their phone. A quiet-Tuesday offer, a new special, "your order is ready". No middleman, no ad spend.</p></div>
+        <div class="feature-card"><div class="feature-label">04</div><h3>Built-in loyalty</h3><p>Reward your regulars automatically so they keep coming back to you, not to whoever is cheapest on Deliveroo this week.</p></div>
+        <div class="feature-card"><div class="feature-label">05</div><h3>Kitchen &amp; driver screens</h3><p>Orders land straight on a screen in the kitchen. Your drivers get their own queue. The whole operation runs through one clean system.</p></div>
+        <div class="feature-card"><div class="feature-label">06</div><h3>We build and run it</h3><p>You do not touch a line of code. We set up the branding, the full menu, payments, tracking, loyalty and push, launch it, and keep it running.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MATHS / COMPARISON -->
+  <section class="section-pad" id="maths" style="background:var(--paper);">
+    <div class="container">
+      <div class="section-label">/ The Maths</div>
+      <h2>A flat £99 a month versus <em>30% of everything</em>.</h2>
+      <p style="max-width:52ch;color:#4a4a44;font-size:1.1rem;line-height:1.7;margin:1.5rem 0 2.5rem;">Based on a modest £8,000 a month in orders. The busier you get, the more lopsided it becomes.</p>
+      <div class="compare-wrap">
+        <table class="compare">
+          <thead>
+            <tr><th></th><th class="them">Delivery app (30%)</th><th class="you">Your own app</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="row-label">Setup</td><td class="them">~£650 activation</td><td class="you">£249</td></tr>
+            <tr><td class="row-label">Monthly cost on £8,000</td><td class="them">£2,400</td><td class="you">£99</td></tr>
+            <tr><td class="row-label">Commission per order</td><td class="them">20 to 35%</td><td class="you">0%</td></tr>
+            <tr><td class="row-label">Who owns the customer</td><td class="them">The app</td><td class="you">You</td></tr>
+            <tr><td class="row-label">Cost over 12 months</td><td class="them">~£28,800</td><td class="you">~£1,188</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color:var(--mid);font-size:0.85rem;margin-top:1rem;font-family:var(--font-mono);">Delivery figures based on published UK commission rates. Your actual saving depends on your order volume.</p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="price-card">
+        <div class="section-label center" style="color:var(--signal);">/ Simple Pricing</div>
+        <div class="amt">£249 <span class="plus">+</span> £99<span style="font-size:1.4rem;">/mo</span></div>
+        <p class="sub">£249 to set up, £99 a month to run.</p>
+        <div class="zero">Zero commission on any order, ever</div>
+        <a href="#apply" class="btn btn-signal"><span>Apply Now &rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE BUILD IT -->
+  <section class="dark-section section-pad">
+    <div class="container">
+      <div class="section-label">/ How It Works</div>
+      <h2>Live in a few simple <em>steps</em>.</h2>
+      <div class="steps" style="margin-top:2.5rem;">
+        <div class="step"><div class="num">STEP 01</div><h3>We map it out</h3><p>A quick chat about your menu, whether you deliver, collect or both, and how your kitchen runs.</p></div>
+        <div class="step"><div class="num">STEP 02</div><h3>We build it</h3><p>Your branding, full menu, ordering, payments, delivery tracking, kitchen and driver screens, loyalty and push. All set up for you.</p></div>
+        <div class="step"><div class="num">STEP 03</div><h3>We launch it</h3><p>We get it live and walk your team through the kitchen and driver views so the first orders flow smoothly.</p></div>
+        <div class="step"><div class="num">STEP 04</div><h3>We keep it running</h3><p>Menu changes, tweaks and support all handled. You focus on the food.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-label center">/ Questions</div>
+      <div class="faq">
+        <details><summary>Do I have to leave Deliveroo and the others?</summary><p>No. Plenty of venues run both: keep the delivery apps for reach, and push your regulars to order direct on your own app where you keep everything. Every order that moves across is money back in your pocket.</p></details>
+        <details><summary>What is actually included for £99 a month?</summary><p>The whole platform: your branded app, ordering for collection and delivery, live tracking, push notifications, loyalty, and the kitchen and driver screens, plus hosting, support and menu updates. No commission on top, ever.</p></details>
+        <details><summary>Do customers really use their own restaurant's app?</summary><p>Yes, when it is genuinely good. The chains push their own apps hard precisely because direct customers order more often and are far cheaper to keep. The key is a fast, clean app that is easy to order from, which is the part we handle.</p></details>
+        <details><summary>Is there a long contract?</summary><p>No long tie-in. It is a simple monthly fee. Apply below and we will talk you through exactly how it works for your venue.</p></details>
+        <details><summary>How long does it take to build?</summary><p>Once we have your menu and branding, we build the whole platform and launch it for you. We will give you a clear timeline on our first call.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLY -->
+  <section class="dark-section section-pad" id="apply">
+    <div class="container">
+      <div class="section-label center">/ Apply</div>
+      <h2 style="text-align:center;">Get your own <em>ordering app</em>.</h2>
+      <p style="text-align:center;max-width:48ch;margin:1.2rem auto 2.5rem;color:rgba(245,243,238,0.75);font-size:1.1rem;line-height:1.6;">Fill this in and we will be in touch within 24 hours with exactly what you would keep. No obligation.</p>
+      <div class="app-form">
+        <form id="appForm">
+          <div class="frow">
+            <div class="fg"><label for="name">Your name *</label><input type="text" id="name" name="name" required placeholder="Jay Williams" /></div>
+            <div class="fg"><label for="email">Email *</label><input type="email" id="email" name="email" required placeholder="you@yourvenue.co.uk" /></div>
+          </div>
+          <div class="frow">
+            <div class="fg"><label for="business_name">Business name *</label><input type="text" id="business_name" name="business_name" required placeholder="Your venue" /></div>
+            <div class="fg"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" placeholder="07XXX XXX XXX" /></div>
+          </div>
+          <div class="frow">
+            <div class="fg"><label for="venue_type">Venue type</label>
+              <select id="venue_type" name="venue_type">
+                <option value="">Select</option>
+                <option>Restaurant</option>
+                <option>Takeaway</option>
+                <option>Cafe</option>
+                <option>Pub / Bar</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="fg"><label for="website">Website or Instagram</label><input type="text" id="website" name="website" placeholder="yoursite.co.uk or @handle" /></div>
+          </div>
+          <div class="fg"><label for="message">Anything you want us to know</label><textarea id="message" name="message" placeholder="Roughly how much do you do in delivery or collection a month? Anything else?"></textarea></div>
+          <button type="submit" class="submit" id="appSubmit">Apply Now &rarr;</button>
+          <p class="tiny">We reply within 24 hours. No obligation, no hard sell.</p>
+        </form>
+        <div class="form-success" id="appSuccess">
+          <h3>Application received</h3>
+          <p>Thanks. We have your details and will be in touch within 24 hours with exactly what you would keep. Check your inbox for a confirmation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="f-col-large">
+          <div class="footer-logo">Fusion Creative</div>
+          <p>Content, websites, apps and marketing that grows your business.<br/>Based in Newcastle upon Tyne. Working with businesses across the North East and the UK.</p>
+        </div>
+        <div class="f-col">
+          <h4>Ordering App</h4>
+          <ul>
+            <li><a href="#what">What we build</a></li>
+            <li><a href="#maths">The maths</a></li>
+            <li><a href="#apply">Apply</a></li>
+            <li><a href="/blog/what-delivery-apps-really-cost-restaurants">Delivery fees explained</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/#results">Results</a></li>
+            <li><a href="/case-studies">Case Studies</a></li>
+            <li><a href="/why-us">Why Us</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:jay@fusioncreative.uk">jay@fusioncreative.uk</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li>Newcastle upon Tyne · North East &amp; UK</li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="sys-status"><div class="status-dot"></div><span>System Operational</span></div>
+        <div class="copyright">&copy; 2026 Fusion Creative. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie banner -->
+  <div class="cookie-banner" id="cookieBanner">
+    <p>We use cookies to measure ad performance and improve your experience. <a href="/privacy">Privacy Policy</a></p>
+    <div class="cookie-btns">
+      <button type="button" class="cookie-decline" onclick="declineCookies()">Decline</button>
+      <button type="button" class="cookie-accept" onclick="acceptCookies()">Accept</button>
+    </div>
+  </div>
+
+  <script>
+    // Nav scroll + mobile toggle
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 100); });
+    const toggle = document.getElementById('navToggle');
+    const links = document.querySelector('.nav-links');
+    if (toggle) toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+    // Cookie consent
+    function acceptCookies(){localStorage.setItem('fc_cookie_consent','accepted');document.getElementById('cookieBanner').classList.remove('visible');loadFBPixel();}
+    function declineCookies(){localStorage.setItem('fc_cookie_consent','declined');document.getElementById('cookieBanner').classList.remove('visible');}
+    (function(){var c=localStorage.getItem('fc_cookie_consent');if(!c)setTimeout(function(){document.getElementById('cookieBanner').classList.add('visible');},2000);})();
+
+    // Apply form -> app-lead endpoint
+    (function(){
+      var form = document.getElementById('appForm');
+      var success = document.getElementById('appSuccess');
+      if(!form) return;
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        var btn = form.querySelector('.submit');
+        btn.textContent = 'Sending...'; btn.disabled = true;
+        var payload = {
+          name: (document.getElementById('name')||{}).value || '',
+          email: (document.getElementById('email')||{}).value || '',
+          phone: (document.getElementById('phone')||{}).value || '',
+          business_name: (document.getElementById('business_name')||{}).value || '',
+          venue_type: (document.getElementById('venue_type')||{}).value || '',
+          website: (document.getElementById('website')||{}).value || '',
+          message: (document.getElementById('message')||{}).value || ''
+        };
+        try {
+          var resp = await fetch('https://newgreek.fusioncreative.uk/api/app-lead/', {
+            method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload)
+          });
+          if(resp.ok){
+            form.style.display = 'none';
+            success.classList.add('show');
+            if(typeof fbq !== 'undefined') fbq('track','Lead',{content_name:'Ordering App Application', content_category:'App Service'});
+          } else { btn.textContent = 'Error - try again'; btn.disabled = false; }
+        } catch(err) { btn.textContent = 'Error - try again'; btn.disabled = false; }
+      });
+    })();
+  </script>
+  <script defer src="/assets/whatsapp.js"></script>
+</body>
+</html>
