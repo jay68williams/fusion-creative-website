@@ -52,6 +52,21 @@
     .dark-section .step p { color: rgba(245,243,238,0.7); }
     .dark-section.footer { background: var(--black); }
 
+    /* Collapse the nav to the hamburger up to 1024px (six links + button do not
+       fit in the tablet band, so they wrapped and covered the hero). Keep the
+       logo on one line. This page's nav has a .nav-toggle, so it is safe here. */
+    .nav-logo { white-space: nowrap; }
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none; flex-direction: column; position: absolute; top: 100%; left: 0;
+        width: 100%; background: var(--paper); padding: 1.5rem; border-radius: var(--rad-sm);
+        border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        opacity: 0; transform: translateY(-10px); transition: all 0.3s ease;
+      }
+      .nav-links.open { display: flex; opacity: 1; transform: translateY(0); }
+      .nav-toggle { display: flex; }
+    }
+
     .app-hero { padding: calc(var(--nav-height) + 5vmax) 0 4vmax; }
     .app-hero h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.02; letter-spacing: -0.04em; margin: 1.2rem 0 1.5rem; max-width: 16ch; }
     .app-hero h1 em { color: var(--signal); font-style: normal; }
