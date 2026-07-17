@@ -863,6 +863,15 @@ a:not(.btn):hover, button:not(.btn):hover { transform: translateY(-1px); }
 .ads-bar-label { font-family: var(--font-mono); font-size: 0.7rem; color: var(--mid); white-space: nowrap; }
 
 /* ===== WEBSITE DEMO ===== */
+/* Apps & Online Ordering mini demo */
+.demo-app-order { padding: 1rem; display: flex; align-items: center; justify-content: center; }
+.appdemo-phone { width: 200px; background: #111; border-radius: 22px; padding: 14px 14px 12px; color: #F5F3EE; box-shadow: 0 10px 26px rgba(17,17,17,0.25); }
+.appdemo-head { display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; font-weight: 600; margin-bottom: 10px; }
+.appdemo-pts { color: #E6B34A; font-family: var(--font-mono); font-size: 0.62rem; }
+.appdemo-cta { background: var(--signal); color: #fff; text-align: center; font-weight: 700; font-size: 0.82rem; border-radius: 999px; padding: 9px 0; }
+.appdemo-wallet { background: #000; border: 1px solid rgba(255,255,255,0.25); color: #fff; text-align: center; font-size: 0.7rem; font-weight: 600; border-radius: 8px; padding: 7px 0; margin-top: 8px; }
+.appdemo-note { font-family: var(--font-mono); font-size: 0.56rem; color: rgba(245,243,238,0.55); text-align: center; margin-top: 9px; letter-spacing: 0.05em; }
+
 .demo-website { padding: 1rem; align-items: stretch; }
 .web-preview { width: 100%; height: 100%; display: flex; flex-direction: column; }
 .web-topbar { display: flex; align-items: center; gap: 0.75rem; padding: 0.4rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 6px 6px 0 0; }
