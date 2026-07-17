@@ -84,6 +84,20 @@
     .statbar .stat .n.signal { color: var(--signal); }
     @media (max-width: 720px){ .statbar { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
 
+    /* Takdir showcase (App Store style gallery) */
+    .showcase-head { display: flex; align-items: center; gap: 1.4rem; margin: 2.6rem 0 2rem; flex-wrap: wrap; }
+    .showcase-icon { width: 84px; height: 84px; border-radius: 20px; box-shadow: 0 8px 24px rgba(17,17,17,.18); }
+    .showcase-title { font-family: var(--font-head); font-weight: 700; font-size: 1.5rem; letter-spacing: -0.02em; }
+    .showcase-sub { font-family: var(--font-mono); font-size: 0.8rem; color: var(--mid); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.35rem; }
+    .showcase-badges { display: flex; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; }
+    .showcase-badges span { font-family: var(--font-head); font-weight: 600; font-size: 0.75rem; background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 0.28rem 0.75rem; }
+    .shots { display: flex; gap: 1.8rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0.5rem 0.25rem 1.4rem; -webkit-overflow-scrolling: touch; }
+    .shot-card { flex: 0 0 auto; scroll-snap-align: start; }
+    .phone { width: 265px; background: #111; border-radius: 42px; padding: 10px; box-shadow: 0 18px 44px rgba(17,17,17,.22); }
+    .phone img { display: block; width: 100%; border-radius: 33px; }
+    .shot-cap { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); text-align: center; margin-top: 1rem; }
+    .swipe-hint { font-family: var(--font-mono); font-size: 0.78rem; color: var(--mid); letter-spacing: 0.06em; }
+
     /* Comparison table */
     .compare-wrap { overflow-x: auto; }
     .compare { width: 100%; border-collapse: collapse; min-width: 560px; background: var(--off-white); border: 1px solid var(--border); border-radius: var(--rad-md); overflow: hidden; }
@@ -222,6 +236,50 @@
         <div class="feature-card"><div class="feature-label">05</div><h3>Kitchen &amp; driver screens</h3><p>Orders land straight on a screen in the kitchen. Your drivers get their own queue. The whole operation runs through one clean system.</p></div>
         <div class="feature-card"><div class="feature-label">06</div><h3>We build and run it</h3><p>You do not touch a line of code. We set up the branding, the full menu, payments, tracking, loyalty and push, launch it, and keep it running.</p></div>
       </div>
+    </div>
+  </section>
+
+  <!-- TAKDIR SHOWCASE -->
+  <section class="section-pad" id="showcase" style="background:#fff;">
+    <div class="container">
+      <div class="section-label">/ A Real One We Built</div>
+      <h2>This is Takdir's app. <em>Yours is next.</em></h2>
+      <p style="max-width:54ch;color:#4a4a44;font-size:1.1rem;line-height:1.7;margin-top:1.5rem;">Takdir Indian Kitchen in Whitley Bay runs on our platform. Swipe through the actual app their customers use, then picture every screen in your branding, with your menu and your name on their home screen.</p>
+
+      <div class="showcase-head">
+        <img class="showcase-icon" src="/app/screens/takdir-icon.png" alt="Takdir app icon" width="84" height="84" />
+        <div>
+          <div class="showcase-title">Takdir · Order Online</div>
+          <div class="showcase-sub">Indian Kitchen, Grill &amp; Cocktail Bar · Whitley Bay</div>
+          <div class="showcase-badges">
+            <span>Collection</span><span>Delivery</span><span>Reservations</span><span>Loyalty</span><span>Apple Wallet</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="shots">
+        <div class="shot-card">
+          <div class="phone"><img src="/app/screens/takdir-home.png" alt="Takdir app home screen" width="390" height="844" /></div>
+          <div class="shot-cap">Home</div>
+        </div>
+        <div class="shot-card">
+          <div class="phone"><img src="/app/screens/takdir-menu.png" alt="Takdir app menu and ordering" width="390" height="844" /></div>
+          <div class="shot-cap">Ordering</div>
+        </div>
+        <div class="shot-card">
+          <div class="phone"><img src="/app/screens/takdir-rewards.png" alt="Takdir app rewards and Apple Wallet" loading="lazy" width="390" height="844" /></div>
+          <div class="shot-cap">Loyalty &amp; Wallet</div>
+        </div>
+        <div class="shot-card">
+          <div class="phone"><img src="/app/screens/takdir-reservation.png" alt="Takdir app table booking" loading="lazy" width="390" height="844" /></div>
+          <div class="shot-cap">Reservations</div>
+        </div>
+        <div class="shot-card">
+          <div class="phone"><img src="/app/screens/takdir-account.png" alt="Takdir app account screen" loading="lazy" width="390" height="844" /></div>
+          <div class="shot-cap">Account</div>
+        </div>
+      </div>
+      <div class="swipe-hint">Swipe to see every screen &rarr;</div>
     </div>
   </section>
 
