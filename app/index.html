@@ -82,6 +82,17 @@
       .hero-visual img { transform: rotate(4deg); }
     }
 
+    /* Floating feature cards (this page only) */
+    #what .feature-card {
+      background: #fff; border: none; border-radius: 22px; min-height: 0;
+      box-shadow: 0 14px 34px rgba(17,17,17,.09), 0 3px 10px rgba(17,17,17,.05);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    #what .feature-card:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(17,17,17,.13), 0 4px 12px rgba(17,17,17,.06); }
+    #what .feature-label { margin-bottom: 1.4rem; color: var(--signal); }
+    #what .feature-card p { margin-bottom: 0; }
+    #what .features-grid { padding: 0.5rem 0.25rem 1rem; }
+
     /* Mobile pass */
     .mobile-swipe-hint { display: none; }
     @media (max-width: 720px) {
@@ -92,7 +103,7 @@
       /* What-we-build cards become a swipe carousel */
       .features-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding-bottom: 1rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
       .features-grid::-webkit-scrollbar { display: none; }
-      .features-grid .feature-card { flex: 0 0 82%; scroll-snap-align: start; }
+      .features-grid .feature-card { flex: 0 0 82%; scroll-snap-align: start; padding: 1.8rem; }
       .mobile-swipe-hint { display: block; font-family: var(--font-mono); font-size: 0.78rem; color: var(--mid); letter-spacing: 0.06em; margin-top: 0.4rem; }
       .price-card { padding: 2rem 1.5rem; }
       .shots { gap: 1.2rem; }
