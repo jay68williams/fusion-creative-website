@@ -75,7 +75,27 @@
       -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
       mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
     }
-    @media (max-width: 1024px) { .hero-grid { grid-template-columns: 1fr; } .hero-visual { display: none; } }
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .hero-visual { max-width: 270px; margin: 0.5rem auto 0; }
+    }
+
+    /* Mobile pass */
+    .mobile-swipe-hint { display: none; }
+    @media (max-width: 720px) {
+      .app-hero { padding-top: calc(var(--nav-height) + 2.2rem); }
+      .app-hero .lede { margin-bottom: 1.6rem; }
+      .store-line { margin-bottom: 1.6rem; }
+      .statbar { margin-top: 2.4rem; padding: 1.8rem 0; }
+      /* What-we-build cards become a swipe carousel */
+      .features-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding-bottom: 1rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .features-grid::-webkit-scrollbar { display: none; }
+      .features-grid .feature-card { flex: 0 0 82%; scroll-snap-align: start; }
+      .mobile-swipe-hint { display: block; font-family: var(--font-mono); font-size: 0.78rem; color: var(--mid); letter-spacing: 0.06em; margin-top: 0.4rem; }
+      .price-card { padding: 2rem 1.5rem; }
+      .shots { gap: 1.2rem; }
+      .phone { width: 216px; }
+    }
     .app-hero h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.02; letter-spacing: -0.04em; margin: 1.2rem 0 1.5rem; max-width: 16ch; }
     .app-hero h1 em { color: var(--signal); font-style: normal; }
     .app-hero .lede { font-size: clamp(1.05rem, 2vw, 1.35rem); color: #4a4a44; max-width: 46ch; line-height: 1.6; margin-bottom: 2.2rem; }
@@ -211,7 +231,7 @@
         <span class="note">£249 setup · £99/month · 0% commission · 12-month minimum term</span>
       </div>
       </div>
-      <div class="hero-visual"><img src="/app/screens/takdir-phone-hand.png?v=3" alt="Takdir's ordering app held in a hand" width="728" height="1032" /></div>
+      <div class="hero-visual"><img src="/app/screens/takdir-phone-hand.png?v=4" alt="Takdir's ordering app held in a hand" width="728" height="1032" /></div>
       </div>
 
       <div class="statbar">
@@ -250,6 +270,7 @@
         <div class="feature-card"><div class="feature-label">05</div><h3>Kitchen &amp; driver screens</h3><p>Orders land straight on a screen in the kitchen. Your drivers get their own queue. The whole operation runs through one clean system.</p></div>
         <div class="feature-card"><div class="feature-label">06</div><h3>We build and run it</h3><p>You do not touch a line of code. We set up the branding, the full menu, payments, tracking, loyalty and push, launch it, and keep it running.</p></div>
       </div>
+      <div class="mobile-swipe-hint">Swipe to see all six &rarr;</div>
     </div>
   </section>
 
