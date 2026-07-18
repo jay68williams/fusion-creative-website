@@ -67,7 +67,17 @@
       .nav-toggle { display: flex; }
     }
 
-    .app-hero { padding: calc(var(--nav-height) + 5vmax) 0 4vmax; }
+    .app-hero { padding: calc(var(--nav-height) + 5vmax) 0 4vmax; position: relative; overflow: hidden; }
+    .app-hero .container { position: relative; }
+    /* Phone-in-hand render, feathered so its near-white studio bg melts into the hero */
+    .hero-phone {
+      position: absolute; right: -30px; top: 46%; transform: translateY(-50%);
+      width: min(34vw, 520px); pointer-events: none; z-index: 0;
+      -webkit-mask-image: radial-gradient(ellipse 62% 60% at 52% 50%, #000 62%, transparent 88%);
+      mask-image: radial-gradient(ellipse 62% 60% at 52% 50%, #000 62%, transparent 88%);
+    }
+    .app-hero .section-label, .app-hero h1, .app-hero .lede, .app-hero .store-line, .app-hero .app-ctas, .app-hero .statbar { position: relative; z-index: 1; }
+    @media (max-width: 1180px) { .hero-phone { display: none; } }
     .app-hero h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.02; letter-spacing: -0.04em; margin: 1.2rem 0 1.5rem; max-width: 16ch; }
     .app-hero h1 em { color: var(--signal); font-style: normal; }
     .app-hero .lede { font-size: clamp(1.05rem, 2vw, 1.35rem); color: #4a4a44; max-width: 46ch; line-height: 1.6; margin-bottom: 2.2rem; }
@@ -187,6 +197,7 @@
   <!-- HERO -->
   <section class="app-hero">
     <div class="container">
+      <img class="hero-phone" src="/app/screens/takdir-phone-hand.png?v=1" alt="Takdir's ordering app held in a hand" width="928" height="1152" />
       <div class="section-label">/ New from Fusion Creative</div>
       <h1>Your own ordering app. <em>Zero commission.</em></h1>
       <p class="lede">Stop handing Deliveroo, Uber Eats and Just Eat 20 to 35 percent of every order. We build you your own branded ordering app so every order comes straight to you, and you keep the lot.</p>
