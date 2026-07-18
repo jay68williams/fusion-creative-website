@@ -110,7 +110,9 @@
       .features-grid .feature-card { flex: 0 0 82%; scroll-snap-align: start; padding: 1.8rem; }
       .mobile-swipe-hint { display: block; font-family: var(--font-mono); font-size: 0.78rem; color: var(--mid); letter-spacing: 0.06em; margin-top: 0.4rem; }
       .price-card { padding: 2rem 1.5rem; }
-      .shots { gap: 1.2rem; }
+      /* Takdir showcase gallery: full-bleed like the feature carousel, with
+         shadow headroom so phone frames exit at the screen edge unclipped */
+      .shots { gap: 1.2rem; padding: 20px calc(50vw - 50% + 4px) 40px; margin: -20px calc(50% - 50vw) -16px; }
       .phone { width: 216px; }
     }
     .app-hero h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.02; letter-spacing: -0.04em; margin: 1.2rem 0 1.5rem; max-width: 16ch; }
