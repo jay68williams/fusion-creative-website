@@ -91,7 +91,6 @@
     #what .feature-card:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(17,17,17,.13), 0 4px 12px rgba(17,17,17,.06); }
     #what .feature-label { margin-bottom: 1.4rem; color: var(--signal); }
     #what .feature-card p { margin-bottom: 0; }
-    #what .features-grid { padding: 0.5rem 0.25rem 1rem; }
 
     /* Mobile pass */
     .mobile-swipe-hint { display: none; }
@@ -101,7 +100,10 @@
       .store-line { margin-bottom: 1.6rem; }
       .statbar { margin-top: 2.4rem; padding: 1.8rem 0; }
       /* What-we-build cards become a swipe carousel */
-      .features-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding-bottom: 1rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      /* Generous padding inside the scroller so card shadows are not clipped,
+         with negative margins so the layout footprint stays the same */
+      .features-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding: 28px 24px 48px; margin: -28px -24px -24px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .features-grid .feature-card:last-child { margin-right: 24px; }
       .features-grid::-webkit-scrollbar { display: none; }
       .features-grid .feature-card { flex: 0 0 82%; scroll-snap-align: start; padding: 1.8rem; }
       .mobile-swipe-hint { display: block; font-family: var(--font-mono); font-size: 0.78rem; color: var(--mid); letter-spacing: 0.06em; margin-top: 0.4rem; }
