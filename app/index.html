@@ -67,19 +67,15 @@
       .nav-toggle { display: flex; }
     }
 
-    .app-hero { padding: calc(var(--nav-height) + 5vmax) 0 4vmax; position: relative; overflow: hidden; }
-    .app-hero .container { position: relative; }
-    /* Phone-in-hand render, feathered so its near-white studio bg melts into the hero */
-    .hero-phone {
-      position: absolute; right: 0; top: 30px;
-      width: min(30vw, 450px); height: auto; pointer-events: none; z-index: 0;
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 7%, #000 74%, transparent 98%), linear-gradient(to right, transparent 0%, #000 10%, #000 100%);
-      -webkit-mask-composite: source-in;
-      mask-image: linear-gradient(to bottom, transparent 0%, #000 7%, #000 74%, transparent 98%), linear-gradient(to right, transparent 0%, #000 10%, #000 100%);
-      mask-composite: intersect;
+    .app-hero { padding: calc(var(--nav-height) + 5vmax) 0 4vmax; }
+    /* Two-column hero: copy left, transparent phone-in-hand cutout right (in flow, cannot overlap) */
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 400px); gap: 3rem; align-items: end; }
+    .hero-visual img {
+      display: block; width: 100%; height: auto;
+      -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
     }
-    .app-hero .section-label, .app-hero h1, .app-hero .lede, .app-hero .store-line, .app-hero .app-ctas, .app-hero .statbar { position: relative; z-index: 1; }
-    @media (max-width: 1180px) { .hero-phone { display: none; } }
+    @media (max-width: 1024px) { .hero-grid { grid-template-columns: 1fr; } .hero-visual { display: none; } }
     .app-hero h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.02; letter-spacing: -0.04em; margin: 1.2rem 0 1.5rem; max-width: 16ch; }
     .app-hero h1 em { color: var(--signal); font-style: normal; }
     .app-hero .lede { font-size: clamp(1.05rem, 2vw, 1.35rem); color: #4a4a44; max-width: 46ch; line-height: 1.6; margin-bottom: 2.2rem; }
@@ -199,7 +195,8 @@
   <!-- HERO -->
   <section class="app-hero">
     <div class="container">
-      <img class="hero-phone" src="/app/screens/takdir-phone-hand.png?v=2" alt="Takdir's ordering app held in a hand" width="868" height="870" />
+      <div class="hero-grid">
+      <div class="hero-copy">
       <div class="section-label">/ New from Fusion Creative</div>
       <h1>Your own ordering app. <em>Zero commission.</em></h1>
       <p class="lede">Stop handing Deliveroo, Uber Eats and Just Eat 20 to 35 percent of every order. We build you your own branded ordering app so every order comes straight to you, and you keep the lot.</p>
@@ -212,6 +209,9 @@
         <a href="#apply" class="btn btn-signal"><span>Apply Now &rarr;</span></a>
         <a href="#maths" class="btn btn-outline"><span>See the maths</span></a>
         <span class="note">£249 setup · £99/month · 0% commission · 12-month minimum term</span>
+      </div>
+      </div>
+      <div class="hero-visual"><img src="/app/screens/takdir-phone-hand.png?v=3" alt="Takdir's ordering app held in a hand" width="728" height="1032" /></div>
       </div>
 
       <div class="statbar">
