@@ -76,8 +76,10 @@
       mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
     }
     @media (max-width: 1024px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-      .hero-visual { max-width: 270px; margin: 0.5rem auto 0; }
+      .hero-grid { grid-template-columns: 1fr; gap: 0; }
+      /* Phone tucks against the right edge under the CTAs instead of floating centred */
+      .hero-visual { max-width: 232px; margin: -0.6rem -2rem 0 auto; }
+      .hero-visual img { transform: rotate(4deg); }
     }
 
     /* Mobile pass */
