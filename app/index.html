@@ -111,15 +111,15 @@
       .mobile-swipe-hint { display: block; font-family: var(--font-mono); font-size: 0.78rem; color: var(--mid); letter-spacing: 0.06em; margin-top: 0.4rem; }
       .price-card { padding: 2rem 1.5rem; }
       /* Comparison table restacks into label + two labelled values per row */
-      .compare { min-width: 0; display: block; width: 100%; }
-      .compare tbody { display: block; width: 100%; }
-      .compare thead { display: none; }
-      .compare tbody tr { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; padding: 1.1rem 1.2rem; border-bottom: 1px solid var(--border); }
-      .compare tbody tr:last-child { border-bottom: none; }
-      .compare td { border: none; padding: 0; font-size: 1.05rem; }
-      .compare td.row-label { grid-column: 1 / -1; margin-bottom: 0.55rem; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); }
-      .compare td.them::before { content: 'Delivery app'; display: block; font-family: var(--font-mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); margin-bottom: 0.15rem; }
-      .compare td.you::before { content: 'Your app'; display: block; font-family: var(--font-mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--signal); margin-bottom: 0.15rem; }
+      .compare-wrap .compare { min-width: 0; display: block; width: 100%; }
+      .compare-wrap .compare tbody { display: block; width: 100%; }
+      .compare-wrap .compare thead { display: none; }
+      .compare-wrap .compare tbody tr { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; padding: 1.1rem 1.2rem; border-bottom: 1px solid var(--border); }
+      .compare-wrap .compare tbody tr:last-child { border-bottom: none; }
+      .compare-wrap .compare td { border: none; padding: 0; font-size: 1.05rem; }
+      .compare-wrap .compare td.row-label { grid-column: 1 / -1; margin-bottom: 0.55rem; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); }
+      .compare-wrap .compare td.them::before { content: 'Delivery app'; display: block; font-family: var(--font-mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); margin-bottom: 0.15rem; }
+      .compare-wrap .compare td.you::before { content: 'Your app'; display: block; font-family: var(--font-mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--signal); margin-bottom: 0.15rem; }
       /* Takdir showcase gallery: full-bleed like the feature carousel, with
          shadow headroom so phone frames exit at the screen edge unclipped */
       .shots { gap: 1.2rem; padding: 20px calc(50vw - 50% + 4px) 40px; margin: -20px calc(50% - 50vw) -16px; }
