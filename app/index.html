@@ -94,6 +94,12 @@
 
     /* Mobile pass */
     .mobile-swipe-hint { display: none; }
+    @media (max-width: 768px) {
+      /* main.css clips .container (overflow hidden) on mobile, which was cutting
+         the full-bleed carousels and the hero phone at the container edge */
+      .app-hero .container, #what .container, #showcase .container { overflow: visible; }
+      .app-hero, #what, #showcase { overflow-x: clip; }
+    }
     @media (max-width: 720px) {
       .app-hero { padding-top: calc(var(--nav-height) + 2.2rem); }
       .app-hero .lede { margin-bottom: 1.6rem; }
@@ -111,15 +117,18 @@
       .mobile-swipe-hint { display: block; font-family: var(--font-mono); font-size: 0.78rem; color: var(--mid); letter-spacing: 0.06em; margin-top: 0.4rem; }
       .price-card { padding: 2rem 1.5rem; }
       /* Comparison table restacks into label + two labelled values per row */
-      .compare-wrap .compare { min-width: 0; display: block; width: 100%; }
-      .compare-wrap .compare tbody { display: block; width: 100%; }
+      .compare-wrap { overflow: visible; }
+      .compare-wrap .compare { min-width: 0; display: block; width: 100%; background: transparent; border: none; }
       .compare-wrap .compare thead { display: none; }
-      .compare-wrap .compare tbody tr { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; padding: 1.1rem 1.2rem; border-bottom: 1px solid var(--border); }
-      .compare-wrap .compare tbody tr:last-child { border-bottom: none; }
-      .compare-wrap .compare td { border: none; padding: 0; font-size: 1.05rem; }
-      .compare-wrap .compare td.row-label { grid-column: 1 / -1; margin-bottom: 0.55rem; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); }
-      .compare-wrap .compare td.them::before { content: 'Delivery app'; display: block; font-family: var(--font-mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); margin-bottom: 0.15rem; }
-      .compare-wrap .compare td.you::before { content: 'Your app'; display: block; font-family: var(--font-mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--signal); margin-bottom: 0.15rem; }
+      .compare-wrap .compare tbody { display: flex; flex-direction: column; gap: 0.85rem; width: 100%; }
+      .compare-wrap .compare tbody tr { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; padding: 1.05rem 1.1rem 1.1rem; background: #fff; border-radius: 16px; box-shadow: 0 8px 22px rgba(17,17,17,.07), 0 2px 6px rgba(17,17,17,.04); }
+      .compare-wrap .compare tbody tr:hover { background: #fff; }
+      .compare-wrap .compare td { border: none; padding: 0; font-size: 1rem; }
+      .compare-wrap .compare td.row-label { grid-column: 1 / -1; font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; color: var(--black); margin-bottom: 0.2rem; }
+      .compare-wrap .compare td.them { color: #6a6a63; padding: 0.55rem 0.2rem 0.2rem 0; }
+      .compare-wrap .compare td.you { background: rgba(230,59,46,0.07); border-radius: 12px; padding: 0.55rem 0.7rem 0.7rem; font-weight: 600; color: var(--black); }
+      .compare-wrap .compare td.them::before { content: 'Delivery app'; display: block; font-family: var(--font-mono); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); margin-bottom: 0.25rem; }
+      .compare-wrap .compare td.you::before { content: 'Your app'; display: block; font-family: var(--font-mono); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--signal); margin-bottom: 0.25rem; }
       /* Takdir showcase gallery: full-bleed like the feature carousel, with
          shadow headroom so phone frames exit at the screen edge unclipped */
       .shots { gap: 1.2rem; box-sizing: border-box; width: 100vw; margin: -20px 0 -16px calc(50% - 50vw); padding: 20px 24px 40px; }
