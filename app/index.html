@@ -71,10 +71,10 @@
     .app-hero .container { position: relative; }
     /* Phone-in-hand render, feathered so its near-white studio bg melts into the hero */
     .hero-phone {
-      position: absolute; right: -10px; top: 10px;
-      width: min(29vw, 440px); pointer-events: none; z-index: 0;
-      -webkit-mask-image: radial-gradient(ellipse 62% 60% at 52% 50%, #000 62%, transparent 88%);
-      mask-image: radial-gradient(ellipse 62% 60% at 52% 50%, #000 62%, transparent 88%);
+      position: absolute; right: 0; top: 30px;
+      width: min(30vw, 450px); pointer-events: none; z-index: 0;
+      -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 98%);
+      mask-image: linear-gradient(to bottom, #000 74%, transparent 98%);
     }
     .app-hero .section-label, .app-hero h1, .app-hero .lede, .app-hero .store-line, .app-hero .app-ctas, .app-hero .statbar { position: relative; z-index: 1; }
     @media (max-width: 1180px) { .hero-phone { display: none; } }
@@ -197,7 +197,7 @@
   <!-- HERO -->
   <section class="app-hero">
     <div class="container">
-      <img class="hero-phone" src="/app/screens/takdir-phone-hand.png?v=1" alt="Takdir's ordering app held in a hand" width="928" height="1152" />
+      <img class="hero-phone" src="/app/screens/takdir-phone-hand.png?v=2" alt="Takdir's ordering app held in a hand" width="868" height="870" />
       <div class="section-label">/ New from Fusion Creative</div>
       <h1>Your own ordering app. <em>Zero commission.</em></h1>
       <p class="lede">Stop handing Deliveroo, Uber Eats and Just Eat 20 to 35 percent of every order. We build you your own branded ordering app so every order comes straight to you, and you keep the lot.</p>
