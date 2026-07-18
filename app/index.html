@@ -102,7 +102,9 @@
       /* What-we-build cards become a swipe carousel */
       /* Generous padding inside the scroller so card shadows are not clipped,
          with negative margins so the layout footprint stays the same */
-      .features-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding: 28px 24px 48px; margin: -28px -24px -24px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      /* Full-bleed scroller: clip edge = screen edge, so cards slide off screen
+         naturally; inner padding keeps resting cards aligned + shadows unclipped */
+      .features-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding: 28px calc(50vw - 50% + 4px) 48px; margin: -28px calc(50% - 50vw) -24px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
       .features-grid .feature-card:last-child { margin-right: 24px; }
       .features-grid::-webkit-scrollbar { display: none; }
       .features-grid .feature-card { flex: 0 0 82%; scroll-snap-align: start; padding: 1.8rem; }
