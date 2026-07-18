@@ -61,7 +61,7 @@ None of this means delivery is a bad idea. Ordering food to your door is not goi
 
 The fix is simple in principle: have your own ordering app, where the order comes straight to you and you pay **zero commission** on it. A flat, predictable cost instead of a cut of everything.
 
-That used to be the preserve of the big chains with big budgets. It is not any more. At Fusion Creative we build independent restaurants their own branded ordering app: customers order, collect or get it delivered, and you keep the full value of every order. It is **£249 to set up and £99 a month, with no commission on a single order**, ever.
+That used to be the preserve of the big chains with big budgets. It is not any more. At Fusion Creative we build independent restaurants their own branded ordering app: customers order, collect or get it delivered, and you keep the full value of every order. It is **£249 to set up and £99 a month on a 12-month minimum term, with no commission on a single order**, ever.
 
 Run the numbers against that £2,400-a-month commission bill and it is not close. A flat £99 a month versus 30 percent of everything you sell.
 
@@ -75,7 +75,7 @@ Work out your own monthly commission bill. If it is more than £99, you already 
 
 <div class="blog-cta-box">
 <h3>Stop paying a cut of every order</h3>
-<p>We build independent restaurants their own branded ordering app: your customers order, collect or get it delivered, and you keep the full value of every order. £249 to set up, £99 a month, zero commission. See exactly what you would keep.</p>
+<p>We build independent restaurants their own branded ordering app: your customers order, collect or get it delivered, and you keep the full value of every order. £249 to set up, £99 a month on a 12-month minimum term, zero commission. See exactly what you would keep.</p>
 <a href="/app/" class="btn btn-signal"><span>See How It Works &rarr;</span></a>
 </div>
 

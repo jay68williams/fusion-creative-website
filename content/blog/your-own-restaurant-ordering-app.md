@@ -38,7 +38,7 @@ We keep it simple, because you have a restaurant to run.
 
 ## The cost, and why it is not close
 
-Here is the part that surprises people. The whole platform is **£249 to set up and £99 a month. Zero commission on any order, ever.**
+Here is the part that surprises people. The whole platform is **£249 to set up and £99 a month on a 12-month minimum term. Zero commission on any order, ever.**
 
 Now compare that to the delivery apps, which take a percentage of everything you sell, forever. Say you do £8,000 a month in delivery orders:
 
@@ -68,6 +68,6 @@ You do not have to leave the delivery apps overnight either. Plenty of venues ru
 
 <div class="blog-cta-box">
 <h3>Get your own ordering app</h3>
-<p>Your own branded app, ordering, delivery tracking, loyalty and push notifications, built and run for you. £249 to set up, £99 a month, zero commission. Apply on our ordering app page and we will show you exactly what you would keep.</p>
+<p>Your own branded app, ordering, delivery tracking, loyalty and push notifications, built and run for you. £249 to set up, £99 a month on a 12-month minimum term, zero commission. Apply on our ordering app page and we will show you exactly what you would keep.</p>
 <a href="/app/" class="btn btn-signal"><span>Apply Now &rarr;</span></a>
 </div>
