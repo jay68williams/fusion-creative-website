@@ -104,7 +104,7 @@
          with negative margins so the layout footprint stays the same */
       /* Full-bleed scroller: clip edge = screen edge, so cards slide off screen
          naturally; inner padding keeps resting cards aligned + shadows unclipped */
-      .features-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding: 28px calc(50vw - 50% + 4px) 48px; margin: -28px calc(50% - 50vw) -24px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .features-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; box-sizing: border-box; width: 100vw; margin: -28px 0 -24px calc(50% - 50vw); padding: 28px 24px 48px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
       .features-grid .feature-card:last-child { margin-right: 24px; }
       .features-grid::-webkit-scrollbar { display: none; }
       .features-grid .feature-card { flex: 0 0 82%; scroll-snap-align: start; padding: 1.8rem; }
@@ -122,7 +122,7 @@
       .compare-wrap .compare td.you::before { content: 'Your app'; display: block; font-family: var(--font-mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--signal); margin-bottom: 0.15rem; }
       /* Takdir showcase gallery: full-bleed like the feature carousel, with
          shadow headroom so phone frames exit at the screen edge unclipped */
-      .shots { gap: 1.2rem; padding: 20px calc(50vw - 50% + 4px) 40px; margin: -20px calc(50% - 50vw) -16px; }
+      .shots { gap: 1.2rem; box-sizing: border-box; width: 100vw; margin: -20px 0 -16px calc(50% - 50vw); padding: 20px 24px 40px; }
       .phone { width: 216px; }
     }
     .app-hero h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.02; letter-spacing: -0.04em; margin: 1.2rem 0 1.5rem; max-width: 16ch; }
@@ -368,6 +368,9 @@
         </table>
       </div>
       <p style="color:var(--mid);font-size:0.85rem;margin-top:1rem;font-family:var(--font-mono);">Delivery figures based on published UK commission rates. Your actual saving depends on your order volume.</p>
+      <div style="text-align:center;margin-top:2.8rem;">
+        <a href="#apply" class="btn btn-signal"><span>Apply Now &rarr;</span></a>
+      </div>
     </div>
   </section>
 
