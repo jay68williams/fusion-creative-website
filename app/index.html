@@ -73,8 +73,10 @@
     .hero-phone {
       position: absolute; right: 0; top: 30px;
       width: min(30vw, 450px); height: auto; pointer-events: none; z-index: 0;
-      -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 98%);
-      mask-image: linear-gradient(to bottom, #000 74%, transparent 98%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 7%, #000 74%, transparent 98%), linear-gradient(to right, transparent 0%, #000 10%, #000 100%);
+      -webkit-mask-composite: source-in;
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 7%, #000 74%, transparent 98%), linear-gradient(to right, transparent 0%, #000 10%, #000 100%);
+      mask-composite: intersect;
     }
     .app-hero .section-label, .app-hero h1, .app-hero .lede, .app-hero .store-line, .app-hero .app-ctas, .app-hero .statbar { position: relative; z-index: 1; }
     @media (max-width: 1180px) { .hero-phone { display: none; } }
