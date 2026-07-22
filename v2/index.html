@@ -86,9 +86,17 @@
      bottom row gets clipped by the fixed-height stack */
   @media(max-width:620px){ .deck{height:680px} .dcard p{margin:14px 0 18px} .dquote p{font-size:.92rem} }
   @media(max-width:400px){ .deck{height:720px} }
-  .dcard{position:absolute;inset:0;background:var(--ink);color:var(--off);border-radius:24px;padding:clamp(28px,4vw,46px);
-    display:flex;flex-direction:column;box-shadow:0 30px 70px rgba(17,17,17,.22);
+  .dcard{position:absolute;inset:0;background:var(--ink) center/cover no-repeat;color:var(--off);border-radius:24px;
+    padding:clamp(28px,4vw,46px);display:flex;flex-direction:column;overflow:hidden;
+    box-shadow:0 30px 70px rgba(17,17,17,.22);
     transition:transform .62s cubic-bezier(.22,1,.36,1),opacity .45s ease;will-change:transform,opacity;cursor:grab}
+  /* scrim: dark where the copy sits, photo left visible to the right */
+  .dcard::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+    background:linear-gradient(100deg, rgba(14,14,14,.965) 0%, rgba(14,14,14,.92) 44%, rgba(14,14,14,.62) 70%, rgba(14,14,14,.34) 100%)}
+  .dcard > *{position:relative;z-index:1}
+  @media(max-width:940px){
+    .dcard::before{background:linear-gradient(180deg, rgba(14,14,14,.9) 0%, rgba(14,14,14,.94) 50%, rgba(14,14,14,.975) 100%)}
+  }
   .dcard.drag{transition:none}
   .dcard:active{cursor:grabbing}
   .dcard .handle{font-family:var(--mono);font-size:12px;letter-spacing:.09em;color:var(--signal)}
@@ -103,10 +111,10 @@
   .dlive i{width:6px;height:6px;border-radius:50%;background:var(--signal);flex:none;animation:pulse 2.2s ease-in-out infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
   @media (prefers-reduced-motion:reduce){ .dlive i{animation:none} }
-  .dfigs{margin-top:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(245,243,238,.14);
-    border:1px solid rgba(245,243,238,.14);border-radius:14px;overflow:hidden}
+  .dfigs{margin-top:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(245,243,238,.18);
+    border:1px solid rgba(245,243,238,.18);border-radius:14px;overflow:hidden}
   @media(min-width:620px){ .dfigs{grid-template-columns:repeat(4,1fr)} }
-  .dfig{background:var(--ink);padding:18px 16px}
+  .dfig{background:rgba(10,10,10,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:18px 16px}
   .dfig .v{font-family:var(--head);font-size:clamp(1.5rem,3vw,2.1rem);line-height:1;color:var(--off);letter-spacing:-.02em}
   .dfig .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:rgba(245,243,238,.5);margin-top:9px;line-height:1.45}
   .deck-side{display:flex;flex-direction:column;gap:18px}
@@ -324,6 +332,7 @@ const BRANDS = ['New Greek','Takdir','The Northumberland Candle Co.','The Bake O
 const CASES = [
   {
     key: 'New Greek',
+    img: 'img/newgreek.jpg',
     handle: '@new.greek',
     title: 'Local business, national reach',
     body: 'Built from scratch. One reel alone passed 70 million views, and the account still reaches close to a million people every month.',
@@ -334,6 +343,7 @@ const CASES = [
   },
   {
     key: 'Takdir',
+    img: 'img/takdir.jpg',
     handle: '@takdir',
     title: 'A standing start to almost 4 million views',
     body: 'A brand new account for a Whitley Bay restaurant, led with the people rather than the product.',
@@ -342,6 +352,7 @@ const CASES = [
   },
   {
     key: 'Candle Co.',
+    img: 'img/candleco.jpg',
     handle: '@thenorthumberlandcandleco',
     title: 'Turning £1,557 of ad spend into £24,358',
     body: 'Paid social built on top of content that had already proven itself organically, over a three week window.',
@@ -356,7 +367,7 @@ const dots = document.getElementById('dots');
 function fmt(v){ return v; }
 
 deck.innerHTML = CASES.map((c,i) => `
-  <article class="dcard" data-i="${i}">
+  <article class="dcard" data-i="${i}" style="background-image:url('${c.img}')">
     <div class="handle">${c.handle}</div>
     <h3>${c.title}</h3>
     <p>${c.body}</p>
