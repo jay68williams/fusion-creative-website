@@ -82,6 +82,10 @@
   .deck-wrap{margin-top:clamp(40px,6vw,64px);display:grid;grid-template-columns:1fr 320px;gap:clamp(26px,4vw,56px);align-items:center}
   @media(max-width:940px){ .deck-wrap{grid-template-columns:1fr;gap:28px} }
   .deck{position:relative;height:clamp(390px,44vw,450px);touch-action:pan-y}
+  /* below 620px the figures stack 2x2, which needs more card height or the
+     bottom row gets clipped by the fixed-height stack */
+  @media(max-width:620px){ .deck{height:560px} .dcard p{margin:14px 0 20px} }
+  @media(max-width:400px){ .deck{height:590px} }
   .dcard{position:absolute;inset:0;background:var(--ink);color:var(--off);border-radius:24px;padding:clamp(28px,4vw,46px);
     display:flex;flex-direction:column;box-shadow:0 30px 70px rgba(17,17,17,.22);
     transition:transform .62s cubic-bezier(.22,1,.36,1),opacity .45s ease;will-change:transform,opacity;cursor:grab}
