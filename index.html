@@ -1204,6 +1204,62 @@
     </div>
   </section>
 
+  <!-- CLIENT WORDS / TESTIMONIALS -->
+  <section class="testimonials-section section-pad" id="testimonials">
+    <style>
+      .testimonials-section{background:var(--off-white);}
+      .tm-grid{display:grid;gap:2rem;margin-top:2.5rem;}
+      .tm-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--rad-md);
+        padding:clamp(2rem,4vw,3.25rem);position:relative;overflow:hidden;}
+      .tm-card:before{content:"\201C";position:absolute;top:-2.2rem;right:1.5rem;font-family:var(--font-serif);
+        font-size:11rem;line-height:1;color:var(--signal);opacity:.09;pointer-events:none;}
+      .tm-quote{font-family:var(--font-serif);font-size:clamp(1.25rem,2.6vw,1.85rem);line-height:1.45;
+        color:var(--black);margin:0 0 2rem;position:relative;z-index:1;}
+      .tm-foot{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+      .tm-logo{width:54px;height:54px;border-radius:50%;object-fit:cover;flex-shrink:0;background:#111;}
+      .tm-who .n{font-weight:600;font-size:1rem;color:var(--black);line-height:1.3;}
+      .tm-who .r{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;
+        color:var(--mid);margin-top:4px;}
+      .tm-stars{margin-left:auto;color:var(--signal);letter-spacing:.18em;font-size:.95rem;}
+      .tm-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
+        border:1px solid var(--border);border-radius:var(--rad-sm);overflow:hidden;margin-top:2.25rem;}
+      .tm-stat{background:var(--paper);padding:1.4rem 1.2rem;}
+      .tm-stat .v{font-family:var(--font-head);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;
+        color:var(--signal);line-height:1;}
+      .tm-stat .k{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;
+        color:var(--mid);margin-top:.6rem;line-height:1.4;}
+      @media (max-width:640px){
+        .tm-stats{grid-template-columns:1fr;}
+        .tm-stars{margin-left:0;width:100%;}
+      }
+    </style>
+    <div class="container">
+      <div class="section-label">/ In Their Words</div>
+      <h2>Do not take it from <em>us.</em></h2>
+
+      <div class="tm-grid">
+        <div class="tm-card reveal-card">
+          <p class="tm-quote">We started with Fusion just over a year ago, and since then everything has changed in our restaurant and bakery. We could not ask for anything more from you guys. You are the best at what you do. Respect from the New Greek team.</p>
+
+          <div class="tm-foot">
+            <img class="tm-logo" src="/assets/logos/new-greek.png" alt="New Greek logo" width="54" height="54" loading="lazy">
+            <div class="tm-who">
+              <div class="n">Sero</div>
+              <div class="r">New Greek &middot; Newcastle</div>
+            </div>
+            <div class="tm-stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          </div>
+
+          <div class="tm-stats">
+            <div class="tm-stat"><div class="v">+40%</div><div class="k">Weekly sales since starting</div></div>
+            <div class="tm-stat"><div class="v">72M</div><div class="k">Views on a single video</div></div>
+            <div class="tm-stat"><div class="v">2 yrs</div><div class="k">Of sales beaten in months</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FREE AUDIT CTA (between client wins and guarantee) -->
   <section style="background:#0a0a0a; padding:clamp(60px,8vw,100px) 0; position:relative; overflow:hidden;" id="free-audit">
     <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(230,59,46,0.08) 0%, transparent 60%);pointer-events:none;"></div>
