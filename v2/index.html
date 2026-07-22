@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Fusion Creative · Homepage v2 preview</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#111111; --paper:#E8E4DD; --off:#F5F3EE; --signal:#E63B2E;
+    --mid:#6f6a61; --dim:#9a948a; --line:rgba(17,17,17,.12);
+    --head:'DM Serif Display',serif; --body:'Space Grotesk',system-ui,sans-serif; --mono:'Space Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--off);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .vc{width:100%;max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+  .sec{padding:clamp(80px,12vh,150px) 0}
+  a{color:inherit}
+
+  /* ---------- reveal ---------- */
+  .r{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+  .r.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){ .r{opacity:1;transform:none;transition:none} html{scroll-behavior:auto} }
+
+  /* ---------- nav ---------- */
+  .nav{position:fixed;top:14px;left:0;right:0;z-index:100;display:flex;justify-content:center;pointer-events:none}
+  .nav-in{pointer-events:auto;display:flex;align-items:center;gap:clamp(18px,3vw,38px);
+    background:rgba(245,243,238,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border:1px solid var(--line);border-radius:999px;padding:10px 12px 10px 24px;box-shadow:0 6px 26px rgba(17,17,17,.06)}
+  .nav-logo{font-weight:700;letter-spacing:-.02em;font-size:15px;white-space:nowrap;text-decoration:none}
+  .nav-links{display:flex;gap:clamp(14px,2.2vw,26px);list-style:none}
+  .nav-links a{font-size:13.5px;color:var(--mid);text-decoration:none;transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{background:var(--signal);color:#fff;text-decoration:none;font-weight:600;font-size:13.5px;
+    padding:10px 20px;border-radius:999px;white-space:nowrap;transition:background .2s}
+  .nav-cta:hover{background:var(--ink)}
+  @media(max-width:820px){ .nav-links{display:none} .nav-in{padding-left:20px} }
+
+  /* ---------- hero ---------- */
+  .hero{min-height:100svh;display:flex;align-items:center;padding:120px 0 60px}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--signal);
+    display:inline-flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--signal)}
+  h1{font-family:var(--head);font-weight:400;font-size:clamp(3rem,9.5vw,7.6rem);line-height:.95;letter-spacing:-.025em;margin:26px 0 0}
+  .rot{display:inline-block;position:relative;color:var(--signal);font-style:italic;min-width:5ch}
+  .rot span{display:inline-block}
+  .hero-line{margin-top:32px;font-size:clamp(1.02rem,1.6vw,1.22rem);color:var(--mid);max-width:44ch;line-height:1.65}
+  .hero-cta{margin-top:44px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--off);text-decoration:none;
+    font-weight:600;font-size:15px;padding:17px 34px;border-radius:999px;transition:background .25s,transform .25s}
+  .btn:hover{background:var(--signal);transform:translateY(-2px)}
+  .btn-sig{background:var(--signal);color:#fff}
+  .btn-sig:hover{background:var(--ink)}
+  .hero-note{font-family:var(--mono);font-size:12px;color:var(--dim)}
+
+  /* ---------- logo marquee ---------- */
+  .marq{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;background:var(--paper)}
+  .marq-t{display:flex;gap:clamp(40px,6vw,80px);width:max-content;animation:slide 38s linear infinite}
+  @keyframes slide{to{transform:translateX(-50%)}}
+  .marq-t span{font-family:var(--head);font-size:clamp(1.1rem,2vw,1.5rem);color:var(--mid);white-space:nowrap;opacity:.75}
+  @media (prefers-reduced-motion:reduce){ .marq-t{animation:none} }
+
+  /* ---------- stats ---------- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .stat{background:var(--off);padding:clamp(26px,4vw,42px) clamp(18px,2.4vw,28px)}
+  .stat .v{font-family:var(--head);font-size:clamp(2.1rem,5vw,3.5rem);line-height:1;letter-spacing:-.03em}
+  .stat .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-top:12px;line-height:1.5}
+  @media(max-width:760px){ .stats{grid-template-columns:1fr 1fr} }
+
+  /* ---------- section heads ---------- */
+  .shead{max-width:20ch}
+  h2{font-family:var(--head);font-weight:400;font-size:clamp(2.1rem,5.4vw,4rem);line-height:1.02;letter-spacing:-.02em;margin-top:18px}
+  h2 em{color:var(--signal);font-style:italic}
+  .sub{margin-top:20px;color:var(--mid);max-width:52ch;font-size:1.02rem;line-height:1.7}
+
+  /* ---------- CASE STUDY DECK (signature) ---------- */
+  .deck-wrap{margin-top:clamp(40px,6vw,64px);display:grid;grid-template-columns:1fr 320px;gap:clamp(26px,4vw,56px);align-items:center}
+  @media(max-width:940px){ .deck-wrap{grid-template-columns:1fr;gap:28px} }
+  .deck{position:relative;height:clamp(430px,52vw,500px);touch-action:pan-y}
+  .dcard{position:absolute;inset:0;background:var(--ink);color:var(--off);border-radius:24px;padding:clamp(28px,4vw,46px);
+    display:flex;flex-direction:column;box-shadow:0 30px 70px rgba(17,17,17,.22);
+    transition:transform .62s cubic-bezier(.22,1,.36,1),opacity .45s ease;will-change:transform,opacity;cursor:grab}
+  .dcard.drag{transition:none}
+  .dcard:active{cursor:grabbing}
+  .dcard .handle{font-family:var(--mono);font-size:12px;letter-spacing:.09em;color:var(--signal)}
+  .dcard h3{font-family:var(--head);font-weight:400;font-size:clamp(1.6rem,3.4vw,2.5rem);line-height:1.06;letter-spacing:-.02em;margin:14px 0 0;max-width:16ch}
+  .dcard p{color:rgba(245,243,238,.66);font-size:.96rem;line-height:1.65;margin-top:16px;max-width:46ch}
+  .dfigs{margin-top:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(245,243,238,.14);
+    border:1px solid rgba(245,243,238,.14);border-radius:14px;overflow:hidden}
+  @media(min-width:620px){ .dfigs{grid-template-columns:repeat(4,1fr)} }
+  .dfig{background:var(--ink);padding:18px 16px}
+  .dfig .v{font-family:var(--head);font-size:clamp(1.5rem,3vw,2.1rem);line-height:1;color:var(--off);letter-spacing:-.02em}
+  .dfig .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:rgba(245,243,238,.5);margin-top:9px;line-height:1.45}
+  .deck-side{display:flex;flex-direction:column;gap:18px}
+  .deck-nav{display:flex;gap:10px}
+  .dbtn{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);
+    font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s,border-color .2s}
+  .dbtn:hover{background:var(--ink);color:var(--off);border-color:var(--ink)}
+  .dots{display:flex;flex-direction:column;gap:12px}
+  @media(max-width:940px){ .dots{flex-direction:row;align-items:center} .deck-side{flex-direction:row;justify-content:space-between;align-items:center} }
+  .dot{display:flex;align-items:center;gap:12px;background:none;border:none;cursor:pointer;text-align:left;padding:0;font-family:var(--mono);
+    font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);transition:color .2s}
+  .dot::before{content:"";width:26px;height:2px;background:var(--line);transition:background .3s,width .3s}
+  .dot.on{color:var(--ink)} .dot.on::before{background:var(--signal);width:40px}
+  @media(max-width:940px){ .dot span{display:none} .dot::before{width:22px} .dot.on::before{width:34px} }
+
+  /* ---------- services ---------- */
+  .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line);margin-top:clamp(40px,6vw,64px)}
+  @media(max-width:900px){ .svc{grid-template-columns:1fr 1fr} }
+  @media(max-width:600px){ .svc{grid-template-columns:1fr} }
+  .svc-i{background:var(--off);padding:clamp(28px,3.4vw,40px) clamp(22px,2.6vw,32px);transition:background .3s}
+  .svc-i:hover{background:var(--paper)}
+  .svc-i h3{font-family:var(--head);font-weight:400;font-size:1.35rem;letter-spacing:-.01em;margin-bottom:12px}
+  .svc-i p{color:var(--mid);font-size:.94rem;line-height:1.66}
+
+  /* ---------- process ---------- */
+  .steps{margin-top:clamp(40px,6vw,64px);display:grid;gap:0}
+  .step{display:grid;grid-template-columns:80px 1fr;gap:clamp(18px,3vw,40px);padding:30px 0;border-top:1px solid var(--line);align-items:start}
+  .step:last-child{border-bottom:1px solid var(--line)}
+  .step .n{font-family:var(--mono);font-size:12px;color:var(--signal);letter-spacing:.1em;padding-top:7px}
+  .step h3{font-family:var(--head);font-weight:400;font-size:clamp(1.3rem,2.6vw,1.85rem);letter-spacing:-.01em}
+  .step p{color:var(--mid);font-size:.98rem;line-height:1.7;margin-top:9px;max-width:60ch}
+  @media(max-width:640px){ .step{grid-template-columns:1fr;gap:6px} .step .n{padding-top:0} }
+
+  /* ---------- close ---------- */
+  .close{background:var(--ink);color:var(--off);border-radius:28px;padding:clamp(46px,7vw,90px) clamp(26px,5vw,70px);text-align:center}
+  .close h2{color:var(--off)}
+  .close .sub{color:rgba(245,243,238,.66);margin-left:auto;margin-right:auto}
+  .close .btn{margin-top:38px;background:var(--signal);color:#fff}
+  .close .btn:hover{background:var(--off);color:var(--ink)}
+
+  footer{padding:56px 0 40px;border-top:1px solid var(--line);margin-top:clamp(70px,10vw,120px)}
+  .fgrid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+  .fgrid p{font-family:var(--mono);font-size:11.5px;color:var(--dim);letter-spacing:.05em}
+  .fgrid a{font-family:var(--mono);font-size:11.5px;color:var(--mid);text-decoration:none;letter-spacing:.05em}
+  .fgrid a:hover{color:var(--signal)}
+
+  .pnote{position:fixed;bottom:12px;left:12px;z-index:200;background:var(--ink);color:var(--off);font-family:var(--mono);
+    font-size:10.5px;letter-spacing:.07em;padding:8px 14px;border-radius:999px;opacity:.85}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a href="#top" class="nav-logo">Fusion Creative</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how">How it works</a></li>
+    </ul>
+    <a href="#apply" class="nav-cta">Work with us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="vc">
+    <div class="eyebrow r">90 million views generated for local brands</div>
+    <h1 class="r" style="transition-delay:.08s">We make your<br><span class="rot"><span id="rotWord">restaurant</span></span><br>grow online.</h1>
+    <p class="hero-line r" style="transition-delay:.16s">Short-form video that actually gets watched, and the websites, apps and ads to turn that attention into bookings.</p>
+    <div class="hero-cta r" style="transition-delay:.24s">
+      <a href="#apply" class="btn btn-sig">Work with us &rarr;</a>
+      <span class="hero-note">Newcastle &middot; working UK-wide</span>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marq">
+  <div class="marq-t" id="marq"></div>
+</div>
+
+<!-- STATS -->
+<section class="sec">
+  <div class="vc">
+    <div class="stats r">
+      <div class="stat"><div class="v">90M+</div><div class="k">Views generated<br>for clients</div></div>
+      <div class="stat"><div class="v">70M</div><div class="k">Biggest single<br>reel</div></div>
+      <div class="stat"><div class="v">+40%</div><div class="k">Weekly sales,<br>New Greek</div></div>
+      <div class="stat"><div class="v">12.9x</div><div class="k">Return on ad spend,<br>Candle Co.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="sec" id="work" style="background:var(--paper)">
+  <div class="vc">
+    <div class="shead r">
+      <div class="eyebrow">Selected work</div>
+      <h2>Real businesses. <em>Real numbers.</em></h2>
+    </div>
+    <p class="sub r" style="transition-delay:.08s">Every figure below came off the client's own account. Drag a card, or pick a name.</p>
+
+    <div class="deck-wrap">
+      <div class="deck r" id="deck" style="transition-delay:.16s"></div>
+      <div class="deck-side r" style="transition-delay:.24s">
+        <div class="dots" id="dots"></div>
+        <div class="deck-nav">
+          <button class="dbtn" id="prev" aria-label="Previous case study">&larr;</button>
+          <button class="dbtn" id="next" aria-label="Next case study">&rarr;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="services">
+  <div class="vc">
+    <div class="shead r">
+      <div class="eyebrow">What we do</div>
+      <h2>One team. <em>Everything</em> that grows you.</h2>
+    </div>
+    <div class="svc">
+      <div class="svc-i r"><h3>Short-form video</h3><p>Filmed monthly at your place, edited for the platforms, posted on a schedule that keeps you in front of people.</p></div>
+      <div class="svc-i r" style="transition-delay:.05s"><h3>Your own ordering app</h3><p>A branded app on the App Store and Google Play, so orders and bookings come straight to you at zero commission.</p></div>
+      <div class="svc-i r" style="transition-delay:.1s"><h3>Websites</h3><p>Fast, clean sites built to turn a visitor into a booking, not just to look nice.</p></div>
+      <div class="svc-i r"><h3>Paid ads</h3><p>Once the organic content proves what works, we put budget behind it and track every pound.</p></div>
+      <div class="svc-i r" style="transition-delay:.05s"><h3>Branding &amp; identity</h3><p>The look, the tone and the assets that make you recognisable before anyone reads a word.</p></div>
+      <div class="svc-i r" style="transition-delay:.1s"><h3>Your live dashboard</h3><p>Bookings, traffic and social performance in one place, updated daily. You see what we see.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="sec" id="how" style="background:var(--paper)">
+  <div class="vc">
+    <div class="shead r">
+      <div class="eyebrow">How it works</div>
+      <h2>Four steps, then it <em>runs</em>.</h2>
+    </div>
+    <div class="steps">
+      <div class="step r"><div class="n">01</div><div><h3>We come and look</h3><p>A visit, a coffee, and an honest read on where your marketing is losing you money.</p></div></div>
+      <div class="step r"><div class="n">02</div><div><h3>We shoot</h3><p>One filming day a month at your place. You carry on working, we get what we need.</p></div></div>
+      <div class="step r"><div class="n">03</div><div><h3>We post and watch</h3><p>Edited, captioned and scheduled across your platforms, with the numbers landing in your dashboard.</p></div></div>
+      <div class="step r"><div class="n">04</div><div><h3>We double down</h3><p>Whatever performs gets more budget and more of the same. Whatever does not, we drop.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="sec" id="apply">
+  <div class="vc">
+    <div class="close r">
+      <div class="eyebrow" style="justify-content:center">Let's talk</div>
+      <h2>Ready to be the one <em>everyone's seen?</em></h2>
+      <p class="sub">Tell us about your business and we will come back with what we would do, and what it would cost. No hard sell.</p>
+      <a href="/contact" class="btn">Work with us &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="vc">
+    <div class="fgrid">
+      <p>&copy; 2026 Fusion Creative &middot; Newcastle upon Tyne</p>
+      <div style="display:flex;gap:22px;flex-wrap:wrap">
+        <a href="/case-studies">Case studies</a>
+        <a href="/blog">Blog</a>
+        <a href="/contact">Contact</a>
+        <a href="mailto:jay@fusioncreative.uk">jay@fusioncreative.uk</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="pnote">v2 preview &middot; not live</div>
+
+<script>
+const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* reveal on scroll */
+const io = new IntersectionObserver((es) => {
+  es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+document.querySelectorAll('.r').forEach(el => io.observe(el));
+
+/* rotating hero word */
+const WORDS = ['restaurant','bakery','salon','takeaway','butcher','cafe','gym','bar'];
+(function rotate(){
+  if(RM) return;
+  const el = document.getElementById('rotWord');
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % WORDS.length;
+    el.style.transition = 'opacity .28s ease, transform .28s ease';
+    el.style.opacity = 0; el.style.transform = 'translateY(-8px)';
+    setTimeout(() => {
+      el.textContent = WORDS[i];
+      el.style.transform = 'translateY(8px)';
+      requestAnimationFrame(() => { el.style.opacity = 1; el.style.transform = 'none'; });
+    }, 300);
+  }, 2400);
+})();
+
+/* logo marquee */
+const BRANDS = ['New Greek','Takdir','The Northumberland Candle Co.','The Bake One','The Greek Spot','Prime Meats','New Greek Bakery'];
+(function(){
+  const t = document.getElementById('marq');
+  const set = BRANDS.map(b => `<span>${b}</span>`).join('');
+  t.innerHTML = set + set; // duplicated for a seamless loop
+})();
+
+/* ---------- case study deck ---------- */
+const CASES = [
+  {
+    key: 'New Greek',
+    handle: '@new.greek',
+    title: 'Local business, national reach',
+    body: 'Built from scratch. One reel alone passed 70 million views, and the account now reaches many times the size of its own following.',
+    figs: [['86M+','Total views'],['70M','One single reel'],['30M+','Accounts reached'],['10K+','Followers grown']]
+  },
+  {
+    key: 'Takdir',
+    handle: '@takdir',
+    title: 'A standing start to almost 4 million views',
+    body: 'A brand new account for a Whitley Bay restaurant, led with the people rather than the product.',
+    figs: [['~4M','Views, IG & TikTok'],['1.8M','Top video'],['1.27M','Accounts reached'],['1,200+','Followers, month one']]
+  },
+  {
+    key: 'Candle Co.',
+    handle: '@thenorthumberlandcandleco',
+    title: 'Turning £1,557 of ad spend into £24,358',
+    body: 'Paid social built on top of content that had already proven itself organically, over a three week window.',
+    figs: [['12.9x','Return on spend'],['£24,358','Revenue'],['708','New customers'],['£2.20','Cost per customer']]
+  }
+];
+
+let idx = 0;
+const deck = document.getElementById('deck');
+const dots = document.getElementById('dots');
+
+function fmt(v){ return v; }
+
+deck.innerHTML = CASES.map((c,i) => `
+  <article class="dcard" data-i="${i}">
+    <div class="handle">${c.handle}</div>
+    <h3>${c.title}</h3>
+    <p>${c.body}</p>
+    <div class="dfigs">
+      ${c.figs.map(f => `<div class="dfig"><div class="v" data-v="${f[0]}">${f[0]}</div><div class="k">${f[1]}</div></div>`).join('')}
+    </div>
+  </article>`).join('');
+
+dots.innerHTML = CASES.map((c,i) => `<button class="dot" data-i="${i}"><span>${c.key}</span></button>`).join('');
+
+const cards = [...deck.querySelectorAll('.dcard')];
+const dotEls = [...dots.querySelectorAll('.dot')];
+
+function layout(){
+  cards.forEach((el, i) => {
+    const p = (i - idx + CASES.length) % CASES.length; // 0 = front
+    el.style.zIndex = String(CASES.length - p);
+    el.style.opacity = p > 2 ? '0' : '1';
+    el.style.transform = `translateY(${p * 14}px) scale(${1 - p * 0.04})`;
+    el.style.pointerEvents = p === 0 ? 'auto' : 'none';
+  });
+  dotEls.forEach((d, i) => d.classList.toggle('on', i === idx));
+  countUp(cards[idx]);
+}
+
+/* numbers tick up each time a card comes to the front - Fusion sells views, so
+   the count-up is the point, not decoration. */
+function countUp(card){
+  if(RM) return;
+  card.querySelectorAll('.dfig .v').forEach(el => {
+    const target = el.dataset.v;
+    const m = target.match(/^([^\d]*)([\d,.]+)(.*)$/);
+    if(!m) return;
+    const pre = m[1], numStr = m[2], post = m[3];
+    const dec = (numStr.split('.')[1] || '').length;
+    const end = parseFloat(numStr.replace(/,/g,''));
+    if(!isFinite(end)) return;
+    const dur = 900, t0 = performance.now();
+    function tick(now){
+      const k = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - k, 3);
+      const val = end * e;
+      const shown = dec ? val.toFixed(dec)
+        : Math.round(val).toLocaleString('en-GB');
+      el.textContent = pre + shown + post;
+      if(k < 1) requestAnimationFrame(tick); else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  });
+}
+
+function go(n){ idx = (n + CASES.length) % CASES.length; layout(); }
+document.getElementById('next').addEventListener('click', () => go(idx + 1));
+document.getElementById('prev').addEventListener('click', () => go(idx - 1));
+dotEls.forEach(d => d.addEventListener('click', () => go(Number(d.dataset.i))));
+
+/* drag / swipe the front card */
+let sx = 0, dragging = false, front = null;
+function down(e){
+  front = cards[idx];
+  if(!front) return;
+  dragging = true; sx = (e.touches ? e.touches[0].clientX : e.clientX);
+  front.classList.add('drag');
+}
+function move(e){
+  if(!dragging || !front) return;
+  const x = (e.touches ? e.touches[0].clientX : e.clientX) - sx;
+  front.style.transform = `translateX(${x}px) rotate(${x * 0.03}deg)`;
+}
+function up(e){
+  if(!dragging || !front) return;
+  const x = (e.changedTouches ? e.changedTouches[0].clientX : e.clientX) - sx;
+  front.classList.remove('drag');
+  dragging = false;
+  if(Math.abs(x) > 90) go(idx + (x < 0 ? 1 : -1)); else layout();
+  front = null;
+}
+deck.addEventListener('mousedown', down); deck.addEventListener('touchstart', down, {passive:true});
+window.addEventListener('mousemove', move); window.addEventListener('touchmove', move, {passive:true});
+window.addEventListener('mouseup', up); window.addEventListener('touchend', up);
+
+layout();
+
+/* only count up the first time the deck scrolls into view */
+const deckIO = new IntersectionObserver((es) => {
+  es.forEach(e => { if(e.isIntersecting){ countUp(cards[idx]); deckIO.disconnect(); } });
+}, { threshold: .3 });
+deckIO.observe(deck);
+</script>
+</body>
+</html>
