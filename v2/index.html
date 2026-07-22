@@ -81,11 +81,11 @@
   /* ---------- CASE STUDY DECK (signature) ---------- */
   .deck-wrap{margin-top:clamp(40px,6vw,64px);display:grid;grid-template-columns:1fr 320px;gap:clamp(26px,4vw,56px);align-items:center}
   @media(max-width:940px){ .deck-wrap{grid-template-columns:1fr;gap:28px} }
-  .deck{position:relative;height:clamp(390px,44vw,450px);touch-action:pan-y}
+  .deck{position:relative;height:clamp(470px,41vw,575px);touch-action:pan-y}
   /* below 620px the figures stack 2x2, which needs more card height or the
      bottom row gets clipped by the fixed-height stack */
-  @media(max-width:620px){ .deck{height:560px} .dcard p{margin:14px 0 20px} }
-  @media(max-width:400px){ .deck{height:590px} }
+  @media(max-width:620px){ .deck{height:680px} .dcard p{margin:14px 0 18px} .dquote p{font-size:.92rem} }
+  @media(max-width:400px){ .deck{height:720px} }
   .dcard{position:absolute;inset:0;background:var(--ink);color:var(--off);border-radius:24px;padding:clamp(28px,4vw,46px);
     display:flex;flex-direction:column;box-shadow:0 30px 70px rgba(17,17,17,.22);
     transition:transform .62s cubic-bezier(.22,1,.36,1),opacity .45s ease;will-change:transform,opacity;cursor:grab}
@@ -94,6 +94,15 @@
   .dcard .handle{font-family:var(--mono);font-size:12px;letter-spacing:.09em;color:var(--signal)}
   .dcard h3{font-family:var(--head);font-weight:400;font-size:clamp(1.6rem,3.4vw,2.5rem);line-height:1.06;letter-spacing:-.02em;margin:14px 0 0;max-width:16ch}
   .dcard p{color:rgba(245,243,238,.66);font-size:.96rem;line-height:1.65;margin:16px 0 26px;max-width:46ch}
+  .dquote{margin:0 0 18px;padding-left:16px;border-left:2px solid var(--signal);max-width:52ch}
+  .dquote p{color:rgba(245,243,238,.86);font-size:.98rem;line-height:1.6;margin:0;font-style:italic}
+  .dquote .who{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+    color:rgba(245,243,238,.5);margin-top:9px;font-style:normal}
+  .dlive{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:rgba(245,243,238,.55);margin-bottom:14px}
+  .dlive i{width:6px;height:6px;border-radius:50%;background:var(--signal);flex:none;animation:pulse 2.2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+  @media (prefers-reduced-motion:reduce){ .dlive i{animation:none} }
   .dfigs{margin-top:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(245,243,238,.14);
     border:1px solid rgba(245,243,238,.14);border-radius:14px;overflow:hidden}
   @media(min-width:620px){ .dfigs{grid-template-columns:repeat(4,1fr)} }
@@ -317,14 +326,18 @@ const CASES = [
     key: 'New Greek',
     handle: '@new.greek',
     title: 'Local business, national reach',
-    body: 'Built from scratch. One reel alone passed 70 million views, and the account now reaches many times the size of its own following.',
-    figs: [['86M+','Total views'],['70M','One single reel'],['30M+','Accounts reached'],['10K+','Followers grown']]
+    body: 'Built from scratch. One reel alone passed 70 million views, and the account still reaches close to a million people every month.',
+    live: '1.7M views &middot; 954K reached',
+    quote: 'Everything has changed in our restaurant and bakery. You are the best at what you do.',
+    who: 'Sero &middot; New Greek, Newcastle &middot; &#9733;&#9733;&#9733;&#9733;&#9733;',
+    figs: [['86M+','Total views'],['70M','One single reel'],['+40%','Weekly sales'],['1 yr+','With Fusion']]
   },
   {
     key: 'Takdir',
     handle: '@takdir',
     title: 'A standing start to almost 4 million views',
     body: 'A brand new account for a Whitley Bay restaurant, led with the people rather than the product.',
+    live: '980K views &middot; 651K reached',
     figs: [['~4M','Views, IG & TikTok'],['1.8M','Top video'],['1.27M','Accounts reached'],['1,200+','Followers, month one']]
   },
   {
@@ -347,6 +360,8 @@ deck.innerHTML = CASES.map((c,i) => `
     <div class="handle">${c.handle}</div>
     <h3>${c.title}</h3>
     <p>${c.body}</p>
+    ${c.quote ? `<blockquote class="dquote"><p>&ldquo;${c.quote}&rdquo;</p><div class="who">${c.who}</div></blockquote>` : ''}
+    ${c.live ? `<div class="dlive"><i></i>Last 28 days &middot; ${c.live}</div>` : ''}
     <div class="dfigs">
       ${c.figs.map(f => `<div class="dfig"><div class="v" data-v="${f[0]}">${f[0]}</div><div class="k">${f[1]}</div></div>`).join('')}
     </div>
