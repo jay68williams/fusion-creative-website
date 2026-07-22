@@ -841,33 +841,11 @@
         })();
         </script>
       </div>
-      <div class="results-cta" style="text-align:center; margin-top:3rem;">
-        <a href="#contact" class="btn btn-primary">Work With Us &rarr;</a>
-      </div>
-
-      <!-- Your Dashboard CTA -->
-      <a href="/dashboard" style="display:block; max-width:800px; margin:4rem auto 0; padding:40px 48px; background:#0d0d0d; border-radius:var(--rad-md); text-decoration:none; color:#fff; position:relative; overflow:hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 50px rgba(230,59,46,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="position:absolute; inset:0; opacity:0.04; background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27300%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.65%27 numOctaves=%273%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27300%27 height=%27300%27 filter=%27url(%23n)%27/%3E%3C/svg%3E');"></div>
-        <div style="position:relative; z-index:1; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;">
-          <div>
-            <p style="font-family:var(--font-mono); font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--signal); margin-bottom:10px;">Your Client Dashboard</p>
-            <h3 style="font-family:var(--font-serif); font-size:clamp(1.4rem,3vw,1.8rem); margin-bottom:8px;">See everything. Not just the content.</h3>
-            <p style="color:#888; font-size:0.9rem; max-width:440px; line-height:1.6;">Bookings, app downloads, website traffic, social media performance, and weekly reports. All in one live dashboard.</p>
-          </div>
-          <div style="display:flex; align-items:center; gap:8px; background:var(--signal); color:#fff; padding:12px 28px; border-radius:var(--rad-sm); font-weight:600; font-size:0.85rem; white-space:nowrap; flex-shrink:0;">
-            View Dashboard
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </div>
-      </a>
-    </div>
-  </section>
-
   <!-- CLIENT WORDS / TESTIMONIALS -->
-  <section class="testimonials-section section-pad" id="testimonials">
+  <div class="testimonials-block" id="testimonials">
     <style>
-      .testimonials-section{background:var(--off-white);}
-      .tm-grid{display:grid;gap:2rem;margin-top:2.5rem;}
+      .testimonials-block{margin-top:3.5rem;}
+      .tm-grid{display:grid;gap:2rem;margin-top:2rem;}
       .tm-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--rad-md);
         padding:clamp(2rem,4vw,3.25rem);position:relative;overflow:hidden;}
       .tm-card:before{content:"\201C";position:absolute;top:-2.2rem;right:1.5rem;font-family:var(--font-serif);
@@ -892,7 +870,6 @@
         .tm-stars{margin-left:0;width:100%;}
       }
     </style>
-    <div class="container">
       <div class="section-label">/ In Their Words</div>
       <h2>Do not take it from <em>us.</em></h2>
 
@@ -916,6 +893,27 @@
           </div>
         </div>
       </div>
+      </div>
+
+      <div class="results-cta" style="text-align:center; margin-top:3rem;">
+        <a href="#contact" class="btn btn-primary">Work With Us &rarr;</a>
+      </div>
+
+      <!-- Your Dashboard CTA -->
+      <a href="/dashboard" style="display:block; max-width:800px; margin:4rem auto 0; padding:40px 48px; background:#0d0d0d; border-radius:var(--rad-md); text-decoration:none; color:#fff; position:relative; overflow:hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 50px rgba(230,59,46,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="position:absolute; inset:0; opacity:0.04; background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27300%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.65%27 numOctaves=%273%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27300%27 height=%27300%27 filter=%27url(%23n)%27/%3E%3C/svg%3E');"></div>
+        <div style="position:relative; z-index:1; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;">
+          <div>
+            <p style="font-family:var(--font-mono); font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--signal); margin-bottom:10px;">Your Client Dashboard</p>
+            <h3 style="font-family:var(--font-serif); font-size:clamp(1.4rem,3vw,1.8rem); margin-bottom:8px;">See everything. Not just the content.</h3>
+            <p style="color:#888; font-size:0.9rem; max-width:440px; line-height:1.6;">Bookings, app downloads, website traffic, social media performance, and weekly reports. All in one live dashboard.</p>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; background:var(--signal); color:#fff; padding:12px 28px; border-radius:var(--rad-sm); font-weight:600; font-size:0.85rem; white-space:nowrap; flex-shrink:0;">
+            View Dashboard
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -1259,7 +1257,6 @@
   <!-- remotion player script kept for dashboard inside features -->
   <script src="scripts/remotion-player.js" defer></script>
 
-  <!-- D. RECENT CLIENT WINS -->
   <!-- FREE AUDIT CTA -->
   <section style="background:#0a0a0a; padding:clamp(60px,8vw,100px) 0; position:relative; overflow:hidden;" id="free-audit">
     <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(230,59,46,0.08) 0%, transparent 60%);pointer-events:none;"></div>
