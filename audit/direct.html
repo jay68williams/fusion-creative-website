@@ -113,6 +113,32 @@ em{font-family:var(--font-serif);font-style:italic;font-weight:400}
 .reassurance span{font-family:var(--font-mono);font-size:0.75rem;color:var(--mid);display:flex;align-items:center;gap:6px}
 .reassurance svg{flex-shrink:0}
 
+/* Credibility sections */
+.cred{margin:2.5rem 0 0}
+.cred-kicker{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--signal);margin-bottom:0.75rem;display:flex;align-items:center;gap:8px}
+.cred-kicker::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--signal)}
+.cred-title{font-size:1.5rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:1.25rem}
+.cred-title em{color:var(--off-white)}
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.proof-cell{background:rgba(255,255,255,0.04);border:1px solid var(--border-dark);border-radius:var(--rad-sm);padding:1.25rem 1.1rem}
+.proof-num{font-weight:700;font-size:1.7rem;color:var(--signal);letter-spacing:-0.02em}
+.proof-lbl{font-family:var(--font-mono);font-size:0.68rem;color:var(--mid);text-transform:uppercase;letter-spacing:0.05em;margin-top:4px;line-height:1.5}
+.review-card{background:rgba(255,255,255,0.04);border:1px solid var(--border-dark);border-left:3px solid var(--signal);border-radius:var(--rad-sm);padding:1.5rem}
+.review-stars{color:var(--signal);letter-spacing:4px;font-size:1rem;margin-bottom:0.75rem}
+.review-quote{font-size:1rem;line-height:1.7;color:var(--off-white)}
+.review-sales{margin-top:1rem;font-weight:700;font-size:1.05rem;color:var(--signal)}
+.review-who{margin-top:0.9rem;font-family:var(--font-mono);font-size:0.75rem;color:var(--mid);text-transform:uppercase;letter-spacing:0.05em}
+.case-link{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:rgba(255,255,255,0.04);border:1px solid var(--border-dark);border-radius:var(--rad-sm);padding:1.1rem 1.25rem;margin-bottom:10px;transition:border-color .2s,transform .2s}
+.case-link:hover{border-color:rgba(230,59,46,0.5);transform:translateY(-1px)}
+.case-link .cl-t{font-weight:600;font-size:0.95rem}
+.case-link .cl-d{font-family:var(--font-mono);font-size:0.7rem;color:var(--mid);margin-top:2px}
+.case-link .cl-arrow{color:var(--signal);font-size:1.1rem;flex-shrink:0}
+.about-text{color:var(--mid);font-size:0.95rem;line-height:1.75}
+.about-text strong{color:var(--off-white)}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:1rem}
+.tag{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--mid);border:1px solid var(--border-dark);border-radius:999px;padding:0.45rem 0.9rem}
+.cred-cta{text-align:center;margin-top:2.5rem;margin-bottom:2.5rem}
+
 /* Cookie consent */
 .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:10000;background:var(--black);border-top:1px solid var(--border-dark);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:0.85rem;color:var(--mid);transform:translateY(100%);transition:transform 0.4s ease}
 .cookie-banner.visible{transform:translateY(0)}
@@ -142,8 +168,8 @@ em{font-family:var(--font-serif);font-style:italic;font-weight:400}
 
   <!-- Trust strip -->
   <div class="trust-strip">
-    <div class="trust-item"><div class="trust-value">Millions</div><div class="trust-label">Views for Local Businesses</div></div>
-    <div class="trust-item"><div class="trust-value">30</div><div class="trust-label">Days to Results</div></div>
+    <div class="trust-item"><div class="trust-value">+40%</div><div class="trust-label">Client Weekly Sales</div></div>
+    <div class="trust-item"><div class="trust-value">12.9x</div><div class="trust-label">Return on Ad Spend</div></div>
     <div class="trust-item"><div class="trust-value">Free</div><div class="trust-label">No Obligation</div></div>
   </div>
 
@@ -199,6 +225,61 @@ em{font-family:var(--font-serif);font-style:italic;font-weight:400}
     <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Free, no obligation</span>
     <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Newcastle-based team</span>
     <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Response within 24hrs</span>
+  </div>
+
+  <!-- Proof -->
+  <div class="cred">
+    <div class="cred-kicker">Proof, not promises</div>
+    <div class="cred-title">The numbers behind the <em>audit.</em></div>
+    <div class="proof-grid">
+      <div class="proof-cell"><div class="proof-num">97M+</div><div class="proof-lbl">views generated for local clients</div></div>
+      <div class="proof-cell"><div class="proof-num">+40%</div><div class="proof-lbl">weekly sales, New Greek restaurant</div></div>
+      <div class="proof-cell"><div class="proof-num">12.9x</div><div class="proof-lbl">ad return, Northumberland Candle Co</div></div>
+      <div class="proof-cell"><div class="proof-num">708</div><div class="proof-lbl">new customers for one client in 21 days</div></div>
+    </div>
+  </div>
+
+  <!-- Review -->
+  <div class="cred">
+    <div class="cred-kicker">In their words</div>
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-quote">"We started with Fusion just over a year ago, and since then everything has changed in our restaurant and bakery. We could not ask for anything more from you guys. You are the best at what you do."</p>
+      <p class="review-sales">"We were making 8k to 10k a week. Now it is more than 14k."</p>
+      <div class="review-who">New Greek team &middot; Restaurant &amp; Bakery, Newcastle</div>
+    </div>
+  </div>
+
+  <!-- Case studies -->
+  <div class="cred">
+    <div class="cred-kicker">Check it yourself</div>
+    <div class="cred-title">Real work, in <em>public.</em></div>
+    <a class="case-link" href="https://www.instagram.com/reel/DWwjCXCKQrY/" target="_blank" rel="noopener">
+      <div><div class="cl-t">Watch the 70 million view reel</div><div class="cl-d">New Greek &middot; filmed and posted by us</div></div>
+      <span class="cl-arrow">&rarr;</span>
+    </a>
+    <a class="case-link" href="https://fusioncreative.uk/report/tncc-performance-2" target="_blank" rel="noopener">
+      <div><div class="cl-t">Read a real client ad report</div><div class="cl-d">Northumberland Candle Co &middot; 12.9x return in 21 days</div></div>
+      <span class="cl-arrow">&rarr;</span>
+    </a>
+    <a class="case-link" href="https://newgreek.co.uk" target="_blank" rel="noopener">
+      <div><div class="cl-t">Visit a website we built and run</div><div class="cl-d">newgreek.co.uk &middot; bookings, menus, the lot</div></div>
+      <span class="cl-arrow">&rarr;</span>
+    </a>
+  </div>
+
+  <!-- About -->
+  <div class="cred">
+    <div class="cred-kicker">Who you are dealing with</div>
+    <p class="about-text"><strong>Fusion Creative is a content marketing agency based in Newcastle.</strong> We film in person, on the ground, for local businesses across the North East. Short-form video, daily social management, paid ads, websites, menu screens and live performance dashboards, everything under one roof. Your audit is written by the same team that gets these results, not a template.</p>
+    <div class="tag-row">
+      <span class="tag">Short-Form Video</span><span class="tag">Social Management</span><span class="tag">Paid Ads</span><span class="tag">Websites</span><span class="tag">Branding</span>
+    </div>
+  </div>
+
+  <!-- Repeat CTA -->
+  <div class="cred-cta">
+    <button type="button" class="btn btn-signal" onclick="window.scrollTo({top:0,behavior:'smooth'});document.getElementById('f-business_name') &amp;&amp; document.getElementById('f-business_name').focus();"><span>Get your free audit &rarr;</span></button>
   </div>
 
   <!-- Footer -->
@@ -295,7 +376,7 @@ function submitForm(){
       name:formData.name,
       email:formData.email,
       phone:formData.phone||null,
-      notes:'Source: Audit Direct Landing Page (Ad Traffic) v2'
+      notes:'Source: Audit Direct Landing Page (Ad Traffic) v3 credibility'
     })
   }).then(function(res){
     if(!res.ok)throw new Error('Server error');
