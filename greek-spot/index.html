@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
 <title>The Greek Spot | Greek Bakery &amp; Cafe, Middlesbrough</title>
 <meta name="description" content="Authentic Greek pastries, handmade sweets and specialty coffee on Dundas Street, Middlesbrough. Family run. Baked fresh every morning. Open Monday to Saturday, 9am to 4pm.">
 <link rel="icon" type="image/jpeg" href="images/logo.jpg">
@@ -255,6 +254,16 @@ h2{font-size:clamp(34px,4.6vw,56px);margin-bottom:22px;position:relative;z-index
 .gal-follow a:hover{text-decoration:underline}
 .gal-grid a:nth-child(1) img{object-position:center 30%}
 
+/* ---------- feature band ---------- */
+.feature-band{position:relative;height:min(70vh,600px);overflow:hidden;display:flex;align-items:flex-end}
+.feature-band > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(18,40,60,.68) 0%,rgba(18,40,60,.12) 48%,rgba(18,40,60,.22) 100%)}
+.fb-text{position:relative;z-index:1;padding:min(6vw,60px);color:#fff;max-width:660px}
+.fb-eyebrow{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:#fff;opacity:.85;margin-bottom:12px}
+.feature-band h2{font-family:'GFS Didot',serif;font-weight:400;color:#fff;font-size:clamp(30px,5vw,52px);line-height:1.06;margin:0}
+.feature-band p{color:rgba(255,255,255,.9);font-size:clamp(15px,1.6vw,18px);margin-top:12px;max-width:44ch}
+@media(max-width:600px){ .feature-band{height:56vh} }
+
 /* ---------- find us ---------- */
 .find{display:grid;grid-template-columns:1.05fr .95fr;gap:min(6vw,80px);align-items:start}
 .hours{border-top:1px solid var(--line);margin:26px 0 30px}
@@ -405,6 +414,17 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--sea);outline-offs
     </div>
   </section>
 
+  <!-- FEATURE BAND -->
+  <section class="feature-band reveal" aria-label="Fresh off the grill">
+    <img src="images/aug-pitas-tray.jpg" alt="A tray of freshly grilled Greek chicken and chips loaded pitas on branded paper" loading="lazy">
+    <div class="fb-overlay"></div>
+    <div class="fb-text">
+      <div class="fb-eyebrow">Fresh off the grill</div>
+      <h2>Loaded pitas, made to order.</h2>
+      <p>Chargrilled chicken gyros, golden chips and warm pita, served all day at the counter.</p>
+    </div>
+  </section>
+
   <!-- MENU -->
   <section class="chapter menu-ch" id="menu">
     <div class="watermark" aria-hidden="true">ΠΙΤΕΣ &amp; ΓΛΥΚΑ</div>
@@ -462,7 +482,7 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--sea);outline-offs
     </div>
 
     <div class="mcat reveal">
-      <figure class="mcat-photo"><img src="images/freddo-branded-desserts.jpg" alt="Freddo cappuccino in a Greek Spot branded cup beside mini desserts"><figcaption>Freddo cappuccino, the house favourite</figcaption></figure>
+      <figure class="mcat-photo"><img src="images/aug-iced-coffee-branded.jpg" alt="Iced layered Greek coffee with a dusted topping in a branded Greek Spot cup"><figcaption>Iced Greek coffee, freshly shaken</figcaption></figure>
       <div class="mcat-head"><h3>Coffee</h3><span class="gr" lang="el">ΚΑΦΕΣ</span></div>
       <p class="mcat-sub">Specialty coffee, hot or Greek-style over ice. Shaken, never stirred.</p>
       <div class="mgrid">
@@ -540,14 +560,14 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--sea);outline-offs
     <div class="eyebrow reveal">Gallery</div>
     <h2 class="reveal">The daily bake.</h2>
     <div class="gal-grid reveal">
+      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/aug-gyros-wrap.jpg" alt="Chicken gyros wrap loaded with chips on a slate board, on our Instagram" loading="lazy"></a>
+      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/aug-flat-white.jpg" alt="Flat white with heart latte art, shot from above, on our Instagram" loading="lazy"></a>
+      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/aug-smoothies.jpg" alt="Three colourful branded Greek Spot smoothies on a tray, on our Instagram" loading="lazy"></a>
+      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/aug-iced-coffee-green.jpg" alt="Iced layered coffee held against the sage-green slatted wall, on our Instagram" loading="lazy"></a>
+      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/aug-iced-coffee-pastry.jpg" alt="Iced coffee in a ribbed glass beside two pastries, on our Instagram" loading="lazy"></a>
       <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/borek-sesame-dark.jpg" alt="Sesame-crusted filo rolls torn open to show flaky layers, on our Instagram" loading="lazy"></a>
-      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/flat-whites-latte-art.jpg" alt="Two flat whites with latte art on a black tray, on our Instagram" loading="lazy"></a>
-      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/praline-heart.jpg" alt="Heart-shaped white chocolate and praline dessert, on our Instagram" loading="lazy"></a>
-      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/chocolate-cake-window.jpg" alt="Chocolate ganache cake slice and freddo espresso at the window bench, on our Instagram" loading="lazy"></a>
-      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/syrup-swirls-freddo.jpg" alt="Syrup-soaked filo swirl pastries with an iced coffee behind, on our Instagram" loading="lazy"></a>
-      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/carrot-cake-counter.jpg" alt="Slices of walnut carrot cake with cream cheese frosting on the counter, on our Instagram" loading="lazy"></a>
-      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/greek-salad-branded.jpg" alt="Greek salad with feta and olives in a Greek Spot branded takeaway bowl, on our Instagram" loading="lazy"></a>
-      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/apple-braid-flat-white.jpg" alt="Golden braided apple pastry beside a flat white, on our Instagram" loading="lazy"></a>
+      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/baklava-cups-counter.jpg" alt="Tray of mini filo baklava cups topped with cream and chocolate, on our Instagram" loading="lazy"></a>
+      <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener"><img src="images/aug-gyros-hero.jpg" alt="Two loaded Greek pita gyros with chips on branded paper, on our Instagram" loading="lazy"></a>
     </div>
     <p class="gal-follow">More fresh out of the oven daily on <a href="https://www.instagram.com/thegreekspotmiddlesbrough/" target="_blank" rel="noopener">Instagram</a> and <a href="https://www.tiktok.com/@thegreekspot_" target="_blank" rel="noopener">TikTok</a>.</p>
   </section>
