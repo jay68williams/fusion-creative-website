@@ -132,6 +132,14 @@
             .case-study-grid { grid-template-columns: repeat(2, 1fr); } .video-idea-card { padding: 24px 22px; }
             .header-inner { flex-direction: column; gap: 8px; } .about-fc-grid { grid-template-columns: 1fr 1fr; gap: 12px; } .about-fc-stat-val { font-size: 24px; }
         }
+        @media (max-width: 640px) {
+            .stats-table, .stats-table tbody, .stats-table tr, .stats-table td { display: block; width: 100%; }
+            .stats-table tr { padding: 12px 0; }
+            .stats-table td { padding: 0; }
+            .stats-table td:first-child { white-space: normal; padding: 0 0 5px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+            .stats-table td:last-child { text-align: left; }
+            .stats-table .stat-badge, .stats-table .stat-badge-green, .stats-table .stat-badge-amber { display: inline-block; margin-top: 6px; }
+        }
     </style>
 </head>
 <body>
