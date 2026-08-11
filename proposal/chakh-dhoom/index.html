@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposal - Chakh Dhoom &amp; Dhoom Bar | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#1c1a17;
+    --panel:#242119;
+    --panel2:#2b2720;
+    --line:#3a352b;
+    --text:#f5f1e8;
+    --muted:#b0a893;
+    --gold:#d49833;
+    --gold-light:#ffbc7d;
+    --charcoal:#232323;
+    --good:#7fc98a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  a{color:var(--gold-light);text-decoration:none}
+
+  .hero{padding:76px 0 60px;border-bottom:1px solid var(--line);background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(212,152,51,.16),transparent)}
+  .kicker{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+  h1{font-family:'Philosopher',serif;font-weight:700;font-size:clamp(38px,6.5vw,60px);line-height:1.08}
+  h1 .amp{color:var(--gold)}
+  .hero p.sub{margin-top:20px;font-size:18px;color:var(--muted);max-width:620px}
+  .hero .meta{margin-top:30px;font-size:14px;color:var(--muted)}
+  .hero .meta strong{color:var(--text);font-weight:600}
+  .goldline{width:64px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:99px;margin:26px 0 0}
+
+  section{padding:58px 0;border-bottom:1px solid var(--line)}
+  h2{font-family:'Philosopher',serif;font-weight:700;font-size:30px;margin-bottom:8px}
+  h2 span{color:var(--gold)}
+  .lede{color:var(--muted);font-size:16.5px;max-width:640px;margin-bottom:28px}
+  p+p{margin-top:14px}
+
+  .brands{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+  .brand{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .brand h3{font-family:'Philosopher',serif;font-size:23px;margin-bottom:10px}
+  .brand h3 em{font-style:normal;color:var(--gold-light)}
+  .brand p{font-size:15px;color:var(--muted)}
+  .brand .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);border:1px solid rgba(255,188,125,.4);border-radius:99px;padding:4px 12px;margin-bottom:14px}
+
+  .pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:8px}
+  .pillar{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .pillar .num{font-family:'Philosopher',serif;font-size:16px;color:var(--gold);margin-bottom:10px}
+  .pillar h3{font-size:16.5px;font-weight:800;margin-bottom:8px}
+  .pillar p{font-size:14.5px;color:var(--muted)}
+
+  .plans{display:grid;grid-template-columns:1fr 1.15fr;gap:18px;align-items:stretch;margin-top:8px}
+  .plan{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:30px;display:flex;flex-direction:column}
+  .plan.featured{background:linear-gradient(180deg,rgba(212,152,51,.12),rgba(212,152,51,.02)),var(--panel2);border:1px solid rgba(212,152,51,.55);position:relative}
+  .plan .badge{position:absolute;top:-13px;left:28px;background:linear-gradient(90deg,var(--gold),var(--gold-light));color:#231c0d;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-radius:99px;padding:5px 14px}
+  .plan h3{font-family:'Philosopher',serif;font-size:26px}
+  .plan .for{font-size:13.5px;color:var(--muted);margin-top:4px}
+  .price{margin:20px 0 6px;font-family:'Philosopher',serif;font-weight:700;font-size:44px;line-height:1}
+  .price small{font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:var(--muted)}
+  .pervid{font-size:13px;color:var(--gold-light);font-weight:700;margin-bottom:20px}
+  .plan ul{list-style:none;margin-top:4px}
+  .plan li{font-size:14.5px;padding:9px 0 9px 28px;position:relative;border-top:1px solid var(--line)}
+  .plan li:first-child{border-top:0}
+  .plan li::before{content:"";position:absolute;left:2px;top:16px;width:14px;height:14px;border-radius:99px;background:rgba(212,152,51,.18);border:1.5px solid var(--gold)}
+  .plan li::after{content:"";position:absolute;left:6px;top:20px;width:6px;height:6px;border-radius:99px;background:var(--gold)}
+  .plan li.extra strong{color:var(--gold-light)}
+  .plan li span.note{display:block;font-size:13px;color:var(--muted)}
+
+  .tablebox{overflow-x:auto;margin-top:8px;border:1px solid var(--line);border-radius:14px}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+  th,td{padding:13px 18px;text-align:left;border-top:1px solid var(--line)}
+  thead th{border-top:0;background:var(--panel);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  thead th.hl{color:var(--gold-light)}
+  td:first-child{color:var(--muted)}
+  td.hl{background:rgba(212,152,51,.07);font-weight:600}
+  td .yes{color:var(--good);font-weight:700}
+  td .no{color:#7a7261}
+
+  .notebox{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;padding:22px 24px;margin-top:24px}
+  .notebox h4{font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+  .notebox p{font-size:14.5px;color:var(--muted)}
+
+  .terms{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+  .term{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+  .term h4{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--gold-light);margin-bottom:6px}
+  .term p{font-size:14.5px;color:var(--muted)}
+
+  .cta{padding:64px 0 84px;text-align:center;border-bottom:0;background:radial-gradient(ellipse 70% 80% at 50% 120%,rgba(212,152,51,.14),transparent)}
+  .cta h2{margin-bottom:12px}
+  .cta p{color:var(--muted);max-width:520px;margin:0 auto 30px}
+  .btnrow{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:15.5px;border-radius:12px;padding:15px 28px;transition:transform .12s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-wa{background:#25d366;color:#062b12}
+  .btn-em{background:linear-gradient(90deg,var(--gold),var(--gold-light));color:#231c0d}
+  .btn svg{width:20px;height:20px;fill:currentColor}
+  .foot{margin-top:44px;font-size:13px;color:#7a7261}
+  .foot strong{color:var(--muted)}
+
+  @media(max-width:720px){
+    .brands,.pillars,.plans,.terms{grid-template-columns:1fr}
+    .plan.featured{order:-1}
+    section{padding:44px 0}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Content &amp; Growth Proposal</div>
+    <h1>Chakh Dhoom <span class="amp">&amp;</span><br>Dhoom Bar</h1>
+    <div class="goldline"></div>
+    <p class="sub">One kitchen, one bar, one content engine behind both. Prepared for Ash following our meeting at Chakh Dhoom.</p>
+    <div class="meta">Prepared by <strong>Jay Williams, Fusion Creative</strong> &nbsp;|&nbsp; August 2026 &nbsp;|&nbsp; fusioncreative.uk</div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Where you're <span>at</span></h2>
+    <p class="lede">Thanks for taking the time to sit down with us. Quick recap of how we see it.</p>
+    <p>We're Fusion Creative, a content marketing agency based in Newcastle. We work with hospitality businesses across the North East, running their short-form content, email and paid social so the owners can run the venue.</p>
+    <p>Chakh means to taste. Dhoom means smoke. That's a brand built for the camera, and you've already proved the food deserves the attention: an award-winning street food restaurant that fills up by 6pm on Osborne Road. Now you've opened Dhoom Bar next door, and you've got something most operators would kill for: two venues, one door apart, feeding each other customers. The restaurant sends people next door for drinks, the bar sends people in for food.</p>
+    <p>But right now only one of those brands exists online. The Dhoom Bar opening is a story worth telling properly, not as an afterthought on the restaurant's page.</p>
+    <div class="brands">
+      <div class="brand">
+        <div class="tag">Established</div>
+        <h3>Chakh <em>Dhoom</em></h3>
+        <p>The main event. Consistent food-led content that keeps the brand loud, fills quieter services and gives the ads engine fresh creative to run with.</p>
+      </div>
+      <div class="brand">
+        <div class="tag">Launching</div>
+        <h3>Dhoom <em>Bar</em></h3>
+        <p>Its own Instagram, its own identity, built from day one. Launch content, drinks-led videos and a reason for people who've never eaten at Chakh Dhoom to walk in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What's in the <span>engine</span></h2>
+    <p class="lede">Every package includes all three. The tiers change how much fuel goes in, not what the engine does.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="num">01</div>
+        <h3>Short-form content</h3>
+        <p>Filmed on site, edited and posted for you across both brands. Hooks, trends and food that actually makes people hungry.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">02</div>
+        <h3>Email marketing</h3>
+        <p>We build your customer list and put it to work: offers, events, launches and quiet-night pushes straight to people who already love you.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">03</div>
+        <h3>Paid ads management</h3>
+        <p>We build, run and optimise your Meta ads using the content we film. You set the ad spend, paid directly to Meta. We make every pound of it work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The <span>packages</span></h2>
+    <p class="lede">Both cover Chakh Dhoom and Dhoom Bar. Both include email and paid ads management. The difference is volume and firepower.</p>
+
+    <div class="plans">
+      <div class="plan">
+        <h3>Core</h3>
+        <div class="for">Steady presence across both brands</div>
+        <div class="price">&pound;999<small>/month</small></div>
+        <div class="pervid">&pound;83 per video</div>
+        <ul>
+          <li>12 videos a month, 3 posts a week</li>
+          <li>2 for Chakh Dhoom, 1 for Dhoom Bar each week</li>
+          <li>1 shoot day a month</li>
+          <li>2 email campaigns a month</li>
+          <li>Paid ads management: one always-on campaign, refreshed with new creative quarterly</li>
+          <li>Monthly performance report</li>
+        </ul>
+      </div>
+
+      <div class="plan featured">
+        <div class="badge">Recommended</div>
+        <h3>Growth</h3>
+        <div class="for">The full launch-and-grow system for both brands</div>
+        <div class="price">&pound;1,350<small>/month</small></div>
+        <div class="pervid">&pound;67.50 per video, with everything included</div>
+        <ul>
+          <li>20 videos a month, 5 posts a week</li>
+          <li>3 for Chakh Dhoom, 2 for Dhoom Bar each week</li>
+          <li class="extra"><strong>2 shoot days a month</strong><span class="note">More variety, seasonal menus and events covered as they happen</span></li>
+          <li class="extra"><strong>4 email campaigns a month</strong><span class="note">Weekly touchpoint with your list, per venue when it matters</span></li>
+          <li class="extra"><strong>Full paid ads management with monthly creative testing</strong><span class="note">New ad variations every month so results never go stale</span></li>
+          <li class="extra"><strong>Dhoom Bar launch campaign</strong><span class="note">Dedicated content push and ads plan for opening, built into month one</span></li>
+          <li class="extra"><strong>Monthly strategy call with Jay</strong><span class="note">What worked, what's next, what we're testing</span></li>
+          <li>Monthly performance report</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tablebox">
+      <table>
+        <thead>
+          <tr><th>What you get</th><th>Core &middot; &pound;999</th><th class="hl">Growth &middot; &pound;1,350</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Videos per month</td><td>12</td><td class="hl">20</td></tr>
+          <tr><td>Posts per week</td><td>3</td><td class="hl">5</td></tr>
+          <tr><td>Cost per video</td><td>&pound;83</td><td class="hl">&pound;67.50</td></tr>
+          <tr><td>Shoot days per month</td><td>1</td><td class="hl">2</td></tr>
+          <tr><td>Email campaigns per month</td><td>2</td><td class="hl">4</td></tr>
+          <tr><td>Paid ads management</td><td><span class="yes">Yes</span>, quarterly creative refresh</td><td class="hl"><span class="yes">Yes</span>, new creative tested monthly</td></tr>
+          <tr><td>Dhoom Bar launch campaign</td><td><span class="no">No</span></td><td class="hl"><span class="yes">Included</span></td></tr>
+          <tr><td>Monthly strategy call</td><td><span class="no">No</span></td><td class="hl"><span class="yes">Included</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="notebox">
+      <h4>On ad spend</h4>
+      <p>Ad spend is separate and paid by you directly to Meta, so you keep full control and full visibility. We'd recommend starting around &pound;300 to &pound;500 a month across the two brands; we'll advise on the split and scale it based on what the numbers say.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The <span>detail</span></h2>
+    <div class="terms">
+      <div class="term">
+        <h4>Term</h4>
+        <p>3-month initial term, then monthly rolling. Content compounds; three months is the honest minimum to judge it.</p>
+      </div>
+      <div class="term">
+        <h4>Billing</h4>
+        <p>Monthly in advance by invoice. Ad spend billed separately by Meta to your card.</p>
+      </div>
+      <div class="term">
+        <h4>Switching tiers</h4>
+        <p>Start on Core, move up to Growth any month. Most clients who start on Core upgrade once the ads start converting.</p>
+      </div>
+      <div class="term">
+        <h4>What we need from you</h4>
+        <p>Access for shoot days, sign-off on the monthly plan, and Instagram logins for both accounts. We handle the rest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Ready when <span>you are</span></h2>
+    <p>If this looks right, message us and we'll get the first shoot day in the diary while Dhoom Bar is still box-fresh.</p>
+    <div class="btnrow">
+      <a class="btn btn-wa" href="https://wa.me/447437571250">
+        <svg viewBox="0 0 24 24"><path d="M12 2a9.94 9.94 0 0 0-8.51 15.13L2 22l4.99-1.44A9.99 9.99 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-2.96.86.86-2.89-.2-.31A8.22 8.22 0 1 1 12 20.2Zm4.51-6.13c-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.66.3-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.14.16 1.57.1.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+        WhatsApp Jay
+      </a>
+      <a class="btn btn-em" href="mailto:jay@fusioncreative.uk">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+        jay@fusioncreative.uk
+      </a>
+    </div>
+    <div class="foot"><strong>Fusion Creative</strong> &middot; Newcastle upon Tyne &middot; fusioncreative.uk</div>
+  </div>
+</section>
+
+</body>
+</html>
