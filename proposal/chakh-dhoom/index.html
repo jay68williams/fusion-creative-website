@@ -33,6 +33,13 @@
   .hero p.sub{margin-top:20px;font-size:18px;color:var(--muted);max-width:620px}
   .hero .meta{margin-top:30px;font-size:14px;color:var(--muted)}
   .hero .meta strong{color:var(--text);font-weight:600}
+  .logo-row{display:flex;align-items:center;gap:32px;flex-wrap:wrap;margin-bottom:34px}
+  .logo-row img.cd{height:44px;width:auto}
+  .logo-row img.db{height:76px;width:auto}
+  .logo-row .divider{width:1px;height:52px;background:var(--line)}
+  .brand .brand-logo{display:block;height:auto;margin-bottom:16px}
+  .brand .brand-logo.cd{width:min(250px,100%)}
+  .brand .brand-logo.db{width:min(190px,100%)}
   .goldline{width:64px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:99px;margin:26px 0 0}
 
   section{padding:58px 0;border-bottom:1px solid var(--line)}
@@ -113,6 +120,11 @@
 
 <header class="hero">
   <div class="wrap">
+    <div class="logo-row">
+      <img class="cd" src="assets/chakh-dhoom-logo.png" alt="Chakh Dhoom">
+      <div class="divider"></div>
+      <img class="db" src="assets/dhoom-bar-logo.png" alt="Dhoom Bar">
+    </div>
     <div class="kicker">Content &amp; Growth Proposal</div>
     <h1>Chakh Dhoom <span class="amp">&amp;</span><br>Dhoom Bar</h1>
     <div class="goldline"></div>
@@ -131,11 +143,13 @@
     <div class="brands">
       <div class="brand">
         <div class="tag">Established</div>
+        <img class="brand-logo cd" src="assets/chakh-dhoom-logo.png" alt="Chakh Dhoom logo">
         <h3>Chakh <em>Dhoom</em></h3>
         <p>The main event. Consistent food-led content that keeps the brand loud, fills quieter services and gives the ads engine fresh creative to run with.</p>
       </div>
       <div class="brand">
         <div class="tag">Open, not online yet</div>
+        <img class="brand-logo db" src="assets/dhoom-bar-logo.png" alt="Dhoom Bar logo">
         <h3>Dhoom <em>Bar</em></h3>
         <p>Already open, barely visible. Its own Instagram, its own identity, drinks-led videos and a reason for people who've never eaten at Chakh Dhoom to walk in.</p>
       </div>
