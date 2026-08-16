@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -143,6 +143,88 @@
             .stats-table td:last-child { text-align: left; }
             .stats-table .stat-badge, .stats-table .stat-badge-green, .stats-table .stat-badge-amber { display: inline-block; margin-top: 6px; }
         }
+
+        /* ===== Fusion x Grand Hotel Gosforth Park co-brand skin ===== */
+        :root {
+            --bg: #fff9f4; --bg-alt: #f6efe6; --card: #ffffff; --card-border: rgba(30,41,58,0.10);
+            --coral: #b69664; --coral-light: #cbb083; --coral-dark: #9a7d4f;
+            --text: #1e293a; --text-secondary: #46536a; --text-muted: #7c8798;
+            --navy: #1e293a; --gold: #b69664; --gold-soft: rgba(182,150,100,0.14); --cream: #fff9f4;
+        }
+        body { font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--cream); color: var(--navy); }
+        .hero h1, .section-title, .intro-card .greeting, .signature-name, .case-study-stat .number, .about-fc-stat-val, .viral-callout .big-number, .idea-title, .opportunity-heading h3, .enhancement-card h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; letter-spacing: 0;
+        }
+        .hero h1 span { background: none; -webkit-text-fill-color: var(--navy); color: var(--navy); animation: none; }
+        .section-title { font-size: 38px; }
+        .section-label, .hero-label, .footer-confidential, .idea-number, .deliverable-eyebrow .tag { color: var(--gold); letter-spacing: 3px; font-family: 'Figtree', sans-serif; font-weight: 600; }
+        .card { border-radius: 4px; box-shadow: 0 1px 2px rgba(30,41,58,0.04), 0 12px 40px rgba(30,41,58,0.05); }
+        .card:hover { transform: none; box-shadow: 0 1px 2px rgba(30,41,58,0.04), 0 12px 40px rgba(30,41,58,0.05); }
+        .enhancement-card, .video-idea-card { border-radius: 4px; }
+        .enhancement-card:hover, .video-idea-card:hover { transform: none; }
+        .intro-card, .case-study-card, .next-steps-card { background: #ffffff; border-color: rgba(182,150,100,0.35); }
+        .case-study-card { border-left: 3px solid var(--gold); }
+        .case-study-card::before { display: none; }
+        .note-box { background: var(--gold-soft); border: 1px solid rgba(182,150,100,0.45); border-radius: 4px; }
+        .note-box strong { color: var(--navy); }
+        .section-divider { background: linear-gradient(to right, transparent, rgba(182,150,100,0.6), transparent); }
+        .opportunity-num, .idea-number, .steps-list li::before { background: var(--navy); box-shadow: none; border-radius: 2px; }
+        .idea-number { background: transparent; color: var(--gold); }
+        .check-icon { color: var(--gold); }
+        .stat-badge-green { background: rgba(30,41,58,0.08); color: var(--navy); }
+        .stat-badge-amber { background: var(--gold-soft); color: var(--gold-dark, #8f7449); }
+        .stat-highlight { color: var(--navy) !important; }
+        .case-study-stat { background: #ffffff; border: 1px solid rgba(182,150,100,0.35); border-radius: 4px; }
+        .case-study-stat .number { color: var(--navy); font-size: 40px; }
+        .about-fc-stat-val { color: var(--navy); }
+        .card .grid-stat, .card [class*="stat"] .number, .card [style*="font-size: 28px"] { color: var(--navy) !important; }
+        .viral-callout { background: var(--navy); border-radius: 4px; }
+        .viral-callout .big-number { color: #ffffff; }
+        .viral-callout .context { color: rgba(255,255,255,0.82); }
+        .viral-callout .context strong { color: #ffffff; }
+        .highlight-box { background: var(--gold-soft); border: 1px solid rgba(182,150,100,0.4); border-radius: 4px; }
+        .highlight-box strong { color: var(--navy); }
+        .idea-tag { background: rgba(30,41,58,0.06); color: var(--navy); border-radius: 999px; }
+        .about-fc-tag { border-radius: 999px; }
+        .cta-btn { background: var(--navy); border-radius: 999px; animation: none; box-shadow: 0 6px 20px rgba(30,41,58,0.25); font-family: 'Figtree', sans-serif; letter-spacing: 0.3px; }
+        .cta-btn:hover { background: #0f1724; box-shadow: 0 8px 26px rgba(30,41,58,0.35); }
+        .cta-btn-wa { border-radius: 999px; }
+        .signature-link { color: var(--gold); }
+        .footer { background: var(--navy); color: rgba(255,255,255,0.75); border-top: none; padding: 40px 0; }
+        .footer-confidential { color: var(--gold); }
+        .footer-note, .footer-brand { color: rgba(255,255,255,0.65); }
+        .footer-brand span { color: #ffffff; }
+        .stats-table td:last-child { color: var(--navy); }
+        .header { border-bottom: 1px solid rgba(182,150,100,0.35); padding: 28px 0 24px; }
+        .header-inner { align-items: center; }
+        .brand, .brand-dot { display: none; }
+        /* partnership lock-up */
+        .lockup { display: flex; align-items: center; gap: 22px; }
+        .lockup img { height: 44px; width: auto; display: block; }
+        .lockup .fc-word { font-family: 'Figtree', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--navy); }
+        .lockup .fc-word small { display: block; font-size: 9px; letter-spacing: 2.5px; color: var(--gold); font-weight: 600; margin-top: 3px; }
+        .lockup .x { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--gold); font-style: italic; line-height: 1; }
+        /* hero: full-bleed photo with navy scrim */
+        .hero-band { position: relative; margin: 0 0 8px; background: var(--navy); overflow: hidden; }
+        .hero-band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; opacity: 0.55; filter: saturate(0.9); }
+        .hero-band::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(30,41,58,0.35) 0%, rgba(30,41,58,0.55) 45%, rgba(30,41,58,0.92) 100%); }
+        .hero-band .hero { position: relative; z-index: 2; padding: 88px 0 72px; animation: none; }
+        .hero-band .hero-label { color: var(--gold); }
+        .hero-band .hero h1 span { -webkit-text-fill-color: #ffffff; color: #ffffff; }
+        .hero-band .hero-subtitle { color: rgba(255,255,255,0.85); }
+        .hero-rule { width: 64px; height: 1px; background: var(--gold); margin: 26px 0 22px; }
+        .hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 30px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); font-weight: 600; }
+        .hero-meta b { color: var(--gold); font-weight: 600; }
+        /* photo strip */
+        .photo-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 8px 0 0; }
+        .photo-strip figure { margin: 0; overflow: hidden; border-radius: 4px; position: relative; aspect-ratio: 16/10; }
+        .photo-strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .photo-strip figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 12px 16px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #fff; background: linear-gradient(transparent, rgba(30,41,58,0.75)); font-weight: 600; }
+        @media (max-width: 640px) { .photo-strip { grid-template-columns: 1fr; } .lockup img { height: 36px; } .lockup { gap: 14px; } .hero-band .hero { padding: 64px 0 52px; } }
+        /* leaf flourish */
+        .flourish { text-align: center; padding: 6px 0 0; }
+        .flourish svg { width: 120px; height: auto; opacity: 0.85; }
+        /* intro splash recolour */
     </style>
 </head>
 <body>
@@ -161,12 +243,35 @@
     .fc-intro-hint .fc-dot{width:7px;height:7px;border-radius:50%;background:#ff7d5e;box-shadow:0 0 12px rgba(255,125,94,0.9);}
     @keyframes fcPulse{0%,100%{opacity:.55;}50%{opacity:1;}}
     body.fc-locked{overflow:hidden;}
-  </style>
+  
+    /* Grand Hotel Gosforth Park co-brand splash */
+    #fc-intro{background:#fff9f4;}
+    #fc-intro canvas{opacity:.55;mix-blend-mode:multiply;}
+    #fc-intro::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%, rgba(255,249,244,0) 0%, rgba(255,249,244,.85) 70%, #fff9f4 100%);pointer-events:none;z-index:1;}
+    .fc-intro-inner{color:#1e293a;text-shadow:none;}
+    .fc-intro-lockup{display:inline-flex;align-items:center;gap:22px;margin-bottom:26px;}
+    .fc-intro-logo{height:52px;width:auto;display:block;}
+    .fc-intro-x{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;color:#b69664;line-height:1;}
+    .fc-intro-fusion{font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:#1e293a;}
+    .fc-intro-fusion b{color:#b69664;font-weight:700;}
+    .fc-intro-rule{margin:0 auto 22px;line-height:0;}
+    .fc-intro-eyebrow{color:#7c8798;letter-spacing:.28em;font-size:11px;margin-bottom:18px;}
+    .fc-intro-title{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;color:#1e293a;text-shadow:none;letter-spacing:0;font-size:clamp(2.3rem,6.2vw,4.6rem);}
+    .fc-intro-hint{color:#46536a;}
+    .fc-intro-hint .fc-dot{background:#b69664;box-shadow:0 0 12px rgba(182,150,100,.75);}
+    @media (max-width:520px){.fc-intro-lockup{gap:14px;}.fc-intro-logo{height:40px;}}
+</style>
   <div id="fc-intro">
     <canvas id="fc-intro-canvas"></canvas>
     <div class="fc-intro-inner">
-      <div class="fc-intro-eyebrow"><b>Fusion Creative</b> &middot; Private Audit</div>
-      <div class="fc-intro-title">Anthony, welcome to your audit.</div>
+      <div class="fc-intro-lockup">
+        <img src="assets/elite-logo.svg" alt="The Elite Venue Selection" class="fc-intro-logo">
+        <span class="fc-intro-x">&times;</span>
+        <span class="fc-intro-fusion">Fusion <b>Creative</b></span>
+      </div>
+      <div class="fc-intro-rule"><svg viewBox="0 0 120 12" width="120" height="12" aria-hidden="true"><path d="M2 6 C 22 0, 42 0, 58 6 M118 6 C 98 0, 78 0, 62 6" stroke="#b69664" stroke-width="1" fill="none"/><circle cx="60" cy="6" r="1.6" fill="#b69664"/></svg></div>
+      <div class="fc-intro-eyebrow">Prepared for the Grand Hotel Gosforth Park</div>
+      <div class="fc-intro-title">Anthony, here is your plan.</div>
       <div class="fc-intro-hint"><span class="fc-dot"></span> Click anywhere to view</div>
     </div>
   </div>
@@ -176,18 +281,27 @@
     <div class="container">
         <header class="header">
             <div class="header-inner">
-                <div class="brand"><span class="brand-dot"></span>Fusion Creative</div>
+                <div class="lockup">
+                    <img src="assets/elite-logo.svg" alt="The Elite Venue Selection">
+                    <span class="x">&times;</span>
+                    <div class="fc-word">Fusion Creative<small>Content &middot; Social &middot; Ads</small></div>
+                </div>
                 <div class="header-date">16 August 2026</div>
             </div>
         </header>
     </div>
 
     <!-- Hero -->
-    <div class="container">
-        <div class="hero">
-            <div class="hero-label">Audit + Ideas</div>
-            <h1><span>Grand Hotel Gosforth Park</span></h1>
-            <p class="hero-subtitle">Turning a strong kitchen and a prime Newcastle location into a dining destination in its own right, led by the Sunday roast. Prepared by Fusion Creative, 16 August 2026.</p>
+    <div class="hero-band">
+        <img src="assets/dining.jpg" alt="">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-label">Audit + Ideas &middot; Prepared for</div>
+                <h1><span>Grand Hotel Gosforth Park</span></h1>
+                <div class="hero-rule"></div>
+                <p class="hero-subtitle">Turning a strong kitchen and a prime Newcastle location into a dining destination in its own right, led by the Sunday roast.</p>
+                <div class="hero-meta"><span><b>For</b> Anthony, Head Chef</span><span><b>By</b> Fusion Creative, Newcastle</span><span><b>Focus</b> Sunday roast &middot; Local covers</span></div>
+            </div>
         </div>
     </div>
 
@@ -211,24 +325,33 @@
                 <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Generated for a single local hospitality business in the North East</div>
                 <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
                     <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
-                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">70M+</div>
+                        <div style="font-size:30px; font-weight:500; color:var(--navy); letter-spacing:0; font-family:'Cormorant Garamond',Georgia,serif;">70M+</div>
                         <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
                     </div>
                     <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
-                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">824K+</div>
+                        <div style="font-size:30px; font-weight:500; color:var(--navy); letter-spacing:0; font-family:'Cormorant Garamond',Georgia,serif;">824K+</div>
                         <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Interactions</div>
                     </div>
                     <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
-                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">6,200+</div>
+                        <div style="font-size:30px; font-weight:500; color:var(--navy); letter-spacing:0; font-family:'Cormorant Garamond',Georgia,serif;">6,200+</div>
                         <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
                     </div>
                     <div style="text-align:center; background:rgba(232,85,60,0.05); border:1px solid rgba(232,85,60,0.12); border-radius:12px; padding:16px 8px;">
-                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">60M</div>
+                        <div style="font-size:30px; font-weight:500; color:var(--navy); letter-spacing:0; font-family:'Cormorant Garamond',Georgia,serif;">60M</div>
                         <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
                     </div>
                 </div>
                 <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">We generated over 70 million views across Instagram and TikTok in 30 days for a single local North East hospitality business, from a steady stream of short-form food videos. One reel alone reached 60 million views. They went from a standing start to a name people travel for, all filmed locally. That same engine, food shown as content built to travel rather than just posted, is exactly what turns a hotel restaurant into a place locals choose to book. The Grand has the kitchen and the location. The job is a food identity and reach.</p>
             </div>
+        </div>
+    </div>
+
+
+    <!-- Property photography -->
+    <div class="container">
+        <div class="photo-strip">
+            <figure><img src="assets/food.jpg" alt="Breakfast at the Grand"><figcaption>The Plate Restaurant</figcaption></figure>
+            <figure><img src="assets/chats.jpg" alt="Chats Bar"><figcaption>Chats Bar</figcaption></figure>
         </div>
     </div>
 
@@ -560,6 +683,7 @@
 
     <div class="container"><div class="section-divider"></div></div>
 
+    <div class="container"><div class="flourish"><svg viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 12 C 22 2, 42 2, 58 12 M118 12 C 98 2, 78 2, 62 12" stroke="#b69664" stroke-width="1"/><path d="M14 9c3-4 8-5 12-3-2 4-7 6-12 3zM26 5c3-3 8-3 11 0-3 3-8 3-11 0zM106 9c-3-4-8-5-12-3 2 4 7 6 12 3zM94 5c-3-3-8-3-11 0 3 3 8 3 11 0z" fill="#b69664" opacity=".9"/><circle cx="60" cy="12" r="2" fill="#b69664"/></svg></div></div>
     <!-- Signature -->
     <div class="container">
         <div class="signature">
@@ -572,7 +696,7 @@
     <!-- Footer -->
     <div class="container">
         <footer class="footer">
-            <div class="footer-confidential">Confidential - Prepared for Grand Hotel Gosforth Park</div>
+            <div class="footer-confidential">Confidential &middot; Prepared for the Grand Hotel Gosforth Park &middot; The Elite Venue Selection</div>
             <div class="footer-note">Prepared for the Grand Hotel Gosforth Park using the grandhotelgosforthpark.co.uk website, the hotel Instagram and TikTok, and the Elite Venue Selection channels on 16 August 2026.</div>
             <div class="footer-brand"><span>Fusion Creative</span></div>
         </footer>
@@ -595,7 +719,7 @@
       'float fbm(vec2 p){float v=0.0,a=0.5;for(int i=0;i<5;i++){v+=a*noise(p);p*=2.0;a*=0.5;}return v;}',
       'void main(){vec2 uv=gl_FragCoord.xy/u_res.xy;float asp=u_res.x/u_res.y;vec2 p=uv;p.x*=asp;vec2 mo=u_mouse;mo.x*=asp;float t=u_time*0.05;',
       'vec2 q=p*1.5+vec2(t,-t*0.7);q+=(mo-p)*0.3;float w=fbm(q+fbm(q+t));float w2=fbm(q*1.4-t*0.5+w);',
-      'vec3 cDark=vec3(0.07,0.06,0.11);vec3 cBlue=vec3(0.30,0.34,0.58);vec3 cPink=vec3(0.74,0.40,0.52);vec3 cCoral=vec3(0.91,0.36,0.20);',
+      'vec3 cDark=vec3(0.86,0.83,0.78);vec3 cBlue=vec3(0.62,0.66,0.74);vec3 cPink=vec3(0.80,0.72,0.58);vec3 cCoral=vec3(0.71,0.59,0.39);',
       'vec3 col=mix(cDark,cBlue,smoothstep(0.15,0.85,w));col=mix(col,cPink,smoothstep(0.35,0.95,w2));',
       'float d=distance(p,mo);col+=cCoral*smoothstep(0.75,0.0,d)*0.55*(0.6+0.4*sin(u_time*0.6));',
       'col*=1.0-0.28*pow(distance(uv,vec2(0.5)),2.0);gl_FragColor=vec4(col,1.0);}'].join('\n');
