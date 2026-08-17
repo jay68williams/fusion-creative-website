@@ -7,311 +7,273 @@
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --bg: #f5f6fa; --bg-alt: #ecedf1; --card: #ffffff; --card-border: rgba(0,0,0,0.08);
-            --coral: #E8553C; --coral-light: #ff7a64; --coral-dark: #c4412b;
-            --text: #1a1d23; --text-secondary: #4a4f5c; --text-muted: #7c8090;
+            --wine: #4a0813; --wine-mid: #690b1b; --wine-soft: rgba(105,11,27,0.08); --wine-line: rgba(105,11,27,0.18);
+            --cream: #fbf7f2; --paper: #ffffff; --ink: #1f1a1b; --ink-2: #4b4548; --ink-3: #8a8285;
+            --gold: #c9a961; --gold-soft: rgba(201,169,97,0.16);
         }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
-        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); } 50% { box-shadow: 0 0 40px rgba(232,85,60,0.55); } }
-        @keyframes scaleIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
-        .container { max-width: 840px; margin: 0 auto; padding: 0 24px; }
-        .header { padding: 48px 0 40px; border-bottom: 1px solid rgba(0,0,0,0.08); }
-        .header-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
-        .brand { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); }
-        .brand-dot { display: inline-block; width: 6px; height: 6px; background: var(--coral); border-radius: 50%; margin-right: 8px; vertical-align: middle; position: relative; top: -1px; }
-        .header-date { font-size: 13px; color: var(--text-muted); font-weight: 400; }
-        .hero { padding: 64px 0 56px; animation: fadeInUp 0.6s ease both; }
-        .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; }
-        .hero h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(42px, 7vw, 64px); font-weight: 400; line-height: 1.05; letter-spacing: -1px; margin-bottom: 24px; }
-        .hero h1 span { background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral)); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s linear infinite; }
-        .hero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 600px; line-height: 1.7; font-weight: 400; }
-        .section { padding: 48px 0; animation: fadeInUp 0.6s ease both; }
-        .section-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent); }
-        .card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 40px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
-        .card-sm { padding: 28px 32px; }
-        .section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 12px; }
-        .section-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 34px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 24px; line-height: 1.2; }
-        .section-text { color: var(--text-secondary); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
-        .section-text:last-child { margin-bottom: 0; }
-        .intro-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); }
-        .intro-card .greeting { font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; color: var(--text); }
-        .note-box { background: rgba(232,85,60,0.07); border: 1px dashed rgba(232,85,60,0.4); border-radius: 12px; padding: 16px 20px; margin-top: 20px; font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
-        .note-box strong { color: var(--coral); }
-        .working-item { margin-bottom: 28px; }
-        .working-item:last-child { margin-bottom: 0; }
-        .working-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
-        .working-item p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
-        .check-icon { display: inline-block; color: #4cd97d; margin-right: 6px; font-weight: 700; }
-        .opportunity-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--coral); color: white; border-radius: 8px; font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.35); }
-        .opportunity-heading { display: flex; align-items: center; margin-bottom: 14px; }
-        .opportunity-heading h3 { font-size: 19px; font-weight: 600; color: var(--text); }
-        .enhancement-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px 32px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .enhancement-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
-        .enhancement-card:last-child { margin-bottom: 0; }
-        .enhancement-card h4 { font-size: 17px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
-        .enhancement-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
-        .enhancement-card p:last-child { margin-bottom: 0; }
-        .enhancement-list { list-style: none; margin: 12px 0; }
-        .enhancement-list li { font-size: 14px; color: var(--text-secondary); padding: 6px 0 6px 18px; position: relative; line-height: 1.6; }
-        .enhancement-list li::before { content: ''; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; background: var(--coral); border-radius: 50%; }
-        .price-tag { display: inline-flex; align-items: baseline; gap: 8px; background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 10px; padding: 10px 18px; margin-top: 16px; }
-        .price-tag .amount { font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; font-weight: 400; color: var(--coral); letter-spacing: -0.5px; line-height: 1; }
-        .price-tag .per { font-size: 13px; color: var(--text-secondary); font-weight: 500; }
-        .deliverable-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-        .deliverable-eyebrow .num { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; background: var(--coral); color: white; border-radius: 9px; font-size: 14px; font-weight: 700; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.35); }
-        .deliverable-eyebrow .tag { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); }
-        .tag-optional { color: var(--coral-light) !important; }
-        .highlight-box { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 10px; padding: 18px 22px; margin-top: 14px; }
-        .highlight-box p { font-size: 14px; color: var(--text-secondary); margin-bottom: 0; }
-        .highlight-box strong { color: var(--coral); }
-        .pricing-table { width: 100%; border-collapse: collapse; font-size: 15px; margin-top: 8px; }
-        .pricing-table tr { border-bottom: 1px solid rgba(0,0,0,0.06); }
-        .pricing-table tr:last-child { border-bottom: none; }
-        .pricing-table td { padding: 18px 0; vertical-align: top; }
-        .pricing-table td:first-child { color: var(--text); font-weight: 500; padding-right: 24px; }
-        .pricing-table td:first-child span { display: block; font-size: 13px; color: var(--text-muted); font-weight: 400; margin-top: 3px; }
-        .pricing-table td:last-child { font-weight: 700; color: var(--coral); text-align: right; white-space: nowrap; font-size: 17px; }
-        .pricing-table .opt td:last-child { color: var(--coral-light); }
-        .pricing-note { font-size: 13px; color: var(--text-muted); margin-top: 18px; line-height: 1.7; }
-        .next-steps-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 80%); border-color: rgba(232,85,60,0.2); }
-        .steps-list { list-style: none; counter-reset: steps; }
-        .steps-list li { counter-increment: steps; display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--card-border); font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
-        .steps-list li:last-child { border-bottom: none; }
-        .steps-list li::before { content: counter(steps); display: flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; background: var(--coral); color: white; border-radius: 10px; font-size: 14px; font-weight: 700; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.3); }
-        .cta-wrap { text-align: center; margin-top: 32px; }
-        .cta-btn { display: inline-block; background: var(--coral); color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 40px; border-radius: 999px; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; animation: pulseGlow 3s ease-in-out infinite; }
-        .cta-btn:hover { background: var(--coral-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,85,60,0.5); animation: none; }
-        .cta-btn-wa { display: inline-block; background: #25D366; color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 34px; border-radius: 999px; text-decoration: none; margin: 14px 0 0 12px; box-shadow: 0 4px 18px rgba(37,211,102,0.35); transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
-        .cta-btn-wa:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.5); }
-        .cta-sub { font-size: 13px; color: var(--text-muted); margin-top: 12px; }
-        @media (max-width: 520px) { .cta-btn, .cta-btn-wa { display: block; width: 100%; margin: 0 auto; } .cta-btn-wa { margin-top: 14px; } }
-        .closing-note { margin-top: 24px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
-        .signature { padding: 48px 0; }
-        .signature-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 24px; font-weight: 400; margin-bottom: 4px; color: var(--text); }
-        .signature-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 2px; }
-        .signature-link { font-size: 14px; color: var(--coral); text-decoration: none; font-weight: 500; }
-        .signature-link:hover { text-decoration: underline; }
-        .footer { padding: 32px 0; border-top: 1px solid rgba(0,0,0,0.08); text-align: center; background: var(--bg-alt); }
-        .footer-confidential { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
-        .footer-note { font-size: 12px; color: var(--text-muted); font-style: italic; }
-        .footer-brand { margin-top: 16px; font-size: 12px; color: var(--text-muted); }
-        .footer-brand span { color: var(--coral); font-weight: 600; }
-        @media (max-width: 640px) {
-            .container { padding: 0 16px; } .card { padding: 28px 22px; } .hero { padding: 40px 0 36px; } .section { padding: 32px 0; }
-            .header-inner { flex-direction: column; gap: 8px; }
+        body { font-family: 'Libre Franklin', -apple-system, sans-serif; background: var(--cream); color: var(--ink); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+        .serif { font-family: 'Cormorant', Georgia, serif; }
+
+        /* header */
+        .header { background: var(--paper); border-bottom: 1px solid var(--wine-line); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; gap: 16px; }
+        .lockup { display: flex; align-items: center; gap: 18px; }
+        .lockup img { height: 34px; width: auto; display: block; }
+        .lockup .x { font-family: 'Cormorant', serif; font-size: 22px; color: var(--gold); line-height: 1; }
+        .lockup .fc { font-size: 11px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--wine); }
+        .lockup .fc span { color: var(--gold); }
+        .header-date { font-size: 12px; color: var(--ink-3); letter-spacing: .06em; }
+
+        /* hero */
+        .hero { position: relative; color: #fff; overflow: hidden; }
+        .hero-bg { position: absolute; inset: 0; background: url('assets/hero.jpg') center 40% / cover no-repeat; }
+        .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(74,8,19,0.72) 0%, rgba(74,8,19,0.86) 100%); }
+        .hero-inner { position: relative; padding: 96px 0 84px; }
+        .hero-label { font-size: 11px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
+        .hero h1 { font-family: 'Cormorant', serif; font-weight: 600; font-size: clamp(44px, 7vw, 76px); line-height: 1.02; letter-spacing: -0.005em; margin-bottom: 22px; }
+        .hero h1 em { font-style: italic; font-weight: 500; }
+        .hero p { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.86); max-width: 560px; font-weight: 300; }
+        .hero-meta { margin-top: 34px; display: flex; gap: 28px; flex-wrap: wrap; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+        .hero-meta b { color: #fff; font-weight: 600; }
+
+        /* sections */
+        .section { padding: 64px 0; }
+        .section-label { font-size: 11px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+        .section-title { font-family: 'Cormorant', serif; font-weight: 600; font-size: clamp(34px, 4.6vw, 46px); line-height: 1.1; color: var(--wine); margin-bottom: 20px; }
+        .lead { font-size: 16px; color: var(--ink-2); max-width: 640px; }
+        .rule { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--wine-line), transparent); }
+
+        .card { background: var(--paper); border: 1px solid var(--wine-line); border-radius: 18px; padding: 40px; box-shadow: 0 1px 2px rgba(74,8,19,0.04), 0 14px 40px rgba(74,8,19,0.06); }
+        .intro { display: grid; grid-template-columns: 1fr; gap: 24px; }
+        .greeting { font-family: 'Cormorant', serif; font-size: 34px; font-weight: 600; color: var(--wine); margin-bottom: 14px; }
+        .intro p { font-size: 15.5px; color: var(--ink-2); margin-bottom: 14px; }
+        .intro p:last-child { margin-bottom: 0; }
+
+        /* photo strip */
+        .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 8px; }
+        .strip figure { position: relative; aspect-ratio: 1; border-radius: 14px; overflow: hidden; }
+        .strip img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+        .strip figure:hover img { transform: scale(1.04); }
+        .strip figcaption { position: absolute; left: 12px; bottom: 10px; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+
+        /* packages */
+        .packages { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 30px; align-items: start; }
+        .pkg { background: var(--paper); border: 1px solid var(--wine-line); border-radius: 20px; padding: 36px 34px 32px; position: relative; box-shadow: 0 1px 2px rgba(74,8,19,0.04), 0 14px 40px rgba(74,8,19,0.06); }
+        .pkg.rec { border-color: var(--wine-mid); box-shadow: 0 1px 2px rgba(74,8,19,0.06), 0 22px 60px rgba(74,8,19,0.14); }
+        .pkg .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 10.5px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px; }
+        .pkg.rec .tag { color: var(--wine-mid); }
+        .pkg .bonus { position: absolute; top: -13px; right: 22px; background: var(--wine-mid); color: #fff; font-size: 10.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; box-shadow: 0 6px 18px rgba(105,11,27,0.35); }
+        .pkg h3 { font-family: 'Cormorant', serif; font-weight: 600; font-size: 34px; color: var(--wine); line-height: 1.05; margin-bottom: 8px; }
+        .pkg .sub { font-size: 14px; color: var(--ink-2); margin-bottom: 22px; min-height: 44px; }
+        .price { display: flex; align-items: baseline; gap: 8px; padding: 18px 0; border-top: 1px solid var(--wine-line); border-bottom: 1px solid var(--wine-line); margin-bottom: 22px; }
+        .price .amt { font-family: 'Cormorant', serif; font-size: 48px; font-weight: 600; color: var(--wine); line-height: 1; letter-spacing: -0.01em; }
+        .price .per { font-size: 13px; color: var(--ink-3); }
+        .list { list-style: none; }
+        .list li { font-size: 14px; color: var(--ink-2); padding: 9px 0 9px 26px; position: relative; line-height: 1.55; border-bottom: 1px dashed rgba(105,11,27,0.12); }
+        .list li:last-child { border-bottom: none; }
+        .list li::before { content: ''; position: absolute; left: 0; top: 16px; width: 12px; height: 12px; border-radius: 50%; background: var(--wine-soft); border: 1.5px solid var(--wine-mid); }
+        .list li.free::before { background: var(--wine-mid); box-shadow: 0 0 0 3px var(--wine-soft); }
+        .list li b { color: var(--ink); font-weight: 600; }
+        .list li .pill { display: inline-block; margin-left: 6px; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #fff; background: var(--wine-mid); border-radius: 999px; padding: 2px 8px; vertical-align: middle; }
+        .pkg .note { margin-top: 20px; background: var(--wine-soft); border-radius: 12px; padding: 14px 16px; font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+        .pkg .note b { color: var(--wine-mid); }
+
+        /* glance table */
+        .glance { width: 100%; border-collapse: collapse; margin-top: 8px; }
+        .glance td { padding: 18px 0; vertical-align: top; border-bottom: 1px solid var(--wine-line); font-size: 15px; }
+        .glance tr:last-child td { border-bottom: none; }
+        .glance td:first-child { color: var(--ink); font-weight: 500; padding-right: 24px; }
+        .glance td:first-child span { display: block; font-size: 13px; color: var(--ink-3); font-weight: 400; margin-top: 3px; }
+        .glance td:last-child { text-align: right; white-space: nowrap; font-family: 'Cormorant', serif; font-size: 26px; font-weight: 600; color: var(--wine); }
+        .glance-note { font-size: 13px; color: var(--ink-3); margin-top: 18px; line-height: 1.7; }
+
+        /* CTA */
+        .cta-card { background: var(--wine); color: #fff; border-radius: 20px; padding: 48px 44px; position: relative; overflow: hidden; }
+        .cta-card::before { content: ''; position: absolute; inset: 0; background: url('assets/dishes.jpg') center / cover no-repeat; opacity: .12; }
+        .cta-card > * { position: relative; }
+        .cta-card .section-label { color: var(--gold); }
+        .cta-card h2 { font-family: 'Cormorant', serif; font-weight: 600; font-size: 40px; line-height: 1.1; margin-bottom: 14px; }
+        .cta-card p { font-size: 15.5px; color: rgba(255,255,255,0.85); max-width: 600px; margin-bottom: 10px; }
+        .cta-card .closing { font-family: 'Cormorant', serif; font-style: italic; font-size: 19px; color: rgba(255,255,255,0.9); margin: 18px 0 28px; }
+        .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; gap: 9px; padding: 14px 26px; border-radius: 999px; font-size: 14.5px; font-weight: 600; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-white { background: #fff; color: var(--wine); }
+        .btn-wa { background: #25D366; color: #fff; box-shadow: 0 6px 20px rgba(37,211,102,0.3); }
+        .cta-sub { font-size: 12.5px; color: rgba(255,255,255,0.6); margin-top: 16px; }
+
+        .signature { padding: 44px 0 20px; }
+        .signature .name { font-family: 'Cormorant', serif; font-size: 28px; font-weight: 600; color: var(--wine); }
+        .signature .role { font-size: 13.5px; color: var(--ink-2); }
+        .signature a { color: var(--wine-mid); text-decoration: none; font-size: 13.5px; font-weight: 500; }
+        .footer { padding: 30px 0; border-top: 1px solid var(--wine-line); text-align: center; font-size: 11.5px; color: var(--ink-3); letter-spacing: .1em; text-transform: uppercase; }
+        .footer .lockup { justify-content: center; margin-bottom: 12px; }
+        .footer .lockup img { height: 24px; }
+
+        @media (max-width: 720px) {
+            .container { padding: 0 18px; } .section { padding: 44px 0; } .card { padding: 26px 22px; }
+            .hero-inner { padding: 64px 0 56px; }
+            .packages { grid-template-columns: 1fr; } .pkg { padding: 30px 24px 26px; } .pkg .sub { min-height: 0; }
+            .strip { grid-template-columns: repeat(2, 1fr); }
+            .cta-card { padding: 34px 24px; } .cta-card h2 { font-size: 32px; }
+            .btn { width: 100%; justify-content: center; }
+            .lockup img { height: 26px; } .lockup { gap: 12px; }
+            .glance td:last-child { font-size: 22px; }
         }
     </style>
 </head>
 <body>
 
-  <!-- Proposal intro / shader welcome screen -->
-  <style>
-    #fc-intro{position:fixed;inset:0;z-index:99999;background:#0e0c14;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity .85s ease;}
-    #fc-intro.fc-out{opacity:0;pointer-events:none;}
-    #fc-intro canvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
-    .fc-intro-inner{position:relative;z-index:2;text-align:center;padding:24px;max-width:780px;color:#fff;}
-    .fc-intro-eyebrow{font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:24px;}
-    .fc-intro-eyebrow b{color:#ff7d5e;font-weight:700;}
-    .fc-intro-title{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.1rem,6vw,4.4rem);line-height:1.06;font-weight:400;letter-spacing:-0.01em;text-shadow:0 2px 50px rgba(0,0,0,0.4);}
-    .fc-intro-hint{font-family:Inter,system-ui,sans-serif;font-size:14px;font-weight:500;letter-spacing:0.05em;color:rgba(255,255,255,0.88);margin-top:38px;display:inline-flex;align-items:center;gap:10px;animation:fcPulse 2.4s ease-in-out infinite;}
-    .fc-intro-hint .fc-dot{width:7px;height:7px;border-radius:50%;background:#ff7d5e;box-shadow:0 0 12px rgba(255,125,94,0.9);}
-    @keyframes fcPulse{0%,100%{opacity:.55;}50%{opacity:1;}}
-    body.fc-locked{overflow:hidden;}
-  </style>
-  <div id="fc-intro">
-    <canvas id="fc-intro-canvas"></canvas>
-    <div class="fc-intro-inner">
-      <div class="fc-intro-eyebrow"><b>Fusion Creative</b> &middot; Your Plan</div>
-      <div class="fc-intro-title">Chris, here's your plan.</div>
-      <div class="fc-intro-hint"><span class="fc-dot"></span> Click anywhere to view</div>
-    </div>
-  </div>
-  <script>document.body.classList.add('fc-locked');</script>
-
-    <!-- Header -->
-    <div class="container">
-        <header class="header">
+    <header class="header">
+        <div class="container">
             <div class="header-inner">
-                <div class="brand"><span class="brand-dot"></span>Fusion Creative</div>
+                <div class="lockup">
+                    <img src="assets/logo.svg" alt="La Cocina">
+                    <span class="x">&times;</span>
+                    <span class="fc">Fusion <span>Creative</span></span>
+                </div>
                 <div class="header-date">16 August 2026</div>
             </div>
-        </header>
-    </div>
-
-    <!-- Hero -->
-    <div class="container">
-        <div class="hero">
-            <div class="hero-label">Proposal</div>
-            <h1><span>La Cocina</span></h1>
-            <p class="hero-subtitle">The two options we talked about, what each one includes, and the numbers. Prepared by Fusion Creative.</p>
         </div>
-    </div>
+    </header>
 
-    <div class="container"><div class="section-divider"></div></div>
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-inner">
+            <div class="hero-label">Proposal &middot; Prepared for Chris</div>
+            <h1>Your plan for<br><em>La Cocina.</em></h1>
+            <p>The two options we talked about, what each one includes, and the numbers. Simple, no small print, so you can have a proper look when you are back.</p>
+            <div class="hero-meta">
+                <span>For <b>Chris Atkinson</b></span>
+                <span>By <b>Fusion Creative, Newcastle</b></span>
+                <span>Both options include <b>6 free videos</b></span>
+            </div>
+        </div>
+    </section>
 
-    <!-- Intro -->
     <div class="container">
         <div class="section">
-            <div class="card intro-card">
-                <div class="greeting">Hey Chris,</div>
-                <p class="section-text">Good to speak earlier. As promised, here are the two options laid out simply: what each one includes and what it costs, so you can have a proper look when you are back from your holiday. No rush at all, it will still be here.</p>
-                <p class="section-text">Both are fully managed, we film, edit, post and report, and both come with the six free videos we discussed on the Starter to get things moving properly from day one.</p>
-            </div>
+            <div class="card intro">
+                <div>
+                    <div class="greeting">Hey Chris,</div>
+                    <p>Good to speak earlier. As promised, here are the two options laid out simply: what each one includes and what it costs. No rush at all, it will still be here when you are back from your holiday.</p>
+                    <p>Both are fully managed, we film, edit, post and report, and I have added <strong>six free videos to both packages</strong> to get things moving properly from day one. I would rather give you more content than cut the volume, because volume is what gets the ball rolling.</p>
+                </div>
+                <div class="strip">
+                    <figure><img src="assets/tapas.jpg" alt="Tapas spread at La Cocina"><figcaption>Tapas</figcaption></figure>
+                    <figure><img src="assets/sangria.jpg" alt="Sangria and charcuterie"><figcaption>Sangria</figcaption></figure>
+                    <figure><img src="assets/cocktails.jpg" alt="Cocktails at the bar"><figcaption>Cocktail nights</figcaption></figure>
+                    <figure><img src="assets/dishes.jpg" alt="Terracotta tapas dishes"><figcaption>The food</figcaption></figure>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- The Direction -->
-    <!-- What We'll Do -->
+    <div class="container"><div class="rule"></div></div>
+
     <div class="container">
         <div class="section">
             <div class="section-label">The Options</div>
-            <div class="section-title">Two Ways to Start</div>
+            <div class="section-title">Two ways to start.</div>
+            <p class="lead">Same team, same standard, same six free videos on top. The difference is how much content goes out each week and the strategy layer behind it.</p>
 
-            <!-- Starter -->
-            <div class="enhancement-card" style="border-color: rgba(232,85,60,0.35); border-left: 4px solid var(--coral);">
-                <div class="deliverable-eyebrow"><span class="num">1</span><span class="tag" style="color: var(--coral);">Starter &middot; Monthly &middot; Includes 6 free videos</span></div>
-                <h4>The Starter Package</h4>
-                <p>The lean way in, with a bonus to get La Cocina moving properly. Rather than cut the volume of content, we are adding six videos on top at no cost.</p>
-                <ul class="enhancement-list">
-                    <li><strong>1 filming day per month</strong> at the restaurant, filmed around service</li>
-                    <li><strong>12 short-form videos per month</strong>, fully edited with hooks, captions and trending audio</li>
-                    <li><strong>Plus 6 free videos</strong> in your first month, so you start with 18 instead of 12, at no extra cost</li>
-                    <li><strong>Posting and management handled</strong> across Instagram, TikTok and Facebook</li>
-                    <li><strong>Monthly performance report</strong> on views, growth and best performers</li>
-                    <li><strong>Three-month minimum term</strong>, then rolling month to month</li>
-                </ul>
-                <div class="price-tag"><span class="amount">&pound;899</span><span class="per">per month</span></div>
-                <div class="highlight-box">
-                    <p><strong>The 6 free videos:</strong> worth around &pound;450 at our normal rate, added on top of the 12, not instead of anything. More content out of the gate is what gets the ball rolling fastest.</p>
+            <div class="packages">
+                <div class="pkg">
+                    <div class="bonus">+6 free videos</div>
+                    <div class="tag">Starter &middot; Monthly</div>
+                    <h3>The Starter</h3>
+                    <p class="sub">The lean way in. Enough consistent, quality video to get La Cocina moving properly on social.</p>
+                    <div class="price"><span class="amt">&pound;899</span><span class="per">per month</span></div>
+                    <ul class="list">
+                        <li><b>1 filming day per month</b> at the restaurant, filmed around service</li>
+                        <li><b>12 short-form videos per month</b>, edited with hooks, captions and trending audio</li>
+                        <li class="free"><b>Plus 6 free videos in month one</b> <span class="pill">Free</span> so you start with 18, not 12</li>
+                        <li><b>Posting and management handled</b> across Instagram, TikTok and Facebook</li>
+                        <li><b>Monthly performance report</b> on views, growth and best performers</li>
+                        <li><b>Three-month minimum</b>, then rolling month to month</li>
+                    </ul>
+                    <div class="note"><b>The free six:</b> worth around &pound;450 at our normal rate, added on top of the twelve, not instead of anything.</div>
                 </div>
-            </div>
 
-            <!-- Growth -->
-            <div class="enhancement-card">
-                <div class="deliverable-eyebrow"><span class="num">2</span><span class="tag">Growth &middot; Monthly</span></div>
-                <h4>The Growth Package</h4>
-                <p>The full engine: two filming days, twenty videos a month, five posts a week and the strategy layer behind it. Here so you can see the step up and what it costs.</p>
-                <ul class="enhancement-list">
-                    <li><strong>2 filming days per month</strong> at the restaurant</li>
-                    <li><strong>20 short-form videos per month</strong>, fully edited with hooks, captions and trending audio</li>
-                    <li><strong>Posting and management handled</strong> across Instagram, TikTok and Facebook, roughly five posts a week</li>
-                    <li><strong>Content strategy and planning</strong> each month around bottomless brunch, cocktail nights and tapas</li>
-                    <li><strong>Live results dashboard plus the monthly report</strong></li>
-                    <li><strong>Three-month minimum term</strong>, then rolling month to month</li>
-                </ul>
-                <div class="price-tag"><span class="amount">&pound;1,250</span><span class="per">per month</span></div>
+                <div class="pkg rec">
+                    <div class="bonus">+6 free videos</div>
+                    <div class="tag">Growth &middot; Monthly</div>
+                    <h3>The Growth</h3>
+                    <p class="sub">The full engine: two filming days, twenty videos a month, five posts a week and the planning behind it.</p>
+                    <div class="price"><span class="amt">&pound;1,250</span><span class="per">per month</span></div>
+                    <ul class="list">
+                        <li><b>2 filming days per month</b> at the restaurant</li>
+                        <li><b>20 short-form videos per month</b>, edited with hooks, captions and trending audio</li>
+                        <li class="free"><b>Plus 6 free videos in month one</b> <span class="pill">Free</span> so you start with 26, not 20</li>
+                        <li><b>Posting and management handled</b> across Instagram, TikTok and Facebook, around five posts a week</li>
+                        <li><b>Content strategy and planning</b> each month around bottomless brunch, cocktail nights and tapas</li>
+                        <li><b>Live results dashboard</b> plus the monthly report</li>
+                        <li><b>Three-month minimum</b>, then rolling month to month</li>
+                    </ul>
+                    <div class="note"><b>Why the step up:</b> three posts a week gets you seen, five a week gets you remembered. Per video it works out cheaper too.</div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="container"><div class="section-divider"></div></div>
+    <div class="container"><div class="rule"></div></div>
 
-    <!-- Pricing Summary -->
     <div class="container">
         <div class="section">
             <div class="section-label">The Numbers</div>
-            <div class="section-title">Pricing at a Glance</div>
+            <div class="section-title">At a glance.</div>
             <div class="card">
-                <table class="pricing-table">
+                <table class="glance">
                     <tr>
-                        <td>The Starter Package <em>(with 6 free videos)</em><span>1 filming day, 12 videos + 6 free in month one, posting managed on Instagram, TikTok and Facebook, monthly report</span></td>
+                        <td>The Starter<span>1 filming day, 12 videos + 6 free in month one, posting managed on Instagram, TikTok and Facebook, monthly report</span></td>
                         <td>&pound;899 / mo</td>
                     </tr>
                     <tr>
-                        <td>The Growth Package<span>2 filming days, 20 videos, full management, content strategy, live dashboard and monthly report</span></td>
+                        <td>The Growth<span>2 filming days, 20 videos + 6 free in month one, full management, content strategy, live dashboard and monthly report</span></td>
                         <td>&pound;1,250 / mo</td>
                     </tr>
                 </table>
-                <p class="pricing-note">Billed monthly in advance. Three-month minimum term, then month to month with 30 days notice either way. No setup fees, no hidden extras. You can start on Starter and step up to Growth at any point.</p>
+                <p class="glance-note">Billed monthly in advance. Three-month minimum term, then month to month with 30 days notice either way. No setup fees, no hidden extras. You can start on the Starter and step up to Growth at any point.</p>
             </div>
         </div>
     </div>
 
-    <div class="container"><div class="section-divider"></div></div>
-
-    <!-- Recommended Rollout -->
-    <!-- Next Steps -->
     <div class="container">
-        <div class="section">
-            <div class="section-label">Next Steps</div>
-            <div class="section-title">Ready When You Are</div>
-            <div class="card next-steps-card">
-                <p class="section-text">Enjoy the holiday, and have a look at this whenever suits when you are back. If either option feels right, message me on WhatsApp and I will send over the simple agreement and get the first filming day in the diary.</p>
-                <p class="closing-note">Whichever way you go, Chris, the food and the offers at La Cocina are made for this. The bottomless brunch alone is a month of content.</p>
-                <div class="cta-wrap">
-                    <a href="mailto:jay@fusioncreative.uk?subject=La%20Cocina%20-%20Let%27s%20Get%20Started" class="cta-btn">Let's Get Started</a>
-                    <a href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20La%20Cocina%20plan" target="_blank" rel="noopener" class="cta-btn-wa">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align:-3px; margin-right:8px;"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp
-                    </a>
-                    <div class="cta-sub">Reply to this email, message me on WhatsApp, or give me a call whenever you are ready.</div>
+        <div class="section" style="padding-top: 0;">
+            <div class="cta-card">
+                <div class="section-label">Next Steps</div>
+                <h2>Ready when you are.</h2>
+                <p>Enjoy the holiday, and have a look at this whenever suits when you are back. If either option feels right, message me on WhatsApp and I will send over the simple agreement and get the first filming day in the diary.</p>
+                <p class="closing">Whichever way you go, Chris, the food and the offers at La Cocina are made for this. The bottomless brunch alone is a month of content.</p>
+                <div class="btns">
+                    <a href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20La%20Cocina%20plan" target="_blank" rel="noopener" class="btn btn-wa"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp Jay</a>
+                    <a href="mailto:jay@fusioncreative.uk?subject=La%20Cocina%20-%20Let%27s%20Get%20Started" class="btn btn-white">Email instead</a>
                 </div>
+                <div class="cta-sub">Or give me a call on 07437 571250 whenever suits.</div>
             </div>
         </div>
     </div>
 
-    <div class="container"><div class="section-divider"></div></div>
-
-    <!-- Signature -->
     <div class="container">
         <div class="signature">
-            <div class="signature-name">Jay Williams</div>
-            <div class="signature-role">Founder, Fusion Creative</div>
-            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+            <div class="name">Jay Williams</div>
+            <div class="role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank">fusioncreative.uk</a>
         </div>
     </div>
 
-    <!-- Footer -->
-    <div class="container">
-        <footer class="footer">
-            <div class="footer-confidential">Confidential - Prepared for La Cocina Richmond</div>
-            <div class="footer-note">Proposal prepared for La Cocina Richmond by Fusion Creative, 16 August 2026.</div>
-            <div class="footer-brand"><span>Fusion Creative</span></div>
-        </footer>
-    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="lockup"><img src="assets/logo.svg" alt="La Cocina"><span class="x">&times;</span><span class="fc">Fusion <span>Creative</span></span></div>
+            Confidential &middot; Prepared for La Cocina Richmond &middot; 16 August 2026
+        </div>
+    </footer>
 
-  <script>
-  (function(){
-    var intro=document.getElementById('fc-intro');if(!intro)return;
-    var canvas=document.getElementById('fc-intro-canvas');
-    var gl=canvas.getContext('webgl')||canvas.getContext('experimental-webgl');
-    var raf=0,dismissed=false;
-    function dismiss(){if(dismissed)return;dismissed=true;intro.classList.add('fc-out');document.body.classList.remove('fc-locked');setTimeout(function(){if(raf)cancelAnimationFrame(raf);intro.style.display='none';},900);}
-    intro.addEventListener('click',dismiss);
-    if(!gl)return;
-    var vsrc='attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
-    var fsrc=['precision highp float;','uniform vec2 u_res;uniform float u_time;uniform vec2 u_mouse;',
-      'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
-      'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);',
-      'return mix(mix(hash(i),hash(i+vec2(1.0,0.0)),u.x),mix(hash(i+vec2(0.0,1.0)),hash(i+vec2(1.0,1.0)),u.x),u.y);}',
-      'float fbm(vec2 p){float v=0.0,a=0.5;for(int i=0;i<5;i++){v+=a*noise(p);p*=2.0;a*=0.5;}return v;}',
-      'void main(){vec2 uv=gl_FragCoord.xy/u_res.xy;float asp=u_res.x/u_res.y;vec2 p=uv;p.x*=asp;vec2 mo=u_mouse;mo.x*=asp;float t=u_time*0.05;',
-      'vec2 q=p*1.5+vec2(t,-t*0.7);q+=(mo-p)*0.3;float w=fbm(q+fbm(q+t));float w2=fbm(q*1.4-t*0.5+w);',
-      'vec3 cDark=vec3(0.07,0.06,0.11);vec3 cBlue=vec3(0.30,0.34,0.58);vec3 cPink=vec3(0.74,0.40,0.52);vec3 cCoral=vec3(0.91,0.36,0.20);',
-      'vec3 col=mix(cDark,cBlue,smoothstep(0.15,0.85,w));col=mix(col,cPink,smoothstep(0.35,0.95,w2));',
-      'float d=distance(p,mo);col+=cCoral*smoothstep(0.75,0.0,d)*0.55*(0.6+0.4*sin(u_time*0.6));',
-      'col*=1.0-0.28*pow(distance(uv,vec2(0.5)),2.0);gl_FragColor=vec4(col,1.0);}'].join('\n');
-    function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
-    var prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,vsrc));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fsrc));gl.linkProgram(prog);gl.useProgram(prog);
-    var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
-    var loc=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
-    var uRes=gl.getUniformLocation(prog,'u_res'),uTime=gl.getUniformLocation(prog,'u_time'),uMouse=gl.getUniformLocation(prog,'u_mouse');
-    var mouse=[0.5,0.55],tgt=[0.5,0.55];
-    function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.floor(innerWidth*dpr);canvas.height=Math.floor(innerHeight*dpr);gl.viewport(0,0,canvas.width,canvas.height);}
-    window.addEventListener('resize',resize);resize();
-    window.addEventListener('pointermove',function(e){tgt[0]=e.clientX/innerWidth;tgt[1]=1.0-e.clientY/innerHeight;});
-    var start=performance.now();
-    function frame(now){mouse[0]+=(tgt[0]-mouse[0])*0.06;mouse[1]+=(tgt[1]-mouse[1])*0.06;gl.uniform2f(uRes,canvas.width,canvas.height);gl.uniform1f(uTime,(now-start)/1000);gl.uniform2f(uMouse,mouse[0],mouse[1]);gl.drawArrays(gl.TRIANGLES,0,3);raf=requestAnimationFrame(frame);}
-    raf=requestAnimationFrame(frame);
-  })();
-  </script>
 </body>
 </html>
