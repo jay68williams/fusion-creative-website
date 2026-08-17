@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal - Grand Hotel Gosforth Park | Fusion Creative</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --wine: #1e293a; --wine-mid: #46536a; --wine-soft: rgba(30,41,58,0.06); --wine-line: rgba(30,41,58,0.14);
+            --cream: #fff9f4; --paper: #ffffff; --ink: #1e293a; --ink-2: #46536a; --ink-3: #7c8798;
+            --gold: #b69664; --gold-soft: rgba(182,150,100,0.14);
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Figtree', -apple-system, sans-serif; background: var(--cream); color: var(--ink); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+        .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+        /* header */
+        .header { background: var(--paper); border-bottom: 1px solid var(--wine-line); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; gap: 16px; }
+        .lockup { display: flex; align-items: center; gap: 18px; }
+        .lockup img { height: 44px; width: auto; display: block; }
+        .lockup .x { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--gold); line-height: 1; }
+        .lockup .fc { font-size: 11px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--wine); }
+        .lockup .fc span { color: var(--gold); }
+        .header-date { font-size: 12px; color: var(--ink-3); letter-spacing: .06em; }
+
+        /* hero */
+        .hero { position: relative; color: #fff; overflow: hidden; }
+        .hero-bg { position: absolute; inset: 0; background: url('assets/dining.jpg') center 45% / cover no-repeat; }
+        .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(30,41,58,0.74) 0%, rgba(30,41,58,0.88) 100%); }
+        .hero-inner { position: relative; padding: 96px 0 84px; }
+        .hero-label { font-size: 11px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
+        .hero h1 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(44px, 7vw, 76px); line-height: 1.02; letter-spacing: -0.005em; margin-bottom: 22px; }
+        .hero h1 em { font-style: italic; font-weight: 500; }
+        .hero p { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.86); max-width: 560px; font-weight: 300; }
+        .hero-meta { margin-top: 34px; display: flex; gap: 28px; flex-wrap: wrap; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+        .hero-meta b { color: #fff; font-weight: 600; }
+
+        /* sections */
+        .section { padding: 64px 0; }
+        .section-label { font-size: 11px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+        .section-title { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(34px, 4.6vw, 46px); line-height: 1.1; color: var(--wine); margin-bottom: 20px; }
+        .lead { font-size: 16px; color: var(--ink-2); max-width: 640px; }
+        .rule { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--wine-line), transparent); }
+
+        .card { background: var(--paper); border: 1px solid var(--wine-line); border-radius: 18px; padding: 40px; box-shadow: 0 1px 2px rgba(74,8,19,0.04), 0 14px 40px rgba(74,8,19,0.06); }
+        .intro { display: grid; grid-template-columns: 1fr; gap: 24px; }
+        .greeting { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 600; color: var(--wine); margin-bottom: 14px; }
+        .intro p { font-size: 15.5px; color: var(--ink-2); margin-bottom: 14px; }
+        .intro p:last-child { margin-bottom: 0; }
+
+        /* photo strip */
+        .strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 8px; }
+        .strip figure { position: relative; aspect-ratio: 4/3; border-radius: 14px; overflow: hidden; }
+        .strip img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+        .strip figure:hover img { transform: scale(1.04); }
+        .strip figcaption { position: absolute; left: 12px; bottom: 10px; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+
+        /* packages */
+        .packages { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 30px; align-items: start; }
+        .pkg { background: var(--paper); border: 1px solid var(--wine-line); border-radius: 20px; padding: 36px 34px 32px; position: relative; box-shadow: 0 1px 2px rgba(74,8,19,0.04), 0 14px 40px rgba(74,8,19,0.06); }
+        .pkg.rec { border-color: var(--gold); box-shadow: 0 1px 2px rgba(74,8,19,0.06), 0 22px 60px rgba(74,8,19,0.14); }
+        .pkg .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 10.5px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px; }
+        .pkg.rec .tag { color: var(--gold); }
+        .pkg .bonus { position: absolute; top: -13px; right: 22px; background: var(--gold); color: #fff; font-size: 10.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; box-shadow: 0 6px 18px rgba(182,150,100,0.4); }
+        .pkg h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 34px; color: var(--wine); line-height: 1.05; margin-bottom: 8px; }
+        .pkg .sub { font-size: 14px; color: var(--ink-2); margin-bottom: 22px; min-height: 44px; }
+        .price { display: flex; align-items: baseline; gap: 8px; padding: 18px 0; border-top: 1px solid var(--wine-line); border-bottom: 1px solid var(--wine-line); margin-bottom: 22px; }
+        .price .amt { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600; color: var(--wine); line-height: 1; letter-spacing: -0.01em; }
+        .price .per { font-size: 13px; color: var(--ink-3); }
+        .list { list-style: none; }
+        .list li { font-size: 14px; color: var(--ink-2); padding: 9px 0 9px 26px; position: relative; line-height: 1.55; border-bottom: 1px dashed rgba(105,11,27,0.12); }
+        .list li:last-child { border-bottom: none; }
+        .list li::before { content: ''; position: absolute; left: 0; top: 16px; width: 12px; height: 12px; border-radius: 50%; background: var(--gold-soft); border: 1.5px solid var(--gold); }
+        .list li.free::before { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
+        .list li b { color: var(--ink); font-weight: 600; }
+        .list li .pill { display: inline-block; margin-left: 6px; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #fff; background: var(--gold); border-radius: 999px; padding: 2px 8px; vertical-align: middle; }
+        .pkg .note { margin-top: 20px; background: var(--gold-soft); border-radius: 12px; padding: 14px 16px; font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+        .pkg .note b { color: var(--wine); }
+
+        /* glance table */
+        .glance { width: 100%; border-collapse: collapse; margin-top: 8px; }
+        .glance td { padding: 18px 0; vertical-align: top; border-bottom: 1px solid var(--wine-line); font-size: 15px; }
+        .glance tr:last-child td { border-bottom: none; }
+        .glance td:first-child { color: var(--ink); font-weight: 500; padding-right: 24px; }
+        .glance td:first-child span { display: block; font-size: 13px; color: var(--ink-3); font-weight: 400; margin-top: 3px; }
+        .glance td:last-child { text-align: right; white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--wine); }
+        .glance-note { font-size: 13px; color: var(--ink-3); margin-top: 18px; line-height: 1.7; }
+
+        /* CTA */
+        .cta-card { background: var(--wine); color: #fff; border-radius: 20px; padding: 48px 44px; position: relative; overflow: hidden; }
+        .cta-card::before { content: ''; position: absolute; inset: 0; background: url('assets/food.jpg') center / cover no-repeat; opacity: .12; }
+        .cta-card > * { position: relative; }
+        .cta-card .section-label { color: var(--gold); }
+        .cta-card h2 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 40px; line-height: 1.1; margin-bottom: 14px; }
+        .cta-card p { font-size: 15.5px; color: rgba(255,255,255,0.85); max-width: 600px; margin-bottom: 10px; }
+        .cta-card .closing { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; color: rgba(255,255,255,0.9); margin: 18px 0 28px; }
+        .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; gap: 9px; padding: 14px 26px; border-radius: 999px; font-size: 14.5px; font-weight: 600; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-white { background: var(--gold); color: #fff; }
+        .btn-wa { background: #25D366; color: #fff; box-shadow: 0 6px 20px rgba(37,211,102,0.3); }
+        .cta-sub { font-size: 12.5px; color: rgba(255,255,255,0.6); margin-top: 16px; }
+
+        .signature { padding: 44px 0 20px; }
+        .signature .name { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--wine); }
+        .signature .role { font-size: 13.5px; color: var(--ink-2); }
+        .signature a { color: var(--gold); text-decoration: none; font-size: 13.5px; font-weight: 500; }
+        .footer { padding: 30px 0; border-top: 1px solid var(--wine-line); text-align: center; font-size: 11.5px; color: var(--ink-3); letter-spacing: .1em; text-transform: uppercase; }
+        .footer .lockup { justify-content: center; margin-bottom: 12px; }
+        .footer .lockup img { height: 30px; }
+
+        @media (max-width: 720px) {
+            .container { padding: 0 18px; } .section { padding: 44px 0; } .card { padding: 26px 22px; }
+            .hero-inner { padding: 64px 0 56px; }
+            .packages { grid-template-columns: 1fr; } .pkg { padding: 30px 24px 26px; } .pkg .sub { min-height: 0; }
+            .strip { grid-template-columns: 1fr; }
+            .cta-card { padding: 34px 24px; } .cta-card h2 { font-size: 32px; }
+            .btn { width: 100%; justify-content: center; }
+            .lockup img { height: 26px; } .lockup { gap: 12px; }
+            .glance td:last-child { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="lockup">
+                    <img src="assets/elite-logo.svg" alt="The Elite Venue Selection">
+                    <span class="x">&times;</span>
+                    <span class="fc">Fusion <span>Creative</span></span>
+                </div>
+                <div class="header-date">17 August 2026</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-inner">
+            <div class="hero-label">Proposal &middot; Prepared for Anthony</div>
+            <h1>Your plan for<br><em>the Grand.</em></h1>
+            <p>The two ways we could run food-led content for the Grand Hotel Gosforth Park, what each one includes, and the numbers. Laid out plainly, so it is easy to share internally.</p>
+            <div class="hero-meta">
+                <span>For <b>Anthony, Head Chef</b></span>
+                <span>By <b>Fusion Creative, Newcastle</b></span>
+                <span>Both options include <b>3 free videos</b></span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="section">
+            <div class="card intro">
+                <div>
+                    <div class="greeting">Hi Anthony,</div>
+                    <p>Thanks for asking about pricing. Following the audit, here are the two ways we could run this, what each includes and what it costs, written so it is straightforward to pass on to whoever needs to see it.</p>
+                    <p>Both are fully managed and both are built to sit inside Britannia&#39;s brand guidelines and sign-off: we film around a normal service, edit, post to the agreed channels and report on covers and reach. As a start-up gesture I have added <strong>three free videos to both packages</strong> for the first month, so the Sunday roast launch goes out with more content behind it from day one.</p>
+                </div>
+                <div class="strip">
+                    <figure><img src="assets/dining.jpg" alt="Dining at the Grand"><figcaption>Plate Restaurant</figcaption></figure>
+                    <figure><img src="assets/food.jpg" alt="Food at the Grand"><figcaption>The food</figcaption></figure>
+                    <figure><img src="assets/chats.jpg" alt="Chats Bar"><figcaption>Chats Bar</figcaption></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="rule"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Options</div>
+            <div class="section-title">Two ways to start.</div>
+            <p class="lead">Same team, same standard, same three free videos on top. The difference is how much content goes out each week and the planning layer behind it.</p>
+
+            <div class="packages">
+                <div class="pkg">
+                    <div class="bonus">+3 free videos</div>
+                    <div class="tag">Starter &middot; Monthly</div>
+                    <h3>The Starter</h3>
+                    <p class="sub">The lean way in. Enough consistent, quality video to give the kitchen its own voice and get the roast known locally.</p>
+                    <div class="price"><span class="amt">&pound;899</span><span class="per">per month</span></div>
+                    <ul class="list">
+                        <li><b>1 filming day per month</b> at the hotel, filmed around a normal service</li>
+                        <li><b>12 short-form videos per month</b>, edited with hooks, captions and trending audio</li>
+                        <li class="free"><b>Plus 3 free videos in month one</b> <span class="pill">Free</span> so you start with 15, not 12</li>
+                        <li><b>Posting and management handled</b> on the agreed hotel channels, within brand guidelines and sign-off</li>
+                        <li><b>Monthly performance report</b> on reach, engagement and covers</li>
+                        <li><b>Three-month minimum</b>, then rolling month to month</li>
+                    </ul>
+                    <div class="note"><b>The free three:</b> worth around &pound;225 at our normal rate, added on top of the twelve, not instead of anything.</div>
+                </div>
+
+                <div class="pkg rec">
+                    <div class="bonus">+3 free videos</div>
+                    <div class="tag">Growth &middot; Monthly</div>
+                    <h3>The Growth</h3>
+                    <p class="sub">The full engine: two filming days, twenty videos a month, five posts a week and the planning behind it. The one we would recommend to make the hotel a food destination, not just a roast.</p>
+                    <div class="price"><span class="amt">&pound;1,250</span><span class="per">per month</span></div>
+                    <ul class="list">
+                        <li><b>2 filming days per month</b> at the hotel, around service</li>
+                        <li><b>20 short-form videos per month</b>, edited with hooks, captions and trending audio</li>
+                        <li class="free"><b>Plus 3 free videos in month one</b> <span class="pill">Free</span> so you start with 23, not 20</li>
+                        <li><b>Posting and management handled</b> on the agreed hotel channels, around five posts a week, within brand guidelines and sign-off</li>
+                        <li><b>Content strategy and planning</b> each month: the Sunday roast, seasonal menus, the chef and team, events and occasions</li>
+                        <li><b>Live results dashboard</b> plus the monthly report</li>
+                        <li><b>Three-month minimum</b>, then rolling month to month</li>
+                    </ul>
+                    <div class="note"><b>Why the step up:</b> three posts a week gets the roast seen, five a week builds the destination. Per video it works out cheaper too.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="rule"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Numbers</div>
+            <div class="section-title">At a glance.</div>
+            <div class="card">
+                <table class="glance">
+                    <tr>
+                        <td>The Starter<span>1 filming day, 12 videos + 3 free in month one, posting managed on the agreed channels, monthly report</span></td>
+                        <td>&pound;899 / mo</td>
+                    </tr>
+                    <tr>
+                        <td>The Growth<span>2 filming days, 20 videos + 3 free in month one, full management, content strategy, live dashboard and monthly report</span></td>
+                        <td>&pound;1,250 / mo</td>
+                    </tr>
+                </table>
+                <p class="glance-note">Billed monthly in advance, invoiced to the hotel. Three-month minimum term, then month to month with 30 days notice either way. No setup fees, no hidden extras. You can start on the Starter and step up to Growth at any point. Any paid ad budget, if you ever want it, is separate and always yours.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section" style="padding-top: 0;">
+            <div class="cta-card">
+                <div class="section-label">Next Steps</div>
+                <h2>Ready when you are.</h2>
+                <p>Share this with whoever needs to see it, and if there is anything the hotel would want adding or wording differently for sign-off, just say and I will adjust it. When you are ready, message me and I will send over the simple agreement and get the first filming day in the diary.</p>
+                <p class="closing">Whichever way you go, Anthony, a Sunday roast in a room like that is a proper thing to build a reputation on. The kitchen just needs its own voice.</p>
+                <div class="btns">
+                    <a href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Grand%20Hotel%20plan" target="_blank" rel="noopener" class="btn btn-wa"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp Jay</a>
+                    <a href="mailto:jay@fusioncreative.uk?subject=Grand%20Hotel%20Gosforth%20Park%20-%20Let%27s%20Get%20Started" class="btn btn-white">Email instead</a>
+                </div>
+                <div class="cta-sub">Or give me a call on 07437 571250 whenever suits.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="signature">
+            <div class="name">Jay Williams</div>
+            <div class="role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="lockup"><img src="assets/elite-logo.svg" alt="The Elite Venue Selection"><span class="x">&times;</span><span class="fc">Fusion <span>Creative</span></span></div>
+            Confidential &middot; Prepared for the Grand Hotel Gosforth Park &middot; 17 August 2026
+        </div>
+    </footer>
+
+</body>
+</html>
