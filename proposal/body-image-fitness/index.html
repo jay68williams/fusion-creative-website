@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal - Body Image Fitness | Fusion Creative</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face { font-family: 'Big Sexy Sans'; src: url('assets/BigSexySans.ttf') format('truetype'); font-weight: normal; font-style: normal; font-display: swap; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --ink: #0f1412; --ink-2: #1c2320; --paper: #ffffff; --off: #f6f5f2;
+            --coral: #f7445a; --coral-soft: rgba(247,68,90,0.12); --teal: #02958d; --teal-soft: rgba(2,149,141,0.12);
+            --pink: #d52b70; --text: #1f1f1f; --text-2: #454444; --text-3: #7d7a7a; --line: rgba(15,20,18,0.12); --line-dark: rgba(255,255,255,0.14);
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', -apple-system, sans-serif; background: var(--off); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+        .display { font-family: 'Big Sexy Sans', 'Poppins', sans-serif; text-transform: uppercase; letter-spacing: .02em; line-height: .95; }
+
+        /* header */
+        .header { background: var(--ink); color: #fff; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; gap: 16px; }
+        .lockup { display: flex; align-items: center; gap: 16px; }
+        .lockup img { height: 44px; width: 44px; display: block; border-radius: 50%; }
+        .lockup .x { font-family: 'Big Sexy Sans', sans-serif; font-size: 18px; color: var(--coral); line-height: 1; }
+        .lockup .fc { font-size: 11px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: #fff; }
+        .lockup .fc span { color: var(--coral); }
+        .header-date { font-size: 12px; color: rgba(255,255,255,0.6); letter-spacing: .06em; }
+
+        /* hero */
+        .hero { background: var(--ink); color: #fff; position: relative; overflow: hidden; }
+        .hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.85fr); gap: 56px; align-items: center; padding-top: 72px; padding-bottom: 72px; position: relative; }
+        .hero-grid > div:first-child { min-width: 0; }
+        .hero-label { font-size: 11px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; }
+        .hero h1 { font-size: clamp(38px, 4.6vw, 58px); color: #fff; margin-bottom: 26px; word-break: keep-all; }
+        .hero h1 .c { color: var(--coral); } .hero h1 .t { color: var(--teal); }
+        .hero p { font-size: 16.5px; line-height: 1.75; color: rgba(255,255,255,0.8); max-width: 480px; font-weight: 300; }
+        .hero-meta { margin-top: 30px; display: flex; flex-direction: column; gap: 8px; font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+        .hero-meta b { color: #fff; font-weight: 600; }
+        .hero-photo { position: relative; }
+        .hero-photo .blob { position: absolute; inset: -5% -5% -5% -5%; background: var(--coral); border-radius: 48% 52% 55% 45% / 52% 45% 55% 48%; transform: rotate(-6deg); }
+        .hero-photo img { position: relative; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; display: block; border: 6px solid var(--ink); }
+
+        /* sections */
+        .section { padding: 64px 0; }
+        .section-label { font-size: 11px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--coral); margin-bottom: 12px; }
+        .section-title { font-size: clamp(36px, 5.4vw, 56px); color: var(--ink); margin-bottom: 18px; }
+        .section-title .t { color: var(--teal); } .section-title .c { color: var(--coral); }
+        .lead { font-size: 15.5px; color: var(--text-2); max-width: 640px; }
+        .rule { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--line), transparent); }
+
+        .card { background: var(--paper); border-radius: 22px; padding: 40px; box-shadow: 0 1px 2px rgba(15,20,18,0.04), 0 16px 44px rgba(15,20,18,0.07); }
+        .greeting { font-family: 'Big Sexy Sans', sans-serif; text-transform: uppercase; font-size: 30px; color: var(--ink); margin-bottom: 14px; letter-spacing: .02em; }
+        .greeting span { color: var(--coral); }
+        .intro p { font-size: 15px; color: var(--text-2); margin-bottom: 14px; }
+        .intro p:last-child { margin-bottom: 0; }
+        .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 26px; }
+        .strip figure { position: relative; aspect-ratio: 1; border-radius: 50%; overflow: hidden; border: 4px solid var(--off); }
+        .strip figure:nth-child(2n) { border-color: var(--teal-soft); } .strip figure:nth-child(2n+1) { border-color: var(--coral-soft); }
+        .strip img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+        .strip figure:hover img { transform: scale(1.06); }
+
+        /* packages */
+        .packages { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 30px; align-items: start; }
+        .pkg { background: var(--paper); border-radius: 22px; padding: 36px 32px 30px; position: relative; box-shadow: 0 1px 2px rgba(15,20,18,0.04), 0 16px 44px rgba(15,20,18,0.07); border-top: 6px solid var(--teal); }
+        .pkg.rec { border-top-color: var(--coral); box-shadow: 0 1px 2px rgba(15,20,18,0.06), 0 24px 64px rgba(247,68,90,0.16); }
+        .pkg .tag { font-size: 10.5px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+        .pkg.rec .tag { color: var(--coral); }
+        .pkg .rec-pill { position: absolute; top: -18px; right: 22px; background: var(--coral); color: #fff; font-family: 'Big Sexy Sans', sans-serif; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; padding: 8px 16px; border-radius: 999px; box-shadow: 0 8px 22px rgba(247,68,90,0.4); }
+        .pkg h3 { font-family: 'Big Sexy Sans', sans-serif; text-transform: uppercase; font-size: 32px; color: var(--ink); line-height: 1; margin-bottom: 8px; letter-spacing: .02em; }
+        .pkg .sub { font-size: 14px; color: var(--text-2); margin-bottom: 20px; min-height: 44px; }
+        .price { display: flex; align-items: baseline; gap: 8px; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+        .price .amt { font-family: 'Big Sexy Sans', sans-serif; font-size: 44px; color: var(--ink); line-height: 1; }
+        .pkg.rec .price .amt { color: var(--coral); }
+        .price .per { font-size: 13px; color: var(--text-3); }
+        .list { list-style: none; }
+        .list li { font-size: 14px; color: var(--text-2); padding: 9px 0 9px 28px; position: relative; line-height: 1.55; border-bottom: 1px dashed var(--line); }
+        .list li:last-child { border-bottom: none; }
+        .list li::before { content: ''; position: absolute; left: 0; top: 15px; width: 14px; height: 14px; border-radius: 50%; background: var(--teal-soft); border: 2px solid var(--teal); }
+        .pkg.rec .list li::before { background: var(--coral-soft); border-color: var(--coral); }
+        .list li b { color: var(--text); font-weight: 600; }
+        .pkg .note { margin-top: 20px; background: var(--off); border-radius: 14px; padding: 14px 16px; font-size: 13px; color: var(--text-2); line-height: 1.6; }
+        .pkg .note b { color: var(--coral); }
+        .pkg .note.teal b { color: var(--teal); }
+
+        /* add-on band */
+        .addon { background: var(--ink); color: #fff; border-radius: 22px; padding: 36px 40px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; margin-top: 22px; }
+        .addon .tag { font-size: 10.5px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+        .addon h3 { font-family: 'Big Sexy Sans', sans-serif; text-transform: uppercase; font-size: 28px; line-height: 1; margin-bottom: 10px; letter-spacing: .02em; }
+        .addon p { font-size: 14px; color: rgba(255,255,255,0.78); max-width: 560px; }
+        .addon .pill { background: var(--teal); color: #fff; font-family: 'Big Sexy Sans', sans-serif; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; padding: 12px 20px; border-radius: 999px; white-space: nowrap; }
+
+        /* glance */
+        .glance { width: 100%; border-collapse: collapse; margin-top: 8px; }
+        .glance td { padding: 18px 0; vertical-align: top; border-bottom: 1px solid var(--line); font-size: 15px; }
+        .glance tr:last-child td { border-bottom: none; }
+        .glance td:first-child { color: var(--text); font-weight: 500; padding-right: 24px; }
+        .glance td:first-child span { display: block; font-size: 13px; color: var(--text-3); font-weight: 400; margin-top: 3px; }
+        .glance td:last-child { text-align: right; white-space: nowrap; font-family: 'Big Sexy Sans', sans-serif; font-size: 24px; color: var(--ink); }
+        .glance tr.opt td:last-child { color: var(--teal); font-size: 20px; }
+        .glance-note { font-size: 13px; color: var(--text-3); margin-top: 18px; line-height: 1.7; }
+
+        /* CTA */
+        .cta-card { background: var(--coral); color: #fff; border-radius: 22px; padding: 48px 44px; position: relative; overflow: hidden; }
+        .cta-card::before { content: ''; position: absolute; right: -80px; bottom: -120px; width: 380px; height: 380px; border-radius: 50%; background: rgba(255,255,255,0.12); }
+        .cta-card > * { position: relative; }
+        .cta-card .section-label { color: rgba(255,255,255,0.8); }
+        .cta-card h2 { font-family: 'Big Sexy Sans', sans-serif; text-transform: uppercase; font-size: 44px; line-height: .95; margin-bottom: 16px; letter-spacing: .02em; }
+        .cta-card p { font-size: 15px; color: rgba(255,255,255,0.92); max-width: 600px; margin-bottom: 10px; }
+        .cta-card .closing { font-weight: 500; margin: 14px 0 26px; }
+        .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; gap: 9px; padding: 14px 26px; border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none; transition: transform .2s; font-family: 'Big Sexy Sans', sans-serif; text-transform: uppercase; letter-spacing: .08em; }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-dark { background: var(--ink); color: #fff; }
+        .btn-wa { background: #25D366; color: #fff; }
+        .cta-sub { font-size: 12.5px; color: rgba(255,255,255,0.75); margin-top: 16px; }
+
+        .signature { padding: 44px 0 20px; }
+        .signature .name { font-family: 'Big Sexy Sans', sans-serif; text-transform: uppercase; font-size: 24px; color: var(--ink); letter-spacing: .02em; }
+        .signature .role { font-size: 13.5px; color: var(--text-2); }
+        .signature a { color: var(--coral); text-decoration: none; font-size: 13.5px; font-weight: 600; }
+        .footer { background: var(--ink); color: rgba(255,255,255,0.55); padding: 30px 0; text-align: center; font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; }
+        .footer .lockup { justify-content: center; margin-bottom: 12px; }
+        .footer .lockup img { height: 34px; width: 34px; }
+
+        @media (max-width: 760px) {
+            .container { padding: 0 18px; } .section { padding: 44px 0; } .card { padding: 26px 22px; }
+            .hero-grid { grid-template-columns: 1fr; gap: 34px; padding-top: 52px; padding-bottom: 52px; } .hero h1 { font-size: clamp(30px, 9.6vw, 44px); }
+            .hero-photo { max-width: 300px; margin: 0 auto; }
+            .packages { grid-template-columns: 1fr; } .pkg { padding: 30px 22px 26px; } .pkg .sub { min-height: 0; }
+            .strip { grid-template-columns: repeat(2, 1fr); }
+            .addon { grid-template-columns: 1fr; padding: 28px 24px; } .addon .pill { justify-self: start; }
+            .cta-card { padding: 34px 24px; } .cta-card h2 { font-size: 34px; }
+            .btn { width: 100%; justify-content: center; }
+            .glance td:last-child { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="lockup">
+                    <img src="assets/mark.png" alt="Body Image Fitness">
+                    <span class="x">&times;</span>
+                    <span class="fc">Fusion <span>Creative</span></span>
+                </div>
+                <div class="header-date">18 August 2026</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <div class="hero-label">Proposal &middot; Prepared for Kim</div>
+                <h1 class="display">Fill the<br><span class="c">September</span><br><span class="t">timetable.</span></h1>
+                <p>The two ways we could run content for Body Image Fitness, everything included, and the numbers. Simple and clear, so you can pick and go.</p>
+                <div class="hero-meta">
+                    <span>For <b>Kimberley Stacey, Body Image Fitness</b></span>
+                    <span>By <b>Fusion Creative, Newcastle</b></span>
+                    <span>Both options <b>organic content, fully managed</b></span>
+                </div>
+            </div>
+            <div class="hero-photo"><div class="blob"></div><img src="assets/hero.jpg" alt="Body Image Fitness studio, Newcastle"></div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="section">
+            <div class="card intro">
+                <div class="greeting">Hey <span>Kim</span>,</div>
+                <p>Glad the audit landed. Here are the costs, laid out simply: two ways to start, what each one includes, and what it is for. Both are the organic side, filming, editing, posting and management done by us, and both are built around one job: getting those 30 classes a week full for September and keeping them full after.</p>
+                <p>You went viral to the whole world. This is about doing that to Newcastle. Same energy, pointed at the people who can actually walk through the door.</p>
+                <div class="strip">
+                    <figure><img src="assets/shopfront.jpg" alt="The studio front"></figure>
+                    <figure><img src="assets/plates.jpg" alt="Pastel plates"></figure>
+                    <figure><img src="assets/group.jpg" alt="Class at Body Image Fitness"></figure>
+                    <figure><img src="assets/dumbbells.jpg" alt="Dumbbell wall"></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="rule"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Options</div>
+            <div class="section-title display">Two ways <span class="c">to start.</span></div>
+            <p class="lead">Same team, same standard. The difference is how much content goes out each week and the planning layer behind it. Both are organic, no ad spend needed to get results.</p>
+
+            <div class="packages">
+                <div class="pkg">
+                    <div class="tag">Starter &middot; Monthly</div>
+                    <h3>The Starter</h3>
+                    <p class="sub">The lean way in. Consistent, quality video that gets the studio in front of Newcastle every week.</p>
+                    <div class="price"><span class="amt">&pound;899</span><span class="per">per month</span></div>
+                    <ul class="list">
+                        <li><b>1 filming day per month</b> at the studio, filmed around classes</li>
+                        <li><b>12 short-form videos per month</b>, edited with hooks, captions and trending audio</li>
+                        <li><b>Posting and management handled</b> across Instagram, TikTok and Facebook, around three posts a week</li>
+                        <li><b>Local first</b>: content, hooks and hashtags built to reach Newcastle, not the other side of the world</li>
+                        <li><b>Monthly performance report</b> on reach, follower growth and best performers</li>
+                        <li><b>Three-month minimum</b>, then rolling month to month</li>
+                    </ul>
+                    <div class="note teal"><b>Good for:</b> getting a steady drumbeat going and seeing what lands with your local audience before you go bigger.</div>
+                </div>
+
+                <div class="pkg rec">
+                    <div class="rec-pill">Recommended</div>
+                    <div class="tag">Growth &middot; Monthly</div>
+                    <h3>The Growth</h3>
+                    <p class="sub">The full engine. The one we would honestly recommend for filling a 30-class timetable, because five posts a week is where a studio becomes a name locally.</p>
+                    <div class="price"><span class="amt">&pound;1,250</span><span class="per">per month</span></div>
+                    <ul class="list">
+                        <li><b>2 filming days per month</b> at the studio, so there is always fresh footage in the tank</li>
+                        <li><b>20 short-form videos per month</b>, edited with hooks, captions and trending audio</li>
+                        <li><b>Posting and management handled</b> across Instagram, TikTok and Facebook, around five posts a week</li>
+                        <li><b>Content strategy and planning</b> each month: the timetable, the instructors, the room, the community, member stories</li>
+                        <li><b>Local first</b>: built to reach Newcastle and fill classes, not just rack up views</li>
+                        <li><b>Live results dashboard</b> plus the monthly report, so you can check growth any time</li>
+                        <li><b>Three-month minimum</b>, then rolling month to month</li>
+                    </ul>
+                    <div class="note"><b>Why this one:</b> three posts a week gets you seen, five gets you remembered. With 30 classes to fill and a room that photogenic, the extra day of filming pays for itself. Per video it works out cheaper too.</div>
+                </div>
+            </div>
+
+            <div class="addon">
+                <div>
+                    <div class="tag">Optional add-on &middot; When you are ready</div>
+                    <h3>Paid ads on top</h3>
+                    <p>Once the organic content has built an audience, we can put small, tightly targeted Meta ads behind the best videos to reach people within a couple of miles of the studio. Priced separately if and when you want it, and the ad budget itself is always yours, paid direct to Meta, never through us. Not needed to start.</p>
+                </div>
+                <div class="pill">Quoted separately</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="rule"></div></div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Numbers</div>
+            <div class="section-title display">At a <span class="t">glance.</span></div>
+            <div class="card">
+                <table class="glance">
+                    <tr>
+                        <td>The Starter<span>1 filming day, 12 videos, posting managed on Instagram, TikTok and Facebook, monthly report</span></td>
+                        <td>&pound;899 / mo</td>
+                    </tr>
+                    <tr>
+                        <td>The Growth <em>(recommended)</em><span>2 filming days, 20 videos, full management, content strategy, live dashboard and monthly report</span></td>
+                        <td>&pound;1,250 / mo</td>
+                    </tr>
+                    <tr class="opt">
+                        <td>Paid ads management <em>(optional add-on)</em><span>Small local Meta campaigns behind the best content, priced separately when you want it, ad budget always yours</span></td>
+                        <td>On request</td>
+                    </tr>
+                </table>
+                <p class="glance-note">Billed monthly in advance. Three-month minimum term so the content has a fair run to build, then month to month with 30 days notice either way. No setup fees, no hidden extras. Start on the Starter and step up to Growth at any point.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section" style="padding-top: 0;">
+            <div class="cta-card">
+                <div class="section-label">Next Steps</div>
+                <h2>Ready when<br>you are.</h2>
+                <p>September is close, so if one of these feels right, message me on WhatsApp with which one and I will send over the simple agreement and get the first filming day booked before the new timetable kicks in.</p>
+                <p class="closing">Ten months in, a room nobody else in Newcastle has, and a viral hit already under your belt. The hard part is done, Kim. This just points it at the right postcodes.</p>
+                <div class="btns">
+                    <a href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Body%20Image%20Fitness%20plan" target="_blank" rel="noopener" class="btn btn-wa"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp Jay</a>
+                    <a href="mailto:jay@fusioncreative.uk?subject=Body%20Image%20Fitness%20-%20Let%27s%20Get%20Started" class="btn btn-dark">Email instead</a>
+                </div>
+                <div class="cta-sub">Or give me a call on 07437 571250 whenever suits.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="signature">
+            <div class="name">Jay Williams</div>
+            <div class="role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="lockup"><img src="assets/mark.png" alt="Body Image Fitness"><span class="x">&times;</span><span class="fc">Fusion <span>Creative</span></span></div>
+            Confidential &middot; Prepared for Body Image Fitness &middot; 18 August 2026
+        </div>
+    </footer>
+
+</body>
+</html>
