@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal - 12Muqam | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root{
+  --brown:#5E3519; --brown-mid:#673E22; --brown-deep:#3A200E; --brown-ink:#2A1608;
+  --bone:#E6D5C3; --paper:#F6EFE6; --paper-2:#EFE4D6; --white:#FFFDFA;
+  --terracotta:#B45A34; --saffron:#C08D5C; --gold:#C9963F;
+  --ink:#241609; --ink-2:#5A4636; --ink-3:#8B7663;
+  --line:rgba(94,53,25,0.16); --line-soft:rgba(94,53,25,0.09);
+}
+html{ scroll-behavior:smooth; }
+body{ font-family:'Work Sans',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--paper); color:var(--ink); line-height:1.72; -webkit-font-smoothing:antialiased; }
+.container{ max-width:900px; margin:0 auto; padding:0 24px; }
+.serif{ font-family:'Marcellus',Georgia,serif; font-weight:400; letter-spacing:0.01em; }
+img{ display:block; max-width:100%; }
+a{ color:inherit; }
+
+/* ikat band */
+.band{ height:14px; background:url('assets/ikat-band.jpg') repeat-x center/auto 100%; }
+
+/* header */
+.header{ background:var(--brown); color:var(--bone); }
+.header-inner{ display:flex; justify-content:space-between; align-items:center; gap:18px; padding:20px 24px; flex-wrap:wrap; }
+.lockup{ display:flex; align-items:center; gap:14px; }
+.lockup img{ height:26px; width:auto; }
+.lockup .x{ font-size:13px; opacity:0.5; }
+.lockup .fc{ font-size:11px; letter-spacing:2.6px; text-transform:uppercase; font-weight:600; opacity:0.9; }
+.header-meta{ font-size:11.5px; letter-spacing:2.2px; text-transform:uppercase; opacity:0.75; }
+
+/* hero */
+.hero{ position:relative; background:var(--brown-ink); color:var(--bone); overflow:hidden; }
+.hero-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.68; filter:saturate(1.05) contrast(1.03); }
+.hero::after{ content:''; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(42,22,8,0.5) 0%, rgba(42,22,8,0.74) 48%, rgba(42,22,8,0.95) 100%); }
+.hero-inner{ position:relative; z-index:2; padding:88px 24px 76px; text-shadow:0 1px 14px rgba(30,14,4,0.55); }
+.kicker{ font-size:11px; letter-spacing:3.4px; text-transform:uppercase; color:#E0B183; margin-bottom:26px; }
+.hero h1{ font-size:clamp(40px,7.4vw,66px); line-height:1.06; margin-bottom:22px; }
+.hero h1 em{ font-style:normal; color:#DFAE7C; }
+.hero-sub{ font-size:17px; max-width:600px; color:rgba(240,228,214,0.94); font-weight:300; }
+.hero-facts{ display:flex; gap:44px; margin-top:44px; flex-wrap:wrap; padding-top:28px; border-top:1px solid rgba(230,213,195,0.2); }
+.hero-fact .l{ font-size:10.5px; letter-spacing:2.4px; text-transform:uppercase; color:rgba(230,213,195,0.55); margin-bottom:5px; }
+.hero-fact .v{ font-size:15px; font-weight:500; }
+
+/* sections */
+.section{ padding:68px 0; }
+.section.tight{ padding:52px 0; }
+.section.dark{ background:var(--brown); color:var(--bone); }
+.section.deep{ background:var(--brown-ink); color:var(--bone); }
+.section.alt{ background:var(--paper-2); }
+.eyebrow{ font-size:10.5px; letter-spacing:3.2px; text-transform:uppercase; color:var(--terracotta); margin-bottom:16px; }
+.dark .eyebrow,.deep .eyebrow{ color:var(--saffron); }
+h2{ font-family:'Marcellus',Georgia,serif; font-weight:400; font-size:clamp(30px,4.6vw,42px); line-height:1.15; margin-bottom:22px; }
+h2 em{ font-style:normal; color:var(--terracotta); }
+.dark h2 em,.deep h2 em{ color:var(--saffron); }
+p{ margin-bottom:16px; color:var(--ink-2); font-size:15.5px; }
+.dark p,.deep p{ color:rgba(230,213,195,0.82); }
+p:last-child{ margin-bottom:0; }
+.lead{ font-size:17px; color:var(--ink); }
+.dark .lead,.deep .lead{ color:var(--bone); }
+
+/* letter */
+.letter{ background:var(--white); border:1px solid var(--line); padding:44px; }
+.letter .hi{ font-family:'Marcellus',Georgia,serif; font-size:25px; margin-bottom:18px; }
+.checked{ margin-top:26px; border-top:1px solid var(--line-soft); padding-top:22px; }
+.checked-title{ font-size:10.5px; letter-spacing:2.6px; text-transform:uppercase; color:var(--ink-3); margin-bottom:14px; }
+.checked-rows{ display:grid; gap:0; }
+.crow{ display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid var(--line-soft); font-size:14.5px; }
+.crow:last-child{ border-bottom:none; }
+.crow .k{ color:var(--ink-2); }
+.crow .v{ font-weight:600; text-align:right; }
+.crow .v.hot{ color:var(--terracotta); }
+
+/* photo strip */
+.strip{ display:grid; grid-template-columns:repeat(6,1fr); }
+.strip img{ width:100%; height:200px; object-fit:cover; }
+
+/* pillars */
+.pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(230,213,195,0.18); border:1px solid rgba(230,213,195,0.18); margin-top:34px; }
+.pillar{ background:var(--brown); padding:30px 26px; }
+.deep .pillar{ background:var(--brown-ink); }
+.pillar .n{ font-family:'Marcellus',Georgia,serif; font-size:22px; color:var(--saffron); margin-bottom:12px; }
+.pillar h3{ font-size:16px; font-weight:600; margin-bottom:10px; color:var(--bone); }
+.pillar p{ font-size:14px; margin:0; }
+
+/* packages */
+.packages{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:36px; align-items:start; }
+.pack{ background:var(--white); border:1px solid var(--line); padding:36px 32px; position:relative; }
+.pack.featured{ border:2px solid var(--brown); box-shadow:0 18px 50px rgba(58,32,14,0.13); }
+.flag{ position:absolute; top:-1px; right:-1px; background:var(--brown); color:var(--bone); font-size:10px; letter-spacing:2.2px; text-transform:uppercase; padding:7px 14px; }
+.pack .name{ font-family:'Marcellus',Georgia,serif; font-size:28px; margin-bottom:6px; }
+.pack .tag{ font-size:13.5px; color:var(--ink-3); margin-bottom:24px; }
+.price{ display:flex; align-items:baseline; gap:8px; padding-bottom:8px; }
+.price .amt{ font-family:'Marcellus',Georgia,serif; font-size:44px; color:var(--brown); line-height:1; }
+.price .per{ font-size:13px; color:var(--ink-3); }
+.per-video{ font-size:12px; letter-spacing:1.6px; text-transform:uppercase; color:var(--terracotta); margin-bottom:24px; }
+.plist{ list-style:none; border-top:1px solid var(--line-soft); }
+.plist li{ padding:14px 0 14px 22px; border-bottom:1px solid var(--line-soft); font-size:14.5px; color:var(--ink-2); position:relative; line-height:1.6; }
+.plist li:last-child{ border-bottom:none; }
+.plist li::before{ content:''; position:absolute; left:0; top:22px; width:9px; height:1px; background:var(--terracotta); }
+.plist li b{ color:var(--ink); font-weight:600; }
+.plist li span{ display:block; font-size:13px; color:var(--ink-3); margin-top:3px; }
+
+/* table */
+.tbl-wrap{ overflow-x:auto; margin-top:30px; border:1px solid var(--line); background:var(--white); }
+table{ width:100%; border-collapse:collapse; font-size:14.5px; min-width:520px; }
+th,td{ padding:14px 18px; text-align:left; border-bottom:1px solid var(--line-soft); }
+thead th{ background:var(--brown); color:var(--bone); font-size:11px; letter-spacing:2px; text-transform:uppercase; font-weight:600; }
+tbody tr:last-child td{ border-bottom:none; }
+td:first-child{ color:var(--ink-2); }
+td.val{ font-weight:600; }
+td.hot{ color:var(--terracotta); font-weight:600; }
+
+/* notes */
+.note{ background:var(--white); border-left:3px solid var(--terracotta); padding:24px 28px; margin-top:28px; }
+.note h4{ font-size:15px; font-weight:600; margin-bottom:8px; }
+.note p{ font-size:14.5px; margin:0; }
+.detail-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:30px; }
+.detail{ background:var(--white); padding:26px 28px; }
+.detail h4{ font-size:11px; letter-spacing:2.4px; text-transform:uppercase; color:var(--terracotta); margin-bottom:10px; }
+.detail p{ font-size:14.5px; margin:0; }
+
+/* proof */
+.proof{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(230,213,195,0.18); border:1px solid rgba(230,213,195,0.18); margin-top:34px; }
+.proof div{ background:var(--brown-ink); padding:26px 18px; text-align:center; }
+.proof .num{ font-family:'Marcellus',Georgia,serif; font-size:clamp(26px,4vw,36px); color:var(--saffron); line-height:1; }
+.proof .lbl{ font-size:10.5px; letter-spacing:1.8px; text-transform:uppercase; color:rgba(230,213,195,0.6); margin-top:9px; }
+
+/* website offer */
+.offer{ background:var(--white); border:1px solid var(--line); border-top:3px solid var(--terracotta); padding:0; margin-top:34px; display:grid; grid-template-columns:1.15fr 1fr; }
+.offer-body{ padding:36px 34px; }
+.offer-side{ background:var(--paper-2); padding:36px 34px; border-left:1px solid var(--line); }
+.offer .stamp{ display:inline-block; background:var(--terracotta); color:#fff; font-size:10px; letter-spacing:2.4px; text-transform:uppercase; padding:6px 12px; margin-bottom:18px; }
+.offer h3{ font-family:'Marcellus',Georgia,serif; font-weight:400; font-size:27px; margin-bottom:14px; }
+.offer p{ font-size:14.5px; }
+.offer .was{ font-size:13px; color:var(--ink-3); margin-top:16px; }
+.offer .was b{ color:var(--terracotta); text-decoration:none; }
+.offer-side h4{ font-size:10.5px; letter-spacing:2.4px; text-transform:uppercase; color:var(--terracotta); margin-bottom:14px; }
+.offer-list{ list-style:none; }
+.offer-list li{ font-size:14px; color:var(--ink-2); padding:9px 0 9px 20px; position:relative; line-height:1.6; border-bottom:1px solid var(--line-soft); }
+.offer-list li:last-child{ border-bottom:none; }
+.offer-list li::before{ content:''; position:absolute; left:0; top:18px; width:8px; height:1px; background:var(--terracotta); }
+.domain{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13.5px; background:var(--paper-2); border:1px solid var(--line); padding:3px 8px; }
+
+/* cta */
+.btns{ display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
+.btn{ display:inline-block; padding:15px 32px; font-size:15px; font-weight:600; text-decoration:none; border-radius:2px; }
+.btn-wa{ background:#25D366; color:#0b3d1c; }
+.btn-mail{ background:var(--brown); color:var(--bone); }
+.deep .btn-mail{ background:var(--bone); color:var(--brown); }
+.sig{ margin-top:40px; padding-top:26px; border-top:1px solid rgba(230,213,195,0.2); }
+.sig .n{ font-family:'Marcellus',Georgia,serif; font-size:21px; color:var(--bone); }
+.sig .r{ font-size:13.5px; color:rgba(230,213,195,0.7); margin-top:4px; }
+
+/* footer */
+.footer{ background:var(--brown-ink); color:rgba(230,213,195,0.55); padding:30px 0; font-size:12px; }
+.footer-inner{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center; }
+.footer img{ height:18px; opacity:0.8; }
+
+@media (max-width:820px){
+  .packages{ grid-template-columns:1fr; }
+  .pillars{ grid-template-columns:1fr; }
+  .detail-grid{ grid-template-columns:1fr; }
+  .offer{ grid-template-columns:1fr; }
+  .offer-side{ border-left:none; border-top:1px solid var(--line); }
+  .offer-body,.offer-side{ padding:28px 24px; }
+  .proof{ grid-template-columns:1fr 1fr; }
+  .strip{ grid-template-columns:repeat(3,1fr); }
+  .strip img{ height:150px; }
+  .letter{ padding:30px 24px; }
+  .hero-inner{ padding:64px 24px 56px; }
+  .hero-facts{ gap:26px; }
+  .section{ padding:52px 0; }
+}
+@media (max-width:420px){
+  .strip img{ height:118px; }
+  .pack{ padding:28px 22px; }
+}
+</style>
+</head>
+<body>
+
+<div class="band"></div>
+<header class="header">
+  <div class="container header-inner">
+    <div class="lockup">
+      <img src="assets/wordmark-cream.png" alt="12Muqam">
+      <span class="x">x</span>
+      <span class="fc">Fusion Creative</span>
+    </div>
+    <div class="header-meta">Proposal &middot; 19 August 2026</div>
+  </div>
+</header>
+
+<section class="hero">
+  <img class="hero-img" src="assets/hero.jpg" alt="12Muqam Uyghur dishes">
+  <div class="container hero-inner">
+    <div class="kicker">Prepared for Emrain Reshid</div>
+    <h1 class="serif">Your plan for<br><em>12Muqam.</em></h1>
+    <p class="hero-sub">Following your audit in June. Two packages, what each one includes, and the numbers. Your website built free on either one. No small print.</p>
+    <div class="hero-facts">
+      <div class="hero-fact"><div class="l">Venue</div><div class="v">20 Stowell Street, Chinatown</div></div>
+      <div class="hero-fact"><div class="l">Prepared by</div><div class="v">Jay Williams, Fusion Creative</div></div>
+      <div class="hero-fact"><div class="l">Term</div><div class="v">3 months, then rolling</div></div>
+    </div>
+  </div>
+</section>
+<div class="band"></div>
+
+<section class="section">
+  <div class="container">
+    <div class="letter">
+      <div class="hi serif">Hi Emrain,</div>
+      <p>Back in June we sent you a free audit of 12Muqam. The headline was simple: your food had already gone viral on Instagram, but on a Newcastle food creator's account rather than yours. That reel pulled over 42,000 views while your own posts, all still photos, sat at around 20 likes.</p>
+      <p>I checked your page again today before writing this. Almost nothing has changed. You have added two posts and 109 followers in nearly two months, and you still have no reels of your own. The largest Uyghur restaurant in the UK is still handing its reach to other people's pages.</p>
+      <p class="lead">That is what this proposal fixes. We film your food properly, we post it for you, and the reach it earns lands on your account instead of someone else's.</p>
+      <div class="checked">
+        <div class="checked-title">Checked live on 19 August 2026</div>
+        <div class="checked-rows">
+          <div class="crow"><span class="k">Instagram followers</span><span class="v">1,755 &nbsp;<span style="color:var(--ink-3);font-weight:400">(1,646 in June)</span></span></div>
+          <div class="crow"><span class="k">Posts</span><span class="v">64 &nbsp;<span style="color:var(--ink-3);font-weight:400">(62 in June)</span></span></div>
+          <div class="crow"><span class="k">Your own reels</span><span class="v hot">Still none</span></div>
+          <div class="crow"><span class="k">TikTok</span><span class="v hot">Still no account</span></div>
+          <div class="crow"><span class="k">Website (12muqam.co.uk)</span><span class="v hot">Domain owned, nothing live on it</span></div>
+          <div class="crow"><span class="k">Best creator reel about your food</span><span class="v">42,000+ views, on their page</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <img src="assets/dish-1.jpg" alt="Lamb skewers on naan">
+  <img src="assets/dish-2.jpg" alt="Hand pulled lehman noodles">
+  <img src="assets/dish-3.jpg" alt="Samsa">
+  <img src="assets/dish-4.jpg" alt="Grilled lamb skewers">
+  <img src="assets/dish-5.jpg" alt="Uyghur bread">
+  <img src="assets/dish-6.jpg" alt="Manti dumplings">
+</div>
+
+<section class="section deep">
+  <div class="container">
+    <div class="eyebrow">What we would run for you</div>
+    <h2 class="serif">One engine, <em>three parts.</em></h2>
+    <p class="lead" style="max-width:640px">Every package includes all three. The tier changes how much fuel goes in, not what the engine does.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="n serif">01</div>
+        <h3>Short form video, filmed in your restaurant</h3>
+        <p>The noodle pull, the big plate chicken reveal, skewers over flame, the salt tea poured from height. Filmed on site, edited with hooks and captions, posted for you.</p>
+      </div>
+      <div class="pillar">
+        <div class="n serif">02</div>
+        <h3>Instagram run properly, TikTok launched</h3>
+        <p>We shift your page from photos to reels and open the TikTok you do not have yet. Same footage, second audience, no extra filming.</p>
+      </div>
+      <div class="pillar">
+        <div class="n serif">03</div>
+        <h3>Creators, local ads and Google</h3>
+        <p>The right Newcastle food creators, booked deliberately rather than by chance, plus targeted local ads and a Google profile that catches people searching for halal food tonight.</p>
+      </div>
+    </div>
+    <div class="proof">
+      <div><div class="num">70M+</div><div class="lbl">Views generated</div></div>
+      <div><div class="num">60M</div><div class="lbl">Single reel</div></div>
+      <div><div class="num">824K+</div><div class="lbl">Interactions</div></div>
+      <div><div class="num">6,200+</div><div class="lbl">Followers grown</div></div>
+    </div>
+    <p style="margin-top:20px;font-size:14px">Our headline result: New Greek, an independent Newcastle food business, from a standing start to over 70 million views across Instagram and TikTok in 30 days. 12Muqam starts ahead of where they did, because your food has already proved it can travel.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">The packages</div>
+    <h2 class="serif">Two ways <em>to start.</em></h2>
+    <p style="max-width:640px">Same team, same standard, same three parts. The difference is volume, and how much of the wider engine we run alongside the filming.</p>
+
+    <div class="packages">
+      <div class="pack">
+        <div class="name serif">Core</div>
+        <div class="tag">A steady presence, filmed and posted for you.</div>
+        <div class="price"><span class="amt serif">&pound;999</span><span class="per">per month</span></div>
+        <div class="per-video">&pound;83 per video</div>
+        <ul class="plist">
+          <li><b>12 videos a month, 3 posts a week</b><span>Filmed at the restaurant, edited with hooks, captions and trending audio</span></li>
+          <li><b>1 filming day a month</b><span>We come to you and film around service, so it costs you no floor time</span></li>
+          <li><b>Instagram and TikTok run for you</b><span>Including setting your TikTok up from scratch</span></li>
+          <li><b>1 creator collaboration a month</b><span>We find them, brief them and host them</span></li>
+          <li><b>Paid ads management</b><span>One always on local campaign, creative refreshed quarterly</span></li>
+          <li><b>Google Business Profile tidied up</b><span>Halal, Uyghur and Chinatown search terms covered</span></li>
+          <li><b>Monthly performance report</b></li>
+          <li><b>Your website, built free</b><span>Included on the three month agreement, see below</span></li>
+        </ul>
+      </div>
+
+      <div class="pack featured">
+        <div class="flag">Recommended</div>
+        <div class="name serif">Growth</div>
+        <div class="tag">The full engine, and the one that suits where you are.</div>
+        <div class="price"><span class="amt serif">&pound;1,350</span><span class="per">per month</span></div>
+        <div class="per-video">&pound;67.50 per video, everything included</div>
+        <ul class="plist">
+          <li><b>20 videos a month, 5 posts a week</b><span>Three posts a week gets you seen, five gets you remembered</span></li>
+          <li><b>2 filming days a month</b><span>More variety, and events and seasonal dishes covered as they happen</span></li>
+          <li><b>Instagram and TikTok run for you</b><span>TikTok launched properly in month one, tuned to Newcastle foodies</span></li>
+          <li><b>2 creator collaborations a month</b><span>A repeatable rhythm of the right local food creators, all pointing back to your page</span></li>
+          <li><b>Full ads management, new creative monthly</b><span>Your best performing reels turned into local ads and tested every month</span></li>
+          <li><b>Google Business Profile and local SEO</b><span>Plus a push on fresh reviews from happy diners</span></li>
+          <li><b>Monthly strategy call with Jay</b><span>What worked, what is next, what we are testing</span></li>
+          <li><b>Live results dashboard</b><span>Plus the monthly report</span></li>
+          <li><b>Your website, built free</b><span>Included on the three month agreement, see below</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <h4>Why we would point you at Growth</h4>
+      <p>You are not starting from nothing, you are starting from proven demand with an empty page. Five posts a week and two creator visits a month is what turns that into followers and booked tables inside a season. It also works out cheaper per video, and it is the only tier where the TikTok gets a proper launch rather than a slow start.</p>
+    </div>
+
+    <div class="offer">
+      <div class="offer-body">
+        <div class="stamp">Included free</div>
+        <h3 class="serif">And your website, on the house.</h3>
+        <p>You already own the domain <span class="domain">12muqam.co.uk</span> and I checked it today. It points at a Shopify store that is not connected, so anyone who types it in lands on an error page. Right now the only places people can find your menu are TheFork, Just Eat and other people's listings, and every one of those owns the customer instead of you.</p>
+        <p>So here is the offer. Sign the three month agreement on either package and we design, build and launch your website free of charge. It goes live in month one, alongside the first filming day, using the photography and video we shoot for you.</p>
+        <p class="was">Normally <b>&pound;549</b> to build. Free on either package with the three month agreement, and hosting and updates stay free for as long as you are with us. The site is yours to keep either way.</p>
+      </div>
+      <div class="offer-side">
+        <h4>What the site includes</h4>
+        <ul class="offer-list">
+          <li>Full menu, kept up to date by us</li>
+          <li>The story of Uyghur cuisine and the largest Uyghur restaurant in the UK</li>
+          <li>Your own food photography and video from our filming days</li>
+          <li>Book a table, straight through to your booking system</li>
+          <li>Find us in Chinatown, hours and contact</li>
+          <li>Built to be found on Google for halal, Uyghur and Chinatown searches</li>
+          <li>Fast on a phone, which is where nearly everyone will open it</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="eyebrow">At a glance</div>
+    <h2 class="serif">The <em>numbers.</em></h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>What you get</th><th>Core &middot; &pound;999</th><th>Growth &middot; &pound;1,350</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Videos per month</td><td class="val">12</td><td class="hot">20</td></tr>
+          <tr><td>Posts per week</td><td class="val">3</td><td class="hot">5</td></tr>
+          <tr><td>Cost per video</td><td class="val">&pound;83</td><td class="hot">&pound;67.50</td></tr>
+          <tr><td>Filming days per month</td><td class="val">1</td><td class="hot">2</td></tr>
+          <tr><td>Creator collaborations</td><td class="val">1 a month</td><td class="hot">2 a month</td></tr>
+          <tr><td>TikTok</td><td class="val">Set up and run</td><td class="hot">Full launch in month one</td></tr>
+          <tr><td>Paid ads management</td><td class="val">Yes, quarterly refresh</td><td class="hot">Yes, new creative monthly</td></tr>
+          <tr><td>Google profile and local SEO</td><td class="val">Profile tidied up</td><td class="hot">Full local SEO and reviews push</td></tr>
+          <tr><td>Monthly strategy call</td><td class="val">No</td><td class="hot">Included</td></tr>
+          <tr><td>Live results dashboard</td><td class="val">No</td><td class="hot">Included</td></tr>
+          <tr><td>Monthly report</td><td class="val">Included</td><td class="hot">Included</td></tr>
+          <tr><td>Website built and launched</td><td class="val">Free on the 3 month agreement</td><td class="hot">Free on the 3 month agreement</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <h4>On ad spend</h4>
+      <p>Ad spend is separate and paid by you directly to Meta, so you keep full control and full visibility. For a single site in Chinatown we would start around &pound;200 to &pound;300 a month and scale it only once the numbers earn it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">The detail</div>
+    <h2 class="serif">How it <em>works.</em></h2>
+    <div class="detail-grid">
+      <div class="detail"><h4>Term</h4><p>Three month initial term, then monthly rolling with 30 days notice either way. Content compounds, so three months is the honest minimum to judge it on.</p></div>
+      <div class="detail"><h4>Billing</h4><p>Monthly in advance by invoice. No setup fee and no hidden extras. Ad spend is billed separately by Meta to your card.</p></div>
+      <div class="detail"><h4>Switching tiers</h4><p>Start on Core and move up to Growth any month you like. Most venues that start on Core upgrade once the first reel takes off.</p></div>
+      <div class="detail"><h4>What we need from you</h4><p>Access on filming days, a sign off on the monthly plan, and your Instagram login. We handle everything else.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section deep">
+  <div class="container">
+    <div class="eyebrow">Next steps</div>
+    <h2 class="serif">Ready when <em>you are.</em></h2>
+    <p class="lead" style="max-width:620px">Tell me which tier suits and I will send over a simple one page agreement and get the first filming day in the diary. We can be in filming within a week.</p>
+    <p style="max-width:620px">One last thought, Emrain. The demand for your food is already proven, and the noodle pull, the big plate chicken and the salt tea are three of the best pieces of food content in Newcastle sat unfilmed. The only question left is whose account they build.</p>
+    <div class="btns">
+      <a class="btn btn-wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20it%27s%20Emrain%20from%2012Muqam%20about%20the%20proposal" target="_blank" rel="noopener">WhatsApp Jay</a>
+      <a class="btn btn-mail" href="mailto:jay@fusioncreative.uk?subject=12Muqam%20proposal">Email instead</a>
+    </div>
+    <p style="margin-top:16px;font-size:14px">Or call me on 07437 571250 whenever suits.</p>
+    <div class="sig">
+      <div class="n serif">Jay Williams</div>
+      <div class="r">Founder, Fusion Creative &middot; fusioncreative.uk</div>
+    </div>
+  </div>
+</section>
+
+<div class="band"></div>
+<footer class="footer">
+  <div class="container footer-inner">
+    <img src="assets/wordmark-cream.png" alt="12Muqam">
+    <div>Confidential &middot; Prepared for 12Muqam Uyghur Restaurant &middot; 19 August 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>
