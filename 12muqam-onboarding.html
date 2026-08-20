@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Onboarding - 12Muqam | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --brown:#5E3519; --brown-ink:#2A1608; --bone:#E6D5C3; --paper:#F6EFE6; --paper-2:#EFE4D6;
+  --white:#FFFDFA; --terracotta:#B45A34; --saffron:#C08D5C;
+  --ink:#241609; --muted:#5A4636; --dim:#8B7663;
+  --line:rgba(94,53,25,0.16); --line-soft:rgba(94,53,25,0.09);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Marcellus',Georgia,serif;font-weight:400}
+img{display:block;max-width:100%}
+
+.band{height:12px;background:url('/proposal/12muqam/assets/ikat-band.jpg') repeat-x center/auto 100%}
+
+header.top{position:sticky;top:0;z-index:40;background:var(--brown);color:var(--bone);box-shadow:0 2px 14px rgba(42,22,8,.18)}
+.top-inner{max-width:860px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;gap:16px}
+.lockup{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.lockup img{height:20px;width:auto}
+.lockup .x{font-size:11px;opacity:.5}
+.lockup .fc{font-size:10px;letter-spacing:2.2px;text-transform:uppercase;font-weight:600;opacity:.9}
+.progress-wrap{flex:1;height:4px;background:rgba(230,213,195,.22);border-radius:99px;overflow:hidden;min-width:40px}
+.progress{height:100%;width:0;background:var(--saffron);transition:width .35s ease}
+.btn-top{flex-shrink:0}
+
+.wrap{max-width:860px;margin:0 auto;padding:0 22px 60px}
+
+.hero{padding:52px 0 30px}
+.eyebrow{font-size:10.5px;letter-spacing:3.2px;text-transform:uppercase;color:var(--terracotta);margin-bottom:14px}
+.hero h1{font-family:'Marcellus',Georgia,serif;font-weight:400;font-size:clamp(32px,5.4vw,46px);line-height:1.12;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--terracotta)}
+.hero p{color:var(--muted);max-width:620px;font-size:16px}
+.meta{margin-top:16px;font-size:12.5px;color:var(--dim);letter-spacing:.4px}
+
+.card{background:var(--white);border:1px solid var(--line);padding:32px;margin-bottom:20px}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.sec-num{font-family:'Marcellus',Georgia,serif;font-size:15px;color:var(--bone);background:var(--brown);width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sec-head h2{font-family:'Marcellus',Georgia,serif;font-weight:400;font-size:24px;line-height:1.2}
+.sec-sub{color:var(--dim);font-size:14px;margin-bottom:22px}
+.star{background:linear-gradient(to right,rgba(180,90,52,.09),rgba(255,255,255,0));border-left:3px solid var(--terracotta)}
+
+.field{margin-bottom:18px}
+.field:last-child{margin-bottom:0}
+label{display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--ink)}
+.req{color:var(--terracotta)}
+.hint{display:block;font-weight:400;font-size:13px;color:var(--dim);margin-top:2px;line-height:1.55}
+input[type=text],input[type=email],input[type=tel],input[type=url],textarea,select{
+  width:100%;padding:11px 13px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  font-family:inherit;font-size:15px;border-radius:2px;transition:border-color .15s,background .15s}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--terracotta);background:#fff}
+textarea{min-height:92px;resize:vertical;line-height:1.65}
+textarea.tall{min-height:130px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.ticks{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:6px}
+.tick{display:flex;align-items:flex-start;gap:9px;padding:11px 13px;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-size:14px;line-height:1.45;transition:border-color .15s,background .15s}
+.tick:hover{border-color:var(--saffron)}
+.tick input{margin-top:3px;accent-color:var(--terracotta);flex-shrink:0}
+.tick span b{display:block;font-weight:600}
+.tick span i{font-style:normal;color:var(--dim);font-size:12.5px}
+.tick.on{border-color:var(--terracotta);background:#fff}
+
+.radios{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.radio{display:flex;align-items:center;gap:8px;padding:10px 15px;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-size:14px}
+.radio input{accent-color:var(--terracotta)}
+
+.btn{display:inline-block;padding:13px 28px;font-family:inherit;font-size:15px;font-weight:600;border:none;border-radius:2px;cursor:pointer;text-decoration:none}
+.btn-primary{background:var(--brown);color:var(--bone)}
+.btn-primary:disabled{opacity:.55;cursor:default}
+.btn-ghost{background:transparent;color:var(--bone);border:1px solid rgba(230,213,195,.4);padding:8px 14px;font-size:12.5px}
+.btn-line{background:transparent;color:var(--brown);border:1px solid var(--line)}
+.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.status{font-size:14px;color:var(--terracotta);margin-top:12px}
+.status a{color:var(--terracotta)}
+
+.thanks{display:none;text-align:center;padding:80px 20px}
+.thanks.show{display:block}
+.thanks .check{width:72px;height:72px;border-radius:50%;margin:0 auto 22px;border:2px solid var(--terracotta);display:flex;align-items:center;justify-content:center;font-size:34px;color:var(--terracotta)}
+.thanks h2{font-family:'Marcellus',Georgia,serif;font-weight:400;font-size:30px;margin-bottom:12px}
+.thanks p{color:var(--muted);max-width:500px;margin:0 auto}
+
+footer.foot{text-align:center;color:var(--dim);font-size:12.5px;margin-top:30px;padding-top:18px;border-top:1px solid var(--line)}
+footer.foot b{color:var(--terracotta)}
+
+@media (max-width:700px){
+  .grid2{grid-template-columns:1fr}
+  .ticks{grid-template-columns:1fr}
+  .card{padding:24px 20px}
+  .hero{padding:38px 0 24px}
+  .top-inner{padding:11px 16px;gap:12px}
+  .wrap{padding:0 16px 48px}
+  .btn-top{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="band"></div>
+<header class="top">
+  <div class="top-inner">
+    <div class="lockup">
+      <img src="/proposal/12muqam/assets/wordmark-cream.png" alt="12Muqam">
+      <span class="x">x</span>
+      <span class="fc">Fusion</span>
+    </div>
+    <div class="progress-wrap"><div class="progress" id="prog"></div></div>
+    <button type="button" class="btn btn-ghost btn-top" onclick="document.getElementById('submitBtn').scrollIntoView()">Submit &darr;</button>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+
+  <div class="hero">
+    <div class="eyebrow">Content Onboarding</div>
+    <h1 class="serif">Let's get 12Muqam <em>on camera.</em></h1>
+    <p>Great to meet you, Emrain. This is everything we need before the first shoot. The food and the family story matter most, so give us as much as you can there. The more detail you put in, the better the ideas we come back with. Takes about ten minutes and it saves as you go, so you can stop and come back.</p>
+    <div class="meta">Saved automatically on this device as you type</div>
+  </div>
+
+  <form id="form" novalidate>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num serif">01</span><h2 class="serif">The basics</h2></div>
+    <p class="sec-sub">Who we will be working with day to day.</p>
+    <div class="grid2">
+      <div class="field"><label>Trading name <span class="req">*</span></label><input type="text" name="trading_name" required value="12Muqam Uyghur Restaurant"></div>
+      <div class="field"><label>Your name <span class="req">*</span></label><input type="text" name="contact_name" required value="Emrain Reshid"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Your role</label><input type="text" name="contact_role" placeholder="Owner"></div>
+      <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="contact_email" required value="emrainreshid@gmail.com"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Phone</label><input type="tel" name="contact_phone" value="07495 909 325"></div>
+      <div class="field"><label>Instagram</label><input type="text" name="instagram" value="@12muqam"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Facebook</label><input type="text" name="facebook" placeholder="Page name or link"></div>
+      <div class="field"><label>Preferred TikTok handle<span class="hint">@12muqam is taken by an unrelated account, so we need a second choice.</span></label><input type="text" name="tiktok_handle" placeholder="@12muqamuk"></div>
+    </div>
+    <div class="field">
+      <label>Do you want us to build the website too?<span class="hint">You already own 12muqam.co.uk. The add on is an extra &pound;100 a month across the first three months only.</span></label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="website_wanted" value="Yes, build the website"> Yes, build it</label>
+        <label class="radio"><input type="radio" name="website_wanted" value="Not yet, maybe later"> Not yet</label>
+        <label class="radio"><input type="radio" name="website_wanted" value="Want to talk it through first"> Let's talk about it</label>
+      </div>
+    </div>
+    <div class="field"><label>Logo and brand files<span class="hint">Anything you have: logo files, menus, the sign artwork. A Drive or WeTransfer link is perfect.</span></label><input type="text" name="brand_assets" placeholder="Link, or tell us what you have"></div>
+    <div class="field"><label>Photos and video you already have<span class="hint">Including anything creators have filmed for you that we could reuse.</span></label><textarea name="media_library" placeholder="Link, or a quick description"></textarea></div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num serif">02</span><h2 class="serif">Your story</h2></div>
+    <p class="sec-sub">This is the part nobody else in Newcastle can copy, so it is the most important section on the form. Take your time here.</p>
+
+    <div class="field"><label>The mother and son story <span class="req">*</span><span class="hint">You cooking alongside your mum is genuinely rare and people love it. How did it come about, who does what, what is it like working together, what does she think of the restaurant?</span></label><textarea class="tall" name="family_story" required placeholder="Tell it however you would tell a friend"></textarea></div>
+
+    <div class="grid2">
+      <div class="field"><label>Mum's name, and how she likes to be introduced</label><input type="text" name="mum_intro" placeholder="Name, and what we should call her on camera"></div>
+      <div class="field"><label>Who else is in the kitchen?</label><input type="text" name="who_cooks" placeholder="Names and roles"></div>
+    </div>
+
+    <div class="field"><label>Where is the family from?<span class="hint">Region, city, and how long in the UK.</span></label><input type="text" name="family_origin"></div>
+
+    <div class="field"><label>How did 12Muqam start in Newcastle?<span class="hint">Why Stowell Street, what came before, anything that nearly stopped it happening.</span></label><textarea name="how_started"></textarea></div>
+
+    <div class="field"><label>How do you explain Uyghur food to someone who has never heard of it? <span class="req">*</span><span class="hint">Say it in your own words. We will likely use your exact phrasing as a hook in the videos.</span></label><textarea name="uyghur_explain" required></textarea></div>
+
+    <div class="field"><label>The Persian meets Chinese side of it <span class="req">*</span><span class="hint">You described it as sitting between Persian and Chinese cooking, which is a brilliant angle. Which dishes show that best? Which spices or techniques come from which side?</span></label><textarea class="tall" name="persian_chinese" required></textarea></div>
+
+    <div class="field"><label>The largest Uyghur restaurant in the UK<span class="hint">Your bio says it. What is the story behind that, and how many can you seat?</span></label><textarea name="largest_claim"></textarea></div>
+
+    <div class="field"><label>Things people would never guess about you <span class="req">*</span><span class="hint">Anything at all: how long a dish takes, something you make from scratch daily, a family recipe, how far an ingredient travels, something in the building, a rule in the kitchen, a regular who comes every week. Small details make the best videos, so list as many as you can.</span></label><textarea class="tall" name="not_known" required placeholder="One per line is fine"></textarea></div>
+
+    <div class="field"><label>What do customers always ask you?<span class="hint">The questions you answer ten times a night are the questions the internet is asking too.</span></label><textarea name="customer_questions"></textarea></div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num serif">03</span><h2 class="serif">The food</h2></div>
+    <p class="sec-sub">What sells, what looks incredible, and what has a moment worth filming.</p>
+
+    <div class="field"><label>Your best sellers, in order <span class="req">*</span><span class="hint">The dishes that genuinely leave the kitchen most.</span></label><textarea name="best_sellers" required placeholder="1.&#10;2.&#10;3."></textarea></div>
+
+    <div class="field">
+      <label>Tick anything you would like us to film<span class="hint">From your current menu. Tick freely, we will build the shot list around them.</span></label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="dish_picks" value="Big plate chicken / hot chicken stew"><span><b>Big plate chicken</b><i>Hot chicken stew with belt noodles</i></span></label>
+        <label class="tick"><input type="checkbox" name="dish_picks" value="Beef lehman (hand pulled noodles)"><span><b>Beef lehman</b><i>Hand pulled noodles</i></span></label>
+        <label class="tick"><input type="checkbox" name="dish_picks" value="Ganbian beef noodle"><span><b>Ganbian beef noodle</b><i>Sesame, peppers, garlic</i></span></label>
+        <label class="tick"><input type="checkbox" name="dish_picks" value="Diced noodle"><span><b>Diced noodle</b><i>Hand pulled, diced</i></span></label>
+        <label class="tick"><input type="checkbox" name="dish_picks" value="Uyghur lamb polo"><span><b>Uyghur lamb polo</b><i>Lamb shank, rice, carrot, raisin</i></span></label>
+        <label class="tick"><input type="checkbox" name="dish_picks" value="Manti"><span><b>Manti</b><i>Steamed dumplings</i></span></label>
+        <label class="tick"><input type="checkbox" name="dish_picks" value="Samsa"><span><b>Samsa</b><i>Baked parcels</i></span></label>
+        <label class="tick"><input type="checkbox" name="dish_picks" value="Lamb skewers over flame"><span><b>Lamb skewers</b><i>Over the flame</i></span></label>
+        <label class="tick"><input type="checkbox" name="dish_picks" value="Uyghur bread / naan"><span><b>Bread and naan</b><i>Straight from the oven</i></span></label>
+        <label class="tick"><input type="checkbox" name="dish_picks" value="Salted milk tea"><span><b>Salted milk tea</b><i>The one that surprises everyone</i></span></label>
+        <label class="tick"><input type="checkbox" name="dish_picks" value="Fried rice noodle"><span><b>Fried rice noodle</b><i>Chicken, hot</i></span></label>
+        <label class="tick"><input type="checkbox" name="dish_picks" value="Something not listed, see notes"><span><b>Something else</b><i>Tell us below</i></span></label>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="field"><label>What should a first timer order?</label><textarea name="first_timers"></textarea></div>
+      <div class="field"><label>Most underrated dish<span class="hint">The one you wish more people ordered.</span></label><textarea name="underrated_dish"></textarea></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Best looking dish on the pass<span class="hint">Pure wow factor.</span></label><textarea name="wow_dish"></textarea></div>
+      <div class="field"><label>The spicy one<span class="hint">Anything hot enough to build a challenge around.</span></label><textarea name="spice_dish"></textarea></div>
+    </div>
+
+    <div class="field"><label>Dishes with real theatre <span class="req">*</span><span class="hint">Anything with a moment: the noodle being pulled and stretched, skewers hitting the flame, bread going into the oven, the tea poured from height, a lid coming off, a big plate landing on the table. These are the videos that travel.</span></label><textarea class="tall" name="theatre_dish" required></textarea></div>
+
+    <div class="grid2">
+      <div class="field"><label>Drinks worth filming<span class="hint">Salt tea and anything else.</span></label><textarea name="drinks"></textarea></div>
+      <div class="field"><label>Vegetarian and vegan options</label><textarea name="veggie"></textarea></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Anything new coming<span class="hint">New dishes, menu changes, seasonal things.</span></label><textarea name="new_dishes"></textarea></div>
+      <div class="field"><label>Dishes needing notice or long prep<span class="hint">So we order ahead on shoot day.</span></label><textarea name="prep_notes"></textarea></div>
+    </div>
+    <div class="field"><label>Halal and dietary notes<span class="hint">Anything we should always say, or never say, in a caption.</span></label><textarea name="halal_notes"></textarea></div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num serif">04</span><h2 class="serif">On camera</h2></div>
+    <p class="sec-sub">Nobody gets pushed in front of a camera who does not want to be there.</p>
+    <div class="field"><label>Who is happy on camera?<span class="hint">Names, and how comfortable each person is.</span></label><textarea name="on_camera"></textarea></div>
+    <div class="field">
+      <label>Would Mum go on camera?<span class="hint">Even her hands cooking would be brilliant. No pressure either way.</span></label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="mum_on_camera" value="Yes, happy to"> Yes, happy to</label>
+        <label class="radio"><input type="radio" name="mum_on_camera" value="Hands and cooking only, no face"> Hands only, no face</label>
+        <label class="radio"><input type="radio" name="mum_on_camera" value="Would rather not"> Rather not</label>
+        <label class="radio"><input type="radio" name="mum_on_camera" value="Need to ask her"> Need to ask her</label>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Languages spoken in the restaurant<span class="hint">Uyghur, Mandarin, English, anything else. Subtitled clips in another language often travel further.</span></label><input type="text" name="languages"></div>
+      <div class="field"><label>Can we show staff faces?</label>
+        <div class="radios">
+          <label class="radio"><input type="radio" name="show_staff" value="Yes"> Yes</label>
+          <label class="radio"><input type="radio" name="show_staff" value="Ask on the day"> Ask on the day</label>
+          <label class="radio"><input type="radio" name="show_staff" value="No"> No</label>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Do you want to talk to camera, or let the food do the talking?</label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="voice_pref" value="Happy to talk to camera"> Happy to talk</label>
+        <label class="radio"><input type="radio" name="voice_pref" value="Prefer no talking, food only"> Food only</label>
+        <label class="radio"><input type="radio" name="voice_pref" value="A mix of both"> A mix</label>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num serif">05</span><h2 class="serif">Filming days</h2></div>
+    <p class="sec-sub">We work around service, never through it.</p>
+    <div class="grid2">
+      <div class="field"><label>Best days and times to film <span class="req">*</span></label><textarea name="shoot_days" required placeholder="e.g. Tuesday or Wednesday, 2pm to 5pm"></textarea></div>
+      <div class="field"><label>Your quietest services<span class="hint">When the room is calm enough to move around.</span></label><textarea name="quiet_times"></textarea></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Where can we film?<span class="hint">Dining room, kitchen, pass, the front on Stowell Street.</span></label><textarea name="filming_areas"></textarea></div>
+      <div class="field"><label>Kitchen access<span class="hint">Can we get in there for the noodle pull and the flame?</span></label><textarea name="kitchen_access"></textarea></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Who is our contact on the day if you are not in?</label><input type="text" name="shoot_contact" placeholder="Name and number"></div>
+      <div class="field"><label>Notice needed before a shoot</label><input type="text" name="notice_needed" placeholder="e.g. 3 days"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num serif">06</span><h2 class="serif">The business</h2></div>
+    <p class="sec-sub">So the content actually fills tables rather than just collecting views.</p>
+    <div class="grid2">
+      <div class="field"><label>Who is your ideal customer?<span class="hint">Who do you want more of walking through the door?</span></label><textarea name="ideal_customer"></textarea></div>
+      <div class="field"><label>What would make the next three months a success? <span class="req">*</span><span class="hint">Be specific: fuller weeknights, more bookings, a busier lunch.</span></label><textarea name="goals" required></textarea></div>
+    </div>
+    <div class="field"><label>Offers or events coming up<span class="hint">Anything worth building content around, including anything for Ramadan or Eid.</span></label><textarea name="offers_events"></textarea></div>
+    <div class="grid2">
+      <div class="field"><label>Accounts you admire<span class="hint">Restaurants or creators whose content you like the look of.</span></label><textarea name="admired_accounts"></textarea></div>
+      <div class="field"><label>Anything to avoid<span class="hint">Angles, topics, words, anyone who should not appear.</span></label><textarea name="avoid"></textarea></div>
+    </div>
+    <div class="field"><label>Anything else we should know</label><textarea name="anything_else"></textarea></div>
+  </section>
+
+  <div class="actions">
+    <button type="submit" class="btn btn-primary" id="submitBtn">Send to Fusion Creative</button>
+    <button type="button" class="btn btn-line" id="downloadBtn">Download a copy</button>
+  </div>
+  <div class="status" id="formStatus"></div>
+
+  </form>
+
+  <div class="thanks" id="thanks">
+    <div class="check">&#10003;</div>
+    <h2 class="serif">Thank you, we have got it.</h2>
+    <p>This is on its way to Jay. We will turn your answers into a shot list and come back with the ideas for the first shoot. Speak soon.</p>
+  </div>
+
+  <footer class="foot">
+    Content Onboarding &middot; 12Muqam x <b>Fusion Creative</b> &middot; Newcastle upon Tyne
+  </footer>
+
+</main>
+
+<script>
+const CONFIG = {
+  endpoint: "https://newgreek.fusioncreative.uk/api/12muqam-onboarding/",
+  storageKey: "muqam_onboarding_v1"
+};
+
+const form = document.getElementById('form');
+const statusEl = document.getElementById('formStatus');
+const progEl = document.getElementById('prog');
+
+function save(){
+  try{
+    const d={};
+    form.querySelectorAll('input,textarea,select').forEach(el=>{
+      if(el.type==='radio'||el.type==='checkbox'){ if(el.checked){ (d[el.name]=d[el.name]||[]).push(el.value); } }
+      else if(el.name){ d[el.name]=el.value; }
+    });
+    localStorage.setItem(CONFIG.storageKey, JSON.stringify(d));
+  }catch(e){}
+}
+function restore(){
+  let d; try{ d=JSON.parse(localStorage.getItem(CONFIG.storageKey)||'{}'); }catch(e){ d={}; }
+  Object.keys(d).forEach(name=>{
+    const val=d[name];
+    form.querySelectorAll('[name="'+CSS.escape(name)+'"]').forEach(el=>{
+      if(el.type==='radio'||el.type==='checkbox'){ el.checked = Array.isArray(val) ? val.includes(el.value) : val===el.value; }
+      else { el.value = val; }
+    });
+  });
+}
+function paintTicks(){
+  form.querySelectorAll('.tick').forEach(t=>{
+    const cb=t.querySelector('input');
+    t.classList.toggle('on', !!(cb && cb.checked));
+  });
+}
+function updateProgress(){
+  const fields=[...form.querySelectorAll('input[type=text],input[type=email],input[type=url],input[type=tel],textarea')];
+  const filled=fields.filter(f=>f.value.trim()!=='').length;
+  const chosen=new Set([...form.querySelectorAll('input:checked')].map(r=>r.name));
+  const total=fields.length+5;
+  const pct=Math.min(100, Math.round(((filled+chosen.size)/total)*100));
+  progEl.style.width=pct+'%';
+}
+form.addEventListener('input', ()=>{ save(); updateProgress(); });
+form.addEventListener('change', ()=>{ save(); paintTicks(); updateProgress(); });
+
+function collect(){
+  const d={};
+  form.querySelectorAll('input,textarea,select').forEach(el=>{
+    if(!el.name) return;
+    if(el.type==='radio'){ if(el.checked) d[el.name]=el.value; }
+    else if(el.type==='checkbox'){ if(el.checked){ (d[el.name]=d[el.name]||[]).push(el.value); } }
+    else { d[el.name]=el.value; }
+  });
+  return d;
+}
+
+document.getElementById('downloadBtn').addEventListener('click', ()=>{
+  const d=collect();
+  let txt="12MUQAM - CONTENT ONBOARDING\n\n";
+  Object.keys(d).forEach(k=>{ const v=Array.isArray(d[k])?d[k].join(', '):d[k]; if(String(v).trim()) txt+=k+": "+v+"\n\n"; });
+  const blob=new Blob([txt],{type:'text/plain'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='12muqam-onboarding.txt'; a.click();
+});
+
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const req=[...form.querySelectorAll('[required]')].filter(f=>!f.value.trim());
+  if(req.length){ statusEl.textContent='Please fill in the starred fields ('+req.length+' left).'; req[0].scrollIntoView({block:'center'}); req[0].focus(); return; }
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true; statusEl.textContent='Sending...';
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(collect())});
+    if(!res.ok) throw new Error('bad status '+res.status);
+    localStorage.removeItem(CONFIG.storageKey);
+    document.getElementById('main').querySelectorAll('form,.hero').forEach(el=>el.style.display='none');
+    document.getElementById('thanks').classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }catch(err){
+    btn.disabled=false;
+    statusEl.innerHTML='Hmm, that did not send. Please try again, or use "download a copy" above and email it to <a href="mailto:jay@fusioncreative.uk">jay@fusioncreative.uk</a>.';
+  }
+});
+
+restore(); paintTicks(); updateProgress();
+</script>
+
+</body>
+</html>
