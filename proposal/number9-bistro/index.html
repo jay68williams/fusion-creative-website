@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Proposal - Number9 Bistro | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#1c1c1c; --ink-soft:#2a2a2a; --paper:#ffffff; --paper-warm:#f7f8fa;
+  --blue:#1E73BE; --blue-dark:#175d9a; --text:#333333; --muted:#6b7280; --line:rgba(28,28,28,0.1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+.container{max-width:880px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Raleway',sans-serif;font-weight:800;color:var(--ink);line-height:1.15}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;font-family:'Inter',sans-serif}
+.topbar{background:var(--ink);padding:16px 0}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.lockup{display:flex;align-items:center;gap:14px}
+.lockup img{height:30px;width:auto;display:block}
+.lockup .x{color:var(--blue);font-weight:700;font-size:14px}
+.lockup .fc{color:#fff;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase}
+.topbar-date{color:rgba(255,255,255,0.55);font-size:12px}
+.hero{position:relative;background:var(--ink);overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('assets/hero-dish.jpg') center/cover no-repeat;opacity:0.38}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(160deg,rgba(28,28,28,0.95) 15%,rgba(28,28,28,0.55) 60%,rgba(28,28,28,0.92))}
+.hero-inner{position:relative;z-index:2;padding:96px 0 84px;text-align:left}
+.hero img.n9{height:64px;width:auto;margin-bottom:26px}
+.hero h1{color:#fff;font-size:clamp(34px,6vw,54px);font-weight:900;max-width:640px}
+.hero p{color:rgba(255,255,255,0.85);font-size:17px;max-width:560px;margin-top:18px}
+.section{padding:56px 0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:38px;box-shadow:0 2px 8px rgba(28,28,28,0.04),0 14px 40px rgba(28,28,28,0.05)}
+.section-title{font-size:32px;margin-bottom:20px}
+p.body{font-size:15.5px;color:var(--text);margin-bottom:15px}
+p.body strong{color:var(--ink)}
+.greeting{font-size:26px;margin-bottom:14px}
+.proof{background:var(--ink);border-radius:12px;padding:40px;color:#fff}
+.proof .eyebrow{color:#7db4e6}
+.proof h3{color:#fff;font-size:26px;margin-bottom:14px}
+.proof p{color:rgba(255,255,255,0.82);font-size:14.5px;line-height:1.75}
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.proof-cell{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:18px 10px;text-align:center}
+.proof-cell b{display:block;font-family:'Raleway',sans-serif;font-weight:900;font-size:26px;color:#7db4e6}
+.proof-cell span{font-size:11px;color:rgba(255,255,255,0.65)}
+.photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0 4px}
+.photo-strip img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;display:block}
+.pkg-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pkg{border:1px solid var(--line);border-radius:12px;padding:34px 30px;background:var(--paper);position:relative;box-shadow:0 2px 8px rgba(28,28,28,0.04),0 14px 40px rgba(28,28,28,0.05)}
+.pkg.feature{background:var(--ink);border-color:var(--ink)}
+.pkg-name{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.pkg-price{font-family:'Raleway',sans-serif;font-weight:900;font-size:46px;color:var(--ink);line-height:1}
+.pkg.feature .pkg-price{color:#fff}
+.pkg-price span{font-size:15px;font-family:'Inter',sans-serif;font-weight:600;color:var(--muted)}
+.pkg.feature .pkg-price span{color:rgba(255,255,255,0.6)}
+.pkg-videos{font-size:15px;font-weight:700;margin:10px 0 16px;color:var(--blue)}
+.pkg.feature .pkg-videos{color:#7db4e6}
+.pkg ul{list-style:none}
+.pkg ul li{font-size:13.5px;padding:6px 0 6px 20px;position:relative;color:var(--text);line-height:1.55}
+.pkg.feature ul li{color:rgba(255,255,255,0.85)}
+.pkg ul li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.pkg-tag{position:absolute;top:20px;right:22px;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:6px}
+.pkg-note{margin-top:20px;font-size:13.5px;color:var(--muted);line-height:1.7}
+.glance{width:100%;border-collapse:collapse;font-size:14px}
+.glance tr{border-bottom:1px solid var(--line)}
+.glance tr:last-child{border-bottom:none}
+.glance td{padding:13px 0;vertical-align:top}
+.glance td:first-child{color:var(--muted);padding-right:22px;white-space:nowrap;font-weight:500}
+.glance td:last-child{font-weight:600;color:var(--ink)}
+.steps{list-style:none;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:16px;padding:15px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:last-child{border-bottom:none}
+.steps li::before{content:counter(s);display:flex;align-items:center;justify-content:center;min-width:30px;height:30px;background:var(--blue);color:#fff;border-radius:6px;font-size:13px;font-weight:700;flex-shrink:0;font-family:'Raleway',sans-serif}
+.cta-wrap{text-align:center;margin-top:30px}
+.btn{display:inline-block;background:var(--blue);color:#fff;font-size:15px;font-weight:700;padding:15px 36px;border-radius:6px;text-decoration:none;transition:background .2s}
+.btn:hover{background:var(--blue-dark)}
+.btn-wa{display:inline-block;background:#25D366;color:#fff;font-size:15px;font-weight:700;padding:15px 32px;border-radius:6px;text-decoration:none;margin:12px 0 0 10px}
+.cta-sub{font-size:13px;color:var(--muted);margin-top:12px}
+.signature{padding:46px 0 12px}
+.signature .name{font-family:'Raleway',sans-serif;font-weight:800;font-size:22px;color:var(--ink)}
+.signature .role{font-size:14px;color:var(--muted)}
+.signature a{color:var(--blue);text-decoration:none;font-weight:600;font-size:14px}
+.footer{background:var(--ink);padding:34px 0;text-align:center;margin-top:40px}
+.footer img{height:26px;margin-bottom:14px;opacity:0.9}
+.footer p{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5)}
+.footer .fine{font-size:11.5px;letter-spacing:0;text-transform:none;color:rgba(255,255,255,0.4);margin-top:6px;font-style:italic}
+@media(max-width:640px){
+  .card{padding:28px 20px}
+  .hero-inner{padding:64px 0 56px}
+  .pkg-grid{grid-template-columns:1fr}
+  .proof-grid{grid-template-columns:repeat(2,1fr)}
+  .photo-strip{gap:8px}
+  .btn,.btn-wa{display:block;margin:0 auto}
+  .btn-wa{margin-top:12px}
+  .topbar-inner{flex-direction:row}
+  .glance td:first-child{white-space:normal}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="lockup">
+      <img src="assets/logo-white.png" alt="Number9 Bistro">
+      <span class="x">x</span>
+      <span class="fc">Fusion Creative</span>
+    </div>
+    <span class="topbar-date">24 August 2026</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grad"></div>
+  <div class="container hero-inner">
+    <img class="n9" src="assets/logo-white.png" alt="Number9 Bistro">
+    <h1>Making Number9 the bistro everyone in Ponteland is talking about</h1>
+    <p>A content proposal prepared for Andrea, 24 August 2026.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section">
+    <div class="card">
+      <h2 class="greeting">Hi Andrea,</h2>
+      <p class="body">Lovely speaking with you. As promised, here is everything laid out properly, what we would do for <strong>Number9</strong>, what it costs, and what you get for it.</p>
+      <p class="body">You told me you have plenty of ideas and just need the right team to guide it and make it happen, and that you have paid out before for content that did not deliver. So I will keep this simple: we film everything ourselves at the bistro, we edit it, we post it, and we manage the whole thing for you. You will see every video before it goes out, and you will see the numbers every month. <strong>Your only job is to keep doing what you do best, the food and the room.</strong></p>
+      <p class="body">The goal is exactly what you said: get the brand name out there, showcase the product, and get Number9 seen by every hungry person around Ponteland and Newcastle.</p>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0">
+    <div class="proof">
+      <p class="eyebrow">Why Fusion Creative</p>
+      <h3>We took a family-run Newcastle restaurant to 86 million views</h3>
+      <p>New Greek had a brilliant product and almost nobody watching. We took over their content, and their weekly sales are up 40 percent, they have beaten two years of sales records, and one single video reached 70 million views. Everything below is the same system, pointed at Number9.</p>
+      <div class="proof-grid">
+        <div class="proof-cell"><b>86M+</b><span>Views for one client</span></div>
+        <div class="proof-cell"><b>+40%</b><span>Client weekly sales</span></div>
+        <div class="proof-cell"><b>12.9x</b><span>Best ad return</span></div>
+        <div class="proof-cell"><b>250M+</b><span>Total views generated</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0">
+    <p class="eyebrow">The Packages</p>
+    <h2 class="section-title">Two ways to start</h2>
+    <p class="body" style="margin-bottom:22px">Both are fully managed. We film at Number9, edit everything, write the captions and hashtags, and post across Instagram, TikTok and Facebook. Three month minimum, then rolling monthly, no long contract.</p>
+
+    <div class="photo-strip">
+      <img src="assets/hero-dish.jpg" alt="Number9 dish">
+      <img src="assets/asian.jpg" alt="Number9 Asian inspired cuisine">
+      <img src="assets/space.jpg" alt="Inside Number9 Bistro">
+    </div>
+
+    <div class="pkg-grid" style="margin-top:22px">
+      <div class="pkg">
+        <p class="pkg-name">Starter</p>
+        <p class="pkg-price">&pound;899<span> / month</span></p>
+        <p class="pkg-videos">10 videos every month</p>
+        <ul>
+          <li>One filming day per month at the bistro</li>
+          <li>Food, dishes, specials, Sunday lunch, the room and the team</li>
+          <li>Editing, captions and hashtags all done for you</li>
+          <li>Posted and managed across Instagram, TikTok and Facebook</li>
+          <li>Content strategy and monthly performance report</li>
+        </ul>
+      </div>
+      <div class="pkg feature">
+        <span class="pkg-tag">Recommended</span>
+        <p class="pkg-name">Growth</p>
+        <p class="pkg-price">&pound;1,250<span> / month</span></p>
+        <p class="pkg-videos">20 videos every month</p>
+        <ul>
+          <li>Everything in Starter, at double the volume</li>
+          <li>Two filming days per month</li>
+          <li>Content going out almost every day</li>
+          <li>Every menu, event and offer turned into content</li>
+          <li>The fastest route to getting the brand known</li>
+        </ul>
+      </div>
+    </div>
+    <p class="pkg-note">With food this photogenic and a room this nice, volume is what builds the name: more videos means more chances for one to take off. Growth is what I would pick for Number9, but Starter is a strong way in and you can step up whenever you like.</p>
+  </div>
+
+  <div class="section" style="padding-top:0">
+    <p class="eyebrow">At a Glance</p>
+    <div class="card" style="padding:28px 32px">
+      <table class="glance">
+        <tr><td>Filming</td><td>At Number9, by us, on an agreed day each month</td></tr>
+        <tr><td>Editing</td><td>All done for you, built for TikTok and Reels</td></tr>
+        <tr><td>Posting</td><td>Instagram, TikTok and Facebook, fully managed</td></tr>
+        <tr><td>Captions and hashtags</td><td>Written for you, tuned to Ponteland and Newcastle</td></tr>
+        <tr><td>Approval</td><td>You see every video before it goes live</td></tr>
+        <tr><td>Reporting</td><td>Monthly, plain numbers, no jargon</td></tr>
+        <tr><td>Term</td><td>Three month minimum, then rolling monthly</td></tr>
+        <tr><td>Ad spend</td><td>Not required, this is organic content</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0">
+    <p class="eyebrow">Next Steps</p>
+    <h2 class="section-title">How we get started</h2>
+    <div class="card">
+      <ol class="steps">
+        <li>Pick the package that feels right. If you are unsure, we can talk it through on a quick call.</li>
+        <li>We agree your first filming day, one day at the bistro, we work around service.</li>
+        <li>Within the first week you will have the first batch of videos to approve.</li>
+        <li>We post, manage and report. You watch the name grow.</li>
+      </ol>
+      <div class="cta-wrap">
+        <a class="btn" href="mailto:jay@fusioncreative.uk?subject=Number9%20Bistro%20-%20Let%27s%20Get%20Started">Let's Get Started</a>
+        <a class="btn-wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Number9%20proposal" target="_blank" rel="noopener">WhatsApp Jay</a>
+        <p class="cta-sub">Reply to my email, message me on WhatsApp, or call whenever suits.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="signature">
+    <p class="name">Jay Williams</p>
+    <p class="role">Founder, Fusion Creative</p>
+    <a href="https://fusioncreative.uk" target="_blank" rel="noopener">fusioncreative.uk</a>
+  </div>
+</div>
+
+<div class="footer">
+  <img src="assets/logo-white.png" alt="Number9 Bistro">
+  <p>Confidential. Prepared for Number9 Bistro</p>
+  <p class="fine">Number9 Bistro x Fusion Creative, 24 August 2026</p>
+</div>
+
+</body>
+</html>
