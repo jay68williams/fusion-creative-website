@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposal - Burger Drop | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#121815;
+    --panel:#1a221e;
+    --panel2:#202a24;
+    --line:#2e3a33;
+    --text:#f4f1ea;
+    --muted:#a8b0a3;
+    --bronze:#b6814f;
+    --bronze-light:#d9a468;
+    --good:#7fc98a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',-apple-system,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  a{color:var(--bronze-light);text-decoration:none}
+
+  .hero{padding:76px 0 60px;border-bottom:1px solid var(--line);background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(182,129,79,.16),transparent)}
+  .hero .logo{width:min(300px,70%);height:auto;margin-bottom:36px;display:block}
+  .kicker{font-size:13px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze);margin-bottom:20px}
+  h1{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(34px,6vw,54px);line-height:1.12;letter-spacing:.01em}
+  h1 span{color:var(--bronze)}
+  .hero p.sub{margin-top:20px;font-size:18px;color:var(--muted);max-width:640px}
+  .hero .meta{margin-top:30px;font-size:14px;color:var(--muted)}
+  .hero .meta strong{color:var(--text);font-weight:700}
+  .bronzeline{width:64px;height:3px;background:linear-gradient(90deg,var(--bronze),var(--bronze-light));border-radius:99px;margin:26px 0 0}
+
+  section{padding:58px 0;border-bottom:1px solid var(--line)}
+  h2{font-family:'Alfa Slab One',serif;font-weight:400;font-size:27px;margin-bottom:10px;letter-spacing:.01em}
+  h2 span{color:var(--bronze)}
+  .lede{color:var(--muted);font-size:16.5px;max-width:660px;margin-bottom:28px}
+  p+p{margin-top:14px}
+
+  .flagships{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+  .flag{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .flag .tag{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-light);border:1px solid rgba(217,164,104,.4);border-radius:99px;padding:4px 12px;margin-bottom:14px}
+  .flag h3{font-family:'Alfa Slab One',serif;font-weight:400;font-size:20px;margin-bottom:10px}
+  .flag h3 em{font-style:normal;color:var(--bronze-light)}
+  .flag p{font-size:15px;color:var(--muted)}
+
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+  .pillar{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .pillar .num{font-family:'Alfa Slab One',serif;font-size:15px;color:var(--bronze);margin-bottom:10px}
+  .pillar h3{font-size:16.5px;font-weight:800;margin-bottom:8px}
+  .pillar p{font-size:14.5px;color:var(--muted)}
+  .pillar .count{display:inline-block;margin-top:12px;font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--bronze-light)}
+
+  .shoots{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+  .shoot{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .shoot .when{font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze);margin-bottom:10px}
+  .shoot h3{font-family:'Alfa Slab One',serif;font-weight:400;font-size:19px;margin-bottom:10px}
+  .shoot ul{list-style:none;margin-top:12px}
+  .shoot li{font-size:14.5px;color:var(--muted);padding:7px 0 7px 24px;position:relative;border-top:1px solid var(--line)}
+  .shoot li:first-child{border-top:0}
+  .shoot li::before{content:"";position:absolute;left:2px;top:14px;width:12px;height:12px;border-radius:99px;background:rgba(182,129,79,.18);border:1.5px solid var(--bronze)}
+
+  .rhythm{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+  .day{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center}
+  .day .d{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze);margin-bottom:6px}
+  .day .w{font-size:14px;font-weight:700}
+
+  .faces{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:8px}
+  .face{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .face h3{font-size:16px;font-weight:800;margin-bottom:8px;color:var(--bronze-light)}
+  .face p{font-size:14.5px;color:var(--muted)}
+
+  .plans{display:grid;grid-template-columns:1fr 1.15fr;gap:18px;align-items:stretch;margin-top:8px}
+  .plan{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:30px;display:flex;flex-direction:column}
+  .plan.featured{background:linear-gradient(180deg,rgba(182,129,79,.12),rgba(182,129,79,.02)),var(--panel2);border:1px solid rgba(182,129,79,.55);position:relative}
+  .plan .badge{position:absolute;top:-13px;left:28px;background:linear-gradient(90deg,var(--bronze),var(--bronze-light));color:#1d1408;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-radius:99px;padding:5px 14px}
+  .plan h3{font-family:'Alfa Slab One',serif;font-weight:400;font-size:24px}
+  .plan .for{font-size:13.5px;color:var(--muted);margin-top:6px}
+  .price{margin:20px 0 6px;font-family:'Alfa Slab One',serif;font-weight:400;font-size:42px;line-height:1}
+  .price small{font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:600;color:var(--muted)}
+  .pervid{font-size:13px;color:var(--bronze-light);font-weight:700;margin-bottom:20px}
+  .plan ul{list-style:none;margin-top:4px}
+  .plan li{font-size:14.5px;padding:9px 0 9px 28px;position:relative;border-top:1px solid var(--line)}
+  .plan li:first-child{border-top:0}
+  .plan li::before{content:"";position:absolute;left:2px;top:16px;width:14px;height:14px;border-radius:99px;background:rgba(182,129,79,.18);border:1.5px solid var(--bronze)}
+  .plan li::after{content:"";position:absolute;left:6px;top:20px;width:6px;height:6px;border-radius:99px;background:var(--bronze)}
+  .plan li.extra strong{color:var(--bronze-light)}
+  .plan li span.note{display:block;font-size:13px;color:var(--muted)}
+
+  .tablebox{overflow-x:auto;margin-top:8px;border:1px solid var(--line);border-radius:14px}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+  th,td{padding:13px 18px;text-align:left;border-top:1px solid var(--line)}
+  thead th{border-top:0;background:var(--panel);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  thead th.hl{color:var(--bronze-light)}
+  td:first-child{color:var(--muted)}
+  td.hl{background:rgba(182,129,79,.07);font-weight:600}
+  td .yes{color:var(--good);font-weight:700}
+  td .no{color:#6f7a6f}
+
+  .notebox{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--bronze);border-radius:12px;padding:22px 24px;margin-top:24px}
+  .notebox h4{font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+  .notebox p{font-size:14.5px;color:var(--muted)}
+
+  .terms{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+  .term{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+  .term h4{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--bronze-light);margin-bottom:6px}
+  .term p{font-size:14.5px;color:var(--muted)}
+
+  .cta{padding:64px 0 84px;text-align:center;border-bottom:0;background:radial-gradient(ellipse 70% 80% at 50% 120%,rgba(182,129,79,.14),transparent)}
+  .cta h2{margin-bottom:12px}
+  .cta p{color:var(--muted);max-width:520px;margin:0 auto 30px}
+  .btnrow{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:15.5px;border-radius:12px;padding:15px 28px;transition:transform .12s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-wa{background:#25d366;color:#062b12}
+  .btn-em{background:linear-gradient(90deg,var(--bronze),var(--bronze-light));color:#1d1408}
+  .btn svg{width:20px;height:20px;fill:currentColor}
+  .foot{margin-top:44px;font-size:13px;color:#6f7a6f}
+  .foot strong{color:var(--muted)}
+
+  @media(max-width:720px){
+    .flagships,.pillars,.shoots,.faces,.plans,.terms{grid-template-columns:1fr}
+    .rhythm{grid-template-columns:1fr 1fr}
+    .plan.featured{order:-1}
+    section{padding:44px 0}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="assets/Burger-Drop-Logo-Colour-Light-23.png" alt="Burger Drop">
+    <div class="kicker">Content &amp; Growth Proposal</div>
+    <h1>The best beef in the city.<br><span>Time everyone knew it.</span></h1>
+    <div class="bronzeline"></div>
+    <p class="sub">A content engine built around the thing that makes Burger Drop different: what goes into the burger. Prepared for Hassan following our meeting.</p>
+    <div class="meta">Prepared by <strong>Jay Williams, Fusion Creative</strong> &nbsp;|&nbsp; August 2026 &nbsp;|&nbsp; fusioncreative.uk</div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Where you're <span>at</span></h2>
+    <p class="lede">Thanks for having us down, showing us the operation and feeding us properly. Quick recap of how we see it.</p>
+    <p>We're Fusion Creative, a content marketing agency based in Newcastle. We work with hospitality businesses across the North East, running their short-form content and paid social so the owners can run the business.</p>
+    <p>Burger Drop is not competing on the same pitch as the cheap burger shops around each site, and that's the point. Bakers producing buns to recipes that exist only for you. Butchers preparing prime beef that goes straight to your own facility with no middleman touching it. Four sites across Newcastle, Whitley Bay and Sunderland, a franchise model on the way, and food that converts anyone who actually tastes it.</p>
+    <p>The gap is simple: the customers comparing you on price can't see any of that. Right now the quality story lives inside the building. The job of the content is to put it on every phone screen in the area, so the price point reads as what it is: very reasonable for what's actually in the box.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Two flagship <span>series</span></h2>
+    <p class="lede">Everything hangs off two recurring formats that only Burger Drop can make, because nobody else has the supply chain or the kitchen to back them up.</p>
+    <div class="flagships">
+      <div class="flag">
+        <div class="tag">The quality story</div>
+        <h3>The <em>Source</em></h3>
+        <p>We film the supply chain itself. The baker mixing a recipe that exists for one customer. The butcher breaking down prime beef. The straight run from butcher to your own facility. One supplier visit a month, three to four episodes each. Restaurants almost never show this, and it does two jobs at once: it justifies the price to the people who compare you to cheaper shops, and it flips the people who assume takeaway burgers mean junk. Nobody argues with footage.</p>
+      </div>
+      <div class="flag">
+        <div class="tag">The monthly event</div>
+        <h3>Burger of the <em>Month</em></h3>
+        <p>Turned from a menu line into a franchise. The chef who created it fronts it: the development tasting, the launch video on the 1st, the making-of, and a last call on the final weekend before it disappears. Scarcity gives customers a reason to come in this month, and the chef gives the brand a face people follow. Next month's teaser drops as this month's ends, so the loop never stops.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>A month of <span>content</span></h2>
+    <p class="lede">Around 18 posts a month across Instagram, TikTok and Facebook, from two shoot days. Split roughly half and half between entertaining and informative, and all of it shot to entertain first.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="num">01</div>
+        <h3>The Source</h3>
+        <p>Supplier episodes from the monthly location shoot. The proof behind the price.</p>
+        <span class="count">4 posts a month</span>
+      </div>
+      <div class="pillar">
+        <div class="num">02</div>
+        <h3>Burger of the Month</h3>
+        <p>The full arc: development, launch, making-of, last call. Chef-led every time.</p>
+        <span class="count">4 posts a month</span>
+      </div>
+      <div class="pillar">
+        <div class="num">03</div>
+        <h3>Skits, trends &amp; staff</h3>
+        <p>The fun stuff that gets Burger Drop on people's feeds and makes them follow. Brand personality, not just product.</p>
+        <span class="count">6 posts a month</span>
+      </div>
+      <div class="pillar">
+        <div class="num">04</div>
+        <h3>Craveable menu content</h3>
+        <p>Build shots, cheese pulls, smash-and-sizzle. The footage that makes people hungry, and doubles as ad creative.</p>
+        <span class="count">4 posts a month</span>
+      </div>
+    </div>
+
+    <div class="shoots">
+      <div class="shoot">
+        <div class="when">Shoot day 1 &middot; in the restaurant</div>
+        <h3>Restaurant day</h3>
+        <ul>
+          <li>Full Burger of the Month arc filmed in one visit</li>
+          <li>3 to 4 skit and trend setups with the team</li>
+          <li>Batch of menu hero shots for the month</li>
+          <li>Last-call clip banked for the end of the month</li>
+        </ul>
+      </div>
+      <div class="shoot">
+        <div class="when">Shoot day 2 &middot; on location</div>
+        <h3>Source day</h3>
+        <ul>
+          <li>One supplier per month: bakery, butchers, facility</li>
+          <li>3 to 4 episodes of The Source per visit</li>
+          <li>B-roll banked for paid ads</li>
+          <li>Each supplier only hosts us quarterly, so it never runs dry</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rhythm">
+      <div class="day"><div class="d">Monday</div><div class="w">Menu hero</div></div>
+      <div class="day"><div class="d">Wednesday</div><div class="w">Skit or trend</div></div>
+      <div class="day"><div class="d">Friday</div><div class="w">The Source</div></div>
+      <div class="day"><div class="d">Weekend</div><div class="w">Burger of the Month</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Who's on <span>camera</span></h2>
+    <p class="lede">The faces stay inside the Burger Drop family, so the brand is built on your people, not on rented ones.</p>
+    <div class="faces">
+      <div class="face">
+        <h3>The chef</h3>
+        <p>Fronts Burger of the Month. A recurring chef personality is what turns a menu item into something people follow month to month.</p>
+      </div>
+      <div class="face">
+        <h3>Hassan</h3>
+        <p>Fronts The Source. An owner walking his own supply chain carries more weight than any presenter we could hire.</p>
+      </div>
+      <div class="face">
+        <h3>A dedicated creator</h3>
+        <p>Covers the skits and entertainment. Recruited by us, briefed by us, and not fronting any competing food brand locally.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The <span>packages</span></h2>
+    <p class="lede">Both run the same engine. The difference is volume, and whether The Source runs monthly or quarterly.</p>
+
+    <div class="plans">
+      <div class="plan">
+        <h3>Core</h3>
+        <div class="for">A steady, quality presence</div>
+        <div class="price">&pound;999<small>/month</small></div>
+        <div class="pervid">&pound;83 per video</div>
+        <ul>
+          <li>12 videos a month, 3 posts a week</li>
+          <li>1 shoot day a month (restaurant)</li>
+          <li>Burger of the Month arc every month</li>
+          <li>The Source filmed quarterly</li>
+          <li>Instagram, TikTok and Facebook, posted for you</li>
+          <li>Paid ads management: one always-on campaign, creative refreshed quarterly</li>
+          <li>Monthly performance report</li>
+        </ul>
+      </div>
+
+      <div class="plan featured">
+        <div class="badge">Recommended</div>
+        <h3>Growth</h3>
+        <div class="for">The full quality-story engine</div>
+        <div class="price">&pound;1,350<small>/month</small></div>
+        <div class="pervid">&pound;75 per video, with everything included</div>
+        <ul>
+          <li>18 videos a month, 4 to 5 posts a week</li>
+          <li class="extra"><strong>2 shoot days a month</strong><span class="note">Restaurant day plus the on-location Source day</span></li>
+          <li class="extra"><strong>The Source, monthly</strong><span class="note">A new supplier episode every week, the series nobody else in the city can copy</span></li>
+          <li>Burger of the Month arc every month, chef-led</li>
+          <li class="extra"><strong>Creator sourced and managed</strong><span class="note">We find, brief and direct the on-camera creator for the entertainment content</span></li>
+          <li class="extra"><strong>Full paid ads management with monthly creative testing</strong><span class="note">Source and menu footage recut into ads, new variations every month</span></li>
+          <li class="extra"><strong>Monthly strategy call with Jay</strong><span class="note">What worked, what's next, what we're testing</span></li>
+          <li>Monthly performance report</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tablebox">
+      <table>
+        <thead>
+          <tr><th>What you get</th><th>Core &middot; &pound;999</th><th class="hl">Growth &middot; &pound;1,350</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Videos per month</td><td>12</td><td class="hl">18</td></tr>
+          <tr><td>Posts per week</td><td>3</td><td class="hl">4 to 5</td></tr>
+          <tr><td>Cost per video</td><td>&pound;83</td><td class="hl">&pound;75</td></tr>
+          <tr><td>Shoot days per month</td><td>1</td><td class="hl">2</td></tr>
+          <tr><td>Burger of the Month arc</td><td><span class="yes">Yes</span></td><td class="hl"><span class="yes">Yes</span></td></tr>
+          <tr><td>The Source series</td><td>Quarterly</td><td class="hl"><span class="yes">Monthly</span></td></tr>
+          <tr><td>Dedicated creator, sourced &amp; managed</td><td><span class="no">No</span></td><td class="hl"><span class="yes">Included</span></td></tr>
+          <tr><td>Paid ads management</td><td><span class="yes">Yes</span>, quarterly creative refresh</td><td class="hl"><span class="yes">Yes</span>, new creative tested monthly</td></tr>
+          <tr><td>Monthly strategy call</td><td><span class="no">No</span></td><td class="hl"><span class="yes">Included</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="notebox">
+      <h4>On ad spend</h4>
+      <p>Ad spend is separate and paid by you directly to Meta, so you keep full control and full visibility. We'd recommend starting around &pound;300 to &pound;500 a month; the Source footage makes unusually strong ad creative, because it sells the reason to pay your price, not just the picture of a burger.</p>
+    </div>
+
+    <div class="notebox">
+      <h4>One more thing this buys you</h4>
+      <p>You're franchising. Every Source episode and every packed launch day is also proof for prospective franchisees that this brand is worth buying into. The same content works both jobs without costing a penny more.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The <span>detail</span></h2>
+    <div class="terms">
+      <div class="term">
+        <h4>Term</h4>
+        <p>3-month initial term, then monthly rolling. Content compounds; three months is the honest minimum to judge it.</p>
+      </div>
+      <div class="term">
+        <h4>Billing</h4>
+        <p>Monthly in advance by invoice. Ad spend billed separately by Meta to your card.</p>
+      </div>
+      <div class="term">
+        <h4>Switching tiers</h4>
+        <p>Start on Core, move up to Growth any month. The Source going monthly is usually the reason people do.</p>
+      </div>
+      <div class="term">
+        <h4>What we need from you</h4>
+        <p>Access for shoot days, a yes from the bakers and butchers for filming, sign-off on the monthly plan, and social logins. We handle the rest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Ready when <span>you are</span></h2>
+    <p>The quality's already there. Let's make sure everyone scrolling in Newcastle knows it. Message us and we'll get the first shoot day in the diary.</p>
+    <div class="btnrow">
+      <a class="btn btn-wa" href="https://wa.me/447437571250">
+        <svg viewBox="0 0 24 24"><path d="M12 2a9.94 9.94 0 0 0-8.51 15.13L2 22l4.99-1.44A9.99 9.99 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-2.96.86.86-2.89-.2-.31A8.22 8.22 0 1 1 12 20.2Zm4.51-6.13c-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.66.3-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.14.16 1.57.1.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+        WhatsApp Jay
+      </a>
+      <a class="btn btn-em" href="mailto:jay@fusioncreative.uk">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+        jay@fusioncreative.uk
+      </a>
+    </div>
+    <div class="foot"><strong>Fusion Creative</strong> &middot; Newcastle upon Tyne &middot; fusioncreative.uk</div>
+  </div>
+</section>
+
+</body>
+</html>
