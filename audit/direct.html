@@ -300,7 +300,7 @@ em{font-family:var(--font-serif);font-style:italic;font-weight:400}
 
 <script>
 // Cookie consent
-function acceptCookies(){localStorage.setItem('fc_cookie_consent','accepted');document.getElementById('cookieBanner').classList.remove('visible');loadFBPixel()}
+function acceptCookies(){localStorage.setItem('fc_cookie_consent','accepted');document.getElementById('cookieBanner').classList.remove('visible');if(typeof loadFBPixel==='function')loadFBPixel()}
 function declineCookies(){localStorage.setItem('fc_cookie_consent','declined');document.getElementById('cookieBanner').classList.remove('visible')}
 (function(){var c=localStorage.getItem('fc_cookie_consent');if(!c)setTimeout(function(){document.getElementById('cookieBanner').classList.add('visible')},2000)})();
 
