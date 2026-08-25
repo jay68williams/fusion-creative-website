@@ -52,9 +52,13 @@
       });
     }
     window.addEventListener('scroll', check, { passive: true });
+    document.addEventListener('scroll', check, { passive: true, capture: true });
     window.addEventListener('resize', check);
     var mo = new MutationObserver(check);
     mo.observe(document.body, { childList: true, subtree: true });
+    // Heartbeat: scroll events alone are unreliable (inner containers,
+    // programmatic scrolls), and a covered CTA is never acceptable.
+    setInterval(check, 400);
     check();
   }
   if (document.readyState === 'loading') {
