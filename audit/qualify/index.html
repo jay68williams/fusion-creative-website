@@ -107,6 +107,34 @@ h1 {
 .btn-back:hover { color: #fff; border-color: rgba(255,255,255,0.2); }
 .btn-back.hidden { visibility: hidden; }
 
+.submit-error {
+  display: none;
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: rgba(232,85,60,0.1);
+  border: 1px solid rgba(232,85,60,0.35);
+  color: #E8553C;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .container { padding-bottom: 130px; }
+  .nav {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    margin-top: 0;
+    padding: 14px 24px;
+    padding-bottom: calc(14px + env(safe-area-inset-bottom));
+    background: rgba(10,10,10,0.97);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    z-index: 50;
+  }
+  .btn { padding: 15px 26px; font-size: 15px; }
+  .success.active ~ .nav, .nav.gone { display: none; }
+}
+
 /* Success */
 .success { display: none; text-align: center; padding: 60px 0; }
 .success.active { display: block; }
@@ -276,6 +304,8 @@ h1 {
       <textarea class="text-input" id="extraNotes" placeholder="Optional. Tell us anything that might help us put together a better audit for you."></textarea>
     </div>
 
+    <div class="submit-error" id="submitError">That did not send. It is usually just a patchy connection. Tap Try again, and if it still will not go through, email jay@fusioncreative.uk and we will take the answers that way.</div>
+
     <div class="nav">
       <button class="btn btn-back hidden" id="btnBack" onclick="goBack()">Back</button>
       <button class="btn btn-next" id="btnNext" onclick="goNext()">Next</button>
@@ -357,16 +387,23 @@ h1 {
       document.getElementById('btnNext').disabled = true;
       document.getElementById('btnNext').textContent = 'Submitting...';
 
+      document.getElementById('submitError').style.display = 'none';
+
       fetch('https://newgreek.fusioncreative.uk/api/audit-qualify/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(answers)
-      }).then(function() {
+      }).then(function(res) {
+        if (!res.ok) { throw new Error('status ' + res.status); }
         document.getElementById('formArea').style.display = 'none';
+        document.querySelector('.nav').classList.add('gone');
         document.getElementById('successArea').classList.add('active');
+        window.scrollTo(0, 0);
       }).catch(function() {
-        document.getElementById('formArea').style.display = 'none';
-        document.getElementById('successArea').classList.add('active');
+        var b = document.getElementById('btnNext');
+        b.disabled = false;
+        b.textContent = 'Try again';
+        document.getElementById('submitError').style.display = 'block';
       });
     }
   };
