@@ -25,7 +25,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Schibsted Grotesk',sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+body{font-family:'Schibsted Grotesk',sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
 .wrap{max-width:960px;margin:0 auto;padding:0 24px}
 .narrow{max-width:720px;margin:0 auto}
 
@@ -87,10 +87,10 @@ p.body strong{color:var(--ink)}
 .case{display:grid;grid-template-columns:1fr;gap:0;background:hsl(130,18%,17%);border:1px solid hsl(130,15%,26%);border-radius:20px;padding:40px 38px;margin-top:30px}
 .case .name{font-family:'Averia Serif Libre',serif;font-size:26px;color:var(--cream)}
 .case .sub{font-size:13px;color:hsl(60,25%,70%);margin:4px 0 24px;letter-spacing:0.5px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
-.stat{text-align:center;background:hsl(130,20%,13%);border:1px solid hsl(130,15%,26%);border-radius:12px;padding:20px 8px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:22px}
+.stat{text-align:center;background:hsl(130,20%,13%);border:1px solid hsl(130,15%,26%);border-radius:12px;padding:20px 6px;min-width:0}
 .stat .v{font-family:'Averia Serif Libre',serif;font-size:clamp(24px,4.5vw,34px);color:var(--gold)}
-.stat .l{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:hsl(60,20%,62%);margin-top:5px}
+.stat .l{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:hsl(60,20%,62%);margin-top:5px;overflow-wrap:break-word}
 .case p{font-size:14.5px;color:hsl(60,45%,84%)}
 .case .quote{border-left:3px solid var(--gold);padding-left:16px;font-style:italic;margin-top:16px;font-family:'Averia Serif Libre',serif;font-size:16px;line-height:1.6}
 .case .attr{font-style:normal;font-family:'Schibsted Grotesk',sans-serif;font-size:12px;color:hsl(60,20%,62%);margin-top:6px}
@@ -145,8 +145,13 @@ footer a{color:hsl(60,20%,70%)}
   .strip img{height:200px}
   .hero-inner{padding:72px 0 64px}
   section{padding:54px 0}
-  .case{padding:30px 22px}
+  .case{padding:30px 18px}
   .topbar img{height:36px}
+  .stats{gap:8px}
+  .stat .v{font-size:20px}
+  .stat .l{font-size:9px;letter-spacing:0.5px}
+  .hero .kicker{letter-spacing:2px}
+  .hero .meta{letter-spacing:1px;font-size:11px}
 }
 </style>
 </head>
@@ -243,9 +248,14 @@ footer a{color:hsl(60,20%,70%)}
         <div class="stat"><div class="v">70M</div><div class="l">Top Reel</div></div>
         <div class="stat"><div class="v">11,000+</div><div class="l">Followers Grown</div></div>
       </div>
-      <p>No following, no content history, no ad budget when we started. Over 87 million views across Instagram and TikTok, and the part that matters most, it shows up in the till.</p>
-      <div class="quote">&ldquo;We was making 8k to 10k, now is more than 14k weekly. The sales we made when we used Fusion we never made them in 2 years of the restaurant.&rdquo;
-        <div class="attr">Owner, New Greek</div>
+      <div class="stats">
+        <div class="stat"><div class="v">&pound;14k+</div><div class="l">Weekly Sales, from &pound;8-10k</div></div>
+        <div class="stat"><div class="v">+40%</div><div class="l">Sales Growth</div></div>
+        <div class="stat"><div class="v">5/5</div><div class="l">Client Rating</div></div>
+      </div>
+      <p>No following, no content history, no ad budget when we started. Over 87 million views across Instagram and TikTok, and the part that matters most, it shows up in the till: new customers who did not know they were there, and new online bookings every week.</p>
+      <div class="quote">&ldquo;We started before 1 year with Fusion and since then everything has changed in our restaurant and bakery. We was making 8k to 10k, now is more than 14k weekly. The sales we made when we used Fusion we never made them in 2 years of the restaurant. We can&rsquo;t ask for anything more from u guys.&rdquo;
+        <div class="attr">Sero, owner of New Greek</div>
       </div>
     </div>
   </div>
