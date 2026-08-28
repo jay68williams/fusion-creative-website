@@ -1,629 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media Audit - Pique | Fusion Creative</title>
-    <meta name="robots" content="noindex, nofollow">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --bg: #f5f6fa; --bg-alt: #ecedf1; --card: #ffffff; --card-border: rgba(0,0,0,0.08);
-            --coral: #E8553C; --coral-light: #ff7a64; --coral-dark: #c4412b;
-            --text: #1a1d23; --text-secondary: #4a4f5c; --text-muted: #7c8090;
-        }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
-        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(232,85,60,0.3); } 50% { box-shadow: 0 0 40px rgba(232,85,60,0.55); } }
-        @keyframes scaleIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
-        .container { max-width: 840px; margin: 0 auto; padding: 0 24px; }
-        .header { padding: 48px 0 40px; border-bottom: 1px solid rgba(0,0,0,0.08); }
-        .header-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
-        .brand { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); }
-        .brand-dot { display: inline-block; width: 6px; height: 6px; background: var(--coral); border-radius: 50%; margin-right: 8px; vertical-align: middle; position: relative; top: -1px; }
-        .header-date { font-size: 13px; color: var(--text-muted); font-weight: 400; }
-        .hero { padding: 64px 0 56px; animation: fadeInUp 0.6s ease both; }
-        .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 20px; }
-        .hero h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(42px, 7vw, 64px); font-weight: 400; line-height: 1.05; letter-spacing: -1px; margin-bottom: 24px; }
-        .hero h1 span { background: linear-gradient(90deg, var(--coral), var(--coral-light), var(--coral)); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s linear infinite; }
-        .hero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 620px; line-height: 1.7; font-weight: 400; }
-        .section { padding: 48px 0; animation: fadeInUp 0.6s ease both; }
-        .section-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent); }
-        .card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 40px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
-        .card-sm { padding: 28px 32px; }
-        .section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); margin-bottom: 12px; }
-        .section-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 34px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 24px; line-height: 1.2; }
-        .section-text { color: var(--text-secondary); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
-        .section-text:last-child { margin-bottom: 0; }
-        .intro-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); }
-        .intro-card .greeting { font-family: 'DM Serif Display', Georgia, serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; color: var(--text); }
-        .note-box { background: rgba(232,85,60,0.07); border: 1px dashed rgba(232,85,60,0.4); border-radius: 12px; padding: 16px 20px; margin-top: 20px; font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
-        .note-box strong { color: var(--coral); }
-        .stats-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-        .stats-table tr { border-bottom: 1px solid rgba(0,0,0,0.04); }
-        .stats-table tr:last-child { border-bottom: none; }
-        .stats-table tr:nth-child(even) { background: rgba(0,0,0,0.02); }
-        .stats-table td { padding: 14px 0; }
-        .stats-table td:first-child { color: var(--text-secondary); font-weight: 400; padding-right: 24px; white-space: nowrap; }
-        .stats-table td:last-child { font-weight: 600; color: var(--text); text-align: right; }
-        .stat-highlight { color: var(--coral) !important; font-weight: 700 !important; }
-        .stat-badge { display: inline-block; background: rgba(232,85,60,0.15); color: var(--coral-light); padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
-        .stat-badge-green { display: inline-block; background: rgba(52,199,89,0.15); color: #4cd97d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
-        .stat-badge-amber { display: inline-block; background: rgba(255,159,10,0.15); color: #ffb84d; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
-        .working-item { margin-bottom: 28px; }
-        .working-item:last-child { margin-bottom: 0; }
-        .working-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
-        .working-item p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
-        .check-icon { display: inline-block; color: #4cd97d; margin-right: 6px; font-weight: 700; }
-        .opportunity-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--coral); color: white; border-radius: 8px; font-size: 13px; font-weight: 700; margin-right: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.35); }
-        .opportunity-heading { display: flex; align-items: center; margin-bottom: 14px; }
-        .opportunity-heading h3 { font-size: 19px; font-weight: 600; color: var(--text); }
-        .opportunity-card { margin-bottom: 20px; }
-        .opportunity-card:last-child { margin-bottom: 0; }
-        .case-study-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 60%); border-color: rgba(232,85,60,0.2); border-left: 4px solid var(--coral); overflow: hidden; position: relative; }
-        .case-study-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--coral), var(--coral-light)); }
-        .case-study-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin: 32px 0; }
-        .case-study-stat { text-align: center; padding: 24px 16px; background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; animation: scaleIn 0.5s ease both; }
-        .case-study-stat .number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(30px, 5vw, 44px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1; margin-bottom: 6px; }
-        .case-study-stat .label { font-size: 12px; color: var(--text-secondary); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
-        .viral-callout { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 12px; padding: 24px 28px; margin-top: 24px; }
-        .viral-callout .big-number { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(28px, 5vw, 40px); font-weight: 400; color: var(--coral); letter-spacing: -1px; line-height: 1.15; }
-        .viral-callout .context { font-size: 14px; color: var(--text-secondary); margin-top: 8px; line-height: 1.6; }
-        .viral-callout .context strong { color: var(--text); }
-        .takeaway { margin-top: 24px; font-size: 15px; color: var(--text-secondary); font-style: italic; line-height: 1.7; }
-        .video-ideas-grid { display: grid; gap: 20px; }
-        .video-idea-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 32px; position: relative; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .video-idea-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
-        .video-idea-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--coral); border-radius: 4px 0 0 4px; }
-        .idea-number { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); margin-bottom: 10px; }
-        .idea-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; font-weight: 400; margin-bottom: 16px; line-height: 1.3; color: var(--text); }
-        .idea-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
-        .idea-tag { font-size: 12px; font-weight: 600; color: var(--text-muted); background: rgba(0,0,0,0.04); padding: 4px 12px; border-radius: 6px; }
-        .idea-description { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
-        .idea-why { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--card-border); }
-        .idea-why strong { color: var(--coral); font-weight: 600; }
-        .enhancement-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px 32px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .enhancement-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06), 0 24px 64px rgba(0,0,0,0.04); }
-        .enhancement-card:last-child { margin-bottom: 0; }
-        .enhancement-card h4 { font-size: 17px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
-        .enhancement-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
-        .enhancement-card p:last-child { margin-bottom: 0; }
-        .enhancement-list { list-style: none; margin: 12px 0; }
-        .enhancement-list li { font-size: 14px; color: var(--text-secondary); padding: 6px 0 6px 18px; position: relative; line-height: 1.6; }
-        .enhancement-list li::before { content: ''; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; background: var(--coral); border-radius: 50%; }
-        .highlight-box { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.2); border-radius: 10px; padding: 18px 22px; margin-top: 14px; }
-        .highlight-box p { font-size: 14px; color: var(--text-secondary); margin-bottom: 0; }
-        .highlight-box strong { color: var(--coral); }
-        .cta-wrap { text-align: center; margin-top: 32px; }
-        .cta-btn { display: inline-block; background: var(--coral); color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 40px; border-radius: 999px; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; animation: pulseGlow 3s ease-in-out infinite; }
-        .cta-btn:hover { background: var(--coral-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,85,60,0.5); animation: none; }
-        .cta-btn-wa { display: inline-block; background: #25D366; color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; padding: 16px 34px; border-radius: 999px; text-decoration: none; margin: 14px 0 0 12px; box-shadow: 0 4px 18px rgba(37,211,102,0.35); transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
-        .cta-btn-wa:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.5); }
-        .cta-sub { font-size: 13px; color: var(--text-muted); margin-top: 12px; }
-        @media (max-width: 520px) { .cta-btn, .cta-btn-wa { display: block; width: 100%; margin: 0 auto; } .cta-btn-wa { margin-top: 14px; } }
-        .next-steps-card { background: linear-gradient(135deg, rgba(232,85,60,0.12) 0%, rgba(255,255,255,0.98) 80%); border-color: rgba(232,85,60,0.2); }
-        .steps-list { list-style: none; counter-reset: steps; }
-        .steps-list li { counter-increment: steps; display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--card-border); font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
-        .steps-list li:last-child { border-bottom: none; }
-        .steps-list li::before { content: counter(steps); display: flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; background: var(--coral); color: white; border-radius: 10px; font-size: 14px; font-weight: 700; flex-shrink: 0; box-shadow: 0 2px 8px rgba(232,85,60,0.3); }
-        .about-fc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
-        .about-fc-stat { background: rgba(232,85,60,0.08); border: 1px solid rgba(232,85,60,0.18); border-radius: 12px; padding: 20px 24px; text-align: center; animation: scaleIn 0.5s ease both; }
-        .about-fc-stat-val { font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; font-weight: 400; color: var(--coral); letter-spacing: -0.5px; }
-        .about-fc-stat-label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
-        .about-fc-text { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
-        .about-fc-services { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-        .about-fc-tag { background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 500; color: var(--text-secondary); }
-        .closing-note { margin-top: 24px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
-        .signature { padding: 48px 0; }
-        .signature-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 24px; font-weight: 400; margin-bottom: 4px; color: var(--text); }
-        .signature-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 2px; }
-        .signature-link { font-size: 14px; color: var(--coral); text-decoration: none; font-weight: 500; }
-        .signature-link:hover { text-decoration: underline; }
-        .footer { padding: 32px 0; border-top: 1px solid rgba(0,0,0,0.08); text-align: center; background: var(--bg-alt); }
-        .footer-confidential { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
-        .footer-note { font-size: 12px; color: var(--text-muted); font-style: italic; }
-        .footer-brand { margin-top: 16px; font-size: 12px; color: var(--text-muted); }
-        .footer-brand span { color: var(--coral); font-weight: 600; }
-        @media (max-width: 640px) {
-            .container { padding: 0 16px; } .card { padding: 28px 22px; } .hero { padding: 40px 0 36px; } .section { padding: 32px 0; }
-            .case-study-grid { grid-template-columns: repeat(2, 1fr); } .video-idea-card { padding: 24px 22px; }
-            .header-inner { flex-direction: column; gap: 8px; } .about-fc-grid { grid-template-columns: 1fr 1fr; gap: 12px; } .about-fc-stat-val { font-size: 24px; }
-        }
-        @media (max-width: 640px) {
-            .stats-table, .stats-table tbody, .stats-table tr, .stats-table td { display: block; width: 100%; }
-            .stats-table tr { padding: 12px 0; }
-            .stats-table td { padding: 0; }
-            .stats-table td:first-child { white-space: normal; padding: 0 0 5px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-            .stats-table td:last-child { text-align: left; }
-            .stats-table .stat-badge, .stats-table .stat-badge-green, .stats-table .stat-badge-amber { display: inline-block; margin-top: 6px; }
-        }
-        .metrics-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 20px; }
-        .metrics-cell { text-align: center; background: rgba(232,85,60,0.05); border: 1px solid rgba(232,85,60,0.12); border-radius: 12px; padding: 16px 8px; min-width: 0; }
-        .metrics-cell > div:last-child { line-height: 1.3; }
-        @media (max-width: 640px) { .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    </style>
+<!-- fc-build: status=qualified leadid=8817dae7-4625-46bb-9d46-9b21b96af792 date=2026-08-28 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Social Media Audit - Pique | Fusion Creative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:hsl(60,100%,95%);
+  --ink:hsl(130,18%,20%);
+  --ink-soft:hsl(130,10%,32%);
+  --terra:hsl(13,53%,48%);
+  --terra-deep:hsl(13,53%,40%);
+  --gold:hsl(36,70%,59%);
+  --sage:hsl(105,8%,39%);
+  --card:hsl(60,60%,97%);
+  --line:hsl(60,25%,82%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Schibsted Grotesk',sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:0 22px}
+.hero{padding:64px 0 40px;text-align:center;border-bottom:1px solid var(--line)}
+.brand{font-family:'Averia Serif Libre',serif;font-size:15px;letter-spacing:6px;color:var(--terra);text-transform:uppercase;margin-bottom:22px}
+h1{font-family:'Averia Serif Libre',serif;font-size:clamp(32px,7vw,46px);line-height:1.15;font-weight:700}
+.hero p{margin-top:14px;color:var(--ink-soft);font-size:16px}
+.hero .from{margin-top:22px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--sage)}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--terra);margin-bottom:10px}
+h2{font-family:'Averia Serif Libre',serif;font-size:clamp(24px,5vw,30px);line-height:1.2;margin-bottom:16px}
+p.body{color:var(--ink-soft);font-size:15.5px;margin-bottom:14px}
+p.body strong{color:var(--ink)}
+.formula{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
+.f-tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 18px}
+.f-tile .t{font-family:'Averia Serif Libre',serif;font-size:19px;color:var(--terra);margin-bottom:6px}
+.f-tile p{font-size:13.5px;color:var(--ink-soft)}
+.callout{background:var(--ink);color:var(--cream);border-radius:16px;padding:26px 24px;margin-top:24px}
+.callout .big{font-family:'Averia Serif Libre',serif;font-size:clamp(21px,4.5vw,26px);line-height:1.3;color:var(--gold)}
+.callout p{font-size:14.5px;margin-top:10px;color:hsl(60,60%,88%)}
+.idea{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--terra);border-radius:12px;padding:20px 20px;margin-bottom:14px}
+.idea .n{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--sage);text-transform:uppercase}
+.idea .t{font-family:'Averia Serif Libre',serif;font-size:19px;margin:6px 0 8px}
+.idea p{font-size:14px;color:var(--ink-soft)}
+.case{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;margin-bottom:18px}
+.case .name{font-family:'Averia Serif Libre',serif;font-size:22px;margin-bottom:4px}
+.case .sub{font-size:13px;color:var(--sage);margin-bottom:16px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.stat{text-align:center;background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:14px 6px}
+.stat .v{font-family:'Averia Serif Libre',serif;font-size:clamp(19px,4vw,24px);color:var(--terra)}
+.stat .l{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--sage);margin-top:3px}
+.case p{font-size:14px;color:var(--ink-soft)}
+.case .quote{border-left:3px solid var(--gold);padding-left:14px;font-style:italic;margin-top:12px}
+.pack{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.p-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 22px;display:flex;flex-direction:column}
+.p-card.feature{border:2px solid var(--terra);position:relative}
+.p-card.feature .tag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--terra);color:var(--cream);font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;white-space:nowrap}
+.p-card .pn{font-family:'Averia Serif Libre',serif;font-size:21px}
+.p-card .price{font-family:'Averia Serif Libre',serif;font-size:34px;color:var(--terra);margin:8px 0 2px}
+.p-card .per{font-size:12px;color:var(--sage);margin-bottom:14px}
+.p-card ul{list-style:none;flex:1}
+.p-card li{font-size:13.5px;color:var(--ink-soft);padding:6px 0 6px 22px;position:relative;border-top:1px solid var(--line)}
+.p-card li::before{content:'';position:absolute;left:2px;top:13px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.cta{padding:56px 0 72px;text-align:center;border-bottom:none}
+.cta h2{margin-bottom:10px}
+.cta p{color:var(--ink-soft);font-size:15px;margin-bottom:26px}
+.wa-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-weight:700;font-size:16px;padding:16px 30px;border-radius:100px;text-decoration:none;box-shadow:0 6px 18px rgba(37,211,102,0.35)}
+.wa-btn svg{width:22px;height:22px}
+footer{padding:26px 0 40px;text-align:center;font-size:12px;color:var(--sage)}
+footer a{color:var(--sage)}
+@media (max-width:560px){
+  .formula{grid-template-columns:1fr}
+  .pack{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .hero{padding:48px 0 34px}
+}
+</style>
 </head>
 <body>
-  <!-- fc-build: status=new leadid=8817dae7-4625-46bb-9d46-9b21b96af792 date=2026-08-28 -->
 
-  <!-- Audit intro / shader welcome screen -->
-  <style>
-    #fc-intro{position:fixed;inset:0;z-index:99999;background:#0e0c14;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity .85s ease;}
-    #fc-intro.fc-out{opacity:0;pointer-events:none;}
-    #fc-intro canvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
-    .fc-intro-inner{position:relative;z-index:2;text-align:center;padding:24px;max-width:780px;color:#fff;}
-    .fc-intro-eyebrow{font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:24px;}
-    .fc-intro-eyebrow b{color:#ff7d5e;font-weight:700;}
-    .fc-intro-title{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.1rem,6vw,4.4rem);line-height:1.06;font-weight:400;letter-spacing:-0.01em;text-shadow:0 2px 50px rgba(0,0,0,0.4);}
-    .fc-intro-hint{font-family:Inter,system-ui,sans-serif;font-size:14px;font-weight:500;letter-spacing:0.05em;color:rgba(255,255,255,0.88);margin-top:38px;display:inline-flex;align-items:center;gap:10px;animation:fcPulse 2.4s ease-in-out infinite;}
-    .fc-intro-hint .fc-dot{width:7px;height:7px;border-radius:50%;background:#ff7d5e;box-shadow:0 0 12px rgba(255,125,94,0.9);}
-    @keyframes fcPulse{0%,100%{opacity:.55;}50%{opacity:1;}}
-    body.fc-locked{overflow:hidden;}
-  </style>
-  <div id="fc-intro">
-    <canvas id="fc-intro-canvas"></canvas>
-    <div class="fc-intro-inner">
-      <div class="fc-intro-eyebrow"><b>Fusion Creative</b> &middot; Private Audit</div>
-      <div class="fc-intro-title">Welcome to your audit.</div>
-      <div class="fc-intro-hint"><span class="fc-dot"></span> Click anywhere to view</div>
+<div class="wrap">
+
+<div class="hero">
+  <div class="brand">Pique &middot; Gosforth</div>
+  <h1>James, here&rsquo;s your audit.</h1>
+  <p>Escape to South America. Without leaving Gosforth. Now let&rsquo;s make sure all of Newcastle knows it.</p>
+  <div class="from">Prepared by Fusion Creative &middot; 28 August 2026</div>
+</div>
+
+<section>
+  <div class="eyebrow">Our honest take</div>
+  <h2>You already have the formula. It just is not on camera yet.</h2>
+  <p class="body">Good to speak today, James. As promised, here is everything in one place. The short version of our take: Pique is not a business with a content problem, it is a business with a distribution problem. <strong>The food, the drinks, the environment and the music are exactly what performs on social right now</strong>, and most venues have to manufacture one of those. You have all four sitting in the room every service.</p>
+  <p class="body"><strong>The plan is simple: film what already happens at Pique, package it the way the platforms reward, and put it in front of the North East every week.</strong> That, done consistently, is the whole game.</p>
+  <div class="formula">
+    <div class="f-tile"><div class="t">The food</div><p>South American plates with colour, steam and theatre. The most-watched category on short-form.</p></div>
+    <div class="f-tile"><div class="t">The drinks</div><p>Crafted cocktails are built for the camera: the pour, the flame, the garnish. Every serve is a hook.</p></div>
+    <div class="f-tile"><div class="t">The environment</div><p>One of the most distinctive rooms in Newcastle. Nobody scrolls past a space that looks like this.</p></div>
+    <div class="f-tile"><div class="t">The music</div><p>Sound drives short-form. A venue with its own energy gives every video an identity.</p></div>
+  </div>
+  <div class="callout">
+    <div class="big">The biggest gap: Pique is not on TikTok.</div>
+    <p>TikTok is where Newcastle decides where to eat and drink next, and right now Pique does not exist there. That is not a weakness, it is the single fastest win available. We started Takdir&rsquo;s TikTok from nothing in May and it is already past 2,200 followers, with the same videos we were filming anyway.</p>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Ready-made content</div>
+  <h2>Four reels we would film first.</h2>
+  <div class="idea"><div class="n">Idea 01</div><div class="t">&ldquo;The cocktail that stops the scroll&rdquo;</div><p>One signature serve, tightly shot: the pour, the smoke or flame, the garnish landing against that gold wall. Hook on frame one, under 25 seconds.</p></div>
+  <div class="idea"><div class="n">Idea 02</div><div class="t">&ldquo;Escape to South America without leaving Gosforth&rdquo;</div><p>A cinematic walk from the street door through the room, landing on a table of small plates and a cocktail. Your whole brand in 20 seconds.</p></div>
+  <div class="idea"><div class="n">Idea 03</div><div class="t">&ldquo;Small plates you need to try in Newcastle&rdquo;</div><p>A punchy run through three or four standout plates with one-line captions. Built to be saved and sent to a mate.</p></div>
+  <div class="idea"><div class="n">Idea 04</div><div class="t">&ldquo;Where to go on a Friday night in Newcastle&rdquo;</div><p>The venue after dark: bar busy, cocktails flowing, open until midnight. A different audience to the dinner crowd, and TikTok&rsquo;s favourite.</p></div>
+</section>
+
+<section>
+  <div class="eyebrow">Proof</div>
+  <h2>What this looks like when it works.</h2>
+
+  <div class="case">
+    <div class="name">Takdir, Whitley Bay</div>
+    <div class="sub">North East restaurant, grown on socials by Fusion since May</div>
+    <div class="stats">
+      <div class="stat"><div class="v">8M+</div><div class="l">Views</div></div>
+      <div class="stat"><div class="v">3.5M</div><div class="l">Top Reel</div></div>
+      <div class="stat"><div class="v">210K+</div><div class="l">Interactions</div></div>
+    </div>
+    <p>A neighbourhood restaurant most of the coast walked past. We film around normal services and run their channels end to end: 158 videos so far, 8 million views, and a TikTok built from zero to 2,200+ followers in under four months. The most relevant part for Pique: Takdir also started with no TikTok.</p>
+  </div>
+
+  <div class="case">
+    <div class="name">New Greek, Newcastle</div>
+    <div class="sub">Independent hospitality business, built from a standing start</div>
+    <div class="stats">
+      <div class="stat"><div class="v">87M+</div><div class="l">Views</div></div>
+      <div class="stat"><div class="v">70M</div><div class="l">Top Reel</div></div>
+      <div class="stat"><div class="v">11,000+</div><div class="l">Followers Grown</div></div>
+    </div>
+    <p>No following, no content history, no ad budget when we started. Over 87 million views across Instagram and TikTok, and the part that matters most, it shows up in the till.</p>
+    <p class="quote">&ldquo;We was making 8k to 10k, now is more than 14k weekly. The sales we made when we used Fusion we never made them in 2 years of the restaurant.&rdquo; &nbsp;<span style="font-style:normal;font-size:12.5px;color:var(--sage)">Owner, New Greek</span></p>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">The packages</div>
+  <h2>Two ways to work with us.</h2>
+  <p class="body">Both are filmed at Pique around normal service, edited in your brand, and posted for you. Three-month minimum, then rolling month to month.</p>
+  <div class="pack">
+    <div class="p-card">
+      <div class="pn">The Starter</div>
+      <div class="price">&pound;899</div>
+      <div class="per">per month</div>
+      <ul>
+        <li>1 filming day per month at Pique</li>
+        <li>10-12 short-form videos per month</li>
+        <li>Edited, captioned and posted for you</li>
+        <li>Instagram + TikTok, including launching your TikTok</li>
+        <li>Monthly performance report</li>
+      </ul>
+    </div>
+    <div class="p-card feature">
+      <div class="tag">Recommended</div>
+      <div class="pn">The Growth</div>
+      <div class="price">&pound;1,250</div>
+      <div class="per">per month</div>
+      <ul>
+        <li>2 filming days per month at Pique</li>
+        <li>20-25 short-form videos per month</li>
+        <li>Fully managed socials, end to end</li>
+        <li>Instagram + TikTok, including launching your TikTok</li>
+        <li>Content strategy, captions, posting and community</li>
+        <li>Monthly performance report</li>
+      </ul>
     </div>
   </div>
-  <script>document.body.classList.add('fc-locked');</script>
+</section>
 
-    <!-- Header -->
-    <div class="container">
-        <header class="header">
-            <div class="header-inner">
-                <div class="brand"><span class="brand-dot"></span>Fusion Creative</div>
-                <div class="header-date">28 August 2026</div>
-            </div>
-        </header>
-    </div>
+<div class="cta">
+  <h2>Sound good, James?</h2>
+  <p>Message us on WhatsApp and we can get the first filming day in the diary.</p>
+  <a class="wa-btn" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20it%27s%20James%20from%20Pique" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Message Jay on WhatsApp
+  </a>
+</div>
 
-    <!-- Hero -->
-    <div class="container">
-        <div class="hero">
-            <div class="hero-label">Audit + Ideas</div>
-            <h1><span>Pique</span></h1>
-            <p class="hero-subtitle">Turning one of the most distinctive rooms in Gosforth into short-form video Newcastle cannot scroll past | Prepared by Fusion Creative | 28 August 2026</p>
-        </div>
-    </div>
+<footer>
+  Fusion Creative &middot; Newcastle &middot; <a href="https://fusioncreative.uk">fusioncreative.uk</a> &middot; Prepared for Pique, 28 August 2026
+</footer>
 
-    <div class="container"><div class="section-divider"></div></div>
-
-    <!-- Intro -->
-    <div class="container">
-        <div class="section">
-            <div class="card intro-card">
-                <div class="greeting">Hey Pique team,</div>
-                <p class="section-text">Thanks for reaching out about changing up your social. We are Fusion Creative, a content marketing agency based in Newcastle, we film hospitality venues in person and turn them into short-form video people actually watch. Honest take: Pique is one of the most filmable rooms in the city (the gold Aztec wall, the plating, the theatre of a proper cocktail), and you have already built a genuinely engaged Instagram following. Right now though it leans on polished stills, and local food creators are filming your venue on TikTok more than you are.</p>
-                <p class="section-text"><strong>The plan is simple: own the short-form video your room and your menu are begging for.</strong> Turn a cocktail pour, a ceviche plate and a Friday-night bar into reels and TikToks built to travel, so people scrolling across Newcastle book a table instead of just double-tapping a photo.</p>
-                <div class="note-box">
-                    <strong>Quick note:</strong> this is based on your website <strong>piquegosforth.com</strong>, your Instagram <strong>@piquegosforth</strong> and your Facebook. If I have any detail wrong, just reply and I will fix it.
-                </div>
-            </div>
-
-            <!-- Fusion Creative metrics card -->
-            <div class="card" style="margin-top:8px;">
-                <div style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--coral); margin-bottom:6px;">Client Results</div>
-                <div style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Generated for a single local hospitality business in the North East</div>
-                <div class="metrics-grid">
-                    <div class="metrics-cell">
-                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">87M+</div>
-                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Total Views</div>
-                    </div>
-                    <div class="metrics-cell">
-                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">1.2M+</div>
-                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Interactions</div>
-                    </div>
-                    <div class="metrics-cell">
-                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">11,000+</div>
-                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Followers Grown</div>
-                    </div>
-                    <div class="metrics-cell">
-                        <div style="font-size:24px; font-weight:800; color:var(--coral); letter-spacing:-0.5px;">70M</div>
-                        <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">Single Reel Views</div>
-                    </div>
-                </div>
-                <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">We generated over 70 million views across Instagram and TikTok for a single local North East restaurant, from a steady stream of short-form videos. One reel alone hit 70 million views. They went from a standing start to a name known across the region, all shot locally in the venue. The same engine, food and atmosphere filmed to travel rather than just be posted, is exactly what a room like Pique is built for.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Current Snapshot -->
-    <div class="container">
-        <div class="section">
-            <div class="section-label">Current Snapshot</div>
-            <div class="section-title">Where Pique Is Online Today</div>
-            <div class="card card-sm">
-                <table class="stats-table">
-                    <tr><td>Website</td><td class="stat-highlight">piquegosforth.com <span class="stat-badge-green">Beautiful and on brand</span></td></tr>
-                    <tr><td>Concept</td><td>South American dining and late night bar <span class="stat-badge-green">Distinct in Newcastle</span></td></tr>
-                    <tr><td>The room</td><td>Dark timber, gold Aztec wall, cocktails <span class="stat-badge-green">Extremely filmable</span></td></tr>
-                    <tr><td>Instagram (@piquegosforth)</td><td class="stat-highlight">Active, engaged following <span class="stat-badge-amber">Photo led, scale video</span></td></tr>
-                    <tr><td>Facebook (@piquegosforth)</td><td>Active page <span class="stat-badge-green">Posting habit is there</span></td></tr>
-                    <tr><td>TikTok</td><td>Local creators filming you <span class="stat-badge-amber">Own the channel</span></td></tr>
-                    <tr><td>Website SEO</td><td>Page title still reads "Your Site Title" <span class="stat-badge-amber">Quick fix</span></td></tr>
-                    <tr><td>Menus</td><td>Brunch, small plates, Early Bird, private dining <span class="stat-badge-green">Lots to film</span></td></tr>
-                    <tr><td>Open</td><td>Tuesday to Saturday (closed Sun and Mon)</td></tr>
-                    <tr><td>Area</td><td>The Gosforth Centre, Newcastle NE3</td></tr>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <div class="container"><div class="section-divider"></div></div>
-
-    <!-- What Is Working -->
-    <div class="container">
-        <div class="section">
-            <div class="section-label">What Is Already Working Well</div>
-            <div class="section-title">Credit Where It Is Due</div>
-            <div class="card">
-                <div class="working-item">
-                    <h4><span class="check-icon">&#10003;</span> The concept is genuinely distinct</h4>
-                    <p>"Escape to South America without leaving Gosforth" is a clear, confident idea, and there is nothing else quite like it in the area. Most restaurants blur together on social. You do not, and a strong concept is the easiest thing in the world to build content around.</p>
-                </div>
-                <div class="working-item">
-                    <h4><span class="check-icon">&#10003;</span> The room is built for content</h4>
-                    <p>Dark timber, bold patterns, warm textiles, plants and that custom gold plaster wall carrying the brand name. It is one of the most distinctive dining spaces in Newcastle, and a space that looks this good is doing half the work before the camera is even out.</p>
-                </div>
-                <div class="working-item">
-                    <h4><span class="check-icon">&#10003;</span> The menu is naturally theatrical</h4>
-                    <p>Crafted cocktails (tequila, mezcal, pisco), ceviche, tacos, small plates and steaks. Pours, garnishes, plating and colour are the exact moments that stop a thumb mid-scroll. You are sitting on a library of five-second hooks every single service.</p>
-                </div>
-                <div class="working-item">
-                    <h4><span class="check-icon">&#10003;</span> You have already built an Instagram following</h4>
-                    <p>You have a real, engaged audience on Instagram and a genuine posting habit. That is the hard part most venues never get to. The raw material and the discipline are there, it just needs shaping into video built to travel rather than sit in the grid.</p>
-                </div>
-                <div class="working-item">
-                    <h4><span class="check-icon">&#10003;</span> People are already filming you</h4>
-                    <p>Local food creators on TikTok are already posting about Pique. That is a strong signal the venue is worth filming and there is appetite for it. The opportunity is to own that channel yourself so the reach lands on your account, not just theirs.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container"><div class="section-divider"></div></div>
-
-    <!-- Where The Opportunity Is -->
-    <div class="container">
-        <div class="section">
-            <div class="section-label">Where The Opportunity Is</div>
-            <div class="section-title">Six Things We Would Focus On</div>
-            <p class="section-text" style="margin-bottom: 32px;">You already have the concept, the room and the menu. The job is to turn that into reach and covers: get Pique in front of the people across Newcastle deciding where to eat and drink this week, and make you the place they screenshot and book. These are the six areas we would focus on.</p>
-
-            <div class="card opportunity-card">
-                <div class="opportunity-heading"><span class="opportunity-num">1</span><h3>Turn the Room and the Plating Into Video</h3></div>
-                <p class="section-text">Your feed leans on lovely photography, but short-form video is what earns reach now. The same dishes, the same cocktails and the same room, filmed as motion (the pour, the steam, the first cut into a plate) travel far further than a still ever will.</p>
-                <p class="section-text">You have the most filmable venue on the street. The shift is simply from photographing it to filming it properly.</p>
-            </div>
-
-            <div class="card opportunity-card">
-                <div class="opportunity-heading"><span class="opportunity-num">2</span><h3>Own Your TikTok, Do Not Let Others Own It</h3></div>
-                <p class="section-text">Local creators are already making TikToks in your venue, which proves the demand. Right now that reach lands on their accounts. With your own consistent TikTok, that same interest builds your audience, drives your bookings, and puts you in front of the exact Newcastle crowd that lives on the app.</p>
-                <p class="section-text">A brand this visual on Instagram almost always has an even bigger runway on TikTok. It is the single fastest channel to scale.</p>
-            </div>
-
-            <div class="card opportunity-card">
-                <div class="opportunity-heading"><span class="opportunity-num">3</span><h3>Make the Cocktails the Hook</h3></div>
-                <p class="section-text">Crafted cocktails are some of the most reliable scroll-stoppers on the platform. A close, well-lit pour, a flame, a garnish, a pisco or mezcal serve landing on that gold wall behind it. Strong hook on frame one and trending audio underneath.</p>
-                <p class="section-text">Drinks content is quick to film, endlessly repeatable, and it sells the exact date-night and after-work visit you want to fill Tuesday to Thursday.</p>
-            </div>
-
-            <div class="card opportunity-card">
-                <div class="opportunity-heading"><span class="opportunity-num">4</span><h3>Sell the Occasions, Not Just the Food</h3></div>
-                <p class="section-text">Pique is a brunch spot, a date-night table, a small-plates catch up, a private dining room for up to 18 and a late bar, all in one. Each of those is a different audience and a different piece of content. "Where to take a date in Newcastle", "Gosforth brunch you did not know about", "book the private room for your birthday".</p>
-                <p class="section-text">Speak to each occasion directly and you fill more of the week, not just the busy nights.</p>
-            </div>
-
-            <div class="card opportunity-card">
-                <div class="opportunity-heading"><span class="opportunity-num">5</span><h3>Work the Late-Night Bar as Its Own Story</h3></div>
-                <p class="section-text">Friday and Saturday until midnight is a completely different mood to the Tuesday dinner crowd, and it deserves its own content. The bar buzzing, the cocktails flowing, the room at night. Because you are closed Sunday and Monday, the content has to work hardest across the days you are open, and the late bar is a strong, separate hook to pull in a weekend audience.</p>
-                <p class="section-text">Two audiences, one venue. Filming both means you are never fighting for the same table twice.</p>
-            </div>
-
-            <div class="card opportunity-card">
-                <div class="opportunity-heading"><span class="opportunity-num">6</span><h3>Post With Rhythm, Then Boost With Local Ads</h3></div>
-                <p class="section-text">Reach comes from consistency plus format: short video with proper hooks, posted regularly across Instagram Reels and TikTok, not the odd polished photo. Pair that with a small, tightly targeted ad budget around Newcastle and Gosforth, and your best cocktail and food clips reach people actively choosing where to eat this weekend.</p>
-                <p class="section-text">For a restaurant, a handful of extra covers a week quickly pays for a lot of content, which makes this one of the highest-return moves you can make.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container"><div class="section-divider"></div></div>
-
-    <!-- Case Study -->
-    <div class="container">
-        <div class="section">
-            <div class="section-label">Case Study</div>
-            <div class="section-title">What We Did for New Greek</div>
-            <div class="card case-study-card">
-                <p class="section-text">New Greek is a small independent restaurant in Newcastle. No following, no content history, no ad budget. They started from zero. Here is where they got to after working with Fusion Creative.</p>
-                <div class="case-study-grid">
-                    <div class="case-study-stat"><div class="number">87M+</div><div class="label">Total Views</div></div>
-                    <div class="case-study-stat"><div class="number">70M</div><div class="label">Single Reel Views</div></div>
-                    <div class="case-study-stat"><div class="number">1.2M+</div><div class="label">Interactions</div></div>
-                    <div class="case-study-stat"><div class="number">11,000+</div><div class="label">Followers Grown</div></div>
-                </div>
-                <div class="viral-callout" style="margin-top:16px;">
-                    <div class="big-number">Weekly sales up from &pound;8-10k to &pound;14k+.</div>
-                    <div class="context"><strong>The views turned into revenue.</strong> In the owner's own words: "The sales we made when we used Fusion we never made them in 2 years of the restaurant. We was making 8k to 10k, now is more than 14k weekly." New customers who did not know they existed, new online bookings, and a business that is now known across the North East.</div>
-                </div>
-                <div class="viral-callout" style="margin-top:16px;">
-                    <div class="big-number">The views turned into real covers.</div>
-                    <div class="context"><strong>Reach became revenue.</strong> In the owner's own words: "The sales we made when we used Fusion we never made them in 2 years of the restaurant." New customers who did not know they existed, new online bookings, and a restaurant that is now known right across the North East.</div>
-                </div>
-                <div class="viral-callout">
-                    <div class="big-number">87 million views. One local restaurant. Zero head start.</div>
-                    <div class="context"><strong>New Greek had no followers, no content history and no brand recognition.</strong> We built their presence from scratch with short-form video, over 70 million views across Instagram and TikTok, one reel alone hitting 70 million. They went from unknown to a household name in the North East. Pique starts miles ahead of where they did: the concept, the room and the following are already there. The job is reach, and that is exactly what we build.</div>
-                </div>
-                <p class="takeaway">Pique does not need fixing. It needs amplifying, so a beautiful room and a genuinely different menu are finally seen by the Newcastle diners who have not booked yet.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container"><div class="section-divider"></div></div>
-
-    <!-- Video Ideas -->
-    <div class="container">
-        <div class="section">
-            <div class="section-label">Ready-Made Content</div>
-            <div class="section-title">4 Video Ideas You Could Film This Week</div>
-            <p class="section-text" style="margin-bottom: 32px;">These are formats working right now on TikTok and Instagram Reels, built around what you already do every service: the cocktails, the plates, the room and the occasions. Each one could be filmed on a phone in a single sitting.</p>
-            <div class="video-ideas-grid">
-                <div class="video-idea-card">
-                    <div class="idea-number">Idea 01</div>
-                    <div class="idea-title">"The cocktail that stops the scroll"</div>
-                    <div class="idea-meta"><span class="idea-tag">Cocktails</span><span class="idea-tag">Close-up</span><span class="idea-tag">Hook</span></div>
-                    <p class="idea-description">A tight, well-lit build of one signature serve: the pour, the smoke or flame, the garnish landing, all against that gold wall. Strong hook on frame one ("the best cocktail in Gosforth is hiding in a shopping centre"). Trending audio. Under 15 seconds.</p>
-                    <div class="idea-why"><strong>Why it works:</strong> Drinks content is fast to film and endlessly repeatable, and it sells the exact after-work and date-night visit you want midweek.</div>
-                </div>
-                <div class="video-idea-card">
-                    <div class="idea-number">Idea 02</div>
-                    <div class="idea-title">"Escape to South America without leaving Gosforth"</div>
-                    <div class="idea-meta"><span class="idea-tag">Room reveal</span><span class="idea-tag">Atmosphere</span><span class="idea-tag">Concept</span></div>
-                    <p class="idea-description">A cinematic walk through the space, from the street door to that gold Aztec wall, the timber, the plants, the low light. Land on a table of small plates and a cocktail. Your whole concept in 20 seconds, exactly as a first-time guest would feel it.</p>
-                    <div class="idea-why"><strong>Why it works:</strong> Your room is your biggest advantage. Showing it in motion sells the transporting feeling a photo can never quite capture.</div>
-                </div>
-                <div class="video-idea-card">
-                    <div class="idea-number">Idea 03</div>
-                    <div class="idea-title">"Small plates you need to try in Newcastle"</div>
-                    <div class="idea-meta"><span class="idea-tag">Food</span><span class="idea-tag">Montage</span><span class="idea-tag">Save-worthy</span></div>
-                    <p class="idea-description">A quick, punchy run through three or four standout plates, ceviche, tacos, a steak, the colour and the steam, each with a one-line caption. Built to be saved and sent to a mate with "we're going here". Tag the location every time.</p>
-                    <div class="idea-why"><strong>Why it works:</strong> "What to order" content gets saved and shared, which is what actually drives new bookings rather than just likes.</div>
-                </div>
-                <div class="video-idea-card">
-                    <div class="idea-number">Idea 04</div>
-                    <div class="idea-title">"Where to go on a Friday night in Newcastle"</div>
-                    <div class="idea-meta"><span class="idea-tag">Late bar</span><span class="idea-tag">Weekend</span><span class="idea-tag">Atmosphere</span></div>
-                    <p class="idea-description">The venue after dark on a Friday or Saturday: the bar busy, cocktails flowing, the room lit and full, open until midnight. A different energy to the dinner crowd, aimed squarely at the weekend audience deciding where to start their night.</p>
-                    <div class="idea-why"><strong>Why it works:</strong> Your late bar is a separate audience to your diners. Giving it its own content fills the weekend without competing with your midweek tables.</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container"><div class="section-divider"></div></div>
-
-    <!-- Digital Enhancements -->
-    <div class="container">
-        <div class="section">
-            <div class="section-label">Digital Enhancements</div>
-            <div class="section-title">Beyond the Main Feed</div>
-            <p class="section-text" style="margin-bottom: 32px;">A few extra wins that would compound the content work and turn more of your local visibility into booked tables.</p>
-
-            <div class="enhancement-card">
-                <h4>Tidy Up the Website SEO Basics</h4>
-                <p>Your site looks great, but a couple of behind-the-scenes basics are unfinished, so Pique is not showing up as strongly as it should when people search. These are quick fixes with a real payoff.</p>
-                <ul class="enhancement-list">
-                    <li>The page title still reads "Your Site Title", it should say "Pique | South American Restaurant &amp; Bar, Gosforth"</li>
-                    <li>Add a proper meta description so search results read well and invite the click</li>
-                    <li>Make sure the menus and booking link are easy to find on mobile</li>
-                    <li>Get the basics right for "restaurant Gosforth" and "South American Newcastle" searches</li>
-                </ul>
-            </div>
-
-            <div class="enhancement-card">
-                <h4>Get the Google Profile Pulling Its Weight</h4>
-                <p>When someone decides where to eat, they search and they read reviews before they book. Your Google profile is doing quiet, heavy lifting and it deserves to be front and centre and constantly fed.</p>
-                <ul class="enhancement-list">
-                    <li>Keep the profile optimised for "restaurants Gosforth" and "cocktail bar Newcastle"</li>
-                    <li>Add fresh photos of the room, the plates and the cocktails regularly</li>
-                    <li>Encourage happy guests into a quick Google review at the end of the meal</li>
-                    <li>Turn your best reviews into shareable content</li>
-                </ul>
-            </div>
-
-            <div class="enhancement-card">
-                <h4>Targeted Local Ads to Newcastle Diners</h4>
-                <p>Because a table is high value and repeatable, a small paid budget pays back fast. Tightly targeted ads put your best cocktail and food clips in front of people nearby choosing where to eat and drink this week.</p>
-                <ul class="enhancement-list">
-                    <li>Target Gosforth, Jesmond and central Newcastle</li>
-                    <li>Use your strongest cocktail and small-plates reels as the ads</li>
-                    <li>Drive bookings and brunch, date-night and private dining enquiries</li>
-                    <li>Track cost per booking so the spend is always accountable</li>
-                </ul>
-                <div class="highlight-box">
-                    <p><strong>Why it fits Pique:</strong> a handful of extra covers a week covers a lot of content and ad spend, which makes local ads one of the highest-return things a restaurant can do.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container"><div class="section-divider"></div></div>
-
-    <!-- About Fusion Creative -->
-    <div class="container">
-        <div class="section">
-            <div class="section-label">Who We Are</div>
-            <div class="section-title">About Fusion Creative</div>
-            <div class="card intro-card">
-                <p class="about-fc-text">Fusion Creative is a content and marketing agency based in Newcastle. We produce short-form video content, manage social media accounts, run paid campaigns, build websites, and handle branding. Everything under one roof.</p>
-                <p class="about-fc-text">We work with local and growing businesses across the North East, and we film in person, on the ground, right here. No stock footage, no generic templates, no recycled ideas. Every piece of content is original and tailored to the business.</p>
-                <p class="about-fc-text">Our headline result is New Greek, a small independent Newcastle restaurant that went from zero followers to over 70 million views across Instagram and TikTok, including one reel that hit 70 million views. We know how to take a great local venue and make it impossible to scroll past.</p>
-                <p class="about-fc-text">We also build and run websites for the businesses we work with. For New Greek we built the restaurant website (newgreek.co.uk) and the New Greek Bakery site too, and run all of their content, the same end-to-end approach we would bring to Pique.</p>
-                <div class="about-fc-grid">
-                    <div class="about-fc-stat"><div class="about-fc-stat-val">250M+</div><div class="about-fc-stat-label">Views generated</div></div>
-                    <div class="about-fc-stat"><div class="about-fc-stat-val">20+</div><div class="about-fc-stat-label">Videos per month</div></div>
-                    <div class="about-fc-stat"><div class="about-fc-stat-val">6+</div><div class="about-fc-stat-label">Years in content</div></div>
-                    <div class="about-fc-stat"><div class="about-fc-stat-val">100%</div><div class="about-fc-stat-label">Original content</div></div>
-                </div>
-                <div class="about-fc-services">
-                    <span class="about-fc-tag">Short-Form Video</span>
-                    <span class="about-fc-tag">TikTok Management</span>
-                    <span class="about-fc-tag">Instagram Reels</span>
-                    <span class="about-fc-tag">Paid Ads</span>
-                    <span class="about-fc-tag">Local SEO</span>
-                    <span class="about-fc-tag">Website Design</span>
-                    <span class="about-fc-tag">Branding</span>
-                    <span class="about-fc-tag">Social Media Management</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container"><div class="section-divider"></div></div>
-
-    <!-- How We'd Help -->
-    <div class="container">
-        <div class="section">
-            <div class="section-label">How We'd Help</div>
-            <div class="section-title">What We Could Do for Pique</div>
-            <p class="section-text" style="margin-bottom: 32px;">Here is how we would help turn Pique's room, menu and following into reach and covers. It all centres on short-form video, filmed in the venue around your cocktails, plates and occasions, with the channels built and run for you. It is the same full-service approach we run for New Greek, the Newcastle restaurant we took to over 70 million views, where we built the website and run all of their content.</p>
-
-            <div class="enhancement-card">
-                <h4>Content &amp; Social Media</h4>
-                <p>A steady stream of short-form video built around your cocktails, small plates, the room and the different occasions, edited to travel and posted across your channels to build reach and bookings.</p>
-                <ul class="enhancement-list">
-                    <li>Cocktail and food films, room reveals, occasion content and the late-bar buzz</li>
-                    <li>Posted across Instagram, TikTok and Facebook, built to reach not just to fill the feed</li>
-                    <li>Editing, captions, hooks, hashtags, audio and posting all handled for you</li>
-                    <li>Monthly reporting on reach, growth and best-performing content</li>
-                </ul>
-            </div>
-
-            <div class="enhancement-card">
-                <h4>Social Media Management</h4>
-                <p>We run your Instagram, TikTok and Facebook properly, tuned to Newcastle diners, so the effort finally turns into reach and bookings instead of posts that disappear.</p>
-                <ul class="enhancement-list">
-                    <li>A consistent, hooky posting rhythm across all channels</li>
-                    <li>Local hashtags, area tags and community management</li>
-                    <li>The strategy shifted from polished stills to video built to travel</li>
-                </ul>
-            </div>
-
-            <div class="enhancement-card">
-                <h4>Targeted Local Ads</h4>
-                <p>We can run tightly targeted local ads that put your best cocktail and food content in front of Newcastle diners choosing where to eat and drink, and drive bookings straight to you.</p>
-                <ul class="enhancement-list">
-                    <li>Targeted to Gosforth, Jesmond and central Newcastle</li>
-                    <li>Your best cocktail and small-plates reels used as the ads</li>
-                    <li>Bookings and private dining enquiries driven straight to you</li>
-                    <li>Tracked so the spend is always accountable</li>
-                </ul>
-            </div>
-
-            <div class="enhancement-card">
-                <h4>Website &amp; Booking Capture</h4>
-                <p>We also build and optimise websites and tidy up the booking and enquiry flow, so the new attention turns into real tables in your diary and fixes those quick SEO basics along the way.</p>
-                <ul class="enhancement-list">
-                    <li>A site and booking flow built to turn visitors into reservations</li>
-                    <li>Everything joined up: content, social, ads and website under one roof</li>
-                </ul>
-                <div class="highlight-box">
-                    <p><strong>See examples:</strong> here are two sites we built and run, the New Greek restaurant and the New Greek Bakery, with menus, ordering and bookings. <a href="https://newgreek.co.uk" target="_blank" rel="noopener" style="color:var(--coral); font-weight:700; text-decoration:none;">View New Greek &rarr;</a> &nbsp; <a href="https://newgreekbakery.co.uk" target="_blank" rel="noopener" style="color:var(--coral); font-weight:700; text-decoration:none;">View New Greek Bakery &rarr;</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container"><div class="section-divider"></div></div>
-
-    <!-- Next Steps -->
-    <div class="container">
-        <div class="section">
-            <div class="section-label">Next Steps</div>
-            <div class="section-title">What Next</div>
-            <div class="card next-steps-card">
-                <ol class="steps-list">
-                    <li>Have a read through this audit. Everything is in here, the gaps, the ideas, and the ways we could help, from the content right through to the ads and the website.</li>
-                    <li>Let me know which occasions you most want to fill (quiet midweek covers, weekend late bar, private dining) and I will tailor the plan around it.</li>
-                    <li>The ideal first step is a single shoot in the venue, a set of cocktail and food clips and a room reveal, so you can see exactly what your content looks like done properly.</li>
-                    <li>Once you are happy, just reply to confirm and I will get the channels set up and line up that first shoot.</li>
-                </ol>
-                <p class="closing-note">Honestly, you have built one of the most distinctive rooms in Newcastle with a menu made for video, which is the hard part. The content is the easy bit, it is happening in front of you every service, it just is not travelling yet. As a Newcastle agency that films in person and took a local restaurant to 70 million views, we are well placed to make Pique the place people across the city are booking. Let's get the first shoot in the diary.</p>
-                <div class="cta-wrap">
-                    <a href="mailto:jay@fusioncreative.uk?subject=Pique%20-%20Getting%20Started" class="cta-btn">Let's Get Started</a>
-                    <a href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Pique%20audit" target="_blank" rel="noopener" class="cta-btn-wa">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align:-3px; margin-right:8px;"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp
-                    </a>
-                    <div class="cta-sub">Reply to this email, message me on WhatsApp, or give me a call whenever you are ready.</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container"><div class="section-divider"></div></div>
-
-    <!-- Signature -->
-    <div class="container">
-        <div class="signature">
-            <div class="signature-name">Jay Williams</div>
-            <div class="signature-role">Founder, Fusion Creative</div>
-            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="container">
-        <footer class="footer">
-            <div class="footer-confidential">Confidential - Prepared for Pique</div>
-            <div class="footer-note">Prepared for Pique using the piquegosforth.com website, Instagram and Facebook on 28 August 2026.</div>
-            <div class="footer-brand"><span>Fusion Creative</span></div>
-        </footer>
-    </div>
-
-  <script>
-  (function(){
-    var intro=document.getElementById('fc-intro');if(!intro)return;
-    var canvas=document.getElementById('fc-intro-canvas');
-    var gl=canvas.getContext('webgl')||canvas.getContext('experimental-webgl');
-    var raf=0,dismissed=false;
-    function dismiss(){if(dismissed)return;dismissed=true;intro.classList.add('fc-out');document.body.classList.remove('fc-locked');setTimeout(function(){if(raf)cancelAnimationFrame(raf);intro.style.display='none';},900);}
-    intro.addEventListener('click',dismiss);
-    if(!gl)return;
-    var vsrc='attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
-    var fsrc=['precision highp float;','uniform vec2 u_res;uniform float u_time;uniform vec2 u_mouse;',
-      'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
-      'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);',
-      'return mix(mix(hash(i),hash(i+vec2(1.0,0.0)),u.x),mix(hash(i+vec2(0.0,1.0)),hash(i+vec2(1.0,1.0)),u.x),u.y);}',
-      'float fbm(vec2 p){float v=0.0,a=0.5;for(int i=0;i<5;i++){v+=a*noise(p);p*=2.0;a*=0.5;}return v;}',
-      'void main(){vec2 uv=gl_FragCoord.xy/u_res.xy;float asp=u_res.x/u_res.y;vec2 p=uv;p.x*=asp;vec2 mo=u_mouse;mo.x*=asp;float t=u_time*0.05;',
-      'vec2 q=p*1.5+vec2(t,-t*0.7);q+=(mo-p)*0.3;float w=fbm(q+fbm(q+t));float w2=fbm(q*1.4-t*0.5+w);',
-      'vec3 cDark=vec3(0.07,0.06,0.11);vec3 cBlue=vec3(0.30,0.34,0.58);vec3 cPink=vec3(0.74,0.40,0.52);vec3 cCoral=vec3(0.91,0.36,0.20);',
-      'vec3 col=mix(cDark,cBlue,smoothstep(0.15,0.85,w));col=mix(col,cPink,smoothstep(0.35,0.95,w2));',
-      'float d=distance(p,mo);col+=cCoral*smoothstep(0.75,0.0,d)*0.55*(0.6+0.4*sin(u_time*0.6));',
-      'col*=1.0-0.28*pow(distance(uv,vec2(0.5)),2.0);gl_FragColor=vec4(col,1.0);}'].join('\n');
-    function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
-    var prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,vsrc));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fsrc));gl.linkProgram(prog);gl.useProgram(prog);
-    var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
-    var loc=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
-    var uRes=gl.getUniformLocation(prog,'u_res'),uTime=gl.getUniformLocation(prog,'u_time'),uMouse=gl.getUniformLocation(prog,'u_mouse');
-    var mouse=[0.5,0.55],tgt=[0.5,0.55];
-    function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.floor(innerWidth*dpr);canvas.height=Math.floor(innerHeight*dpr);gl.viewport(0,0,canvas.width,canvas.height);}
-    window.addEventListener('resize',resize);resize();
-    window.addEventListener('pointermove',function(e){tgt[0]=e.clientX/innerWidth;tgt[1]=1.0-e.clientY/innerHeight;});
-    var start=performance.now();
-    function frame(now){mouse[0]+=(tgt[0]-mouse[0])*0.06;mouse[1]+=(tgt[1]-mouse[1])*0.06;gl.uniform2f(uRes,canvas.width,canvas.height);gl.uniform1f(uTime,(now-start)/1000);gl.uniform2f(uMouse,mouse[0],mouse[1]);gl.drawArrays(gl.TRIANGLES,0,3);raf=requestAnimationFrame(frame);}
-    raf=requestAnimationFrame(frame);
-  })();
-  </script>
+</div>
 </body>
 </html>
