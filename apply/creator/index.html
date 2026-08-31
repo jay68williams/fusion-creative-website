@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Content Creator | Next Stage | Fusion Creative</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--coral:#E8553C;--bg:#0A0A0A;--panel:#121212;--card:#181818;--line:rgba(255,255,255,0.10);--text:#EDEAE4;--muted:#9A968E;--green:#3FCF8E}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px}
+.hero{padding:64px 0 40px;text-align:center;border-bottom:1px solid var(--line)}
+.kicker{font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:3px;text-transform:uppercase;color:var(--coral);margin-bottom:16px}
+h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(32px,7vw,48px);line-height:1.1}
+.hero p{color:var(--muted);font-size:16px;max-width:520px;margin:16px auto 0}
+.hero .boost{margin-top:20px;display:inline-block;background:rgba(63,207,142,0.1);border:1px solid rgba(63,207,142,0.35);color:var(--green);font-size:13.5px;padding:10px 18px;border-radius:100px}
+section{padding:36px 0 6px}
+.s-title{font-family:'DM Serif Display',serif;font-size:24px;margin-bottom:4px}
+.s-sub{color:var(--muted);font-size:14px;margin-bottom:20px}
+label{display:block;font-size:14px;font-weight:600;margin:18px 0 7px}
+label .opt{color:var(--muted);font-weight:400;font-size:12.5px}
+input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 15px;color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:15px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--coral)}
+.yn{display:flex;gap:10px}
+.yn button{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px;color:var(--muted);font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;cursor:pointer}
+.yn button.on{background:rgba(232,85,60,0.15);border-color:var(--coral);color:var(--text)}
+.follow{display:none;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--coral);border-radius:12px;padding:6px 18px 18px;margin-top:12px}
+.follow.open{display:block}
+.up{border:2px dashed var(--line);border-radius:14px;padding:22px;text-align:center;cursor:pointer;transition:border-color .2s}
+.up:hover{border-color:var(--coral)}
+.up .big{font-weight:600;font-size:15px}
+.up .small{color:var(--muted);font-size:12.5px;margin-top:4px}
+.filelist{margin-top:10px}
+.filelist .f{display:flex;justify-content:space-between;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 14px;font-size:13px;margin-top:6px}
+.filelist .f .st{color:var(--green);font-family:'Space Mono',monospace;font-size:11px}
+.filelist .f .st.err{color:var(--coral)}
+.submit-error{display:none;margin-top:16px;padding:14px 16px;border-radius:10px;background:rgba(232,85,60,0.12);border:1px solid rgba(232,85,60,0.4);color:#F0745F;font-size:14px}
+#send{width:100%;margin:30px 0 8px;background:var(--coral);color:#fff;font-weight:700;font-size:16.5px;padding:17px;border-radius:14px;border:none;cursor:pointer;font-family:'Space Grotesk',sans-serif}
+#send:disabled{opacity:0.55;cursor:wait}
+.success{display:none;text-align:center;padding:70px 0}
+.success h2{font-family:'DM Serif Display',serif;font-size:30px;margin-bottom:12px}
+.success p{color:var(--muted);font-size:15px}
+footer{padding:30px 0 46px;text-align:center;color:var(--muted);font-size:12.5px}
+@media (max-width:560px){.hero{padding:46px 0 30px}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="kicker">Content Creator &middot; Next Stage</div>
+    <h1>Nice one. Let&rsquo;s get to know you properly.</h1>
+    <p>You made our shortlist. This takes about 10 minutes, and only your name and email are required. But here is the honest truth:</p>
+    <div class="boost">The more you add, especially video, the stronger your application.</div>
+  </div>
+
+  <div id="form">
+    <section>
+      <div class="s-title">About you</div>
+      <label>Your name</label><input type="text" id="f_name" autocomplete="name">
+      <label>Email</label><input type="email" id="f_email" autocomplete="email">
+      <label>Phone <span class="opt">(optional)</span></label><input type="tel" id="f_phone" autocomplete="tel">
+      <label>Where are you based? <span class="opt">(optional)</span></label><input type="text" id="f_location" placeholder="e.g. Heaton, Newcastle">
+      <label>Your Instagram <span class="opt">(optional)</span></label><input type="text" id="f_instagram" placeholder="@handle">
+      <label>Your TikTok <span class="opt">(optional)</span></label><input type="text" id="f_tiktok" placeholder="@handle">
+      <label>Do you have a driving licence and access to a car? <span class="opt">(we film at venues across the North East)</span></label>
+      <div class="yn" data-key="driving"><button type="button" data-v="Yes">Yes</button><button type="button" data-v="No">No</button></div>
+      <label>Do you have the right to work in the UK?</label>
+      <div class="yn" data-key="right_to_work"><button type="button" data-v="Yes">Yes</button><button type="button" data-v="No">No</button></div>
+    </section>
+
+    <section>
+      <div class="s-title">Your content</div>
+      <div class="s-sub">No content experience is not a dealbreaker. But if you have it, show it off.</div>
+      <label>Have you created content before?</label>
+      <div class="yn" data-key="created_before" data-follow="fw_created"><button type="button" data-v="Yes">Yes</button><button type="button" data-v="No">No</button></div>
+      <div class="follow" id="fw_created">
+        <label>Who was it for, and what kind of content?</label><textarea id="f_created_detail" rows="2"></textarea>
+        <label>Drop links to some of it <span class="opt">(TikTok, Instagram, YouTube, anything)</span></label><textarea id="f_created_links" rows="2" placeholder="One link per line"></textarea>
+        <label>Any results you are proud of? <span class="opt">(views, growth, sales, anything measurable)</span></label><textarea id="f_best_results" rows="2"></textarea>
+      </div>
+      <label>Do you have a portfolio of content we can look at?</label>
+      <div class="yn" data-key="portfolio" data-follow="fw_portfolio"><button type="button" data-v="Yes">Yes</button><button type="button" data-v="No">No</button></div>
+      <div class="follow" id="fw_portfolio">
+        <label>Portfolio link(s)</label><textarea id="f_portfolio_links" rows="2" placeholder="One link per line"></textarea>
+        <label>Upload a few of your best performing videos <span class="opt">(up to 5)</span></label>
+        <div class="up" id="upPortfolio"><div class="big">Tap to add videos</div><div class="small">MP4 or MOV, up to 200MB each</div></div>
+        <div class="filelist" id="listPortfolio"></div>
+        <label>What do you think made your best video work?</label><textarea id="f_portfolio_why" rows="2"></textarea>
+      </div>
+    </section>
+
+    <section>
+      <div class="s-title">On camera</div>
+      <label>Are you comfortable being on camera?</label>
+      <div class="yn" data-key="on_camera"><button type="button" data-v="Yes">Yes</button><button type="button" data-v="No">No</button></div>
+      <label>Are you comfortable speaking straight into a camera?</label>
+      <div class="yn" data-key="to_camera"><button type="button" data-v="Yes">Yes</button><button type="button" data-v="No">No</button></div>
+      <label>Are you comfortable acting things out? <span class="opt">(skits, characters, being a bit silly for the camera)</span></label>
+      <div class="yn" data-key="acting" data-follow="fw_acting"><button type="button" data-v="Yes">Yes</button><button type="button" data-v="No">No</button></div>
+      <div class="follow" id="fw_acting">
+        <label>Tell us about a time, or link an example <span class="opt">(optional)</span></label><textarea id="f_on_camera_example" rows="2"></textarea>
+      </div>
+      <label style="margin-top:26px">Your 30 second intro <span class="opt">(the single best thing you can add)</span></label>
+      <p class="s-sub" style="margin-bottom:10px">Film it on your phone right now. Who you are, what you do, and why you want this. Do not overthink it, we care about energy, not production.</p>
+      <div class="up" id="upIntro"><div class="big">Tap to upload your intro video</div><div class="small">30 to 60 seconds is perfect</div></div>
+      <div class="filelist" id="listIntro"></div>
+    </section>
+
+    <section>
+      <div class="s-title">The practical bits</div>
+      <label>Can you edit? <span class="opt">(CapCut, Premiere, anything, and how confident)</span></label><input type="text" id="f_editing">
+      <label>Do you have your own equipment? <span class="opt">(a phone with a decent camera counts)</span></label><input type="text" id="f_equipment">
+      <label>When could you start, and what is your availability?</label><input type="text" id="f_availability">
+      <label>Looking for full time or part time?</label>
+      <select id="f_work_pattern"><option value="">Choose one</option><option>Full time</option><option>Part time</option><option>Flexible, either</option></select>
+      <label>Some shoots run evenings and weekends. Workable?</label>
+      <div class="yn" data-key="evenings_weekends"><button type="button" data-v="Yes">Yes</button><button type="button" data-v="Mostly">Mostly</button><button type="button" data-v="No">No</button></div>
+      <label>Salary expectations <span class="opt">(optional)</span></label><input type="text" id="f_salary">
+    </section>
+
+    <section>
+      <div class="s-title">One last thing</div>
+      <label>Pitch us one video idea for a Newcastle restaurant that you reckon would do 100k views.</label>
+      <p class="s-sub" style="margin-bottom:10px">There is no wrong answer. We just want to see how you think.</p>
+      <textarea id="f_pitch" rows="3"></textarea>
+      <label>Anything else you want us to know? <span class="opt">(optional)</span></label><textarea id="f_anything_else" rows="2"></textarea>
+    </section>
+
+    <div class="submit-error" id="err"></div>
+    <button id="send">Send my application</button>
+    <p style="text-align:center;color:var(--muted);font-size:12.5px;margin-bottom:10px" id="upWait" hidden>Waiting for videos to finish uploading...</p>
+  </div>
+
+  <div class="success" id="done">
+    <h2>Application in.</h2>
+    <p>Check your inbox for a confirmation. Jay reviews every application personally and will be in touch about the next step.</p>
+  </div>
+
+  <footer>Fusion Creative &middot; Newcastle &middot; fusioncreative.uk</footer>
+</div>
+
+<input type="file" id="pickPortfolio" accept="video/*" multiple hidden>
+<input type="file" id="pickIntro" accept="video/*" hidden>
+
+<script>
+(function(){
+  var API='https://newgreek.fusioncreative.uk/api/creator-application/';
+  var answers={}, files=[], uploading=0;
+
+  document.querySelectorAll('.yn').forEach(function(g){
+    g.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        g.querySelectorAll('button').forEach(function(x){x.classList.remove('on')});
+        b.classList.add('on');
+        answers[g.getAttribute('data-key')]=b.getAttribute('data-v');
+        var fw=g.getAttribute('data-follow');
+        if(fw){ document.getElementById(fw).classList.toggle('open', b.getAttribute('data-v')==='Yes'); }
+      });
+    });
+  });
+
+  function wireUpload(zoneId,inputId,listId,label,max){
+    var zone=document.getElementById(zoneId),input=document.getElementById(inputId),list=document.getElementById(listId);
+    zone.addEventListener('click',function(){input.click()});
+    input.addEventListener('change',function(){
+      Array.prototype.slice.call(input.files).slice(0,max).forEach(function(file){
+        if(file.size>220*1024*1024){ addRow(list,file.name,'TOO BIG (200MB max)',true); return; }
+        var row=addRow(list,file.name,'uploading...');
+        uploading++; setWait();
+        fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'sign',filename:file.name})})
+        .then(function(r){return r.json()})
+        .then(function(j){
+          if(!j.signedUrl) throw new Error(j.error||'sign failed');
+          return fetch(j.signedUrl,{method:'PUT',headers:{'Content-Type':file.type||'video/mp4','x-upsert':'false','Authorization':'Bearer '+j.token},body:file})
+            .then(function(r2){ if(!r2.ok) throw new Error('upload failed'); files.push({label:label+': '+file.name,url:j.url}); row.querySelector('.st').textContent='uploaded'; });
+        })
+        .catch(function(){ row.querySelector('.st').textContent='failed, tap to retry'; row.querySelector('.st').classList.add('err'); })
+        .finally(function(){ uploading--; setWait(); });
+      });
+      input.value='';
+    });
+  }
+  function addRow(list,name,st,err){
+    var d=document.createElement('div'); d.className='f';
+    d.innerHTML='<span>'+name.replace(/</g,'&lt;')+'</span><span class="st'+(err?' err':'')+'">'+st+'</span>';
+    list.appendChild(d); return d;
+  }
+  function setWait(){ document.getElementById('upWait').hidden = uploading===0; }
+  wireUpload('upPortfolio','pickPortfolio','listPortfolio','Portfolio',5);
+  wireUpload('upIntro','pickIntro','listIntro','Intro',1);
+
+  document.getElementById('send').addEventListener('click',function(){
+    var err=document.getElementById('err'); err.style.display='none';
+    if(uploading>0){ err.textContent='Hold on, your videos are still uploading. The button will work the second they are done.'; err.style.display='block'; return; }
+    var payload={
+      name:val('f_name'), email:val('f_email'), phone:val('f_phone'),
+      location:val('f_location'), instagram:val('f_instagram'), tiktok:val('f_tiktok'),
+      created_detail:val('f_created_detail'), created_links:val('f_created_links'), best_results:val('f_best_results'),
+      portfolio_links:val('f_portfolio_links'), portfolio_why:val('f_portfolio_why'),
+      on_camera_example:val('f_on_camera_example'),
+      editing:val('f_editing'), equipment:val('f_equipment'), availability:val('f_availability'),
+      work_pattern:val('f_work_pattern'), salary:val('f_salary'), pitch:val('f_pitch'), anything_else:val('f_anything_else'),
+      files:files
+    };
+    for(var k in answers) payload[k]=answers[k];
+    if(!payload.name||!payload.email||payload.email.indexOf('@')<0){
+      err.textContent='Please add your name and a valid email.'; err.style.display='block';
+      window.scrollTo({top:0,behavior:'smooth'}); return;
+    }
+    var btn=document.getElementById('send'); btn.disabled=true; btn.textContent='Sending...';
+    fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(res){
+      if(!res.ok){ return res.json().then(function(j){ throw new Error(j.error||'Could not send'); }); }
+      document.getElementById('form').style.display='none';
+      document.getElementById('done').style.display='block';
+      window.scrollTo({top:0});
+    })
+    .catch(function(e){
+      btn.disabled=false; btn.textContent='Try again';
+      err.textContent=(e&&e.message?e.message:'That did not send.')+' If it keeps failing, email jay@fusioncreative.uk.';
+      err.style.display='block';
+    });
+  });
+  function val(id){ var el=document.getElementById(id); return el?el.value.trim():''; }
+})();
+</script>
+
+</body>
+</html>
