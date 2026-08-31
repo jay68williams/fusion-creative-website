@@ -266,6 +266,7 @@ footer a{color:var(--muted)}
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.12});
     els.forEach(function(e){io.observe(e)});
   } else { els.forEach(function(e){e.classList.add('in')}); }
+  setTimeout(function(){ els.forEach(function(e){ e.classList.add('in'); }); }, 2200);
   // grow the bars when visible
   var bars=document.getElementById('revBars');
   function grow(){ bars.querySelectorAll('.fill').forEach(function(f){ f.style.height=f.getAttribute('data-h')+'%'; }); }
