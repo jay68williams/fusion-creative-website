@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Proposal - Real Gym Food | Fusion Creative</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --ink: #0a0a0a; --ink-soft: #161616; --paper: #ffffff; --paper-alt: #f5f4f1;
+            --card-border: rgba(10,10,10,0.12);
+            --text: #101010; --text-secondary: #3f3f3f; --text-muted: #757575;
+            --on-ink: #ffffff; --on-ink-soft: rgba(255,255,255,0.82); --on-ink-mute: rgba(255,255,255,0.6);
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--paper); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+        .display { font-family: 'Anton', 'Arial Narrow', sans-serif; font-weight: 400; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .header { padding: 30px 0 26px; border-bottom: 1px solid var(--card-border); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .brand-lockup { display: flex; align-items: center; gap: 14px; }
+        .brand-lockup .rgf-mark { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+        .brand-lockup .rgf-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .brand-lockup .lockup-x { color: var(--text-muted); font-weight: 600; font-size: 14px; }
+        .brand-lockup .fc-name { font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ink); }
+        .header-date { font-size: 13px; color: var(--text-muted); }
+
+        .hero { position: relative; margin-top: 28px; border-radius: 24px; overflow: hidden; background: var(--ink); animation: fadeInUp 0.6s ease both; }
+        .hero-inner { position: relative; z-index: 2; padding: 76px 48px 68px; }
+        .hero-label { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--on-ink-mute); margin-bottom: 26px; }
+        .hero-logo { width: 104px; height: 104px; border-radius: 50%; overflow: hidden; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.18); }
+        .hero-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .hero h1 { font-size: clamp(44px, 8vw, 76px); line-height: 1.02; color: var(--on-ink); margin-bottom: 24px; max-width: 620px; }
+        .hero-subtitle { font-size: 17px; color: var(--on-ink-soft); max-width: 560px; line-height: 1.7; }
+        .hero-plates { position: absolute; right: -40px; top: 50%; transform: translateY(-50%); opacity: 0.08; width: 340px; color: #fff; }
+        .hero-plates svg { display: block; width: 100%; height: auto; }
+
+        .section { padding: 48px 0; animation: fadeInUp 0.6s ease both; }
+        .section-divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(10,10,10,0.16), transparent); }
+        .card { background: var(--paper); border: 1px solid var(--card-border); border-radius: 22px; padding: 40px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 10px 34px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 3px 8px rgba(0,0,0,0.07), 0 20px 54px rgba(0,0,0,0.08); }
+        .section-label { font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+        .section-title { font-family: 'Anton', 'Arial Narrow', sans-serif; font-weight: 400; font-size: 40px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 24px; line-height: 1.05; color: var(--ink); }
+        .section-text { color: var(--text-secondary); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+        .section-text:last-child { margin-bottom: 0; }
+        .intro-card { background: var(--paper-alt); border-color: rgba(10,10,10,0.16); }
+        .intro-card .greeting { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; font-size: 30px; margin-bottom: 16px; color: var(--ink); }
+        .highlight-box { background: var(--ink); border-radius: 14px; padding: 20px 24px; margin-top: 18px; }
+        .highlight-box p { font-size: 14px; color: var(--on-ink-soft); margin-bottom: 0; line-height: 1.7; }
+        .highlight-box strong { color: var(--on-ink); }
+
+        .proof-strip { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin: 22px 0 10px; }
+        .proof-cell { text-align: center; background: var(--paper); border: 1px solid var(--card-border); border-radius: 14px; padding: 18px 8px; min-width: 0; }
+        .proof-cell .proof-num { font-family: 'Anton', sans-serif; font-size: 27px; color: var(--ink); letter-spacing: 0.5px; }
+        .proof-cell .proof-label { font-size: 11px; color: var(--text-muted); margin-top: 4px; line-height: 1.35; }
+
+        .flag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .flag-card { background: var(--paper); border: 1px solid var(--card-border); border-radius: 22px; padding: 32px; position: relative; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 10px 34px rgba(0,0,0,0.05); transition: transform 0.3s ease; }
+        .flag-card:hover { transform: translateY(-4px); }
+        .flag-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--ink); }
+        .flag-tagline { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+        .flag-title { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; font-size: 26px; margin-bottom: 14px; line-height: 1.12; color: var(--ink); }
+        .flag-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .flag-card .flag-why { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--card-border); }
+        .flag-card .flag-why strong { color: var(--ink); font-weight: 700; }
+
+        .pillar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+        .pillar-cell { background: var(--paper-alt); border: 1px solid rgba(10,10,10,0.1); border-radius: 14px; padding: 22px 24px; }
+        .pillar-cell .pillar-num { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+        .pillar-cell h4 { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; font-size: 19px; color: var(--ink); margin-bottom: 6px; letter-spacing: 0.5px; }
+        .pillar-cell p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; }
+        .pillar-cell .pillar-count { display: inline-block; margin-top: 10px; background: var(--ink); color: var(--on-ink); padding: 3px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+
+        .rhythm-note { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; margin-top: 4px; }
+
+        .pkg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .pkg { border: 1px solid var(--card-border); border-radius: 22px; padding: 36px 32px; background: var(--paper); position: relative; box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 10px 34px rgba(0,0,0,0.05); }
+        .pkg.pkg-feature { background: var(--ink); border-color: var(--ink); color: #fff; }
+        .pkg-name { font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+        .pkg.pkg-feature .pkg-name { color: var(--on-ink-mute); }
+        .pkg-price { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 52px; line-height: 1; color: var(--ink); letter-spacing: 1px; }
+        .pkg.pkg-feature .pkg-price { color: #fff; }
+        .pkg-price span { font-size: 16px; font-family: 'Inter', sans-serif; font-weight: 600; color: var(--text-muted); letter-spacing: 0; }
+        .pkg.pkg-feature .pkg-price span { color: rgba(255,255,255,0.7); }
+        .pkg-videos { font-size: 15px; font-weight: 700; margin: 10px 0 18px; color: var(--ink); }
+        .pkg.pkg-feature .pkg-videos { color: var(--on-ink); }
+        .pkg ul { list-style: none; }
+        .pkg ul li { font-size: 13.5px; padding: 6px 0 6px 20px; position: relative; color: var(--text-secondary); line-height: 1.55; }
+        .pkg.pkg-feature ul li { color: rgba(255,255,255,0.85); }
+        .pkg ul li::before { content: ''; position: absolute; left: 0; top: 13px; width: 7px; height: 7px; border-radius: 2px; background: var(--ink); }
+        .pkg.pkg-feature ul li::before { background: #fff; }
+        .pkg-tag { position: absolute; top: 22px; right: 24px; background: #fff; color: var(--ink); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; border: 1px solid var(--card-border); }
+        .pkg.pkg-feature .pkg-tag { background: #fff; color: var(--ink); border-color: #fff; }
+        .pkg-note { margin-top: 20px; font-size: 13.5px; color: var(--text-muted); line-height: 1.7; }
+
+        .site-card { border: 1px solid var(--card-border); border-radius: 22px; padding: 36px; background: var(--paper); box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 10px 34px rgba(0,0,0,0.05); }
+        .site-card h4 { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; font-size: 23px; color: var(--ink); margin-bottom: 12px; letter-spacing: 0.5px; }
+        .site-card ul { list-style: none; margin: 12px 0; }
+        .site-card ul li { font-size: 14px; color: var(--text-secondary); padding: 6px 0 6px 20px; position: relative; line-height: 1.6; }
+        .site-card ul li::before { content: ''; position: absolute; left: 0; top: 13px; width: 7px; height: 7px; border-radius: 2px; background: var(--ink); }
+        .site-card a { color: var(--ink); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--ink); }
+
+        .terms-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .terms-table tr { border-bottom: 1px solid rgba(10,10,10,0.07); }
+        .terms-table tr:last-child { border-bottom: none; }
+        .terms-table td { padding: 14px 0; vertical-align: top; }
+        .terms-table td:first-child { color: var(--ink); font-weight: 700; padding-right: 24px; white-space: nowrap; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; padding-top: 17px; }
+        .terms-table td:last-child { color: var(--text-secondary); line-height: 1.7; }
+
+        .steps-list { list-style: none; counter-reset: steps; }
+        .steps-list li { counter-increment: steps; display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--card-border); font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+        .steps-list li:last-child { border-bottom: none; }
+        .steps-list li::before { content: counter(steps); display: flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; background: var(--ink); color: white; border-radius: 999px; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+        .next-steps-card { background: var(--paper-alt); border-color: rgba(10,10,10,0.16); }
+        .closing-note { margin-top: 24px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+        .cta-wrap { text-align: center; margin-top: 32px; }
+        .cta-btn { display: inline-block; background: var(--ink); color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; padding: 16px 40px; border-radius: 999px; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; box-shadow: 0 6px 22px rgba(0,0,0,0.25); }
+        .cta-btn:hover { background: #2a2a2a; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .cta-btn-wa { display: inline-block; background: #25D366; color: #ffffff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; padding: 16px 34px; border-radius: 999px; text-decoration: none; margin: 14px 0 0 12px; box-shadow: 0 4px 18px rgba(37,211,102,0.35); transition: background 0.2s, transform 0.2s; }
+        .cta-btn-wa:hover { background: #1da851; transform: translateY(-2px); }
+        .cta-sub { font-size: 13px; color: var(--text-muted); margin-top: 12px; }
+        @media (max-width: 520px) { .cta-btn, .cta-btn-wa { display: block; width: 100%; margin: 0 auto; } .cta-btn-wa { margin-top: 14px; } }
+
+        .signature { padding: 48px 0; }
+        .signature-name { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; font-size: 26px; margin-bottom: 4px; color: var(--ink); letter-spacing: 0.5px; }
+        .signature-role { font-size: 14px; color: var(--text-secondary); margin-bottom: 2px; }
+        .signature-link { font-size: 14px; color: var(--ink); text-decoration: none; font-weight: 700; }
+        .signature-link:hover { text-decoration: underline; }
+
+        .footer { padding: 40px 0; text-align: center; background: var(--ink); border-radius: 24px 24px 0 0; }
+        .footer-logo { width: 74px; height: 74px; border-radius: 50%; overflow: hidden; margin: 0 auto 18px; border: 1px solid rgba(255,255,255,0.18); }
+        .footer-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .footer-confidential { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--on-ink-mute); margin-bottom: 8px; }
+        .footer-brand { margin-top: 16px; font-size: 12px; color: var(--on-ink-mute); }
+        .footer-brand span { color: #fff; font-weight: 700; }
+
+        @media (max-width: 640px) {
+            .container { padding: 0 16px; } .card { padding: 28px 22px; } .section { padding: 32px 0; }
+            .hero-inner { padding: 52px 26px 46px; }
+            .hero-logo { width: 84px; height: 84px; }
+            .section-title { font-size: 31px; }
+            .flag-grid, .pillar-grid, .pkg-grid { grid-template-columns: 1fr; }
+            .proof-strip { grid-template-columns: repeat(2, minmax(0,1fr)); }
+            .site-card { padding: 28px 22px; }
+            .hero-plates { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="container">
+        <div class="header">
+            <div class="header-inner">
+                <div class="brand-lockup">
+                    <div class="rgf-mark"><img src="assets/rgf-logo.jpg" alt="Real Gym Food logo"></div>
+                    <span class="lockup-x">x</span>
+                    <span class="fc-name">Fusion Creative</span>
+                </div>
+                <div class="header-date">Content Proposal &middot; September 2026</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-plates">
+                <svg viewBox="0 0 340 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="55" width="26" height="90" rx="6" fill="currentColor"/>
+                    <rect x="44" y="35" width="26" height="130" rx="6" fill="currentColor"/>
+                    <rect x="78" y="15" width="26" height="170" rx="6" fill="currentColor"/>
+                    <rect x="104" y="88" width="132" height="24" rx="6" fill="currentColor"/>
+                    <rect x="236" y="15" width="26" height="170" rx="6" fill="currentColor"/>
+                    <rect x="270" y="35" width="26" height="130" rx="6" fill="currentColor"/>
+                    <rect x="304" y="55" width="26" height="90" rx="6" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="hero-inner">
+                <div class="hero-label">Content &amp; Growth Proposal</div>
+                <div class="hero-logo"><img src="assets/rgf-logo.jpg" alt="Real Gym Food"></div>
+                <h1 class="display">Don't waste<br>your workout.</h1>
+                <p class="hero-subtitle">Real food, real macros, and nothing else like it out there. This is the plan we talked about, written up so you can see exactly how it runs. Prepared for Martin by Fusion Creative, September 2026.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Intro -->
+    <div class="container">
+        <div class="section">
+            <div class="card intro-card">
+                <div class="greeting">Martin, great to talk</div>
+                <p class="section-text">Thanks for the call today. To put it plainly: we think Real Gym Food has serious potential, and we want to build it with you. Whole foods, single ingredients, measured macros, proper post-workout nutrition tied straight to the gym. Everyone else in this space is selling powders and processed bars. You are cooking real plates for people who train. There is genuinely nothing else like it out there, and that is exactly the kind of story short-form video is built for.</p>
+                <p class="section-text">The name does half the work already. People search "gym food", and that is literally what you are called. Our job is to take what you have built in Hexham and put it on every feed that matters, consistently, with content made to travel rather than just fill a grid.</p>
+                <div class="highlight-box">
+                    <p><strong>Why us:</strong> we took one local North East food business from a standing start to over 87 million views, 1.2 million interactions and 11,000 new followers, including a single reel that did 70 million. Food is our lane, and the gym food niche is one of the most watched categories on TikTok and Instagram right now.</p>
+                </div>
+                <div class="proof-strip">
+                    <div class="proof-cell"><div class="proof-num">87M+</div><div class="proof-label">Views for one client</div></div>
+                    <div class="proof-cell"><div class="proof-num">70M</div><div class="proof-label">Single reel views</div></div>
+                    <div class="proof-cell"><div class="proof-num">1.2M+</div><div class="proof-label">Interactions</div></div>
+                    <div class="proof-cell"><div class="proof-num">11,000+</div><div class="proof-label">Followers grown</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- The angle -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Angle</div>
+            <div class="section-title">What We're Building On</div>
+            <p class="section-text" style="margin-bottom: 28px;">Two things make this brand unusually easy to grow, and everything we make hangs off them.</p>
+            <div class="flag-grid">
+                <div class="flag-card">
+                    <div class="flag-tagline">The positioning</div>
+                    <div class="flag-title">First In The Lane</div>
+                    <p>Real single-ingredient whole food, built for people who train, served as actual plates you can eat in or take away. A premium product for a customer who is happy to pay for quality. Nobody else in the niche is doing this, which means every piece of content plants a flag.</p>
+                    <p class="flag-why"><strong>Why it matters:</strong> a clear point of view is what makes short-form content worth watching and worth following. You have one. Most brands do not.</p>
+                </div>
+                <div class="flag-card">
+                    <div class="flag-tagline">The audience</div>
+                    <div class="flag-title">Demand Already Exists</div>
+                    <p>Gym food, meal prep and high-protein content are among the most watched and most searched categories on TikTok and Instagram. You are not creating demand from nothing. The audience is already there, scrolling, actively looking for exactly what you make.</p>
+                    <p class="flag-why"><strong>Why it matters:</strong> the job is not to convince anyone gym food is interesting. It is to be the brand they find when they look. The name alone gets you halfway.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- The content -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Engine</div>
+            <div class="section-title">What We'll Make</div>
+            <p class="section-text" style="margin-bottom: 28px;">Short-form video filmed with you in Hexham, edited by us, and posted across Instagram and TikTok. Built around four pillars, all shot to travel, not just to fill the feed.</p>
+            <div class="pillar-grid">
+                <div class="pillar-cell">
+                    <div class="pillar-num">Pillar 01</div>
+                    <h4>Refuel</h4>
+                    <p>The signature series. Post-workout plates with the macros on screen: what to eat after push day, leg day, a morning session. Your tagline, made into a format people come back for.</p>
+                    <span class="pillar-count">The flagship</span>
+                </div>
+                <div class="pillar-cell">
+                    <div class="pillar-num">Pillar 02</div>
+                    <h4>The Real Food Standard</h4>
+                    <p>The proof behind the premium. Single ingredients, quality produce, the prep, the plates. This is what justifies the price and separates you from every powder and processed bar out there.</p>
+                    <span class="pillar-count">The differentiator</span>
+                </div>
+                <div class="pillar-cell">
+                    <div class="pillar-num">Pillar 03</div>
+                    <h4>Craveable Menu Content</h4>
+                    <p>The builds, the sizzle, the finished plate. Food is naturally scroll-stopping, and this footage doubles as ready-made ad creative whenever you want to push harder later.</p>
+                    <span class="pillar-count">The hunger</span>
+                </div>
+                <div class="pillar-cell">
+                    <div class="pillar-num">Pillar 04</div>
+                    <h4>Personality &amp; Trends</h4>
+                    <p>Skits, trending formats and the people behind the counter. Across everything we have measured, personality content consistently out-travels straight food films. It is what makes people follow.</p>
+                    <span class="pillar-count">The reach</span>
+                </div>
+            </div>
+            <p class="rhythm-note">Every video gets a proper hook in the first second, captions, audio and posting handled for you, and everything goes out on both Instagram and TikTok. TikTok especially still pushes food content to brand new audiences aggressively, and it is where niches like this get discovered.</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Packages -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Numbers</div>
+            <div class="section-title">Your Package, And The Step Up</div>
+            <p class="section-text" style="margin-bottom: 28px;">As agreed on the call, we start on Starter. Growth is here so you can see exactly what the next gear looks like when you are ready for it. Both are full service: we film in person, edit everything and run the posting.</p>
+            <div class="pkg-grid">
+                <div class="pkg pkg-feature">
+                    <div class="pkg-tag">Where We Start</div>
+                    <div class="pkg-name">Starter</div>
+                    <div class="pkg-price">&pound;899<span> / month</span></div>
+                    <div class="pkg-videos">10 videos every month</div>
+                    <ul>
+                        <li>One shoot day a month, with you in Hexham</li>
+                        <li>All four content pillars covered, led by the Refuel series</li>
+                        <li>Editing, hooks, captions, audio and posting all handled</li>
+                        <li>Instagram and TikTok managed for you</li>
+                        <li>Content planned around your menu and specials</li>
+                        <li>Monthly performance report</li>
+                    </ul>
+                </div>
+                <div class="pkg">
+                    <div class="pkg-tag">The Next Gear</div>
+                    <div class="pkg-name">Growth</div>
+                    <div class="pkg-price">&pound;1,250<span> / month</span></div>
+                    <div class="pkg-videos">20 to 25 videos every month</div>
+                    <ul>
+                        <li>Everything in Starter, at double the volume</li>
+                        <li>Two shoot days a month instead of one</li>
+                        <li>The Real Food Standard running as a weekly series</li>
+                        <li>Collabs with local gyms, lifters and creators</li>
+                        <li>Daily-feed presence across both platforms</li>
+                        <li>Monthly strategy call: what worked, what's next</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="pkg-note">Volume is what compounds on short-form: more shots at the algorithm every week, more chances for one to run. Starter is a proper way in and plenty to prove the engine works. When the numbers are moving, stepping up to Growth is a one-message decision, any month you like.</p>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- The website -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">When You're Ready</div>
+            <div class="section-title">The Website</div>
+            <div class="site-card">
+                <h4>Somewhere For All That Attention To Land</h4>
+                <p class="section-text">Right now, someone who finds Real Gym Food on TikTok has nowhere obvious to go next. As we discussed, when the time comes we can build you a clean, fast website: the menu with macros on every plate, your story, and a simple way to order or get in touch. Built mobile-first, because that is where your traffic will come from.</p>
+                <ul>
+                    <li>Menu, macros and specials, all in one place</li>
+                    <li>WhatsApp ordering wired straight in</li>
+                    <li>Built to convert the traffic the content drives</li>
+                </ul>
+                <p class="section-text" style="margin-top: 14px;">We build and run websites for the food businesses we work with. Two live examples: <a href="https://newgreek.co.uk" target="_blank" rel="noopener">newgreek.co.uk</a> and <a href="https://newgreekbakery.co.uk" target="_blank" rel="noopener">newgreekbakery.co.uk</a>. We will scope and price it properly when you want to pull the trigger. No pressure on timing, the content comes first.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- The bigger picture -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Bigger Picture</div>
+            <div class="section-title">The Partnership Conversation</div>
+            <div class="card">
+                <p class="section-text">You mentioned the idea of a partnership further down the line. We are genuinely open to that conversation. We think this brand can go a long way, and we like backing things we believe in.</p>
+                <p class="section-text">The right time to talk about it is once the engine is running and there are real numbers on the board, so any conversation is grounded in results rather than projections. Let's build the momentum first, then sit down properly.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- The detail -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">The Detail</div>
+            <div class="section-title">How It Runs</div>
+            <div class="card">
+                <table class="terms-table">
+                    <tr><td>Term</td><td>Three month initial term, then monthly rolling. Content compounds, and three months is the honest minimum to judge it on.</td></tr>
+                    <tr><td>Billing</td><td>Monthly in advance by invoice.</td></tr>
+                    <tr><td>Shoots</td><td>One shoot day a month at yours in Hexham. We come to you, we direct everything on the day, and each shoot banks the full month of content.</td></tr>
+                    <tr><td>Switching</td><td>Step up from Starter to Growth any month. No renegotiation, just a message.</td></tr>
+                    <tr><td>From you</td><td>Access on shoot days, a quick sign-off on each month's plan, and your social logins. We handle everything else.</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Next steps -->
+    <div class="container">
+        <div class="section">
+            <div class="section-label">Next Steps</div>
+            <div class="section-title">What Next</div>
+            <div class="card next-steps-card">
+                <ol class="steps-list">
+                    <li>Have a read through and tell me if anything needs adjusting. The pillars, the series names, the split, all of it is flexible.</li>
+                    <li>Reply to confirm and we will get the paperwork over, simple one-pager, nothing painful.</li>
+                    <li>We get the first shoot day in the diary at yours in Hexham and map out month one's content plan.</li>
+                    <li>The first videos start landing on your feeds, and we build from there.</li>
+                </ol>
+                <p class="closing-note">Martin, we mean it when we say the potential here is real. Right product, right name, right niche, and a genuinely open lane. Let's get the first shoot booked and start putting Real Gym Food in front of the audience that is already searching for it.</p>
+                <div class="cta-wrap">
+                    <a href="mailto:jay@fusioncreative.uk?subject=Real%20Gym%20Food%20-%20Let%27s%20Go" class="cta-btn">Let's Get Started</a>
+                    <a href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Real%20Gym%20Food%20proposal" target="_blank" rel="noopener" class="cta-btn-wa">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align:-3px; margin-right:8px;"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp
+                    </a>
+                    <div class="cta-sub">Message me on WhatsApp or reply by email whenever you're ready.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- Signature -->
+    <div class="container">
+        <div class="signature">
+            <div class="signature-name">Jay Williams</div>
+            <div class="signature-role">Founder, Fusion Creative</div>
+            <a href="https://fusioncreative.uk" target="_blank" class="signature-link">fusioncreative.uk</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="footer-logo"><img src="assets/rgf-logo.jpg" alt="Real Gym Food"></div>
+            <div class="footer-confidential">Prepared exclusively for Real Gym Food</div>
+            <div class="footer-brand">Built by <span>Fusion Creative</span> &middot; Newcastle upon Tyne</div>
+        </div>
+    </div>
+
+</body>
+</html>
