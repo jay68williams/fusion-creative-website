@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>August 2026 Performance | The Northumberland Candle Company</title>
+<script>document.documentElement.className+=' js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f0e4; --card:#fdfaf4; --line:#e5dccb;
+    --ink:#2a2421; --body:#55493f; --mut:#9b9086;
+    --coral:#96545e; --coral-dk:#7d4550; --green:#5a7d5a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--body);font-family:Helvetica,Arial,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+  .wrap{max-width:960px;margin:0 auto;padding:0 22px}
+  .eyebrow{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);font-weight:700}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:34px 0 0}
+  .topbar img{width:170px;display:block}
+  .topbar .by{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+  .hero{padding:64px 0 44px;border-bottom:1px solid var(--line);text-align:left}
+  h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(42px,7vw,76px);
+    line-height:1.04;color:var(--ink);letter-spacing:-.01em;margin-top:18px}
+  h1 em{font-style:italic;color:var(--coral)}
+  .daterange{margin-top:16px;font-size:14px;color:var(--mut)}
+  .lead{margin-top:22px;max-width:640px;font-size:16.5px}
+  .statement{margin:40px 0 0;padding:28px 30px;border:1px solid var(--line);border-radius:18px;background:var(--card);
+    font-family:'DM Serif Display',Georgia,serif;font-size:clamp(19px,2.8vw,27px);line-height:1.45;color:var(--ink)}
+  .statement b{color:var(--coral);font-weight:400}
+  section{padding:46px 0;border-bottom:1px solid var(--line)}
+  h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(26px,4vw,36px);color:var(--ink);margin:6px 0 8px}
+  .sub{color:var(--mut);font-size:14px;margin-bottom:28px;max-width:640px}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 20px 18px}
+  .kpi .v{font-family:'DM Serif Display',Georgia,serif;font-size:34px;line-height:1;color:var(--ink)}
+  .kpi .v.coral{color:var(--coral)}
+  .kpi .k{margin-top:10px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+  .kpi .was{margin-top:6px;font-size:12px;color:var(--green);font-weight:700}
+  .kpi .note{margin-top:6px;font-size:12px;color:var(--mut)}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .cmpcard{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--card)}
+  .cmpcard.live{border-color:var(--coral);box-shadow:0 8px 30px rgba(150,84,94,.10)}
+  .cmpcard .h{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+  .cmpcard .big{font-family:'DM Serif Display',Georgia,serif;font-size:40px;line-height:1;color:var(--ink)}
+  .cmpcard.live .big{color:var(--coral)}
+  .cmprow{display:flex;justify-content:space-between;margin-top:11px;font-size:13.5px;color:var(--mut);border-top:1px solid var(--line);padding-top:9px}
+  .cmprow b{color:var(--ink);font-weight:700}
+  .bars{display:flex;flex-direction:column;gap:14px}
+  .bar{display:grid;grid-template-columns:250px 1fr 150px;gap:14px;align-items:center}
+  .bar .nm{font-size:13.5px;color:var(--ink);line-height:1.3}
+  .track{height:24px;background:#efe7d8;border-radius:7px;overflow:hidden}
+  .fill{height:100%;border-radius:7px;background:linear-gradient(90deg,#7d4550,#96545e);width:var(--w)}
+  .bar .vv{font-size:12.5px;text-align:right;color:var(--ink);white-space:nowrap}
+  .bar .vv span{color:var(--mut)}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+  th{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);text-align:left;
+    padding:14px 16px;border-bottom:1px solid var(--line);white-space:nowrap}
+  td{padding:11px 16px;border-bottom:1px solid #efe8da;color:var(--body);white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  td.num,th.num{text-align:right}
+  td b{color:var(--ink)}
+  td .coral{color:var(--coral);font-weight:700}
+  tfoot td{background:#faf5ec;color:var(--ink);font-weight:700}
+  .acts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .act{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--card)}
+  .act .rt{font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:6px}
+  .act .rd{font-size:13.5px;color:var(--body);line-height:1.6}
+  footer{padding:38px 0 60px;color:var(--mut);font-size:12px}
+  footer .fb{color:var(--ink);font-weight:700;letter-spacing:.1em}
+  .method{margin-top:10px;font-size:11px;color:var(--mut);max-width:680px;line-height:1.7}
+  .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+  .js .reveal.in{opacity:1;transform:none}
+  .js .fill{width:0;transition:width 1.1s cubic-bezier(.2,.8,.2,1) .15s}
+  .js .reveal.in .fill{width:var(--w)}
+  @media (prefers-reduced-motion:reduce){
+    .js .reveal{opacity:1!important;transform:none!important;transition:none!important}
+    .js .fill{width:var(--w)!important;transition:none!important}
+  }
+  @media(max-width:720px){
+    .kpis{grid-template-columns:1fr 1fr}
+    .cmp,.acts{grid-template-columns:1fr}
+    .bar{grid-template-columns:1fr;gap:6px}
+    .bar .vv{text-align:left}
+    .topbar img{width:140px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <img src="https://cdn.shopify.com/s/files/1/0624/3618/0153/files/tncc-logo-full-transparent.png?v=1783024081" alt="The Northumberland Candle Company">
+    <div class="by">Prepared by Fusion Creative</div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">Monthly performance report</div>
+    <h1>August <em>2026</em></h1>
+    <div class="daterange">1 to 31 August 2026 &middot; store, Meta ads and email</div>
+    <p class="lead">Store revenue, order volume, paid social and email performance for The Northumberland Candle Company across August, with July alongside for comparison.</p>
+    <div class="statement reveal">The store took <b>&pound;112,230</b> in August from <b>3,650 orders</b>, more than double July, on &pound;14,677 of ad spend. Every &pound;1 of ad spend returned <b>&pound;7.65</b> in total store revenue.</div>
+  </div>
+
+  <section class="reveal">
+    <div class="eyebrow">Overview</div>
+    <h2>The month in six numbers</h2>
+    <div class="kpis">
+      <div class="kpi"><div class="v">&pound;112,230</div><div class="k">Store revenue</div><div class="was">+112% vs July</div></div>
+      <div class="kpi"><div class="v">3,650</div><div class="k">Orders</div><div class="was">+92% vs July</div></div>
+      <div class="kpi"><div class="v">&pound;30.75</div><div class="k">Average order value</div><div class="note">July: &pound;27.89</div></div>
+      <div class="kpi"><div class="v coral">&pound;14,677</div><div class="k">Meta ad spend</div><div class="note">July: &pound;4,773</div></div>
+      <div class="kpi"><div class="v coral">5.64x</div><div class="k">Meta ROAS</div><div class="note">&pound;82,776 attributed revenue</div></div>
+      <div class="kpi"><div class="v coral">&pound;32,103</div><div class="k">Email revenue</div><div class="note">28.6% of store revenue</div></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="eyebrow">Month on month</div>
+    <h2>July against August</h2>
+    <p class="sub">Ad spend was scaled roughly 3x during August. Revenue scaled with it.</p>
+    <div class="cmp">
+      <div class="cmpcard">
+        <div class="h">July 2026</div>
+        <div class="big">&pound;53,050</div>
+        <div class="cmprow"><span>Orders</span><b>1,902</b></div>
+        <div class="cmprow"><span>Ad spend</span><b>&pound;4,773</b></div>
+        <div class="cmprow"><span>Ads attributed revenue</span><b>&pound;39,044</b></div>
+        <div class="cmprow"><span>Meta ROAS</span><b>8.18x</b></div>
+        <div class="cmprow"><span>Revenue per &pound;1 of spend</span><b>&pound;11.11</b></div>
+      </div>
+      <div class="cmpcard live">
+        <div class="h">August 2026</div>
+        <div class="big">&pound;112,230</div>
+        <div class="cmprow"><span>Orders</span><b>3,650</b></div>
+        <div class="cmprow"><span>Ad spend</span><b>&pound;14,677</b></div>
+        <div class="cmprow"><span>Ads attributed revenue</span><b>&pound;82,776</b></div>
+        <div class="cmprow"><span>Meta ROAS</span><b>5.64x</b></div>
+        <div class="cmprow"><span>Revenue per &pound;1 of spend</span><b>&pound;7.65</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="eyebrow">Paid social</div>
+    <h2>Meta ads</h2>
+    <p class="sub">1.81 million impressions reached 449,427 people. 87,531 clicks at a 4.84% click-through rate and a &pound;8.12 CPM produced 2,709 attributed purchases.</p>
+
+    <div class="kpis" style="margin-bottom:26px">
+      <div class="kpi"><div class="v">1.81M</div><div class="k">Impressions</div></div>
+      <div class="kpi"><div class="v">449,427</div><div class="k">People reached</div></div>
+      <div class="kpi"><div class="v">4.84%</div><div class="k">Click-through rate</div><div class="note">87,531 clicks &middot; &pound;8.12 CPM</div></div>
+    </div>
+
+    <h2 style="font-size:22px;margin-top:8px">Spend and return by ad set</h2>
+    <div class="tablewrap" style="margin-bottom:26px">
+      <table>
+        <thead><tr><th>Ad set</th><th class="num">Spend</th><th class="num">Purchases</th><th class="num">Revenue</th><th class="num">ROAS</th></tr></thead>
+        <tbody>
+          <tr><td><b>Reed Diffusers</b></td><td class="num">&pound;7,620</td><td class="num">1,178</td><td class="num">&pound;43,481</td><td class="num"><span class="coral">5.71x</span></td></tr>
+          <tr><td><b>Room Sprays</b></td><td class="num">&pound;2,343</td><td class="num">656</td><td class="num">&pound;15,817</td><td class="num"><span class="coral">6.75x</span></td></tr>
+          <tr><td><b>Broad, all other products</b></td><td class="num">&pound;1,478</td><td class="num">335</td><td class="num">&pound;9,279</td><td class="num"><span class="coral">6.28x</span></td></tr>
+          <tr><td><b>House-made wax</b></td><td class="num">&pound;1,376</td><td class="num">209</td><td class="num">&pound;5,386</td><td class="num"><span class="coral">3.91x</span></td></tr>
+          <tr><td><b>Bundles + Highland Cow</b></td><td class="num">&pound;1,235</td><td class="num">189</td><td class="num">&pound;5,662</td><td class="num"><span class="coral">4.59x</span></td></tr>
+          <tr><td><b>Halloween</b> <span style="color:var(--mut)">(from 29 Aug)</span></td><td class="num">&pound;405</td><td class="num">72</td><td class="num">&pound;1,718</td><td class="num"><span class="coral">4.24x</span></td></tr>
+          <tr><td><b>Car Air Fresheners</b></td><td class="num">&pound;220</td><td class="num">70</td><td class="num">&pound;1,433</td><td class="num"><span class="coral">6.51x</span></td></tr>
+        </tbody>
+        <tfoot><tr><td>Total</td><td class="num">&pound;14,677</td><td class="num">2,709</td><td class="num">&pound;82,776</td><td class="num">5.64x</td></tr></tfoot>
+      </table>
+    </div>
+
+    <h2 style="font-size:22px">Week by week</h2>
+    <div class="tablewrap" style="margin-bottom:26px">
+      <table>
+        <thead><tr><th>Week</th><th class="num">Spend</th><th class="num">Revenue</th><th class="num">ROAS</th></tr></thead>
+        <tbody>
+          <tr><td>1 to 7 Aug</td><td class="num">&pound;2,335</td><td class="num">&pound;14,697</td><td class="num"><span class="coral">6.30x</span></td></tr>
+          <tr><td>8 to 14 Aug</td><td class="num">&pound;2,701</td><td class="num">&pound;18,930</td><td class="num"><span class="coral">7.01x</span></td></tr>
+          <tr><td>15 to 21 Aug</td><td class="num">&pound;3,477</td><td class="num">&pound;19,463</td><td class="num"><span class="coral">5.60x</span></td></tr>
+          <tr><td>22 to 28 Aug</td><td class="num">&pound;4,366</td><td class="num">&pound;19,767</td><td class="num"><span class="coral">4.53x</span></td></tr>
+          <tr><td>29 to 31 Aug</td><td class="num">&pound;1,799</td><td class="num">&pound;9,919</td><td class="num"><span class="coral">5.51x</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="font-size:22px">Top ads by revenue</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Ad</th><th class="num">Spend</th><th class="num">Revenue</th><th class="num">ROAS</th></tr></thead>
+        <tbody>
+          <tr><td><b>New Reed Diffusers</b></td><td class="num">&pound;3,919</td><td class="num">&pound;23,651</td><td class="num"><span class="coral">6.03x</span></td></tr>
+          <tr><td><b>Desire Room Sprays</b></td><td class="num">&pound;2,337</td><td class="num">&pound;15,801</td><td class="num"><span class="coral">6.76x</span></td></tr>
+          <tr><td><b>Singing Highland Cow</b></td><td class="num">&pound;646</td><td class="num">&pound;5,023</td><td class="num"><span class="coral">7.78x</span></td></tr>
+          <tr><td><b>Highland Cow static</b></td><td class="num">&pound;978</td><td class="num">&pound;4,385</td><td class="num"><span class="coral">4.49x</span></td></tr>
+          <tr><td><b>Crystal Jar 1000ml</b></td><td class="num">&pound;721</td><td class="num">&pound;4,074</td><td class="num"><span class="coral">5.65x</span></td></tr>
+          <tr><td><b>Harry's Selection Box</b></td><td class="num">&pound;827</td><td class="num">&pound;3,937</td><td class="num"><span class="coral">4.76x</span></td></tr>
+          <tr><td><b>Diamond Cut Jar 1000ml</b></td><td class="num">&pound;664</td><td class="num">&pound;3,619</td><td class="num"><span class="coral">5.45x</span></td></tr>
+          <tr><td><b>Reed Gift Set v2</b></td><td class="num">&pound;506</td><td class="num">&pound;3,449</td><td class="num"><span class="coral">6.82x</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="eyebrow">Email</div>
+    <h2>Campaigns and flows</h2>
+    <p class="sub">14 campaigns went out in August to 172,509 inboxes. Together with the automated flows, email produced &pound;32,103, which is 28.6% of the month's store revenue.</p>
+
+    <div class="kpis" style="margin-bottom:26px">
+      <div class="kpi"><div class="v">172,509</div><div class="k">Campaign emails sent</div><div class="note">32.0% open &middot; 1.32% click</div></div>
+      <div class="kpi"><div class="v coral">&pound;13,978</div><div class="k">Campaign revenue</div><div class="note">427 orders</div></div>
+      <div class="kpi"><div class="v coral">&pound;18,125</div><div class="k">Flow revenue</div><div class="note">525 orders, automated</div></div>
+    </div>
+
+    <h2 style="font-size:22px">Every campaign sent</h2>
+    <div class="tablewrap" style="margin-bottom:26px">
+      <table>
+        <thead><tr><th>Date</th><th>Campaign</th><th class="num">Sent</th><th class="num">Open</th><th class="num">Click</th><th class="num">Revenue</th></tr></thead>
+        <tbody>
+          <tr><td>1 Aug</td><td>New month, new scents</td><td class="num">5,080</td><td class="num">34.4%</td><td class="num">1.46%</td><td class="num">&pound;419</td></tr>
+          <tr><td>6 Aug</td><td>Subscriptions</td><td class="num">5,045</td><td class="num">33.2%</td><td class="num">0.72%</td><td class="num">&pound;302</td></tr>
+          <tr><td>8 Aug</td><td>The reed diffuser edit</td><td class="num">5,062</td><td class="num">31.8%</td><td class="num">1.05%</td><td class="num">&pound;693</td></tr>
+          <tr><td>12 Aug</td><td>Maison gift set &pound;10 flash</td><td class="num">10,225</td><td class="num">30.4%</td><td class="num">1.56%</td><td class="num">&pound;1,216</td></tr>
+          <tr><td>13 Aug</td><td>Any 3 snap bars for &pound;10</td><td class="num">5,040</td><td class="num">33.1%</td><td class="num">0.32%</td><td class="num">&pound;102</td></tr>
+          <tr><td>14 Aug</td><td>Halloween launch</td><td class="num">18,568</td><td class="num">33.6%</td><td class="num">0.92%</td><td class="num">&pound;540</td></tr>
+          <tr><td>15 Aug</td><td>Bestsellers back in stock</td><td class="num">6,349</td><td class="num">35.5%</td><td class="num">2.24%</td><td class="num">&pound;452</td></tr>
+          <tr><td>16 Aug</td><td>New 360ml room sprays</td><td class="num">18,464</td><td class="num">33.4%</td><td class="num">1.25%</td><td class="num">&pound;1,046</td></tr>
+          <tr><td>21 Aug</td><td>Room sprays restock</td><td class="num">18,972</td><td class="num">31.1%</td><td class="num">1.55%</td><td class="num">&pound;1,869</td></tr>
+          <tr><td>26 Aug</td><td>Mega Weekend teaser</td><td class="num">19,634</td><td class="num">31.5%</td><td class="num">1.34%</td><td class="num">&pound;1,558</td></tr>
+          <tr><td>28 Aug</td><td>Payday Mega Weekend live</td><td class="num">19,577</td><td class="num">30.8%</td><td class="num">1.94%</td><td class="num">&pound;3,093</td></tr>
+          <tr><td>30 Aug</td><td>Mega Weekend final day</td><td class="num">20,157</td><td class="num">31.4%</td><td class="num">1.29%</td><td class="num">&pound;2,051</td></tr>
+          <tr><td>30 Aug</td><td>Delivery update to open orders</td><td class="num">269</td><td class="num">63.4%</td><td class="num">&middot;</td><td class="num">&pound;24</td></tr>
+          <tr><td>31 Aug</td><td>Mega Weekend ends tonight</td><td class="num">20,067</td><td class="num">30.6%</td><td class="num">0.94%</td><td class="num">&pound;612</td></tr>
+        </tbody>
+        <tfoot><tr><td colspan="2">Total</td><td class="num">172,509</td><td class="num">32.0%</td><td class="num">1.32%</td><td class="num">&pound;13,978</td></tr></tfoot>
+      </table>
+    </div>
+
+    <h2 style="font-size:22px">Flow revenue</h2>
+    <div class="bars" style="margin-top:18px">
+      <div class="bar"><div class="nm">Welcome series</div><div class="track"><div class="fill" style="--w:100%"></div></div><div class="vv">&pound;13,478 <span>&middot; 392 orders</span></div></div>
+      <div class="bar"><div class="nm">Abandoned cart</div><div class="track"><div class="fill" style="--w:15%"></div></div><div class="vv">&pound;2,059 <span>&middot; 51 orders</span></div></div>
+      <div class="bar"><div class="nm">Post purchase</div><div class="track"><div class="fill" style="--w:13%"></div></div><div class="vv">&pound;1,703 <span>&middot; 55 orders</span></div></div>
+      <div class="bar"><div class="nm">Replenishment reminders</div><div class="track"><div class="fill" style="--w:5%"></div></div><div class="vv">&pound;638 <span>&middot; 19 orders</span></div></div>
+      <div class="bar"><div class="nm">Back in stock + birthday</div><div class="track"><div class="fill" style="--w:2%"></div></div><div class="vv">&pound;246 <span>&middot; 8 orders</span></div></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="eyebrow">Activity</div>
+    <h2>What ran in August</h2>
+    <div class="acts" style="margin-top:20px">
+      <div class="act"><div class="rt">Halloween range launched</div><div class="rd">Range live on site from 15 August with its own collection, homepage hero and theme. The full Halloween ad set (12 ads) went live 29 August.</div></div>
+      <div class="act"><div class="rt">Payday Mega Weekend</div><div class="rd">28 to 31 August. 1000ml reed diffusers and the gift set of 3 reduced, supported by 4 campaign emails. 250+ orders and &pound;7,600+ over the weekend alone.</div></div>
+      <div class="act"><div class="rt">New products</div><div class="rd">360ml room sprays, velvet and speckled pumpkin candles, singing plush range, crystal touch melter and Halloween bundles all launched during the month.</div></div>
+      <div class="act"><div class="rt">Store conversion work</div><div class="rd">Bundle-and-save prompts added across snap bars, tins, mini boxes and pumpkin candles, one-tap add buttons in the cart, and a site-wide quantity bug fixed on product pages.</div></div>
+    </div>
+  </section>
+
+  <section class="reveal" style="border-bottom:none">
+    <div class="eyebrow">Next</div>
+    <h2>Set up for September</h2>
+    <div class="acts" style="margin-top:20px">
+      <div class="act"><div class="rt">Halloween scaling</div><div class="rd">The Halloween ad set moves to a higher daily budget now all creative is live, with underperformers trimmed as data settles.</div></div>
+      <div class="act"><div class="rt">Christmas prepared</div><div class="rd">The Christmas ad set is built and sitting paused, ready to switch on when the range goes live.</div></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fb">FUSION CREATIVE</div>
+    <div class="method">Prepared for The Northumberland Candle Company, 1 September 2026. Store revenue and order counts from Shopify. Ad figures from Meta Ads Manager (7-day click, 1-day view attribution). Email figures from Klaviyo (attributed Placed Order revenue). Ad and email attributed revenue overlap with each other and with total store revenue and are not additive.</div>
+  </footer>
+
+</div>
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>
