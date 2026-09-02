@@ -210,8 +210,10 @@
   details.cgroup summary::-webkit-details-marker{display:none}
   details.cgroup summary h3{margin:0}
   details.cgroup summary h3 small{display:inline-block;font-family:var(--sans);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-left:10px;vertical-align:middle}
-  details.cgroup .chev{flex:none;width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .2s ease}
-  details.cgroup .chev::before{content:"+";font-size:22px;line-height:1;font-weight:400}
+  details.cgroup .chev{flex:none;position:relative;width:32px;height:32px;border-radius:50%;background:var(--navy);transition:transform .2s ease}
+  details.cgroup .chev::before,details.cgroup .chev::after{content:"";position:absolute;left:50%;top:50%;background:#fff;border-radius:1px;transform:translate(-50%,-50%)}
+  details.cgroup .chev::before{width:14px;height:2px}
+  details.cgroup .chev::after{width:2px;height:14px}
   details.cgroup[open] .chev{transform:rotate(45deg)}
   details.cgroup summary:focus-visible{outline:2px solid var(--yellow);outline-offset:4px}
   .toggle-all{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:6px 0 4px;font-size:13.5px;color:var(--soft)}
