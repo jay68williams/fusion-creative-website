@@ -62,6 +62,33 @@
   .note{border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--card)}
   .note .rt{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px}
   .note .rd{font-size:13.5px;line-height:1.6}
+  .rv{margin-top:12px}
+  .rvbtns{display:flex;gap:8px;flex-wrap:wrap}
+  .rvbtn{font-family:inherit;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    border-radius:30px;padding:9px 20px;cursor:pointer;background:#fff;border:1.5px solid var(--line);color:var(--mut);transition:all .15s}
+  .rvbtn.ok.on{background:#5a7d5a;border-color:#5a7d5a;color:#fff}
+  .rvbtn.no.on{background:var(--coral);border-color:var(--coral);color:#fff}
+  .rvnote{display:block;width:100%;margin-top:8px;font-family:inherit;font-size:13px;color:var(--ink);
+    background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+  .rvnote::placeholder{color:var(--mut)}
+  .stickybar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);
+    box-shadow:0 -6px 24px rgba(42,36,33,.08);padding:12px 18px;z-index:50}
+  .stickyin{max-width:960px;margin:0 auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .stickyin .prog{font-size:13px;color:var(--body);flex:1;min-width:150px}
+  .stickyin .prog b{color:var(--ink)}
+  .sendbtn{font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    background:var(--ink);color:#fff;border:none;border-radius:30px;padding:13px 26px;cursor:pointer}
+  .sendbtn:disabled{opacity:.45;cursor:default}
+  .revpanel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;margin-top:20px}
+  .revpanel label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:700;margin:14px 0 6px}
+  .revpanel input,.revpanel textarea{width:100%;font-family:inherit;font-size:14px;color:var(--ink);
+    background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .revpanel textarea{min-height:80px;resize:vertical}
+  #status{font-size:13px;color:var(--body);margin-top:10px;line-height:1.6}
+  #status a{color:var(--coral);font-weight:700}
+  #thanks{display:none;text-align:center;padding:70px 20px}
+  #thanks .big{font-family:'DM Serif Display',Georgia,serif;font-size:34px;color:var(--ink);margin-bottom:10px}
+  body.reviewing{padding-bottom:86px}
   footer{padding:36px 0 60px;color:var(--mut);font-size:12px}
   footer .fb{color:var(--ink);font-weight:700;letter-spacing:.1em}
   .method{margin-top:10px;font-size:11px;max-width:680px;line-height:1.7}
@@ -73,6 +100,7 @@
     .notes{grid-template-columns:1fr}
     .send{grid-template-columns:1fr;gap:6px}
     .topbar img{width:140px}
+    body.reviewing{padding-bottom:140px}
   }
 </style>
 </head>
@@ -88,6 +116,7 @@
     <div class="eyebrow">Email plan</div>
     <h1>September <em>2026</em></h1>
     <p class="lead">Two sends a week: Wednesday morning and Friday morning, with each Friday email re-sent to non-openers on Sunday morning. Built from every campaign sent June to August: what earned, what did not, and the offers worth repeating.</p>
+    <p class="lead" style="margin-top:14px;color:#96545e;font-weight:bold;font-size:15px;">Tap Accept or Decline on each email in the calendar, add a note if you want anything changed, then press Send decisions at the bottom of the page.</p>
   </div>
 
   <section class="reveal">
@@ -131,7 +160,7 @@
         <div class="sd">Bank holiday thank-you plus bestseller links. Covered this week's Wednesday slot.</div>
         <span class="tag">Sent</span></div>
       </div>
-      <div class="send">
+      <div class="send" data-rv="fri4" data-date="Fri 4 Sep + Sun 6 resend" data-type="Halloween scarcity" data-title="Halloween is selling faster than we planned">
         <div class="when">Fri 4 Sep<span>9am + Sun 6 resend</span></div>
         <div><div class="st">Halloween is selling faster than we planned</div>
         <div class="sd">Halloween email 1 of 2. Scarcity is real: selection boxes are under 20 units, several burners under 10. Heroes are the deep-stock items (velvet and speckled pumpkin candles, pumpkin tins, tealight burner bundle) with honest "almost gone" lines on the low-stock pieces. Same framing as the summer's best non-sale emails.</div>
@@ -141,13 +170,13 @@
 
     <div class="week">
       <div class="wk">Week 2 &middot; 8 to 14 September</div>
-      <div class="send">
+      <div class="send" data-rv="wed9" data-date="Wed 9 Sep" data-type="Content" data-title="The autumn scent edit">
         <div class="when">Wed 9 Sep<span>9am</span></div>
         <div><div class="st">The autumn scent edit</div>
         <div class="sd">Content email in the proven "edit" format (the reed diffuser edit took &pound;693 with no offer): which autumn scent for which room, across snap bars, melts and diffusers. Ends with one line teasing Friday.</div>
         <span class="tag">Content</span><span class="tag">Teases Friday</span></div>
       </div>
-      <div class="send">
+      <div class="send" data-rv="fri11" data-date="Fri 11 Sep + Sun 13 resend" data-type="Price flash" data-title="Autumn Mystery Bundle, one day only">
         <div class="when">Fri 11 Sep<span>9am + Sun 13 resend</span></div>
         <div><div class="st">Autumn Mystery Bundle, one day only</div>
         <div class="sd">The monthly flash. July's Crystal Mystery Bundle took &pound;717 as a one-day mystery drop; this is the autumn version built from deep stock (tins, snap bars, a burner). One day only, price to be set off the contents.</div>
@@ -157,13 +186,13 @@
 
     <div class="week">
       <div class="wk">Week 3 &middot; 15 to 21 September</div>
-      <div class="send">
+      <div class="send" data-rv="wed16" data-date="Wed 16 Sep" data-type="Free gift over 25" data-title="A free pumpkin tin with every 25 pound order">
         <div class="when">Wed 16 Sep<span>9am</span></div>
         <div><div class="st">A free pumpkin tin with every &pound;25 order</div>
         <div class="sd">The free-gift threshold, Halloween edition. July's free snap bar over &pound;20 proved the mechanic on a 5k segment; this runs it on the full list with a &pound;6.50 pumpkin wax melt tin (547 in stock) and the cart auto-add already built. Runs Wednesday to Sunday.</div>
         <span class="tag offer">Free gift over &pound;25</span><span class="tag hw">Halloween-flavoured</span></div>
       </div>
-      <div class="send">
+      <div class="send" data-rv="fri18" data-date="Fri 18 Sep + Sun 20 resend" data-type="Halloween exclusive" data-title="The Halloween Mega Bundle, 28 exist">
         <div class="when">Fri 18 Sep<span>9am + Sun 20 resend</span></div>
         <div><div class="st">The Halloween Mega Bundle. 28 exist.</div>
         <div class="sd">Halloween email 2 of 2. The &pound;45 Mega Bundle currently sits unpublished with 28 units: publish it as an email-first exclusive with the true number on the page. Below it, the pick-your-own mini boxes and selection boxes as secondary blocks. Launch plus genuine scarcity, the combination the data likes.</div>
@@ -173,13 +202,13 @@
 
     <div class="week">
       <div class="wk">Week 4 &middot; 22 to 28 September</div>
-      <div class="send">
+      <div class="send" data-rv="wed23" data-date="Wed 23 Sep" data-type="Christmas" data-title="The Christmas animals are back">
         <div class="when">Wed 23 Sep<span>9am</span></div>
         <div><div class="st">The Christmas animals are back</div>
         <div class="sd">Christmas email 1 of 2, and it doubles as the payday teaser. The four singing plushes (highland cow, reindeer, capybara, teddy bear at &pound;24.99, down from &pound;34.99) plus Donald are in stock NOW and this stock does not get replaced when it goes. No discount needed; the angle is first-come. Closing line teases Friday.</div>
         <span class="tag xmas">Christmas</span><span class="tag">Teases payday</span></div>
       </div>
-      <div class="send">
+      <div class="send" data-rv="fri25" data-date="Fri 25 Sep + Sun 27 resend" data-type="Payday weekend" data-title="Payday Weekend: free gift set with every diffuser">
         <div class="when">Fri 25 Sep<span>PAYDAY &middot; 9am + Sun 27 resend</span></div>
         <div><div class="st">Payday Weekend: a free gift set with every diffuser</div>
         <div class="sd">Payday weekend 2, with a fresh mechanic instead of repeating August's price cuts (protects the "prices went back up" credibility). Every 1000ml reed diffuser (&pound;22.99, 1,493 in stock) comes with a free gift set of 3 (&pound;15 value, 1,527 in stock). Bundles the summer's two biggest earners. Friday to Sunday midnight; Sunday resend becomes "ends tonight".</div>
@@ -189,7 +218,7 @@
 
     <div class="week">
       <div class="wk">Week 5 &middot; 29 September onwards</div>
-      <div class="send">
+      <div class="send" data-rv="wed30" data-date="Wed 30 Sep" data-type="Christmas launch" data-title="The Christmas Shop is open">
         <div class="when">Wed 30 Sep<span>9am</span></div>
         <div><div class="st">The Christmas Shop is open</div>
         <div class="sd">Christmas email 2 of 2, timed with the end-of-month Christmas launch on site. The full range goes live: gonk and santa burners, highland cow Christmas figurines and burners, mugs, the &pound;10 mystery bundles, festive snap bars, and the plushes again for anyone who missed them. Most decor lines hold 8 to 30 units each, so "small quantities, gone when they're gone" is simply true.</div>
@@ -209,6 +238,17 @@
     </div>
   </section>
 
+  <section class="reveal" style="border-bottom:none;padding-top:0" id="revwrap">
+    <div class="revpanel">
+      <h3>Send your decisions</h3>
+      <label for="reviewerName">Your name</label>
+      <input id="reviewerName" type="text" value="Ravi">
+      <label for="overallNotes">Anything else about the month (optional)</label>
+      <textarea id="overallNotes" placeholder="Overall thoughts, other offers you want, dates to avoid..."></textarea>
+      <div id="status"></div>
+    </div>
+  </section>
+
   <footer>
     <div class="fb">FUSION CREATIVE</div>
     <div class="method">Prepared for The Northumberland Candle Company, 1 September 2026. Performance figures are Klaviyo-attributed revenue per campaign, June to August 2026. Stock counts from Shopify on 31 August. Each email is drafted and previewed for approval before it is scheduled.</div>
@@ -218,6 +258,93 @@
 <script>
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+<div class="stickybar" id="stickybar">
+  <div class="stickyin">
+    <div class="prog" id="prog"></div>
+    <button class="sendbtn" id="sendBtn" disabled>Send decisions</button>
+  </div>
+</div>
+<script>
+(function(){
+  var ENDPOINT="https://ncc.fusioncreative.uk/api/tncc/plan-review/";
+  var KEY="tncc-sept-email-review";
+  document.body.classList.add("reviewing");
+  var cards=[].slice.call(document.querySelectorAll("[data-rv]"));
+  var state={};
+  try{ state=JSON.parse(localStorage.getItem(KEY)||"{}")||{}; }catch(e){ state={}; }
+
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){} }
+  function decidedCount(){ return cards.filter(function(c){ var st=state[c.dataset.rv]; return st&&(st.d==="approve"||st.d==="decline"); }).length; }
+  function refresh(){
+    var n=decidedCount();
+    document.getElementById("prog").innerHTML="<b>"+n+" of "+cards.length+"</b> emails decided"+(n<cards.length?" &middot; scroll the calendar to accept or decline each one":"");
+    document.getElementById("sendBtn").disabled=(n===0);
+  }
+
+  cards.forEach(function(card){
+    var id=card.dataset.rv;
+    state[id]=state[id]||{d:"",n:""};
+    var rv=document.createElement("div"); rv.className="rv";
+    rv.innerHTML='<div class="rvbtns">'
+      +'<button type="button" class="rvbtn ok">Accept</button>'
+      +'<button type="button" class="rvbtn no">Decline</button>'
+      +'</div>'
+      +'<input class="rvnote" type="text" placeholder="Optional note: what to change, swap or add">';
+    card.children[card.children.length-1].appendChild(rv);
+    var ok=rv.querySelector(".ok"), no=rv.querySelector(".no"), note=rv.querySelector(".rvnote");
+    function paint(){
+      ok.classList.toggle("on",state[id].d==="approve");
+      no.classList.toggle("on",state[id].d==="decline");
+    }
+    ok.addEventListener("click",function(){ state[id].d=(state[id].d==="approve"?"":"approve"); paint(); save(); refresh(); });
+    no.addEventListener("click",function(){ state[id].d=(state[id].d==="decline"?"":"decline"); paint(); save(); refresh(); });
+    note.value=state[id].n||"";
+    note.addEventListener("input",function(){ state[id].n=note.value; save(); });
+    paint();
+  });
+  refresh();
+
+  function items(){
+    return cards.map(function(c){
+      var st=state[c.dataset.rv]||{};
+      return { date:c.dataset.date, type:c.dataset.type, title:c.dataset.title,
+        decision:(st.d==="approve"||st.d==="decline")?st.d:"undecided", notes:st.n||"" };
+    });
+  }
+  function summaryText(){
+    var name=document.getElementById("reviewerName").value||"Ravi";
+    return "TNCC September email plan review from "+name+"\n\n"
+      +items().map(function(it){ return "["+it.decision.toUpperCase()+"] "+it.date+" ("+it.type+") "+it.title+(it.notes?" - NOTE: "+it.notes:""); }).join("\n")
+      +"\n\nOverall: "+(document.getElementById("overallNotes").value||"-");
+  }
+
+  document.getElementById("sendBtn").addEventListener("click",function(){
+    var btn=this, st=document.getElementById("status");
+    var undecided=cards.length-decidedCount();
+    if(undecided>0 && !btn.dataset.confirmed){
+      btn.dataset.confirmed="1"; btn.textContent="Send anyway ("+undecided+" undecided)";
+      st.textContent=undecided+" email"+(undecided>1?"s have":" has")+" no decision yet. Press again to send as is, or scroll up and finish them.";
+      document.getElementById("revwrap").scrollIntoView({behavior:"smooth"});
+      return;
+    }
+    btn.disabled=true; st.textContent="Sending...";
+    var payload={ reviewer_name:document.getElementById("reviewerName").value, plan_label:"TNCC September email plan",
+      overall_notes:document.getElementById("overallNotes").value, items:items() };
+    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
+      .then(function(r){ if(!r.ok) throw new Error("bad status"); return r.json(); })
+      .then(function(){
+        try{ localStorage.removeItem(KEY); }catch(e){}
+        document.getElementById("stickybar").innerHTML='<div class="stickyin"><div class="prog"><b>Sent to Jay.</b> Thank you, your decisions are in.</div></div>';
+        st.innerHTML="<b>Done.</b> Your review has been sent to Jay.";
+        document.querySelectorAll(".rvbtn,.rvnote").forEach(function(el){ el.disabled=true; });
+      })
+      .catch(function(){
+        btn.disabled=false; delete btn.dataset.confirmed; btn.textContent="Send decisions";
+        st.innerHTML='Could not send automatically. <a href="mailto:jay@fusioncreative.uk?subject='+encodeURIComponent("TNCC September email plan review")+'&body='+encodeURIComponent(summaryText())+'">Tap here to email your decisions to Jay instead</a>.';
+      });
+  });
+})();
 </script>
 </body>
 </html>
