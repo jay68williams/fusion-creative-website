@@ -195,6 +195,9 @@
   /* proof line in hero */
   .hero .proofline{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13.5px;color:#cfd9e6}
   .hero .proofline b{color:var(--yellow);font-family:var(--serif);font-size:22px;font-weight:400;margin-right:6px;line-height:1}
+  h4.seg{font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.15;color:var(--yellow);margin:30px 0 4px}
+  .segnote{font-size:14px;color:#b9c6d6;margin:0 0 10px;max-width:70ch}
+
   /* video grid */
   .vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;margin:16px 0 8px}
   .vid{text-decoration:none;color:inherit;display:block}
@@ -275,7 +278,14 @@
     .tbl-wrap{overflow:visible}
     .tbl-wrap .tbl{min-width:0}
     .thumbs{grid-template-columns:repeat(5,1fr)}
-    .vids{grid-template-columns:repeat(6,1fr);gap:6px;margin:4px auto 0;max-width:128mm}
+    .vids{grid-template-columns:repeat(6,1fr);gap:6px;margin:4px auto 0;max-width:150mm;break-inside:avoid;page-break-inside:avoid}
+    .vids-skits{grid-template-columns:repeat(8,1fr);max-width:none;gap:5px}
+    .vids-games{grid-template-columns:repeat(4,1fr);max-width:104mm}
+    .vids-show{grid-template-columns:repeat(6,1fr);max-width:150mm}
+    h4.seg{font-size:14pt;margin:12px 0 2px;break-after:avoid;page-break-after:avoid}
+    h4.seg-show{break-before:page;page-break-before:always;padding-top:12mm}
+    .segnote{font-size:9pt;margin-bottom:6px;break-after:avoid;page-break-after:avoid}
+    .cases{margin-top:10px}
     .vid .img{border-radius:6px}
     .vid .img::after{width:18px;height:18px;font-size:8px}
     section.dark p.lead{font-size:11pt;line-height:1.4}
@@ -358,7 +368,7 @@
       <div class="to">Rachel Fenwick, Head of Marketing &amp; Events, Newcastle NE1<br>Re: Freelance Social Media Content Creator, Newcastle's Christmas 2026</div>
       <p>Hi Rachel,</p>
       <p>We're Fusion Creative, a content marketing agency based in Newcastle. We work with loads of businesses across the North East, mostly independents: restaurants, bakeries, cafes, retailers and a Northumberland candle brand that ships nationwide. We film everything ourselves, in person, and we're on Grey Street most weeks anyway. Running Newcastle's Christmas is the job we'd pick if we could pick one.</p>
-      <p>The reason we think we're the right fit is simple. The market is 60-plus small businesses on four streets, and small businesses are exactly what we've spent the last two years growing on Instagram and TikTok. The accounts we've run have passed 250 million views between them, one reel alone at 70 million. One independent restaurant in Heaton has gone from a standing start to 87 million views, and its owner says weekly sales went from 8 to 10 thousand to over 14 thousand. We know what makes a Geordie share a video, and we know how to turn that share into someone walking through the door.</p>
+      <p>The reason we think we're the right fit is simple. The market is 60-plus small businesses on four streets, and small businesses are exactly what we've spent the last two years growing on Instagram and TikTok. The accounts we've run have passed 250 million views between them, one reel alone at 70 million. The skits get the headlines, but the straight food and product showcases, the kind of video every trader will get, sit between 16,000 and 90,000 views each. One independent restaurant in Heaton has gone from a standing start to 87 million views, and its owner says weekly sales went from 8 to 10 thousand to over 14 thousand. We know what makes a Geordie share a video, and we know how to turn that share into someone walking through the door.</p>
       <p>Here's what we'd bring to the channels. We're on site three to four days a week across the contract, on every required date, and nobody has to prompt us to be somewhere. Two creators, so the account has two faces on camera rather than one person for nine weeks. 125-plus videos across the season, two to three a day through the market weeks. Every single trader featured at least once, with a numbered series people will want to follow to the end. Public-interaction formats, giveaways and trend adaptations built to travel outside the region, alongside the clear "what's on, where and when" content your audience relies on. Same-day turnaround, community management from 8am to 10pm, and a weekly one-page report with a live dashboard behind it.</p>
       <p>Our goal for Newcastle's Christmas is a minimum of 10 million views and impressions across the campaign, more than double what the 2025 campaign generated, and the numbers on the next page are why we think that is realistic. We've laid all of it out in the pages that follow, including 36 named concepts, the output plan by phase, our reporting approach and confirmation that we're available for every required date. One date to flag: we're away from 5 to 12 October, so we'd ask for an interview or presentation slot from 13 October onwards, and we'd bring sample videos shot in the city centre.</p>
       <p>Thank you for reading. We'd love to help make this the most-watched Christmas market in the country.</p>
@@ -381,21 +391,46 @@
     </div>
 
     <h3>Some of our work</h3>
-    <div class="vids">
-      <a class="vid" href="https://www.instagram.com/reel/DWwjCXCKQrY/"><div class="img"><img src="assets/top-1.jpg" alt=""><span class="views">70.1M</span></div><div class="m">New Greek &middot; Instagram</div><div class="h">There's always the one impatient customer</div></a>
-      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7624969320166100246"><div class="img"><img src="assets/top-2.jpg" alt=""><span class="views">7.1M</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">Not today</div></a>
-      <a class="vid" href="https://www.instagram.com/reel/DZAB3c5uN9K/"><div class="img"><img src="assets/top-3.jpg" alt=""><span class="views">3.6M</span></div><div class="m">Takdir &middot; Instagram</div><div class="h">Never get between a girl and her Instagram post</div></a>
-      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7655371189015170326"><div class="img"><img src="assets/top-4.jpg" alt=""><span class="views">3.3M</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">The only way to eat a Greek salad</div></a>
-      <a class="vid" href="https://www.tiktok.com/@takdir_whitleybay/video/7646421454053051650"><div class="img"><img src="assets/top-5.jpg" alt=""><span class="views">3.0M</span></div><div class="m">Takdir &middot; TikTok</div><div class="h">Never get between a girl and her food</div></a>
-      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7620129637829512470"><div class="img"><img src="assets/top-6.jpg" alt=""><span class="views">866K</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">Our food is breathtaking</div></a>
-      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7607881463626730774"><div class="img"><img src="assets/top-7.jpg" alt=""><span class="views">857K</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">When the date was her idea</div></a>
-      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7590825894139251990"><div class="img"><img src="assets/top-8.jpg" alt=""><span class="views">827K</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">We do this on purpose, sorry not sorry</div></a>
-      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7626070398941138198"><div class="img"><img src="assets/top-9.jpg" alt=""><span class="views">583K</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">When the customer tries to negotiate</div></a>
-      <a class="vid" href="https://www.tiktok.com/@thegreekspot_/video/7670251195029589270"><div class="img"><img src="assets/top-10.jpg" alt=""><span class="views">407K</span></div><div class="m">The Greek Spot &middot; TikTok</div><div class="h">Sorry</div></a>
-      <a class="vid" href="https://www.instagram.com/reel/DW1jPdEK4C8/"><div class="img"><img src="assets/top-11.jpg" alt=""><span class="views">371K</span></div><div class="m">New Greek &middot; Instagram</div><div class="h">The customer wins this time</div></a>
-      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7598909378586004758"><div class="img"><img src="assets/top-12.jpg" alt=""><span class="views">255K</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">Five bites, win twenty pounds</div></a>
+    <p class="segnote">Segmented on purpose. The skits get the headlines, but the market will mostly need straight product and place videos, so those are here too, with their numbers. Every video links to the live post. View counts as published on Instagram and TikTok on 2 September 2026.</p>
+
+    <h4 class="seg">Skits and comedy: the videos that travel</h4>
+    <p class="segnote">The eight biggest of the 20 we've had past 100,000 views.</p>
+    <div class="vids vids-skits">
+      <a class="vid" href="https://www.instagram.com/reel/DWwjCXCKQrY/"><div class="img"><img src="assets/skits-1.jpg" alt=""><span class="views">70.1M</span></div><div class="m">New Greek &middot; Instagram</div><div class="h">There's always the one impatient customer</div></a>
+      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7624969320166100246"><div class="img"><img src="assets/skits-2.jpg" alt=""><span class="views">7.1M</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">Not today</div></a>
+      <a class="vid" href="https://www.instagram.com/reel/DZAB3c5uN9K/"><div class="img"><img src="assets/skits-3.jpg" alt=""><span class="views">3.6M</span></div><div class="m">Takdir &middot; Instagram</div><div class="h">Never get between a girl and her Instagram post</div></a>
+      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7655371189015170326"><div class="img"><img src="assets/skits-4.jpg" alt=""><span class="views">3.3M</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">The only way to eat a Greek salad</div></a>
+      <a class="vid" href="https://www.tiktok.com/@takdir_whitleybay/video/7646421454053051650"><div class="img"><img src="assets/skits-5.jpg" alt=""><span class="views">3.0M</span></div><div class="m">Takdir &middot; TikTok</div><div class="h">Never get between a girl and her food</div></a>
+      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7620129637829512470"><div class="img"><img src="assets/skits-6.jpg" alt=""><span class="views">866K</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">Our food is breathtaking</div></a>
+      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7607881463626730774"><div class="img"><img src="assets/skits-7.jpg" alt=""><span class="views">857K</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">When the date was her idea</div></a>
+      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7590825894139251990"><div class="img"><img src="assets/skits-8.jpg" alt=""><span class="views">827K</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">We do this on purpose, sorry not sorry</div></a>
     </div>
-    <p class="small" style="margin-top:10px">Every one links to the live post. All shot and edited by us in the North East. View counts as published on Instagram and TikTok on 2 September 2026.</p>
+
+    <h4 class="seg">Games, challenges and public interaction</h4>
+    <p class="segnote">The formats behind half the concept bank: a challenge with a prize, a street interview, a quiz.</p>
+    <div class="vids vids-games">
+      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7598909378586004758"><div class="img"><img src="assets/games-1.jpg" alt=""><span class="views">255K</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">Five bites, win twenty pounds</div></a>
+      <a class="vid" href="https://www.instagram.com/reel/DZ-SZJACJWn/"><div class="img"><img src="assets/games-2.jpg" alt=""><span class="views">91K</span></div><div class="m">New Greek Bakery &middot; Instagram</div><div class="h">Street interview: the taste of Greece has landed</div></a>
+      <a class="vid" href="https://www.tiktok.com/@takdir_whitleybay/video/7643166917259267350"><div class="img"><img src="assets/games-3.jpg" alt=""><span class="views">83K</span></div><div class="m">Takdir &middot; TikTok</div><div class="h">Six bites, can he do it?</div></a>
+      <a class="vid" href="https://www.tiktok.com/@takdir_whitleybay/video/7652778485454327043"><div class="img"><img src="assets/games-4.jpg" alt=""><span class="views">28K</span></div><div class="m">Takdir &middot; TikTok</div><div class="h">Would you get these right? The World Cup quiz</div></a>
+    </div>
+
+    <h4 class="seg seg-show">Food, product and venue showcases: the market-style videos</h4>
+    <p class="segnote">No joke, no cast, just the dish, the product or the place done well. This is what every trader video will look like, and on small independent accounts these sit between 16,000 and 90,000 views each.</p>
+    <div class="vids vids-show">
+      <a class="vid" href="https://www.tiktok.com/@takdir_whitleybay/video/7658360695037234454"><div class="img"><img src="assets/show-1.jpg" alt=""><span class="views">89K</span></div><div class="m">Takdir &middot; TikTok</div><div class="h">Have you tried Nachodoms?</div></a>
+      <a class="vid" href="https://www.tiktok.com/@takdir_whitleybay/video/7641273206631910678"><div class="img"><img src="assets/show-2.jpg" alt=""><span class="views">72K</span></div><div class="m">Takdir &middot; TikTok</div><div class="h">Nachos and poppadoms, one dish</div></a>
+      <a class="vid" href="https://www.tiktok.com/@takdir_whitleybay/video/7639044788016172310"><div class="img"><img src="assets/show-3.jpg" alt=""><span class="views">67K</span></div><div class="m">Takdir &middot; TikTok</div><div class="h">All of this for twenty pounds</div></a>
+      <a class="vid" href="https://www.tiktok.com/@takdir_whitleybay/video/7644995806096805142"><div class="img"><img src="assets/show-4.jpg" alt=""><span class="views">65K</span></div><div class="m">Takdir &middot; TikTok</div><div class="h">Meet the Takdir special naan</div></a>
+      <a class="vid" href="https://www.instagram.com/reel/DbIi31XC8IU/"><div class="img"><img src="assets/show-5.jpg" alt=""><span class="views">60K</span></div><div class="m">New Greek Bakery &middot; Instagram</div><div class="h">The best sandwich in Newcastle?</div></a>
+      <a class="vid" href="https://www.tiktok.com/@takdir_whitleybay/video/7638689136550989078"><div class="img"><img src="assets/show-6.jpg" alt=""><span class="views">54K</span></div><div class="m">Takdir &middot; TikTok</div><div class="h">The best Indian restaurant in the North East?</div></a>
+      <a class="vid" href="https://www.instagram.com/reel/Davd2dnOcrJ/"><div class="img"><img src="assets/show-7.jpg" alt=""><span class="views">53K</span></div><div class="m">The Bake One &middot; Instagram</div><div class="h">Match made in heaven</div></a>
+      <a class="vid" href="https://www.tiktok.com/@takdir_whitleybay/video/7660933911756705046"><div class="img"><img src="assets/show-8.jpg" alt=""><span class="views">49K</span></div><div class="m">Takdir &middot; TikTok</div><div class="h">The Takdir mixed grill</div></a>
+      <a class="vid" href="https://www.tiktok.com/@thegreekspot_/video/7673404018416209174"><div class="img"><img src="assets/show-9.jpg" alt=""><span class="views">39K</span></div><div class="m">The Greek Spot &middot; TikTok</div><div class="h">Attention Middlesbrough gyros lovers</div></a>
+      <a class="vid" href="https://www.tiktok.com/@takdir_whitleybay/video/7642377161621441814"><div class="img"><img src="assets/show-10.jpg" alt=""><span class="views">34K</span></div><div class="m">Takdir &middot; TikTok</div><div class="h">Our most-ordered takeaway, delivered</div></a>
+      <a class="vid" href="https://www.tiktok.com/@newgreek.bakery/video/7670979763598658838"><div class="img"><img src="assets/show-11.jpg" alt=""><span class="views">29K</span></div><div class="m">New Greek Bakery &middot; TikTok</div><div class="h">What a vibe: cookies, coffee, matcha</div></a>
+      <a class="vid" href="https://www.tiktok.com/@the_bake_one/video/7669852058228428054"><div class="img"><img src="assets/show-12.jpg" alt=""><span class="views">16K</span></div><div class="m">The Bake One &middot; TikTok</div><div class="h">Three must-try dishes</div></a>
+    </div>
 
     <div class="cases">
     <div><h3>New Greek, Heaton</h3>
