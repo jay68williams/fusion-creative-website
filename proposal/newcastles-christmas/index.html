@@ -192,6 +192,11 @@
   .toc li{counter-increment:toc;font-size:14px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.14);color:#dbe3ee}
   .toc li::before{content:counter(toc,decimal-leading-zero);font-family:var(--serif);color:var(--yellow);margin-right:10px;font-size:16px}
 
+  /* team photo */
+  .teamphoto{margin:18px 0 22px}
+  .teamphoto img{width:100%;aspect-ratio:2.2/1;object-fit:cover;border-radius:16px;display:block}
+  .teamphoto figcaption{font-size:13px;color:var(--soft);margin-top:8px}
+
   /* proof line in hero */
   .hero .proofline{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13.5px;color:#cfd9e6}
   .hero .proofline b{color:var(--yellow);font-family:var(--serif);font-size:22px;font-weight:400;margin-right:6px;line-height:1}
@@ -308,6 +313,9 @@
     ul.plain li{margin-bottom:4px;font-size:10pt}
     .team{gap:10px}
     .person{padding:12px}
+    .teamphoto{margin:6px 0 10px;break-inside:avoid;page-break-inside:avoid}
+    .teamphoto img{aspect-ratio:2.4/1;border-radius:3mm}
+    .teamphoto figcaption{font-size:8.5pt;margin-top:4px}
     .checks li{font-size:9.5pt}
     a{text-decoration:none}
     footer{padding:8mm 0}
@@ -757,6 +765,7 @@
     <div class="eyebrow">11 &middot; The team and next steps</div>
     <h2>Two creators, <em>two faces on camera.</em></h2>
     <p class="lead">You're not booking one person. Newcastle's Christmas gets two creators and two faces on camera: a host for the public formats, a second face fronting the trader and family content, two styles of content, and cover for each other so the output never stops.</p>
+    <figure class="teamphoto"><img src="assets/team.jpg" alt="Jay Williams and Anya Davey"><figcaption>Jay and Anya. Two creators, two faces on camera.</figcaption></figure>
     <div class="team">
       <div class="person"><div class="ph"><img src="assets/jay.jpg" alt="Jay Williams"></div><div><h4>Jay Williams</h4><div class="r">Founder &middot; strategy, on camera, community</div><p>Runs Fusion Creative. Plans the week, hosts the public-interaction formats, manages the partners and writes the report. Your single point of contact.</p></div></div>
       <div class="person"><div class="ph"><img src="assets/anya.jpg" alt="Anya Davey"></div><div><h4>Anya Davey</h4><div class="r">Creator &middot; camera, edit, on camera</div><p>Films and edits alongside Jay and fronts the trader and family content, so the account has a second face and a second voice.</p></div></div>
