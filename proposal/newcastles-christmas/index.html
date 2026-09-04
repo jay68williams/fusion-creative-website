@@ -193,8 +193,8 @@
   .toc li::before{content:counter(toc,decimal-leading-zero);font-family:var(--serif);color:var(--yellow);margin-right:10px;font-size:16px}
 
   /* team photo */
-  .teamphoto{margin:18px 0 22px}
-  .teamphoto img{width:100%;aspect-ratio:2.2/1;object-fit:cover;border-radius:16px;display:block}
+  .teamphoto{margin:18px 0 22px;max-width:480px}
+  .teamphoto img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:16px;display:block}
   .teamphoto figcaption{font-size:13px;color:var(--soft);margin-top:8px}
 
   /* proof line in hero */
@@ -314,7 +314,8 @@
     .team{gap:10px}
     .person{padding:12px}
     .teamphoto{margin:6px 0 10px;break-inside:avoid;page-break-inside:avoid}
-    .teamphoto img{aspect-ratio:2.9/1;border-radius:3mm}
+    .teamphoto{max-width:88mm}
+    .teamphoto img{aspect-ratio:3/2;border-radius:3mm}
     .cta{padding:7mm 6mm;margin-top:6px}
     .cta h3{font-size:20pt;margin-bottom:6px}
     .cta p{margin-bottom:10px}
