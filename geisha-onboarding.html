@@ -84,6 +84,10 @@ textarea.tall{min-height:130px}
 .ticks.fusion .tick.on{border-color:var(--blue);background:#fff;box-shadow:0 0 0 2px rgba(42,162,214,.18)}
 .ticks.fusion .tick input{accent-color:var(--blue)}
 
+.shoot-date{background:var(--ink-dark);border-radius:12px;padding:18px 20px;margin:4px 0 20px;box-shadow:inset 0 0 0 1px rgba(255,50,165,.5),0 0 22px rgba(255,50,165,.18)}
+.sd-eyebrow{font-size:10.5px;letter-spacing:3px;text-transform:uppercase;color:var(--pink);font-weight:600;margin-bottom:4px}
+.sd-date{font-family:'Fraunces',Georgia,serif;font-weight:900;font-size:27px;line-height:1.1;color:#fff}
+.sd-note{font-size:13px;color:rgba(245,239,224,.7);margin-top:7px;line-height:1.55}
 .radios{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
 .radio{display:flex;align-items:center;gap:8px;padding:10px 15px;border:1px solid var(--line);background:var(--paper);border-radius:99px;cursor:pointer;font-size:14px;font-weight:500}
 .radio input{accent-color:var(--magenta)}
@@ -141,7 +145,7 @@ footer.foot b{color:var(--pink)}
     <div class="hero-in">
       <div class="eyebrow">Content Onboarding</div>
       <h1>Let's get Geisha <em>on camera.</em></h1>
-      <p>Great to meet you today. This is everything we need before the first shoot at Front Street. Two very different rooms, two menus, one Geisha, so the more you give us on the food and the story behind each venue, the better the ideas we come back with. Takes about ten minutes and it saves as you go, so you can stop and come back.</p>
+      <p>Great to meet you today. This is everything we need before the first shoot at Front Street on Saturday 12 September. Two very different rooms, two menus, one Geisha, so the more you give us on the food and the story behind each venue, the better the ideas we come back with. Takes about ten minutes and it saves as you go, so you can stop and come back.</p>
       <div class="meta">Saved automatically on this device as you type</div>
     </div>
   </div>
@@ -304,9 +308,15 @@ footer.foot b{color:var(--pink)}
 
   <section class="card">
     <div class="sec-head"><span class="sec-num serif">05</span><h2 class="serif">The first shoot</h2></div>
-    <p class="sec-sub">Pick a day that suits you and we will confirm it straight back.</p>
+    <p class="sec-sub">We are booked in. Tell us what we need to know for the day.</p>
+    <div class="shoot-date">
+      <div class="sd-eyebrow">First shoot day</div>
+      <div class="sd-date">Saturday 12 September</div>
+      <div class="sd-note">We will be there at Front Street. If that day no longer works, tell us in the notes below and we will move it.</div>
+    </div>
+    <input type="hidden" name="first_shoot_date" value="Saturday 12 September 2026 (confirmed)">
     <div class="field">
-      <label>Where should the first shoot be?</label>
+      <label>Where should we start on the day?</label>
       <div class="radios">
         <label class="radio"><input type="radio" name="first_shoot_venue" value="Geisha Asia"> Geisha Asia</label>
         <label class="radio"><input type="radio" name="first_shoot_venue" value="Geisha Fusion"> Geisha Fusion</label>
@@ -314,17 +324,14 @@ footer.foot b{color:var(--pink)}
       </div>
     </div>
     <div class="grid2">
-      <div class="field"><label>What day would you like us to come? <span class="req">*</span><span class="hint">Pick the date you would like for the first content shoot.</span></label><input type="date" name="first_shoot_date" id="shootDate" required></div>
-      <div class="field"><label>Best time of day to film<span class="hint">When the food, the rooms and the lighting look their best.</span></label><input type="text" name="best_times" placeholder="e.g. from 11am, before lunch service"></div>
+      <div class="field"><label>What time should we arrive?<span class="hint">When the food, the rooms and the lighting look their best.</span></label><input type="text" name="best_times" placeholder="e.g. 11am, before lunch service"></div>
+      <div class="field"><label>Quietest times on a Saturday<span class="hint">So we can film without getting in the way of service.</span></label><textarea name="quiet_times"></textarea></div>
     </div>
     <div class="grid2">
-      <div class="field"><label>Quietest times<span class="hint">So we can film without getting in the way of service.</span></label><textarea name="quiet_times"></textarea></div>
       <div class="field"><label>Where can we film?<span class="hint">Sushi bar, robata, kitchens, the sakura room, the lantern room, the bar, the VIP room.</span></label><textarea name="filming_areas"></textarea></div>
-    </div>
-    <div class="grid2">
       <div class="field"><label>On-site contact on the day</label><input type="text" name="shoot_contact" placeholder="Name and number"></div>
-      <div class="field"><label>Anything else about shoot days<span class="hint">Parking, access, notice you need, days that never work.</span></label><textarea name="shoot_notes"></textarea></div>
     </div>
+    <div class="field"><label>Anything else about the day<span class="hint">Parking, access, anything to prep in advance, or if Saturday 12 September no longer works.</span></label><textarea name="shoot_notes"></textarea></div>
   </section>
 
   <section class="card">
@@ -353,7 +360,7 @@ footer.foot b{color:var(--pink)}
   <div class="thanks" id="thanks">
     <div class="check">&#10003;</div>
     <h2 class="serif">Thank you, we have got it.</h2>
-    <p>This is on its way to Jay. We will turn your answers into a shot list for both venues, confirm your first shoot date, and come back with the ideas. Speak soon.</p>
+    <p>This is on its way to Jay. We will turn your answers into a shot list for both venues and come back with the ideas before Saturday 12 September. See you then.</p>
   </div>
 
   <footer class="foot">
@@ -372,12 +379,6 @@ const form = document.getElementById('form');
 const statusEl = document.getElementById('formStatus');
 const progEl = document.getElementById('prog');
 
-// First shoot date: earliest pick is tomorrow.
-(function(){
-  const d=new Date(); d.setDate(d.getDate()+1);
-  const iso=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
-  document.getElementById('shootDate').min=iso;
-})();
 
 function save(){
   try{
