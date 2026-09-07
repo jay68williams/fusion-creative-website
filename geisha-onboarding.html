@@ -45,6 +45,7 @@ header.top{position:sticky;top:0;z-index:40;background:rgba(8,8,13,.92);backdrop
 .hero h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 22px rgba(255,50,165,.55)}
 .hero p{color:rgba(245,239,224,.86);max-width:600px;font-size:15.5px}
 .meta{margin-top:14px;font-size:12.5px;color:rgba(245,239,224,.55);letter-spacing:.3px}
+#syncState{color:var(--pink)}
 
 .card{background:var(--white);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:32px;margin-bottom:18px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
 .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
@@ -145,8 +146,8 @@ footer.foot b{color:var(--pink)}
     <div class="hero-in">
       <div class="eyebrow">Content Onboarding</div>
       <h1>Let's get Geisha <em>on camera.</em></h1>
-      <p>Great to meet you today. This is everything we need before the first shoot at Front Street on Saturday 12 September. Two very different rooms, two menus, one Geisha, so the more you give us on the food and the story behind each venue, the better the ideas we come back with. Takes about ten minutes and it saves as you go, so you can stop and come back.</p>
-      <div class="meta">Saved automatically on this device as you type</div>
+      <p>Great to meet you today. This is everything we need before the first shoot at Front Street on Saturday 12 September. Two very different rooms, two menus, one Geisha, so the more you give us on the food and the story behind each venue, the better the ideas we come back with. Takes about ten minutes and it saves as you go, so you can stop and come back, or pass the link to whoever knows the answers.</p>
+      <div class="meta">Saves as you type, and anyone with this link picks up the same progress.<br><span id="syncState">Loading the shared draft...</span></div>
     </div>
   </div>
 
@@ -367,51 +368,128 @@ footer.foot b{color:var(--pink)}
 <script>
 const CONFIG = {
   endpoint: "https://newgreek.fusioncreative.uk/api/geisha-onboarding/",
-  storageKey: "geisha_onboarding_v1"
+  storageKey: "geisha_onboarding_v1",
+  draftKey: "geisha-frontstreet-2026",
+  pollMs: 25000
 };
 
 const form = document.getElementById('form');
 const statusEl = document.getElementById('formStatus');
 const progEl = document.getElementById('prog');
+const syncEl = document.getElementById('syncState');
+const HDR = {'Content-Type':'application/json','X-Draft-Key':CONFIG.draftKey};
 
+// Empty string, nothing, and an empty tick list all count as "blank".
+function ser(v){ if(v==null||v===''||(Array.isArray(v)&&!v.length)) return ''; return JSON.stringify(v); }
 
-function save(){
-  try{
-    const d={};
-    form.querySelectorAll('input,textarea,select').forEach(el=>{
-      if(el.type==='radio'||el.type==='checkbox'){ if(el.checked){ (d[el.name]=d[el.name]||[]).push(el.value); } }
-      else if(el.name){ d[el.name]=el.value; }
-    });
-    localStorage.setItem(CONFIG.storageKey, JSON.stringify(d));
-  }catch(e){}
+function currentValues(){
+  const d={};
+  form.querySelectorAll('input,textarea,select').forEach(el=>{
+    if(!el.name) return;
+    if(el.type==='radio'){ if(el.checked) d[el.name]=el.value; else if(!(el.name in d)) d[el.name]=''; }
+    else if(el.type==='checkbox'){ if(!Array.isArray(d[el.name])) d[el.name]=[]; if(el.checked) d[el.name].push(el.value); }
+    else { d[el.name]=el.value; }
+  });
+  return d;
 }
+function setField(name,val){
+  form.querySelectorAll('[name="'+CSS.escape(name)+'"]').forEach(el=>{
+    if(el.type==='radio'){ el.checked=(el.value===val); }
+    else if(el.type==='checkbox'){ el.checked=Array.isArray(val)&&val.includes(el.value); }
+    else if(el.type!=='hidden'){ el.value=(val==null?'':val); }
+  });
+}
+function save(){ try{ localStorage.setItem(CONFIG.storageKey, JSON.stringify(currentValues())); }catch(e){} }
 function restore(){
   let d; try{ d=JSON.parse(localStorage.getItem(CONFIG.storageKey)||'{}'); }catch(e){ d={}; }
-  Object.keys(d).forEach(name=>{
-    const val=d[name];
-    form.querySelectorAll('[name="'+CSS.escape(name)+'"]').forEach(el=>{
-      if(el.type==='radio'||el.type==='checkbox'){ el.checked = Array.isArray(val) ? val.includes(el.value) : val===el.value; }
-      else { el.value = val; }
-    });
-  });
+  Object.keys(d).forEach(name=>{ const v=d[name]; if(ser(v)!=='') setField(name, Array.isArray(v)&&form.querySelector('[name="'+CSS.escape(name)+'"][type=radio]') ? v[0] : v); });
 }
 function paintTicks(){
-  form.querySelectorAll('.tick').forEach(t=>{
-    const cb=t.querySelector('input');
-    t.classList.toggle('on', !!(cb && cb.checked));
-  });
+  form.querySelectorAll('.tick').forEach(t=>{ const cb=t.querySelector('input'); t.classList.toggle('on', !!(cb && cb.checked)); });
 }
 const RADIO_GROUPS=new Set([...form.querySelectorAll('input[type=radio]')].map(r=>r.name)).size;
 function updateProgress(){
-  const fields=[...form.querySelectorAll('input[type=text],input[type=email],input[type=url],input[type=tel],input[type=date],textarea')];
+  const fields=[...form.querySelectorAll('input[type=text],input[type=email],input[type=url],input[type=tel],textarea')];
   const filled=fields.filter(f=>f.value.trim()!=='').length;
   const chosen=new Set([...form.querySelectorAll('input:checked')].map(r=>r.name));
   const total=fields.length+RADIO_GROUPS;
-  const pct=Math.min(100, Math.round(((filled+chosen.size)/total)*100));
-  progEl.style.width=pct+'%';
+  progEl.style.width=Math.min(100, Math.round(((filled+chosen.size)/total)*100))+'%';
 }
-form.addEventListener('input', ()=>{ save(); updateProgress(); });
-form.addEventListener('change', ()=>{ save(); paintTicks(); updateProgress(); });
+
+// ---- shared draft: one copy on the server that every device reads and writes ----
+let lastSynced={}, syncTimer=null, syncing=false, queued=false, submitted=false;
+function setSync(state, when){
+  if(!syncEl) return;
+  if(state==='saving') syncEl.textContent='Saving to the shared draft...';
+  else if(state==='saved'){ const t=when?new Date(when):new Date(); syncEl.textContent='Shared draft saved '+t.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); }
+  else if(state==='ready') syncEl.textContent='Shared draft on. Saves as you type.';
+  else if(state==='offline') syncEl.textContent='Cannot reach the shared draft right now, kept on this device.';
+  else if(state==='loading') syncEl.textContent='Loading the shared draft...';
+}
+function applyRemote(payload, force){
+  const cur=currentValues(); const active=document.activeElement;
+  Object.keys(payload||{}).forEach(k=>{
+    if(k.startsWith('_')) return;
+    const remote=payload[k], local=cur[k];
+    if(force && ser(remote)==='') return;          // first load: never blank a field this device already has
+    const focused=!!(active && active.name===k);
+    const dirty=ser(local)!==ser(lastSynced[k]);    // changed here since the last sync
+    if(force || (!focused && !dirty)){
+      if(ser(remote)!==ser(local)) setField(k, remote);
+      lastSynced[k]=remote;
+    }
+  });
+  paintTicks(); updateProgress(); save();
+}
+function computeDelta(){
+  const cur=currentValues(); const d={};
+  Object.keys(cur).forEach(k=>{ if(ser(cur[k])!==ser(lastSynced[k])) d[k]=cur[k]; });
+  return d;
+}
+function showAlreadySent(){
+  if(submitted) return; submitted=true; clearTimeout(syncTimer);
+  document.getElementById('main').querySelectorAll('form,.hero').forEach(el=>el.style.display='none');
+  const th=document.getElementById('thanks');
+  th.querySelector('h2').textContent='This form has already been sent.';
+  th.querySelector('p').textContent='Someone at Geisha has already submitted it, so there is nothing left to do here. Thank you.';
+  th.classList.add('show');
+  try{ localStorage.removeItem(CONFIG.storageKey); }catch(e){}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+async function pushDraft(){
+  if(submitted) return;
+  if(syncing){ queued=true; return; }
+  const delta=computeDelta(); if(!Object.keys(delta).length) return;
+  syncing=true; setSync('saving');
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'PUT',headers:HDR,body:JSON.stringify({delta}),keepalive:true});
+    if(res.status===409){ showAlreadySent(); return; }
+    if(!res.ok) throw new Error('status '+res.status);
+    const j=await res.json();
+    Object.keys(delta).forEach(k=>{ lastSynced[k]=delta[k]; });
+    applyRemote(j.payload||{}, false);
+    setSync('saved', j.saved_at);
+  }catch(e){ setSync('offline'); }
+  finally{ syncing=false; if(queued){ queued=false; pushDraft(); } }
+}
+function scheduleSync(ms){ clearTimeout(syncTimer); syncTimer=setTimeout(pushDraft, ms); }
+async function pullDraft(initial){
+  if(submitted) return;
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'GET',headers:{'X-Draft-Key':CONFIG.draftKey},cache:'no-store'});
+    if(!res.ok) throw new Error('status '+res.status);
+    const j=await res.json();
+    if(j.status==='submitted'){ showAlreadySent(); return; }
+    applyRemote(j.payload||{}, !!initial);
+    if(initial){ setSync(j.saved_at?'saved':'ready', j.saved_at); pushDraft(); }
+  }catch(e){ if(initial) setSync('offline'); }
+}
+
+form.addEventListener('input', ()=>{ save(); updateProgress(); scheduleSync(1200); });
+form.addEventListener('change', ()=>{ save(); paintTicks(); updateProgress(); scheduleSync(250); });
+document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='hidden'){ clearTimeout(syncTimer); pushDraft(); } else { pullDraft(false); } });
+window.addEventListener('pagehide', ()=>{ clearTimeout(syncTimer); pushDraft(); });
+setInterval(()=>{ if(document.visibilityState==='visible') pullDraft(false); }, CONFIG.pollMs);
 
 function collect(){
   const d={};
@@ -438,11 +516,12 @@ form.addEventListener('submit', async (e)=>{
   const req=[...form.querySelectorAll('[required]')].filter(f=>!f.value.trim());
   if(req.length){ statusEl.textContent='Please fill in the starred fields ('+req.length+' left).'; req[0].scrollIntoView({block:'center'}); req[0].focus(); return; }
   const btn=document.getElementById('submitBtn');
-  btn.disabled=true; statusEl.textContent='Sending...';
+  btn.disabled=true; statusEl.textContent='Sending...'; clearTimeout(syncTimer);
   try{
     const res=await fetch(CONFIG.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(collect())});
     if(!res.ok) throw new Error('bad status '+res.status);
-    localStorage.removeItem(CONFIG.storageKey);
+    submitted=true;
+    try{ localStorage.removeItem(CONFIG.storageKey); }catch(x){}
     document.getElementById('main').querySelectorAll('form,.hero').forEach(el=>el.style.display='none');
     document.getElementById('thanks').classList.add('show');
     window.scrollTo({top:0,behavior:'smooth'});
@@ -452,7 +531,7 @@ form.addEventListener('submit', async (e)=>{
   }
 });
 
-restore(); paintTicks(); updateProgress();
+restore(); paintTicks(); updateProgress(); setSync('loading'); pullDraft(true);
 </script>
 
 </body>
