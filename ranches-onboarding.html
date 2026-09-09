@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Onboarding - Ranches | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --night:#170515; --plum:#2c0a2c; --magenta:#C20AB2; --magenta-deep:#8E0782; --pink:#FF3C9E; --pink-hot:#F5238C;
+  --paper:#FFF7FC; --white:#FFFDFE;
+  --ink:#1f1222; --muted:#5f4c60; --dim:#8a7590;
+  --line:rgba(194,10,178,0.24); --line-soft:rgba(194,10,178,0.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;
+  background:radial-gradient(900px 620px at 100% 100%,rgba(194,10,178,.42),transparent 62%),radial-gradient(820px 520px at 0% 55%,rgba(142,7,130,.55),transparent 62%),var(--night)}
+.disp{font-family:'Anton','Impact',sans-serif;font-weight:400;letter-spacing:.01em}
+img{display:block;max-width:100%}
+
+.band{height:4px;background:linear-gradient(90deg,var(--magenta),var(--pink) 50%,var(--magenta-deep))}
+
+header.top{position:sticky;top:0;z-index:40;background:rgba(23,5,21,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.top-inner{max-width:860px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:16px}
+.lockup{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.lockup img{height:22px;width:auto}
+.lockup .x{font-size:11px;opacity:.5}
+.lockup .fc{font-size:10px;letter-spacing:2.2px;text-transform:uppercase;font-weight:600;opacity:.9}
+.progress-wrap{flex:1;height:4px;background:rgba(255,255,255,.16);border-radius:99px;overflow:hidden;min-width:40px}
+.progress{height:100%;width:0;background:linear-gradient(90deg,var(--magenta),var(--pink));transition:width .35s ease;box-shadow:0 0 12px rgba(255,60,158,.6)}
+.btn-top{flex-shrink:0}
+
+.wrap{max-width:860px;margin:0 auto;padding:0 22px 60px}
+
+.hero{position:relative;margin:22px 0 26px;border-radius:18px;overflow:hidden;background:#2c0a2c url('/contract/ranches/assets/ranches-hero.jpg') center 35%/cover no-repeat;min-height:360px;display:flex;align-items:flex-end}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,5,21,.18) 0%,rgba(23,5,21,.62) 48%,rgba(23,5,21,.95) 100%)}
+.hero-in{position:relative;padding:160px 34px 34px}
+.eyebrow{font-size:10.5px;letter-spacing:3.2px;text-transform:uppercase;color:var(--pink);margin-bottom:12px;font-weight:600}
+.hero h1{font-family:'Anton','Impact',sans-serif;font-weight:400;font-size:clamp(38px,6.4vw,60px);line-height:1;margin-bottom:16px;color:#fff;letter-spacing:.01em;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 24px rgba(255,60,158,.55)}
+.hero p{color:rgba(255,255,255,.86);max-width:600px;font-size:15.5px}
+.meta{margin-top:14px;font-size:12.5px;color:rgba(255,255,255,.55);letter-spacing:.3px}
+#syncState{color:var(--pink)}
+
+.card{background:var(--white);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:32px;margin-bottom:18px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.sec-num{font-family:'Anton','Impact',sans-serif;font-size:16px;letter-spacing:.04em;color:#fff;background:var(--magenta);box-shadow:0 6px 16px rgba(194,10,178,.35);width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sec-head h2{font-family:'Anton','Impact',sans-serif;font-weight:400;font-size:27px;line-height:1.15;color:var(--ink);text-transform:uppercase;letter-spacing:.02em}
+.sec-sub{color:var(--dim);font-size:14px;margin-bottom:22px}
+.star{border-left:3px solid var(--pink)}
+
+.field{margin-bottom:18px}
+.field:last-child{margin-bottom:0}
+label{display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--ink)}
+.req{color:var(--magenta)}
+.hint{display:block;font-weight:400;font-size:13px;color:var(--dim);margin-top:2px;line-height:1.55}
+input[type=text],input[type=email],input[type=tel],input[type=url],input[type=date],textarea,select{
+  width:100%;padding:11px 13px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  font-family:inherit;font-size:15px;border-radius:9px;transition:border-color .15s,background .15s,box-shadow .15s;-webkit-appearance:none;appearance:none}
+input[type=date]{min-height:46px}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--magenta);background:#fff;box-shadow:0 0 0 3px rgba(194,10,178,.14)}
+textarea{min-height:92px;resize:vertical;line-height:1.65}
+textarea.tall{min-height:130px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.shop{display:flex;align-items:center;gap:12px;background:var(--night);border-radius:11px;padding:11px 15px;margin:10px 0 10px;box-shadow:inset 0 0 0 1px rgba(255,60,158,.45),0 0 18px rgba(194,10,178,.2)}
+.shop img{height:22px;width:auto}
+.shop span{color:rgba(255,255,255,.66);font-size:12.5px;line-height:1.4}
+
+.ticks{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:6px}
+.tick{display:flex;align-items:flex-start;gap:9px;padding:11px 13px;border:1px solid var(--line);background:var(--paper);border-radius:10px;cursor:pointer;font-size:14px;line-height:1.45;transition:border-color .15s,background .15s,box-shadow .15s}
+.tick input{margin-top:3px;flex-shrink:0;accent-color:var(--magenta)}
+.tick span b{display:block;font-weight:600}
+.tick span i{font-style:normal;color:var(--dim);font-size:12.5px}
+.tick:hover{border-color:var(--pink)}
+.tick.on{border-color:var(--magenta);background:#fff;box-shadow:0 0 0 2px rgba(194,10,178,.16)}
+
+.radios{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.radio{display:flex;align-items:center;gap:8px;padding:10px 15px;border:1px solid var(--line);background:var(--paper);border-radius:99px;cursor:pointer;font-size:14px;font-weight:500}
+.radio input{accent-color:var(--magenta)}
+.radio:has(input:checked){border-color:var(--magenta);background:#fff;box-shadow:0 0 0 2px rgba(194,10,178,.16)}
+
+.btn{display:inline-block;padding:14px 30px;font-family:inherit;font-size:15px;font-weight:600;border:none;border-radius:99px;cursor:pointer;text-decoration:none}
+.btn-primary{background:var(--magenta);color:#fff;box-shadow:0 8px 30px rgba(194,10,178,.4)}
+.btn-primary:hover{background:var(--magenta-deep)}
+.btn-primary:disabled{opacity:.55;cursor:default}
+.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35);padding:8px 14px;font-size:12.5px}
+.btn-line{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.status{font-size:14px;color:var(--pink);margin-top:12px}
+.status a{color:var(--pink)}
+
+.thanks{display:none;text-align:center;padding:80px 20px;color:#fff}
+.thanks.show{display:block}
+.thanks .check{width:72px;height:72px;border-radius:50%;margin:0 auto 22px;border:2px solid var(--pink);display:flex;align-items:center;justify-content:center;font-size:34px;color:var(--pink);box-shadow:0 0 24px rgba(255,60,158,.45)}
+.thanks h2{font-family:'Anton','Impact',sans-serif;font-weight:400;font-size:34px;margin-bottom:12px;color:#fff;text-transform:uppercase;letter-spacing:.02em}
+.thanks p{color:rgba(255,255,255,.78);max-width:500px;margin:0 auto}
+
+footer.foot{text-align:center;color:rgba(255,255,255,.45);font-size:12.5px;margin-top:30px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}
+footer.foot b{color:var(--pink)}
+
+@media (max-width:700px){
+  .grid2{grid-template-columns:1fr}
+  .ticks{grid-template-columns:1fr}
+  .card{padding:24px 18px;border-radius:14px}
+  .hero{margin:14px 0 20px;min-height:320px;border-radius:14px;background-position:center 30%}
+  .hero-in{padding:130px 22px 26px}
+  .top-inner{padding:11px 16px;gap:12px}
+  .lockup img{height:19px}
+  .wrap{padding:0 14px 48px}
+  .btn-top{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="band"></div>
+<header class="top">
+  <div class="top-inner">
+    <div class="lockup">
+      <img src="/contract/ranches/assets/ranches-wordmark-white.png" alt="Ranches">
+      <span class="x">x</span>
+      <span class="fc">Fusion</span>
+    </div>
+    <div class="progress-wrap"><div class="progress" id="prog"></div></div>
+    <button type="button" class="btn btn-ghost btn-top" onclick="document.getElementById('submitBtn').scrollIntoView()">Submit &darr;</button>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+
+  <div class="hero">
+    <div class="hero-in">
+      <div class="eyebrow">Content Onboarding</div>
+      <h1>Let's get Ranches <em>on camera.</em></h1>
+      <p>Welcome aboard. This is everything we need before the first shoot: the story behind seven years and two shops, the burgers and desserts that deserve the camera, and the practical bits for the day. Takes about ten minutes and it saves as you go, so you can stop and come back, or pass the link to whoever knows the answers.</p>
+      <div class="meta">Saves as you type, and anyone with this link picks up the same progress.<br><span id="syncState">Loading the shared draft...</span></div>
+    </div>
+  </div>
+
+  <form id="form" novalidate>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">01</span><h2>The basics</h2></div>
+    <p class="sec-sub">Who we will be working with day to day, and where to point the first month.</p>
+    <div class="grid2">
+      <div class="field"><label>Trading name <span class="req">*</span></label><input type="text" name="trading_name" required value="Ranches"></div>
+      <div class="field"><label>Your name <span class="req">*</span></label><input type="text" name="contact_name" required value="Arif Khan"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Your role</label><input type="text" name="contact_role" placeholder="Owner"></div>
+      <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="contact_email" required value="info@myranches.co.uk"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Best mobile for shoot days<span class="hint">The number we message on the day.</span></label><input type="tel" name="contact_phone" placeholder="07..."></div>
+      <div class="field"><label>Instagram</label><input type="text" name="instagram" value="@myranches"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>TikTok</label><input type="text" name="tiktok" value="@ranchesuk"></div>
+      <div class="field"><label>Facebook</label><input type="text" name="facebook" value="facebook.com/MyRanches"></div>
+    </div>
+    <div class="field">
+      <label>Which shop should lead?<span class="hint">Both get filmed, we rotate month to month. This just tells us where to point the first shoot and the first month of posting.</span></label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="lead_shop" value="Sunderland first"> Sunderland</label>
+        <label class="radio"><input type="radio" name="lead_shop" value="Newcastle first"> Newcastle</label>
+        <label class="radio"><input type="radio" name="lead_shop" value="Both equally from day one"> Both equally</label>
+      </div>
+    </div>
+    <div class="field"><label>Logo and brand files<span class="hint">Anything you have: logo files, the menu artwork, the sign, the pink wrapping paper design. A Drive or WeTransfer link is perfect.</span></label><input type="text" name="brand_assets" placeholder="Link, or tell us what you have"></div>
+    <div class="field"><label>Photos and video you already have<span class="hint">Including anything local creators have filmed at either shop that we could reuse.</span></label><textarea name="media_library" placeholder="Link, or a quick description"></textarea></div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Your story</h2></div>
+    <p class="sec-sub">Seven years, two cities, one obsession. This is the part nobody else in the North East can copy, so it is the most important section on the form.</p>
+
+    <div class="field"><label>How did Ranches start? <span class="req">*</span><span class="hint">The Sunderland shop, the year, why burgers, and what the first year was like. Tell it how you would tell a mate.</span></label><textarea class="tall" name="origin_story" required></textarea></div>
+
+    <div class="field"><label>Why Newcastle, and how is it going so far?<span class="hint">When it opened, why that spot, what surprised you. New is a story and we want to launch it properly.</span></label><textarea name="newcastle_story"></textarea></div>
+
+    <div class="grid2">
+      <div class="field"><label>Ranches in your own words<span class="hint">One or two lines. We will likely use your exact phrasing as a hook.</span></label><textarea name="in_own_words"></textarea></div>
+      <div class="field"><label>Best burgers in the North East. What backs it up? <span class="req">*</span><span class="hint">The patties, the recipe, the buns, the sauces, the way they are cooked. Give us the proof and we will put it on camera.</span></label><textarea name="best_claim" required></textarea></div>
+    </div>
+
+    <div class="field"><label>Things people would never guess <span class="req">*</span><span class="hint">Anything at all: what is made from scratch every day, where the beef comes from, how the sauces are made, how many sundae flavours there are, a rule in the kitchen, a regular who comes in every week. Small details make the best videos, so list as many as you can.</span></label><textarea class="tall" name="not_known" required placeholder="One per line is fine"></textarea></div>
+
+    <div class="field"><label>What do customers always ask you?<span class="hint">The questions you answer ten times a night are the questions the internet is asking too.</span></label><textarea name="customer_questions"></textarea></div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num">03</span><h2>The food</h2></div>
+    <p class="sec-sub">What sells, what looks incredible, and what has a moment worth filming. We have pulled these from your current menu, so tick freely and we will build the shot list around them.</p>
+
+    <div class="field"><label>Best sellers, in order <span class="req">*</span><span class="hint">The ones that genuinely leave the kitchen most. Say if it differs between Sunderland and Newcastle.</span></label><textarea name="best_sellers" required placeholder="1.&#10;2.&#10;3."></textarea></div>
+
+    <div class="field">
+      <label>Tick anything from the main menu you would like us to film</label>
+      <div class="shop"><img src="/contract/ranches/assets/ranches-wordmark-white.png" alt="Ranches"><span>Burgers, dogs, parmos, wings, loaded fries and the new stuff</span></div>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="menu_picks" value="The Classic Burger"><span><b>The Classic Burger</b><i>Two patties, cheese, the Ranches relish</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Mad Mac"><span><b>Mad Mac</b><i>Mac and cheese, tortilla chips, salsa</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="50 States"><span><b>50 States</b><i>Turkey bacon, onion rings, burger sauce</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Hot in Houston"><span><b>Hot in Houston</b><i>Beef chilli, jalapenos, sizzler sauce</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="The Highway"><span><b>The Highway</b><i>Hash brown, fried egg, BBQ</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="The Grand Canyon"><span><b>The Grand Canyon</b><i>Beef and fried chicken, double cheese</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Sweet Alabama"><span><b>Sweet Alabama</b><i>Two patties, house BBQ, caramelised onions</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="All Stars"><span><b>All Stars</b><i>Two patties, gherkins, crispy onions</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Gus Fring"><span><b>Gus Fring</b><i>Fried chicken, spicy cheese, jalapenos</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Ranchos"><span><b>Ranchos</b><i>Fried chicken, beef chilli, the fiery one</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Chicken burgers (Kentucky King, Chick-A-Philly, The Grill, Miami Heatwave)"><span><b>Chicken burgers</b><i>Kentucky King, Chick-A-Philly, The Grill, Miami Heatwave</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Sloppy Joe's"><span><b>Sloppy Joe's</b><i>Pulled chicken, fries on top, the messy one</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Slaw House (veggie)"><span><b>Slaw House</b><i>The spicy bean veggie burger</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Hot dogs (Classic Dog, Messy Mexi, Bad Dog, Crispy Bacon Dog)"><span><b>Hot dogs</b><i>Classic Dog, Messy Mexi, Bad Dog, Crispy Bacon Dog</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Parmesans (Original, Pulled Chicken, Flaming Hot, Pepperoni, Beef Chilli, Bacon, Sweet Chilli)"><span><b>Parmesans</b><i>Original, pulled chicken, flaming hot, pepperoni, beef chilli, sweet chilli</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Blazing Birds wings (grilled, fried, Buffalo Hot)"><span><b>Blazing Birds wings</b><i>Grilled, fried, Buffalo hot, whole chicken</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Wings Roulette"><span><b>Wings Roulette</b><i>Ten wings, random heat, can you handle it</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Funky Fries (chicken, bacon, beef chilli, pepperoni, sizzling veggie)"><span><b>Funky Fries</b><i>Chicken, bacon, beef chilli, pepperoni, sizzling veggie</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Nachos (beef chilli, pulled chicken, bacon)"><span><b>Nachos</b><i>Beef chilli, pulled chicken, bacon</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Rice boxes (grilled chicken, fried chicken)"><span><b>Rice boxes</b><i>New: peri spicy rice, grilled or fried chicken</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Loaded mac and cheese / loaded garlic bread"><span><b>Loaded mac and cheese</b><i>And the loaded garlic bread</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Sunday Dinner (new, Sundays 12 to 3)"><span><b>Sunday Dinner</b><i>New: chicken, beef or the duo, Sundays 12 to 3</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Dips and sauces (sizzler, dynamite, Texas BBQ, Ranches burger sauce, perinaise)"><span><b>The sauces</b><i>Sizzler, dynamite, Texas BBQ, burger sauce, perinaise</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Something not listed, see notes"><span><b>Something else</b><i>Tell us below</i></span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Tick anything from the dessert side you would like us to film</label>
+      <div class="shop"><img src="/contract/ranches/assets/ranches-wordmark-white.png" alt="Ranches"><span>The Creation Station, shakes, sundaes and cheesecakes</span></div>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="dessert_picks" value="Creation Station (build your own dessert)"><span><b>The Creation Station</b><i>Customers building their own, start to finish</i></span></label>
+        <label class="tick"><input type="checkbox" name="dessert_picks" value="Signature flavours (Cali Crumble, Dreamy Dallas, Philly's Fantasy, Terry's Tennessee, Boston Banoffee)"><span><b>Signature flavours</b><i>Cali Crumble, Dreamy Dallas, Philly's Fantasy, Terry's Tennessee, Boston Banoffee</i></span></label>
+        <label class="tick"><input type="checkbox" name="dessert_picks" value="Waffles"><span><b>Waffles</b><i>The pour and the stack</i></span></label>
+        <label class="tick"><input type="checkbox" name="dessert_picks" value="Cookie dough"><span><b>Cookie dough</b><i>Straight from the oven</i></span></label>
+        <label class="tick"><input type="checkbox" name="dessert_picks" value="Churros and mini doughnuts"><span><b>Churros and mini doughnuts</b><i>The dip and the dust</i></span></label>
+        <label class="tick"><input type="checkbox" name="dessert_picks" value="American shakes (Mallow-berry, Cookie Madness, Birthday Cake Shake)"><span><b>American shakes</b><i>Mallow-berry, Cookie Madness, Birthday Cake Shake</i></span></label>
+        <label class="tick"><input type="checkbox" name="dessert_picks" value="Sundaes (Oreo, Lotus, Snickers, Millions, toffee, choc brownie, strawberry)"><span><b>Sundaes</b><i>Oreo, Lotus, Snickers, Millions, toffee, choc brownie</i></span></label>
+        <label class="tick"><input type="checkbox" name="dessert_picks" value="Cheesecakes (Ferrero, Kinder, Millionaire, Lotus, Oreo, strawberry)"><span><b>Cheesecakes</b><i>Ferrero, Kinder, Millionaire, Lotus, Oreo, strawberry</i></span></label>
+        <label class="tick"><input type="checkbox" name="dessert_picks" value="Cakes (red velvet, brownies, Matilda cake)"><span><b>Cakes</b><i>Red velvet, brownies, the Matilda cake</i></span></label>
+        <label class="tick"><input type="checkbox" name="dessert_picks" value="Frappes and cold coffee"><span><b>Frappes and cold coffee</b><i>Caramel, salted caramel, Oreo</i></span></label>
+        <label class="tick"><input type="checkbox" name="dessert_picks" value="Something not listed, see notes"><span><b>Something else</b><i>Tell us below</i></span></label>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="field"><label>What should a first timer order?<span class="hint">A burger and a dessert.</span></label><textarea name="first_timers"></textarea></div>
+      <div class="field"><label>Best looking thing on the menu<span class="hint">Pure wow factor.</span></label><textarea name="wow_dish"></textarea></div>
+    </div>
+
+    <div class="field"><label>Moments with real theatre <span class="req">*</span><span class="hint">Anything with a moment: the patties hitting the grill, the smash, the cheese pull, the sauce going on, a dessert being built at the Creation Station, the shake being topped, the Wings Roulette reaction. These are the videos that travel.</span></label><textarea class="tall" name="theatre_dish" required></textarea></div>
+
+    <div class="grid2">
+      <div class="field"><label>Shakes, frappes and drinks worth filming<span class="hint">Anything with a pour, a topping or a colour.</span></label><textarea name="drinks"></textarea></div>
+      <div class="field"><label>Vegetarian and vegan options</label><textarea name="veggie"></textarea></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Anything new coming<span class="hint">New burgers, limited drops, the rice boxes, Sunday dinner, Christmas.</span></label><textarea name="new_dishes"></textarea></div>
+      <div class="field"><label>Items needing notice or long prep<span class="hint">So we plan ahead on shoot day.</span></label><textarea name="prep_notes"></textarea></div>
+    </div>
+    <div class="field"><label>Halal, allergen and caption notes<span class="hint">Anything we should always say, or never say, in a caption.</span></label><textarea name="dietary_notes"></textarea></div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">04</span><h2>On camera</h2></div>
+    <p class="sec-sub">Nobody gets pushed in front of a camera who does not want to be there. But people buy from people, and a founder they recognise turns a burger joint into their burger joint.</p>
+    <div class="field">
+      <label>Arif, are you happy on camera?<span class="hint">Even a few lines to camera about how it started goes a long way.</span></label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="owner_on_camera" value="Yes, happy to"> Yes, happy to</label>
+        <label class="radio"><input type="radio" name="owner_on_camera" value="A bit, ease me in"> A bit, ease me in</label>
+        <label class="radio"><input type="radio" name="owner_on_camera" value="No, keep me behind the camera"> Keep me behind the camera</label>
+      </div>
+    </div>
+    <div class="field"><label>Who else on the team would be good on camera?<span class="hint">Names, which shop, and how comfortable each person is. Even hands only on the grill is brilliant.</span></label><textarea name="team_on_camera"></textarea></div>
+    <div class="grid2">
+      <div class="field"><label>Can we show staff faces?</label>
+        <div class="radios">
+          <label class="radio"><input type="radio" name="show_staff" value="Yes"> Yes</label>
+          <label class="radio"><input type="radio" name="show_staff" value="Ask on the day"> Ask on the day</label>
+          <label class="radio"><input type="radio" name="show_staff" value="No"> No</label>
+        </div>
+      </div>
+      <div class="field"><label>Languages spoken<span class="hint">Subtitled clips in another language often travel further.</span></label><input type="text" name="languages"></div>
+    </div>
+    <div class="field">
+      <label>Do you want to talk to camera, or let the food do the talking?</label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="voice_pref" value="Happy to talk to camera"> Happy to talk</label>
+        <label class="radio"><input type="radio" name="voice_pref" value="Prefer no talking, food only"> Food only</label>
+        <label class="radio"><input type="radio" name="voice_pref" value="A mix of both"> A mix</label>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">05</span><h2>The first shoot</h2></div>
+    <p class="sec-sub">Pick a day that suits you and we will confirm it straight back. We film around service, so an evening with the grill at full tilt is ideal.</p>
+    <div class="grid2">
+      <div class="field"><label>What day would you like us to come? <span class="req">*</span><span class="hint">Your preferred date for the first content shoot.</span></label><input type="date" name="first_shoot_date" required></div>
+      <div class="field"><label>Which shop first? <span class="req">*</span>
+        <div class="radios">
+          <label class="radio"><input type="radio" name="first_shoot_shop" value="Sunderland" required> Sunderland</label>
+          <label class="radio"><input type="radio" name="first_shoot_shop" value="Newcastle"> Newcastle</label>
+        </div>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>What time should we arrive?<span class="hint">When the grill, the desserts and the light look their best.</span></label><input type="text" name="best_times" placeholder="e.g. 4pm, before the evening rush"></div>
+      <div class="field"><label>Quietest times in service<span class="hint">So we can film without getting in the way.</span></label><input type="text" name="quiet_times" placeholder="e.g. 4 to 6pm on a weekday"></div>
+    </div>
+    <div class="field"><label>On-site contact on the day<span class="hint">If you are at the other shop, who runs the day with us.</span></label><input type="text" name="shoot_contact" placeholder="Name and number"></div>
+    <div class="field"><label>Anything else about shoot days<span class="hint">Parking, access, notice you need, days that never work.</span></label><textarea name="shoot_notes"></textarea></div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">06</span><h2>Where this is going</h2></div>
+    <p class="sec-sub">So every video pulls in the same direction.</p>
+    <div class="grid2">
+      <div class="field"><label>Who is your ideal customer?<span class="hint">For each shop if they differ: families, students, late-night orders, big groups.</span></label><textarea name="ideal_customer"></textarea></div>
+      <div class="field"><label>What does success look like in 3 months?</label><textarea name="goals"></textarea></div>
+    </div>
+    <div class="field"><label>Offers, launches and events coming up<span class="hint">New menu items, limited drops, deals, the Newcastle launch, anything worth building content around.</span></label><textarea name="offers_events"></textarea></div>
+    <div class="grid2">
+      <div class="field"><label>Food accounts you admire<span class="hint">Anyone whose content makes you think: that, but for us.</span></label><textarea name="admired_accounts"></textarea></div>
+      <div class="field"><label>Anything to avoid<span class="hint">Topics, angles or claims you never want in a video or caption.</span></label><textarea name="avoid"></textarea></div>
+    </div>
+    <div class="field"><label>Anything else you want us to know</label><textarea name="anything_else"></textarea></div>
+  </section>
+
+  <div class="actions">
+    <button type="submit" class="btn btn-primary" id="submitBtn">Send to Fusion Creative</button>
+    <button type="button" class="btn btn-line" id="downloadBtn">Download a copy</button>
+  </div>
+  <div class="status" id="formStatus"></div>
+
+  </form>
+
+  <div class="thanks" id="thanks">
+    <div class="check">&#10003;</div>
+    <h2>Thank you, we have got it.</h2>
+    <p>This is on its way to Jay. We will turn your answers into a shot list, confirm the first shoot day, and come back with the ideas before we film.</p>
+  </div>
+
+  <footer class="foot">
+    Content Onboarding &middot; Ranches x <b>Fusion Creative</b> &middot; Sunderland and Newcastle
+  </footer>
+
+</main>
+
+<script>
+const CONFIG = {
+  endpoint: "https://newgreek.fusioncreative.uk/api/ranches-onboarding/",
+  storageKey: "ranches_onboarding_v1",
+  draftKey: "ranches-twoshops-2026",
+  pollMs: 25000
+};
+
+const form = document.getElementById('form');
+const statusEl = document.getElementById('formStatus');
+const progEl = document.getElementById('prog');
+const syncEl = document.getElementById('syncState');
+const HDR = {'Content-Type':'application/json','X-Draft-Key':CONFIG.draftKey};
+
+// Shoot date: tomorrow onwards
+(function(){
+  const d=new Date(); d.setDate(d.getDate()+1);
+  const iso=d.toISOString().slice(0,10);
+  const inp=form.querySelector('[name=first_shoot_date]');
+  if(inp) inp.min=iso;
+})();
+
+// Empty string, nothing, and an empty tick list all count as "blank".
+function ser(v){ if(v==null||v===''||(Array.isArray(v)&&!v.length)) return ''; return JSON.stringify(v); }
+
+function currentValues(){
+  const d={};
+  form.querySelectorAll('input,textarea,select').forEach(el=>{
+    if(!el.name) return;
+    if(el.type==='radio'){ if(el.checked) d[el.name]=el.value; else if(!(el.name in d)) d[el.name]=''; }
+    else if(el.type==='checkbox'){ if(!Array.isArray(d[el.name])) d[el.name]=[]; if(el.checked) d[el.name].push(el.value); }
+    else { d[el.name]=el.value; }
+  });
+  return d;
+}
+function setField(name,val){
+  form.querySelectorAll('[name="'+CSS.escape(name)+'"]').forEach(el=>{
+    if(el.type==='radio'){ el.checked=(el.value===val); }
+    else if(el.type==='checkbox'){ el.checked=Array.isArray(val)&&val.includes(el.value); }
+    else if(el.type!=='hidden'){ el.value=(val==null?'':val); }
+  });
+}
+function save(){ try{ localStorage.setItem(CONFIG.storageKey, JSON.stringify(currentValues())); }catch(e){} }
+function restore(){
+  let d; try{ d=JSON.parse(localStorage.getItem(CONFIG.storageKey)||'{}'); }catch(e){ d={}; }
+  Object.keys(d).forEach(name=>{ const v=d[name]; if(ser(v)!=='') setField(name, Array.isArray(v)&&form.querySelector('[name="'+CSS.escape(name)+'"][type=radio]') ? v[0] : v); });
+}
+function paintTicks(){
+  form.querySelectorAll('.tick').forEach(t=>{ const cb=t.querySelector('input'); t.classList.toggle('on', !!(cb && cb.checked)); });
+}
+const RADIO_GROUPS=new Set([...form.querySelectorAll('input[type=radio]')].map(r=>r.name)).size;
+function updateProgress(){
+  const fields=[...form.querySelectorAll('input[type=text],input[type=email],input[type=url],input[type=tel],input[type=date],textarea')];
+  const filled=fields.filter(f=>f.value.trim()!=='').length;
+  const chosen=new Set([...form.querySelectorAll('input:checked')].map(r=>r.name));
+  const total=fields.length+RADIO_GROUPS;
+  progEl.style.width=Math.min(100, Math.round(((filled+chosen.size)/total)*100))+'%';
+}
+
+// ---- shared draft: one copy on the server that every device reads and writes ----
+let lastSynced={}, syncTimer=null, syncing=false, queued=false, submitted=false;
+function setSync(state, when){
+  if(!syncEl) return;
+  if(state==='saving') syncEl.textContent='Saving to the shared draft...';
+  else if(state==='saved'){ const t=when?new Date(when):new Date(); syncEl.textContent='Shared draft saved '+t.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); }
+  else if(state==='ready') syncEl.textContent='Shared draft on. Saves as you type.';
+  else if(state==='offline') syncEl.textContent='Cannot reach the shared draft right now, kept on this device.';
+  else if(state==='loading') syncEl.textContent='Loading the shared draft...';
+}
+function applyRemote(payload, force){
+  const cur=currentValues(); const active=document.activeElement;
+  Object.keys(payload||{}).forEach(k=>{
+    if(k.startsWith('_')) return;
+    const remote=payload[k], local=cur[k];
+    if(force && ser(remote)==='') return;          // first load: never blank a field this device already has
+    const focused=!!(active && active.name===k);
+    const dirty=ser(local)!==ser(lastSynced[k]);    // changed here since the last sync
+    if(force || (!focused && !dirty)){
+      if(ser(remote)!==ser(local)) setField(k, remote);
+      lastSynced[k]=remote;
+    }
+  });
+  paintTicks(); updateProgress(); save();
+}
+function computeDelta(){
+  const cur=currentValues(); const d={};
+  Object.keys(cur).forEach(k=>{ if(ser(cur[k])!==ser(lastSynced[k])) d[k]=cur[k]; });
+  return d;
+}
+function showAlreadySent(){
+  if(submitted) return; submitted=true; clearTimeout(syncTimer);
+  document.getElementById('main').querySelectorAll('form,.hero').forEach(el=>el.style.display='none');
+  const th=document.getElementById('thanks');
+  th.querySelector('h2').textContent='This form has already been sent.';
+  th.querySelector('p').textContent='Someone at Ranches has already submitted it, so there is nothing left to do here. Thank you.';
+  th.classList.add('show');
+  try{ localStorage.removeItem(CONFIG.storageKey); }catch(e){}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+async function pushDraft(){
+  if(submitted) return;
+  if(syncing){ queued=true; return; }
+  const delta=computeDelta(); if(!Object.keys(delta).length) return;
+  syncing=true; setSync('saving');
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'PUT',headers:HDR,body:JSON.stringify({delta}),keepalive:true});
+    if(res.status===409){ showAlreadySent(); return; }
+    if(!res.ok) throw new Error('status '+res.status);
+    const j=await res.json();
+    Object.keys(delta).forEach(k=>{ lastSynced[k]=delta[k]; });
+    applyRemote(j.payload||{}, false);
+    setSync('saved', j.saved_at);
+  }catch(e){ setSync('offline'); }
+  finally{ syncing=false; if(queued){ queued=false; pushDraft(); } }
+}
+function scheduleSync(ms){ clearTimeout(syncTimer); syncTimer=setTimeout(pushDraft, ms); }
+async function pullDraft(initial){
+  if(submitted) return;
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'GET',headers:{'X-Draft-Key':CONFIG.draftKey},cache:'no-store'});
+    if(!res.ok) throw new Error('status '+res.status);
+    const j=await res.json();
+    if(j.status==='submitted'){ showAlreadySent(); return; }
+    applyRemote(j.payload||{}, !!initial);
+    if(initial){ setSync(j.saved_at?'saved':'ready', j.saved_at); pushDraft(); }
+  }catch(e){ if(initial) setSync('offline'); }
+}
+
+form.addEventListener('input', ()=>{ save(); updateProgress(); scheduleSync(1200); });
+form.addEventListener('change', ()=>{ save(); paintTicks(); updateProgress(); scheduleSync(250); });
+document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='hidden'){ clearTimeout(syncTimer); pushDraft(); } else { pullDraft(false); } });
+window.addEventListener('pagehide', ()=>{ clearTimeout(syncTimer); pushDraft(); });
+setInterval(()=>{ if(document.visibilityState==='visible') pullDraft(false); }, CONFIG.pollMs);
+
+function collect(){
+  const d={};
+  form.querySelectorAll('input,textarea,select').forEach(el=>{
+    if(!el.name) return;
+    if(el.type==='radio'){ if(el.checked) d[el.name]=el.value; }
+    else if(el.type==='checkbox'){ if(el.checked){ (d[el.name]=d[el.name]||[]).push(el.value); } }
+    else { d[el.name]=el.value; }
+  });
+  return d;
+}
+
+document.getElementById('downloadBtn').addEventListener('click', ()=>{
+  const d=collect();
+  let txt="RANCHES - CONTENT ONBOARDING\n\n";
+  Object.keys(d).forEach(k=>{ const v=Array.isArray(d[k])?d[k].join(', '):d[k]; if(String(v).trim()) txt+=k+": "+v+"\n\n"; });
+  const blob=new Blob([txt],{type:'text/plain'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='ranches-onboarding.txt'; a.click();
+});
+
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const req=[...form.querySelectorAll('[required]')].filter(f=>{
+    if(f.type==='radio') return !form.querySelector('[name="'+CSS.escape(f.name)+'"]:checked');
+    return !f.value.trim();
+  });
+  if(req.length){ statusEl.textContent='Please fill in the starred fields ('+req.length+' left).'; req[0].scrollIntoView({block:'center'}); req[0].focus(); return; }
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true; statusEl.textContent='Sending...'; clearTimeout(syncTimer);
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(collect())});
+    if(!res.ok) throw new Error('bad status '+res.status);
+    submitted=true;
+    try{ localStorage.removeItem(CONFIG.storageKey); }catch(x){}
+    document.getElementById('main').querySelectorAll('form,.hero').forEach(el=>el.style.display='none');
+    document.getElementById('thanks').classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }catch(err){
+    btn.disabled=false;
+    statusEl.innerHTML='Hmm, that did not send. Please try again, or use "download a copy" above and email it to <a href="mailto:jay@fusioncreative.uk">jay@fusioncreative.uk</a>.';
+  }
+});
+
+restore(); paintTicks(); updateProgress(); setSync('loading'); pullDraft(true);
+</script>
+
+</body>
+</html>
