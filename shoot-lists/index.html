@@ -186,6 +186,30 @@
   .field-concept:focus{border-bottom-color:rgba(232,85,60,.5)}
   .field-concept::placeholder{color:var(--dim)}
 
+  .script-wrap{display:flex;flex-direction:column;gap:7px}
+  .script-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .write-script{
+    border:1px solid var(--line);background:rgba(232,85,60,.06);color:var(--red);cursor:pointer;
+    font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+    padding:6px 12px;border-radius:999px;
+  }
+  .write-script:hover{background:rgba(232,85,60,.14)}
+  .write-script:disabled{opacity:.5;cursor:default}
+  .script-note{font-size:11px;color:var(--dim)}
+  .script-note.err{color:var(--red)}
+  .field-direction{
+    width:100%;border:1px solid var(--line);background:rgba(0,0,0,.02);border-radius:10px;outline:none;resize:vertical;
+    font-family:inherit;font-size:13px;line-height:1.5;color:#2b2b2b;min-height:38px;padding:8px 10px;
+  }
+  .field-direction:focus{border-color:rgba(232,85,60,.5)}
+  .field-direction::placeholder{color:var(--dim)}
+  .field-script{
+    width:100%;border:1px solid var(--line);background:rgba(0,0,0,.02);border-radius:10px;outline:none;resize:vertical;
+    font-family:'Space Mono',monospace;font-size:12px;line-height:1.6;color:#2b2b2b;min-height:0;padding:10px 11px;white-space:pre;
+  }
+  .field-script:focus{border-color:rgba(232,85,60,.5)}
+  .field-script::placeholder{color:var(--dim);font-family:inherit}
+
   .ref-row{display:flex;align-items:center;gap:8px}
   .field-ref{
     flex:1;min-width:0;border:none;background:transparent;outline:none;
@@ -333,6 +357,7 @@ function makeSortable(container, arr, rerender, handleSel, draggableSel){
 const API = "https://newgreek.fusioncreative.uk/api/shoot-lists/";
 // Resolves IG / TikTok / YouTube reference links to a thumbnail image.
 const THUMB_API = "https://newgreek.fusioncreative.uk/api/shoot-lists/thumb/";
+const SCRIPT_API = "https://newgreek.fusioncreative.uk/api/shoot-script/";
 function thumbSrc(c, refHref){
   if(c.thumb) return c.thumb;                       // manual override wins
   if(refHref) return THUMB_API + "?url=" + encodeURIComponent(refHref);
@@ -364,6 +389,8 @@ function normalizeData(blob){
       done: !!c.done,
       edited: !!c.edited
     };
+    if(typeof c.direction === "string" && c.direction) card.direction = c.direction;
+    if(typeof c.script === "string" && c.script) card.script = c.script;
     if(typeof c.thumb === "string" && c.thumb) card.thumb = c.thumb;
     return card;
   };
@@ -584,6 +611,17 @@ function renderCards(){
                 <a class="open-ref${refHref ? "" : " disabled"}" href="${escapeAttr(refHref) || "#"}" target="_blank" rel="noopener">&#8599;</a>
               </div>
             </div>
+            <div class="srow">
+              <span class="k">Script</span>
+              <div class="script-wrap">
+                <textarea class="field-direction" placeholder="What are you talking about, what should it say, what are we going for?" rows="2">${escapeHtml(c.direction || "")}</textarea>
+                <div class="script-actions">
+                  <button class="write-script">&#9998; Write script</button>
+                  <span class="script-note"></span>
+                </div>
+                <textarea class="field-script" placeholder="The script lands here" rows="${c.script ? Math.min(26, (c.script.split("\n").length + 1)) : 2}">${escapeHtml(c.script || "")}</textarea>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -591,6 +629,11 @@ function renderCards(){
 
     card.querySelector('.chk-shot').addEventListener("change", (e) => {
       c.done = e.target.checked;
+      // Ticking Shot drops it to the bottom so the next one to film is on top.
+      if(c.done){
+        list.cards.splice(i, 1);
+        list.cards.push(c);
+      }
       saveState();
       renderCards();
     });
@@ -616,6 +659,48 @@ function renderCards(){
     });
     // When the link is committed (blur/paste done), redraw so the thumbnail loads in
     refInput.addEventListener("change", () => renderCards());
+    card.querySelector(".field-direction").addEventListener("input", (e) => {
+      c.direction = e.target.value; saveState();
+    });
+    const scriptBox = card.querySelector(".field-script");
+    scriptBox.addEventListener("input", (e) => {
+      c.script = e.target.value; saveState();
+    });
+    const writeBtn = card.querySelector(".write-script");
+    const scriptNote = card.querySelector(".script-note");
+    writeBtn.addEventListener("click", async () => {
+      writeBtn.disabled = true;
+      const original = writeBtn.innerHTML;
+      writeBtn.innerHTML = "Writing...";
+      scriptNote.className = "script-note";
+      scriptNote.textContent = "Reading the client's brief";
+      try{
+        const res = await fetch(SCRIPT_API, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            list: activeList().name,
+            idea: c.idea,
+            concept: c.concept,
+            ref: c.ref,
+            direction: c.direction || "",
+          }),
+        });
+        const data = await res.json();
+        if(!res.ok) throw new Error(data.error || "Could not write a script");
+        c.script = data.script;
+        saveState();
+        scriptBox.value = data.script;
+        scriptBox.rows = Math.min(26, data.script.split("\n").length + 1);
+        scriptNote.textContent = data.usedBrief ? "Written from " + data.client + "'s brief" : "Written without an onboarding brief on file";
+      }catch(err){
+        scriptNote.className = "script-note err";
+        scriptNote.textContent = err.message;
+      }finally{
+        writeBtn.disabled = false;
+        writeBtn.innerHTML = original;
+      }
+    });
     card.querySelector(".copy-card").addEventListener("click", (e) => {
       e.stopPropagation();
       openCopyMenu(e.currentTarget, c);
@@ -784,6 +869,48 @@ function renderPosted(){
       renderPosted();
       renderCards();
     });
+    card.querySelector(".field-direction").addEventListener("input", (e) => {
+      c.direction = e.target.value; saveState();
+    });
+    const scriptBox = card.querySelector(".field-script");
+    scriptBox.addEventListener("input", (e) => {
+      c.script = e.target.value; saveState();
+    });
+    const writeBtn = card.querySelector(".write-script");
+    const scriptNote = card.querySelector(".script-note");
+    writeBtn.addEventListener("click", async () => {
+      writeBtn.disabled = true;
+      const original = writeBtn.innerHTML;
+      writeBtn.innerHTML = "Writing...";
+      scriptNote.className = "script-note";
+      scriptNote.textContent = "Reading the client's brief";
+      try{
+        const res = await fetch(SCRIPT_API, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            list: activeList().name,
+            idea: c.idea,
+            concept: c.concept,
+            ref: c.ref,
+            direction: c.direction || "",
+          }),
+        });
+        const data = await res.json();
+        if(!res.ok) throw new Error(data.error || "Could not write a script");
+        c.script = data.script;
+        saveState();
+        scriptBox.value = data.script;
+        scriptBox.rows = Math.min(26, data.script.split("\n").length + 1);
+        scriptNote.textContent = data.usedBrief ? "Written from " + data.client + "'s brief" : "Written without an onboarding brief on file";
+      }catch(err){
+        scriptNote.className = "script-note err";
+        scriptNote.textContent = err.message;
+      }finally{
+        writeBtn.disabled = false;
+        writeBtn.innerHTML = original;
+      }
+    });
     card.querySelector(".copy-card").addEventListener("click", (e) => {
       e.stopPropagation();
       openCopyMenu(e.currentTarget, c);
@@ -865,7 +992,7 @@ document.querySelectorAll(".subtab").forEach(btn => {
 document.getElementById("addCardBtn").addEventListener("click", () => {
   // Add to the TOP so it appears right under the "+ Add concept" button and
   // everything else pushes down - no scrolling to the bottom to fill it in.
-  activeList().cards.unshift({ idea: "", concept: "", ref: "", done: false, edited: false });
+  activeList().cards.unshift({ idea: "", concept: "", ref: "", direction: "", script: "", done: false, edited: false });
   saveState();
   renderCards();
   const first = document.querySelector(".field-idea");
