@@ -189,12 +189,15 @@
   .srows{display:flex;flex-direction:column;gap:10px}
   .srow{display:grid;grid-template-columns:84px 1fr;gap:12px;font-size:13.5px;align-items:start}
   .srow .k{color:var(--dim);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-family:'Space Mono',monospace;padding-top:6px}
+  .field-notes,
   .field-concept{
     width:100%;border:none;background:transparent;outline:none;resize:vertical;
     font-family:inherit;font-size:13.5px;line-height:1.55;color:#2b2b2b;
     min-height:42px;padding:5px 0;border-bottom:1px solid transparent;
   }
+  .field-notes:focus,
   .field-concept:focus{border-bottom-color:rgba(232,85,60,.5)}
+  .field-notes::placeholder,
   .field-concept::placeholder{color:var(--dim)}
 
   .script-wrap{display:flex;flex-direction:column;gap:7px}
@@ -251,7 +254,7 @@
     .topbar,.progresswrap,.tabs,.list-tools,.add-card-btn{display:none}
     .shot{break-inside:avoid;background:#fff;border:1px solid #ccc}
     h1,h2,.field-idea{color:#111}
-    .field-concept,.field-ref{color:#111}
+    .field-notes,.field-concept,.field-ref{color:#111}
     .open-ref,.del-card,.copy-card,.post-btn,.unpost-btn,.subtabs,.drag-grip{display:none}
   }
   @media(max-width:600px){
@@ -400,6 +403,7 @@ function normalizeData(blob){
       done: !!c.done,
       edited: !!c.edited
     };
+    if(typeof c.notes === "string" && c.notes) card.notes = c.notes;
     if(typeof c.direction === "string" && c.direction) card.direction = c.direction;
     if(typeof c.script === "string" && c.script) card.script = c.script;
     if(typeof c.thumb === "string" && c.thumb) card.thumb = c.thumb;
@@ -683,6 +687,10 @@ function renderCards(){
               </div>
             </div>
             <div class="srow">
+              <span class="k">Editor</span>
+              <textarea class="field-notes" placeholder="Notes for whoever edits this: pacing, what to cut on, the hook, anything you will forget by then" rows="2">${escapeHtml(c.notes || "")}</textarea>
+            </div>
+            <div class="srow">
               <span class="k">Script</span>
               <div class="script-wrap">
                 <textarea class="field-direction" placeholder="What are you talking about, what should it say, what are we going for?" rows="2">${escapeHtml(c.direction || "")}</textarea>
@@ -715,6 +723,10 @@ function renderCards(){
     });
     card.querySelector(".field-idea").addEventListener("input", (e) => {
       c.idea = e.target.value; saveState();
+    });
+    const notesEl = card.querySelector(".field-notes");
+    if(notesEl) notesEl.addEventListener("input", (e) => {
+      c.notes = e.target.value; saveState();
     });
     card.querySelector(".field-concept").addEventListener("input", (e) => {
       c.concept = e.target.value; saveState();
