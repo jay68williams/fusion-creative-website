@@ -28,15 +28,26 @@
   .sync-status.err::before{background:var(--red)}
 
   /* tabs / list switcher */
-  .tabs{display:flex;gap:8px;overflow-x:auto;padding:22px 0 0;-webkit-overflow-scrolling:touch}
+  .tabs{display:flex;flex-wrap:wrap;gap:9px;padding:22px 0 0;align-items:center}
   .tabs::-webkit-scrollbar{display:none}
   .tab{
-    flex:0 0 auto;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
-    padding:8px 14px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--mut);
-    cursor:pointer;white-space:nowrap;
+    flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:0;
+    height:44px;min-width:44px;padding:0 10px;border-radius:10px;border:1px solid var(--line);
+    background:var(--bg);color:var(--mut);cursor:pointer;white-space:nowrap;
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
   }
-  .tab.active{background:var(--cream);border-color:var(--cream);color:var(--bg);font-weight:700}
-  .tab.add-tab{color:var(--red);border-style:dashed;border-color:rgba(232,85,60,.55)}
+  /* A client is its logo. Colour is what makes one findable at a glance, so
+     inactive tabs keep it and only sit back slightly; the one you are on gets
+     a black ring. The list name is right below in the eyebrow either way. */
+  .tab img{
+    height:24px;max-width:80px;object-fit:contain;display:block;pointer-events:none;
+    opacity:.82;transition:opacity .18s;
+  }
+  .tab:hover img{opacity:1}
+  .tab.active{border-color:var(--cream);box-shadow:0 0 0 1px var(--cream)}
+  .tab.active img{opacity:1}
+  .tab.active .monogram{color:var(--cream);font-weight:700}
+  .tab.add-tab{color:var(--red);border-style:dashed;border-color:rgba(232,85,60,.55);font-size:15px;padding:0 14px}
   .list-tools{display:flex;justify-content:flex-end;gap:18px;margin:10px 0 0}
   .tool-link{
     font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
@@ -508,6 +519,44 @@ function activeList(){
   return data.lists.find(l => l.id === data.activeId) || data.lists[0];
 }
 
+// Client logos for the tab strip. Keys are the list name with everything but
+// letters and numbers stripped, so "The Northumberland Candle Co." matches.
+// A list with no logo (a one-off shoot list) falls back to a monogram.
+const CLIENT_LOGOS = {
+  thebakeone: "the-bake-one",
+  geisha: "geisha",
+  thenorthumberlandcandleco: "northumberland-candle-co",
+  northumberlandcandlecompany: "northumberland-candle-co",
+  thegreekspot: "the-greek-spot",
+  newgreekrestaurant: "new-greek",
+  newgreek: "new-greek",
+  newgreekbakery: "new-greek-bakery",
+  takdir: "takdir",
+  takdirwhitleybay: "takdir",
+  fusioncreative: "fusion-creative",
+  fusionweddings: "fusion-weddings",
+  ranches: "ranches",
+  meraki: "meraki",
+  merakigreekstreetfood: "meraki"
+};
+function logoFor(name){
+  const key = (name || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  if(!key) return null;
+  if(CLIENT_LOGOS[key]) return CLIENT_LOGOS[key];
+  // longest key that is a prefix of the name, or that the name is a prefix of
+  let hit = null;
+  for(const k of Object.keys(CLIENT_LOGOS)){
+    if(key.startsWith(k) || k.startsWith(key)){
+      if(!hit || k.length > hit.length) hit = k;
+    }
+  }
+  return hit ? CLIENT_LOGOS[hit] : null;
+}
+function monogram(name){
+  return (name || "?").trim().split(/\s+/).filter(w => !/^(the|a|of|and)$/i.test(w))
+    .slice(0, 2).map(w => w[0]).join("").toUpperCase() || "?";
+}
+
 function renderTabs(){
   const tabs = document.getElementById("tabs");
   tabs.innerHTML = "";
@@ -515,7 +564,27 @@ function renderTabs(){
     const tab = document.createElement("button");
     tab.className = "tab" + (l.id === data.activeId ? " active" : "");
     tab.dataset.idx = i;
-    tab.textContent = l.name || "Untitled list";
+    tab.title = l.name || "Untitled list";
+    tab.setAttribute("aria-label", l.name || "Untitled list");
+    const logo = logoFor(l.name);
+    if(logo){
+      const img = document.createElement("img");
+      img.src = "logos/" + logo + ".png";
+      img.alt = l.name || "";
+      img.addEventListener("error", () => {
+        img.remove();
+        const span = document.createElement("span");
+        span.className = "monogram";
+        span.textContent = monogram(l.name);
+        tab.appendChild(span);
+      });
+      tab.appendChild(img);
+    } else {
+      const span = document.createElement("span");
+      span.className = "monogram";
+      span.textContent = monogram(l.name);
+      tab.appendChild(span);
+    }
     tab.addEventListener("click", () => {
       data.activeId = l.id;
       saveState();
@@ -525,7 +594,9 @@ function renderTabs(){
   });
   const addTab = document.createElement("button");
   addTab.className = "tab add-tab";
-  addTab.textContent = "+ New list";
+  addTab.textContent = "+";
+  addTab.title = "New list";
+  addTab.setAttribute("aria-label", "New list");
   addTab.addEventListener("click", () => {
     const name = prompt("Name this list (e.g. client or shoot name):", "");
     if(name === null) return;
