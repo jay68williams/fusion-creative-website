@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Plan - Geisha Restaurants | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --night:#08080d; --ink-dark:#14131a; --navy:#222d57;
+  --pink:#FF32A5; --magenta:#E4076A; --orange:#E37132; --blue:#2AA2D6;
+  --cream:#f5efe0; --paper:#FBF8F1; --white:#FFFDFA;
+  --ink:#1b1a24; --muted:#585670; --dim:#7d7a8f;
+  --line:rgba(34,45,87,0.18); --line-soft:rgba(34,45,87,0.1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;
+  background:radial-gradient(900px 620px at 100% 100%,rgba(228,7,106,.38),transparent 62%),radial-gradient(820px 520px at 0% 58%,rgba(34,45,87,.95),transparent 62%),var(--night)}
+.serif{font-family:'Fraunces',Georgia,serif;font-weight:700}
+img{display:block;max-width:100%}
+a{color:var(--magenta)}
+
+.band{height:4px;background:linear-gradient(90deg,var(--magenta),var(--pink) 35%,var(--orange) 70%,var(--blue))}
+header.top{position:sticky;top:0;z-index:40;background:rgba(8,8,13,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--cream);border-bottom:1px solid rgba(255,255,255,.08)}
+.top-inner{max-width:880px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:12px}
+.top-inner img{height:18px;width:auto}
+.top-inner .x{font-size:11px;opacity:.5}
+.top-inner .fc{font-size:10px;letter-spacing:2.2px;text-transform:uppercase;font-weight:600;opacity:.9}
+.top-inner .tag{margin-left:auto;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--pink);font-weight:600}
+
+.wrap{max-width:880px;margin:0 auto;padding:0 22px 64px}
+
+.hero{position:relative;margin:22px 0 22px;border-radius:18px;overflow:hidden;background:#111 url('/contract/geisha/assets/room-sakura.jpg') center/cover no-repeat;min-height:340px;display:flex;align-items:flex-end}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,13,.25) 0%,rgba(8,8,13,.72) 55%,rgba(8,8,13,.94) 100%)}
+.hero-in{position:relative;padding:150px 34px 34px}
+.eyebrow{font-size:10.5px;letter-spacing:3.2px;text-transform:uppercase;color:var(--pink);margin-bottom:12px;font-weight:600}
+.hero h1{font-family:'Fraunces',Georgia,serif;font-weight:900;font-size:clamp(32px,5.4vw,48px);line-height:1.06;margin-bottom:16px;color:#fff;letter-spacing:-.3px}
+.hero h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 22px rgba(255,50,165,.55)}
+.hero p{color:rgba(245,239,224,.86);max-width:620px;font-size:15.5px}
+
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 8px}
+.fact{background:var(--ink-dark);border-radius:12px;padding:16px 18px;box-shadow:inset 0 0 0 1px rgba(255,50,165,.35)}
+.fact .k{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--pink);font-weight:600;margin-bottom:5px}
+.fact .v{font-weight:600;color:#fff;font-size:15px;line-height:1.4}
+
+section{margin-top:34px}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.sec-num{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:14px;color:var(--pink);background:var(--ink-dark);border:1px solid rgba(255,50,165,.55);box-shadow:0 0 14px rgba(255,50,165,.25);width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+h2{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:26px;color:#fff;line-height:1.2}
+.sub{color:rgba(245,239,224,.62);font-size:14px;margin-bottom:16px}
+
+.card{background:var(--white);border-radius:16px;padding:26px 28px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.card + .card{margin-top:14px}
+.card h3{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:18px;color:var(--ink);margin-bottom:8px}
+.card p{color:var(--muted);font-size:14.5px}
+.card p + p{margin-top:10px}
+.card p b{color:var(--ink);font-weight:600}
+.card ul{margin:8px 0 0;padding-left:20px;color:var(--muted);font-size:14.5px}
+.card li{margin:6px 0}
+.card li b{color:var(--ink);font-weight:600}
+.card.star{border-left:3px solid var(--pink)}
+
+ol.ideas{list-style:none;counter-reset:idea;margin:0}
+ol.ideas li{counter-increment:idea;background:var(--white);border-radius:12px;padding:16px 18px 16px 58px;position:relative;margin-bottom:10px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+ol.ideas li::before{content:counter(idea,decimal-leading-zero);position:absolute;left:16px;top:16px;font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:13px;color:var(--pink);background:var(--ink-dark);border-radius:7px;width:30px;height:30px;display:flex;align-items:center;justify-content:center}
+ol.ideas h3{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px;padding-right:96px}
+ol.ideas p{color:var(--muted);font-size:14px}
+.ref{position:absolute;right:14px;top:15px;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#fff;background:var(--magenta);border-radius:99px;padding:6px 11px;text-decoration:none;box-shadow:0 6px 18px rgba(228,7,106,.35)}
+.ref:hover{background:#c9065d}
+.venue{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:3px 9px;border-radius:99px;margin-left:8px;vertical-align:middle}
+.venue.asia{color:var(--orange);background:rgba(227,113,50,.12)}
+.venue.fusion{color:var(--blue);background:rgba(42,162,214,.14)}
+
+.dishes{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.dish-col h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);font-weight:700;margin-bottom:8px}
+.dish-col ul{list-style:none;padding:0}
+.dish-col li{padding:9px 12px;border:1px solid var(--line);border-radius:9px;background:var(--paper);font-size:14px;margin-bottom:7px;color:var(--ink)}
+.dish-col li i{font-style:normal;color:var(--dim);font-size:12.5px;display:block}
+
+.cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.btn{display:inline-block;padding:13px 26px;font-size:14.5px;font-weight:600;border-radius:99px;text-decoration:none}
+.btn-wa{background:#25D366;color:#fff;box-shadow:0 8px 26px rgba(37,211,102,.35)}
+.btn-line{background:transparent;color:var(--cream);border:1px solid rgba(245,239,224,.35)}
+
+footer.foot{text-align:center;color:rgba(245,239,224,.45);font-size:12.5px;margin-top:40px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}
+footer.foot b{color:var(--pink)}
+
+@media (max-width:700px){
+  .facts{grid-template-columns:1fr}
+  .dishes{grid-template-columns:1fr}
+  .card{padding:22px 18px;border-radius:14px}
+  .hero{margin:14px 0 18px;min-height:300px;border-radius:14px}
+  .hero-in{padding:120px 22px 26px}
+  .top-inner{padding:11px 16px;gap:10px}
+  .top-inner .tag{display:none}
+  .wrap{padding:0 14px 48px}
+  ol.ideas li{padding:16px 16px 16px 54px}
+  ol.ideas h3{padding-right:0}
+  .ref{right:auto;left:54px;top:auto;bottom:14px}
+  ol.ideas li:has(.ref){padding-bottom:52px}
+}
+</style>
+</head>
+<body>
+
+<div class="band"></div>
+<header class="top">
+  <div class="top-inner">
+    <img src="/contract/geisha/assets/geisha-wordmark.png" alt="Geisha">
+    <span class="x">x</span>
+    <span class="fc">Fusion</span>
+    <span class="tag">Content plan</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="hero-in">
+      <div class="eyebrow">Content plan &middot; Shoot one</div>
+      <h1>Tomorrow's shoot, and the ideas we are <em>bringing with us.</em></h1>
+      <p>This is the plan for Saturday and the list of videos we intend to film at Geisha Asia. You do not need to prepare anything beyond what is set out below. Have a read through and tell us if there is anything you would rather we did not film.</p>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><div class="k">Shoot date</div><div class="v">Saturday 12 September, from 2pm</div></div>
+    <div class="fact"><div class="k">Location</div><div class="v">Geisha Asia, Front Street, Benton</div></div>
+    <div class="fact"><div class="k">Output</div><div class="v">24 videos a month, across Instagram, TikTok and Facebook</div></div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-num serif">01</span><h2>How the day works</h2></div>
+    <p class="sub">One filming day covers a full month of content. We start straight after the lunch rush, as Simone suggested.</p>
+    <div class="card">
+      <ul>
+        <li><b>Arrival.</b> We arrive at 2pm and film through the quiet window from 2.30 to 4.30, while the room is clear and the lanterns and the sakura tree are at their best. If service picks up we work around you rather than stopping you.</li>
+        <li><b>Access.</b> We will need the sushi counter, the kitchen pass, the main room and the bar at various points. Simone is briefing both head chefs on what to plate and when.</li>
+        <li><b>Food.</b> A run of dishes made fresh through the afternoon, listed at the bottom of this page. We call them in order so nothing sits, and we ask for the sushi first because it takes the longest. Anything filmed is yours to sell or eat afterwards, nothing is wasted.</li>
+        <li><b>Duration.</b> Expect us for most of the afternoon. Everything is edited afterwards and delivered as finished videos.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num serif">02</span><h2>Nobody has to perform</h2></div>
+    <p class="sub">This is built into the plan.</p>
+    <div class="card star">
+      <p><b>We ask every person before they appear on camera</b>, exactly as you asked. The kitchen team can stay to hands and process, which is often the best footage anyway: the knife, the rice, the roll, the plate landing.</p>
+      <p>Where a video needs a presenter or someone to act, that is Jay or Anya from our team. If Simone or Gill fancy a line on camera we will make room for it, and if not, nothing in this plan depends on it.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num serif">03</span><h2>Scene based videos</h2></div>
+    <p class="sub">Short, light hearted scenarios filmed in the restaurant. No dialogue needed, the wording appears on screen. Where there is a reference, that is the format we are borrowing, not the content.</p>
+    <ol class="ideas">
+      <li><h3>Plans for the week?</h3><p>A week of "plans" that all turn out to be a table at Geisha.</p><a class="ref" href="https://www.instagram.com/reel/DaaxVzlsHSb/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>I have no enemies</h3><p>The full table, the calm face, and a very generous portion.</p><a class="ref" href="https://www.instagram.com/reel/DcBDQxexxKl/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>I lost my glasses</h3><p>Someone hunting for their glasses while the sushi in front of them steadily disappears.</p><a class="ref" href="https://www.instagram.com/reel/DZl73iZp6_x/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>He already knows the order</h3><p>First date, and he orders for her before she has opened the menu. He gets it exactly right.</p><a class="ref" href="https://www.instagram.com/reel/DdEc723OCsY/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>Everyone is watching the guest</h3><p>The whole team quietly spying on one table until the first bite lands.</p><a class="ref" href="https://www.instagram.com/reel/DdC5UX3Rax2/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>Sorry, I was busy</h3><p>"Sorry I didn't reply", then the cut to a table covered in dishes.</p><a class="ref" href="https://www.instagram.com/reel/DZwk8Y2NCZQ/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>I want sushi</h3><p>The craving, played completely straight, and where it ends up.</p><a class="ref" href="https://www.instagram.com/reel/Da5cUHlu0cK/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>Tell me I'm handsome and it's free</h3><p>A cheeky offer at the counter, and someone from our team appearing from behind to accept it. Needs your say so, see the two things to confirm below.</p><a class="ref" href="https://www.instagram.com/p/Dbd6tacRAwY/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>Why are you not working?</h3><p>Caught mid bite, entirely innocent.</p><a class="ref" href="https://www.instagram.com/p/DcEbhxJFf56/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>The chef's knife</h3><p>A quick skit at the sushi counter built around the knife work and a chef who is never quite finished.</p><a class="ref" href="https://www.instagram.com/reel/DceCPrsPUcB/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>The selfie that goes wrong</h3><p>A table selfie interrupted by what turns out to be on someone's phone. Played by our team, nobody at Geisha is involved.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num serif">04</span><h2>Games and challenges</h2></div>
+    <p class="sub">Filmed with willing guests or our own team. Anything involving a giveaway needs your approval first.</p>
+    <ol class="ideas" start="12">
+      <li><h3>Sushi maths</h3><p>Eat a piece, answer a sum, keep going. Gets harder as the plate empties.</p><a class="ref" href="https://www.instagram.com/reel/DaoGUOdyQDn/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>Noughts and crosses, with sushi</h3><p>Third date energy. You already know each other's favourite colours, so the plate becomes the board.</p><a class="ref" href="https://www.instagram.com/reel/DaRbOHqu0if/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>How much can I get for it?</h3><p>What the 2 for 14 cocktails and the daytime mix and match actually put on one table. A straight, satisfying value video.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num serif">05</span><h2>Trend formats and edits</h2></div>
+    <p class="sub">Short videos built around the audio and editing styles working this week. These mostly need the room, the plates and the cocktails.</p>
+    <ol class="ideas" start="15">
+      <li><h3>Menu flash-through</h3><p>Every dish, one frame each, cut fast to the beat.</p><a class="ref" href="https://www.instagram.com/reel/Dapp-HeAPrU/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>Sushi date</h3><p>Two people, one sharing platter, the whole evening in fifteen seconds.</p><a class="ref" href="https://www.instagram.com/reel/DaBKLrgNvcf/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>By the table</h3><p>A rotating point of view that lands first on a cocktail, then chopsticks, then a plate of sushi, then the full table.</p><a class="ref" href="https://www.instagram.com/reel/Dc3ns3eKenE/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>Steak, sushi, or the whole table?</h3><p>Three options, one choice. Viewers pick in the comments.</p><a class="ref" href="https://www.instagram.com/p/Dc-4dMmgd9H/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>Around the world in one room <span class="venue fusion">Fusion</span></h3><p>Dishes from different countries, one after the other. Tomorrow we film the Asian side; the Fusion dishes get picked up on the next visit.</p><a class="ref" href="https://www.instagram.com/p/Dc9oVERPVNj/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>Outside the front</h3><p>The arrival edit: Front Street, the sign, through the door and into the room.</p><a class="ref" href="https://www.instagram.com/p/DZxu0fopjVL/" target="_blank" rel="noopener">Reference</a></li>
+      <li><h3>From above</h3><p>Drone shots of the frontage and the street, weather permitting.</p></li>
+      <li><h3>POV: the chef makes your sushi</h3><p>The counter from the chef's eye line, start to finish.</p></li>
+      <li><h3>Sushi, no talking</h3><p>The ASMR version: rice, knife, nori, the roll, the slice. Sound does the work.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num serif">06</span><h2>The food and the story</h2></div>
+    <p class="sub">Built around the dishes you told us matter most, and the one thing you want people to understand about Geisha.</p>
+    <ol class="ideas" start="24">
+      <li><h3>First time at Geisha? Here is what we recommend</h3><p>Simone's picks for a first visit, either said to camera or as words on screen over the plates.</p></li>
+      <li><h3>If you love Asian food and have not tried Geisha, you are missing out</h3><p>Salt and chilli chicken, the massaman, Geisha KFC and the sizzling teppan, filmed close and satisfying.</p></li>
+      <li><h3>Fancy sushi, but they are not a fan?</h3><p>Two restaurants on one street: sushi for one of you, a burger or a parmo next door for the other. The answer to every "where shall we go" argument.</p></li>
+      <li><h3>Two very different restaurants, one name</h3><p>Pan-Asian upstairs, dishes from all over the world downstairs. This is the video that makes the point that Fusion is not just an Italian.</p></li>
+      <li><h3>Our crispy aromatic duck, and what is coming next <span class="venue fusion">Fusion</span></h3><p>The duck, then a first look at the new Fusion menu: the sharing seafood paella, build a burger, the new curry. Filmed on the Fusion visit.</p></li>
+      <li><h3>How many countries are on the menu? <span class="venue fusion">Fusion</span></h3><p>Counting them off, one dish per country. Filmed on the Fusion visit.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num serif">07</span><h2>What we would like ready</h2></div>
+    <p class="sub">Called in order through the afternoon, so nothing has to be plated all at once. Sushi first.</p>
+    <div class="card">
+      <div class="dishes">
+        <div class="dish-col">
+          <h4>Plates</h4>
+          <ul>
+            <li>Signature sushi selection <i>Ocean Sake Flower, rainbow maki, beef maki, plus nigiri and sashimi</i></li>
+            <li>Dim sum <i>Hagow and xiaolongbao, steamed and opened on camera</i></li>
+            <li>A sharing platter <i>The Geisha or the Deluxe</i></li>
+            <li>The sizzling teppan <i>Brought to the table still sizzling</i></li>
+            <li>Salt and chilli chicken, massaman curry, Geisha KFC <i>Your three best sellers</i></li>
+            <li>A ramen and a poke bowl <i>Chilli beef or tom yum; raw salmon poke</i></li>
+            <li>Desserts <i>Mochi and the custard bun</i></li>
+          </ul>
+        </div>
+        <div class="dish-col">
+          <h4>Drinks and people</h4>
+          <ul>
+            <li>Cocktails <i>Lucky Geisha, tropical daiquiri, mango mai tai, bamboo breeze, and a 2 for 14 pair</i></li>
+            <li>A chef at the sushi counter <i>Hands and process only, unless they want more</i></li>
+            <li>Simone on hand <i>To call dishes, and for the first timer video if you fancy it</i></li>
+            <li>Two or three tables we can use <i>Under the lanterns and by the sakura tree</i></li>
+            <li>Logos and menus <i>The content drive link, whenever it is ready</i></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num serif">08</span><h2>Two things to confirm</h2></div>
+    <p class="sub">Neither is filmed without your agreement.</p>
+    <div class="card">
+      <ul>
+        <li><b>The free item in "tell me I'm handsome".</b> The joke needs something small to give away on camera, a maki or a cocktail is plenty. Tell us what you are comfortable with, or we will drop it.</li>
+        <li><b>Filming guests.</b> A few of the ideas work best with real customers in the room. We always ask a guest before they appear and we never film anyone who would rather not be in it. Say the word if you would prefer we kept guests out of shot altogether.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num serif">09</span><h2>What happens next</h2></div>
+    <div class="card">
+      <ul>
+        <li><b>Tonight.</b> Read this through and tell us anything you want removed or added.</li>
+        <li><b>Tomorrow.</b> We film everything listed here that the day allows, strongest ideas first.</li>
+        <li><b>After the shoot.</b> We edit and deliver the finished videos, then post them across Instagram, TikTok and Facebook on a steady rhythm.</li>
+        <li><b>Reporting.</b> You receive a performance report each month showing how the content performed, and you can watch it live in your dashboard.</li>
+      </ul>
+      <div class="cta">
+        <a class="btn btn-wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20about%20tomorrow%27s%20Geisha%20shoot" target="_blank" rel="noopener">WhatsApp Jay</a>
+        <a class="btn btn-line" href="mailto:jay@fusioncreative.uk">jay@fusioncreative.uk</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    Content Plan &middot; Geisha Restaurants x <b>Fusion Creative</b> &middot; Prepared 11 September 2026
+  </footer>
+
+</main>
+</body>
+</html>
