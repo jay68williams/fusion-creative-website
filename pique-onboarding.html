@@ -396,12 +396,12 @@ function setSync(state, when){
   else if(state==='offline') syncEl.textContent='Cannot reach the shared draft right now, kept on this device.';
   else if(state==='loading') syncEl.textContent='Loading the shared draft...';
 }
-function applyRemote(payload, force){
+function applyRemote(payload, force, authoritative){
   const cur=currentValues(); const active=document.activeElement;
   Object.keys(payload||{}).forEach(k=>{
     if(k.startsWith('_')) return;
     const remote=payload[k], local=cur[k];
-    if(force && ser(remote)==='') return;
+    if(force && !authoritative && ser(remote)==='') return;
     const focused=!!(active && active.name===k);
     const dirty=ser(local)!==ser(lastSynced[k]);
     if(force || (!focused && !dirty)){
@@ -450,7 +450,7 @@ async function pullDraft(initial){
     if(!res.ok) throw new Error('status '+res.status);
     const j=await res.json();
     if(j.status==='submitted'){ showAlreadySent(); return; }
-    applyRemote(j.payload||{}, !!initial);
+    applyRemote(j.payload||{}, !!initial, j.status==='draft');
     if(initial){ setSync(j.saved_at?'saved':'ready', j.saved_at); pushDraft(); }
   }catch(e){ if(initial) setSync('offline'); }
 }
