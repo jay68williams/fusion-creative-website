@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal - Joy of Sweets | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --pink:#F068A0; --hot:#FF3EA5; --pink-deep:#D9498A; --blush:#FFE9F2; --blush-2:#FFD6E6; --candy:#FFB6C1;
+  --paper:#FFFDFE; --white:#ffffff; --ink:#3A3A3A; --ink-2:#5C5C5C; --ink-3:#8A8A8A;
+  --line:rgba(217,73,138,0.18); --line-soft:rgba(217,73,138,0.10);
+  --mint:#DDF5E6; --lemon:#FFF3B0; --sky:#D8EEF9;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+.container{max-width:880px;margin:0 auto;padding:0 24px}
+.display{font-family:'Fredoka',sans-serif;font-weight:600}
+img{display:block;max-width:100%}
+
+/* candy stripe: the one signature element, used as the rule between sections */
+.stripe{height:8px;background:repeating-linear-gradient(135deg,var(--hot) 0 14px,#fff 14px 28px);opacity:.9}
+
+/* header */
+.header{background:var(--white);border-bottom:1px solid var(--line)}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:16px}
+.lockup{display:flex;align-items:center;gap:16px}
+.lockup img{height:38px;width:auto}
+.lockup .x{font-family:'Fredoka',sans-serif;font-size:22px;color:var(--pink);line-height:1}
+.lockup .fc{font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--ink)}
+.lockup .fc span{color:var(--hot)}
+.header-date{font-size:12px;color:var(--ink-3);letter-spacing:.06em}
+
+/* hero */
+.hero{position:relative;overflow:hidden;color:#fff;background:var(--pink-deep)}
+.hero-bg{position:absolute;inset:0;background:url('assets/mix-top.jpg') center/cover no-repeat}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(217,73,138,.82) 0%,rgba(199,44,120,.92) 100%)}
+.hero-inner{position:relative;padding:92px 0 80px}
+.hero-label{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#FFE1EE;margin-bottom:20px}
+.hero h1{font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(42px,7vw,74px);line-height:1.02;letter-spacing:-.01em;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:#FFE45C}
+.hero p{font-size:17px;line-height:1.7;color:rgba(255,255,255,.9);max-width:580px}
+.hero-meta{margin-top:32px;display:flex;gap:10px 28px;flex-wrap:wrap;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.hero-meta b{color:#fff;font-weight:700}
+
+/* sections */
+.section{padding:64px 0}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--hot);margin-bottom:12px}
+.section-title{font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(32px,4.6vw,44px);line-height:1.1;color:var(--ink);margin-bottom:18px}
+.lead{font-size:16px;color:var(--ink-2);max-width:660px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:40px;box-shadow:0 1px 2px rgba(217,73,138,.04),0 14px 40px rgba(217,73,138,.07)}
+.greeting{font-family:'Fredoka',sans-serif;font-size:32px;font-weight:600;color:var(--pink-deep);margin-bottom:14px}
+.intro p{font-size:15.5px;color:var(--ink-2);margin-bottom:14px}
+.intro p:last-child{margin-bottom:0}
+.intro p b{color:var(--ink)}
+
+/* photo strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.strip figure{position:relative;aspect-ratio:1;border-radius:16px;overflow:hidden;background:var(--blush)}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.strip figure:hover img{transform:scale(1.04)}
+.strip figcaption{position:absolute;left:12px;bottom:10px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.55)}
+
+/* the order of work */
+.phases{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+.phase{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:34px 32px;position:relative;box-shadow:0 1px 2px rgba(217,73,138,.04),0 14px 40px rgba(217,73,138,.07)}
+.phase .when{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--pink-deep);background:var(--blush);border-radius:999px;padding:6px 12px;margin-bottom:16px}
+.phase h3{font-family:'Fredoka',sans-serif;font-weight:600;font-size:28px;line-height:1.1;color:var(--ink);margin-bottom:8px}
+.phase .sub{font-size:14px;color:var(--ink-2);margin-bottom:18px}
+.list{list-style:none}
+.list li{font-size:14px;color:var(--ink-2);padding:9px 0 9px 28px;position:relative;line-height:1.55;border-bottom:1px dashed var(--line-soft)}
+.list li:last-child{border-bottom:none}
+.list li::before{content:'';position:absolute;left:0;top:14px;width:14px;height:14px;border-radius:50%;background:var(--hot);box-shadow:0 0 0 4px var(--blush)}
+.list li b{color:var(--ink);font-weight:700}
+.phase .note{margin-top:18px;background:var(--blush);border-radius:12px;padding:13px 15px;font-size:13px;color:var(--ink-2);line-height:1.6}
+.phase .note b{color:var(--pink-deep)}
+
+/* month grid */
+.month{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.tile{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:24px 22px}
+.tile .n{font-family:'Fredoka',sans-serif;font-weight:700;font-size:40px;line-height:1;color:var(--hot)}
+.tile .t{font-weight:700;font-size:15px;margin:8px 0 6px;color:var(--ink)}
+.tile p{font-size:13.5px;color:var(--ink-2);line-height:1.6}
+.tile.mint{background:var(--mint)} .tile.lemon{background:var(--lemon)} .tile.sky{background:var(--sky)} .tile.blush{background:var(--blush-2)}
+.tile.mint,.tile.lemon,.tile.sky,.tile.blush{border-color:transparent}
+
+/* timeline */
+.timeline{list-style:none;margin-top:26px;position:relative}
+.timeline::before{content:'';position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:var(--blush-2)}
+.timeline li{position:relative;padding:0 0 26px 58px}
+.timeline li:last-child{padding-bottom:0}
+.timeline .dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--hot);border:4px solid #fff;box-shadow:0 0 0 2px var(--hot)}
+.timeline .w{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--pink-deep)}
+.timeline .t{font-family:'Fredoka',sans-serif;font-weight:600;font-size:21px;color:var(--ink);margin:2px 0 4px}
+.timeline p{font-size:14px;color:var(--ink-2)}
+
+/* numbers */
+.glance{width:100%;border-collapse:collapse;margin-top:8px}
+.glance td{padding:20px 0;vertical-align:top;border-bottom:1px solid var(--line);font-size:15px}
+.glance tr:last-child td{border-bottom:none}
+.glance td:first-child{color:var(--ink);font-weight:700;padding-right:24px}
+.glance td:first-child span{display:block;font-size:13.5px;color:var(--ink-2);font-weight:400;margin-top:4px;line-height:1.6}
+.glance td:last-child{text-align:right;white-space:nowrap;font-family:'Fredoka',sans-serif;font-size:30px;font-weight:600;color:var(--pink-deep)}
+.glance td:last-child small{display:block;font-family:'Lato',sans-serif;font-size:12px;color:var(--ink-3);font-weight:400;letter-spacing:.04em}
+.glance-note{font-size:13px;color:var(--ink-3);margin-top:18px;line-height:1.7}
+
+/* proof */
+.proof{background:var(--ink);color:#fff;border-radius:22px;padding:44px 40px;position:relative;overflow:hidden}
+.proof::before{content:'';position:absolute;inset:0;background:url('assets/pouches.jpg') center/cover no-repeat;opacity:.08}
+.proof>*{position:relative}
+.proof .section-label{color:#FFB6C1}
+.proof h3{font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(26px,4vw,36px);line-height:1.15;margin-bottom:10px}
+.proof p{font-size:15px;color:rgba(255,255,255,.82);max-width:640px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0 22px}
+.stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px 18px}
+.stat .v{font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(26px,4vw,36px);line-height:1;color:#FFB6C1}
+.stat .l{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:8px}
+.proof a{color:#FFB6C1;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(255,182,193,.5)}
+.proof .small{font-size:12.5px;color:rgba(255,255,255,.55);margin-top:14px}
+
+/* needs */
+.needs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.need{background:var(--blush);border-radius:14px;padding:16px 18px;font-size:14px;color:var(--ink-2);line-height:1.55}
+.need b{display:block;color:var(--ink);margin-bottom:2px}
+
+/* CTA */
+.cta-card{background:linear-gradient(135deg,var(--hot),var(--pink-deep));color:#fff;border-radius:22px;padding:48px 44px;position:relative;overflow:hidden}
+.cta-card::before{content:'';position:absolute;inset:0;background:url('assets/pink-mix.jpg') center/cover no-repeat;opacity:.14;mix-blend-mode:luminosity}
+.cta-card>*{position:relative}
+.cta-card .section-label{color:#FFE1EE}
+.cta-card h2{font-family:'Fredoka',sans-serif;font-weight:600;font-size:40px;line-height:1.1;margin-bottom:14px}
+.cta-card p{font-size:15.5px;color:rgba(255,255,255,.9);max-width:600px;margin-bottom:10px}
+.cta-card .closing{font-size:17px;color:#fff;margin:18px 0 28px;font-weight:700}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:999px;font-size:14.5px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-white{background:#fff;color:var(--pink-deep)}
+.btn-wa{background:#25D366;color:#fff;box-shadow:0 6px 20px rgba(37,211,102,.3)}
+.cta-sub{font-size:12.5px;color:rgba(255,255,255,.7);margin-top:16px}
+
+.signature{padding:44px 0 20px}
+.signature .name{font-family:'Fredoka',sans-serif;font-size:28px;font-weight:600;color:var(--pink-deep)}
+.signature .role{font-size:13.5px;color:var(--ink-2)}
+.signature a{color:var(--hot);text-decoration:none;font-size:13.5px;font-weight:700}
+.footer{padding:30px 0;border-top:1px solid var(--line);text-align:center;font-size:11.5px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase;background:var(--white)}
+.footer .lockup{justify-content:center;margin-bottom:12px}
+.footer .lockup img{height:26px}
+
+@media (max-width:720px){
+  .container{padding:0 18px} .section{padding:44px 0} .card{padding:26px 22px}
+  .hero-inner{padding:64px 0 54px} .hero-meta{flex-direction:column;gap:8px} .hero p{font-size:15.5px}
+  .phases{grid-template-columns:1fr} .phase{padding:28px 22px}
+  .strip{grid-template-columns:repeat(2,1fr)}
+  .month{grid-template-columns:1fr 1fr}
+  .needs{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .proof{padding:32px 22px}
+  .cta-card{padding:34px 24px} .cta-card h2{font-size:32px}
+  .btn{width:100%;justify-content:center}
+  .lockup img{height:28px} .lockup{gap:12px}
+  .glance td:last-child{font-size:24px}
+  .header-inner{flex-direction:column;align-items:flex-start;gap:8px}
+}
+@media (max-width:420px){ .month{grid-template-columns:1fr} .stats{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="lockup">
+        <img src="assets/logo.png" alt="Joy of Sweets">
+        <span class="x">&times;</span>
+        <span class="fc">Fusion <span>Creative</span></span>
+      </div>
+      <div class="header-date">11 September 2026</div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-inner">
+    <div class="hero-label">Proposal &middot; Prepared for David</div>
+    <h1>The full plan for<br><em>Joy of Sweets.</em></h1>
+    <p>Everything we talked about this morning, in the order we would do it: the new store, the product imagery, the ads, the launches, the emails and Amazon. What each part includes, when it happens, and what it costs.</p>
+    <div class="hero-meta">
+      <span>For <b>David Milne, Joy of Sweets</b></span>
+      <span>By <b>Fusion Creative, Newcastle</b></span>
+      <span>Store first, <b>then the engine</b></span>
+    </div>
+  </div>
+</section>
+<div class="stripe"></div>
+
+<div class="container">
+  <div class="section">
+    <div class="card intro">
+      <div class="greeting">Hey David,</div>
+      <p>Good to see the unit this morning. Here is the whole thing written down so you can see exactly what you are getting and in what order. Nothing in here is vague: the numbers are at the bottom, the timeline is in the middle, and every part is done by us, filmed by us and managed by us.</p>
+      <p>The short version: <b>we rebuild the store and reshoot the products first</b>, because ads pointed at a store that does not convert burn money, and that is what happened last time. Then we switch on the engine: <b>20 ad creatives a month, two launches a month, ads managed on Meta and Amazon, and two emails a week</b>. The organic channels get fed by the same creative, so TikTok and Instagram keep growing without any extra effort from you.</p>
+      <p>You mentioned specific offers you want to push. Send me the list when you have it and they go straight into the launch calendar below.</p>
+      <div class="strip">
+        <figure><img src="assets/jar.jpg" alt="3kg sweet jar"><figcaption>The jars</figcaption></figure>
+        <figure><img src="assets/pouches.jpg" alt="Fizzy and jelly mix pouches"><figcaption>The mixes</figcaption></figure>
+        <figure><img src="assets/gift-jar.jpg" alt="Gift jar"><figcaption>Gifting</figcaption></figure>
+        <figure><img src="assets/pink-mix.jpg" alt="Pick n mix sweets"><figcaption>500+ sweets</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section" style="padding-top:0">
+    <div class="section-label">The Order of Work</div>
+    <div class="section-title">Two phases. Build it, then run it.</div>
+    <p class="lead">Phase one is a one-off build that gets the store ready to take traffic. Phase two is the monthly engine that sends it there and keeps the customers it wins.</p>
+
+    <div class="phases">
+      <div class="phase">
+        <div class="when">Phase 1 &middot; One-off build &middot; Weeks 1 to 5</div>
+        <h3>The new store</h3>
+        <p class="sub">A full rebuild of joyofsweets.com and a reshoot of the products that carry it, so the click always lands somewhere that sells.</p>
+        <ul class="list">
+          <li><b>The whole website redone, top to bottom.</b> New design on your existing Shopify, built for phones first: fast pages, a home page that sells the range, collection pages that make choosing easy, product pages that convert rather than list.</li>
+          <li><b>Checkout and trust fixed.</b> Free delivery threshold and dispatch times where people look for them, reviews, allergen and dietary badges (halal, vegan, gluten free), a basket that upsells the bundle.</li>
+          <li><b>Landing pages for each ad audience,</b> so a halal household, a retro nostalgia buyer and a gift buyer each land on their own page.</li>
+          <li><b>Product imagery redone.</b> A clean, consistent studio look across the ranges that drive the store: the pouches, mixes, jars, tubs, bundles and gifting, plus lifestyle and packing shots for the site, the ads and Amazon.</li>
+          <li><b>Email flows switched on.</b> Welcome, abandoned basket, post-purchase and win-back, built and live before the ads start so nothing leaks.</li>
+          <li><b>Tracking wired properly.</b> Meta pixel and conversions API, Google Analytics, the live dashboard. Every order tracked back to what caused it.</li>
+        </ul>
+        <div class="note"><b>Why first:</b> website sales are down 49%. Every point of conversion we win back here makes every ad pound in phase two work harder.</div>
+      </div>
+
+      <div class="phase">
+        <div class="when">Phase 2 &middot; Monthly &middot; From week 5</div>
+        <h3>The engine</h3>
+        <p class="sub">The same fully managed setup we run for Ravi, built around your range and pointed at the new store.</p>
+        <ul class="list">
+          <li><b>20 ad creatives a month,</b> filmed at the unit: packing, the wall, the niches, the family. Every one is also posted to TikTok, Instagram and Facebook, so the ads feed the socials.</li>
+          <li><b>Two launches a month.</b> A product, a bundle, a seasonal drop or one of your offers, each with its own creative, landing page, email and ad push.</li>
+          <li><b>Meta ads fully managed.</b> Campaigns for each audience, tested weekly, winners scaled, laggards rotated out, retargeting and past-customer campaigns on all the time.</li>
+          <li><b>Amazon ads managed</b> across your 160-plus gift jar listings: Sponsored Products on the best sellers, budgets and bids tuned weekly.</li>
+          <li><b>Two emails a week</b> to the list, designed in your brand: launches, offers, the gifting calendar, and the flows from phase one running underneath.</li>
+          <li><b>Socials posted and managed,</b> comments and messages included.</li>
+          <li><b>Monthly report and a live dashboard:</b> spend, orders, cost per order, return, what we are rotating out and why.</li>
+        </ul>
+        <div class="note"><b>Your part:</b> run the sweet business, keep stock moving, and tell us which offers you want to push. We do the rest.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="stripe"></div>
+
+<div class="container">
+  <div class="section">
+    <div class="section-label">A Normal Month</div>
+    <div class="section-title">What lands every month once we are live.</div>
+    <div class="month">
+      <div class="tile blush"><div class="n">20</div><div class="t">Ad creatives</div><p>Filmed at the unit, cut for Meta and TikTok, and posted to your socials as well.</p></div>
+      <div class="tile lemon"><div class="n">2</div><div class="t">Launches</div><p>Products, bundles, seasonal drops or your offers, each pushed across ads, email and socials.</p></div>
+      <div class="tile mint"><div class="n">8</div><div class="t">Emails</div><p>Two a week in your brand, plus the automated flows running in the background.</p></div>
+      <div class="tile sky"><div class="n">2</div><div class="t">Ad platforms</div><p>Meta and Amazon, both managed weekly, both reported in one place.</p></div>
+      <div class="tile"><div class="n">1</div><div class="t">Shoot at the unit</div><p>One filming session a month covers the ad creatives, the socials and new product shots.</p></div>
+      <div class="tile"><div class="n">1</div><div class="t">Report</div><p>Plain English, every figure tracked to the order. The same report Ravi gets.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section" style="padding-top:0">
+    <div class="section-label">The Timeline</div>
+    <div class="section-title">From today to live.</div>
+    <div class="card">
+      <ul class="timeline">
+        <li><span class="dot"></span><div class="w">Week 1</div><div class="t">Kick-off, access and the first shoot</div><p>You fill in the short onboarding form, we get access to Shopify, Meta, Amazon and your email platform, and we spend an afternoon at the unit filming the first batch and shooting products. Nothing goes live yet.</p></li>
+        <li><span class="dot"></span><div class="w">Weeks 2 to 4</div><div class="t">The store is rebuilt</div><p>Design, build and product imagery, on a copy of your theme so the live shop keeps trading. You see it and sign it off before anything switches.</p></li>
+        <li><span class="dot"></span><div class="w">Week 5</div><div class="t">Launch</div><p>New store goes live with the email flows and tracking on. Ads switch on the same week, the first launch goes out, and the first two emails hit the list.</p></li>
+        <li><span class="dot"></span><div class="w">Every month after</div><div class="t">The rhythm</div><p>Shoot, 20 creatives, two launches, eight emails, ads tuned weekly on Meta and Amazon, report at month end. Q4 gifting is the first big window and the store will be ready for it.</p></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="stripe"></div>
+
+<div class="container">
+  <div class="section">
+    <div class="section-label">The Numbers</div>
+    <div class="section-title">What it costs.</div>
+    <div class="card">
+      <table class="glance">
+        <tr>
+          <td>Phase 1: the build<span>Full website rebuild on Shopify, product imagery across the core ranges, landing pages for each audience, email flows, tracking and dashboard. One-off.</span></td>
+          <td>&pound;2,995<small>one-off</small></td>
+        </tr>
+        <tr>
+          <td>Phase 2: the engine<span>20 ad creatives, two launches, Meta and Amazon ads managed, two emails a week, socials posted and managed, monthly report and live dashboard.</span></td>
+          <td>&pound;2,450<small>per month</small></td>
+        </tr>
+      </table>
+      <p class="glance-note">The build is billed half on kick-off and half when the new store goes live. The monthly engine starts the week the store launches and is billed monthly in advance, with a three-month minimum so the ads have a fair run to learn, then rolling with 30 days notice either way. Ad spend on Meta and Amazon is paid by you directly to the platforms and is on top; we agree the budget with you before anything runs. No setup fees, no hidden extras.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section" style="padding-top:0">
+    <div class="proof">
+      <div class="section-label">Why we work in this order</div>
+      <h3>The candle company Ravi told you about.</h3>
+      <p>A Northumberland brand shipping UK-wide, same shape of business as yours. We fixed the store, filmed the creative and ran the ads. This is what happened to monthly revenue.</p>
+      <div class="stats">
+        <div class="stat"><div class="v">&pound;6,650</div><div class="l">June, before ads</div></div>
+        <div class="stat"><div class="v">&pound;112,230</div><div class="l">August, two months later</div></div>
+        <div class="stat"><div class="v">7.8x</div><div class="l">Return on ad spend, July and August</div></div>
+      </div>
+      <p>Read the actual report we send Ravi every month: <a href="https://fusioncreative.uk/report/tncc-performance-2" target="_blank" rel="noopener">fusioncreative.uk/report/tncc-performance-2</a></p>
+      <p class="small">Figures from their Shopify and Meta accounts, July and August 2026. That is what we did for one client, not a promise of what yours will do. Your range, your margins and your ad budget decide that, which is why we build the store first and report every pound.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section" style="padding-top:0">
+    <div class="section-label">What We Need From You</div>
+    <div class="section-title">Six things to get moving.</div>
+    <div class="needs">
+      <div class="need"><b>Shopify access</b>Staff invite to jay@fusioncreative.uk so we can build on a copy of the theme.</div>
+      <div class="need"><b>Meta and Amazon ads access</b>Business Manager and ad account on Meta, and Amazon Ads access for the gift jar listings.</div>
+      <div class="need"><b>Your email platform</b>Whatever you send from now, and the size of the list. If there is nothing yet, we set it up.</div>
+      <div class="need"><b>Best sellers and margins</b>What sells most, what you can afford to discount, and the return you need ads to hit.</div>
+      <div class="need"><b>The offers</b>The ones you want to push. They become the first launches.</div>
+      <div class="need"><b>An afternoon at the unit</b>For the first shoot. You pack orders as normal, we film around you.</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section" style="padding-top:0">
+    <div class="cta-card">
+      <div class="section-label">Next Steps</div>
+      <h2>Ready when you are.</h2>
+      <p>If this reads right, message me on WhatsApp and I will send the simple agreement and the onboarding form, and we get the first afternoon at the unit in the diary. The store build starts the same week.</p>
+      <p class="closing">You have already proved on TikTok that people buy the moment they see the product. This builds the rest of the business around that.</p>
+      <div class="btns">
+        <a href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Joy%20of%20Sweets%20plan" target="_blank" rel="noopener" class="btn btn-wa"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp Jay</a>
+        <a href="mailto:jay@fusioncreative.uk?subject=Joy%20of%20Sweets%20-%20Let%27s%20Get%20Started" class="btn btn-white">Email instead</a>
+      </div>
+      <div class="cta-sub">Or give me a call on 07437 571250 whenever suits.</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="signature">
+    <div class="name">Jay Williams</div>
+    <div class="role">Founder, Fusion Creative</div>
+    <a href="https://fusioncreative.uk" target="_blank">fusioncreative.uk</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="lockup"><img src="assets/logo.png" alt="Joy of Sweets"><span class="x">&times;</span><span class="fc">Fusion <span>Creative</span></span></div>
+    Confidential &middot; Prepared for Joy of Sweets &middot; 11 September 2026
+  </div>
+</footer>
+
+</body>
+</html>

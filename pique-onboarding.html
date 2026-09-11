@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Onboarding - Pique | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,400;0,700;1,400&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:hsl(60,100%,95%); --cream-deep:hsl(58,65%,91%); --card:hsl(60,60%,97%);
+  --ink:hsl(130,18%,20%); --ink-deep:hsl(130,20%,14%); --ink-soft:hsl(130,10%,34%);
+  --terra:hsl(13,53%,48%); --terra-deep:hsl(13,55%,38%); --gold:hsl(36,70%,59%); --sage:hsl(105,8%,39%);
+  --line:hsl(60,22%,80%); --line-soft:hsl(60,22%,88%);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Schibsted Grotesk',sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Averia Serif Libre',serif}
+img{display:block;max-width:100%}
+
+header.top{position:sticky;top:0;z-index:40;background:hsla(130,20%,14%,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--cream);border-bottom:1px solid hsla(60,50%,86%,.1)}
+.top-inner{max-width:860px;margin:0 auto;padding:10px 22px;display:flex;align-items:center;gap:16px}
+.lockup{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.lockup img{height:36px;width:auto}
+.lockup .x{font-family:'Averia Serif Libre',serif;font-size:16px;color:var(--gold);line-height:1}
+.lockup .fc{font-size:10px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--cream)}
+.lockup .fc span{color:var(--gold)}
+.progress{flex:1;height:6px;background:hsla(60,50%,86%,.15);border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--terra));border-radius:99px;transition:width .35s ease}
+.pct{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:hsl(60,20%,65%);white-space:nowrap}
+
+.hero{background:var(--ink-deep);color:var(--cream);position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('/audit/pique/assets/p1.jpg') center 60%/cover no-repeat;opacity:.38}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(180deg,hsla(130,20%,14%,.35),hsla(130,20%,14%,.96))}
+.hero-inner{position:relative;max-width:860px;margin:0 auto;padding:70px 22px 54px}
+.hero .kicker{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.hero h1{font-family:'Averia Serif Libre',serif;font-size:clamp(34px,6vw,54px);line-height:1.1;font-weight:700;max-width:680px;margin-bottom:16px}
+.hero p{color:hsl(60,50%,86%);font-size:16.5px;max-width:600px}
+.hero .meta{margin-top:18px;font-size:13px;color:hsl(60,20%,70%);line-height:1.7}
+.hero .meta b{color:var(--gold);font-weight:700}
+.tools{display:flex;gap:14px;align-items:center;margin-top:22px;font-size:13px;color:hsl(60,20%,65%);flex-wrap:wrap}
+.tools button{background:none;border:1px solid hsla(60,50%,86%,.3);color:var(--cream);font-family:inherit;font-size:12.5px;font-weight:600;padding:8px 14px;border-radius:999px;cursor:pointer}
+.tools button:hover{border-color:var(--gold);color:var(--gold)}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px;background:var(--ink-deep)}
+.strip img{width:100%;height:150px;object-fit:cover;border-radius:10px}
+
+.wrap{max-width:860px;margin:0 auto;padding:36px 22px 90px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:34px 32px;margin-bottom:22px}
+.card.star{border-top:4px solid var(--terra)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.sec-num{font-family:'Averia Serif Libre',serif;font-size:13px;color:var(--gold);letter-spacing:2px}
+.sec-head h2{font-family:'Averia Serif Libre',serif;font-size:27px;line-height:1.15;color:var(--ink)}
+.sec-sub{font-size:14.5px;color:var(--ink-soft);margin-bottom:22px}
+.field{margin-bottom:18px}
+.field label{display:block;font-weight:700;font-size:14.5px;margin-bottom:6px;color:var(--ink)}
+.field label .hint{display:block;font-weight:400;font-size:13px;color:var(--sage);margin-top:2px;line-height:1.55}
+.req{color:var(--terra)}
+input[type=text],input[type=email],input[type=url],input[type=tel],input[type=date],textarea,select{
+  width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;outline:none;transition:border-color .15s,box-shadow .15s}
+textarea{min-height:92px;resize:vertical;line-height:1.55}
+textarea.tall{min-height:140px}
+input:focus,textarea:focus,select:focus{border-color:var(--terra);box-shadow:0 0 0 4px hsla(13,53%,48%,.12)}
+::placeholder{color:hsl(60,8%,62%)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.radios{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.radio{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-size:14px;cursor:pointer;background:#fff}
+.radio input{accent-color:var(--terra)}
+.radio:has(input:checked){border-color:var(--terra);background:hsl(13,60%,95%)}
+.ticks{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.tick{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:11px 13px;cursor:pointer;background:#fff;transition:background .15s,border-color .15s}
+.tick input{margin-top:3px;accent-color:var(--terra);flex-shrink:0}
+.tick span{font-size:13.5px;line-height:1.4}
+.tick span b{display:block;font-weight:700;color:var(--ink)}
+.tick span i{font-style:normal;color:var(--sage);font-size:12.5px}
+.tick.on{border-color:var(--terra);background:hsl(13,60%,95%)}
+.menu-head{font-family:'Averia Serif Libre',serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:16px 0 4px}
+.pkgs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:8px}
+.pkg{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff;cursor:pointer;display:block}
+.pkg input{accent-color:var(--terra);margin-right:6px}
+.pkg .pn{font-family:'Averia Serif Libre',serif;font-size:18px;color:var(--terra)}
+.pkg .pd{font-size:12.5px;color:var(--sage);margin-top:4px;line-height:1.5}
+.pkg:has(input:checked){border-color:var(--terra);background:hsl(13,60%,95%)}
+.note{background:var(--cream-deep);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--ink-soft);line-height:1.55;margin-top:8px}
+
+.submit-card{background:var(--ink-deep);color:var(--cream);border-radius:20px;padding:36px 32px;text-align:center}
+.submit-card h2{font-family:'Averia Serif Libre',serif;font-size:30px;margin-bottom:8px}
+.submit-card p{font-size:14.5px;color:hsl(60,45%,84%);max-width:520px;margin:0 auto 22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--terra);color:#fff;font-family:inherit;font-weight:700;font-size:16px;border:none;border-radius:999px;padding:16px 34px;cursor:pointer;transition:transform .2s;box-shadow:0 8px 24px hsla(13,53%,38%,.35)}
+.btn:hover{transform:translateY(-2px)}
+.btn:disabled{opacity:.6;cursor:default;transform:none}
+.status{margin-top:14px;font-size:13.5px;color:hsl(60,45%,84%);min-height:20px}
+.status a{color:var(--gold)}
+
+.thanks{display:none;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:56px 32px;text-align:center;margin:36px auto 0;max-width:860px}
+.thanks.show{display:block}
+.thanks .big{font-size:52px;line-height:1;margin-bottom:14px}
+.thanks h2{font-family:'Averia Serif Libre',serif;font-size:32px;color:var(--terra);margin-bottom:10px}
+.thanks p{font-size:15px;color:var(--ink-soft);max-width:520px;margin:0 auto}
+
+footer{text-align:center;font-size:12px;color:hsl(60,20%,62%);padding:28px 22px 44px;background:var(--ink-deep)}
+
+@media (max-width:640px){
+  .grid2{grid-template-columns:1fr} .ticks{grid-template-columns:1fr} .pkgs{grid-template-columns:1fr}
+  .card{padding:24px 18px;border-radius:16px}
+  .hero-inner{padding:52px 22px 40px}
+  .strip img{height:110px} .strip img:nth-child(3){display:none} .strip{grid-template-columns:1fr 1fr}
+  .pct{display:none} .lockup .fc{display:none}
+  .submit-card{padding:28px 20px} .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="lockup"><img src="/audit/pique/assets/logo.png" alt="Pique"><span class="x">&times;</span><span class="fc">Fusion <span>Creative</span></span></div>
+    <div class="progress"><i id="prog"></i></div>
+    <div class="pct">Onboarding</div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grad"></div>
+    <div class="hero-inner">
+      <div class="kicker">Pique &middot; Content Onboarding</div>
+      <h1>James, tell us everything we need to film Pique properly.</h1>
+      <p>The dishes, the cocktails, the room, the people and the story. Fill in what you can, skip what you cannot, and we will pick up the rest on the first filming day.</p>
+      <div class="meta">Takes about 10 minutes. <b>It saves as you type</b>, and anyone with this link picks up the same progress, so the team can chip in.<br><span id="syncState">Loading the shared draft...</span></div>
+      <div class="tools"><span>Prefer to fill it in later?</span><button type="button" id="downloadBtn">Download a copy of your answers</button></div>
+    </div>
+  </div>
+  <div class="strip">
+    <img src="/audit/pique/assets/p2.jpg" alt="">
+    <img src="/audit/pique/assets/p5.jpg" alt="">
+    <img src="/audit/pique/assets/p6.jpg" alt="">
+  </div>
+
+  <div class="wrap">
+  <form id="form" novalidate>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">01</span><h2 class="serif">The basics</h2></div>
+    <p class="sec-sub">Who we will be working with day to day.</p>
+    <div class="grid2">
+      <div class="field"><label>Trading name <span class="req">*</span></label><input type="text" name="trading_name" required value="Pique"></div>
+      <div class="field"><label>Your name <span class="req">*</span></label><input type="text" name="contact_name" required value="James"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Your role</label><input type="text" name="contact_role" placeholder="Owner"></div>
+      <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="contact_email" required placeholder="you@email.com"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Phone</label><input type="tel" name="contact_phone" placeholder="07..."></div>
+      <div class="field"><label>Instagram</label><input type="text" name="instagram" value="@piquegosforth"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>TikTok<span class="hint">Leave blank if there is no account yet. Launching it is part of the plan.</span></label><input type="text" name="tiktok" placeholder="@handle, or none yet"></div>
+      <div class="field"><label>Facebook</label><input type="text" name="facebook" value="facebook.com/piquegosforth"></div>
+    </div>
+    <div class="field">
+      <label>Which package are you going with?<span class="hint">From the proposal. If you are still deciding, tick that and Jay will sort it with you on WhatsApp.</span></label>
+      <div class="pkgs">
+        <label class="pkg"><input type="radio" name="package_choice" value="The Starter"><span class="pn">The Starter</span><div class="pd">1 filming day, 10 to 12 videos a month, Instagram and TikTok</div></label>
+        <label class="pkg"><input type="radio" name="package_choice" value="The Growth"><span class="pn">The Growth</span><div class="pd">2 filming days, 20 to 25 videos a month, fully managed socials</div></label>
+        <label class="pkg"><input type="radio" name="package_choice" value="Still deciding"><span class="pn">Still deciding</span><div class="pd">Jay will confirm with you</div></label>
+      </div>
+    </div>
+    <div class="field"><label>Logo and brand files<span class="hint">Logo files, the menu artwork, any brand fonts or colours. A Drive or WeTransfer link is perfect.</span></label><input type="text" name="brand_assets" placeholder="Link, or tell us what you have"></div>
+    <div class="field"><label>Photos and video you already have<span class="hint">Including anything guests or creators have filmed in the room that we could reuse.</span></label><textarea name="media_library" placeholder="Link, or a quick description"></textarea></div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num">02</span><h2 class="serif">Your story</h2></div>
+    <p class="sec-sub">Escape to South America without leaving Gosforth. This is the part nobody else can copy, so it is the most important section on the form.</p>
+    <div class="field"><label>Pique in your own words <span class="req">*</span><span class="hint">One or two lines. We will likely use your exact phrasing as a hook.</span></label><textarea name="pique_words" required></textarea></div>
+    <div class="field"><label>Why South America? <span class="req">*</span><span class="hint">Where the idea came from, who is behind it, how long Pique has been open, and what you set out to build.</span></label><textarea name="why_south_america" required></textarea></div>
+    <div class="field"><label>The space<span class="hint">The room, the bar, the private dining room. Who designed it, what people always comment on, anything in there with a story.</span></label><textarea name="the_space"></textarea></div>
+    <div class="field"><label>Things people would never guess <span class="req">*</span><span class="hint">How long the pollo a la brasa marinates, where the beef comes from, what goes into the ceviche, a rule in the kitchen, a regular who comes every week. Small details make the best videos, so list as many as you can.</span></label><textarea class="tall" name="not_known" required placeholder="One per line is fine"></textarea></div>
+    <div class="field"><label>What do customers always ask you?<span class="hint">The questions you answer ten times a night are the questions the internet is asking too.</span></label><textarea name="customer_questions"></textarea></div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num">03</span><h2 class="serif">The food and drink</h2></div>
+    <p class="sec-sub">What sells, what looks incredible, and what has a moment worth filming. We pulled these from your current menu, so tick freely and we will build the shot list around them.</p>
+    <div class="field"><label>Best sellers, in order <span class="req">*</span><span class="hint">The dishes and drinks that genuinely leave the kitchen and bar most.</span></label><textarea name="best_sellers" required placeholder="1.&#10;2.&#10;3."></textarea></div>
+
+    <div class="field">
+      <label>Tick anything you would like us to film</label>
+      <div class="menu-head">Fish and ceviche</div>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Cod tradito"><span><b>Cod tradito</b><i>Lime, aji amarillo, coriander, red onion, avocado</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Scallop ceviche"><span><b>Scallop ceviche</b><i>Strawberry, cucumber, elderflower</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Sea bass tiradito"><span><b>Sea bass tiradito</b><i>Rhubarb, smoked almonds, chilli</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Tuna tataki (Nikkei style)"><span><b>Tuna tataki</b><i>Nikkei style, truffle, aji panca, apple</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Baja fish tacos"><span><b>Baja fish tacos</b><i>Red cabbage slaw, baja sauce</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Tempura prawns"><span><b>Tempura prawns</b><i>Chipotle aioli, lime</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Oysters (bloody maria shot, chilli and finger lime, tempura)"><span><b>Oysters</b><i>Bloody Maria shot, chilli and finger lime, tempura</i></span></label>
+      </div>
+      <div class="menu-head">Anticuchos and street food</div>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Chicken anticucho"><span><b>Chicken anticucho</b><i>Marinated chicken, aji verde</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Pork belly and pineapple anticucho"><span><b>Pork belly and pineapple anticucho</b><i>Grilled skewers, chilli honey</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Chipotle beef tacos"><span><b>Chipotle beef tacos</b><i>Smokey chipotle, pico de gallo</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Lamb cutlets with chimichurri"><span><b>Lamb cutlets</b><i>Chimichurri</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Snacks (chorizo santa, crispy corn, paprika breadsticks with guacamole)"><span><b>The snacks</b><i>Chorizo santa, crispy corn, breadsticks and guac</i></span></label>
+      </div>
+      <div class="menu-head">Vegetarian</div>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Crispy corn fritters"><span><b>Crispy corn fritters</b><i>Avocado, tomatoes</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="House nachos"><span><b>House nachos</b><i>Lime sour cream, guacamole, jalapeno salsa</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Tempura banana blossom"><span><b>Tempura banana blossom</b><i>Little gem, banana vinaigrette</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Roast heritage carrot and avocado"><span><b>Heritage carrot and avocado</b><i>Chilean salsa verde</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Goats cheese tostada"><span><b>Goats cheese tostada</b><i>Leeks, chilli jelly</i></span></label>
+      </div>
+      <div class="menu-head">Sharing plates and grill</div>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Whole baked sea bass"><span><b>Whole baked sea bass</b><i>Argentine salsa criolla</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Rack of ribs"><span><b>Rack of ribs</b><i>Aji panca and honey glaze</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Pollo a la brasa"><span><b>Pollo a la brasa</b><i>Grilled half Peruvian chicken</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Ojo de bife (cote de boeuf)"><span><b>Ojo de bife</b><i>Sharing rib of beef, peppercorn sauce, chimichurri</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Picanha steak"><span><b>Picanha steak</b><i>Brazilian rump, fries, chimichurri</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="The Pique wagyu burger"><span><b>The Pique wagyu burger</b><i>Jalapeno jam, chimichurri slaw, red pepper mayo</i></span></label>
+      </div>
+      <div class="menu-head">Desserts and sides</div>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Pistachio burnt Basque cheesecake"><span><b>Pistachio burnt Basque cheesecake</b></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Chilean hot chocolate and churros"><span><b>Chilean hot chocolate and churros</b></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Strawberry and honeycomb sundae"><span><b>Strawberry and honeycomb sundae</b></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Chocolate truffles and Patron XO"><span><b>Chocolate truffles and Patron XO</b></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Coffee and tonka bean creme caramel"><span><b>Coffee and tonka bean creme caramel</b></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Sides (mac and cheese, purtumute, corn on the cob)"><span><b>The sides</b><i>Mac and cheese, purtumute, corn on the cob</i></span></label>
+        <label class="tick"><input type="checkbox" name="menu_picks" value="Something not listed, see notes"><span><b>Something else</b><i>Tell us below</i></span></label>
+      </div>
+    </div>
+
+    <div class="field"><label>Cocktails worth filming <span class="req">*</span><span class="hint">The signature serves, anything with theatre (smoke, flames, a pour, a garnish), and the ones people order for the photo.</span></label><textarea name="cocktails" required></textarea></div>
+    <div class="field"><label>Brunch and the Early Bird<span class="hint">What is on the brunch menu, when it runs, and what the Early Bird offer is. Both are content in their own right.</span></label><textarea name="brunch_early_bird"></textarea></div>
+    <div class="grid2">
+      <div class="field"><label>Best looking dish<span class="hint">The one that stops people when it lands on the table.</span></label><input type="text" name="wow_dish"></div>
+      <div class="field"><label>Moments with theatre<span class="hint">The carve of the ojo de bife, a pour at the table, the grill, the bar.</span></label><input type="text" name="theatre_dish"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Vegetarian and vegan options</label><textarea name="veggie"></textarea></div>
+      <div class="field"><label>Anything new coming<span class="hint">Menu changes, specials, seasonal dishes, Christmas.</span></label><textarea name="new_dishes"></textarea></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Dishes needing notice or long prep<span class="hint">So we can plan the shoot day around them.</span></label><textarea name="prep_notes"></textarea></div>
+      <div class="field"><label>Dietary and allergen notes<span class="hint">Anything we must get right in captions.</span></label><textarea name="dietary_notes"></textarea></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">04</span><h2 class="serif">The people</h2></div>
+    <p class="sec-sub">Faces do better than plates. We work around whoever is comfortable.</p>
+    <div class="field"><label>Are you happy on camera, James?</label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="owner_on_camera" value="Yes, happy to talk to camera"> Yes, happy to talk</label>
+        <label class="radio"><input type="radio" name="owner_on_camera" value="In shot but not talking"> In shot, not talking</label>
+        <label class="radio"><input type="radio" name="owner_on_camera" value="Rather not"> Rather not</label>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Team members good on camera<span class="hint">Chefs, bar team, front of house. Names and what they are like.</span></label><textarea name="team_on_camera"></textarea></div>
+      <div class="field"><label>Can we show staff faces?</label>
+        <div class="radios">
+          <label class="radio"><input type="radio" name="show_staff" value="Yes"> Yes</label>
+          <label class="radio"><input type="radio" name="show_staff" value="Ask each person"> Ask each person</label>
+          <label class="radio"><input type="radio" name="show_staff" value="No"> No</label>
+        </div>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Languages spoken in the kitchen and on the floor<span class="hint">Spanish or Portuguese on camera is a hook in itself.</span></label><input type="text" name="languages"></div>
+      <div class="field"><label>Talking to camera, or no talking?</label>
+        <div class="radios">
+          <label class="radio"><input type="radio" name="voice_pref" value="Happy to talk"> Happy to talk</label>
+          <label class="radio"><input type="radio" name="voice_pref" value="Prefer no talking, text on screen"> No talking, text on screen</label>
+          <label class="radio"><input type="radio" name="voice_pref" value="Mix"> Mix</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">05</span><h2 class="serif">The shoot</h2></div>
+    <p class="sec-sub">We film around a normal service. You are open Tuesday to Saturday, so tell us where in the week works.</p>
+    <div class="grid2">
+      <div class="field"><label>Preferred first filming day</label><input type="date" name="first_shoot_date"></div>
+      <div class="field"><label>What time do you want us to arrive?<span class="hint">Before service for the prep and the empty room, or into service for the buzz.</span></label><input type="text" name="best_times"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Quietest times in service<span class="hint">When we can set a table up without being in the way.</span></label><input type="text" name="quiet_times"></div>
+      <div class="field"><label>On-site contact on the day</label><input type="text" name="shoot_contact" placeholder="Name and number"></div>
+    </div>
+    <div class="field"><label>Shoot day notes<span class="hint">Parking at the Gosforth Centre, access, days that never work, private bookings to avoid.</span></label><textarea name="shoot_notes"></textarea></div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">06</span><h2 class="serif">Goals</h2></div>
+    <p class="sec-sub">So we make the right videos, not just good ones.</p>
+    <div class="field"><label>Your ideal customer<span class="hint">Date nights, brunch groups, the late bar crowd on a Friday, corporate bookings. Who do you want more of?</span></label><input type="text" name="ideal_customer"></div>
+    <div class="field"><label>What does success look like in three months? <span class="req">*</span><span class="hint">Fuller Tuesdays, more private dining enquiries, the bar busy after ten, a number of bookings. Be specific.</span></label><textarea name="goals" required></textarea></div>
+    <div class="grid2">
+      <div class="field"><label>Offers and events coming up<span class="hint">Early Bird, bottomless brunch, live music, Christmas parties.</span></label><textarea name="offers_events"></textarea></div>
+      <div class="field"><label>The private dining room<span class="hint">Seats 18. What do you want to push it for: birthdays, corporate, Christmas?</span></label><textarea name="private_dining"></textarea></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Accounts you admire<span class="hint">Restaurants or bars whose content you like, anywhere in the world.</span></label><textarea name="admired_accounts"></textarea></div>
+      <div class="field"><label>Anything to avoid<span class="hint">Dishes, angles, comparisons, tone.</span></label><textarea name="avoid"></textarea></div>
+    </div>
+    <div class="field"><label>Anything else</label><textarea name="anything_else"></textarea></div>
+  </section>
+
+  <div class="submit-card">
+    <h2>That is everything.</h2>
+    <p>Send it over and we will come back with the first filming day and the shot list built from your answers.</p>
+    <button type="submit" class="btn" id="submitBtn">Send to Fusion Creative</button>
+    <div class="status" id="formStatus"></div>
+  </div>
+
+  </form>
+  </div>
+
+  <div class="thanks" id="thanks">
+    <div class="big">&#127865;</div>
+    <h2>Got it, thank you James.</h2>
+    <p>Everything is with us. Jay will message you to lock the first filming day at Pique.</p>
+  </div>
+</main>
+
+<footer>Pique &times; Fusion Creative &middot; Onboarding &middot; jay@fusioncreative.uk</footer>
+
+<script>
+const CONFIG = {
+  endpoint: "https://newgreek.fusioncreative.uk/api/pique-onboarding/",
+  storageKey: "pique_onboarding_v1",
+  draftKey: "pique-gosforth-2026",
+  pollMs: 25000,
+  clientName: "Pique",
+  downloadName: "pique-onboarding.txt"
+};
+
+const form = document.getElementById('form');
+const statusEl = document.getElementById('formStatus');
+const progEl = document.getElementById('prog');
+const syncEl = document.getElementById('syncState');
+const HDR = {'Content-Type':'application/json','X-Draft-Key':CONFIG.draftKey};
+
+function ser(v){ if(v==null||v===''||(Array.isArray(v)&&!v.length)) return ''; return JSON.stringify(v); }
+
+function currentValues(){
+  const d={};
+  form.querySelectorAll('input,textarea,select').forEach(el=>{
+    if(!el.name) return;
+    if(el.type==='radio'){ if(el.checked) d[el.name]=el.value; else if(!(el.name in d)) d[el.name]=''; }
+    else if(el.type==='checkbox'){ if(!Array.isArray(d[el.name])) d[el.name]=[]; if(el.checked) d[el.name].push(el.value); }
+    else { d[el.name]=el.value; }
+  });
+  return d;
+}
+function setField(name,val){
+  form.querySelectorAll('[name="'+CSS.escape(name)+'"]').forEach(el=>{
+    if(el.type==='radio'){ el.checked=(el.value===val); }
+    else if(el.type==='checkbox'){ el.checked=Array.isArray(val)&&val.includes(el.value); }
+    else if(el.type!=='hidden'){ el.value=(val==null?'':val); }
+  });
+}
+function save(){ try{ localStorage.setItem(CONFIG.storageKey, JSON.stringify(currentValues())); }catch(e){} }
+function restore(){
+  let d; try{ d=JSON.parse(localStorage.getItem(CONFIG.storageKey)||'{}'); }catch(e){ d={}; }
+  Object.keys(d).forEach(name=>{ const v=d[name]; if(ser(v)!=='') setField(name, Array.isArray(v)&&form.querySelector('[name="'+CSS.escape(name)+'"][type=radio]') ? v[0] : v); });
+}
+function paintTicks(){
+  form.querySelectorAll('.tick').forEach(t=>{ const cb=t.querySelector('input'); t.classList.toggle('on', !!(cb && cb.checked)); });
+}
+const RADIO_GROUPS=new Set([...form.querySelectorAll('input[type=radio]')].map(r=>r.name)).size;
+function updateProgress(){
+  const fields=[...form.querySelectorAll('input[type=text],input[type=email],input[type=url],input[type=tel],input[type=date],textarea,select')];
+  const filled=fields.filter(f=>f.value.trim()!=='').length;
+  const chosen=new Set([...form.querySelectorAll('input:checked')].map(r=>r.name));
+  const total=fields.length+RADIO_GROUPS;
+  progEl.style.width=Math.min(100, Math.round(((filled+chosen.size)/total)*100))+'%';
+}
+
+let lastSynced={}, syncTimer=null, syncing=false, queued=false, submitted=false;
+function setSync(state, when){
+  if(!syncEl) return;
+  if(state==='saving') syncEl.textContent='Saving to the shared draft...';
+  else if(state==='saved'){ const t=when?new Date(when):new Date(); syncEl.textContent='Shared draft saved '+t.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); }
+  else if(state==='ready') syncEl.textContent='Shared draft on. Saves as you type.';
+  else if(state==='offline') syncEl.textContent='Cannot reach the shared draft right now, kept on this device.';
+  else if(state==='loading') syncEl.textContent='Loading the shared draft...';
+}
+function applyRemote(payload, force){
+  const cur=currentValues(); const active=document.activeElement;
+  Object.keys(payload||{}).forEach(k=>{
+    if(k.startsWith('_')) return;
+    const remote=payload[k], local=cur[k];
+    if(force && ser(remote)==='') return;
+    const focused=!!(active && active.name===k);
+    const dirty=ser(local)!==ser(lastSynced[k]);
+    if(force || (!focused && !dirty)){
+      if(ser(remote)!==ser(local)) setField(k, remote);
+      lastSynced[k]=remote;
+    }
+  });
+  paintTicks(); updateProgress(); save();
+}
+function computeDelta(){
+  const cur=currentValues(); const d={};
+  Object.keys(cur).forEach(k=>{ if(ser(cur[k])!==ser(lastSynced[k])) d[k]=cur[k]; });
+  return d;
+}
+function showAlreadySent(){
+  if(submitted) return; submitted=true; clearTimeout(syncTimer);
+  document.getElementById('main').querySelectorAll('form,.hero,.strip').forEach(el=>el.style.display='none');
+  const th=document.getElementById('thanks');
+  th.querySelector('h2').textContent='This form has already been sent.';
+  th.querySelector('p').textContent='Someone at '+CONFIG.clientName+' has already submitted it, so there is nothing left to do here. Thank you.';
+  th.classList.add('show');
+  try{ localStorage.removeItem(CONFIG.storageKey); }catch(e){}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+async function pushDraft(){
+  if(submitted) return;
+  if(syncing){ queued=true; return; }
+  const delta=computeDelta(); if(!Object.keys(delta).length) return;
+  syncing=true; setSync('saving');
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'PUT',headers:HDR,body:JSON.stringify({delta}),keepalive:true});
+    if(res.status===409){ showAlreadySent(); return; }
+    if(!res.ok) throw new Error('status '+res.status);
+    const j=await res.json();
+    Object.keys(delta).forEach(k=>{ lastSynced[k]=delta[k]; });
+    applyRemote(j.payload||{}, false);
+    setSync('saved', j.saved_at);
+  }catch(e){ setSync('offline'); }
+  finally{ syncing=false; if(queued){ queued=false; pushDraft(); } }
+}
+function scheduleSync(ms){ clearTimeout(syncTimer); syncTimer=setTimeout(pushDraft, ms); }
+async function pullDraft(initial){
+  if(submitted) return;
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'GET',headers:{'X-Draft-Key':CONFIG.draftKey},cache:'no-store'});
+    if(!res.ok) throw new Error('status '+res.status);
+    const j=await res.json();
+    if(j.status==='submitted'){ showAlreadySent(); return; }
+    applyRemote(j.payload||{}, !!initial);
+    if(initial){ setSync(j.saved_at?'saved':'ready', j.saved_at); pushDraft(); }
+  }catch(e){ if(initial) setSync('offline'); }
+}
+
+form.addEventListener('input', ()=>{ save(); updateProgress(); scheduleSync(1200); });
+form.addEventListener('change', ()=>{ save(); paintTicks(); updateProgress(); scheduleSync(250); });
+document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='hidden'){ clearTimeout(syncTimer); pushDraft(); } else { pullDraft(false); } });
+window.addEventListener('pagehide', ()=>{ clearTimeout(syncTimer); pushDraft(); });
+setInterval(()=>{ if(document.visibilityState==='visible') pullDraft(false); }, CONFIG.pollMs);
+
+function collect(){
+  const d={};
+  form.querySelectorAll('input,textarea,select').forEach(el=>{
+    if(!el.name) return;
+    if(el.type==='radio'){ if(el.checked) d[el.name]=el.value; }
+    else if(el.type==='checkbox'){ if(el.checked){ (d[el.name]=d[el.name]||[]).push(el.value); } }
+    else { d[el.name]=el.value; }
+  });
+  return d;
+}
+
+document.getElementById('downloadBtn').addEventListener('click', ()=>{
+  const d=collect();
+  let txt=CONFIG.clientName.toUpperCase()+" - CONTENT ONBOARDING\n\n";
+  Object.keys(d).forEach(k=>{ const v=Array.isArray(d[k])?d[k].join(', '):d[k]; if(String(v).trim()) txt+=k+": "+v+"\n\n"; });
+  const blob=new Blob([txt],{type:'text/plain'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download=CONFIG.downloadName; a.click();
+});
+
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const req=[...form.querySelectorAll('[required]')].filter(f=>!f.value.trim());
+  if(req.length){ statusEl.textContent='Please fill in the starred fields ('+req.length+' left).'; req[0].scrollIntoView({block:'center'}); req[0].focus(); return; }
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true; statusEl.textContent='Sending...'; clearTimeout(syncTimer);
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(collect())});
+    if(!res.ok) throw new Error('bad status '+res.status);
+    submitted=true;
+    try{ localStorage.removeItem(CONFIG.storageKey); }catch(x){}
+    document.getElementById('main').querySelectorAll('form,.hero,.strip').forEach(el=>el.style.display='none');
+    document.getElementById('thanks').classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }catch(err){
+    btn.disabled=false;
+    statusEl.innerHTML='Hmm, that did not send. Please try again, or use "download a copy" above and email it to <a href="mailto:jay@fusioncreative.uk">jay@fusioncreative.uk</a>.';
+  }
+});
+
+restore(); paintTicks(); updateProgress(); setSync('loading'); pullDraft(true);
+</script>
+
+</body>
+</html>

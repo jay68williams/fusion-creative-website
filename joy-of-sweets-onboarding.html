@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onboarding - Joy of Sweets | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --pink:#F068A0; --hot:#FF3EA5; --pink-deep:#D9498A; --blush:#FFE9F2; --blush-2:#FFD6E6;
+  --paper:#FFFDFE; --white:#fff; --ink:#3A3A3A; --ink-2:#5C5C5C; --ink-3:#8A8A8A;
+  --line:rgba(217,73,138,0.2); --line-soft:rgba(217,73,138,0.1);
+  --mint:#DDF5E6; --lemon:#FFF3B0; --sky:#D8EEF9;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+.display{font-family:'Fredoka',sans-serif;font-weight:600}
+img{display:block;max-width:100%}
+.stripe{height:8px;background:repeating-linear-gradient(135deg,var(--hot) 0 14px,#fff 14px 28px)}
+
+header.top{position:sticky;top:0;z-index:40;background:rgba(255,253,254,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-inner{max-width:860px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:16px}
+.lockup{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.lockup img{height:26px;width:auto}
+.lockup .x{font-family:'Fredoka',sans-serif;font-size:18px;color:var(--pink);line-height:1}
+.lockup .fc{font-size:10px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--ink)}
+.lockup .fc span{color:var(--hot)}
+.progress{flex:1;height:6px;background:var(--blush-2);border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--hot));border-radius:99px;transition:width .35s ease}
+.pct{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+
+.wrap{max-width:860px;margin:0 auto;padding:0 22px 90px}
+.hero{padding:56px 0 34px}
+.hero .kicker{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--hot);margin-bottom:14px}
+.hero h1{font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(36px,6vw,58px);line-height:1.04;color:var(--ink);margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--pink-deep)}
+.hero p{font-size:16.5px;color:var(--ink-2);max-width:620px}
+.hero .meta{margin-top:18px;font-size:13px;color:var(--ink-3);line-height:1.7}
+.hero .meta b{color:var(--pink-deep);font-weight:700}
+.hero-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+.hero-strip img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px}
+.tools{display:flex;gap:14px;align-items:center;margin-top:18px;font-size:13px;color:var(--ink-3);flex-wrap:wrap}
+.tools button{background:none;border:1px solid var(--line);color:var(--pink-deep);font-family:inherit;font-size:12.5px;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer}
+.tools button:hover{background:var(--blush)}
+
+.card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:34px 32px;margin-bottom:22px;box-shadow:0 1px 2px rgba(217,73,138,.04),0 14px 40px rgba(217,73,138,.06)}
+.card.star{border-color:var(--pink)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.sec-num{font-family:'Fredoka',sans-serif;font-weight:700;font-size:14px;color:var(--hot);letter-spacing:.12em}
+.sec-head h2{font-family:'Fredoka',sans-serif;font-weight:600;font-size:28px;line-height:1.1;color:var(--ink)}
+.sec-sub{font-size:14.5px;color:var(--ink-2);margin-bottom:22px}
+.field{margin-bottom:18px}
+.field label{display:block;font-weight:700;font-size:14.5px;margin-bottom:6px;color:var(--ink)}
+.field label .hint{display:block;font-weight:400;font-size:13px;color:var(--ink-3);margin-top:2px;line-height:1.55}
+.req{color:var(--hot)}
+input[type=text],input[type=email],input[type=url],input[type=tel],input[type=date],textarea,select{
+  width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;outline:none;transition:border-color .15s,box-shadow .15s}
+textarea{min-height:92px;resize:vertical;line-height:1.55}
+textarea.tall{min-height:140px}
+input:focus,textarea:focus,select:focus{border-color:var(--hot);box-shadow:0 0 0 4px rgba(255,62,165,.12);background:#fff}
+::placeholder{color:#b9aeb3}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.radios{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.radio{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-size:14px;cursor:pointer;background:var(--white)}
+.radio input{accent-color:var(--hot)}
+.radio:has(input:checked){border-color:var(--hot);background:var(--blush)}
+.ticks{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.tick{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:11px 13px;cursor:pointer;background:var(--white);transition:background .15s,border-color .15s}
+.tick input{margin-top:3px;accent-color:var(--hot);flex-shrink:0}
+.tick span{font-size:13.5px;line-height:1.4}
+.tick span b{display:block;font-weight:700;color:var(--ink)}
+.tick span i{font-style:normal;color:var(--ink-3);font-size:12.5px}
+.tick.on{border-color:var(--hot);background:var(--blush)}
+.access{display:grid;grid-template-columns:1fr;gap:10px}
+.access .row{display:grid;grid-template-columns:1.1fr 1fr;gap:10px;align-items:start;background:var(--blush);border-radius:14px;padding:12px 14px}
+.access .row .what{font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+.access .row .what b{display:block;color:var(--ink);font-weight:700}
+.access .row input,.access .row select{background:#fff}
+.note{background:var(--lemon);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--ink-2);line-height:1.55;margin-top:8px}
+.note b{color:var(--ink)}
+
+.submit-card{background:linear-gradient(135deg,var(--hot),var(--pink-deep));color:#fff;border-radius:22px;padding:36px 32px;text-align:center}
+.submit-card h2{font-family:'Fredoka',sans-serif;font-weight:600;font-size:30px;margin-bottom:8px}
+.submit-card p{font-size:14.5px;color:rgba(255,255,255,.88);max-width:520px;margin:0 auto 22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--pink-deep);font-family:inherit;font-weight:700;font-size:16px;border:none;border-radius:999px;padding:16px 34px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.btn:hover{transform:translateY(-2px)}
+.btn:disabled{opacity:.6;cursor:default;transform:none}
+.status{margin-top:14px;font-size:13.5px;color:#fff;min-height:20px}
+.status a{color:#fff}
+
+.thanks{display:none;background:var(--white);border:1px solid var(--line);border-radius:22px;padding:56px 32px;text-align:center;margin-top:30px}
+.thanks.show{display:block}
+.thanks .big{font-size:52px;line-height:1;margin-bottom:14px}
+.thanks h2{font-family:'Fredoka',sans-serif;font-weight:600;font-size:32px;color:var(--pink-deep);margin-bottom:10px}
+.thanks p{font-size:15px;color:var(--ink-2);max-width:520px;margin:0 auto}
+
+footer{text-align:center;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:26px 22px 40px;border-top:1px solid var(--line);background:var(--white)}
+
+@media (max-width:640px){
+  .grid2{grid-template-columns:1fr} .ticks{grid-template-columns:1fr} .card{padding:24px 18px;border-radius:18px}
+  .hero{padding:40px 0 26px} .hero-strip{grid-template-columns:repeat(4,1fr);gap:6px}
+  .access .row{grid-template-columns:1fr}
+  .pct{display:none} .lockup .fc{display:none}
+  .submit-card{padding:28px 20px} .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="lockup"><img src="/proposal/joy-of-sweets/assets/logo.png" alt="Joy of Sweets"><span class="x">&times;</span><span class="fc">Fusion <span>Creative</span></span></div>
+    <div class="progress"><i id="prog"></i></div>
+    <div class="pct">Onboarding</div>
+  </div>
+</header>
+<div class="stripe"></div>
+
+<main class="wrap" id="main">
+  <div class="hero">
+    <div class="kicker">Joy of Sweets &middot; Onboarding</div>
+    <h1>Everything we need to <em>build and run it.</em></h1>
+    <p>This is the one form for the whole plan: the new store, the product shoot, the ads, the emails and Amazon. Fill in what you can, skip what you cannot, and we will pick up the rest at the unit.</p>
+    <div class="meta">Takes about 15 minutes. <b>It saves as you type</b>, and anyone with this link picks up the same progress, so you can start it on your phone and finish it at the desk.<br><span id="syncState">Loading the shared draft...</span></div>
+    <div class="hero-strip">
+      <img src="/proposal/joy-of-sweets/assets/jar.jpg" alt="">
+      <img src="/proposal/joy-of-sweets/assets/pouches.jpg" alt="">
+      <img src="/proposal/joy-of-sweets/assets/gift-jar.jpg" alt="">
+      <img src="/proposal/joy-of-sweets/assets/pink-mix.jpg" alt="">
+    </div>
+    <div class="tools"><span>Prefer to fill it in later?</span><button type="button" id="downloadBtn">Download a copy of your answers</button></div>
+  </div>
+
+  <form id="form" novalidate>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">01</span><h2>The basics</h2></div>
+    <p class="sec-sub">Who we will be working with day to day.</p>
+    <div class="grid2">
+      <div class="field"><label>Trading name <span class="req">*</span></label><input type="text" name="trading_name" required value="Joy of Sweets"></div>
+      <div class="field"><label>Your name <span class="req">*</span></label><input type="text" name="contact_name" required value="David Milne"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Your role</label><input type="text" name="contact_role" placeholder="Owner"></div>
+      <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="contact_email" required placeholder="you@email.com"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Phone</label><input type="tel" name="contact_phone" placeholder="07..."></div>
+      <div class="field"><label>Instagram</label><input type="text" name="instagram" value="@joyofsweets"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>TikTok</label><input type="text" name="tiktok" placeholder="@handle"></div>
+      <div class="field"><label>Facebook</label><input type="text" name="facebook" placeholder="facebook.com/..."></div>
+    </div>
+    <div class="field"><label>Amazon storefront<span class="hint">A link to your Amazon store or brand page, so we can see the listings the ads will run on.</span></label><input type="text" name="amazon_store" placeholder="amazon.co.uk/..."></div>
+    <div class="field"><label>Logo and brand files<span class="hint">Logo files, any packaging artwork, the label design. A Drive or WeTransfer link is perfect.</span></label><input type="text" name="brand_assets" placeholder="Link, or tell us what you have"></div>
+    <div class="field"><label>Photos and video you already have<span class="hint">Anything shot at the unit, past product photos, customer unboxings, TikToks that did well.</span></label><textarea name="media_library" placeholder="Link, or a quick description"></textarea></div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Access</h2></div>
+    <p class="sec-sub">Nothing can start until we are in. Tick what you can sort now and tell us who to chase for the rest. Invites go to <b>jay@fusioncreative.uk</b>.</p>
+    <div class="access">
+      <div class="row"><div class="what"><b>Shopify</b>Staff account with full access, so we can build on a copy of the theme.</div><select name="shopify_access"><option value="">Choose</option><option>Done, invite sent</option><option>Will do this week</option><option>Not sure how, help me</option></select></div>
+      <div class="row"><div class="what"><b>Meta Business Manager and ad account</b>Partner access to the Page, the Instagram account, the pixel and the ad account.</div><select name="meta_access"><option value="">Choose</option><option>Done, invite sent</option><option>Will do this week</option><option>No Business Manager yet</option><option>Not sure how, help me</option></select></div>
+      <div class="row"><div class="what"><b>Amazon Ads</b>User access to the advertising console for the gift jar listings.</div><select name="amazon_ads_access"><option value="">Choose</option><option>Done, invite sent</option><option>Will do this week</option><option>Never run Amazon ads</option><option>Not sure how, help me</option></select></div>
+      <div class="row"><div class="what"><b>Email platform</b>Klaviyo, Shopify Email, Mailchimp or nothing yet.</div><input type="text" name="email_platform" placeholder="Which one, or none yet"></div>
+      <div class="row"><div class="what"><b>Email platform access</b>Admin invite so we can build the flows and send the campaigns.</div><select name="email_access"><option value="">Choose</option><option>Done, invite sent</option><option>Will do this week</option><option>Nothing set up, please set it up</option></select></div>
+      <div class="row"><div class="what"><b>Google Analytics and Search Console</b>So the new store keeps its history and we can see what Google sends.</div><select name="analytics_access"><option value="">Choose</option><option>Done, invite sent</option><option>Will do this week</option><option>Not set up</option><option>Not sure</option></select></div>
+      <div class="row"><div class="what"><b>Domain</b>Where joyofsweets.com is registered, in case DNS needs touching at launch.</div><input type="text" name="domain_access" placeholder="GoDaddy, 123 Reg, Shopify..."></div>
+    </div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num">03</span><h2>The store</h2></div>
+    <p class="sec-sub">The numbers that decide how the new site is built and how hard the ads can push.</p>
+    <div class="field"><label>Best sellers, in order <span class="req">*</span><span class="hint">The lines that genuinely leave the unit most. These get the best pages and the first ads.</span></label><textarea name="best_sellers" required placeholder="1.&#10;2.&#10;3."></textarea></div>
+    <div class="field">
+      <label>Which ranges should lead the new store?<span class="hint">Tick the ones that matter most. We pulled these from the current site.</span></label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="lead_ranges" value="1kg Pick n Mix"><span><b>1kg Pick n Mix</b><i>The core line</i></span></label>
+        <label class="tick"><input type="checkbox" name="lead_ranges" value="Custom mixes / create your own"><span><b>Custom mixes</b><i>Create your own</i></span></label>
+        <label class="tick"><input type="checkbox" name="lead_ranges" value="Pre-made mixes and bundles"><span><b>Pre-made mixes and bundles</b><i>Fizzy, jelly, 2kg and 3kg bundles</i></span></label>
+        <label class="tick"><input type="checkbox" name="lead_ranges" value="1 pound pre-packs"><span><b>&pound;1 pre-packs</b><i>Over 130 bags</i></span></label>
+        <label class="tick"><input type="checkbox" name="lead_ranges" value="Gift jars"><span><b>Gift jars</b><i>Retro classics, 3kg jars</i></span></label>
+        <label class="tick"><input type="checkbox" name="lead_ranges" value="Sweet tubs"><span><b>Sweet tubs</b><i>Opsy tubs and similar</i></span></label>
+        <label class="tick"><input type="checkbox" name="lead_ranges" value="American candy and imports"><span><b>American candy</b><i>Imports you cannot get in supermarkets</i></span></label>
+        <label class="tick"><input type="checkbox" name="lead_ranges" value="Retro and traditional"><span><b>Retro and traditional</b><i>Rock, boiled, nougat, fudge</i></span></label>
+        <label class="tick"><input type="checkbox" name="lead_ranges" value="Halal, vegan and gluten free"><span><b>Halal, vegan, gluten free</b><i>The dietary ranges</i></span></label>
+        <label class="tick"><input type="checkbox" name="lead_ranges" value="Seasonal (Halloween, Christmas, Easter)"><span><b>Seasonal</b><i>Halloween, Christmas, Easter</i></span></label>
+        <label class="tick"><input type="checkbox" name="lead_ranges" value="Corporate gifts, events and party bags"><span><b>Corporate and events</b><i>Party bags, wedding favours, bulk</i></span></label>
+        <label class="tick"><input type="checkbox" name="lead_ranges" value="Something not listed, see notes"><span><b>Something else</b><i>Tell us below</i></span></label>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Average order value<span class="hint">Roughly, from Shopify.</span></label><input type="text" name="aov" placeholder="&pound;"></div>
+      <div class="field"><label>Free delivery threshold</label><input type="text" name="free_delivery" value="&pound;25"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Dispatch and delivery times</label><input type="text" name="dispatch" value="Dispatched within 2 to 3 working days"></div>
+      <div class="field"><label>Margin comfort zone<span class="hint">Rough gross margin on a typical order, so we know how far a discount can go.</span></label><input type="text" name="margin_comfort" placeholder="e.g. around 50%"></div>
+    </div>
+    <div class="field"><label>The return the ads need to hit<span class="hint">If you know your break-even return on ad spend, put it here. If not, leave it and we work it out from the margin.</span></label><input type="text" name="target_return" placeholder="e.g. 3x"></div>
+    <div class="grid2">
+      <div class="field"><label>Seasonal peaks<span class="hint">When the orders spike, and by how much.</span></label><textarea name="seasonal_peaks" placeholder="Halloween, Christmas, Easter, Eid, exam results..."></textarea></div>
+      <div class="field"><label>Stock risks<span class="hint">Lines that run out, imports that are hard to get, anything we should never advertise.</span></label><textarea name="stock_risks"></textarea></div>
+    </div>
+    <div class="field"><label>What frustrates you about the current site?<span class="hint">The things you have wanted to change for ages. All of it goes in the build brief.</span></label><textarea class="tall" name="store_frustrations"></textarea></div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Product imagery</h2></div>
+    <p class="sec-sub">A consistent look across the ranges that carry the store, shot at the unit.</p>
+    <div class="field"><label>Which products should we shoot first? <span class="req">*</span><span class="hint">Best sellers and the lines you want to push. We shoot the core ranges in the first session and roll through the rest month by month.</span></label><textarea name="imagery_first" required></textarea></div>
+    <div class="grid2">
+      <div class="field"><label>Samples on the day<span class="hint">Can you have one of each ready, packed as it ships?</span></label><input type="text" name="imagery_samples" placeholder="Yes, or what needs ordering in"></div>
+      <div class="field"><label>Packaging notes<span class="hint">Labels, pouch sizes, jars, boxes, anything changing soon.</span></label><input type="text" name="packaging_notes"></div>
+    </div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num">05</span><h2>Offers and launches</h2></div>
+    <p class="sec-sub">Two launches a month. Your offers are the first ones.</p>
+    <div class="field"><label>The offers you want to push <span class="req">*</span><span class="hint">The ones you mentioned at the unit, plus anything seasonal. One per line, with any dates.</span></label><textarea class="tall" name="offers_to_push" required></textarea></div>
+    <div class="grid2">
+      <div class="field"><label>Discount comfort<span class="hint">The deepest discount you are happy to run, and anything that must never be discounted.</span></label><textarea name="discount_comfort"></textarea></div>
+      <div class="field"><label>Bundle ideas<span class="hint">Mixes, jars or packs that would go together well.</span></label><textarea name="bundle_ideas"></textarea></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">06</span><h2>Who we are selling to</h2></div>
+    <p class="sec-sub">Each audience gets its own creative, landing page and campaign.</p>
+    <div class="field">
+      <label>Tick the audiences you want us to go after</label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="audiences" value="Halal households"><span><b>Halal households</b></span></label>
+        <label class="tick"><input type="checkbox" name="audiences" value="Vegan"><span><b>Vegan</b></span></label>
+        <label class="tick"><input type="checkbox" name="audiences" value="Gluten free"><span><b>Gluten free</b></span></label>
+        <label class="tick"><input type="checkbox" name="audiences" value="American candy fans"><span><b>American candy fans</b></span></label>
+        <label class="tick"><input type="checkbox" name="audiences" value="Retro and nostalgia buyers"><span><b>Retro and nostalgia</b></span></label>
+        <label class="tick"><input type="checkbox" name="audiences" value="Gift buyers"><span><b>Gift buyers</b><i>Birthdays, Christmas, thank yous</i></span></label>
+        <label class="tick"><input type="checkbox" name="audiences" value="Parents and party planners"><span><b>Parents and parties</b><i>Party bags, favours</i></span></label>
+        <label class="tick"><input type="checkbox" name="audiences" value="Corporate and events"><span><b>Corporate and events</b></span></label>
+        <label class="tick"><input type="checkbox" name="audiences" value="Students and under 25s"><span><b>Students and under 25s</b></span></label>
+        <label class="tick"><input type="checkbox" name="audiences" value="Trade and bulk buyers"><span><b>Trade and bulk</b><i>10kg pouches</i></span></label>
+      </div>
+    </div>
+    <div class="field"><label>Your ideal customer, in a sentence</label><input type="text" name="ideal_customer" placeholder="Who buys the most, and who do you wish bought more?"></div>
+    <div class="grid2">
+      <div class="field"><label>Competitors you keep an eye on</label><textarea name="competitors" placeholder="Names or links"></textarea></div>
+      <div class="field"><label>Brands whose marketing you admire<span class="hint">Any industry. The look, the tone, the ads.</span></label><textarea name="admired_brands"></textarea></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">07</span><h2>Email</h2></div>
+    <p class="sec-sub">Two a week, plus the automated flows underneath.</p>
+    <div class="grid2">
+      <div class="field"><label>Email list size<span class="hint">Roughly how many subscribers, and how many past customers with an email.</span></label><input type="text" name="list_size"></div>
+      <div class="field"><label>What have you sent before?<span class="hint">How often, what worked, what did not.</span></label><textarea name="email_history"></textarea></div>
+    </div>
+    <div class="field"><label>How should the emails sound?</label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="email_tone" value="Fun and playful"> Fun and playful</label>
+        <label class="radio"><input type="radio" name="email_tone" value="Warm and family"> Warm and family</label>
+        <label class="radio"><input type="radio" name="email_tone" value="Straight to the offer"> Straight to the offer</label>
+        <label class="radio"><input type="radio" name="email_tone" value="Mix, you decide"> Mix, you decide</label>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">08</span><h2>Amazon</h2></div>
+    <p class="sec-sub">Sponsored Products on the listings that already sell.</p>
+    <div class="grid2">
+      <div class="field"><label>How many live listings?<span class="hint">And whether you are Brand Registered.</span></label><input type="text" name="amazon_listings" placeholder="e.g. around 160, brand registered"></div>
+      <div class="field"><label>Current Amazon ad spend<span class="hint">Per month, if any.</span></label><input type="text" name="amazon_ad_spend" placeholder="&pound; per month, or none"></div>
+    </div>
+    <div class="field"><label>Best sellers on Amazon, in order</label><textarea name="amazon_best_sellers" placeholder="1.&#10;2.&#10;3."></textarea></div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">09</span><h2>On camera</h2></div>
+    <p class="sec-sub">The best sweet shop content is people packing real orders. We work around whoever is comfortable.</p>
+    <div class="field"><label>Are you happy on camera, David?</label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="on_camera" value="Yes, happy to talk to camera"> Yes, happy to talk</label>
+        <label class="radio"><input type="radio" name="on_camera" value="Hands and packing only, no face"> Hands and packing only</label>
+        <label class="radio"><input type="radio" name="on_camera" value="Rather not"> Rather not</label>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Anyone on the team good on camera?</label><textarea name="team_on_camera" placeholder="Names, and what they are like"></textarea></div>
+      <div class="field"><label>Can we show staff faces?</label>
+        <div class="radios">
+          <label class="radio"><input type="radio" name="show_staff" value="Yes"> Yes</label>
+          <label class="radio"><input type="radio" name="show_staff" value="Ask each person"> Ask each person</label>
+          <label class="radio"><input type="radio" name="show_staff" value="No"> No</label>
+        </div>
+      </div>
+    </div>
+    <div class="field"><label>Talking to camera, or no talking?</label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="voice_pref" value="Happy to talk"> Happy to talk</label>
+        <label class="radio"><input type="radio" name="voice_pref" value="Prefer no talking, text on screen"> No talking, text on screen</label>
+        <label class="radio"><input type="radio" name="voice_pref" value="Mix"> Mix</label>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">10</span><h2>The shoot</h2></div>
+    <p class="sec-sub">One afternoon a month at the unit covers the ad creatives, the socials and the product shots.</p>
+    <div class="field"><label>Unit address</label><input type="text" name="unit_address" value="Unit 6, Bells Close, Newcastle upon Tyne NE15 6UF"></div>
+    <div class="grid2">
+      <div class="field"><label>Best days to film<span class="hint">When the packing bench is busy enough to look real but not so busy we are in the way.</span></label><input type="text" name="best_days"></div>
+      <div class="field"><label>Preferred first shoot day</label><input type="date" name="first_shoot_date"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>On-site contact on the day</label><input type="text" name="shoot_contact" placeholder="Name and number"></div>
+      <div class="field"><label>Shoot day notes<span class="hint">Parking, access, days that never work.</span></label><input type="text" name="shoot_notes"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">11</span><h2>Goals</h2></div>
+    <p class="sec-sub">So we measure the right thing.</p>
+    <div class="field"><label>What does success look like in three months? <span class="req">*</span><span class="hint">A number is best: orders a week, revenue a month, a share of sales off TikTok.</span></label><textarea name="goals" required></textarea></div>
+    <div class="grid2">
+      <div class="field"><label>Anything to avoid<span class="hint">Products, claims, competitors, tone.</span></label><textarea name="avoid"></textarea></div>
+      <div class="field"><label>Anything else</label><textarea name="anything_else"></textarea></div>
+    </div>
+  </section>
+
+  <div class="submit-card">
+    <h2>That is everything.</h2>
+    <p>Send it over and we will come back with the kick-off date, the access checklist and the first shoot afternoon.</p>
+    <button type="submit" class="btn" id="submitBtn">Send to Fusion Creative</button>
+    <div class="status" id="formStatus"></div>
+  </div>
+
+  </form>
+
+  <div class="thanks" id="thanks">
+    <div class="big">&#127852;</div>
+    <h2>Got it, thank you David.</h2>
+    <p>Everything is with us. Jay will message you to lock the kick-off and the first afternoon at the unit.</p>
+  </div>
+</main>
+
+<footer>Joy of Sweets &times; Fusion Creative &middot; Onboarding &middot; jay@fusioncreative.uk</footer>
+
+<script>
+const CONFIG = {
+  endpoint: "https://newgreek.fusioncreative.uk/api/joy-of-sweets-onboarding/",
+  storageKey: "joy_of_sweets_onboarding_v1",
+  draftKey: "joy-of-sweets-bellsclose-2026",
+  pollMs: 25000,
+  clientName: "Joy of Sweets",
+  downloadName: "joy-of-sweets-onboarding.txt"
+};
+
+const form = document.getElementById('form');
+const statusEl = document.getElementById('formStatus');
+const progEl = document.getElementById('prog');
+const syncEl = document.getElementById('syncState');
+const HDR = {'Content-Type':'application/json','X-Draft-Key':CONFIG.draftKey};
+
+function ser(v){ if(v==null||v===''||(Array.isArray(v)&&!v.length)) return ''; return JSON.stringify(v); }
+
+function currentValues(){
+  const d={};
+  form.querySelectorAll('input,textarea,select').forEach(el=>{
+    if(!el.name) return;
+    if(el.type==='radio'){ if(el.checked) d[el.name]=el.value; else if(!(el.name in d)) d[el.name]=''; }
+    else if(el.type==='checkbox'){ if(!Array.isArray(d[el.name])) d[el.name]=[]; if(el.checked) d[el.name].push(el.value); }
+    else { d[el.name]=el.value; }
+  });
+  return d;
+}
+function setField(name,val){
+  form.querySelectorAll('[name="'+CSS.escape(name)+'"]').forEach(el=>{
+    if(el.type==='radio'){ el.checked=(el.value===val); }
+    else if(el.type==='checkbox'){ el.checked=Array.isArray(val)&&val.includes(el.value); }
+    else if(el.type!=='hidden'){ el.value=(val==null?'':val); }
+  });
+}
+function save(){ try{ localStorage.setItem(CONFIG.storageKey, JSON.stringify(currentValues())); }catch(e){} }
+function restore(){
+  let d; try{ d=JSON.parse(localStorage.getItem(CONFIG.storageKey)||'{}'); }catch(e){ d={}; }
+  Object.keys(d).forEach(name=>{ const v=d[name]; if(ser(v)!=='') setField(name, Array.isArray(v)&&form.querySelector('[name="'+CSS.escape(name)+'"][type=radio]') ? v[0] : v); });
+}
+function paintTicks(){
+  form.querySelectorAll('.tick').forEach(t=>{ const cb=t.querySelector('input'); t.classList.toggle('on', !!(cb && cb.checked)); });
+}
+const RADIO_GROUPS=new Set([...form.querySelectorAll('input[type=radio]')].map(r=>r.name)).size;
+function updateProgress(){
+  const fields=[...form.querySelectorAll('input[type=text],input[type=email],input[type=url],input[type=tel],input[type=date],textarea,select')];
+  const filled=fields.filter(f=>f.value.trim()!=='').length;
+  const chosen=new Set([...form.querySelectorAll('input:checked')].map(r=>r.name));
+  const total=fields.length+RADIO_GROUPS;
+  progEl.style.width=Math.min(100, Math.round(((filled+chosen.size)/total)*100))+'%';
+}
+
+let lastSynced={}, syncTimer=null, syncing=false, queued=false, submitted=false;
+function setSync(state, when){
+  if(!syncEl) return;
+  if(state==='saving') syncEl.textContent='Saving to the shared draft...';
+  else if(state==='saved'){ const t=when?new Date(when):new Date(); syncEl.textContent='Shared draft saved '+t.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); }
+  else if(state==='ready') syncEl.textContent='Shared draft on. Saves as you type.';
+  else if(state==='offline') syncEl.textContent='Cannot reach the shared draft right now, kept on this device.';
+  else if(state==='loading') syncEl.textContent='Loading the shared draft...';
+}
+function applyRemote(payload, force){
+  const cur=currentValues(); const active=document.activeElement;
+  Object.keys(payload||{}).forEach(k=>{
+    if(k.startsWith('_')) return;
+    const remote=payload[k], local=cur[k];
+    if(force && ser(remote)==='') return;
+    const focused=!!(active && active.name===k);
+    const dirty=ser(local)!==ser(lastSynced[k]);
+    if(force || (!focused && !dirty)){
+      if(ser(remote)!==ser(local)) setField(k, remote);
+      lastSynced[k]=remote;
+    }
+  });
+  paintTicks(); updateProgress(); save();
+}
+function computeDelta(){
+  const cur=currentValues(); const d={};
+  Object.keys(cur).forEach(k=>{ if(ser(cur[k])!==ser(lastSynced[k])) d[k]=cur[k]; });
+  return d;
+}
+function showAlreadySent(){
+  if(submitted) return; submitted=true; clearTimeout(syncTimer);
+  document.getElementById('main').querySelectorAll('form,.hero').forEach(el=>el.style.display='none');
+  const th=document.getElementById('thanks');
+  th.querySelector('h2').textContent='This form has already been sent.';
+  th.querySelector('p').textContent='Someone at '+CONFIG.clientName+' has already submitted it, so there is nothing left to do here. Thank you.';
+  th.classList.add('show');
+  try{ localStorage.removeItem(CONFIG.storageKey); }catch(e){}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+async function pushDraft(){
+  if(submitted) return;
+  if(syncing){ queued=true; return; }
+  const delta=computeDelta(); if(!Object.keys(delta).length) return;
+  syncing=true; setSync('saving');
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'PUT',headers:HDR,body:JSON.stringify({delta}),keepalive:true});
+    if(res.status===409){ showAlreadySent(); return; }
+    if(!res.ok) throw new Error('status '+res.status);
+    const j=await res.json();
+    Object.keys(delta).forEach(k=>{ lastSynced[k]=delta[k]; });
+    applyRemote(j.payload||{}, false);
+    setSync('saved', j.saved_at);
+  }catch(e){ setSync('offline'); }
+  finally{ syncing=false; if(queued){ queued=false; pushDraft(); } }
+}
+function scheduleSync(ms){ clearTimeout(syncTimer); syncTimer=setTimeout(pushDraft, ms); }
+async function pullDraft(initial){
+  if(submitted) return;
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'GET',headers:{'X-Draft-Key':CONFIG.draftKey},cache:'no-store'});
+    if(!res.ok) throw new Error('status '+res.status);
+    const j=await res.json();
+    if(j.status==='submitted'){ showAlreadySent(); return; }
+    applyRemote(j.payload||{}, !!initial);
+    if(initial){ setSync(j.saved_at?'saved':'ready', j.saved_at); pushDraft(); }
+  }catch(e){ if(initial) setSync('offline'); }
+}
+
+form.addEventListener('input', ()=>{ save(); updateProgress(); scheduleSync(1200); });
+form.addEventListener('change', ()=>{ save(); paintTicks(); updateProgress(); scheduleSync(250); });
+document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='hidden'){ clearTimeout(syncTimer); pushDraft(); } else { pullDraft(false); } });
+window.addEventListener('pagehide', ()=>{ clearTimeout(syncTimer); pushDraft(); });
+setInterval(()=>{ if(document.visibilityState==='visible') pullDraft(false); }, CONFIG.pollMs);
+
+function collect(){
+  const d={};
+  form.querySelectorAll('input,textarea,select').forEach(el=>{
+    if(!el.name) return;
+    if(el.type==='radio'){ if(el.checked) d[el.name]=el.value; }
+    else if(el.type==='checkbox'){ if(el.checked){ (d[el.name]=d[el.name]||[]).push(el.value); } }
+    else { d[el.name]=el.value; }
+  });
+  return d;
+}
+
+document.getElementById('downloadBtn').addEventListener('click', ()=>{
+  const d=collect();
+  let txt=CONFIG.clientName.toUpperCase()+" - ONBOARDING\n\n";
+  Object.keys(d).forEach(k=>{ const v=Array.isArray(d[k])?d[k].join(', '):d[k]; if(String(v).trim()) txt+=k+": "+v+"\n\n"; });
+  const blob=new Blob([txt],{type:'text/plain'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download=CONFIG.downloadName; a.click();
+});
+
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const req=[...form.querySelectorAll('[required]')].filter(f=>!f.value.trim());
+  if(req.length){ statusEl.textContent='Please fill in the starred fields ('+req.length+' left).'; req[0].scrollIntoView({block:'center'}); req[0].focus(); return; }
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true; statusEl.textContent='Sending...'; clearTimeout(syncTimer);
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(collect())});
+    if(!res.ok) throw new Error('bad status '+res.status);
+    submitted=true;
+    try{ localStorage.removeItem(CONFIG.storageKey); }catch(x){}
+    document.getElementById('main').querySelectorAll('form,.hero').forEach(el=>el.style.display='none');
+    document.getElementById('thanks').classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }catch(err){
+    btn.disabled=false;
+    statusEl.innerHTML='Hmm, that did not send. Please try again, or use "download a copy" above and email it to <a href="mailto:jay@fusioncreative.uk">jay@fusioncreative.uk</a>.';
+  }
+});
+
+restore(); paintTicks(); updateProgress(); setSync('loading'); pullDraft(true);
+</script>
+
+</body>
+</html>
