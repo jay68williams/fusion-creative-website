@@ -108,6 +108,10 @@ img{display:block;max-width:100%}
 .glance td:last-child{text-align:right;white-space:nowrap;font-family:'Fredoka',sans-serif;font-size:30px;font-weight:600;color:var(--pink-deep)}
 .glance td:last-child small{display:block;font-family:'Lato',sans-serif;font-size:12px;color:var(--ink-3);font-weight:400;letter-spacing:.04em}
 .glance-note{font-size:13px;color:var(--ink-3);margin-top:18px;line-height:1.7}
+.glance tr.sub td{padding:9px 0;border-bottom:1px dashed var(--line-soft);font-size:13.5px}
+.glance tr.sub td:first-child{font-weight:400;color:var(--ink-2);padding-left:18px}
+.glance tr.sub td:last-child{font-family:'Lato',sans-serif;font-size:14px;font-weight:700;color:var(--ink-2)}
+.glance tr.sub.last td{border-bottom:1px solid var(--line)}
 
 /* proof */
 .proof{background:var(--ink);color:#fff;border-radius:22px;padding:44px 40px;position:relative;overflow:hidden}
@@ -117,6 +121,7 @@ img{display:block;max-width:100%}
 .proof h3{font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(26px,4vw,36px);line-height:1.15;margin-bottom:10px}
 .proof p{font-size:15px;color:rgba(255,255,255,.82);max-width:640px}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0 22px}
+.stats.two{grid-template-columns:1fr 1fr}
 .stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px 18px}
 .stat .v{font-family:'Fredoka',sans-serif;font-weight:700;font-size:clamp(26px,4vw,36px);line-height:1;color:#FFB6C1}
 .stat .l{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:8px}
@@ -158,7 +163,7 @@ img{display:block;max-width:100%}
   .strip{grid-template-columns:repeat(2,1fr)}
   .month{grid-template-columns:1fr 1fr}
   .needs{grid-template-columns:1fr}
-  .stats{grid-template-columns:1fr 1fr}
+  .stats,.stats.two{grid-template-columns:1fr 1fr}
   .proof{padding:32px 22px}
   .cta-card{padding:34px 24px} .cta-card h2{font-size:32px}
   .btn{width:100%;justify-content:center}
@@ -166,7 +171,7 @@ img{display:block;max-width:100%}
   .glance td:last-child{font-size:24px}
   .header-inner{flex-direction:column;align-items:flex-start;gap:8px}
 }
-@media (max-width:420px){ .month{grid-template-columns:1fr} .stats{grid-template-columns:1fr} }
+@media (max-width:420px){ .month{grid-template-columns:1fr} .stats,.stats.two{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -299,9 +304,14 @@ img{display:block;max-width:100%}
     <div class="card">
       <table class="glance">
         <tr>
-          <td>The full plan<span>20 ad creatives, two launches, Meta and Amazon ads managed, two emails a week, socials posted, monthly report. From day one.</span></td>
+          <td>The full plan<span>Everything below, from day one. Here is how the monthly fee breaks down.</span></td>
           <td>&pound;1,950<small>per month</small></td>
         </tr>
+        <tr class="sub"><td>Content and ad creatives, 20 a month, filmed at the unit and posted to your socials</td><td>&pound;1,000</td></tr>
+        <tr class="sub"><td>Meta ads managed, two launches a month, tested and tuned weekly</td><td>&pound;450</td></tr>
+        <tr class="sub"><td>Amazon ads managed across the gift jar listings</td><td>&pound;200</td></tr>
+        <tr class="sub"><td>Email, two a week designed in your brand, plus the flows</td><td>&pound;200</td></tr>
+        <tr class="sub last"><td>Socials scheduled and posted, monthly report</td><td>&pound;100</td></tr>
         <tr>
           <td>The store rebuild and product reshoot<span>Full website rebuild on Shopify, product imagery across the core ranges, landing pages for each audience, email flows and tracking. Two weeks.</span></td>
           <td><s style="color:var(--ink-3);font-size:20px">&pound;1,599</s> Included<small>on a three-month term</small></td>
@@ -319,15 +329,14 @@ img{display:block;max-width:100%}
 <div class="container">
   <div class="section" style="padding-top:0">
     <div class="proof">
-      <div class="section-label">Why we work in this order</div>
-      <h3>The candle company Ravi told you about.</h3>
-      <p>A Northumberland brand shipping UK-wide, same shape of business as yours. We fixed the store, filmed the creative and ran the ads. This is what happened to monthly revenue.</p>
-      <div class="stats">
-        <div class="stat"><div class="v">&pound;6,650</div><div class="l">June, before ads</div></div>
-        <div class="stat"><div class="v">&pound;112,230</div><div class="l">August, two months later</div></div>
-        <div class="stat"><div class="v">7.8x</div><div class="l">Return on ad spend, July and August</div></div>
+      <div class="section-label">Before and after ads</div>
+      <h3>What we did for Ravi.</h3>
+      <p>Same shape of business as yours, a product shipped UK-wide from the North East. We fixed the store, filmed the creative and ran the ads. This is what happened to monthly revenue.</p>
+      <div class="stats two">
+        <div class="stat"><div class="v">&pound;6,650</div><div class="l">Before ads &middot; June, the month before we started</div></div>
+        <div class="stat"><div class="v">&pound;112,230</div><div class="l">After ads &middot; August, two months in</div></div>
       </div>
-      <p>Read the actual report we send Ravi every month: <a href="https://fusioncreative.uk/report/tncc-performance-2" target="_blank" rel="noopener">fusioncreative.uk/report/tncc-performance-2</a></p>
+      <p>Across July and August that was &pound;149,709 in sales on &pound;19,292 of ad spend, so every pound put into ads came back 7.8 times over.</p>
       <p class="small">Figures from their Shopify and Meta accounts, July and August 2026. That is what we did for one client, not a promise of what yours will do. Your range, your margins and your ad budget decide that, which is why we build the store first and report every pound.</p>
     </div>
   </div>
