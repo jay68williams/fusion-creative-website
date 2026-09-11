@@ -60,10 +60,11 @@ img{display:block;max-width:100%}
 
 /* photo strip */
 .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
-.strip figure{position:relative;aspect-ratio:1;border-radius:16px;overflow:hidden;background:var(--blush)}
+.strip figure{display:flex;flex-direction:column;gap:8px}
+.strip .ph{aspect-ratio:1;border-radius:16px;overflow:hidden;background:var(--blush)}
 .strip img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .strip figure:hover img{transform:scale(1.04)}
-.strip figcaption{position:absolute;left:12px;bottom:10px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.55)}
+.strip figcaption{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--pink-deep);text-align:center}
 
 /* the order of work */
 .phases{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
@@ -203,13 +204,13 @@ img{display:block;max-width:100%}
     <div class="card intro">
       <div class="greeting">Hey David,</div>
       <p>Good to see the unit this morning. Here is the whole thing written down so you can see exactly what you are getting and in what order. Nothing in here is vague: the numbers are at the bottom, the timeline is in the middle, and every part is done by us, filmed by us and managed by us.</p>
-      <p>The short version: <b>we rebuild the store and reshoot the products first</b>, because ads pointed at a store that does not convert burn money, and that is what happened last time. Then we switch on the engine: <b>20 ad creatives a month, two launches a month, ads managed on Meta and Amazon, and two emails a week</b>. The organic channels get fed by the same creative, so TikTok and Instagram keep growing without any extra effort from you.</p>
+      <p>The short version: <b>we rebuild the store and reshoot the products first</b>, so every click lands somewhere that converts. Then we switch on the engine: <b>20 ad creatives a month, two launches a month, ads managed on Meta and Amazon, and two emails a week</b>. The organic channels get fed by the same creative, so TikTok and Instagram keep growing without any extra effort from you.</p>
       <p>You mentioned specific offers you want to push. Send me the list when you have it and they go straight into the launch calendar below.</p>
       <div class="strip">
-        <figure><img src="assets/jar.jpg" alt="3kg sweet jar"><figcaption>The jars</figcaption></figure>
-        <figure><img src="assets/pouches.jpg" alt="Fizzy and jelly mix pouches"><figcaption>The mixes</figcaption></figure>
-        <figure><img src="assets/gift-jar.jpg" alt="Gift jar"><figcaption>Gifting</figcaption></figure>
-        <figure><img src="assets/pink-mix.jpg" alt="Pick n mix sweets"><figcaption>500+ sweets</figcaption></figure>
+        <figure><div class="ph"><img src="assets/jar.jpg" alt="3kg sweet jar"></div><figcaption>The jars</figcaption></figure>
+        <figure><div class="ph"><img src="assets/pouches.jpg" alt="Fizzy and jelly mix pouches"></div><figcaption>The mixes</figcaption></figure>
+        <figure><div class="ph"><img src="assets/gift-jar.jpg" alt="Gift jar"></div><figcaption>Gifting</figcaption></figure>
+        <figure><div class="ph"><img src="assets/pink-mix.jpg" alt="Pick n mix sweets"></div><figcaption>500+ sweets</figcaption></figure>
       </div>
     </div>
   </div>
@@ -219,11 +220,11 @@ img{display:block;max-width:100%}
   <div class="section" style="padding-top:0">
     <div class="section-label">The Order of Work</div>
     <div class="section-title">Two phases. Build it, then run it.</div>
-    <p class="lead">Phase one is a one-off build that gets the store ready to take traffic. Phase two is the monthly engine that sends it there and keeps the customers it wins.</p>
+    <p class="lead">Phase one is a two-week build that gets the store ready to take traffic. Phase two is the monthly engine that sends it there and keeps the customers it wins.</p>
 
     <div class="phases">
       <div class="phase">
-        <div class="when">Phase 1 &middot; One-off build &middot; Weeks 1 to 5</div>
+        <div class="when">Phase 1 &middot; The build &middot; Weeks 1 to 2</div>
         <h3>The new store</h3>
         <p class="sub">A full rebuild of joyofsweets.com and a reshoot of the products that carry it, so the click always lands somewhere that sells.</p>
         <ul class="list">
@@ -232,13 +233,13 @@ img{display:block;max-width:100%}
           <li><b>Landing pages for each ad audience,</b> so a halal household, a retro nostalgia buyer and a gift buyer each land on their own page.</li>
           <li><b>Product imagery redone.</b> A clean, consistent studio look across the ranges that drive the store: the pouches, mixes, jars, tubs, bundles and gifting, plus lifestyle and packing shots for the site, the ads and Amazon.</li>
           <li><b>Email flows switched on.</b> Welcome, abandoned basket, post-purchase and win-back, built and live before the ads start so nothing leaks.</li>
-          <li><b>Tracking wired properly.</b> Meta pixel and conversions API, Google Analytics, the live dashboard. Every order tracked back to what caused it.</li>
+          <li><b>Tracking wired properly.</b> Meta pixel and conversions API, Google Analytics. Every order tracked back to what caused it.</li>
         </ul>
         <div class="note"><b>Why first:</b> website sales are down 49%. Every point of conversion we win back here makes every ad pound in phase two work harder.</div>
       </div>
 
       <div class="phase">
-        <div class="when">Phase 2 &middot; Monthly &middot; From week 5</div>
+        <div class="when">Phase 2 &middot; Monthly &middot; From week 3</div>
         <h3>The engine</h3>
         <p class="sub">The same fully managed setup we run for Ravi, built around your range and pointed at the new store.</p>
         <ul class="list">
@@ -247,8 +248,8 @@ img{display:block;max-width:100%}
           <li><b>Meta ads fully managed.</b> Campaigns for each audience, tested weekly, winners scaled, laggards rotated out, retargeting and past-customer campaigns on all the time.</li>
           <li><b>Amazon ads managed</b> across your 160-plus gift jar listings: Sponsored Products on the best sellers, budgets and bids tuned weekly.</li>
           <li><b>Two emails a week</b> to the list, designed in your brand: launches, offers, the gifting calendar, and the flows from phase one running underneath.</li>
-          <li><b>Socials posted and managed,</b> comments and messages included.</li>
-          <li><b>Monthly report and a live dashboard:</b> spend, orders, cost per order, return, what we are rotating out and why.</li>
+          <li><b>Socials posted.</b> Every creative goes out on TikTok, Instagram and Facebook, scheduled and captioned by us.</li>
+          <li><b>Monthly report:</b> spend, orders, cost per order, return, what we are rotating out and why.</li>
         </ul>
         <div class="note"><b>Your part:</b> run the sweet business, keep stock moving, and tell us which offers you want to push. We do the rest.</div>
       </div>
@@ -280,9 +281,9 @@ img{display:block;max-width:100%}
     <div class="card">
       <ul class="timeline">
         <li><span class="dot"></span><div class="w">Week 1</div><div class="t">Kick-off, access and the first shoot</div><p>You fill in the short onboarding form, we get access to Shopify, Meta, Amazon and your email platform, and we spend an afternoon at the unit filming the first batch and shooting products. Nothing goes live yet.</p></li>
-        <li><span class="dot"></span><div class="w">Weeks 2 to 4</div><div class="t">The store is rebuilt</div><p>Design, build and product imagery, on a copy of your theme so the live shop keeps trading. You see it and sign it off before anything switches.</p></li>
-        <li><span class="dot"></span><div class="w">Week 5</div><div class="t">Launch</div><p>New store goes live with the email flows and tracking on. Ads switch on the same week, the first launch goes out, and the first two emails hit the list.</p></li>
-        <li><span class="dot"></span><div class="w">Every month after</div><div class="t">The rhythm</div><p>Shoot, 20 creatives, two launches, eight emails, ads tuned weekly on Meta and Amazon, report at month end. Q4 gifting is the first big window and the store will be ready for it.</p></li>
+        <li><span class="dot"></span><div class="w">Weeks 1 to 2</div><div class="t">The store is rebuilt</div><p>Design, build and product imagery, on a copy of your theme so the live shop keeps trading. Two weeks. You see it and sign it off before anything switches.</p></li>
+        <li><span class="dot"></span><div class="w">Week 3</div><div class="t">Launch</div><p>New store goes live with the email flows and tracking on. Ads switch on the same week, the first launch goes out, and the first two emails hit the list.</p></li>
+        <li><span class="dot"></span><div class="w">Every month after</div><div class="t">The rhythm</div><p>Shoot, 20 creatives, two launches, eight emails, ads tuned weekly on Meta and Amazon, report at month end. Q4 gifting is the first big window and the store will be ready well before it.</p></li>
       </ul>
     </div>
   </div>
@@ -297,15 +298,19 @@ img{display:block;max-width:100%}
     <div class="card">
       <table class="glance">
         <tr>
-          <td>Phase 1: the build<span>Full website rebuild on Shopify, product imagery across the core ranges, landing pages for each audience, email flows, tracking and dashboard. One-off.</span></td>
-          <td>&pound;2,995<small>one-off</small></td>
+          <td>Phase 1: the build<span>Full website rebuild on Shopify, product imagery across the core ranges, landing pages for each audience, email flows and tracking. Two weeks.</span></td>
+          <td>&pound;1,599<small>spread over months 1 to 3</small></td>
         </tr>
         <tr>
-          <td>Phase 2: the engine<span>20 ad creatives, two launches, Meta and Amazon ads managed, two emails a week, socials posted and managed, monthly report and live dashboard.</span></td>
+          <td>Phase 2: the engine<span>20 ad creatives, two launches, Meta and Amazon ads managed, two emails a week, socials posted, monthly report.</span></td>
           <td>&pound;2,450<small>per month</small></td>
         </tr>
+        <tr>
+          <td>What you actually pay<span>Months one to three: the engine plus a third of the build. From month four: the engine only.</span></td>
+          <td>&pound;2,983<small>per month, months 1 to 3</small>&pound;2,450<small>per month after</small></td>
+        </tr>
       </table>
-      <p class="glance-note">The build is billed half on kick-off and half when the new store goes live. The monthly engine starts the week the store launches and is billed monthly in advance, with a three-month minimum so the ads have a fair run to learn, then rolling with 30 days notice either way. Ad spend on Meta and Amazon is paid by you directly to the platforms and is on top; we agree the budget with you before anything runs. No setup fees, no hidden extras.</p>
+      <p class="glance-note">The build is not billed upfront. On a three-month term it is spread across the first three months at &pound;533 a month on top of the engine, so the new store, the imagery and the flows are all in from day one without a big first bill. The engine is billed monthly in advance from kick-off, three-month minimum so the ads have a fair run to learn, then rolling with 30 days notice either way. Ad spend on Meta and Amazon is paid by you directly to the platforms and is on top; we agree the budget with you before anything runs. No setup fees, no hidden extras.</p>
     </div>
   </div>
 </div>
