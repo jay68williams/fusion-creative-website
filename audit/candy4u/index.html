@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- fc-build: status=outbound leadid=bc568006-af24-45f3-a70a-a480bcbc78d8 date=2026-09-13 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Candy4u x Fusion Creative | Growth Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cyan:#0ECFFA; --blue:#587CE7; --purple:#A050D5; --violet:#A561FE; --pink:#FE91FE; --magenta:#E64BC8;
+  --ink:#141126; --ink-2:#3E3A55; --ink-3:#7C7890; --lilac:#F4DBF3; --lilac-soft:#FAF0FA; --white:#fff; --line:rgba(160,80,213,.18);
+  --grad:linear-gradient(90deg,var(--cyan),var(--blue) 50%,var(--purple));
+  --grad-hero:linear-gradient(135deg,#7A3FE6 0%,var(--violet) 45%,var(--pink) 100%);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--white);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+h1,h2,h3,.disp{font-family:'Baloo 2',sans-serif;font-weight:800;line-height:1.05}
+img{display:block;max-width:100%}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+/* the one signature: their cyan to purple rail */
+.rail{height:6px;background:var(--grad)}
+
+.topbar{background:var(--grad);padding:12px 0}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.lockup{display:flex;align-items:center;gap:14px}
+.lockup img{height:54px;width:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,.25))}
+.lockup .x{font-family:'Baloo 2',sans-serif;font-size:22px;color:#fff;opacity:.85}
+.lockup .fc{font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:#fff}
+.topbar .co{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85);font-weight:600}
+
+.hero{background:var(--grad-hero);color:#fff;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:72px 24px 64px}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:#FFF3B0;margin-bottom:16px}
+.hero h1{font-size:clamp(40px,6.4vw,66px);letter-spacing:-.01em}
+.hero h1 span{color:#FFF3B0}
+.hero p{color:rgba(255,255,255,.9);font-size:17px;margin-top:18px;max-width:520px}
+.trust{display:flex;gap:26px;margin-top:30px;flex-wrap:wrap}
+.trust div{border-left:3px solid #FFF3B0;padding-left:12px}
+.trust .n{font-family:'Baloo 2',sans-serif;font-size:28px;font-weight:800;line-height:1}
+.trust .l{font-size:11.5px;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.hero-img{border-radius:22px;overflow:hidden;box-shadow:0 30px 70px rgba(60,20,120,.45);transform:rotate(2deg)}
+.hero-img img{width:100%;aspect-ratio:1;object-fit:cover}
+
+section{padding:72px 0}
+section.lilac{background:var(--lilac-soft)}
+section.dark{background:var(--ink);color:#fff}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--purple);margin-bottom:12px}
+.dark .eyebrow{color:var(--cyan)}
+h2{font-size:clamp(30px,4.6vw,46px);margin-bottom:16px;max-width:720px}
+h2 .hi{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.dark h2 .hi{color:var(--pink);background:none;-webkit-text-fill-color:currentColor}
+p.body{color:var(--ink-2);font-size:16px;max-width:680px;margin-bottom:14px}
+p.body b{color:var(--ink)}
+.dark p.body{color:rgba(255,255,255,.8)} .dark p.body b{color:#fff}
+
+/* note card */
+.note{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:34px 36px;max-width:820px;box-shadow:0 14px 40px rgba(160,80,213,.08)}
+.note .greet{font-family:'Baloo 2',sans-serif;font-size:30px;font-weight:800;color:var(--purple);margin-bottom:10px}
+.note p{font-size:15.5px;color:var(--ink-2);margin-bottom:12px}
+.note p:last-child{margin-bottom:0}
+.note p b{color:var(--ink)}
+
+/* ad library */
+.adgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.ad{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 18px 16px;font-size:13px}
+.ad .st{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.12);color:#fff}
+.ad .st.on{background:#2ECC71;color:#0b2a17}
+.ad .rng{margin-top:10px;color:rgba(255,255,255,.6);font-size:12px}
+.ad .cp{margin-top:10px;color:#fff;line-height:1.5}
+.ad .to{margin-top:10px;font-size:11.5px;color:var(--cyan);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.adnote{font-size:12.5px;color:rgba(255,255,255,.55);margin-top:14px}
+.bigstats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.bs{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px 20px}
+.bs .v{font-family:'Baloo 2',sans-serif;font-size:clamp(30px,4.6vw,44px);font-weight:800;line-height:1;color:var(--pink)}
+.bs .l{font-size:12.5px;color:rgba(255,255,255,.7);margin-top:8px;line-height:1.45}
+
+/* socials + site findings */
+.finds{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.find{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:26px 24px}
+.find .v{font-family:'Baloo 2',sans-serif;font-size:42px;font-weight:800;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.find .t{font-weight:700;font-size:15.5px;margin:10px 0 6px}
+.find p{font-size:13.5px;color:var(--ink-2)}
+.site{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;margin-top:30px}
+.site ul{list-style:none}
+.site li{padding:12px 0 12px 30px;position:relative;border-bottom:1px dashed var(--line);font-size:14.5px;color:var(--ink-2)}
+.site li:last-child{border-bottom:none}
+.site li::before{content:'';position:absolute;left:0;top:19px;width:14px;height:14px;border-radius:50%;background:var(--grad)}
+.site li b{color:var(--ink)}
+.site li.good::before{background:#2ECC71}
+.phone{border-radius:22px;overflow:hidden;box-shadow:0 20px 50px rgba(60,20,120,.25);border:1px solid var(--line)}
+.phone img{width:100%}
+
+/* plan */
+.plan{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.pl{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:28px 26px;border-top:5px solid transparent;border-image:var(--grad) 1;border-radius:0 0 20px 20px}
+.pl .n{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--purple)}
+.pl h3{font-size:24px;margin:8px 0 10px}
+.pl p{font-size:14px;color:var(--ink-2);margin-bottom:10px}
+.pl ul{list-style:none}
+.pl li{font-size:13.5px;color:var(--ink-2);padding:6px 0 6px 18px;position:relative}
+.pl li::before{content:'';position:absolute;left:0;top:13px;width:7px;height:7px;border-radius:50%;background:var(--purple)}
+
+/* hire compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.cmp{border-radius:20px;padding:28px 26px}
+.cmp.a{background:var(--lilac)}
+.cmp.b{background:var(--ink);color:#fff}
+.cmp h3{font-size:22px;margin-bottom:12px}
+.cmp ul{list-style:none}
+.cmp li{font-size:14px;padding:7px 0 7px 22px;position:relative;line-height:1.5}
+.cmp.a li{color:var(--ink-2)} .cmp.b li{color:rgba(255,255,255,.85)}
+.cmp li::before{position:absolute;left:0;top:7px;font-weight:700}
+.cmp.a li::before{content:'\00d7';color:var(--magenta)}
+.cmp.b li::before{content:'\2713';color:var(--cyan)}
+.cmp .foot{margin-top:14px;font-size:13px;color:var(--ink-3)}
+.cmp.b .foot{color:rgba(255,255,255,.6)}
+
+/* ideas */
+.ideas{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.idea{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:24px 22px}
+.dark .idea{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
+.idea .n{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--cyan)}
+.idea h3{font-size:21px;margin:8px 0 8px}
+.idea p{font-size:14px;color:rgba(255,255,255,.78)}
+
+/* proof */
+.proof{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:34px 34px;margin-top:30px}
+.proof .name{font-family:'Baloo 2',sans-serif;font-size:26px;font-weight:800;color:var(--ink)}
+.proof .sub{font-size:13px;color:var(--ink-3);margin:2px 0 22px}
+.months{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:end;margin-bottom:22px}
+.mo{text-align:center}
+.mo .bar{background:var(--grad);border-radius:8px 8px 0 0;margin:0 auto;width:70%}
+.mo .v{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:16px;margin-top:6px}
+.mo .l{font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat{background:var(--lilac-soft);border-radius:14px;padding:16px 14px}
+.stat .v{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:clamp(22px,3.6vw,30px);line-height:1;color:var(--purple)}
+.stat .l{font-size:11.5px;color:var(--ink-3);margin-top:6px;line-height:1.4}
+.proof p.body{margin-top:18px;font-size:14.5px}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.twocol div{background:var(--lilac-soft);border-radius:14px;padding:16px 18px;font-size:13.5px;color:var(--ink-2)}
+.twocol b{display:block;color:var(--ink);margin-bottom:4px}
+
+/* strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:10px;background:var(--ink)}
+.strip img{width:100%;height:230px;object-fit:cover;border-radius:12px}
+
+/* cta */
+.cta{background:var(--grad-hero);color:#fff;text-align:center;padding:84px 0 90px}
+.cta h2{margin:0 auto 12px;max-width:640px}
+.cta p{color:rgba(255,255,255,.9);font-size:16.5px;max-width:560px;margin:0 auto 30px}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;border-radius:999px;font-weight:700;font-size:15.5px;text-decoration:none;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-wa{background:#25D366;color:#fff;box-shadow:0 8px 24px rgba(37,211,102,.35)}
+.btn-white{background:#fff;color:#7A3FE6}
+footer{padding:28px 0 44px;text-align:center;font-size:12px;color:var(--ink-3)}
+footer a{color:var(--purple);text-decoration:none;font-weight:600}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;padding:56px 24px 48px}
+  .hero-img{max-width:420px;transform:none}
+  .adgrid{grid-template-columns:1fr 1fr} .bigstats{grid-template-columns:1fr 1fr}
+  .finds{grid-template-columns:1fr} .site{grid-template-columns:1fr}
+  .plan,.compare,.ideas{grid-template-columns:1fr}
+  .strip{grid-template-columns:1fr 1fr} .strip img{height:170px}
+}
+@media (max-width:600px){
+  section{padding:54px 0} .wrap{padding:0 18px}
+  .adgrid{grid-template-columns:1fr} .bigstats{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr 1fr} .twocol{grid-template-columns:1fr}
+  .months{grid-template-columns:repeat(5,1fr);gap:4px} .mo .v{font-size:12px} .mo .l{font-size:9px}
+  .note{padding:26px 20px} .proof{padding:24px 18px}
+  .lockup img{height:40px} .topbar .co{display:none}
+  .trust{gap:16px} .trust .n{font-size:24px}
+  .btn{width:100%;justify-content:center}
+  .phone{max-width:320px;margin:0 auto}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="lockup"><img src="assets/logo.png" alt="Candy4u"><span class="x">&times;</span><span class="fc">Fusion Creative</span></div>
+    <div class="co">Growth audit &middot; September 2026</div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="kicker">Prepared for the Candy4u team</div>
+      <h1>You built the warehouse, the studio and 550 lines. <span>The reach is what is missing.</span></h1>
+      <p>Two years in, selling on your own site, TikTok Shop, Amazon and Just Eat, with a purpose built studio in Peterlee. The product side is done. What is not done is the part that puts it in front of enough people to matter, and this page is about that.</p>
+      <div class="trust">
+        <div><div class="n">550</div><div class="l">Lines</div></div>
+        <div><div class="n">4</div><div class="l">Sales channels</div></div>
+        <div><div class="n">681</div><div class="l">TikToks posted</div></div>
+        <div><div class="n">45</div><div class="l">Meta ads since Oct</div></div>
+      </div>
+    </div>
+    <div class="hero-img"><img src="assets/box.jpg" alt="Candy4u gummy medium box"></div>
+  </div>
+</div>
+<div class="rail"></div>
+
+<section>
+  <div class="wrap">
+    <div class="note rv">
+      <div class="greet">Why this page exists</div>
+      <p>I saw the Social Media and Ecommerce Executive role you have up on Indeed and it caught my eye, because Fusion Creative does that job for product brands from about twenty miles up the road. We are a content and marketing agency in the North East: we film short-form video in person, run the socials and the paid ads, build and fix Shopify stores, and run the email. All under one roof, and this year that has included a UK-wide candle brand and a run of North East food businesses.</p>
+      <p>So before that role is filled, I spent an afternoon on Candy4u the way we would for a client: your ad account history, your channels, your site on a phone. <b>The short version is that you are already doing the hard, expensive part, making lots of content and paying for ads. It is the format and the way they are run that is holding the numbers down.</b> Everything below is specific, and none of it needs a bigger budget than you are already spending.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="eyebrow rv">The first thing we checked</div>
+    <h2 class="rv">45 ads since October. <span class="hi">One is live today.</span></h2>
+    <p class="body rv">We pulled Candy4u in the Meta Ad Library. The ads have never stopped starting, they just keep stopping. Halloween in October, a Christmas push in December, the warehouse tour in April, Just Eat offers in June, and a fresh batch on 12 September. Most were switched off within days, nine of them inside 24 hours.</p>
+    <p class="body rv">That pattern is the expensive way to advertise. Meta needs a few days and around fifty results before it works out who to show an ad to. Turning an ad off on day two pays for the learning and never collects the cheap orders that come after it. The creative is not the problem either, the warehouse tour and the packing clips are the right idea. They were just never given the run.</p>
+    <div class="bigstats rv">
+      <div class="bs"><div class="v">45</div><div class="l">Ads in the Ad Library since 16 October 2025</div></div>
+      <div class="bs"><div class="v">1</div><div class="l">Active on 13 September 2026</div></div>
+      <div class="bs"><div class="v">5 days</div><div class="l">Typical run before an ad was switched off</div></div>
+      <div class="bs"><div class="v">9</div><div class="l">Ads that ran for less than 24 hours</div></div>
+    </div>
+    <div class="adgrid rv">
+      <div class="ad"><span class="st">Inactive</span><div class="rng">16 Oct to 31 Oct 2025</div><div class="cp">No tricks, just treats! Grab your Halloween Candy Mix now on Amazon before it disappears!</div><div class="to">Sent to Amazon</div></div>
+      <div class="ad"><span class="st">Inactive</span><div class="rng">16 Dec to 17 Dec 2025 &middot; active 9 hours</div><div class="cp">When you're not sure what to get... choose the sweetness of candy.</div><div class="to">Five versions, all off within a day</div></div>
+      <div class="ad"><span class="st">Inactive</span><div class="rng">22 Apr 2026 &middot; 1 day</div><div class="cp">Ever wondered where the magic happens?</div><div class="to">The warehouse tour, three versions, one day each</div></div>
+      <div class="ad"><span class="st">Inactive</span><div class="rng">26 Jun to 27 Jun 2026 &middot; active 15 hours</div><div class="cp">Craving something sweet and it's your first time ordering with us on Just Eat? Get a free...</div><div class="to">Sent to Just Eat</div></div>
+      <div class="ad"><span class="st">Inactive</span><div class="rng">9 Sep to 13 Sep 2026</div><div class="cp">Step inside the wonderful world of Candy4u!</div><div class="to">Off after 5 days</div></div>
+      <div class="ad"><span class="st on">Active</span><div class="rng">Started 12 Sep 2026</div><div class="cp">Massive pick and mix warehouse in Peterlee. Fill a pouch with hundreds of sweets, Swedish candy...</div><div class="to">The one that is live</div></div>
+    </div>
+    <p class="adnote">Meta Ad Library, exact phrase "Candy4u", checked 13 September 2026. Dates and copy as shown in the library. Run lengths are from the library's own start and end dates.</p>
+  </div>
+</section>
+
+<section class="lilac">
+  <div class="wrap">
+    <div class="eyebrow rv">The channels</div>
+    <h2 class="rv">The output is there. <span class="hi">The format is not.</span></h2>
+    <p class="body rv">Six hundred and eighty one TikToks is a serious amount of work, and it is more than most brands your size will ever post. The return on it is the problem: about 23 likes a video on average, and an Instagram account that has not caught up with the effort at all. That is not a volume issue, it is a format issue, and format is fixable.</p>
+    <div class="finds rv">
+      <div class="find"><div class="v">681</div><div class="t">TikToks for 16,000 likes</div><p>6,815 followers on @candy4u_uk. The account posts constantly, but almost nothing is built around a hook, a face or a reason to keep watching. Product-on-a-backdrop does not travel.</p></div>
+      <div class="find"><div class="v">657</div><div class="t">Instagram followers from 181 posts</div><p>Instagram is where gift buyers, parents and corporate orders live, and it is the smallest channel you have. Reels built to be shared would change that quickly.</p></div>
+      <div class="find"><div class="v">1</div><div class="t">Person about to do all of it</div><p>The role you are hiring covers filming, editing, posting, ads, Amazon, TikTok Shop and Just Eat. That is four jobs. We look at how that is normally split further down.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow rv">The site</div>
+    <h2 class="rv">Small things on the store <span class="hi">that cost every click.</span></h2>
+    <p class="body rv">The store is on Shopify with the Dawn theme, which is a good base, and the product pages already carry video, which most sweet shops do not bother with. But a handful of details are working against every pound you spend sending people there.</p>
+    <div class="site rv">
+      <ul>
+        <li><b>The live theme is called "candy4u-christmas"</b> and the Candy Boxes link in the menu still points at a Christmas collection. It is September.</li>
+        <li><b>The homepage banner says Easter.</b> A first-time visitor from an ad lands on a seasonal message that is five months old.</li>
+        <li><b>On a phone the first thing you see is the cookie wall,</b> then a "Welcome to Candy4u" headline with no offer. The 10% first-order offer is at the very bottom.</li>
+        <li><b>Add To Cart sits 1,100 pixels down</b> on a standard phone screen on your best seller, so the button is not visible until the second scroll.</li>
+        <li><b>No reviews anywhere on product pages.</b> For a gift purchase from a brand people have not heard of, reviews are the difference.</li>
+        <li><b>The page title is just "Candy4u" and the description is empty,</b> so Google has nothing to show for "pick n mix gifts" or "sweet boxes UK".</li>
+        <li><b>Store Finder and Why Subscribe both return a 404,</b> and the subscription has said "coming soon" since the banner went up.</li>
+        <li class="good"><b>What is already right:</b> product video on the pages, clear ranges (box, pouch, jar, tin, can, acrylic), fair prices from &pound;3.99 to &pound;34.99, and a studio to shoot in. The bones are good.</li>
+      </ul>
+      <div class="phone"><img src="assets/shelf.jpg" alt="Candy4u pick and mix"></div>
+    </div>
+  </div>
+</section>
+
+<section class="lilac">
+  <div class="wrap">
+    <div class="eyebrow rv">What we would do</div>
+    <h2 class="rv">Fix the store, then <span class="hi">run the ads properly.</span></h2>
+    <p class="body rv">Same order every time, because it is the order that works: make the site convert, then put fresh creative in front of the right people and leave it running long enough to learn. Content, ads, site and email as one system, not four separate jobs.</p>
+    <div class="plan rv">
+      <div class="pl"><div class="n">01 / The store</div><h3>Two weeks of fixes before another ad runs</h3><p>Seasonal messaging off, an offer-led hero, Add To Cart above the fold with a sticky bar, reviews switched on and requested automatically after every order, page titles and descriptions written, the 404s cleaned up, and a landing page for each range so an ad for jars lands on jars.</p></div>
+      <div class="pl"><div class="n">02 / Paid ads</div><h3>Fewer ads, run for longer, tested properly</h3><p>Three or four angles a fortnight instead of five versions killed in nine hours. Gift buyers, parents, nostalgia and the Swedish candy trend each get their own campaign, winners get budget, losers get replaced on a schedule. The account gets to learn for the first time.</p></div>
+      <div class="pl"><div class="n">03 / Content</div><h3>Filmed in your studio, built to travel</h3><p>You already post daily, so the volume is fine. We change what the videos are: hooks in the first second, a person on camera, formats people share. Pick and mix has a massive built-in audience on TikTok and the warehouse is a set most brands would kill for.</p></div>
+      <div class="pl"><div class="n">04 / Email and the subscription</div><h3>Launch the thing the banner keeps promising</h3><p>Welcome flow for the 10% offer, abandoned basket, post-purchase, and a proper launch for the subscription so the "coming soon" turns into recurring revenue. Email is the cheapest sales you will make and the list is already being collected.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow rv">The hire</div>
+    <h2 class="rv">One person, or <span class="hi">a studio for the same money.</span></h2>
+    <p class="body rv">The Indeed listing is honest about the job: social, ads, ecommerce, three marketplaces and the website, for &pound;25,420 to &pound;27,000. That is a lot to put on one pair of hands. It is worth seeing what the same budget looks like as a team instead.</p>
+    <div class="compare rv">
+      <div class="cmp a"><h3>One in-house executive</h3><ul><li>Has to film, edit, post, run the ads, manage Amazon, TikTok Shop and Just Eat</li><li>Learns Meta ads on your budget</li><li>Salary plus on-costs, holidays, sick days, kit and a ramp-up period</li><li>Leaves, and everything leaves with them</li></ul><div class="foot">Most people in this role are good at one of the four things.</div></div>
+      <div class="cmp b"><h3>Fusion as your team</h3><ul><li>A filmmaker, an editor, an ads manager and a Shopify developer, not one generalist</li><li>The ad account run by people already running accounts at a multiple of the spend</li><li>The store fixed as part of the deal, not a separate agency</li><li>Monthly report showing spend, orders and cost per order across every channel</li></ul><div class="foot">If you still want someone in-house, we are also happy to sit alongside them.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="eyebrow rv">Ready-made content</div>
+    <h2 class="rv">Four videos we would film <span class="hi">in the Peterlee studio</span> in week one.</h2>
+    <div class="ideas rv">
+      <div class="idea"><div class="n">Idea 01</div><h3>"Fill a pouch from 550 sweets"</h3><p>First-person, the wall of tubs, the scoop, the weigh, the seal. The single most watched sweet shop format on TikTok, and you have more tubs than anyone filming it.</p></div>
+      <div class="idea"><div class="n">Idea 02</div><h3>"Pack this order with me"</h3><p>A real order, the ticket, the picks, the box, the name on the label. Customers start ordering hoping to see their own pack, which turns the packing bench into marketing.</p></div>
+      <div class="idea"><div class="n">Idea 03</div><h3>"We imported American candy before it was a thing"</h3><p>The founder story is genuinely good: the North East's first milkshake bar in 2007, American imports from 2009, a family that prefers sweets to food. Told to camera in the warehouse, it makes Candy4u a brand rather than a listing.</p></div>
+      <div class="idea"><div class="n">Idea 04</div><h3>"Ranking every Swedish candy we stock"</h3><p>The trend your live ad already mentions. Taste test, honest ratings, argue in the comments. The same format flips for retro, sour and American ranges every week.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="lilac">
+  <div class="wrap">
+    <div class="eyebrow rv">Proof</div>
+    <h2 class="rv">What this engine did for another <span class="hi">North East product brand</span> this summer.</h2>
+    <div class="proof rv">
+      <div class="name">The Northumberland Candle Company</div>
+      <div class="sub">Product ecommerce, shipping UK-wide. Source: their Shopify and Meta accounts.</div>
+      <div class="months">
+        <div class="mo"><div class="bar" style="height:10px"></div><div class="v">&pound;3.6k</div><div class="l">Apr</div></div>
+        <div class="mo"><div class="bar" style="height:16px"></div><div class="v">&pound;6.0k</div><div class="l">May</div></div>
+        <div class="mo"><div class="bar" style="height:18px"></div><div class="v">&pound;6.7k</div><div class="l">Jun</div></div>
+        <div class="mo"><div class="bar" style="height:60px"></div><div class="v">&pound;37.5k</div><div class="l">Jul</div></div>
+        <div class="mo"><div class="bar" style="height:150px"></div><div class="v">&pound;112.2k</div><div class="l">Aug</div></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="v">16.9x</div><div class="l">Monthly revenue in 60 days</div></div>
+        <div class="stat"><div class="v">&pound;149k+</div><div class="l">July plus August</div></div>
+        <div class="stat"><div class="v">7.8x</div><div class="l">Blended return on ad spend</div></div>
+        <div class="stat"><div class="v">3,650</div><div class="l">Orders in August, from 248</div></div>
+      </div>
+      <p class="body">They came to us doing &pound;6,650 a month. We spent June rebuilding their website to convert. On 1 July we switched on paid ads and took over email. August closed at &pound;112,230 from 3,650 orders. The ads were left running, tested weekly, and never switched off on day two.</p>
+      <div class="twocol">
+        <div><b>Where they started</b>&pound;6,650 a month, no ads running, a site that was not built to convert, a small following.</div>
+        <div><b>Where Candy4u starts</b>550 lines, four sales channels, a studio, 681 videos already made, an ad account with a year of history, and a warehouse full of the most filmable product there is. Every input is stronger than theirs was.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <img src="assets/jar.jpg" alt="Candy4u glass jar">
+  <img src="assets/acrylic.jpg" alt="Candy4u acrylic pick and mix box">
+  <img src="assets/can.jpg" alt="Candy4u candy can">
+  <img src="assets/pouch.jpg" alt="Candy4u candy pouch">
+</div>
+
+<div class="cta">
+  <div class="wrap">
+    <h2>Want to see what month one looks like?</h2>
+    <p>One conversation, at the warehouse or on a call. We walk through the site fixes, the first ad angles and the first filming day in your studio. If we are not the right fit, we will say so.</p>
+    <div class="btns">
+      <a class="btn btn-wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Candy4u%20audit" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>Message Jay on WhatsApp</a>
+      <a class="btn btn-white" href="mailto:jay@fusioncreative.uk?subject=Candy4u%20audit">Email jay@fusioncreative.uk</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">Fusion Creative &middot; Newcastle upon Tyne &middot; <a href="https://fusioncreative.uk">fusioncreative.uk</a> &middot; Prepared for Candy4u, 13 September 2026. Ad Library, site and social figures checked on the same day.</div>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in')}); return; }
+  var io=new IntersectionObserver(function(entries){ entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); },{threshold:.08});
+  els.forEach(function(e){ io.observe(e); });
+  setTimeout(function(){ els.forEach(function(e){e.classList.add('in')}); }, 2200);
+})();
+</script>
+</body>
+</html>
