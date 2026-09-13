@@ -397,6 +397,7 @@ function normalizeData(blob){
   if(!blob || !Array.isArray(blob.lists)) return null;
   const normCard = (c) => {
     const card = {
+      id: (typeof c.id === "string" && c.id) ? c.id : uid(),
       idea: typeof c.idea === "string" ? c.idea : "",
       concept: typeof c.concept === "string" ? c.concept : "",
       ref: typeof c.ref === "string" ? c.ref : "",
@@ -460,17 +461,29 @@ let viewMode = "concepts";
 // can vanish. Never remove this guard.
 let initialSyncDone = false;
 
-function saveState(){
+// Two people, two devices, often two different clients. A save sends only
+// the lists this device touched and the server merges card by card, so nobody
+// overwrites anybody. Whole-list operations (add, rename, delete a list) are
+// rare and one person's job, so they still send the lot.
+const dirtyLists = new Set();
+let wholeBlobPending = false;
+let lastSeen = null;          // server updated_at of the last copy we pulled
+
+function saveState(listId){
   if(!initialSyncDone) return;
+  dirtyLists.add(listId || data.activeId);
   cacheLocal();
   savePending = true;
   setSyncStatus("busy", "Saving…");
   clearTimeout(saveTimer);
   saveTimer = setTimeout(pushToServer, 700);
 }
-
 async function pushToServer(){
-  const payload = data;
+  const partial = !wholeBlobPending;
+  const payload = partial
+    ? { op: "lists", seen: lastSeen, lists: data.lists.filter(l => dirtyLists.has(l.id)) }
+    : data;
+  const sent = new Set(dirtyLists);
   try{
     const res = await fetch(API, {
       method: "POST",
@@ -478,11 +491,60 @@ async function pushToServer(){
       body: JSON.stringify(payload)
     });
     if(!res.ok) throw new Error("bad status " + res.status);
-    savePending = false;
+    const body = await res.json().catch(() => ({}));
+    if(body.updated_at) lastSeen = body.updated_at;
+    // adopt what the server merged, in case someone else had touched the same list
+    if(partial && Array.isArray(body.lists)){
+      let changed = false;
+      for(const srv of body.lists){
+        const i = data.lists.findIndex(l => l.id === srv.id);
+        if(i < 0) continue;
+        if(JSON.stringify(data.lists[i]) !== JSON.stringify(srv)){ data.lists[i] = srv; changed = true; }
+      }
+      if(changed){ normalizeData(data); cacheLocal(); renderSoon(); }
+    }
+    for(const id of sent) dirtyLists.delete(id);
+    if(!partial) wholeBlobPending = false;
+    savePending = dirtyLists.size > 0;
     setSyncStatus("ok", "Synced");
+    if(savePending) saveState();   // edits landed while we were saving
   }catch(e){
     setSyncStatus("err", "Offline, saved on this device");
   }
+}
+
+// Re-render without pulling the rug from under someone mid-word: if a text
+// field is focused, wait for it to blur.
+let renderDeferred = false;
+function typingNow(){
+  const el = document.activeElement;
+  return !!el && (el.tagName === "TEXTAREA" || (el.tagName === "INPUT" && el.type === "text") || el.type === "url");
+}
+function renderSoon(){
+  if(typingNow()){ renderDeferred = true; return; }
+  renderDeferred = false;
+  renderAll();
+}
+document.addEventListener("focusout", () => { if(renderDeferred) setTimeout(renderSoon, 50); });
+
+// Fold in what other devices have done. Lists this device has unsaved edits
+// on are left alone until they are saved and merged.
+function adoptServerCopy(clean){
+  let changed = false;
+  const mine = new Map(data.lists.map(l => [l.id, l]));
+  const next = [];
+  for(const srv of clean.lists){
+    const local = mine.get(srv.id);
+    if(local && dirtyLists.has(srv.id)){ next.push(local); continue; }
+    if(!local || JSON.stringify(local) !== JSON.stringify(srv)) changed = true;
+    next.push(srv);
+  }
+  // lists that exist only here and are unsaved stay
+  for(const l of data.lists) if(!clean.lists.some(x => x.id === l.id) && dirtyLists.has(l.id)) next.push(l);
+  if(next.length !== data.lists.length) changed = true;
+  data.lists = next;
+  if(!data.lists.some(l => l.id === data.activeId)) data.activeId = data.lists[0]?.id;
+  return changed;
 }
 
 async function pullFromServer(initial){
@@ -493,15 +555,23 @@ async function pullFromServer(initial){
     const body = await res.json();
     const clean = body && body.data ? normalizeData(body.data) : null;
     if(clean){
-      data = clean;
-      // Deep link: ?list=<id> opens that client's tab (view-only preference,
-      // not saved back unless the user makes a change).
+      if(body.updated_at) lastSeen = body.updated_at;
       if(initial){
+        const keepActive = data && data.activeId;
+        data = clean;
+        // Deep link: ?list=<id> opens that client's tab (view-only preference,
+        // not saved back unless the user makes a change).
         const wanted = new URLSearchParams(location.search).get("list");
         if(wanted && data.lists.some(l => l.id === wanted)) data.activeId = wanted;
+        else if(keepActive && data.lists.some(l => l.id === keepActive)) data.activeId = keepActive;
+        cacheLocal();
+        renderAll();
+      } else {
+        const keepActive = data.activeId;
+        const changed = adoptServerCopy(clean);
+        if(data.lists.some(l => l.id === keepActive)) data.activeId = keepActive;
+        if(changed){ cacheLocal(); renderSoon(); flashSync("Updated from another device"); }
       }
-      cacheLocal();
-      renderAll();
       setSyncStatus("ok", "Synced");
       initialSyncDone = true;
     } else if(initial){
@@ -522,6 +592,22 @@ async function pullFromServer(initial){
 function activeList(){
   return data.lists.find(l => l.id === data.activeId) || data.lists[0];
 }
+
+let flashTimer = null;
+function flashSync(label){
+  setSyncStatus("ok", label);
+  clearTimeout(flashTimer);
+  flashTimer = setTimeout(() => { if(!savePending) setSyncStatus("ok", "Synced"); }, 2500);
+}
+
+// Live sync. Cheap GET every few seconds while the tab is visible; skipped
+// while a save is in flight so we never pull over the top of our own edit.
+const PULL_EVERY_MS = 4000;
+setInterval(() => {
+  if(document.visibilityState !== "visible") return;
+  if(!initialSyncDone || savePending) return;
+  pullFromServer(false);
+}, PULL_EVERY_MS);
 
 // Client logos for the tab strip. Keys are the list name with everything but
 // letters and numbers stripped, so "The Northumberland Candle Co." matches.
@@ -591,7 +677,7 @@ function renderTabs(){
     }
     tab.addEventListener("click", () => {
       data.activeId = l.id;
-      saveState();
+      cacheLocal();
       renderAll();
     });
     tabs.appendChild(tab);
@@ -606,6 +692,7 @@ function renderTabs(){
     if(name === null) return;
     const list = { id: uid(), name: name.trim() || "Untitled list", notes: "", cards: [], products: [], posted: [] };
     data.lists.push(list);
+    wholeBlobPending = true;
     data.activeId = list.id;
     saveState();
     renderAll();
@@ -855,11 +942,12 @@ function openCopyMenu(anchor, cardData){
         concept: cardData.concept || "",
         ref: cardData.ref || "",
         done: false,
-        edited: false
+        edited: false,
+        id: uid()
       };
       if(cardData.thumb) copy.thumb = cardData.thumb;
       l.cards.push(copy);
-      saveState();
+      saveState(l.id);   // the copy landed in ANOTHER list, so that one is what changed
       btn.textContent = "✓ Copied to " + (l.name || "list");
       btn.classList.add("copied");
       setTimeout(closeCopyMenu, 900);
@@ -1075,7 +1163,7 @@ document.querySelectorAll(".subtab").forEach(btn => {
 document.getElementById("addCardBtn").addEventListener("click", () => {
   // Add to the TOP so it appears right under the "+ Add concept" button and
   // everything else pushes down - no scrolling to the bottom to fill it in.
-  activeList().cards.unshift({ idea: "", concept: "", ref: "", direction: "", script: "", done: false, edited: false });
+  activeList().cards.unshift({ id: uid(), idea: "", concept: "", ref: "", direction: "", script: "", done: false, edited: false });
   saveState();
   renderCards();
   const first = document.querySelector(".field-idea");
@@ -1109,6 +1197,7 @@ document.getElementById("deleteListBtn").addEventListener("click", () => {
   }
   if(confirm(`Delete the list "${activeList().name}"? This can't be undone.`)){
     data.lists = data.lists.filter(l => l.id !== data.activeId);
+    wholeBlobPending = true;
     data.activeId = data.lists[0].id;
     saveState();
     renderAll();
