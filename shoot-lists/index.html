@@ -528,7 +528,7 @@ function typingNow(){
 function renderSoon(){
   if(typingNow()){ renderDeferred = true; return; }
   renderDeferred = false;
-  renderAll();
+  try{ renderAll(); }catch(e){ console.error("render after sync failed:", e); }
 }
 document.addEventListener("focusout", () => { if(renderDeferred) setTimeout(renderSoon, 50); });
 
@@ -1064,7 +1064,7 @@ function renderPosted(){
       renderPosted();
       renderCards();
     });
-    card.querySelector(".field-direction").addEventListener("input", (e) => {
+    card.querySelector(".field-direction")?.addEventListener("input", (e) => {
       c.direction = e.target.value; touch(c); saveState();
     });
     const scriptBox = card.querySelector(".field-script");
