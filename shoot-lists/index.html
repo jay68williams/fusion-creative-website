@@ -339,6 +339,22 @@
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
 <script>
 const STORAGE_KEY = "fusion-shoot-lists-v2";
+const BUILD = "8df3bb9";
+(async function selfRefresh(){
+  const check = async () => {
+    try{
+      const r = await fetch("/shoot-lists/version.txt?t=" + Date.now(), { cache: "no-store" });
+      if(!r.ok) return;
+      const latest = (await r.text()).trim();
+      if(latest && latest !== BUILD && !sessionStorage.getItem("reloaded-for-" + latest)){
+        sessionStorage.setItem("reloaded-for-" + latest, "1");
+        const u = new URL(location.href); u.searchParams.set("v", latest); location.replace(u.toString());
+      }
+    }catch(e){ /* offline, fine */ }
+  };
+  check();
+  setInterval(check, 60000);
+})();
 const GRIP_SVG = '<svg width="9" height="15" viewBox="0 0 9 15" fill="currentColor" aria-hidden="true"><circle cx="2" cy="2" r="1.3"/><circle cx="7" cy="2" r="1.3"/><circle cx="2" cy="7.5" r="1.3"/><circle cx="7" cy="7.5" r="1.3"/><circle cx="2" cy="13" r="1.3"/><circle cx="7" cy="13" r="1.3"/></svg>';
 
 // Drag-to-reorder. Reorders the underlying array from the post-drag DOM order
