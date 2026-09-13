@@ -379,6 +379,10 @@ function thumbSrc(c, refHref){
 }
 
 function uid(){ return 'id-' + Math.random().toString(36).slice(2, 10); }
+// Stamp a card the moment this device changes it. The server keeps whichever
+// copy of a card was touched most recently, so two people on the same list
+// from stale copies both land, and a stale device cannot undo a fresh edit.
+function touch(c){ c.u = Date.now(); return c; }
 
 function defaultData(){
   return {
@@ -398,6 +402,7 @@ function normalizeData(blob){
   const normCard = (c) => {
     const card = {
       id: (typeof c.id === "string" && c.id) ? c.id : uid(),
+      u: (typeof c.u === "number" && c.u > 0) ? c.u : 0,
       idea: typeof c.idea === "string" ? c.idea : "",
       concept: typeof c.concept === "string" ? c.concept : "",
       ref: typeof c.ref === "string" ? c.ref : "",
@@ -812,7 +817,7 @@ function renderCards(){
     `;
 
     card.querySelector('.chk-shot').addEventListener("change", (e) => {
-      c.done = e.target.checked;
+      c.done = e.target.checked; touch(c);
       // Ticking Shot drops it to the bottom so the next one to film is on top.
       if(c.done){
         list.cards.splice(i, 1);
@@ -822,24 +827,24 @@ function renderCards(){
       renderCards();
     });
     card.querySelector('.chk-edited').addEventListener("change", (e) => {
-      c.edited = e.target.checked;
+      c.edited = e.target.checked; touch(c);
       saveState();
       renderCards();
     });
     card.querySelector(".field-idea").addEventListener("input", (e) => {
-      c.idea = e.target.value; saveState();
+      c.idea = e.target.value; touch(c); saveState();
     });
     const notesEl = card.querySelector(".field-notes");
     if(notesEl) notesEl.addEventListener("input", (e) => {
-      c.notes = e.target.value; saveState();
+      c.notes = e.target.value; touch(c); saveState();
     });
     card.querySelector(".field-concept").addEventListener("input", (e) => {
-      c.concept = e.target.value; saveState();
+      c.concept = e.target.value; touch(c); saveState();
     });
     const refInput = card.querySelector(".field-ref");
     const openLink = card.querySelector(".open-ref");
     refInput.addEventListener("input", (e) => {
-      c.ref = e.target.value; saveState();
+      c.ref = e.target.value; touch(c); saveState();
       const trimmed = (c.ref || "").trim();
       const href = /^https?:\/\//i.test(trimmed) ? trimmed : "";
       if(href){ openLink.href = href; openLink.classList.remove("disabled"); }
@@ -848,11 +853,11 @@ function renderCards(){
     // When the link is committed (blur/paste done), redraw so the thumbnail loads in
     refInput.addEventListener("change", () => renderCards());
     card.querySelector(".field-direction").addEventListener("input", (e) => {
-      c.direction = e.target.value; saveState();
+      c.direction = e.target.value; touch(c); saveState();
     });
     const scriptBox = card.querySelector(".field-script");
     scriptBox.addEventListener("input", (e) => {
-      c.script = e.target.value; saveState();
+      c.script = e.target.value; touch(c); saveState();
     });
     const writeBtn = card.querySelector(".write-script");
     const scriptNote = card.querySelector(".script-note");
@@ -876,7 +881,7 @@ function renderCards(){
         });
         const data = await res.json();
         if(!res.ok) throw new Error(data.error || "Could not write a script");
-        c.script = data.script;
+        c.script = data.script; touch(c);
         saveState();
         scriptBox.value = data.script;
         scriptBox.rows = Math.min(26, data.script.split("\n").length + 1);
@@ -895,7 +900,7 @@ function renderCards(){
     });
     card.querySelector(".post-btn").addEventListener("click", () => {
       list.posted = list.posted || [];
-      list.posted.unshift(c);   // newest posted first
+      touch(c); list.posted.unshift(c);   // newest posted first
       list.cards.splice(i, 1);
       saveState();
       renderCards();
@@ -961,7 +966,8 @@ function openCopyMenu(anchor, cardData){
         ref: cardData.ref || "",
         done: false,
         edited: false,
-        id: uid()
+        id: uid(),
+        u: Date.now()
       };
       if(cardData.thumb) copy.thumb = cardData.thumb;
       l.cards.push(copy);
@@ -1053,17 +1059,17 @@ function renderPosted(){
 
     card.querySelector(".unpost-btn").addEventListener("click", () => {
       list.posted.splice(i, 1);
-      list.cards.push(c);
+      touch(c); list.cards.push(c);
       saveState();
       renderPosted();
       renderCards();
     });
     card.querySelector(".field-direction").addEventListener("input", (e) => {
-      c.direction = e.target.value; saveState();
+      c.direction = e.target.value; touch(c); saveState();
     });
     const scriptBox = card.querySelector(".field-script");
     scriptBox.addEventListener("input", (e) => {
-      c.script = e.target.value; saveState();
+      c.script = e.target.value; touch(c); saveState();
     });
     const writeBtn = card.querySelector(".write-script");
     const scriptNote = card.querySelector(".script-note");
@@ -1087,7 +1093,7 @@ function renderPosted(){
         });
         const data = await res.json();
         if(!res.ok) throw new Error(data.error || "Could not write a script");
-        c.script = data.script;
+        c.script = data.script; touch(c);
         saveState();
         scriptBox.value = data.script;
         scriptBox.rows = Math.min(26, data.script.split("\n").length + 1);
@@ -1181,7 +1187,7 @@ document.querySelectorAll(".subtab").forEach(btn => {
 document.getElementById("addCardBtn").addEventListener("click", () => {
   // Add to the TOP so it appears right under the "+ Add concept" button and
   // everything else pushes down - no scrolling to the bottom to fill it in.
-  activeList().cards.unshift({ id: uid(), idea: "", concept: "", ref: "", direction: "", script: "", done: false, edited: false });
+  activeList().cards.unshift({ id: uid(), u: Date.now(), idea: "", concept: "", ref: "", direction: "", script: "", done: false, edited: false });
   saveState();
   renderCards();
   const first = document.querySelector(".field-idea");
