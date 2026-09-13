@@ -504,7 +504,7 @@ async function pushToServer(){
       for(const srv of body.lists){
         const i = data.lists.findIndex(l => l.id === srv.id);
         if(i < 0) continue;
-        if(JSON.stringify(data.lists[i]) !== JSON.stringify(srv)){ data.lists[i] = srv; changed = true; }
+        if(JSON.stringify(data.lists[i]) !== JSON.stringify(srv)){ adoptList(data.lists[i], srv); changed = true; }
       }
       if(changed){ normalizeData(data); cacheLocal(); renderSoon(); }
     }
@@ -532,6 +532,23 @@ function renderSoon(){
 }
 document.addEventListener("focusout", () => { if(renderDeferred) setTimeout(renderSoon, 50); });
 
+function adoptList(local, srv){
+  if(!local) return srv;
+  const same = JSON.stringify(local) === JSON.stringify(srv);
+  if(same) return local;
+  for(const k of Object.keys(srv)) if(k !== "cards" && k !== "posted") local[k] = srv[k];
+  const pool = new Map();
+  for(const c of (local.cards||[]).concat(local.posted||[])) if(c && c.id) pool.set(c.id, c);
+  const fold = (arr) => (arr||[]).map(sc => {
+    const mine = sc.id && pool.get(sc.id);
+    if(mine){ for(const k of Object.keys(mine)) if(!(k in sc)) delete mine[k]; Object.assign(mine, sc); return mine; }
+    return sc;
+  });
+  local.cards = fold(srv.cards);
+  local.posted = fold(srv.posted);
+  return local;
+}
+
 // Fold in what other devices have done. Lists this device has unsaved edits
 // on are left alone until they are saved and merged.
 function adoptServerCopy(clean){
@@ -542,7 +559,7 @@ function adoptServerCopy(clean){
     const local = mine.get(srv.id);
     if(local && dirtyLists.has(srv.id)){ next.push(local); continue; }
     if(!local || JSON.stringify(local) !== JSON.stringify(srv)) changed = true;
-    next.push(srv);
+    next.push(adoptList(local, srv));
   }
   // lists that exist only here and are unsaved stay
   for(const l of data.lists) if(!clean.lists.some(x => x.id === l.id) && dirtyLists.has(l.id)) next.push(l);
