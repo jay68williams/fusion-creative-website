@@ -554,6 +554,23 @@ async function pullFromServer(initial){
     if(!res.ok) throw new Error("bad status " + res.status);
     const body = await res.json();
     const clean = body && body.data ? normalizeData(body.data) : null;
+    // Self-heal. If the server has no lists at all but this device still holds
+    // a cached copy, the server was wiped and this copy is the freshest thing
+    // anyone has: put it back, whole, before anything else can happen.
+    const serverEmpty = !clean || !clean.lists || !clean.lists.length;
+    if(serverEmpty && data && Array.isArray(data.lists) && data.lists.length){
+      const cards = data.lists.reduce((n, l) => n + (l.cards||[]).length + (l.posted||[]).length, 0);
+      if(cards > 0){
+        setSyncStatus("busy", "Server was empty, restoring from this device…");
+        wholeBlobPending = true; dirtyLists.clear();
+        for(const l of data.lists) dirtyLists.add(l.id);
+        initialSyncDone = true;
+        await pushToServer();
+        flashSync("Restored " + cards + " cards from this device");
+        renderAll();
+        return;
+      }
+    }
     if(clean){
       if(body.updated_at) lastSeen = body.updated_at;
       if(initial){
