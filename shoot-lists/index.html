@@ -89,6 +89,13 @@
 
   .empty-state{text-align:center;color:var(--dim);font-size:13.5px;padding:36px 10px;line-height:1.6}
 
+  /* filter pills inside Concepts */
+  .cfilters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}
+  .cfilter{font-family:var(--mono,ui-monospace,monospace);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--mut);cursor:pointer}
+  .cfilter:hover{border-color:var(--red);color:var(--red)}
+  .cfilter.active{border-color:var(--red);background:rgba(232,85,60,.10);color:var(--red);font-weight:600}
+  .cfilter .n{opacity:.7;margin-left:6px}
   /* concepts / products sub-tabs */
   .subtabs{display:flex;gap:8px;margin-bottom:22px}
   .subtab{
@@ -311,6 +318,12 @@
       <div class="label mono">The shots</div>
       <h2>Concepts</h2>
       <button class="add-card-btn" id="addCardBtn">+ Add concept</button>
+      <div class="cfilters" id="cardFilters" aria-label="Show">
+        <button class="cfilter" data-filter="all">All</button>
+        <button class="cfilter" data-filter="toshoot">To shoot</button>
+        <button class="cfilter" data-filter="shot">Shot, not edited</button>
+        <button class="cfilter" data-filter="edited">Edited</button>
+      </div>
       <div id="cardList"></div>
     </div>
 
@@ -339,7 +352,31 @@
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
 <script>
 const STORAGE_KEY = "fusion-shoot-lists-v2";
-const BUILD = "1789305377";
+// Which slice of the concepts to show. A per-device preference, never synced:
+// one person working the "to shoot" queue must not flip the other's view.
+const FILTER_KEY = "fusion-shoot-lists-filter";
+let cardFilter = (function(){ try{ return localStorage.getItem(FILTER_KEY) || "all"; }catch(e){ return "all"; } })();
+const CARD_FILTERS = {
+  all:     { test: () => true,                  empty: "No concepts yet, tap \u201C+ Add concept\u201D to start building this list." },
+  toshoot: { test: c => !c.done,                empty: "Nothing left to shoot on this list." },
+  shot:    { test: c => c.done && !c.edited,    empty: "Nothing shot and waiting for an edit." },
+  edited:  { test: c => c.done && c.edited,     empty: "Nothing edited yet." },
+};
+function setCardFilter(f){
+  cardFilter = CARD_FILTERS[f] ? f : "all";
+  try{ localStorage.setItem(FILTER_KEY, cardFilter); }catch(e){}
+  renderCards();
+}
+function renderCardFilters(list){
+  const counts = { all: list.cards.length };
+  for(const k of ["toshoot","shot","edited"]) counts[k] = list.cards.filter(CARD_FILTERS[k].test).length;
+  document.querySelectorAll("#cardFilters .cfilter").forEach(b => {
+    const k = b.dataset.filter;
+    b.classList.toggle("active", k === cardFilter);
+    b.innerHTML = b.textContent.replace(/\s*\d+$/, "") + `<span class="n">${counts[k]}</span>`;
+  });
+}
+const BUILD = "1789308947";
 (async function selfRefresh(){
   const check = async () => {
     try{
@@ -778,17 +815,20 @@ function renderCards(){
   const list = activeList();
   const container = document.getElementById("cardList");
   container.innerHTML = "";
+  renderCardFilters(list);
 
-  if(!list.cards.length){
+  const show = CARD_FILTERS[cardFilter] || CARD_FILTERS.all;
+  if(!list.cards.some(show.test)){
     const empty = document.createElement("div");
     empty.className = "empty-state";
-    empty.textContent = "No concepts yet, tap “+ Add concept” to start building this list.";
+    empty.textContent = show.empty;
     container.appendChild(empty);
     updateProgress();
     return;
   }
 
   list.cards.forEach((c, i) => {
+    if(!show.test(c)) return;   // filtered out; i stays the true index for everything below
     const card = document.createElement("div");
     card.className = "shot" + (c.done ? " done" : "") + (c.edited ? " edited" : "");
     card.dataset.idx = i;
@@ -950,7 +990,8 @@ function renderCards(){
     container.appendChild(card);
   });
 
-  makeSortable(container, list.cards, renderCards, ".drag-grip", ".shot");
+  if(cardFilter === "all") makeSortable(container, list.cards, renderCards, ".drag-grip", ".shot");
+  else if(_sortables[container.id]){ try{ _sortables[container.id].destroy(); }catch(e){} delete _sortables[container.id]; }
   updateProgress();
 }
 
@@ -1174,6 +1215,9 @@ document.querySelectorAll(".subtab").forEach(btn => {
     viewMode = btn.dataset.view;
     renderSubtabs();
   });
+});
+document.querySelectorAll("#cardFilters .cfilter").forEach(btn => {
+  btn.addEventListener("click", () => setCardFilter(btn.dataset.filter));
 });
 
 document.getElementById("addCardBtn").addEventListener("click", () => {
