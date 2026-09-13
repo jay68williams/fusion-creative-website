@@ -558,7 +558,8 @@ async function pullFromServer(initial){
     // a cached copy, the server was wiped and this copy is the freshest thing
     // anyone has: put it back, whole, before anything else can happen.
     const serverEmpty = !clean || !clean.lists || !clean.lists.length;
-    if(serverEmpty && data && Array.isArray(data.lists) && data.lists.length){
+    const cacheIsReal = !!localStorage.getItem(STORAGE_KEY);   // never the built-in seed
+    if(serverEmpty && cacheIsReal && data && Array.isArray(data.lists) && data.lists.length){
       const cards = data.lists.reduce((n, l) => n + (l.cards||[]).length + (l.posted||[]).length, 0);
       if(cards > 0){
         setSyncStatus("busy", "Server was empty, restoring from this device…");
