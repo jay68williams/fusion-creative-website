@@ -376,7 +376,7 @@ function renderCardFilters(list){
     b.innerHTML = b.textContent.replace(/\s*\d+$/, "") + `<span class="n">${counts[k]}</span>`;
   });
 }
-const BUILD = "1789308947";
+const BUILD = "1789726352";
 (async function selfRefresh(){
   const check = async () => {
     try{
@@ -477,7 +477,9 @@ function normalizeData(blob){
       done: !!p.done
     })) : [],
     cards: Array.isArray(l.cards) ? l.cards.filter(c => c && typeof c === "object").map(normCard) : [],
-    posted: Array.isArray(l.posted) ? l.posted.filter(c => c && typeof c === "object").map(normCard) : []
+    posted: Array.isArray(l.posted) ? l.posted.filter(c => c && typeof c === "object").map(normCard) : [],
+    // Tombstones: a delete is recorded, never inferred from a card being absent.
+    removed: Array.isArray(l.removed) ? l.removed.filter(r => r && typeof r.id === "string").map(r => ({ id: r.id, u: Number(r.u) || 0 })).slice(-400) : []
   }));
   if(!blob.lists.length) return null;
   if(typeof blob.activeId !== "string" || !blob.lists.some(l => l.id === blob.activeId)){
@@ -523,53 +525,102 @@ let initialSyncDone = false;
 // the lists this device touched and the server merges card by card, so nobody
 // overwrites anybody. Whole-list operations (add, rename, delete a list) are
 // rare and one person's job, so they still send the lot.
-const dirtyLists = new Set();
+const DIRTY_KEY = "fusion-shoot-lists-dirty";
+const SYNCAT_KEY = "fusion-shoot-lists-syncat";
+// Unsaved lists survive a reload: a save that failed, or a tab closed mid-save,
+// is pushed again next time instead of being replaced by the server copy.
+const dirtyLists = new Set((function(){ try{ return JSON.parse(localStorage.getItem(DIRTY_KEY) || "[]"); }catch(e){ return []; } })());
+function persistDirty(){ try{ localStorage.setItem(DIRTY_KEY, JSON.stringify([...dirtyLists])); }catch(e){} }
+// When this device last agreed with the server. A card the server has never
+// seen is kept only if it was touched after this (it was made here, offline or
+// mid-save); older strays are dropped so a phone that was asleep for a week
+// cannot bring deleted concepts back.
+let lastSyncAt = (function(){ try{ return Number(localStorage.getItem(SYNCAT_KEY)) || Date.now(); }catch(e){ return Date.now(); } })();
+function markSynced(){ lastSyncAt = Date.now(); try{ localStorage.setItem(SYNCAT_KEY, String(lastSyncAt)); }catch(e){} }
+// Every change to a list bumps its revision. A save only counts as having
+// covered the list if the revision has not moved while the request was away.
+const listRev = new Map();
 let wholeBlobPending = false;
 let lastSeen = null;          // server updated_at of the last copy we pulled
+let pushing = false;
+let retryTimer = null, retryDelay = 4000;
 
 function saveState(listId){
-  if(!initialSyncDone) return;
-  dirtyLists.add(listId || data.activeId);
+  const id = listId || data.activeId;
+  dirtyLists.add(id); persistDirty();
+  listRev.set(id, (listRev.get(id) || 0) + 1);
   cacheLocal();
+  // Before the first pull lands the edit is kept and queued, never dropped:
+  // the pull merges it in and then saves it.
+  if(!initialSyncDone) return;
   savePending = true;
   setSyncStatus("busy", "Saving…");
   clearTimeout(saveTimer);
   saveTimer = setTimeout(pushToServer, 700);
 }
-async function pushToServer(){
+async function pushToServer(opts){
+  if(pushing){ clearTimeout(saveTimer); saveTimer = setTimeout(pushToServer, 400); return; }
+  if(!dirtyLists.size && !wholeBlobPending){ savePending = false; return; }
+  pushing = true;
+  clearTimeout(retryTimer);
   const partial = !wholeBlobPending;
   const payload = partial
     ? { op: "lists", seen: lastSeen, lists: data.lists.filter(l => dirtyLists.has(l.id)) }
     : data;
   const sent = new Set(dirtyLists);
+  const revAtSend = new Map([...sent].map(id => [id, listRev.get(id) || 0]));
   try{
     const res = await fetch(API, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
+      keepalive: !!(opts && opts.keepalive)
     });
     if(!res.ok) throw new Error("bad status " + res.status);
     const body = await res.json().catch(() => ({}));
     if(body.updated_at) lastSeen = body.updated_at;
-    // adopt what the server merged, in case someone else had touched the same list
+    // Which lists moved on while the request was away? Those stay dirty, and
+    // the reply is folded in card by card instead of replacing what was typed.
+    const movedOn = new Set([...sent].filter(id => (listRev.get(id) || 0) !== revAtSend.get(id)));
     if(partial && Array.isArray(body.lists)){
       let changed = false;
-      for(const srv of body.lists){
+      // Normalise the reply, not our own data: normalizeData builds NEW objects,
+      // and the fields on screen are wired to the ones we already have. Rebuilding
+      // them mid-typing sent every later keystroke into objects nobody saves.
+      const reply = (normalizeData({ lists: JSON.parse(JSON.stringify(body.lists)) }) || { lists: [] }).lists;
+      for(const srv of reply){
         const i = data.lists.findIndex(l => l.id === srv.id);
         if(i < 0) continue;
-        if(JSON.stringify(data.lists[i]) !== JSON.stringify(srv)){ adoptList(data.lists[i], srv); changed = true; }
+        if(JSON.stringify(data.lists[i]) !== JSON.stringify(srv)){
+          const keptLocal = adoptList(data.lists[i], srv, { localFieldsWin: movedOn.has(srv.id) });
+          if(keptLocal) movedOn.add(srv.id);
+          changed = true;
+        }
       }
-      if(changed){ normalizeData(data); cacheLocal(); renderSoon(); }
+      if(changed){ cacheLocal(); renderSoon(); }
     }
-    for(const id of sent) dirtyLists.delete(id);
+    for(const id of sent) if(!movedOn.has(id)) dirtyLists.delete(id);
+    persistDirty(); markSynced();
     if(!partial) wholeBlobPending = false;
+    retryDelay = 4000;
     savePending = dirtyLists.size > 0;
     setSyncStatus("ok", "Synced");
-    if(savePending) saveState();   // edits landed while we were saving
+    pushing = false;
+    if(savePending){ clearTimeout(saveTimer); saveTimer = setTimeout(pushToServer, 300); }   // edits landed while we were saving
   }catch(e){
-    setSyncStatus("err", "Offline, saved on this device");
+    pushing = false;
+    // Keep trying. The edit is safe on this device and marked unsaved, so a
+    // reload will not lose it either.
+    setSyncStatus("err", "Not saved yet, retrying…");
+    clearTimeout(retryTimer);
+    retryTimer = setTimeout(pushToServer, retryDelay);
+    retryDelay = Math.min(retryDelay * 2, 60000);
   }
 }
+// Leaving the page with something unsaved: send it on the way out.
+function flushOnLeave(){ if(initialSyncDone && dirtyLists.size && !pushing){ clearTimeout(saveTimer); pushToServer({ keepalive: true }); } }
+document.addEventListener("visibilitychange", () => { if(document.visibilityState === "hidden") flushOnLeave(); });
+window.addEventListener("pagehide", flushOnLeave);
 
 // Re-render without pulling the rug from under someone mid-word: if a text
 // field is focused, wait for it to blur.
@@ -578,41 +629,93 @@ function typingNow(){
   const el = document.activeElement;
   return !!el && (el.tagName === "TEXTAREA" || (el.tagName === "INPUT" && el.type === "text") || el.type === "url");
 }
+// Never rebuild the list between a press and its release either: a click only
+// fires if both land on the same element, so a re-render in that gap swallowed
+// the tap on Add concept, Shot or Posted that followed a spell of typing.
+let pointerIsDown = false;
+document.addEventListener("pointerdown", () => { pointerIsDown = true; }, true);
+const pointerReleased = () => { pointerIsDown = false; if(renderDeferred) setTimeout(renderSoon, 60); };
+document.addEventListener("pointerup", pointerReleased, true);
+document.addEventListener("pointercancel", pointerReleased, true);
 function renderSoon(){
-  if(typingNow()){ renderDeferred = true; return; }
+  if(typingNow() || pointerIsDown){ renderDeferred = true; return; }
   renderDeferred = false;
   try{ renderAll(); }catch(e){ console.error("render after sync failed:", e); }
 }
-document.addEventListener("focusout", () => { if(renderDeferred) setTimeout(renderSoon, 50); });
+document.addEventListener("focusout", () => { if(renderDeferred && !pointerIsDown) setTimeout(renderSoon, 50); });
 
-function adoptList(local, srv){
-  if(!local) return srv;
-  const same = JSON.stringify(local) === JSON.stringify(srv);
-  if(same) return local;
-  for(const k of Object.keys(srv)) if(k !== "cards" && k !== "posted") local[k] = srv[k];
-  const pool = new Map();
-  for(const c of (local.cards||[]).concat(local.posted||[])) if(c && c.id) pool.set(c.id, c);
-  const fold = (arr) => (arr||[]).map(sc => {
-    const mine = sc.id && pool.get(sc.id);
-    if(mine){ for(const k of Object.keys(mine)) if(!(k in sc)) delete mine[k]; Object.assign(mine, sc); return mine; }
-    return sc;
-  });
-  local.cards = fold(srv.cards);
-  local.posted = fold(srv.posted);
-  return local;
+function adoptList(local, srv, opts){
+  if(!local) return false;
+  if(JSON.stringify(local) === JSON.stringify(srv)) return false;
+  const localFieldsWin = !!(opts && opts.localFieldsWin);
+  let keptLocal = false;
+  // list level fields (name, notes, products): the server's, unless this list
+  // was edited here while the request was away
+  for(const k of Object.keys(srv)){
+    if(k === "cards" || k === "posted" || k === "removed") continue;
+    if(localFieldsWin && JSON.stringify(local[k]) !== JSON.stringify(srv[k])){ keptLocal = true; continue; }
+    local[k] = srv[k];
+  }
+  // tombstones from both sides
+  const tomb = new Map();
+  for(const r of (srv.removed||[]).concat(local.removed||[])) if(r && r.id) tomb.set(r.id, Math.max(tomb.get(r.id) || 0, Number(r.u) || 0));
+  const dead = (c) => tomb.has(c.id) && tomb.get(c.id) >= (c.u || 0);
+  const pool = new Map();   // id -> { c, arr }
+  for(const c of (local.cards||[])) if(c && c.id) pool.set(c.id, { c, arr: "cards" });
+  for(const c of (local.posted||[])) if(c && c.id) pool.set(c.id, { c, arr: "posted" });
+  const out = { cards: [], posted: [] };
+  const seenIds = new Set();
+  const fold = (arr, name) => {
+    for(const sc of (arr||[])){
+      if(!sc || dead(sc)) continue;
+      seenIds.add(sc.id);
+      const mine = sc.id && pool.get(sc.id);
+      if(!mine){ out[name].push(sc); continue; }
+      if((mine.c.u || 0) > (sc.u || 0)){
+        // touched here more recently than the copy that came back: keep ours,
+        // where we have it, and make sure it is saved again
+        out[mine.arr].push(mine.c); keptLocal = true;
+      } else {
+        for(const k of Object.keys(mine.c)) if(!(k in sc)) delete mine.c[k];
+        Object.assign(mine.c, sc);
+        out[name].push(mine.c);
+      }
+    }
+  };
+  fold(srv.cards, "cards");
+  fold(srv.posted, "posted");
+  // cards only this device knows: made here since the last sync, so keep them
+  // in the position they were in
+  for(const name of ["cards", "posted"]){
+    (local[name]||[]).forEach((c, idx) => {
+      if(!c || !c.id || seenIds.has(c.id) || dead(c)) return;
+      if((c.u || 0) > lastSyncAt){
+        out[name].splice(Math.min(idx, out[name].length), 0, c);
+        keptLocal = true;
+      }
+    });
+  }
+  local.cards = out.cards;
+  local.posted = out.posted;
+  local.removed = [...tomb].map(([id, u]) => ({ id, u })).sort((a, b) => a.u - b.u).slice(-400);
+  return keptLocal;
 }
 
 // Fold in what other devices have done. Lists this device has unsaved edits
 // on are left alone until they are saved and merged.
-function adoptServerCopy(clean){
+function adoptServerCopy(clean, mergeDirty){
   let changed = false;
   const mine = new Map(data.lists.map(l => [l.id, l]));
   const next = [];
   for(const srv of clean.lists){
     const local = mine.get(srv.id);
-    if(local && dirtyLists.has(srv.id)){ next.push(local); continue; }
-    if(!local || JSON.stringify(local) !== JSON.stringify(srv)) changed = true;
-    next.push(adoptList(local, srv));
+    if(local && dirtyLists.has(srv.id)){ if(mergeDirty){ adoptList(local, srv, { localFieldsWin: true }); changed = true; } next.push(local); continue; }
+    if(!local){ changed = true; next.push(srv); continue; }
+    if(JSON.stringify(local) !== JSON.stringify(srv)){
+      changed = true;
+      if(adoptList(local, srv)){ dirtyLists.add(local.id); persistDirty(); }
+    }
+    next.push(local);
   }
   // lists that exist only here and are unsaved stay
   for(const l of data.lists) if(!clean.lists.some(x => x.id === l.id) && dirtyLists.has(l.id)) next.push(l);
@@ -651,21 +754,28 @@ async function pullFromServer(initial){
       if(body.updated_at) lastSeen = body.updated_at;
       if(initial){
         const keepActive = data && data.activeId;
-        data = clean;
+        // Anything typed before this pull landed, or left unsaved by an earlier
+        // visit, is merged in rather than thrown away, and the objects the page
+        // is already wired to are kept.
+        for(const id of [...dirtyLists]) if(!data.lists.some(l => l.id === id)) dirtyLists.delete(id);
+        persistDirty();
+        adoptServerCopy(clean, true);
         // Deep link: ?list=<id> opens that client's tab (view-only preference,
         // not saved back unless the user makes a change).
         const wanted = new URLSearchParams(location.search).get("list");
         if(wanted && data.lists.some(l => l.id === wanted)) data.activeId = wanted;
         else if(keepActive && data.lists.some(l => l.id === keepActive)) data.activeId = keepActive;
         cacheLocal();
-        renderAll();
+        renderSoon();
+        if(dirtyLists.size){ initialSyncDone = true; savePending = true; setSyncStatus("busy", "Saving…"); clearTimeout(saveTimer); saveTimer = setTimeout(pushToServer, 50); }
       } else {
         const keepActive = data.activeId;
         const changed = adoptServerCopy(clean);
+        if(dirtyLists.size && !savePending){ savePending = true; clearTimeout(saveTimer); saveTimer = setTimeout(pushToServer, 50); }
         if(data.lists.some(l => l.id === keepActive)) data.activeId = keepActive;
         if(changed){ cacheLocal(); renderSoon(); flashSync("Updated from another device"); }
       }
-      setSyncStatus("ok", "Synced");
+      if(!dirtyLists.size){ setSyncStatus("ok", "Synced"); markSynced(); }
       initialSyncDone = true;
     } else if(initial){
       // Nothing saved server-side yet (first ever load) - seed it with whatever we have locally.
@@ -698,7 +808,7 @@ function flashSync(label){
 const PULL_EVERY_MS = 4000;
 setInterval(() => {
   if(document.visibilityState !== "visible") return;
-  if(!initialSyncDone || savePending) return;
+  if(!initialSyncDone || pushing) return;
   pullFromServer(false);
 }, PULL_EVERY_MS);
 
@@ -981,6 +1091,7 @@ function renderCards(){
     });
     card.querySelector(".del-card").addEventListener("click", () => {
       if(confirm("Delete this concept?")){
+        (list.removed = list.removed || []).push({ id: c.id, u: Date.now() });
         list.cards.splice(i, 1);
         saveState();
         renderCards();
@@ -1145,6 +1256,7 @@ function renderPosted(){
     });
     card.querySelector(".del-card").addEventListener("click", () => {
       if(confirm("Delete this posted concept permanently?")){
+        (list.removed = list.removed || []).push({ id: c.id, u: Date.now() });
         list.posted.splice(i, 1);
         saveState();
         renderPosted();
