@@ -79,6 +79,10 @@ textarea.tall{min-height:130px}
 .tick:hover{border-color:var(--pink)}
 .tick.on{border-color:var(--magenta);background:#fff;box-shadow:0 0 0 2px rgba(194,10,178,.16)}
 
+.shoot-date{background:var(--night);border-radius:12px;padding:18px 20px;margin:4px 0 20px;box-shadow:inset 0 0 0 1px rgba(255,60,158,.5),0 0 22px rgba(194,10,178,.2)}
+.sd-eyebrow{font-size:10.5px;letter-spacing:3px;text-transform:uppercase;color:var(--pink);font-weight:600;margin-bottom:4px}
+.sd-date{font-family:'Anton','Impact',sans-serif;font-size:30px;line-height:1.1;color:#fff;text-transform:uppercase;letter-spacing:.02em}
+.sd-note{font-size:13px;color:rgba(255,255,255,.7);margin-top:7px;line-height:1.55}
 .radios{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
 .radio{display:flex;align-items:center;gap:8px;padding:10px 15px;border:1px solid var(--line);background:var(--paper);border-radius:99px;cursor:pointer;font-size:14px;font-weight:500}
 .radio input{accent-color:var(--magenta)}
@@ -137,7 +141,7 @@ footer.foot b{color:var(--pink)}
     <div class="hero-in">
       <div class="eyebrow">Content Onboarding</div>
       <h1>Let's get Ranches <em>on camera.</em></h1>
-      <p>Welcome aboard. This is everything we need before the first shoot: the story behind seven years and two shops, the burgers and desserts that deserve the camera, and the practical bits for the day. Takes about ten minutes and it saves as you go, so you can stop and come back, or pass the link to whoever knows the answers.</p>
+      <p>Welcome aboard. This is everything we need before the first shoot on Monday 21 September: the story behind seven years and two shops, the burgers and desserts that deserve the camera, and the practical bits for the day. Takes about ten minutes and it saves as you go, so you can stop and come back, or pass the link to whoever knows the answers.</p>
       <div class="meta">Saves as you type, and anyone with this link picks up the same progress.<br><span id="syncState">Loading the shared draft...</span></div>
     </div>
   </div>
@@ -300,14 +304,18 @@ footer.foot b{color:var(--pink)}
 
   <section class="card">
     <div class="sec-head"><span class="sec-num">05</span><h2>The first shoot</h2></div>
-    <p class="sec-sub">Pick a day that suits you and we will confirm it straight back. We film around service, so an evening with the grill at full tilt is ideal.</p>
-    <div class="grid2">
-      <div class="field"><label>What day would you like us to come? <span class="req">*</span><span class="hint">Your preferred date for the first content shoot.</span></label><input type="date" name="first_shoot_date" required></div>
-      <div class="field"><label>Which shop first? <span class="req">*</span>
-        <div class="radios">
-          <label class="radio"><input type="radio" name="first_shoot_shop" value="Sunderland" required> Sunderland</label>
-          <label class="radio"><input type="radio" name="first_shoot_shop" value="Newcastle"> Newcastle</label>
-        </div>
+    <p class="sec-sub">We are booked in. Tell us what we need to know for the day. We film around service, so an evening with the grill at full tilt is ideal.</p>
+    <div class="shoot-date">
+      <div class="sd-eyebrow">First shoot day</div>
+      <div class="sd-date">Monday 21 September</div>
+      <div class="sd-note">If that day no longer works, just message Jay and we will move it.</div>
+    </div>
+    <input type="hidden" name="first_shoot_date" value="Monday 21 September 2026 (confirmed)">
+    <div class="field">
+      <label>Which shop should we film first? <span class="req">*</span></label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="first_shoot_shop" value="Sunderland" required> Sunderland</label>
+        <label class="radio"><input type="radio" name="first_shoot_shop" value="Newcastle"> Newcastle</label>
       </div>
     </div>
     <div class="grid2">
@@ -344,7 +352,7 @@ footer.foot b{color:var(--pink)}
   <div class="thanks" id="thanks">
     <div class="check">&#10003;</div>
     <h2>Thank you, we have got it.</h2>
-    <p>This is on its way to Jay. We will turn your answers into a shot list, confirm the first shoot day, and come back with the ideas before we film.</p>
+    <p>This is on its way to Jay. We will turn your answers into a shot list and come back with the ideas before the first shoot on Monday 21 September. See you then.</p>
   </div>
 
   <footer class="foot">
@@ -366,14 +374,6 @@ const statusEl = document.getElementById('formStatus');
 const progEl = document.getElementById('prog');
 const syncEl = document.getElementById('syncState');
 const HDR = {'Content-Type':'application/json','X-Draft-Key':CONFIG.draftKey};
-
-// Shoot date: tomorrow onwards
-(function(){
-  const d=new Date(); d.setDate(d.getDate()+1);
-  const iso=d.toISOString().slice(0,10);
-  const inp=form.querySelector('[name=first_shoot_date]');
-  if(inp) inp.min=iso;
-})();
 
 // Empty string, nothing, and an empty tick list all count as "blank".
 function ser(v){ if(v==null||v===''||(Array.isArray(v)&&!v.length)) return ''; return JSON.stringify(v); }
