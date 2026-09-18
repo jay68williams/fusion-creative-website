@@ -120,6 +120,8 @@
   .shot{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;margin-bottom:16px;transition:background .2s,border-color .2s}
   .shot.done{background:var(--card-done);border-color:rgba(95,185,139,.4)}
   .shead{display:flex;align-items:flex-start;gap:16px}
+  .sbody{flex:1;min-width:0}
+  .pactions{margin-top:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .checks{display:flex;flex-direction:column;gap:9px;flex:none;padding-top:4px}
   .chk{display:flex;align-items:center;gap:7px;cursor:pointer}
   .chk input[type=checkbox]{width:18px;height:18px;accent-color:var(--green);flex:none;cursor:pointer;margin:0}
@@ -185,7 +187,7 @@
   .copy-menu button.copied{color:var(--green)}
 
   .field-idea{
-    width:100%;border:none;background:transparent;outline:none;
+    display:block;width:100%;border:none;background:transparent;outline:none;resize:none;overflow:hidden;line-height:1.2;
     font-family:'DM Serif Display',serif;font-size:21px;color:var(--cream);
     margin:6px 0 14px;padding:2px 0;border-bottom:1px solid transparent;
   }
@@ -252,7 +254,6 @@
   .card-thumb-link:hover{border-color:var(--red)}
   .card-thumb-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:18px;
     text-shadow:0 1px 6px rgba(0,0,0,.75);pointer-events:none;opacity:.95;z-index:1}
-  @media(max-width:600px){ .card-thumb-link{flex-basis:84px;min-height:150px} }
 
   footer{padding:36px 0 10px;color:var(--dim);font-size:11.5px}
 
@@ -264,9 +265,64 @@
     .field-notes,.field-concept,.field-ref{color:#111}
     .open-ref,.del-card,.copy-card,.post-btn,.unpost-btn,.subtabs,.drag-grip{display:none}
   }
+  /* Phone. This is the tool Jay uses on set, one hand, in a kitchen. The desktop
+     card is three columns (poster, ticks, fields); on a phone that squeezed the
+     fields off the right edge. Here the poster sits beside the idea and the
+     ticks only, and every field below gets the full width of the card.
+     Anything you type into is 16px: below that iOS zooms the page on focus. */
   @media(max-width:600px){
-    .srow{grid-template-columns:1fr}
-    .srow .k{padding-top:0}
+    .wrap{padding:0 14px 72px}
+    .topbar{padding-top:16px}
+    .tabs{gap:7px;padding-top:14px}
+    .tab{height:42px;min-width:42px;padding:0 8px}
+    .tab img{height:22px;max-width:64px}
+    .list-tools{margin-top:8px}
+    header{padding:18px 0 18px}
+    .kick{margin-bottom:8px}
+    h1{font-size:32px}
+    .sub{display:none}
+    .progresswrap{margin-top:14px;gap:10px}
+    .progresswrap + .progresswrap{margin-top:8px}
+    .pbar{height:8px}
+    .ptext{font-size:11px}
+    section{padding:24px 0}
+    .gnote{font-size:13px;margin-bottom:14px}
+    .notes-box textarea,.prow .field-product{font-size:16px}
+    .subtabs{margin-bottom:14px;gap:6px}
+    .subtab{flex:1 1 auto;padding:11px 8px;font-size:10px;letter-spacing:.05em;white-space:nowrap}
+    .cfilters{flex-wrap:nowrap;overflow-x:auto;margin:10px -14px 14px;padding:0 14px 2px;scrollbar-width:none}
+    .cfilters::-webkit-scrollbar{display:none}
+    .cfilter{flex:0 0 auto;white-space:nowrap}
+
+    .shot{padding:14px 14px 16px;border-radius:16px;margin-bottom:12px}
+    .shead{display:grid;grid-template-columns:minmax(0,1fr);gap:0 12px;
+      grid-template-areas:"meta" "idea" "checks" "rows"}
+    .shot.has-thumb .shead{grid-template-columns:96px minmax(0,1fr);grid-template-rows:auto auto 1fr auto;
+      grid-template-areas:"meta meta" "thumb idea" "thumb checks" "rows rows"}
+    .sbody{display:contents}
+    .smeta{grid-area:meta;margin-bottom:8px}
+    .snum{font-size:11px}
+    .copy-card,.del-card{padding:8px 9px;margin:-6px -4px}
+    .del-card{font-size:20px}
+    .field-idea{grid-area:idea;font-size:20px;margin:0 0 10px;align-self:start}
+    .card-thumb-link{grid-area:thumb;width:96px;aspect-ratio:9/16;min-height:0;align-self:start;margin-bottom:14px}
+    .checks{grid-area:checks;flex-direction:row;flex-wrap:wrap;gap:7px;padding:0;margin:0 0 14px;align-self:start}
+    .shot.has-thumb .checks{flex-direction:column;align-items:stretch}
+    .chk{gap:9px;min-height:40px;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+    .chk input[type=checkbox]{width:20px;height:20px}
+    .chk span{font-size:10.5px;color:var(--mut)}
+    .post-btn{min-height:40px;margin:0;padding:0 12px;border-radius:10px;font-size:10.5px;text-align:left}
+    .pactions{grid-area:checks;margin:0 0 14px;align-self:start}
+    .srows{grid-area:rows;gap:12px}
+    .srow{grid-template-columns:minmax(0,1fr);gap:3px}
+    .srow .k{padding-top:0;font-size:10px}
+    .field-notes,.field-concept{font-size:16px;line-height:1.45;min-height:34px;padding:3px 0;resize:none;overflow:hidden}
+    .field-ref{font-size:16px}
+    .open-ref{width:36px;height:36px;border-radius:9px;font-size:15px}
+    .field-direction{font-size:16px;line-height:1.45;resize:none;overflow:hidden}
+    .field-script{font-family:inherit;font-size:16px;line-height:1.5;white-space:pre-wrap;resize:none;overflow:hidden}
+    .write-script{padding:10px 14px;font-size:11px}
+    .add-card-btn{min-height:48px}
   }
 </style>
 </head>
@@ -376,7 +432,7 @@ function renderCardFilters(list){
     b.innerHTML = b.textContent.replace(/\s*\d+$/, "") + `<span class="n">${counts[k]}</span>`;
   });
 }
-const BUILD = "1789726352";
+const BUILD = "1789743346";
 (async function selfRefresh(){
   const check = async () => {
     try{
@@ -425,6 +481,42 @@ const API = "https://newgreek.fusioncreative.uk/api/shoot-lists/";
 // Resolves IG / TikTok / YouTube reference links to a thumbnail image.
 const THUMB_API = "https://newgreek.fusioncreative.uk/api/shoot-lists/thumb/";
 const SCRIPT_API = "https://newgreek.fusioncreative.uk/api/shoot-script/";
+// A poster that will not load takes its column with it, so the card closes up.
+function thumbFailed(img){
+  const link = img.closest(".card-thumb-link");
+  const shot = img.closest(".shot");
+  if(link) link.remove();
+  if(shot) shot.classList.remove("has-thumb");
+}
+// Put the poster in, swap it, or take it out, in place. Redrawing the whole list
+// for this used to wait for the field to lose focus, so on a phone a pasted link
+// looked like it had done nothing.
+function syncThumb(card, c){
+  const refVal = (c.ref || "").trim();
+  const href = /^https?:\/\//i.test(refVal) ? refVal : "";
+  const src = thumbSrc(c, href);
+  const head = card.querySelector(".shead");
+  let link = card.querySelector(".card-thumb-link");
+  if(!src){ if(link) link.remove(); card.classList.remove("has-thumb"); return; }
+  if(!link){
+    link = document.createElement("a");
+    link.className = "card-thumb-link"; link.target = "_blank"; link.rel = "noopener"; link.title = "Open reel";
+    link.innerHTML = '<img class="card-thumb" alt="preview" onerror="thumbFailed(this)"><span class="card-thumb-play">&#9654;</span>';
+    head.insertBefore(link, head.firstChild);
+  }
+  link.href = href || "#";
+  const img = link.querySelector("img");
+  if(img.getAttribute("src") !== src) img.src = src;
+  card.classList.add("has-thumb");
+}
+// Text boxes open to fit what is in them. The drag handle for resizing does not
+// exist on a phone, so a two line box hid most of a concept.
+function growBox(t){ t.style.height = "auto"; if(t.scrollHeight) t.style.height = (t.scrollHeight + 2) + "px"; }
+function growAll(root){ (root || document).querySelectorAll(".shot textarea").forEach(growBox); }
+document.addEventListener("input", (e) => { if(e.target && e.target.tagName === "TEXTAREA" && e.target.closest(".shot")) growBox(e.target); });
+window.addEventListener("resize", () => growAll());
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(() => growAll());
+
 function thumbSrc(c, refHref){
   if(c.thumb) return c.thumb;                       // manual override wins
   if(refHref) return THUMB_API + "?url=" + encodeURIComponent(refHref);
@@ -945,16 +1037,17 @@ function renderCards(){
 
     const refVal = (c.ref || "").trim();
     const refHref = /^https?:\/\//i.test(refVal) ? refVal : "";
+    if(thumbSrc(c, refHref)) card.classList.add("has-thumb");
 
     card.innerHTML = `
       <div class="shead">
-        ${thumbSrc(c, refHref) ? `<a class="card-thumb-link" href="${escapeAttr(refHref) || "#"}" target="_blank" rel="noopener" title="Open reel"><img class="card-thumb" src="${escapeAttr(thumbSrc(c, refHref))}" alt="preview" loading="lazy" onerror="this.closest('.card-thumb-link').style.display='none'"><span class="card-thumb-play">&#9654;</span></a>` : ""}
+        ${thumbSrc(c, refHref) ? `<a class="card-thumb-link" href="${escapeAttr(refHref) || "#"}" target="_blank" rel="noopener" title="Open reel"><img class="card-thumb" src="${escapeAttr(thumbSrc(c, refHref))}" alt="preview" loading="lazy" onerror="thumbFailed(this)"><span class="card-thumb-play">&#9654;</span></a>` : ""}
         <div class="checks">
           <label class="chk"><input type="checkbox" class="chk-shot" ${c.done ? "checked" : ""}><span>Shot</span></label>
           <label class="chk"><input type="checkbox" class="chk-edited" ${c.edited ? "checked" : ""}><span>Edited</span></label>
           <button class="post-btn" title="Move to the Posted section">Posted &#10148;</button>
         </div>
-        <div style="flex:1">
+        <div class="sbody">
           <div class="smeta">
             <span style="display:flex;align-items:center;gap:9px">
               <span class="drag-grip" title="Drag to reorder">${GRIP_SVG}</span>
@@ -966,11 +1059,11 @@ function renderCards(){
               <button class="del-card" title="Delete concept">&times;</button>
             </span>
           </div>
-          <input class="field-idea" type="text" placeholder="Idea name" value="${escapeAttr(c.idea)}">
+          <textarea class="field-idea" rows="1" placeholder="Idea name" enterkeyhint="done">${escapeHtml(c.idea)}</textarea>
           <div class="srows">
             <div class="srow">
               <span class="k">Concept</span>
-              <textarea class="field-concept" placeholder="What are we shooting, and how (angle, pacing, mood)?" rows="2">${escapeHtml(c.concept)}</textarea>
+              <textarea class="field-concept" placeholder="What are we shooting, and how?" rows="2">${escapeHtml(c.concept)}</textarea>
             </div>
             <div class="srow">
               <span class="k">Reference</span>
@@ -981,12 +1074,12 @@ function renderCards(){
             </div>
             <div class="srow">
               <span class="k">Editor</span>
-              <textarea class="field-notes" placeholder="Notes for whoever edits this: pacing, what to cut on, the hook, anything you will forget by then" rows="2">${escapeHtml(c.notes || "")}</textarea>
+              <textarea class="field-notes" placeholder="Notes for the editor: pacing, cuts, the hook" rows="2">${escapeHtml(c.notes || "")}</textarea>
             </div>
             <div class="srow">
               <span class="k">Script</span>
               <div class="script-wrap">
-                <textarea class="field-direction" placeholder="What are you talking about, what should it say, what are we going for?" rows="2">${escapeHtml(c.direction || "")}</textarea>
+                <textarea class="field-direction" placeholder="What should the script say?" rows="2">${escapeHtml(c.direction || "")}</textarea>
                 <div class="script-actions">
                   <button class="write-script">&#9998; Write script</button>
                   <span class="script-note"></span>
@@ -1014,9 +1107,13 @@ function renderCards(){
       saveState();
       renderCards();
     });
-    card.querySelector(".field-idea").addEventListener("input", (e) => {
-      c.idea = e.target.value; touch(c); saveState();
+    const ideaEl = card.querySelector(".field-idea");
+    ideaEl.addEventListener("input", (e) => {
+      const v = e.target.value.replace(/\s*\n+\s*/g, " ");
+      if(v !== e.target.value) e.target.value = v;
+      c.idea = v; touch(c); saveState();
     });
+    ideaEl.addEventListener("keydown", (e) => { if(e.key === "Enter"){ e.preventDefault(); ideaEl.blur(); } });
     const notesEl = card.querySelector(".field-notes");
     if(notesEl) notesEl.addEventListener("input", (e) => {
       c.notes = e.target.value; touch(c); saveState();
@@ -1032,9 +1129,12 @@ function renderCards(){
       const href = /^https?:\/\//i.test(trimmed) ? trimmed : "";
       if(href){ openLink.href = href; openLink.classList.remove("disabled"); }
       else { openLink.href = "#"; openLink.classList.add("disabled"); }
+      // a paste lands as one event, so the poster can load straight away; typing
+      // a link by hand waits for a pause so half a URL is never looked up
+      clearTimeout(refInput._thumbTimer);
+      refInput._thumbTimer = setTimeout(() => syncThumb(card, c), 500);
     });
-    // When the link is committed (blur/paste done), redraw so the thumbnail loads in
-    refInput.addEventListener("change", () => renderCards());
+    refInput.addEventListener("change", () => { clearTimeout(refInput._thumbTimer); syncThumb(card, c); });
     card.querySelector(".field-direction").addEventListener("input", (e) => {
       c.direction = e.target.value; touch(c); saveState();
     });
@@ -1104,6 +1204,7 @@ function renderCards(){
   if(cardFilter === "all") makeSortable(container, list.cards, renderCards, ".drag-grip", ".shot");
   else if(_sortables[container.id]){ try{ _sortables[container.id].destroy(); }catch(e){} delete _sortables[container.id]; }
   updateProgress();
+  growAll(container);
 }
 
 function updateProgress(){
@@ -1216,11 +1317,12 @@ function renderPosted(){
 
     const refVal = (c.ref || "").trim();
     const refHref = /^https?:\/\//i.test(refVal) ? refVal : "";
+    if(thumbSrc(c, refHref)) card.classList.add("has-thumb");
 
     card.innerHTML = `
       <div class="shead">
-        ${thumbSrc(c, refHref) ? `<a class="card-thumb-link" href="${escapeAttr(refHref) || "#"}" target="_blank" rel="noopener" title="Open reel"><img class="card-thumb" src="${escapeAttr(thumbSrc(c, refHref))}" alt="preview" loading="lazy" onerror="this.closest('.card-thumb-link').style.display='none'"><span class="card-thumb-play">&#9654;</span></a>` : ""}
-        <div style="flex:1">
+        ${thumbSrc(c, refHref) ? `<a class="card-thumb-link" href="${escapeAttr(refHref) || "#"}" target="_blank" rel="noopener" title="Open reel"><img class="card-thumb" src="${escapeAttr(thumbSrc(c, refHref))}" alt="preview" loading="lazy" onerror="thumbFailed(this)"><span class="card-thumb-play">&#9654;</span></a>` : ""}
+        <div class="sbody">
           <div class="smeta">
             <span style="display:flex;align-items:center;gap:9px">
               <span class="drag-grip" title="Drag to reorder">${GRIP_SVG}</span>
@@ -1234,7 +1336,7 @@ function renderPosted(){
           </div>
           <div class="field-idea" style="text-decoration:none;color:var(--cream)">${escapeHtml(c.idea) || '<span style="color:var(--dim);font-style:italic">Untitled concept</span>'}</div>
           ${c.concept ? `<div class="srows"><div class="srow"><span class="k">Concept</span><div style="font-size:13.5px;color:#2b2b2b;padding:5px 0">${escapeHtml(c.concept)}</div></div></div>` : ""}
-          <div style="margin-top:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <div class="pactions">
             <button class="unpost-btn">&#8617; Back to shoot list</button>
             ${refHref ? `<a class="open-ref" href="${escapeAttr(refHref)}" target="_blank" rel="noopener" title="Open reference">&#8599;</a>` : ""}
           </div>
@@ -1326,6 +1428,7 @@ document.querySelectorAll(".subtab").forEach(btn => {
   btn.addEventListener("click", () => {
     viewMode = btn.dataset.view;
     renderSubtabs();
+    growAll();   // boxes measured while their section was hidden come out at zero
   });
 });
 document.querySelectorAll("#cardFilters .cfilter").forEach(btn => {
