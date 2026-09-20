@@ -8,14 +8,14 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--coral:#E8553C;--coral-soft:#F0745F;--bg:#F1ECE4;--panel:#E9E2D8;--card:#FBF8F3;--line:rgba(36,28,24,0.10);--text:#241C18;--muted:#6E655D;--green:#1E9E62}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
 .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
-.mono{font-family:'Space Mono',monospace}
+.mono{}
 
 .topbar{position:sticky;top:0;z-index:50;background:rgba(241,236,228,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
@@ -24,7 +24,7 @@ body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--tex
 .top-cta{background:var(--coral);color:#fff;font-weight:600;font-size:13.5px;padding:10px 20px;border-radius:100px;text-decoration:none}
 
 .hero{padding:84px 0 30px;text-align:center}
-.kicker{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--coral);margin-bottom:20px}
+.kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--coral);margin-bottom:20px}
 h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(38px,7vw,66px);line-height:1.08;max-width:880px;margin:0 auto}
 h1 em{font-style:italic;color:var(--coral)}
 .hero p.sub{color:var(--muted);font-size:clamp(16px,2.5vw,19px);max-width:620px;margin:22px auto 0}
@@ -37,15 +37,15 @@ h1 em{font-style:italic;color:var(--coral)}
 .chart-card{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:38px 34px;margin:54px auto 0;max-width:860px}
 .chart-title{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;margin-bottom:26px}
 .chart-title .t{font-size:15px;font-weight:600}
-.chart-title .s{font-family:'Space Mono',monospace;font-size:11.5px;color:var(--muted)}
+.chart-title .s{font-size:11.5px;color:var(--muted)}
 .bars{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:end;height:250px}
 .bar{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%}
 .bar .fill{width:100%;max-width:86px;border-radius:8px 8px 3px 3px;background:linear-gradient(180deg,rgba(36,28,24,0.30),rgba(36,28,24,0.12));min-height:6px;transition:height 1s cubic-bezier(.2,.7,.3,1)}
 .bar.hot .fill{background:linear-gradient(180deg,var(--coral-soft),var(--coral))}
-.bar .val{font-family:'Space Mono',monospace;font-size:clamp(10px,1.6vw,13px);margin-bottom:8px;color:var(--muted)}
+.bar .val{font-size:clamp(10px,1.6vw,13px);margin-bottom:8px;color:var(--muted)}
 .bar.hot .val{color:var(--text);font-weight:700}
-.bar .lbl{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);margin-top:10px;text-transform:uppercase}
-.we-start{grid-column:4/6;text-align:center;font-family:'Space Mono',monospace;font-size:10.5px;color:var(--coral);letter-spacing:1px;border-top:1px dashed rgba(232,85,60,0.5);padding-top:6px;margin-top:4px}
+.bar .lbl{font-size:11px;color:var(--muted);margin-top:10px;text-transform:uppercase}
+.we-start{grid-column:4/6;text-align:center;font-size:10.5px;color:var(--coral);letter-spacing:1px;border-top:1px dashed rgba(232,85,60,0.5);padding-top:6px;margin-top:4px}
 
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:54px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 18px;text-align:center}
@@ -53,7 +53,7 @@ h1 em{font-style:italic;color:var(--coral)}
 .stat .l{font-size:12px;color:var(--muted);margin-top:8px;text-transform:uppercase;letter-spacing:1px}
 
 section{padding:74px 0}
-.eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--coral);margin-bottom:14px}
+.eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--coral);margin-bottom:14px}
 h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:700px}
 p.body{color:var(--muted);font-size:16.5px;max-width:640px;margin-top:16px}
 p.body strong{color:var(--text)}
@@ -65,7 +65,7 @@ p.body strong{color:var(--text)}
 
 .pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:44px}
 .pillar{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 26px}
-.pillar .ic{font-family:'Space Mono',monospace;color:var(--coral);font-size:13px;letter-spacing:2px;margin-bottom:14px}
+.pillar .ic{color:var(--coral);font-size:13px;letter-spacing:2px;margin-bottom:14px}
 .pillar h3{font-size:19px;font-weight:600;margin-bottom:10px}
 .pillar p{color:var(--muted);font-size:14.5px}
 
@@ -109,6 +109,91 @@ footer a{color:var(--muted)}
   section{padding:54px 0}
   .callout{padding:26px 20px}
 }
+
+/* ===== Apple minimalist + glass + one orchestrated moment ===== */
+:root{--ease:cubic-bezier(.22,1,.36,1);--glass:rgba(255,255,255,.52);--glass-edge:rgba(255,255,255,.78);--ink-line:rgba(36,28,24,.08)}
+html{scroll-behavior:smooth}
+body{position:relative;-webkit-font-smoothing:antialiased}
+/* soft ambient field so the glass has something to refract */
+body::before{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(38% 34% at 78% 12%,rgba(232,85,60,.16),transparent 70%),
+    radial-gradient(34% 30% at 12% 68%,rgba(240,116,95,.10),transparent 70%),
+    radial-gradient(26% 24% at 60% 92%,rgba(36,28,24,.05),transparent 70%);
+  animation:drift 46s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(-2%,-1%,0) scale(1)}to{transform:translate3d(2%,1.5%,0) scale(1.06)}}
+
+/* labels: sentence case, one quiet sans */
+.kicker,.eyebrow,.trust,.mono,.chart-title .s,.bar .val,.bar .lbl,.we-start,.stat .l{font-family:'Space Grotesk',sans-serif;letter-spacing:0;text-transform:none}
+.kicker{font-size:14px;font-weight:600;color:var(--coral)}
+.eyebrow{font-size:14px;font-weight:600;color:var(--coral);margin-bottom:10px}
+.trust{font-size:13.5px;color:var(--muted)}
+.chart-title .s{font-size:13px}
+.bar .lbl{font-size:12.5px;font-weight:500;margin-top:12px}
+.bar .val{font-size:clamp(11px,1.6vw,13.5px);font-weight:500}
+.stat .l{font-size:13px;letter-spacing:0}
+.pillar .ic{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--coral)}
+.we-start{font-size:12.5px;font-weight:500;letter-spacing:0;border-top:1px dashed rgba(232,85,60,.45);padding-top:8px}
+
+/* glass surfaces */
+.chart-card,.stat,.callout,.pillar,.fit-col,.form-card{
+  background:var(--glass);
+  -webkit-backdrop-filter:blur(28px) saturate(150%);backdrop-filter:blur(28px) saturate(150%);
+  border:1px solid var(--glass-edge);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 1px 0 var(--ink-line),0 30px 70px -34px rgba(36,28,24,.28)}
+.chart-card{border-radius:28px;padding:40px 36px}
+.stat{border-radius:22px}
+.callout{border-radius:28px;background:linear-gradient(135deg,rgba(232,85,60,.13),rgba(255,255,255,.45));border-color:rgba(232,85,60,.22)}
+.pillar,.fit-col{border-radius:24px}
+.form-card{border-radius:28px}
+.form-section{background:transparent;border:0}
+.form-card input,.form-card select,.form-card textarea{background:rgba(255,255,255,.7);border:1px solid var(--ink-line);transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
+.form-card input:focus,.form-card select:focus,.form-card textarea:focus{border-color:var(--coral);box-shadow:0 0 0 4px rgba(232,85,60,.14);outline:none}
+
+/* topbar: frosted, hairline, compacts on scroll */
+.topbar{background:rgba(241,236,228,.58);-webkit-backdrop-filter:blur(30px) saturate(180%);backdrop-filter:blur(30px) saturate(180%);border-bottom:1px solid rgba(36,28,24,.07);transition:padding .35s var(--ease),background .35s var(--ease)}
+.topbar.scrolled{background:rgba(241,236,228,.74)}
+.topbar.scrolled .wrap{padding-top:10px;padding-bottom:10px}
+
+/* buttons: the only hover motion on the page */
+.btn-main,.top-cta,#leadSubmit{transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s var(--ease)}
+.btn-main:hover,.top-cta:hover,#leadSubmit:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(232,85,60,.55)}
+.btn-main:active,.top-cta:active,#leadSubmit:active{transform:translateY(0) scale(.985)}
+.btn-ghost{background:rgba(255,255,255,.4);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-color:var(--ink-line);transition:background .3s var(--ease),transform .3s var(--ease)}
+.btn-ghost:hover{background:rgba(255,255,255,.7);transform:translateY(-2px)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(232,85,60,.45);outline-offset:3px;border-radius:12px}
+
+/* the page settles in once; sections then reveal briefly and quietly */
+.hero{animation:settle .9s var(--ease) both}
+@keyframes settle{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.rv{transform:translateY(12px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+
+/* THE moment: the bars rise in sequence, each label lands as its bar does, the markers last */
+.bar .fill{height:0;transform-origin:bottom;transition:height 1.15s var(--ease)}
+.bar:nth-child(2) .fill{transition-delay:.12s}
+.bar:nth-child(3) .fill{transition-delay:.24s}
+.bar:nth-child(4) .fill{transition-delay:.40s}
+.bar:nth-child(5) .fill{transition-delay:.58s}
+.bar .val{opacity:0;transform:translateY(6px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.bars.grown .bar .val{opacity:1;transform:none}
+.bars.grown .bar:nth-child(1) .val{transition-delay:.55s}
+.bars.grown .bar:nth-child(2) .val{transition-delay:.67s}
+.bars.grown .bar:nth-child(3) .val{transition-delay:.79s}
+.bars.grown .bar:nth-child(4) .val{transition-delay:.95s}
+.bars.grown .bar:nth-child(5) .val{transition-delay:1.15s}
+.we-start{opacity:0;transition:opacity .6s var(--ease) 1.35s}
+.chart-card.in .we-start{opacity:1}
+.bar.hot .fill{box-shadow:0 12px 30px -12px rgba(232,85,60,.6)}
+
+@media (prefers-reduced-motion:reduce){
+  body::before{animation:none}
+  .hero{animation:none}
+  .bar .fill,.bar .val,.we-start,.rv,.topbar,.btn-main,.top-cta,#leadSubmit,.btn-ghost{transition:none!important}
+  .bar .val,.we-start{opacity:1;transform:none}
+}
+@media (max-width:640px){.chart-card{padding:28px 20px;border-radius:22px}.stat{border-radius:18px}
+  .we-start{font-size:11.5px}.bars .we-start:first-child{grid-column:1/4!important;text-align:right;padding-right:6px}}
+
 </style>
 </head>
 <body>
@@ -144,7 +229,7 @@ footer a{color:var(--muted)}
       <div class="bar hot"><span class="val">&pound;37.5k</span><div class="fill" data-h="36"></div><span class="lbl">Jul</span></div>
       <div class="bar hot"><span class="val">&pound;112.2k</span><div class="fill" data-h="100"></div><span class="lbl">Aug</span></div>
     </div>
-    <div class="bars" style="height:auto"><div class="we-start" style="grid-column:3/4">&uarr; JUNE: WE REBUILD THE SITE</div><div class="we-start" style="grid-column:4/6">&uarr; JULY: ADS GO LIVE</div></div>
+    <div class="bars" style="height:auto"><div class="we-start" style="grid-column:3/4">June: we rebuild the site</div><div class="we-start" style="grid-column:4/6">July: ads go live</div></div>
   </div>
 
   <div class="stats">
@@ -178,10 +263,10 @@ footer a{color:var(--muted)}
       <p class="body">There is no point paying to send traffic to a site that will not convert it. <strong>Getting people to your website is only half the challenge. The other half is turning them into customers.</strong> So the site comes first, and only then do we scale what goes into it.</p>
     </div>
     <div class="pillars">
-      <div class="pillar rv"><div class="ic">01 / THE WEBSITE</div><h3>Rebuilt to convert</h3><p>We spent our entire first month rebuilding their site from the ground up before spending a penny on ads. Every page, every product, built for the moment a paying visitor lands. It is a huge part of why the numbers above happened.</p></div>
-      <div class="pillar rv"><div class="ic">02 / PAID ADS</div><h3>Creative and management</h3><p>We make the ads and we run them. Testing angles, scaling winners, killing losers fast. Meta-attributed return peaked at 8.2x in month one.</p></div>
-      <div class="pillar rv"><div class="ic">03 / EMAIL</div><h3>Campaigns and flows</h3><p>Launches, offers and flows in your brand's own voice, sent to people who already want to buy. The cheapest revenue you are currently leaving on the table.</p></div>
-      <div class="pillar rv"><div class="ic">04 / OFFERS</div><h3>Offer engineering</h3><p>Bundles, launches and moments worth buying now. Ads bring the traffic, the site and offers convert it, email brings it back.</p></div>
+      <div class="pillar rv"><div class="ic">1. The website</div><h3>Rebuilt to convert</h3><p>We spent our entire first month rebuilding their site from the ground up before spending a penny on ads. Every page, every product, built for the moment a paying visitor lands. It is a huge part of why the numbers above happened.</p></div>
+      <div class="pillar rv"><div class="ic">2. Paid ads</div><h3>Creative and management</h3><p>We make the ads and we run them. Testing angles, scaling winners, killing losers fast. Meta-attributed return peaked at 8.2x in month one.</p></div>
+      <div class="pillar rv"><div class="ic">3. Email</div><h3>Campaigns and flows</h3><p>Launches, offers and flows in your brand's own voice, sent to people who already want to buy. The cheapest revenue you are currently leaving on the table.</p></div>
+      <div class="pillar rv"><div class="ic">4. Offers</div><h3>Offer engineering</h3><p>Bundles, launches and moments worth buying now. Ads bring the traffic, the site and offers convert it, email brings it back.</p></div>
     </div>
   </div>
 </section>
@@ -271,7 +356,35 @@ footer a{color:var(--muted)}
   setTimeout(function(){ els.forEach(function(e){ e.classList.add('in'); }); }, 2200);
   // grow the bars when visible
   var bars=document.getElementById('revBars');
-  function grow(){ bars.querySelectorAll('.fill').forEach(function(f){ f.style.height=f.getAttribute('data-h')+'%'; }); }
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // count a "£112.2k" / "16.9x" / "3,650" / "£149k+" style figure up from 0, keeping its prefix and suffix
+  function countUp(el,delay){
+    var txt=el.textContent.trim(); var m=txt.match(/^([^0-9]*)([0-9][0-9,]*\.?[0-9]*)(.*)$/); if(!m) return;
+    var pre=m[1], suf=m[3], raw=m[2], dec=(raw.split('.')[1]||'').length, end=parseFloat(raw.replace(/,/g,''));
+    if(isNaN(end)) return;
+    if(reduce){ return; }
+    var fmt=function(v){ var f=v.toFixed(dec); var parts=f.split('.'); parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,','); return pre+parts.join('.')+suf; };
+    el.textContent=fmt(0);
+    setTimeout(function(){
+      var t0=null, dur=1300;
+      function step(ts){ if(!t0) t0=ts; var k=Math.min(1,(ts-t0)/dur); var e=1-Math.pow(2,-10*k); if(k>=1) e=1; el.textContent=fmt(end*e); if(k<1) requestAnimationFrame(step); else el.textContent=txt; }
+      requestAnimationFrame(step);
+    }, delay||0);
+  }
+  function grow(){
+    bars.querySelectorAll('.fill').forEach(function(f){ f.style.height=f.getAttribute('data-h')+'%'; });
+    bars.classList.add('grown');
+    var hot=bars.querySelectorAll('.bar.hot .val'); if(hot[0]) countUp(hot[0],950); if(hot[1]) countUp(hot[1],1150);
+  }
+  // the four stats count up as they come into view
+  var statsSeen=false;
+  if('IntersectionObserver' in window){
+    var ioS=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting&&!statsSeen){ statsSeen=true; document.querySelectorAll('.stat .n').forEach(function(n,i){ countUp(n,120*i); }); ioS.disconnect(); }})},{threshold:0.4});
+    var st=document.querySelector('.stats'); if(st) ioS.observe(st);
+  }
+  // topbar compacts once you scroll
+  var tb=document.querySelector('.topbar');
+  window.addEventListener('scroll',function(){ if(tb) tb.classList.toggle('scrolled',window.scrollY>24); },{passive:true});
   if('IntersectionObserver' in window){
     var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){grow();io2.disconnect()}})},{threshold:0.3});
     io2.observe(bars);
