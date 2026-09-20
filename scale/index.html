@@ -199,6 +199,23 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .we-start{font-size:11.5px}.bars .we-start:first-child{grid-column:1/4!important;text-align:right;padding-right:6px}
   .form-card{padding:30px 22px 26px;border-radius:22px}}
 
+/* bottom nudge: appears halfway down, hides on the form, dismissable for the session */
+.nudge{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;transform:translate(-50%,28px);opacity:0;pointer-events:none;
+  display:flex;align-items:center;gap:6px;padding:8px 8px 8px 18px;max-width:calc(100% - 28px);
+  background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(28px) saturate(160%);backdrop-filter:blur(28px) saturate(160%);
+  border:1px solid rgba(255,255,255,.8);border-radius:100px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 2px 0 rgba(36,28,24,.06),0 24px 60px -24px rgba(36,28,24,.35);
+  transition:transform .55s var(--ease),opacity .45s var(--ease)}
+.nudge.show{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.nudge-body{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--text);min-width:0}
+.nudge-text{font-size:14.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nudge-btn{background:var(--coral);color:#fff;font-weight:700;font-size:14px;padding:10px 18px;border-radius:100px;white-space:nowrap;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.nudge-body:hover .nudge-btn{transform:translateY(-1px);box-shadow:0 10px 26px -10px rgba(232,85,60,.6)}
+.nudge-x{appearance:none;border:0;background:rgba(36,28,24,.06);color:var(--muted);width:34px;height:34px;border-radius:50%;font-size:20px;line-height:1;cursor:pointer;flex:0 0 34px;display:grid;place-items:center;transition:background .25s var(--ease),color .25s var(--ease)}
+.nudge-x:hover{background:rgba(36,28,24,.11);color:var(--text)}
+@media (max-width:420px){.nudge{padding-left:14px}.nudge-text{font-size:13.5px}.nudge-btn{padding:9px 14px}}
+@media (prefers-reduced-motion:reduce){.nudge{transition:none}}
+
 </style>
 </head>
 <body>
@@ -350,6 +367,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   Case study figures from client Shopify and Meta Ads accounts, April to August 2026.
 </footer>
 
+<div class="nudge" id="nudge" role="complementary" aria-label="Apply to work with us">
+  <a class="nudge-body" href="#apply" id="nudgeGo">
+    <span class="nudge-text">Want this for your brand?</span>
+    <span class="nudge-btn">Apply</span>
+  </a>
+  <button class="nudge-x" type="button" id="nudgeX" aria-label="Dismiss">&times;</button>
+</div>
+
 <script>
 (function(){
   // scroll reveals
@@ -387,6 +412,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     var ioS=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting&&!statsSeen){ statsSeen=true; document.querySelectorAll('.stat .n').forEach(function(n,i){ countUp(n,120*i); }); ioS.disconnect(); }})},{threshold:0.4});
     var st=document.querySelector('.stats'); if(st) ioS.observe(st);
   }
+
+  // bottom nudge: show once the reader is halfway down, never on top of the form, remembered when dismissed
+  (function(){
+    var nudge=document.getElementById('nudge'); if(!nudge) return;
+    var KEY='scaleNudgeDismissed', dismissed=false, formVisible=false, past=false;
+    try{ dismissed=sessionStorage.getItem(KEY)==='1'; }catch(e){}
+    function sync(){ nudge.classList.toggle('show', past && !formVisible && !dismissed); }
+    function dismiss(){ dismissed=true; try{ sessionStorage.setItem(KEY,'1'); }catch(e){} sync(); }
+    window.addEventListener('scroll',function(){
+      var max=document.documentElement.scrollHeight-window.innerHeight;
+      past = max>0 && (window.scrollY/max)>=0.5; sync();
+    },{passive:true});
+    var fs=document.querySelector('.form-section');
+    if(fs && 'IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ es.forEach(function(e){ formVisible=e.isIntersecting; sync(); }); },{threshold:0.15}).observe(fs);
+    }
+    document.getElementById('nudgeX').addEventListener('click',dismiss);
+    document.getElementById('nudgeGo').addEventListener('click',function(){ nudge.classList.remove('show'); });
+    var sub=document.getElementById('leadSubmit'); if(sub) sub.addEventListener('click',dismiss);
+  })();
   // topbar compacts once you scroll
   var tb=document.querySelector('.topbar');
   window.addEventListener('scroll',function(){ if(tb) tb.classList.toggle('scrolled',window.scrollY>24); },{passive:true});
