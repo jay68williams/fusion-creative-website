@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Made to Measure Retail Audit - Northern CNC | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="https://fusioncreative.uk/assets/logos/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;600;800&display=swap">
+
+<style>
+/* Palette and type lifted from Northern CNC's own stylesheet:
+   body Cabin #333 on #e2e2e2, headings Montserrat 800 uppercase #424242,
+   buttons #328cc8 with a 2px square border that inverts on hover,
+   dark panel #2a3034. */
+:root{
+  --ground:#e2e2e2;
+  --card:#ffffff;
+  --panel:#2a3034;
+  --panel-ink:#ffffff;
+  --ink:#333333;
+  --head:#424242;
+  --ink-2:#585858;
+  --ink-3:#908f8f;
+  --rule:#cccccc;
+  --rule-2:#e6e6e6;
+  --accent:#328cc8;
+  --accent-wash:#eaf4fb;
+  --flag:#a5382a;
+  --flag-wash:#f8ebe8;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#21262a;
+    --card:#2a3034;
+    --panel:#191d20;
+    --panel-ink:#ffffff;
+    --ink:#e2e5e6;
+    --head:#f3f4f4;
+    --ink-2:#b4babd;
+    --ink-3:#8a9194;
+    --rule:#3d4449;
+    --rule-2:#343b40;
+    --accent:#5aa9de;
+    --accent-wash:#1e2c36;
+    --flag:#e08066;
+    --flag-wash:#31221e;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#21262a;
+  --card:#2a3034;
+  --panel:#191d20;
+  --panel-ink:#ffffff;
+  --ink:#e2e5e6;
+  --head:#f3f4f4;
+  --ink-2:#b4babd;
+  --ink-3:#8a9194;
+  --rule:#3d4449;
+  --rule-2:#343b40;
+  --accent:#5aa9de;
+  --accent-wash:#1e2c36;
+  --flag:#e08066;
+  --flag-wash:#31221e;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:Cabin,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 110px}
+
+/* ---------- masthead: dark band, white logo, as on their own site ---------- */
+.mast{background:var(--panel);color:var(--panel-ink);padding:46px 0 42px;margin-bottom:0;border-bottom:4px solid var(--accent)}
+.mast-in{max-width:1080px;margin:0 auto;padding:0 20px}
+.mast img{width:208px;height:auto;display:block;margin-bottom:34px}
+.mast h1{
+  font-family:Montserrat,Impact,sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:clamp(25px,5vw,49px);line-height:1.1;letter-spacing:-.01em;
+  margin:0 0 20px;color:#fff;text-wrap:balance;
+}
+.mast h1 span{color:var(--accent)}
+.standfirst{
+  font-size:clamp(15px,2.1vw,18.5px);color:rgba(255,255,255,.76);
+  max-width:60ch;margin:0 0 26px;
+}
+.rhythm{
+  display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;
+  font-family:Montserrat,sans-serif;font-weight:600;font-size:10.5px;
+  letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.5);
+}
+.rhythm b{font-weight:600;color:rgba(255,255,255,.5)}
+.dot{color:var(--accent)}
+
+/* ---------- verdicts ---------- */
+.verdicts{
+  display:grid;gap:1px;background:var(--rule);
+  border:1px solid var(--rule);margin:42px 0 8px;
+}
+@media(min-width:760px){.verdicts{grid-template-columns:repeat(3,1fr)}}
+.v{background:var(--card);padding:26px 24px 28px;display:flex;flex-direction:column;gap:11px}
+.v-opt{
+  font-family:Montserrat,sans-serif;font-weight:600;font-size:10px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+.v-call{
+  font-family:Montserrat,sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:19px;line-height:1.16;letter-spacing:-.005em;color:var(--head);
+}
+.v-call.no{color:var(--flag)}
+.v-call.yes{color:var(--accent)}
+.v-call.part{color:var(--head)}
+.v p{margin:0;font-size:14.5px;color:var(--ink-2);line-height:1.58}
+
+/* ---------- sections ---------- */
+section{padding-top:60px}
+.sec-head{display:flex;align-items:baseline;gap:13px;border-top:3px solid var(--accent);padding-top:14px;margin-bottom:24px}
+.sec-no{
+  font-family:Montserrat,sans-serif;font-weight:800;font-size:12px;letter-spacing:.06em;
+  color:var(--accent);flex:none;font-variant-numeric:tabular-nums;
+}
+h2{
+  font-family:Montserrat,sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:clamp(19px,3.1vw,29px);line-height:1.15;margin:0;
+  letter-spacing:-.005em;color:var(--head);text-wrap:balance;
+}
+h3{
+  font-family:Montserrat,sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:15px;line-height:1.3;margin:34px 0 11px;letter-spacing:.02em;color:var(--head);
+}
+p{margin:0 0 15px;max-width:68ch}
+ul,ol{margin:0 0 16px;padding-left:20px;max-width:68ch}
+li{margin-bottom:9px}
+li::marker{color:var(--accent)}
+strong{font-weight:700;color:var(--ink)}
+em.lede{font-style:normal;background:var(--accent-wash);padding:1px 5px;color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent)}
+.num{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums;font-size:.9em}
+
+/* ---------- gauges ---------- */
+.gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0}
+.g{background:var(--card);padding:18px 16px 19px}
+.g-fig{
+  font-family:Montserrat,sans-serif;font-weight:800;
+  font-size:clamp(21px,3.4vw,27px);line-height:1;
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em;
+  display:block;margin-bottom:8px;color:var(--head);
+}
+.g-fig.warn{color:var(--flag)}
+.g-fig.good,.g-fig.acc{color:var(--accent)}
+.g-lab{font-size:13px;color:var(--ink-3);line-height:1.4;display:block}
+
+/* ---------- callouts, in their 2px square button idiom ---------- */
+.call{border:2px solid var(--accent);background:var(--card);padding:21px 23px;margin:26px 0}
+.call.kill{border-color:var(--flag);background:var(--flag-wash)}
+.call.gate{background:var(--accent-wash)}
+.call-tag{
+  font-family:Montserrat,sans-serif;font-weight:800;font-size:10px;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--accent);
+  display:block;margin-bottom:10px;
+}
+.call.kill .call-tag{color:var(--flag)}
+.call p:last-child{margin-bottom:0}
+
+/* ---------- tables ---------- */
+.scroll{overflow-x:auto;margin:22px 0;border:1px solid var(--rule);background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:13.5px}
+caption{
+  text-align:left;font-family:Montserrat,sans-serif;font-weight:800;font-size:10px;
+  letter-spacing:.15em;text-transform:uppercase;color:#fff;background:var(--panel);
+  padding:13px 14px;
+}
+th{
+  text-align:left;font-family:Montserrat,sans-serif;font-weight:600;font-size:10px;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+  padding:12px 14px;border-bottom:2px solid var(--rule);white-space:nowrap;vertical-align:bottom;
+}
+td{padding:10px 14px;border-bottom:1px solid var(--rule-2);vertical-align:top;color:var(--ink-2)}
+tbody tr:last-child td{border-bottom:none}
+td.n{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;color:var(--ink);font-size:12.5px}
+td.name{color:var(--ink);font-weight:600;white-space:nowrap}
+tr.hero td{background:var(--accent-wash)}
+tr.hero td.n{font-weight:700;color:var(--ink)}
+tr.tot td{border-top:2px solid var(--accent);font-weight:700;color:var(--ink)}
+.tag{
+  font-family:Montserrat,sans-serif;font-weight:600;font-size:9px;letter-spacing:.12em;
+  text-transform:uppercase;padding:2px 6px;border:1px solid var(--rule);
+  color:var(--ink-3);white-space:nowrap;
+}
+.tag.no-booth{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- ledger ---------- */
+.ledger{border:1px solid var(--rule);background:var(--card);margin:24px 0}
+.led{display:flex;gap:18px;padding:17px 20px;border-bottom:1px solid var(--rule-2);align-items:flex-start}
+.ledger .led:last-child{border-bottom:none}
+.led-k{
+  font-family:Montserrat,sans-serif;font-weight:800;font-size:10px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--accent);flex:0 0 74px;padding-top:5px;
+}
+.led-b{flex:1;min-width:0}
+.led-b strong{display:block;margin-bottom:4px;font-family:Montserrat,sans-serif;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.015em;color:var(--head)}
+.led-b span{font-size:14.5px;color:var(--ink-2);line-height:1.55}
+@media(max-width:560px){
+  .led{flex-direction:column;gap:7px;padding:17px 16px 19px}
+  .led-k{flex:none;padding-top:0}
+  .wrap{padding:0 16px 90px}
+  .mast-in{padding:0 16px}
+}
+
+/* ---------- contents ---------- */
+.toc{border:1px solid var(--rule);background:var(--card);padding:20px 22px 22px;margin:40px 0 0}
+.toc ol{list-style:none;padding:0;margin:0;max-width:none;columns:2;column-gap:32px}
+@media(max-width:640px){.toc ol{columns:1}}
+.toc li{margin:0 0 8px;break-inside:avoid;font-size:14.5px}
+.toc a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid transparent}
+.toc a:hover,.toc a:focus{color:var(--accent);border-bottom-color:var(--accent)}
+.toc-n{font-family:Montserrat,sans-serif;font-weight:800;font-size:10px;color:var(--accent);margin-right:10px;font-variant-numeric:tabular-nums}
+a:focus-visible,.toc a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.foot{
+  margin-top:70px;border-top:3px solid var(--accent);padding-top:20px;
+  font-family:Montserrat,sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-3);line-height:2;
+}
+</style>
+<style>
+/* audit-specific additions, same brand system */
+section.first{padding-top:44px}
+section.first p{font-size:16.5px;color:var(--ink);max-width:70ch}
+p.note{font-size:14.5px;color:var(--ink-3);border-left:3px solid var(--accent);padding-left:14px;margin-top:22px}
+p.note a{color:var(--accent)}
+.pill{
+  font-family:Montserrat,sans-serif;font-weight:800;font-size:9px;letter-spacing:.12em;
+  text-transform:uppercase;padding:3px 8px;white-space:nowrap;display:inline-block;
+  border:2px solid var(--rule);color:var(--ink-3);
+}
+.pill.bad{border-color:var(--flag);color:var(--flag)}
+.pill.ok{border-color:var(--accent);color:var(--accent)}
+.pill.mid{border-color:var(--ink-3);color:var(--ink-3)}
+td .pill{margin-top:1px}
+
+/* CTA, Fusion convention: email button plus green WhatsApp beside it */
+.ctabox{background:var(--panel);padding:40px 34px 42px;margin-top:64px;border-bottom:4px solid var(--accent)}
+.cta-h{
+  font-family:Montserrat,sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:clamp(21px,3.4vw,31px);line-height:1.12;margin:0 0 12px;color:#fff;
+}
+.cta-sub{color:rgba(255,255,255,.76);max-width:58ch;margin:0 0 26px;font-size:16px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.cta-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:13px 26px;font-family:Montserrat,sans-serif;font-weight:800;font-size:13px;
+  letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
+  background:var(--accent);color:#fff;border:2px solid var(--accent);
+  transition:background .15s,color .15s;
+}
+.cta-btn:hover,.cta-btn:focus{background:transparent;color:var(--accent)}
+.cta-btn-wa{background:#25D366;border-color:#25D366;color:#10321d}
+.cta-btn-wa:hover,.cta-btn-wa:focus{background:transparent;color:#25D366}
+@media(max-width:520px){
+  .ctabox{padding:32px 20px 34px}
+  .cta-row{flex-direction:column}
+  .cta-btn{width:100%}
+}
+</style>
+<style>
+.figure{margin:26px 0 24px;border:1px solid var(--rule);background:var(--card);padding:14px}
+.figure img{width:100%;max-width:520px;height:auto;display:block}
+.cap{font-size:13px;color:var(--ink-3);margin:12px 0 0;max-width:60ch;line-height:1.5}
+
+.wordmark{
+  font-family:Montserrat,sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:clamp(20px,3.4vw,27px);letter-spacing:.06em;color:#fff;line-height:1;
+  margin-bottom:34px;
+}
+.wordmark span{
+  display:block;margin-top:9px;font-weight:600;font-size:10px;letter-spacing:.2em;
+  color:rgba(255,255,255,.5);
+}
+</style>
+<style>
+section.first{padding-top:44px}
+section.first > p{font-size:16.5px;color:var(--ink)}
+ol{counter-reset:none}
+ol li{margin-bottom:10px}
+</style><style>
+section.first{padding-top:44px}
+section.first > p{font-size:16.5px;color:var(--ink)}
+ol li{margin-bottom:10px}
+
+@media(max-width:560px){
+  table{min-width:0}
+  th,td{padding:9px 10px}
+  td.name{white-space:normal}
+  caption{letter-spacing:.1em;line-height:1.5}
+}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="mast-in">
+    <div class="wordmark">Northern CNC<span>Newcastle upon Tyne</span></div>
+    <h1>Made to order means <span>made to measure</span>.</h1>
+    <p class="standfirst">An audit of the custom retail route: which made to order products a router and a spray booth can actually own, what they sell for, and how a made to measure order works without losing money on the ones that do not fit.</p>
+    <div class="rhythm">
+      <b>15 September 2026</b><span class="dot">&bull;</span>
+      <b>Prepared for Northern CNC Ltd</b><span class="dot">&bull;</span>
+      <b>Fusion Creative</b>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section id="s1" class="first">
+  <div class="sec-head"><span class="sec-no">01</span><h2>The reframe</h2></div>
+
+  <p>"Made to order retail" is the wrong idea if it means adding a name to a gift. Personalised gifts are flat, light and cheap to post, which is exactly why imports and desktop laser owners hold them.</p>
+
+  <p>The version that fits this workshop is <strong>cut to the customer's measurements</strong>: a large painted MDF object sized to one household's dimensions, sold for indoor use so the exterior material problem disappears entirely. That reframe changes who you compete with, and the evidence for it is in one column of numbers.</p>
+
+  <div class="scroll">
+    <table>
+      <caption>Share of Etsy listings sent from GB, by category</caption>
+      <thead><tr><th>Category</th><th>Ships</th><th>UK made</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Room dividers</td><td>Flat</td><td class="n">17%</td></tr>
+        <tr><td class="name">3D layered wall art</td><td>Flat</td><td class="n">17%</td></tr>
+        <tr class="hero"><td class="name">Radiator covers, made to measure</td><td>Bulky, to size</td><td class="n">83%</td></tr>
+        <tr class="hero"><td class="name">Media wall panels</td><td>Bulky, to size</td><td class="n">92%</td></tr>
+        <tr class="hero"><td class="name">Shaker doors, made to measure</td><td>To size</td><td class="n">92%</td></tr>
+        <tr class="hero"><td class="name">Alcove shelving, made to measure</td><td>To size</td><td class="n">100%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><em class="lede">Bulk plus made to measure is what keeps a Chinese factory out of a category.</em> Anything that ships flat has already been taken.</p>
+
+  <div class="call">
+    <span class="call-tag">The decision</span>
+    <p>Lead with <strong>made to measure painted radiator covers</strong>. Support with <strong>cut to size sprayed grille and slat fronts</strong>. Everything else in the scan is ruled out in section 07, and the reasons are worth reading, because four of the six candidates fail for the same reason: the spray booth earns nothing.</p>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="sec-head"><span class="sec-no">02</span><h2>The lead product</h2></div>
+
+  <p>A five sided MDF cabinet that sits over a household radiator, built to that radiator's measurements, sprayed, and delivered flat packed ready to fix. <strong>Sold painted as standard.</strong> That last point is the whole product decision, and section 03 explains why.</p>
+
+  <h3>The envelope, bounded on purpose</h3>
+  <ul>
+    <li><strong>Width</strong> 600 to 1800mm finished external. Beyond 1800mm the front rail needs a centre stile and the pack goes oversize.</li>
+    <li><strong>Height</strong> 600 to 1000mm, floor standing or floating to the skirting line.</li>
+    <li><strong>Depth</strong> 19cm default, which is the industry default when a buyer gives no depth, with 22 to 25cm and 25 to 30cm as paid uplifts.</li>
+  </ul>
+
+  <h3>Materials and construction</h3>
+  <ul>
+    <li><strong>Carcass and front frame:</strong> 18mm MDF. One 2440 x 1220 sheet at £20 to £30 yields most of a mid size cover.</li>
+    <li><strong>Decorative front: cut in house at 6mm or 9mm, not the commodity 3mm grille sheet.</strong> This matters twice. Amber Radiator Covers sell white faced 3mm perforated grille in 1830 x 610mm sheets and tell buyers to cut it with a saw or a knife; MDF Direct, National MDF and Harlow Bros sell the same patterns. So 3mm grille is a commodity anyone can buy, and it is also the part that snaps in transit. Cutting 6mm yourself gives a deeper shadow line, a pattern nobody else has, and a panel that survives a courier.</li>
+    <li>Sides housed into the top, stiles and rails carrying the pattern panel in a rebate, glued cleats at each corner so the buyer assembles with eight screws, a notch in the rear bottom rail for pipework and valve access, and a scribe allowance on both sides for skirting.</li>
+    <li><strong>Finish:</strong> fill, sand, seal every cut MDF edge, primer, two topcoats. White as standard, custom colour match as a paid option.</li>
+  </ul>
+
+  <div class="call kill">
+    <span class="call-tag">Be clear eyed about the machine split</span>
+    <p>Roughly <strong>20 percent router, 40 percent bench assembly, 40 percent finishing.</strong> The router is not doing anything magic on the box: straight cuts in 18mm are panel saw work. What it does that nobody can copy is the <strong>front</strong>, with proprietary slat and fret patterns nested from the same sheet and the tool changer running panel cut, pattern cut and rebate in one setup. Radiator Covers Direct's five selling styles are Slatted Horizontal, Slatted Vertical, Diamond, Square and Bubble, so pattern is a live axis of competition and it is the one axis a grille sheet buyer cannot move on.</p>
+  </div>
+
+  <h3>The booth is the actual business</h3>
+  <p>A mid size cover has roughly 4 square metres of sprayed surface once you count both faces, internal faces and both sides of a fretted front. At £7.70 per square metre that is about <strong>£31 of paint material</strong>. At the £45 per square metre trade rate it is about <strong>£180</strong>. That gap is why this product can exist here and cannot exist for a joiner who subcontracts spraying. The market already prices the finish separately: Radiator Covers Direct charge <strong>plus £85 per cover</strong> for a custom colour.</p>
+
+  <p>You can prototype this next week from one sheet of 18mm, one sheet of 6mm and paint you already have.</p>
+</section>
+
+<section id="s3">
+  <div class="sec-head"><span class="sec-no">03</span><h2>What it sells for</h2></div>
+
+  <div class="scroll">
+    <table>
+      <caption>The real price landscape</caption>
+      <thead><tr><th>Band</th><th>Price</th><th>Evidence</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Stock retail floor</td><td class="n">44.99 to 45.99</td><td>B&amp;Q, Vida Designs Arlington, Chelsea and Oxford large MDF covers. Fixed sizes only</td></tr>
+        <tr><td class="name">Stock adjustable</td><td class="n">89.99</td><td>B&amp;Q, black horizontal slat MDF, adjustable 140 to 204cm</td></tr>
+        <tr><td class="name">Etsy low end, do not enter</td><td class="n">120 to 126</td><td>OurTimberCrafts 120, CebilBoutique 125, HolzFaber 126</td></tr>
+        <tr><td class="name">Own site bespoke entry</td><td class="n">165</td><td>Fulleylove Woodworking, Shopify, made to measure from 165</td></tr>
+        <tr class="hero"><td class="name">The target band</td><td class="n">189.99 to 219.99</td><td><strong>GWJoinery, 4,341 sales since 2020, 4.9 stars.</strong> Its own title reads "Bespoke Made to Measure Radiator Cover, Handmade MDF"</td></tr>
+        <tr><td class="name">Premium timber</td><td class="n">238.40</td><td>TheBigBoxCompany, bespoke oak, 222 sales since 2023</td></tr>
+        <tr><td class="name">With real drawers</td><td class="n">298.74</td><td>Fulleylove. Fake drawers 199.99</td></tr>
+        <tr><td class="name">Category ceiling, UNPAINTED</td><td class="n">360.28</td><td>Jali, 1900 x 750 x 150mm, plain unpainted MDF, flat pack, 4 to 8 weeks</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call gate">
+    <span class="call-tag">Recommended entry</span>
+    <p><strong>£225 base, painted white, up to 1200mm wide at 19cm depth.</strong> Custom RAL or heritage colour match plus £45. Depth uplifts plus £30 and plus £50. Width over 1200mm plus £15 per 200mm.</p>
+    <p>The logic: £225 sits just above GWJoinery, defensible only because <strong>you arrive painted and Jali does not</strong>. The plus £45 colour undercuts Radiator Covers Direct's £85 by half while costing you about £31 in material, so it sells and still contributes. And you never compete at £120, where carriage alone is 30 to 50 percent of revenue.</p>
+  </div>
+
+  <p><strong>Where the evidence runs out.</strong> There is no sourced UK market size for radiator covers, none. Seasonality is unmeasured and should be assumed autumn and winter weighted. And GWJoinery's roughly 870 orders a year tells you the category supports that throughput <em>after six years of reviews</em>, not what a new listing does in month one.</p>
+</section>
+
+<section id="s4">
+  <div class="sec-head"><span class="sec-no">04</span><h2>How a made to measure order actually works</h2></div>
+
+  <p>This is the part that decides whether the product makes money, because <strong>the expensive step, finishing, happens before anyone discovers the measurement was wrong.</strong> Most plans skip it.</p>
+
+  <h3>Three numbers, and you add the tolerance</h3>
+  <p>The industry has standardised this, so copy it rather than invent it. Ask for width valve to valve including any protruding TRV head, height floor to top of radiator or to the skirting line, and depth wall to front face including valves.</p>
+  <p>Then <strong>you</strong> add the clearance, and you say so in the listing: roughly plus 10cm on width, plus 5cm on height, plus 6.5cm on depth. <em class="lede">Never ask a consumer for a finished external size.</em> Ask for the three radiator numbers and own the arithmetic, because "add 10cm yourself" is where amateurs fail.</p>
+
+  <h3>The proof step</h3>
+  <p>No cut file without two things in the message thread:</p>
+  <ol>
+    <li><strong>Photos.</strong> One straight on shot with a tape measure held across the valves so the width is readable, and one showing a valve, the skirting and the floor. It takes the buyer two minutes and it catches the three failure modes: measuring the radiator instead of the valves, forgetting a protruding TRV, and ignoring skirting.</li>
+    <li><strong>A signed off drawing.</strong> Send back one page: plan and front elevation, finished external size, internal clear opening, skirting scribe, pattern, colour, floor standing or floating. The buyer replies "approved". Nothing gets cut before that reply exists.</li>
+  </ol>
+  <p>That approval reply is the single most valuable document in this business. Jali still tells customers to ring and confirm measurements before ordering, and Radiator Covers Direct take measurements as a quote request rather than a self serve checkout. Every incumbent pays for a human verification step. Yours is asynchronous and free, which is the only version a one bench shop can staff.</p>
+
+  <h3>Tolerance, published</h3>
+  <p>Finished external dimensions to plus or minus 2mm, with a minimum 15mm internal clearance each side. Cut My publish plus or minus 1mm on flat CNC panels, but a painted, assembled, flat packed box is not a 1mm product, and promising 1mm is how you lose a case you would otherwise win.</p>
+
+  <h3>Who carries the risk</h3>
+  <p>Contractually the customer, because goods made to a consumer's specification sit outside the 14 day right to cancel and the whole category sells bespoke covers as non returnable. <strong>Commercially you carry it anyway.</strong> On Etsy a "does not fit" becomes a case and a review, and a 4.9 rating is the only asset a new shop has, so in practice you remake. A remake is a full sheet, a full assembly, a full spray cycle and a second carriage, which is more than the profit on that order and the next one. Two hard rules: if the photos and the numbers disagree, query before cutting; if a buyer refuses to send photos, cancel and refund rather than cut.</p>
+
+  <h3>How the order becomes a cut file</h3>
+  <p>Build <strong>one parametric master file</strong>, not a drawing per order. Inputs are width, height, depth, skirting height, floating or floor standing, pattern and colour. Outputs are the two sides, top with front return, four frame members, pattern panel, corner cleats and the notched rear rail, all nested automatically. <strong>The pattern is a tiled array clipped to the front aperture</strong>, so a size change re-tiles rather than being redrawn. That is the only reason a one bench shop can do bespoke sizing at retail prices.</p>
+  <p><strong>Launch with three patterns only.</strong> Every pattern is a different masking and spray behaviour, and finishing is the constraint. One slatted, one geometric, one open fret. Get the spray recipe stable, then add.</p>
+</section>
+
+<section id="s5">
+  <div class="sec-head"><span class="sec-no">05</span><h2>Delivery, honestly</h2></div>
+
+  <p>This is the hardest number in the category and it is worse than any flat product.</p>
+
+  <div class="gauges">
+    <div class="g"><span class="g-fig warn">24.36 kg</span><span class="g-lab">Jali's published weight for a 1900mm cover, flat packed</span></div>
+    <div class="g"><span class="g-fig warn">15 kg</span><span class="g-lab">Where Evri stops. The cheap lane does not reach this product</span></div>
+    <div class="g"><span class="g-fig">&pound;35 to &pound;60</span><span class="g-lab">Realistic carriage plus packaging per unit</span></div>
+    <div class="g"><span class="g-fig warn">16 to 27%</span><span class="g-lab">Of revenue gone on a &pound;220 order, before board or labour</span></div>
+  </div>
+
+  <p>Evri stops at 120cm and 15kg. DHL eCommerce Extra Large takes 25kg but caps at 120 x 70 x 70cm, so a long flat pack fails on length. What is left is an oversize furniture courier or a pallet: SendaPallet quote from £35 plus VAT, UK Pallets put local standard pallet at roughly £40 to £65.</p>
+
+  <p><strong>Survivable at £220 and above. Fatal at £120 to £125</strong>, which is the real reason not to chase the bottom of the Etsy band.</p>
+
+  <p><strong>Damage is the tax you do not see coming.</strong> A large hollow sprayed object with four vulnerable corners and a pierced front. A scuffed sprayed face is not a touch up, it is a remake plus a second carriage, and the remake burns finishing minutes, which is the binding constraint. Design against it: 6mm or 9mm pattern panel rather than 3mm, the panel interleaved flat between the two sides, corner protection on every arris.</p>
+
+  <p><strong>Flat pack nationally</strong>, with a fixing kit and instructions, because that is what both Jali and Radiator Covers Direct do for distant customers and it halves both the volumetric cost and the damage exposure. Offer assembled only for collection or a local radius you can drive, which is also the version to photograph and film.</p>
+</section>
+
+<section id="s6">
+  <div class="sec-head"><span class="sec-no">06</span><h2>The supporting product</h2></div>
+
+  <p><strong>Sell the decorative front on its own</strong>, cut to the customer's stated panel size and sprayed to their colour, for DIY builders, joiners and furniture makers. It rides the same setup at almost no extra cost, and it fixes three problems the lead product has.</p>
+
+  <ul>
+    <li><strong>It fits the cheap carriage lane.</strong> At 6mm a 1000 x 500 panel is a couple of kilos, so it goes Evri at £6.59. This is the only product in the whole audit that does.</li>
+    <li><strong>Zero measurement liability.</strong> The buyer states a rectangle. No radiator, no skirting, no valve, no out of square wall.</li>
+    <li><strong>It monetises the exact gap the incumbents leave open.</strong> The commodity version is explicitly unpainted and DIY, and Jali's £360 cover arrives in bare MDF. Meanwhile the market values the finish at plus £85 per cover, and Cut My charge £160 per square metre for lacquer on a cut to size panel. The finish is demonstrably billable and nobody in the grille trade supplies it.</li>
+    <li><strong>It is a proving ground for patterns.</strong> Whichever pattern sells best as a panel becomes the front you push on covers.</li>
+  </ul>
+
+  <p>No harvest evidence exists for the retail price of a sprayed made to measure grille panel, so treat pricing as a test: start between commodity grille sheet and Cut My's £160 per square metre lacquer charge, and move it on real enquiries.</p>
+</section>
+
+<section id="s7">
+  <div class="sec-head"><span class="sec-no">07</span><h2>What we ruled out</h2></div>
+
+  <p>Four of these fail for the same reason, and it is the reason worth remembering: <strong>the spray booth earns nothing.</strong></p>
+
+  <ul>
+    <li><strong>Media walls and TV panels.</strong> The category runs on pre finished board, not paint. MVP Media Walls state 18mm MFC cut and edged in 250 colours; Vision Spaces and ARKdeko sell laminate marble and concrete faces. Your booth is idle, the shippable panel collapses to £29.99 at JustMDF, and the £2,000 to £6,000 figures are fitted installs with stud wall, fire and electrics.</li>
+    <li><strong>Made to measure shaker doors.</strong> Genuinely router and spray work, and that is the problem: <strong>Cut My already do exactly this nationally</strong>, CNC cut to a published plus or minus 1mm with in house spray, at £20 slab and £25 shaker, free delivery over £250, one week lead time. Hot Doors from £7.83. The Etsy £41 to £52 is an information island.</li>
+    <li><strong>Alcove cupboards and fitted shelving.</strong> Never sprayed. Built ins are filled, caulked and painted on site after fitting, which is why diyalcovecabinets ship pre cut flat pack and tell the buyer to paint it or hire a carpenter.</li>
+    <li><strong>Dog crate furniture.</strong> Timber, ply and bought in metal barwork with hinges, latches and runners. MDF is also the wrong substrate for an animal that chews.</li>
+    <li><strong>Cat litter enclosures.</strong> Lost on price already: vidaXL £37.99, COSTWAY £69.95, VEVOR £107.27 on Amazon UK, same material, flat packed.</li>
+    <li><strong>Decorative garden screens.</strong> The exemplar is <strong>laser cut 2 to 3mm steel</strong>, which a router cannot cut. The winning materials need no paint at all, MDF and ply are disqualified outdoors, and a pierced exterior panel is almost entirely sealed edge, which is the worst finishing load at the lowest price in the scan.</li>
+    <li><strong>Room dividers and 3D layered wall art.</strong> 17 percent GB on both. They ship flat, so the imports already own them.</li>
+  </ul>
+</section>
+
+<section id="s8">
+  <div class="sec-head"><span class="sec-no">08</span><h2>The first test</h2></div>
+
+  <p>One week, and it produces the numbers that decide everything.</p>
+
+  <div class="ledger">
+    <div class="led"><span class="led-k">Build</span><div class="led-b"><strong>Three covers in one batch</strong><span>All 1200 x 800 x 190 finished, one in each launch pattern, painted white. Two sheets of 18mm at £40 to £60, one sheet of 6mm, paint you already have.</span></div></div>
+    <div class="led"><span class="led-k">Measure</span><div class="led-b"><strong>Stopwatch the three stages separately</strong><span>Cut time, bench assembly time, finishing plus packing time, per unit. Record sprayed square metres and multiply by £7.70 for real paint cost. Record board yield per sheet.</span></div></div>
+    <div class="led"><span class="led-k">Ship</span><div class="led-b"><strong>Book one real carriage, do not estimate it</strong><span>Send one unit flat packed to a real address 200 miles away. You need the quoted price, the transit time and the condition on arrival.</span></div></div>
+    <div class="led"><span class="led-k">List</span><div class="led-b"><strong>All three on Etsy at £225</strong><span>With the plus £45 colour option, the three number measuring guide, the photo requirement and the plus or minus 2mm tolerance stated. Photograph them in a room, not in the workshop.</span></div></div>
+  </div>
+
+  <div class="call gate">
+    <span class="call-tag">The one test that actually matters</span>
+    <p>Gross profit per finishing minute on those three builds has to <strong>beat what the same booth minute earns on your existing trade cut and spray work</strong>. You are the only person who has that trade number, and it is the real hurdle rate. If retail covers pay less per booth minute than sign trade work, this is a downgrade no matter how good the Etsy median looks.</p>
+  </div>
+
+  <p><strong>Carry on if, within 30 days:</strong> two paid orders at £225 or above from a zero review listing; five measurement enquiries resolved to an approved drawing by photo and message alone with no phone call; zero transit damage across the first three shipments with carriage plus packaging at £60 or below.</p>
+
+  <p><strong>Stop if:</strong> contribution per finishing minute is below the trade booth rate; or sixty days at £225 produce no orders <em>and</em> no enquiries; or one in three shipments arrives damaged; or the photo and drawing flow needs a phone call on most orders, because unpaid sales labour is the one input a one bench shop cannot add.</p>
+</section>
+
+<section id="s9">
+  <div class="sec-head"><span class="sec-no">09</span><h2>What would make this wrong</h2></div>
+
+  <ul>
+    <li><strong>The booth is already shared with the live trade business.</strong> GWJoinery's 870 orders a year is about 3.4 units a working day. One bench and one booth cannot absorb that and keep trade work flowing. If retail pushes trade off the booth, the real cost of this move is the trade revenue displaced, and that is a number only you hold.</li>
+    <li><strong>Finishing load could be worse than modelled.</strong> A five sided assembled box with fill, sand, prime, two topcoats and cure time between is tens of minutes to over an hour per unit, not the 6 to 9 minutes of a flat part. If the measured figure comes back at the top of that range, the answer is a higher price or fewer patterns, not more volume.</li>
+    <li><strong>Jali is already the better resourced version of this business:</strong> CNC cut made to measure MDF, a free 3D configurator with live pricing, a phone line and national flat pack logistics. <strong>The single reason to enter is that they ship unpainted.</strong> If Jali start shipping painted at scale, the moat narrows sharply and this should be reviewed.</li>
+    <li><strong>The £45 anchor does not go away.</strong> B&amp;Q sell large MDF covers at £44.99 and an adjustable slat cover at £89.99. £225 only works for a genuinely non standard radiator or a specific colour, which is a narrower slice than the Etsy median suggests.</li>
+    <li><strong>The heat loss objection is live.</strong> Published estimates range from about 5 percent on well ventilated designs to 25 percent or more on solid cabinets. Choose high free area patterns, keep the top open at the back, and answer it in the listing rather than hoping nobody asks.</li>
+    <li><strong>No repeat and no IP.</strong> A household buys one or two covers, once. The pattern library is the only ownable design, and patterns can be copied by anyone with a machine.</li>
+    <li><strong>Market size is unknown.</strong> No UK sizing was sourced. The demand evidence is seller throughput only, which proves the category is real and established, not that it is large.</li>
+    <li><strong>Three things still unconfirmed at your end:</strong> what the laser actually is, whether the website gets fixed (every route off Etsy depends on it, and until then Etsy takes the fee and owns the customer), and the logo and brand colours, which listing photography, packaging and the approval drawing all need.</li>
+  </ul>
+</section>
+
+<section id="cta">
+  <div class="ctabox">
+    <h2 class="cta-h">Build three and time them</h2>
+    <p class="cta-sub">The whole decision rests on one measured number: what a booth minute earns on a retail cover against what it earns on your trade work. Three covers and a stopwatch settles it. Message me on WhatsApp, drop me an email, or give me a call.</p>
+    <div class="cta-row">
+      <a class="cta-btn" href="mailto:jay@fusioncreative.uk?subject=Northern%20CNC%20retail">Email Jay</a>
+      <a class="cta-btn cta-btn-wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20just%20read%20the%20Northern%20CNC%20retail%20audit">
+        <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.07-.13-.27-.2-.57-.35M12.04 21.5h-.01a9.47 9.47 0 0 1-4.83-1.32l-.35-.2-3.59.94.96-3.5-.23-.36a9.42 9.42 0 0 1-1.45-5.04c0-5.22 4.26-9.47 9.5-9.47 2.54 0 4.92.99 6.71 2.78a9.4 9.4 0 0 1 2.78 6.7c0 5.22-4.26 9.47-9.49 9.47m8.07-17.54A11.37 11.37 0 0 0 12.04 .6C5.75.6.63 5.71.63 12c0 2.01.53 3.97 1.53 5.7L.53 23.4l5.85-1.53a11.4 11.4 0 0 0 5.66 1.44h.01c6.28 0 11.4-5.11 11.4-11.4 0-3.05-1.19-5.91-3.34-8.06"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="foot">
+  <div>Northern CNC made to order retail audit, 15 September 2026</div>
+  <div>Fusion Creative, Newcastle upon Tyne</div>
+  <div>Evidence: live Etsy UK harvest 15 Sep 2026 plus verification against sellers' own sites, trade suppliers and carriage quotes</div>
+</div>
+
+</div>
+</body>
+</html>
