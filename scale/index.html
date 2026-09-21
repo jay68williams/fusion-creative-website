@@ -216,7 +216,43 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media (max-width:420px){.nudge{padding-left:14px}.nudge-text{font-size:13.5px}.nudge-btn{padding:9px 14px}}
 @media (prefers-reduced-motion:reduce){.nudge{transition:none}}
 
+/* cookie consent: required before the pixel may load. Sits above the nudge,
+   and the nudge stays hidden until the visitor has chosen, so the two can
+   never occupy the bottom of the screen at the same time. */
+.cbar{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:70;
+  transform:translate(-50%,28px);opacity:0;pointer-events:none;
+  display:flex;align-items:center;gap:16px;padding:14px 14px 14px 22px;
+  width:min(660px,calc(100% - 28px));
+  background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(28px) saturate(160%);backdrop-filter:blur(28px) saturate(160%);
+  border:1px solid rgba(255,255,255,.85);border-radius:22px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 2px 0 rgba(36,28,24,.06),0 24px 60px -24px rgba(36,28,24,.35);
+  transition:transform .55s var(--ease),opacity .45s var(--ease)}
+.cbar.show{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.cbar p{font-size:14px;line-height:1.45;color:var(--muted);margin:0;flex:1}
+.cbar p a{color:var(--coral);text-decoration:underline}
+.cbar-btns{display:flex;gap:8px;flex:0 0 auto}
+.cbar button{appearance:none;border:0;cursor:pointer;font-family:inherit;font-weight:700;font-size:14px;
+  padding:10px 18px;border-radius:100px;transition:transform .3s var(--ease)}
+.cbar button:hover{transform:translateY(-1px)}
+.cbar-dec{background:rgba(36,28,24,.07);color:var(--muted)}
+.cbar-acc{background:var(--coral);color:#fff}
+@media (max-width:560px){.cbar{flex-direction:column;align-items:stretch;gap:12px;padding:18px}
+  .cbar-btns{justify-content:stretch}.cbar button{flex:1}}
+@media (prefers-reduced-motion:reduce){.cbar{transition:none}}
+
+
 </style>
+<script>
+  // Meta pixel. Consent gated exactly like /app and /salon-app: it does not
+  // load until the visitor accepts. Ad traffic lands here directly and never
+  // sees the homepage banner, which is why /scale carries its own.
+  function loadFBPixel(){
+    if(window._fbPixelLoaded)return;window._fbPixelLoaded=true;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1631577007728254');fbq('track','PageView');
+  }
+  if(localStorage.getItem('fc_cookie_consent')==='accepted')loadFBPixel();
+</script>
 </head>
 <body>
 
@@ -375,6 +411,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <button class="nudge-x" type="button" id="nudgeX" aria-label="Dismiss">&times;</button>
 </div>
 
+<div class="cbar" id="cbar" role="dialog" aria-label="Cookie consent">
+  <p>We use cookies to measure ad performance and improve your experience. <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a></p>
+  <div class="cbar-btns">
+    <button type="button" class="cbar-dec" onclick="declineCookies()">Decline</button>
+    <button type="button" class="cbar-acc" onclick="acceptCookies()">Accept</button>
+  </div>
+</div>
+
 <script>
 (function(){
   // scroll reveals
@@ -418,7 +462,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     var nudge=document.getElementById('nudge'); if(!nudge) return;
     var KEY='scaleNudgeDismissed', dismissed=false, formVisible=false, past=false;
     try{ dismissed=sessionStorage.getItem(KEY)==='1'; }catch(e){}
-    function sync(){ nudge.classList.toggle('show', past && !formVisible && !dismissed); }
+    function consentDone(){ try{ return !!localStorage.getItem('fc_cookie_consent'); }catch(e){ return true; } }
+    function sync(){ nudge.classList.toggle('show', past && !formVisible && !dismissed && consentDone()); }
+    window.__nudgeSync = sync;
     function dismiss(){ dismissed=true; try{ sessionStorage.setItem(KEY,'1'); }catch(e){} sync(); }
     window.addEventListener('scroll',function(){
       var max=document.documentElement.scrollHeight-window.innerHeight;
@@ -464,6 +510,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       if(!res.ok){ return res.json().then(function(j){ throw new Error(j.error||'Could not send'); }); }
       document.getElementById('leadForm').style.display='none';
       document.getElementById('leadSuccess').style.display='block';
+      // Distinct content_name so ecom applications are separable from the
+      // restaurant and app Leads that share this pixel.
+      if(typeof fbq!=='undefined') fbq('track','Lead',{content_name:'Ecom Scale Application', content_category:'Ads Management'});
       window.scrollTo({top:document.getElementById('apply').offsetTop-80});
     }).catch(function(e){
       btn.disabled=false; btn.textContent='Try again';
@@ -474,5 +523,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 })();
 </script>
 
+
+<script>
+  function acceptCookies(){ try{localStorage.setItem('fc_cookie_consent','accepted');}catch(e){}
+    document.getElementById('cbar').classList.remove('show'); loadFBPixel();
+    if(window.__nudgeSync) window.__nudgeSync(); }
+  function declineCookies(){ try{localStorage.setItem('fc_cookie_consent','declined');}catch(e){}
+    document.getElementById('cbar').classList.remove('show');
+    if(window.__nudgeSync) window.__nudgeSync(); }
+  (function(){ var c=null; try{ c=localStorage.getItem('fc_cookie_consent'); }catch(e){}
+    if(!c) setTimeout(function(){ var b=document.getElementById('cbar'); if(b) b.classList.add('show'); },1500); })();
+</script>
 </body>
 </html>
