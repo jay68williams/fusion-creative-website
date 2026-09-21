@@ -504,6 +504,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       err.style.display='block'; return;
     }
     btn.disabled=true; btn.textContent='Sending...';
+    var evId='scale-'+Date.now()+'-'+Math.random().toString(36).slice(2,10);
+    var consented=false; try{ consented=localStorage.getItem('fc_cookie_consent')==='accepted'; }catch(e){}
+    payload.event_id=evId; payload.consent=consented;
     fetch('https://newgreek.fusioncreative.uk/api/scale-lead/',{
       method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)
     }).then(function(res){
@@ -512,7 +515,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       document.getElementById('leadSuccess').style.display='block';
       // Distinct content_name so ecom applications are separable from the
       // restaurant and app Leads that share this pixel.
-      if(typeof fbq!=='undefined') fbq('track','Lead',{content_name:'Ecom Scale Application', content_category:'Ads Management'});
+      // eventID must match the one the server sends, or a consented lead is
+      // counted twice.
+      if(typeof fbq!=='undefined') fbq('track','Lead',{content_name:'Ecom Scale Application', content_category:'Ads Management'},{eventID:evId});
       window.scrollTo({top:document.getElementById('apply').offsetTop-80});
     }).catch(function(e){
       btn.disabled=false; btn.textContent='Try again';
