@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal - Desserts Delivered Bakery | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="assets/brand/favicon-square.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cookie&family=Roboto+Slab:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --mag:#EC008C; --mag-2:#E32184; --pink:#EA3190; --blush:#FDF2F8; --blush-2:#F8D4E8; --blush-3:#FBE3F0;
+  --ink:#1B1A1E; --text:#39373F; --body:#57545F; --muted:#707070; --line:#ECE3E8; --paper:#FFFFFF; --soft:#FAF7F9;
+  --good:#1F8A5B; --bad:#C62828;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Roboto Slab',Georgia,serif;background:var(--paper);color:var(--text);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:var(--mag)}
+.container{max-width:1040px;margin:0 auto;padding:0 24px}
+.narrow{max-width:820px}
+.caps{font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-weight:400}
+.script{font-family:'Cookie',cursive;font-weight:400}
+
+/* announcement bar, their own */
+.bar{background:var(--pink);color:#fff;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:3px;padding:7px 12px;line-height:1.3}
+
+/* header */
+.header{border-bottom:1px solid var(--ink);background:#fff}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding:16px 0;gap:16px}
+.lockup{display:flex;align-items:center;gap:16px}
+.lockup img{height:54px;width:auto}
+.lockup .x{font-family:'Cookie',cursive;font-size:34px;color:var(--mag);line-height:1}
+.lockup .fc{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.22em;color:var(--ink);line-height:1}
+.lockup .fc span{color:var(--mag)}
+.header-date{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.12em;color:var(--muted)}
+
+/* flourish: the tapered rules and diamond from their logo */
+.flourish{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--mag);margin:0 auto}
+.flourish svg{width:min(360px,80%);height:14px}
+
+/* hero */
+.hero{position:relative;background:var(--ink);color:#fff;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;min-height:560px}
+.hero-copy{padding:72px 48px 64px 0;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.hero-kicker{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.24em;color:#FF7BC2;margin-bottom:10px}
+.hero h1{font-family:'Cookie',cursive;font-weight:400;font-size:clamp(58px,8vw,104px);line-height:.92;margin-bottom:22px;color:#fff}
+.hero h1 em{font-style:normal;color:var(--mag)}
+.hero p{font-size:16.5px;color:rgba(255,255,255,.86);max-width:540px}
+.hero-meta{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+.hero-meta span{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.12em;border:1px solid rgba(255,255,255,.28);padding:6px 12px;color:rgba(255,255,255,.8)}
+.hero-meta b{color:#fff;font-weight:400}
+.hero-photo{position:relative}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,rgba(27,26,30,.35) 30%,rgba(236,0,140,.12) 100%)}
+.hero-logo{position:absolute;right:28px;bottom:26px;z-index:3;width:170px;opacity:.95}
+.hero .container{position:relative}
+
+/* sections */
+.section{padding:72px 0}
+.section.tight{padding-top:0}
+.soft{background:var(--soft)}
+.blush-bg{background:var(--blush)}
+.kicker{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:.22em;color:var(--mag);margin-bottom:4px;display:flex;align-items:center;gap:12px}
+.kicker .num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--pink);color:#fff;font-size:17px;letter-spacing:0}
+.title{font-family:'Cookie',cursive;font-weight:400;font-size:clamp(48px,6.4vw,70px);line-height:1;color:var(--mag);margin-bottom:14px}
+.sub{font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,3vw,30px);letter-spacing:.04em;color:var(--ink);line-height:1.15;margin:40px 0 12px}
+.lead{font-size:16.5px;color:var(--body);max-width:720px}
+.lead b,.card b,.plain b{color:var(--ink)}
+.plain p{color:var(--body);margin-bottom:12px}
+.source{font-size:12.5px;color:var(--muted);margin-top:12px;line-height:1.6}
+
+.card{background:#fff;border:1px solid var(--line);padding:38px;box-shadow:0 1px 2px rgba(27,26,30,.04),0 16px 40px rgba(236,0,140,.06)}
+.greeting{font-family:'Cookie',cursive;font-size:52px;line-height:1;color:var(--mag);margin-bottom:12px}
+.intro p{font-size:16px;color:var(--body);margin-bottom:14px}
+.short{border-left:4px solid var(--mag);background:var(--blush);padding:18px 22px;margin:20px 0}
+.short .caps{font-size:18px;color:var(--mag);margin-bottom:6px}
+.short ol{padding-left:20px;color:var(--text)}
+.short li{margin:6px 0;font-size:15px}
+
+/* photo strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.strip figure .ph{aspect-ratio:1;overflow:hidden;background:var(--blush)}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.strip figure:hover img{transform:scale(1.04)}
+.strip figcaption{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.14em;color:var(--ink);text-align:center;margin-top:8px}
+
+/* contents */
+.contents{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.contents a{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.1em;color:var(--ink);text-decoration:none;border:1px solid var(--ink);padding:7px 12px;transition:background .2s,color .2s}
+.contents a:hover{background:var(--mag);border-color:var(--mag);color:#fff}
+.contents a span{color:var(--mag)}
+.contents a:hover span{color:#fff}
+
+/* stat tiles */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.stats.three{grid-template-columns:repeat(3,1fr)}
+.stat{background:#fff;border:1px solid var(--line);padding:20px 18px;border-top:4px solid var(--mag)}
+.stat.bad{border-top-color:var(--bad)}
+.stat.good{border-top-color:var(--good)}
+.stat .v{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,5vw,50px);line-height:1;color:var(--ink)}
+.stat .v small{font-size:.5em;color:var(--muted);letter-spacing:.04em}
+.stat .l{font-size:13.5px;color:var(--body);margin-top:8px;line-height:1.5}
+
+/* personas */
+.personas{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
+.persona{background:#fff;border:1px solid var(--line);padding:26px 24px}
+.persona .caps{font-size:22px;color:var(--ink);line-height:1.1}
+.persona .tag{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.14em;color:var(--mag)}
+.persona p{font-size:14px;color:var(--body);margin-top:8px;line-height:1.6}
+.persona q{display:block;font-style:italic;color:var(--text);border-left:3px solid var(--blush-2);padding-left:12px;margin-top:10px;font-size:13.5px;quotes:none}
+.persona q::before{content:'\201C'}
+.persona q::after{content:'\201D'}
+.persona .src{font-size:12px;color:var(--muted);font-style:normal;display:block;margin-top:2px;padding-left:15px}
+
+/* trust callout */
+.trust{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.shot{background:#fff;border:1px solid var(--line);padding:10px}
+.shot img{width:100%;height:auto}
+.shot figcaption{font-size:13px;color:var(--body);padding:10px 4px 2px;line-height:1.5}
+.shot figcaption b{color:var(--ink)}
+.bars{margin-top:14px}
+.bar-row{display:grid;grid-template-columns:220px 1fr 44px;gap:12px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.bar-row .track{height:12px;background:var(--blush)}
+.bar-row .fill{height:12px;background:var(--mag)}
+.bar-row .n{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--ink);text-align:right}
+
+.callout{background:var(--ink);color:#fff;padding:34px 36px;margin-top:26px;position:relative;overflow:hidden}
+.callout::before{content:'';position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:var(--mag);opacity:.18}
+.callout>*{position:relative}
+.callout .caps{font-size:22px;color:#FF7BC2}
+.callout p{color:rgba(255,255,255,.86);margin-top:8px;font-size:15.5px}
+.callout b{color:#fff}
+
+/* ad timeline */
+.adline{display:grid;grid-template-columns:repeat(13,1fr);gap:4px;margin-top:22px;align-items:end}
+.adline .m{display:flex;flex-direction:column;align-items:center;gap:6px}
+.adline .col{width:100%;background:var(--mag);min-height:3px}
+.adline .col.zero{background:var(--line)}
+.adline .lab{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.adline .cnt{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--ink)}
+.adline .m.gap .lab{color:var(--bad)}
+.gapnote{margin-top:10px;font-size:13.5px;color:var(--body)}
+.gapnote b{color:var(--bad)}
+
+/* ad gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.gallery figure{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column}
+.gallery a.im{display:block;overflow:hidden;background:var(--soft);border-bottom:1px solid var(--line)}
+.gallery img{width:100%;height:auto}
+.gallery figcaption{padding:12px 14px 14px;font-size:13px;color:var(--body);line-height:1.5}
+.gallery figcaption b{display:block;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:18px;letter-spacing:.06em;color:var(--ink)}
+.gallery .pill{display:inline-block;font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.1em;padding:2px 8px;margin-bottom:6px;background:var(--blush);color:var(--mag-2)}
+.gallery .pill.live{background:#E6F4EC;color:var(--good)}
+.wide-shot{margin-top:16px}
+
+/* diagnosis list */
+.fixes{margin-top:22px;border-top:1px solid var(--ink)}
+.fix{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:20px 0;border-bottom:1px solid var(--line)}
+.fix h4{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:22px;letter-spacing:.04em;color:var(--ink);line-height:1.15;margin-bottom:6px}
+.fix p{font-size:14.5px;color:var(--body);line-height:1.6}
+.fix .was h4::before{content:'WHAT HAPPENED';display:block;font-size:13px;letter-spacing:.18em;color:var(--bad);margin-bottom:2px}
+.fix .now h4::before{content:'WHAT WE DO INSTEAD';display:block;font-size:13px;letter-spacing:.18em;color:var(--good);margin-bottom:2px}
+
+/* comparison table */
+.table-wrap{overflow-x:auto;margin-top:22px;border:1px solid var(--line);background:#fff}
+table.cmp{width:100%;border-collapse:collapse;font-size:14px;min-width:620px}
+table.cmp th{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:18px;letter-spacing:.08em;text-align:left;padding:14px 16px;background:var(--ink);color:#fff}
+table.cmp th:nth-child(2){background:var(--mag)}
+table.cmp.mkt th{background:var(--ink)}
+table.cmp td{padding:12px 16px;border-top:1px solid var(--line);vertical-align:top;color:var(--body)}
+table.cmp td:first-child{font-weight:600;color:var(--ink);width:24%}
+table.cmp td.win{color:var(--good);font-weight:600}
+table.cmp td.lose{color:var(--bad);font-weight:600}
+
+/* lists */
+.list{list-style:none;margin-top:14px}
+.list li{position:relative;padding:10px 0 10px 30px;border-bottom:1px dashed var(--line);font-size:15px;color:var(--body);line-height:1.6}
+.list li:last-child{border-bottom:none}
+.list li::before{content:'';position:absolute;left:4px;top:18px;width:10px;height:10px;background:var(--mag);transform:rotate(45deg)}
+.list li b{color:var(--ink)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:10px}
+
+/* positioning */
+.position{background:var(--mag);color:#fff;padding:42px 40px;text-align:center;margin-top:24px}
+.position .caps{font-size:18px;letter-spacing:.24em;color:#FFD2EA}
+.position .line{font-family:'Cookie',cursive;font-size:clamp(40px,5.4vw,60px);line-height:1.05;margin:10px 0 18px}
+.position .pts{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.position .pts span{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.1em;border:1px solid rgba(255,255,255,.5);padding:6px 12px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.step{background:#fff;border:1px solid var(--line);padding:24px 22px;position:relative}
+.step .n{font-family:'Bebas Neue',sans-serif;font-size:46px;line-height:1;color:var(--blush-2)}
+.step h4{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:22px;letter-spacing:.04em;color:var(--ink);margin:4px 0 6px;line-height:1.1}
+.step p{font-size:14px;color:var(--body);line-height:1.6}
+.step .who{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.14em;color:var(--mag);margin-top:10px}
+
+/* offers */
+.offers{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
+.offer{background:#fff;border:1px solid var(--line);padding:26px 24px;position:relative}
+.offer.lead-offer{border:2px solid var(--mag)}
+.offer .flag{position:absolute;top:-12px;left:20px;background:var(--mag);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.14em;padding:3px 10px}
+.offer h4{font-family:'Cookie',cursive;font-weight:400;font-size:40px;line-height:1;color:var(--mag)}
+.offer .when{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.12em;color:var(--muted);margin:4px 0 8px}
+.offer p{font-size:14px;color:var(--body);line-height:1.6}
+.offer p+p{margin-top:8px}
+
+/* concepts */
+.concepts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.concept{background:#fff;border:1px solid var(--line);padding:22px 20px;display:flex;flex-direction:column}
+.concept .no{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.14em;color:var(--muted)}
+.concept h4{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:23px;letter-spacing:.03em;color:var(--ink);line-height:1.1;margin:2px 0 8px}
+.concept .hook{font-size:14.5px;color:var(--mag-2);font-weight:600;line-height:1.5;margin-bottom:8px}
+.concept p{font-size:13.5px;color:var(--body);line-height:1.6;flex:1}
+.concept .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.concept .tags span{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.1em;padding:2px 8px;background:var(--blush);color:var(--ink)}
+.concept .tags span.st{background:var(--ink);color:#fff}
+
+/* campaigns */
+.camps{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px;margin-top:22px}
+.camp{background:var(--ink);color:#fff;padding:24px 22px}
+.camp.b{background:var(--mag-2)}
+.camp.c{background:var(--pink)}
+.camp .pct{font-family:'Bebas Neue',sans-serif;font-size:44px;line-height:1}
+.camp h4{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:22px;letter-spacing:.04em;margin:4px 0 6px}
+.camp p{font-size:13.5px;color:rgba(255,255,255,.85);line-height:1.6}
+
+/* budget */
+.maths{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:22px;border:1px solid var(--line);background:#fff}
+.maths>div{padding:20px 18px;border-right:1px solid var(--line)}
+.maths>div:last-child{border-right:none;background:var(--blush)}
+.maths .v{font-family:'Bebas Neue',sans-serif;font-size:38px;line-height:1;color:var(--ink)}
+.maths .l{font-size:13px;color:var(--body);margin-top:6px;line-height:1.5}
+
+/* calendar */
+.cal{margin-top:22px;background:#fff;border:1px solid var(--line);padding:18px 18px 8px}
+.cal-head,.cal-row{display:grid;grid-template-columns:170px repeat(6,1fr);align-items:center}
+.cal-head div{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.12em;color:var(--muted);text-align:center;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.cal-head div:first-child{text-align:left}
+.cal-row{padding:8px 0;border-bottom:1px dashed var(--line);position:relative}
+.cal-row:last-child{border-bottom:none}
+.cal-row .name{font-size:13.5px;color:var(--ink);font-weight:600;line-height:1.3;padding-right:8px}
+.cal-row .name small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.cal-track{grid-column:2 / 8;position:relative;height:22px;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(16.666% - 1px),var(--line) calc(16.666% - 1px),var(--line) 16.666%)}
+.cal-bar{position:absolute;top:3px;height:16px;background:var(--mag)}
+.cal-bar.lo{background:var(--blush-2)}
+.cal-bar.ink{background:var(--ink)}
+.cal-bar.peak{background:var(--mag-2);box-shadow:0 0 0 2px rgba(227,33,132,.25)}
+.cal-note{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* website */
+.before{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
+.before figure{background:#fff;border:1px solid var(--line)}
+.before a{display:block;aspect-ratio:9/16;overflow:hidden}
+.before img{width:100%;height:100%;object-fit:cover;object-position:top}
+.before figcaption{font-size:12.5px;color:var(--body);padding:10px 10px 12px;line-height:1.45}
+.before figcaption b{color:var(--bad);font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:15px;letter-spacing:.08em;display:block}
+
+/* month tiles */
+.month{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.tile{background:#fff;border:1px solid var(--line);padding:22px 20px}
+.tile .n{font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:1;color:var(--mag)}
+.tile .t{font-family:'Bebas Neue',sans-serif;font-size:21px;letter-spacing:.04em;color:var(--ink);margin:4px 0}
+.tile p{font-size:13.5px;color:var(--body);line-height:1.6}
+.tile.dark{background:var(--ink);border-color:var(--ink)}
+.tile.dark .t{color:#fff} .tile.dark p{color:rgba(255,255,255,.8)} .tile.dark .n{color:#FF7BC2}
+
+/* timeline */
+.timeline{list-style:none;margin-top:22px;position:relative}
+.timeline::before{content:'';position:absolute;left:15px;top:6px;bottom:6px;width:2px;background:var(--blush-2)}
+.timeline li{position:relative;padding:0 0 24px 52px}
+.timeline li:last-child{padding-bottom:0}
+.timeline .dot{position:absolute;left:6px;top:4px;width:20px;height:20px;background:var(--mag);transform:rotate(45deg);border:4px solid #fff;box-shadow:0 0 0 2px var(--mag)}
+.timeline .w{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.16em;color:var(--mag)}
+.timeline .t{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.03em;color:var(--ink);line-height:1.1;margin:2px 0 4px}
+.timeline p{font-size:14.5px;color:var(--body)}
+
+.yourpart{background:var(--blush);border:1px solid var(--blush-2);padding:26px 28px;margin-top:22px}
+.yourpart .caps{font-size:22px;color:var(--mag)}
+
+/* numbers */
+.glance{width:100%;border-collapse:collapse}
+.glance td{padding:18px 0;vertical-align:top;border-bottom:1px solid var(--line);font-size:15px}
+.glance td:first-child{color:var(--ink);font-weight:600;padding-right:24px}
+.glance td:first-child span{display:block;font-size:13.5px;color:var(--body);font-weight:400;margin-top:4px;line-height:1.6}
+.glance td:last-child{text-align:right;white-space:nowrap;font-family:'Bebas Neue',sans-serif;font-size:36px;line-height:1.05;color:var(--ink)}
+.glance td:last-child small{display:block;font-family:'Roboto Slab',serif;font-size:12px;color:var(--muted);letter-spacing:.02em}
+.glance tr.minus td:last-child{color:var(--muted)}
+.glance tr.minus td:last-child s{text-decoration-thickness:2px}
+.glance tr.total td{border-bottom:none;padding-top:22px}
+.glance tr.total td:last-child{color:var(--mag)}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.pay>div{padding:20px;text-align:center;border:2px solid var(--mag)}
+.pay>div:first-child{background:var(--mag);color:#fff}
+.pay .caps{font-size:18px;letter-spacing:.14em}
+.pay .v{font-family:'Bebas Neue',sans-serif;font-size:54px;line-height:1}
+.pay>div:last-child .v{color:var(--mag)}
+.pay small{font-size:12.5px;display:block;margin-top:2px}
+.glance-note{font-size:13.5px;color:var(--body);margin-top:18px;line-height:1.7}
+
+/* proof */
+.proof{background:var(--ink);color:#fff;padding:44px 40px;position:relative;overflow:hidden}
+.proof>*{position:relative}
+.proof .kicker{color:#FF7BC2}
+.proof h3{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(28px,4vw,38px);letter-spacing:.03em;line-height:1.1;margin-bottom:10px}
+.proof p{font-size:15px;color:rgba(255,255,255,.82);max-width:680px}
+.proof .pstats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0 20px}
+.proof .pstat{border:1px solid rgba(255,255,255,.16);padding:20px 18px;background:rgba(255,255,255,.04)}
+.proof .pstat .v{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,54px);line-height:1;color:#FF7BC2}
+.proof .pstat .l{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.12em;color:rgba(255,255,255,.65);margin-top:6px}
+.proof .small{font-size:12.5px;color:rgba(255,255,255,.55);margin-top:14px}
+
+/* CTA */
+.cta{background:var(--mag);color:#fff;padding:52px 46px;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;inset:0;background:url('assets/photos/brownie-flatlay.jpg') center/cover no-repeat;opacity:.12;mix-blend-mode:luminosity}
+.cta>*{position:relative}
+.cta .kicker{color:#FFD2EA}
+.cta h2{font-family:'Cookie',cursive;font-weight:400;font-size:clamp(52px,7vw,76px);line-height:1;margin-bottom:10px}
+.cta p{font-size:15.5px;color:rgba(255,255,255,.92);max-width:640px;margin-bottom:10px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 26px;font-family:'Bebas Neue',sans-serif;font-size:21px;letter-spacing:.08em;text-decoration:none;box-shadow:0 4px 6px rgba(0,0,0,.12),0 1px 3px rgba(0,0,0,.08);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-wa{background:#25D366;color:#fff}
+.btn-white{background:#fff;color:var(--mag)}
+.cta-sub{font-size:13px;color:rgba(255,255,255,.8);margin-top:16px}
+
+.signature{padding:40px 0 20px}
+.signature .name{font-family:'Cookie',cursive;font-size:48px;line-height:1;color:var(--mag)}
+.signature .role{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.12em;color:var(--ink)}
+.signature a{font-size:14px;text-decoration:none;font-weight:600}
+.footer{padding:28px 0;border-top:1px solid var(--ink);text-align:center;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.14em;color:var(--muted)}
+.footer .lockup{justify-content:center;margin-bottom:10px}
+.footer .lockup img{height:40px}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;min-height:0}
+  .hero-photo{height:300px;order:-1}
+  .hero-photo::after{background:linear-gradient(0deg,var(--ink) 0%,rgba(27,26,30,.2) 55%,rgba(236,0,140,.1) 100%)}
+  .hero-copy{padding:8px 0 52px}
+  .hero-logo{display:none}
+  .stats{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:1fr 1fr}
+  .concepts{grid-template-columns:1fr 1fr}
+  .camps{grid-template-columns:1fr}
+  .before{grid-template-columns:repeat(3,1fr)}
+  .maths{grid-template-columns:1fr 1fr}
+  .maths>div:nth-child(2){border-right:none}
+  .maths>div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media (max-width:720px){
+  .container{padding:0 16px}
+  .section{padding:52px 0}
+  .card{padding:24px 20px}
+  .greeting{font-size:46px}
+  .lockup img{height:40px} .lockup{gap:10px} .lockup .fc{font-size:16px} .lockup .x{font-size:28px}
+  .header-inner{flex-direction:column;align-items:flex-start;gap:6px}
+  .strip{grid-template-columns:1fr 1fr}
+  .personas,.trust,.offers,.two-col,.steps,.pay{grid-template-columns:1fr}
+  .fix{grid-template-columns:1fr;gap:12px}
+  .month{grid-template-columns:1fr 1fr}
+  .stats.three{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:1fr 44px;gap:4px 10px}
+  .bar-row .track{grid-column:1 / 3;grid-row:2}
+  .adline{gap:2px}
+  .adline .lab{font-size:11px;writing-mode:vertical-rl;transform:rotate(180deg)}
+  .callout,.proof{padding:28px 20px}
+  .position{padding:32px 20px}
+  .cta{padding:36px 20px}
+  .btn{width:100%}
+  .glance td:last-child{font-size:28px}
+  .cal-head,.cal-row{grid-template-columns:96px repeat(6,1fr)}
+  .cal-head div{font-size:13px;letter-spacing:.04em}
+  .cal-row .name{font-size:12px}
+  .cal-row .name small{display:none}
+  .before{grid-template-columns:1fr 1fr}
+}
+@media (max-width:460px){
+  .gallery,.concepts{grid-template-columns:1fr}
+  .month{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat .v{font-size:36px}
+  .maths{grid-template-columns:1fr}
+  .maths>div{border-right:none;border-bottom:1px solid var(--line)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.strip img,.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="bar">Freshly baked | Next day delivery | Handmade in Newcastle</div>
+
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="lockup">
+        <img src="assets/brand/logo.png" alt="Desserts Delivered Bakery">
+        <span class="x">x</span>
+        <span class="fc">Fusion <span>Creative</span></span>
+      </div>
+      <div class="header-date">22 September 2026</div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-kicker">Proposal &middot; Prepared for Minish</div>
+        <h1>Making ads work for <em>Desserts Delivered.</em></h1>
+        <p>What we found when we looked at your customers, your old ads, your website and Rachael's Kitchen, the plan we would run from here, and exactly what it costs.</p>
+        <div class="hero-meta">
+          <span>For <b>Desserts Delivered Bakery</b></span>
+          <span>By <b>Fusion Creative, Newcastle</b></span>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="assets/photos/matilda-cake-slice.jpg" alt="A slice of The Matilda Cake">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container narrow">
+  <div class="section">
+    <div class="card intro">
+      <div class="greeting">Hey Minish,</div>
+      <p>Thanks for the time on the call today. You told us the last round of ads burned you, so before we priced anything we went and looked properly: your reviews, your customers, all 20 ads your page has run, your website on a phone, and every ad Rachael's Kitchen has live. Everything we say about your business and your competitors is taken from what is publicly visible today, and we have linked or pictured the evidence so you can check it yourself.</p>
+      <div class="short">
+        <div class="caps">The short version</div>
+        <ol>
+          <li><b>The product is not the problem.</b> Your own site holds 2,348 product reviews averaging 4.55 stars, and people rave about the taste and the size.</li>
+          <li><b>The old ads never gave anyone a reason to order today.</b> No offer, no price, no 2pm cut-off, no reviews, no people, and most of them sent traffic to the homepage.</li>
+          <li><b>The website and your Trustpilot score leak the sale</b> after someone clicks. We fix the site in the first two weeks, before a pound goes on ads.</li>
+          <li><b>Rachael's Kitchen wins on consistency, not magic.</b> The same few simple, phone-shot ads have been running for 6 to 12 months. They sell cupcakes; you sell the whole celebration.</li>
+        </ol>
+      </div>
+      <p>We shoot the content, make the ads, run and manage them on Facebook and Instagram, and overhaul the website. No email marketing, as agreed. The price is at the bottom.</p>
+      <div class="strip">
+        <figure><div class="ph"><img src="assets/photos/biscoff-6in-cake.jpg" alt="The Biscoff cake"></div><figcaption>Cakes</figcaption></figure>
+        <figure><div class="ph"><img src="assets/photos/strawberry-cheesecake-flowers.jpg" alt="Strawberry cheesecake"></div><figcaption>Cheesecakes</figcaption></figure>
+        <figure><div class="ph"><img src="assets/photos/brownie-stack.jpg" alt="Brownie stack"></div><figcaption>Brownies</figcaption></figure>
+        <figure><div class="ph"><img src="assets/photos/cupcakes-assorted-plate.jpg" alt="Assorted cupcakes"></div><figcaption>Cupcakes</figcaption></figure>
+      </div>
+      <div class="contents">
+        <a href="#customers"><span>01</span> Your customers</a>
+        <a href="#old-ads"><span>02</span> The old ads</a>
+        <a href="#competition"><span>03</span> The competition</a>
+        <a href="#strategy"><span>04</span> The strategy</a>
+        <a href="#website"><span>05</span> The website</a>
+        <a href="#plan"><span>06</span> Plan and price</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 01 CUSTOMERS -->
+<section class="section soft" id="customers">
+  <div class="container">
+    <div class="kicker"><span class="num">01</span> Customer analysis</div>
+    <div class="title">Who buys from you, and what stops them</div>
+    <p class="lead">We read your reviews on the site and on Trustpilot, the whole product catalogue and your socials. Four numbers set the scene.</p>
+
+    <div class="stats">
+      <div class="stat good"><div class="v">4.55<small> / 5</small></div><div class="l">Average across 2,348 product reviews on your own site. The cakes themselves are loved.</div></div>
+      <div class="stat bad"><div class="v">2.2<small> / 5</small></div><div class="l">Your Trustpilot score, from 2,187 reviews. 50 of the last 60 are 1-star, with no replies.</div></div>
+      <div class="stat"><div class="v">41K</div><div class="l">Instagram followers, but recent product posts get 8 to 26 likes and the last post was 18 August.</div></div>
+      <div class="stat bad"><div class="v">&minus;45%</div><div class="l">Site reviews so far this year against the same point last year. A rough proxy for order volume.</div></div>
+    </div>
+    <p class="source">Sources: REVIEWS.io product reviews on dessertsdeliveredbakery.co.uk; uk.trustpilot.com; Instagram and Facebook page data. All checked 22 September 2026.</p>
+
+    <div class="sub">Who actually buys</div>
+    <p class="lead">Your buyers are <b>senders, not eaters</b>, and they are <b>all over the UK</b>. London is the biggest single town in your reviews, followed by Glasgow, Birmingham, Manchester and Liverpool. The North East is under 3% of reviewers. Birthdays dominate, especially milestone ages, which is why age balloons and gift notes are two of your four best sellers.</p>
+    <div class="personas">
+      <div class="persona">
+        <div class="tag">Birthdays, milestone ages</div>
+        <div class="caps">The far-away sender</div>
+        <p>A parent, grandparent or partner who cannot be in the room. The trigger is realising the birthday is a few days away and they will not be there. They need to see it arrive in one piece, on the day, with their message.</p>
+        <q>I ordered this cake while I was abroad for my daughters 40th birthday</q><span class="src">Site review, White Chocolate Lindt, 5 stars</span>
+      </div>
+      <div class="persona">
+        <div class="tag">Tomorrow, or it is too late</div>
+        <div class="caps">The last-minute rescuer</div>
+        <p>A busy parent the evening before, often scrolling on a phone. They need certainty: order before 2pm, on the table tomorrow, serves 14, and Clearpay to split it.</p>
+        <q>In a last minute panic to get a cake for my sons 18th</q><span class="src">Your reviews page</span>
+      </div>
+      <div class="persona">
+        <div class="tag">Biscoff, Lindt, Ferrero, Malteser fans</div>
+        <div class="caps">The favourite-flavour gifter</div>
+        <p>Buys because the person they love is obsessed with one flavour, and often does it every year. They need to see the real cake cut open, the height and the size in someone's hands.</p>
+        <q>I order one of these cakes every year for my husbands birthday.</q><span class="src">Site review, Biscoff Cake, 5 stars</span>
+      </div>
+      <div class="persona">
+        <div class="tag">Thank you, cheer up, thinking of you</div>
+        <div class="caps">The care-moment sender</div>
+        <p>Sends a lower-priced box, cheesecakes or brownies at &pound;16 to &pound;30, to thank, comfort or surprise someone. They want a gift note included and the exact flavours they picked.</p>
+        <q>sent to a friends husband who had a bereavement and it cheered him up</q><span class="src">Site review, Assorted Brownie Box, 5 stars</span>
+      </div>
+    </div>
+    <p class="source">A fifth group, corporate and office gifting, is almost untouched today. You already sell logo box sleeves, and Rachael's Kitchen ran Christmas logo-cupcake ads for five weeks last year.</p>
+
+    <div class="sub">What worries them, in their words</div>
+    <div class="two-col">
+      <ul class="list">
+        <li><b>"Will a posted cake really arrive okay?"</b> <i>"I was a little sceptical about a mail order cake but was pleasantly surprised."</i></li>
+        <li><b>"Is frozen a bad sign?"</b> <i>"Wasn't sure what to expect being frozen and delivered but it was very well packed."</i></li>
+      </ul>
+      <ul class="list">
+        <li><b>"Will I get what I ordered?"</b> <i>"told the day before they no longer had it in stock and to pick a different option"</i></li>
+        <li><b>"Will anyone answer if it goes wrong?"</b> <i>"The Cake is fantastic. One of the best I've had. Issue is with Customer services"</i></li>
+      </ul>
+    </div>
+    <p class="source">Verbatim quotes from reviews on your site and on Trustpilot, spelling as written.</p>
+
+    <div class="sub">The Trustpilot problem</div>
+    <p class="lead">This is the part that hurts ads the most. When someone sees an ad for a &pound;45 cake that will arrive on someone else's doorstep, a lot of them search your name first. One of the first things they find is this:</p>
+    <div class="trust">
+      <figure class="shot"><a href="assets/site/trustpilot-dd-desktop.jpg" target="_blank" rel="noopener"><img src="assets/site/trustpilot-dd-desktop.jpg" alt="Desserts Delivered on Trustpilot, 2.2"></a><figcaption><b>Desserts Delivered: 2.2 from 2,187 reviews.</b> Trustpilot weights recent reviews, and recent ones are mostly 1-star with no reply.</figcaption></figure>
+      <figure class="shot"><a href="assets/site/trustpilot-rk-desktop.jpg" target="_blank" rel="noopener"><img src="assets/site/trustpilot-rk-desktop.jpg" alt="Rachael's Kitchen on Trustpilot, 4.7"></a><figcaption><b>Rachael's Kitchen: 4.7 from 1,613 reviews.</b> They invite customers to review and reply to 70% of negative reviews.</figcaption></figure>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <div class="caps" style="font-size:20px;color:var(--ink)">What the recent 1 and 2-star reviews are about</div>
+      <p style="font-size:14px;color:var(--body);margin-top:4px">115 most recent low reviews, November 2024 to September 2026. One review can mention several things.</p>
+      <div class="bars">
+        <div class="bar-row"><span>Customer service or refunds</span><div class="track"><div class="fill" style="width:83%"></div></div><span class="n">96</span></div>
+        <div class="bar-row"><span>Wrong or substituted item</span><div class="track"><div class="fill" style="width:37%"></div></div><span class="n">42</span></div>
+        <div class="bar-row"><span>Did not look like the picture</span><div class="track"><div class="fill" style="width:35%"></div></div><span class="n">40</span></div>
+        <div class="bar-row"><span>Late or missing delivery</span><div class="track"><div class="fill" style="width:34%"></div></div><span class="n">39</span></div>
+        <div class="bar-row"><span>Damaged in transit</span><div class="track"><div class="fill" style="width:33%"></div></div><span class="n">38</span></div>
+        <div class="bar-row"><span>Arrived warm or defrosted</span><div class="track"><div class="fill" style="width:22%"></div></div><span class="n">25</span></div>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="caps">Why this matters for the ads</div>
+      <p><b>Almost none of the complaints are about taste.</b> They are about substitutions, packing, delivery and replies, which means they can be fixed. We build a review engine into the website overhaul so every happy customer is asked, and we give you reply templates for every negative review. The operational fixes (no substitutions without the customer's say-so, a packing check, a phone number or chat) are yours, and they are the cheapest ad improvement you will ever make.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 OLD ADS -->
+<section class="section" id="old-ads">
+  <div class="container">
+    <div class="kicker"><span class="num">02</span> Your previous Meta ads</div>
+    <div class="title">Why the last ads did not work</div>
+    <p class="lead">Meta's Ad Library shows every ad your page has run in the last year: <b>20 ads, 13 different creatives</b>, from September 2025 to this week. It does not show spend, targeting or results, so this is what can be seen from the outside. It is enough to explain a lot.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="v">1<small> of 13</small></div><div class="l">creatives was a video. The rest were designed graphics.</div></div>
+      <div class="stat bad"><div class="v">0</div><div class="l">ads showed a person's face, a price, an offer, a review or the 2pm cut-off.</div></div>
+      <div class="stat bad"><div class="v">17<small> of 20</small></div><div class="l">sent people to the homepage, even when the ad was about one cake.</div></div>
+      <div class="stat bad"><div class="v">219</div><div class="l">days with no ads at all, right across Christmas, Valentine's and Mother's Day.</div></div>
+    </div>
+
+    <div class="sub">When the ads ran (new ads started each month)</div>
+    <div class="adline" aria-label="Ads started per month, September 2025 to September 2026">
+      <div class="m"><span class="cnt">2</span><div class="col" style="height:16px"></div><span class="lab">Sep 25</span></div>
+      <div class="m gap"><span class="cnt">0</span><div class="col zero"></div><span class="lab">Oct</span></div>
+      <div class="m gap"><span class="cnt">0</span><div class="col zero"></div><span class="lab">Nov</span></div>
+      <div class="m gap"><span class="cnt">0</span><div class="col zero"></div><span class="lab">Dec</span></div>
+      <div class="m gap"><span class="cnt">0</span><div class="col zero"></div><span class="lab">Jan 26</span></div>
+      <div class="m gap"><span class="cnt">0</span><div class="col zero"></div><span class="lab">Feb</span></div>
+      <div class="m gap"><span class="cnt">0</span><div class="col zero"></div><span class="lab">Mar</span></div>
+      <div class="m gap"><span class="cnt">0</span><div class="col zero"></div><span class="lab">Apr</span></div>
+      <div class="m"><span class="cnt">10</span><div class="col" style="height:80px"></div><span class="lab">May</span></div>
+      <div class="m"><span class="cnt">5</span><div class="col" style="height:40px"></div><span class="lab">Jun</span></div>
+      <div class="m"><span class="cnt">1</span><div class="col" style="height:8px"></div><span class="lab">Jul</span></div>
+      <div class="m"><span class="cnt">2</span><div class="col" style="height:16px"></div><span class="lab">Aug</span></div>
+      <div class="m"><span class="cnt">0</span><div class="col zero"></div><span class="lab">Sep</span></div>
+    </div>
+    <p class="gapnote"><b>Nothing ran from 29 September 2025 to 6 May 2026.</b> Then in May, ten ads each lived 5 to 8 days before being replaced by the next new flavour. A new ad needs a steady week or two of data before Meta learns who buys; most of these never got it.</p>
+
+    <div class="sub">What the ads looked like</div>
+    <div class="gallery">
+      <figure><a class="im" href="assets/ads/dd/dd-ad-03.jpg" target="_blank" rel="noopener"><img src="assets/ads/dd/dd-ad-03-c.jpg" alt="Matilda Cake ad" loading="lazy"></a><figcaption><span class="pill">8 days, May 2026</span><b>"Meet The Matilda Cake"</b>A launch announcement with cartoon figures. No price, no reason to order today.</figcaption></figure>
+      <figure><a class="im" href="assets/ads/dd/dd-ad-06.jpg" target="_blank" rel="noopener"><img src="assets/ads/dd/dd-ad-06-c.jpg" alt="Apple Crumble ad" loading="lazy"></a><figcaption><span class="pill">30 days, June 2026</span><b>Apple Crumble</b>Raw ** symbols showing in the copy and a "Book now" button, which is Meta's travel booking button.</figcaption></figure>
+      <figure><a class="im" href="assets/ads/dd/dd-ad-05.jpg" target="_blank" rel="noopener"><img src="assets/ads/dd/dd-ad-05-c.jpg" alt="Luxury cakes carousel" loading="lazy"></a><figcaption><span class="pill">5 days, May 2026</span><b>"Luxury Cakes &amp; Desserts"</b>The only range ad this year. Six words of copy, and switched off after five days.</figcaption></figure>
+      <figure><a class="im" href="assets/ads/dd/dd-ad-04.jpg" target="_blank" rel="noopener"><img src="assets/ads/dd/dd-ad-04-c.jpg" alt="Cheesecake selection ad" loading="lazy"></a><figcaption><span class="pill">7 days, May 2026</span><b>Cheesecake selection</b>Sent to the homepage. The headline was the website's search title, ending "Cakes Near Me", for a UK-wide delivery.</figcaption></figure>
+      <figure><a class="im" href="assets/ads/dd/dd-ad-07.jpg" target="_blank" rel="noopener"><img src="assets/ads/dd/dd-ad-07-c.jpg" alt="Tiramisu video ad" loading="lazy"></a><figcaption><span class="pill">30 days, June 2026</span><b>Tiramisu, the only video</b>Real kitchen footage, the right idea, but Instagram only, no face and no text hook in the first seconds.</figcaption></figure>
+      <figure><a class="im" href="assets/ads/dd/dd-ad-10.jpg" target="_blank" rel="noopener"><img src="assets/ads/dd/dd-ad-10-c.jpg" alt="Kit Kat Cake ad" loading="lazy"></a><figcaption><span class="pill">29 days, ended this week</span><b>"Break time just got sweeter"</b>The one real hook in 20 ads. Other brands' packaging as the main picture can also get ads reported.</figcaption></figure>
+    </div>
+    <figure class="shot wide-shot"><a href="assets/ads/dd/dd-three-launches.jpg" target="_blank" rel="noopener"><img src="assets/ads/dd/dd-three-launches.jpg" alt="Twix, Kit Kat and Dairy Milk ads side by side" loading="lazy"></a><figcaption><b>Three launches, one template.</b> 8 of the 11 graphics this year share the same frame and the same "finest cakes delivered to your doorstep" strapline. In a busy feed they read as the same ad again, so nothing was really being tested.</figcaption></figure>
+
+    <div class="sub">What went wrong, and what we do instead</div>
+    <div class="fixes">
+      <div class="fix"><div class="was"><h4>Stop-start launches</h4><p>Ads lived a week, then the next flavour replaced them. Seven months with none at all.</p></div><div class="now"><h4>An always-on engine</h4><p>An account that never switches off, new creative added every month, and seasonal ads added 3 to 6 weeks before each date.</p></div></div>
+      <div class="fix"><div class="was"><h4>Most ads announced a flavour</h4><p>"Meet", "Introducing", "is here". None told a stranger why to order today.</p></div><div class="now"><h4>Every ad sells a moment</h4><p>A birthday, a thank you, a surprise, plus the 2pm next-day promise and a clear reason to act now.</p></div></div>
+      <div class="fix"><div class="was"><h4>Designed graphics, no footage or people</h4><p>No faces in any ad, one video in 13 creatives, and no doorstep arrival or first cut shown.</p></div><div class="now"><h4>We film the real thing</h4><p>Your bakers, the cake being boxed and packed, the doorstep, the lid coming off, the first slice, the reaction. Vertical video first.</p></div></div>
+      <div class="fix"><div class="was"><h4>No proof</h4><p>Zero reviews or ratings across 20 ads, while 2,348 happy reviews sat on the website.</p></div><div class="now"><h4>Proof in the ad</h4><p>Real review quotes on screen, customer photos with permission, and packing footage that answers "will it arrive okay?"</p></div></div>
+      <div class="fix"><div class="was"><h4>Set-up slips</h4><p>Duplicate ads, a travel "Book now" button, raw ** symbols, the search title as a headline, an ad with no link.</p></div><div class="now"><h4>A checklist on every ad</h4><p>Button, headline, copy, placements and tracking links checked before anything goes live.</p></div></div>
+      <div class="fix"><div class="was"><h4>Everything went to the homepage</h4><p>17 of 20 ads, including ads for cakes that are no longer on the homepage.</p></div><div class="now"><h4>The click lands on the thing in the ad</h4><p>The matching product, or an occasion page built in the website overhaul (birthday, Mother's Day, corporate).</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 COMPETITION -->
+<section class="section soft" id="competition">
+  <div class="container">
+    <div class="kicker"><span class="num">03</span> Competitor research</div>
+    <div class="title">Rachael's Kitchen</div>
+    <p class="lead">Worthing, trading since 2009, cupcakes delivered next day UK-wide. Here is what their ad account shows today.</p>
+    <div class="stats">
+      <div class="stat"><div class="v">29</div><div class="l">ads live right now, out of about 130 in the last year.</div></div>
+      <div class="stat good"><div class="v">24<small> of 29</small></div><div class="l">live ads have been running for more than six months. A strong sign they are working.</div></div>
+      <div class="stat"><div class="v">7</div><div class="l">new ads since April. They launched 93 from September to December 2025, then slowed right down.</div></div>
+      <div class="stat good"><div class="v">4.7<small> / 5</small></div><div class="l">on Trustpilot from 1,613 reviews, against your 2.2.</div></div>
+    </div>
+
+    <div class="sub">Their longest-running ads</div>
+    <div class="gallery">
+      <figure><a class="im" href="assets/ads/rk/rk-ad-01.jpg" target="_blank" rel="noopener"><img src="assets/ads/rk/rk-ad-01-c.jpg" alt="Rachael's Kitchen ad" loading="lazy"></a><figcaption><span class="pill live">Live since 15 Sep 2025</span><b>"Order by 4pm for next day"</b>Over a year old and still running. Short unboxing clips of a box of 12, with the deadline as the headline.</figcaption></figure>
+      <figure><a class="im" href="assets/ads/rk/rk-ad-04.jpg" target="_blank" rel="noopener"><img src="assets/ads/rk/rk-ad-04-c.jpg" alt="Rachael's Kitchen unboxing ad" loading="lazy"></a><figcaption><span class="pill live">Live since 31 Oct 2025</span><b>"Me when my cupcake delivery arrives"</b>A 9-second phone-shot unboxing with a text overlay. Hands only.</figcaption></figure>
+      <figure><a class="im" href="assets/ads/rk/rk-ad-02.jpg" target="_blank" rel="noopener"><img src="assets/ads/rk/rk-ad-02-c.jpg" alt="Build your cupcake ad" loading="lazy"></a><figcaption><span class="pill live">Live since 31 Oct 2025</span><b>"What cupcake are you building?"</b>A flavour menu that asks for comments and pushes their Fill Your Own box.</figcaption></figure>
+      <figure><a class="im" href="assets/ads/rk/rk-ad-05.jpg" target="_blank" rel="noopener"><img src="assets/ads/rk/rk-ad-05-c.jpg" alt="Outdoor unboxing ad" loading="lazy"></a><figcaption><span class="pill live">Live since 17 Nov 2025</span><b>"Whether you're celebrating..."</b>Their workhorse copy, used on 26 ads. Birthday, thanks, or just making someone smile.</figcaption></figure>
+      <figure><a class="im" href="assets/ads/rk/rk-ad-10.jpg" target="_blank" rel="noopener"><img src="assets/ads/rk/rk-ad-10-c.jpg" alt="POV 4pm ad" loading="lazy"></a><figcaption><span class="pill live">Live since 8 May 2026</span><b>"POV: It's 4pm and you just remembered her birthday"</b>The last-minute rescuer, spoken to directly.</figcaption></figure>
+      <figure><a class="im" href="assets/ads/rk/rk-ad-11.jpg" target="_blank" rel="noopener"><img src="assets/ads/rk/rk-ad-11-c.jpg" alt="Skip the flowers ad" loading="lazy"></a><figcaption><span class="pill live">Live since 8 May 2026</span><b>"Skip the flowers"</b>Positions cupcakes as the better gift. A simple static that keeps running.</figcaption></figure>
+    </div>
+
+    <div class="two-col" style="margin-top:28px">
+      <div class="card">
+        <div class="caps" style="font-size:24px;color:var(--good)">What is working for them</div>
+        <ul class="list">
+          <li><b>Always on.</b> A settled set of ads that runs all year, with seasonal bursts added on top.</li>
+          <li><b>One promise, repeated.</b> "Order by 4pm for next day" is in the headline again and again. It answers the buyer's real fear.</li>
+          <li><b>Cheap, native phone video.</b> Unboxings, piping behind the scenes, candles being lit. Vertical, about 16 seconds. None of it looks like an ad.</li>
+          <li><b>The gift, not the cake.</b> Branded box, ribbon, tin and a free personalised message are the star.</li>
+          <li><b>A big seasonal hero.</b> A &pound;120 Cupcake Advent Calendar on pre-order now, pushed with 29 ads last Christmas and a 478K-follower brand giveaway this week.</li>
+          <li><b>Trust off the ad.</b> 4.7 on Trustpilot, a corporate page with big-brand logos, and a phone number at the top of the site.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="caps" style="font-size:24px;color:var(--mag)">Where they leave room for you</div>
+        <ul class="list">
+          <li><b>Almost entirely cupcakes.</b> No whole celebration cakes, no cheesecakes, no brownie boxes to buy year round. The "birthday cake delivered" buyer is yours.</li>
+          <li><b>Their creative has gone stale.</b> Nothing new since 10 August, and most of the live set is 8 to 10 months old. Fresh monthly creative will out-learn it.</li>
+          <li><b>No faces.</b> Hands only in the ads we sampled, no founder, no real customers on camera. You have a bakery team in Newcastle and we are there to film them.</li>
+          <li><b>Weak offers.</b> No free delivery and no bundle offers in their ads, one 10% code last Christmas.</li>
+          <li><b>Generic landing pages.</b> Most ads drop people onto a 135-product cupcake collection.</li>
+          <li><b>Value.</b> A box of 6 cupcakes is &pound;24 to &pound;28.50 plus &pound;6.95 delivery. Your 7" cake serves about 14 for &pound;44.99.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sub">Side by side</div>
+    <div class="table-wrap">
+      <table class="cmp">
+        <tr><th></th><th>Desserts Delivered</th><th>Rachael's Kitchen</th></tr>
+        <tr><td>What you can buy</td><td class="win">7" and 6" cakes, cheesecakes, cupcakes, brownies, variety boxes</td><td>Cupcakes in boxes of 6 or 12, gift sets</td></tr>
+        <tr><td>Hero price</td><td>&pound;44.99 cake, serves about 14</td><td>&pound;24 to &pound;28.50 for 6, &pound;36 to &pound;40.95 for 12</td></tr>
+        <tr><td>Next-day cut-off</td><td>2pm</td><td>4pm, Monday to Friday</td></tr>
+        <tr><td>Sunday delivery</td><td class="lose">No (Tuesday to Saturday)</td><td>Yes, order by 4pm Friday</td></tr>
+        <tr><td>Delivery price shown</td><td class="lose">Not until checkout</td><td>&pound;6.95, stated in the FAQ</td></tr>
+        <tr><td>Trustpilot</td><td class="lose">2.2 from 2,187</td><td class="win">4.7 from 1,613</td></tr>
+        <tr><td>Live Meta ads</td><td class="lose">0 (last one ended this week)</td><td class="win">29</td></tr>
+        <tr><td>New ads since April</td><td>18</td><td>7</td></tr>
+        <tr><td>People on camera</td><td>Hands only, no faces</td><td>Hands only, no faces</td></tr>
+        <tr><td>Instagram</td><td class="win">41K followers</td><td>12.3K followers</td></tr>
+        <tr><td>TikTok</td><td class="win">21.2K followers</td><td>1,311 followers</td></tr>
+      </table>
+    </div>
+    <p class="source">Sources: Meta Ad Library (GB, all ads, pages 672814082799795 and 404994210061), both websites, Trustpilot, Instagram, TikTok and Companies House. Checked 22 September 2026.</p>
+
+    <div class="sub" style="margin-top:56px">The wider market</div>
+    <p class="lead">We also went through the Meta Ad Library for every UK brand selling cakes, brownies and dessert boxes by post: 46 searches, about 20 brands. The ones below are the most active, and the ads shown have been running the longest, which is the clearest public sign an ad is making money.</p>
+    <div class="table-wrap">
+      <table class="cmp mkt">
+        <tr><th>Brand</th><th>What they sell</th><th>Live ads</th><th>What their best ads do</th></tr>
+        <tr><td>MailBakes</td><td>Cake inside a greetings card, &pound;9.99, letterbox</td><td>About 310</td><td>"Be there when you can't": first-person stories about a mum, a best friend, kids who left home</td></tr>
+        <tr><td>TreatBox</td><td>Letterbox gift boxes, build your own</td><td>About 360</td><td>Build-your-own box with a 15% code, advent pre-orders with "over 50% sold"</td></tr>
+        <tr><td>GET BAKED</td><td>Giant pies and cakes, Leeds, nationwide</td><td>About 75</td><td>Funny, nostalgic long copy, each product written four ways for four audiences</td></tr>
+        <tr><td>Borough 22</td><td>Vegan and gluten-free doughnuts and brownies</td><td>About 34</td><td>Free-from as the hero, with a named customer's quote. One ad live over a year</td></tr>
+        <tr><td>Cakehead</td><td>18-slice brownie boxes, free next-day delivery</td><td>About 24</td><td>Cheeky humour: "They ghosted. We deliver." and "18 slices beats flowers"</td></tr>
+        <tr><td>Bear's Brownies</td><td>Brownies, fill your own box</td><td>16</td><td>"Order by 4pm for next-day delivery" video, relaunched under new ads since August 2025</td></tr>
+      </table>
+    </div>
+    <div class="gallery">
+      <figure><a class="im" href="assets/ads/market/homemade-brownie-01.jpg" target="_blank" rel="noopener"><img src="assets/ads/market/homemade-brownie-01-c.jpg" alt="Homemade Brownie Company ad" loading="lazy"></a><figcaption><span class="pill live">Live since 1 May 2025</span><b>Build your own box</b>The Homemade Brownie Company. One mix-and-match carousel, running for 16 months.</figcaption></figure>
+      <figure><a class="im" href="assets/ads/market/borough22-01.jpg" target="_blank" rel="noopener"><img src="assets/ads/market/borough22-01-c.jpg" alt="Borough 22 ad" loading="lazy"></a><figcaption><span class="pill live">Live since 6 Aug 2025</span><b>Free-from, told by a customer</b>Borough 22. A coeliac customer's words carry the whole ad.</figcaption></figure>
+      <figure><a class="im" href="assets/ads/market/konditor-01.jpg" target="_blank" rel="noopener"><img src="assets/ads/market/konditor-01-c.jpg" alt="Konditor ad" loading="lazy"></a><figcaption><span class="pill live">Live over 7 months</span><b>A review is the ad</b>Konditor. A customer quote on an image, one of their three biggest ads ever.</figcaption></figure>
+      <figure><a class="im" href="assets/ads/market/bakerdays-01.jpg" target="_blank" rel="noopener"><img src="assets/ads/market/bakerdays-01-c.jpg" alt="bakerdays ad" loading="lazy"></a><figcaption><span class="pill live">Live over 7 months</span><b>"Birthday alert"</b>bakerdays. A birthday-month hook, order by 2pm, and a 15% code.</figcaption></figure>
+      <figure><a class="im" href="assets/ads/market/cakehead-01.jpg" target="_blank" rel="noopener"><img src="assets/ads/market/cakehead-01-c.jpg" alt="Cakehead ad" loading="lazy"></a><figcaption><span class="pill live">Live over 3 months</span><b>"They ghosted. We deliver."</b>Cakehead. Humour first, cake second.</figcaption></figure>
+      <figure><a class="im" href="assets/ads/market/mailbakes-01.jpg" target="_blank" rel="noopener"><img src="assets/ads/market/mailbakes-01-c.jpg" alt="MailBakes ad" loading="lazy"></a><figcaption><span class="pill live">Creative running since Nov 2024</span><b>"Be there when you can't"</b>MailBakes. The same idea relaunched for almost two years.</figcaption></figure>
+    </div>
+    <div class="two-col" style="margin-top:28px">
+      <div class="card">
+        <div class="caps" style="font-size:24px;color:var(--good)">What wins across the market</div>
+        <ul class="list">
+          <li><b>A deadline and "tomorrow" in the headline.</b> Bear's, bakerdays and MailBakes all run it for months at a time.</li>
+          <li><b>Build-your-own or mix-and-match boxes.</b> Your variety and Choose Your Own boxes fit straight in.</li>
+          <li><b>Sending love from a distance.</b> The far-away sender is the category's strongest emotion.</li>
+          <li><b>A real review as the creative.</b> One quote, big, on the image.</li>
+          <li><b>Humour.</b> GET BAKED and Cakehead keep funny ads running for months.</li>
+          <li><b>Winners get relaunched, not retired.</b> The same idea runs for a year or more under new ads.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="caps" style="font-size:24px;color:var(--mag)">Gaps almost nobody is filling</div>
+        <ul class="list">
+          <li><b>Pay in 4.</b> No ad we found names Clearpay or Klarna, and only one gifting brand mentions paying later, in small link text. You take Clearpay: &pound;11.25 today for a cake that serves 14.</li>
+          <li><b>Where it is made.</b> No ad mentions Newcastle or the North East. "Handmade in Newcastle" is yours alone.</li>
+          <li><b>Cheesecake by post.</b> We found no UK brand advertising cheesecakes delivered nationwide. Your cheesecake boxes look like an open lane.</li>
+          <li><b>Showing it arrives perfect.</b> Almost nobody films the packing and the arrival, even though damage is the biggest fear.</li>
+          <li><b>Real bakers on camera.</b> Founder or baker stories appear in only a handful of ad texts we read.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="source">Source: Meta Ad Library (GB), 46 searches on 22 September 2026, brand websites. Ad counts for the biggest advertisers are approximate because Meta limits how many ads can be loaded at once.</p>
+  </div>
+</section>
+
+<!-- 04 STRATEGY -->
+<section class="section" id="strategy">
+  <div class="container">
+    <div class="kicker"><span class="num">04</span> The strategy</div>
+    <div class="title">How we would run it</div>
+    <p class="lead">On Facebook and Instagram in 2026, the creative does the targeting. We show Meta lots of genuinely different ads to a broad UK audience and it finds the people who buy. So the plan is mostly about what we film, what we offer, and where the click lands.</p>
+
+    <div class="position">
+      <div class="caps">Your position against Rachael's Kitchen, with this plan</div>
+      <div class="line">The whole celebration, not just cupcakes. Handmade in Newcastle, on their doorstep tomorrow.</div>
+      <div class="pts"><span>Whole cakes that serve 14</span><span>2,348 reviews at 4.55</span><span>Order by 2pm, next day UK-wide</span><span>Free delivery over &pound;50</span><span>Real bakers, filmed</span><span>Pay in 4 with Clearpay</span></div>
+    </div>
+
+    <div class="sub">Three things in order</div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h4>Fix where the click lands</h4><p>The website overhaul, clean tracking, delivery prices and cut-offs said once and clearly, reviews visible. Two weeks, before ads go live.</p><div class="who">Us, weeks 1 to 2</div></div>
+      <div class="step"><div class="n">2</div><h4>Fix what people find when they search you</h4><p>Automatic review invites after every order, replies to every negative review, and the operational fixes behind the complaints.</p><div class="who">Us to set up, you to run</div></div>
+      <div class="step"><div class="n">3</div><h4>Then switch the engine on</h4><p>Fresh filmed creative every month, one always-on campaign, retargeting and past customers, tuned weekly, seasonal pushes planned ahead.</p><div class="who">Us, from week 3</div></div>
+    </div>
+
+    <div class="sub">The offers</div>
+    <p class="lead">We would not discount the whole shop. Your price is defended by size and taste. These add a reason to order now without training people to wait for a code.</p>
+    <div class="offers">
+      <div class="offer lead-offer"><span class="flag">Launch with this</span><h4>Free delivery over &pound;50, free gift note</h4><div class="when">Always on, from the day ads go live</div><p>Today nobody can see what delivery costs until checkout, and "you have to pay to enclose a gift message" is a complaint in your reviews. Rachael's Kitchen gives the message free. So: free next-day delivery on orders over &pound;50, and the gift note free on every order, both shown on every product page and in every ad.</p><p>A &pound;44.99 cake plus any add-on crosses &pound;50, so it lifts the basket with the balloons and candles that already sell, with no discount code. We set the exact threshold once we see your courier costs.</p></div>
+      <div class="offer"><h4>The Birthday Box</h4><div class="when">Always on, from launch</div><p>A 7" cake, an age balloon and candles in one tap at one bundle price, over the free delivery line. Your add-ons are already two of your four best sellers, so this lifts the order value while saving the buyer clicks.</p></div>
+      <div class="offer"><h4>Christmas thank-you boxes</h4><div class="when">Mid November to 21 December</div><p>Cheesecake and brownie boxes in your Company Purple sleeve for client and staff thank-yous, "send ten in one order". Plus a clearly published Christmas last-order date, which you do not have yet.</p></div>
+      <div class="offer"><h4>Black Friday gift card bonus</h4><div class="when">27 to 30 November</div><p>Buy a &pound;50 gift card, get &pound;10 added. No discount on cakes, cash in now, and it pulls January birthdays and Valentine's orders forward.</p></div>
+      <div class="offer"><h4>Arrives Saturday for Sunday</h4><div class="when">Valentine's and Mother's Day</div><p>Valentine's is Sunday 14 February 2027 and Mothering Sunday is Sunday 7 March. You deliver Tuesday to Saturday, Rachael's Kitchen delivers Sundays. Either add a Sunday option for those two weekends, or we make "order by 2pm Friday, it arrives Saturday" the whole message, with countdown ads.</p></div>
+      <div class="offer"><h4>Pick your six</h4><div class="when">Always on, care moments</div><p>Your Choose Your Own cheesecake box is already your second most reviewed product. We sell it as the thank-you and thinking-of-you gift at under &pound;30, with the exact flavours promised.</p></div>
+    </div>
+
+    <div class="sub">The ads we would make</div>
+    <p class="lead">Twelve concepts to start. Most have people in them, and three exist purely to answer "will it arrive in one piece?"</p>
+    <div class="concepts">
+      <div class="concept"><div class="no">01</div><h4>Can't be there? Send the cake.</h4><div class="hook">"She's 300 miles away. It's still her birthday."</div><p>A doorstep delivery, the recipient on a video call with the sender, lid off, reaction.</p><div class="tags"><span class="st">Cold</span><span>Far-away sender</span></div></div>
+      <div class="concept"><div class="no">02</div><h4>The 1:59pm panic</h4><div class="hook">"It's 1:45. His birthday is tomorrow. You have 15 minutes."</div><p>A skit with a phone countdown to 2pm, ordered in 30 seconds, paid in 4 with Clearpay, cake on the table next day.</p><div class="tags"><span class="st">Cold</span><span>Last-minute rescuer</span></div></div>
+      <div class="concept"><div class="no">03</div><h4>Newcastle to Cornwall in one piece</h4><div class="hook">"How we post a 2kg cake 400 miles without a scratch."</div><p>The packing in the unit: box, brackets, foam, dry ice, sealed, then the arrival at the other end.</p><div class="tags"><span class="st">Cold</span><span>Answers the fear</span></div></div>
+      <div class="concept"><div class="no">04</div><h4>Why frozen is a good thing</h4><div class="hook">"It arrives frozen. Here's what happens three hours later."</div><p>A defrost timelapse, then the knife goes in and the moist slice comes out.</p><div class="tags"><span class="st">Warm</span><span>Answers the fear</span></div></div>
+      <div class="concept"><div class="no">05</div><h4>The first cut</h4><div class="hook">"This is what 2kg of Biscoff cake looks like inside."</div><p>Slow-motion cross-sections, one flavour per ad: Biscoff, Lindt, Ferrero, Matilda.</p><div class="tags"><span class="st">Cold</span><span>Flavour gifter</span></div></div>
+      <div class="concept"><div class="no">06</div><h4>Meet the bakers</h4><div class="hook">"We don't sell factory cakes. This is who makes yours."</div><p>Your team in the unit, to camera, decorating by hand. The human face Rachael's Kitchen never shows.</p><div class="tags"><span class="st">Cold</span><span>Trust</span></div></div>
+      <div class="concept"><div class="no">07</div><h4>Guess the price</h4><div class="hook">"We asked people in Newcastle what this cake costs."</div><p>A street game with a whole 7" cake. The reveal: &pound;44.99, serves 14. Games are one of our best-performing formats.</p><div class="tags"><span class="st">Cold</span><span>Value</span></div></div>
+      <div class="concept"><div class="no">08</div><h4>The real reviews</h4><div class="hook">"I was a little sceptical about a mail order cake..."</div><p>Customer quotes read over real footage, with star ratings on screen and customer photos used with permission.</p><div class="tags"><span class="st">Warm</span><span>Proof</span></div></div>
+      <div class="concept"><div class="no">09</div><h4>The whole dessert table</h4><div class="hook">"Cake, cheesecakes, brownies, cupcakes. One delivery."</div><p>A real family party table dressed only with your products, hands reaching in. The one thing Rachael's Kitchen cannot show.</p><div class="tags"><span class="st">Cold</span><span>Home celebrator</span></div></div>
+      <div class="concept"><div class="no">10</div><h4>"Don't get me anything"</h4><div class="hook">"When your mum says she doesn't want anything for Mother's Day."</div><p>A relatable seasonal skit ending on the doorstep. Versions for Valentine's and Christmas.</p><div class="tags"><span class="st">Seasonal</span><span>Calendar gifter</span></div></div>
+      <div class="concept"><div class="no">11</div><h4>Ten thank-yous, one order</h4><div class="hook">"Your clients get a card. Or they get this."</div><p>Branded sleeves on office desks, the box opened in a meeting. For the Christmas corporate push.</p><div class="tags"><span class="st">Seasonal</span><span>Corporate</span></div></div>
+      <div class="concept"><div class="no">12</div><h4>Order by 2pm</h4><div class="hook">"Still time. Order by 2pm, on their doorstep tomorrow."</div><p>Deadline statics and a product catalogue ad for people who looked but did not buy. Pushed hardest in the last 72 hours before each cut-off.</p><div class="tags"><span class="st">Retargeting</span><span>Everyone</span></div></div>
+    </div>
+
+    <div class="sub">How the account is set up</div>
+    <div class="camps">
+      <div class="camp"><div class="pct">About 75%</div><h4>Always on: finding new customers</h4><p>One sales campaign, UK-wide, broad, with every concept above competing. Losers switched off on a 7-day read, winners given more. New creative added every month; seasonal ads added 3 to 6 weeks before each date.</p></div>
+      <div class="camp b"><div class="pct">About 20%</div><h4>Retargeting</h4><p>People who viewed a cake or added to basket but did not buy: proof, packing footage and the 2pm deadline.</p></div>
+      <div class="camp c"><div class="pct">About 5%</div><h4>Past customers</h4><p>Birthdays come round every year. Last year's buyers see a reminder before the same moment.</p></div>
+    </div>
+
+    <div class="sub">Budget and the maths</div>
+    <p class="lead">You pay Meta directly and we agree the number with you before anything runs. Given what happened last time, we start small and only scale what is proven.</p>
+    <div class="maths">
+      <div><div class="v">~&pound;48</div><div class="l">Estimated average order, from your prices, add-ons and delivery. Your Shopify will tell us the real figure.</div></div>
+      <div><div class="v">~&pound;24</div><div class="l">Break-even cost per first order, if about half of each order is left after baking, packing and courier. To confirm with you.</div></div>
+      <div><div class="v">&pound;25<small style="font-size:.5em">/day</small></div><div class="l">Suggested starting spend, about &pound;760 a month, while the first concepts are tested.</div></div>
+      <div><div class="v">&pound;20</div><div class="l">Target cost per first order while testing, so each first order pays for itself. Spend only rises after it holds for 7 days.</div></div>
+    </div>
+    <p class="source">A customer who sends a birthday cake this year has another birthday next year, so a first order is worth more than its own margin; we report repeat orders separately rather than banking on them. At Christmas, spend is capped at what you can bake, pack and ship without substitutions. All numbers here are estimates until we see your Shopify and your costs.</p>
+
+    <div class="sub">The next six months</div>
+    <div class="cal">
+      <div class="cal-head"><div></div><div>Oct</div><div>Nov</div><div>Dec</div><div>Jan</div><div>Feb</div><div>Mar</div></div>
+      <div class="cal-row"><div class="name">Website overhaul<small>before ads</small></div><div class="cal-track"><div class="cal-bar ink" style="left:0;width:8%"></div></div></div>
+      <div class="cal-row"><div class="name">Birthdays, always on<small>the core engine</small></div><div class="cal-track"><div class="cal-bar" style="left:8%;width:92%"></div></div></div>
+      <div class="cal-row"><div class="name">Christmas<small>corporate, "can't be there"</small></div><div class="cal-track"><div class="cal-bar" style="left:25%;width:19.6%"></div></div></div>
+      <div class="cal-row"><div class="name">Black Friday<small>gift card bonus</small></div><div class="cal-track"><div class="cal-bar lo" style="left:31%;width:2.2%"></div></div></div>
+      <div class="cal-row"><div class="name">Valentine's<small>Sun 14 Feb</small></div><div class="cal-track"><div class="cal-bar peak" style="left:59.7%;width:13.5%"></div></div></div>
+      <div class="cal-row"><div class="name">Mother's Day<small>Sun 7 Mar, peak week</small></div><div class="cal-track"><div class="cal-bar peak" style="left:75%;width:10.5%"></div></div></div>
+    </div>
+    <p class="cal-note">Google searches for "cake delivery" in the UK peak in Mother's Day week and again from late January to mid February. December is the quietest month for search, so Christmas is won on Meta with gifting and corporate ads rather than waiting for searches.</p>
+  </div>
+</section>
+
+<!-- 05 WEBSITE -->
+<section class="section soft" id="website">
+  <div class="container">
+    <div class="kicker"><span class="num">05</span> The website overhaul</div>
+    <div class="title">Fix the site before we spend</div>
+    <p class="lead">We opened the site on a phone as a stranger from an ad would. These are five things they meet today.</p>
+    <div class="before">
+      <figure><a href="assets/site/home-fold-mobile.jpg" target="_blank" rel="noopener"><img src="assets/site/home-fold-mobile.jpg" alt="Email popup over the homepage" loading="lazy"></a><figcaption><b>First 1.5 seconds</b>An email popup covers the page, offering "exclusive discounts" with no discount named.</figcaption></figure>
+      <figure><a href="assets/site/atc-redirect-addons-mobile.jpg" target="_blank" rel="noopener"><img src="assets/site/atc-redirect-addons-mobile.jpg" alt="Add-ons page after add to basket" loading="lazy"></a><figcaption><b>Add to basket</b>You are sent to an "Add-ons" page, not your basket.</figcaption></figure>
+      <figure><a href="assets/site/cart-terms-wall-mobile.jpg" target="_blank" rel="noopener"><img src="assets/site/cart-terms-wall-mobile.jpg" alt="Terms wall in the basket" loading="lazy"></a><figcaption><b>The basket</b>A compulsory tickbox, ten clauses of delivery terms, and no delivery price.</figcaption></figure>
+      <figure><a href="assets/site/pdp-allergen-line-mobile.jpg" target="_blank" rel="noopener"><img src="assets/site/pdp-allergen-line-mobile.jpg" alt="Allergen line on the best seller" loading="lazy"></a><figcaption><b>Best seller page</b>"please us the contact us section above", and there is no contact section above.</figcaption></figure>
+      <figure><a href="assets/site/lorem-ipsum-collection-mobile.jpg" target="_blank" rel="noopener"><img src="assets/site/lorem-ipsum-collection-mobile.jpg" alt="Lorem ipsum page" loading="lazy"></a><figcaption><b>Live pages</b>A "Lorem ipsum" placeholder page and a perfume range, both listed for Google.</figcaption></figure>
+    </div>
+    <div class="stats three" style="margin-top:18px">
+      <div class="stat bad"><div class="v">3</div><div class="l">different cut-off times on the site (2pm, midday, 6pm) and three different shelf lives (7, 6 and 4 to 5 days).</div></div>
+      <div class="stat bad"><div class="v">~19s</div><div class="l">for the main image to appear in our throttled mobile test, against about 7 to 11 seconds on Rachael's Kitchen. Google's target is under 2.5.</div></div>
+      <div class="stat bad"><div class="v">3x</div><div class="l">the Google Ads tag fires on every product view, and tracking pixels load with no cookie banner shown.</div></div>
+    </div>
+
+    <div class="sub">What the overhaul covers</div>
+    <div class="two-col">
+      <ul class="list">
+        <li><b>A homepage built for a stranger from an ad:</b> what you are, star rating, "order by 2pm, next day UK-wide", your real cakes, occasion tiles.</li>
+        <li><b>The popup fixed:</b> delayed, a real reason to sign up, and switched off for people arriving from ads.</li>
+        <li><b>A proper basket:</b> a slide-out basket with the top add-ons inside it, no terms wall, no forced tickbox.</li>
+        <li><b>One delivery story everywhere:</b> one cut-off, the delivery price on the product page, frozen explained as a positive, one shelf life.</li>
+        <li><b>Product pages that sell:</b> price, rating, delivery date and the button on the first screen, gift note on the page, real slice and packing photos, allergen line fixed.</li>
+        <li><b>Collections that are easy to browse on a phone:</b> two per row, star ratings, "serves 14", best sellers first.</li>
+      </ul>
+      <ul class="list">
+        <li><b>Occasion landing pages</b> for the ads: birthdays, Christmas thank-yous, Mother's Day.</li>
+        <li><b>Reviews where people decide:</b> ratings on the homepage and collections, and automatic review invites after every order.</li>
+        <li><b>Tracking cleaned up:</b> one Meta pixel path with the Conversions API confirmed, duplicate Google tags removed, a proper cookie banner.</li>
+        <li><b>Speed:</b> heavy images compressed, unused apps and duplicate scripts removed, a static hero in place of the slider.</li>
+        <li><b>The clean-up:</b> Lorem ipsum, perfumes, the Covid notice, empty collections, typos and conflicting "Our Story" dates.</li>
+        <li><b>Done on a copy of your theme,</b> so the live shop keeps trading. You see it and sign it off before anything switches.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 06 PLAN AND PRICE -->
+<section class="section" id="plan">
+  <div class="container">
+    <div class="kicker"><span class="num">06</span> The plan and the price</div>
+    <div class="title">What lands every month</div>
+    <div class="month">
+      <div class="tile dark"><div class="n">1</div><div class="t">Shoot day at the unit</div><p>We come to you in Newcastle and film the bakers, the packing, the products and the skits for the month.</p></div>
+      <div class="tile"><div class="n">20</div><div class="t">Ad creatives to start</div><p>Mostly vertical video, plus statics, cut for Facebook and Instagram. Every file is yours to post on your socials too.</p></div>
+      <div class="tile"><div class="n">3</div><div class="t">Campaigns always on</div><p>New customers, retargeting and past customers, built and managed by us.</p></div>
+      <div class="tile"><div class="n">Weekly</div><div class="t">Ads tuned</div><p>Spend, results and creative checked and adjusted every week. Seasonal ads in place 3 to 6 weeks before each date.</p></div>
+      <div class="tile"><div class="n">1</div><div class="t">Monthly report</div><p>Plain figures: spend, orders, cost per order, return, what we switched off and why. A short weekly update in between.</p></div>
+      <div class="tile"><div class="n">0</div><div class="t">Emails</div><p>Email marketing is not part of this plan, as agreed on the call.</p></div>
+    </div>
+
+    <div class="sub">From yes to live</div>
+    <div class="card">
+      <ul class="timeline">
+        <li><span class="dot"></span><div class="w">Week 1</div><div class="t">Kick-off and access</div><p>We get access to Shopify, your Meta Business account and ad account, audit the tracking, book the first shoot at the unit and start the website on a copy of your theme.</p></li>
+        <li><span class="dot"></span><div class="w">Weeks 1 to 2</div><div class="t">Website overhaul and first shoot</div><p>The site is rebuilt and you sign it off. The first shoot gives us the first batch of ads, product and packing footage for the new pages.</p></li>
+        <li><span class="dot"></span><div class="w">Week 3</div><div class="t">Ads switch on</div><p>New site live, tracking clean, review invites running, ads live at the agreed test budget. First 7-day read the week after.</p></li>
+        <li><span class="dot"></span><div class="w">Mid November to 21 December</div><div class="t">Christmas</div><p>Corporate thank-you boxes, "can't be there this Christmas", Black Friday gift cards, and a published last-order date.</p></li>
+        <li><span class="dot"></span><div class="w">January to March</div><div class="t">The two big weeks</div><p>Valentine's from mid January and Mother's Day from mid February, the two biggest search peaks of the year, with the account already trained on your buyers.</p></li>
+      </ul>
+    </div>
+    <div class="yourpart">
+      <div class="caps">Your part</div>
+      <ul class="list">
+        <li><b>No substitutions without the customer's say-so,</b> and a quick packing check on every order. That is where most bad reviews start.</li>
+        <li><b>Reply to Trustpilot reviews</b> within a couple of days. We write the templates.</li>
+        <li><b>A phone number or chat</b> for pre-order questions.</li>
+        <li><b>Your real numbers:</b> delivery prices, margins and average order, so we set the right targets.</li>
+        <li><b>A decision on Sunday delivery</b> for Valentine's and Mother's Day weekends.</li>
+      </ul>
+    </div>
+
+    <div class="sub">The numbers</div>
+    <div class="card">
+      <table class="glance">
+        <tr>
+          <td>The full plan, normal rate<span>Content filmed at your unit, ad creatives, Meta ads fully managed, and email marketing.</span></td>
+          <td>&pound;1,750<small>per month</small></td>
+        </tr>
+        <tr class="minus">
+          <td>Email marketing<span>Not needed. You are not doing email with us, so it comes off.</span></td>
+          <td><s>&pound;400</s><small>removed</small></td>
+        </tr>
+        <tr>
+          <td>Your monthly plan<span>One shoot day a month, 20 ad creatives to start, three campaigns built and managed, weekly tuning, monthly report.</span></td>
+          <td>&pound;1,350<small>per month</small></td>
+        </tr>
+        <tr>
+          <td>Complete website overhaul<span>Everything in section 05, done in the first two weeks on a copy of your theme. Month one only.</span></td>
+          <td>&pound;250<small>one-off</small></td>
+        </tr>
+      </table>
+      <div class="pay">
+        <div><div class="caps">Month one</div><div class="v">&pound;1,600</div><small>&pound;1,350 plan plus &pound;250 website overhaul</small></div>
+        <div><div class="caps">From month two</div><div class="v">&pound;1,350</div><small>per month</small></div>
+      </div>
+      <p class="glance-note">Billed monthly in advance, the first month on signing. Three month minimum, which is the time the ads need to learn properly and takes you through Christmas, then month to month with 30 days notice either way. Ad spend is paid by you directly to Meta and is on top; we agree it with you before anything runs. No setup fees, no hidden extras.</p>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="section tight">
+    <div class="proof">
+      <div class="kicker">Before and after ads</div>
+      <h3>What we did for The Northumberland Candle Company.</h3>
+      <p>The same shape of business as yours: a product shipped UK-wide from the North East. We rebuilt the website first, then filmed the creative and ran the ads. This is what happened to monthly revenue.</p>
+      <div class="pstats">
+        <div class="pstat"><div class="v">&pound;6,650</div><div class="l">June, the month before ads</div></div>
+        <div class="pstat"><div class="v">&pound;112,230</div><div class="l">August, two months in</div></div>
+      </div>
+      <p>Across July and August that was &pound;149,709 in sales on &pound;19,292 of ad spend, a blended return of 7.8 times the ad spend.</p>
+      <p class="small">Figures from their Shopify and Meta accounts, July and August 2026. That is what we did for one client, not a promise of what yours will do. Your range, your margins, your reviews and your ad budget decide that, which is why we fix the site first and report every pound.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section tight">
+    <div class="cta">
+      <div class="kicker">Next steps</div>
+      <h2>Ready when you are.</h2>
+      <p>If this reads right, message me on WhatsApp and I will send over the simple agreement and a short onboarding form, and we get the first shoot at the unit in the diary. The website work starts the same week.</p>
+      <p><b>The cakes already do their job. This makes sure the ads, the website and the reviews do theirs.</b></p>
+      <div class="btns">
+        <a href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Desserts%20Delivered%20plan" target="_blank" rel="noopener" class="btn btn-wa"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp Jay</a>
+        <a href="mailto:jay@fusioncreative.uk?subject=Desserts%20Delivered%20plan" class="btn btn-white">Email instead</a>
+      </div>
+      <div class="cta-sub">Or give me a call on 07437 571250 whenever suits.</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="signature">
+    <div class="name">Jay Williams</div>
+    <div class="role">Founder, Fusion Creative</div>
+    <a href="https://fusioncreative.uk" target="_blank" rel="noopener">fusioncreative.uk</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="lockup"><img src="assets/brand/logo.png" alt="Desserts Delivered Bakery"><span class="x">x</span><span class="fc">Fusion <span>Creative</span></span></div>
+    Confidential &middot; Prepared for Desserts Delivered Bakery &middot; 22 September 2026
+  </div>
+</footer>
+
+</body>
+</html>
