@@ -75,6 +75,14 @@ h1,h2,h3{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.14;lette
 .evidence{margin-top:16px;background:var(--stone-2);padding:14px 16px;font-size:13.5px;color:var(--ink-3);line-height:1.7}
 .evidence b{color:var(--ink-2);font-weight:600}
 
+/* screenshot evidence: the finding, shown rather than described */
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.fig{margin:0}
+.fig img{width:100%;height:auto;border:1px solid var(--line);background:#fff;display:block}
+.fig figcaption{font-size:12px;color:var(--ink-3);margin-top:9px;line-height:1.6}
+.fig figcaption b{color:var(--ink-2);font-weight:600}
+@media (max-width:720px){ .shots{grid-template-columns:1fr;gap:22px} }
+
 /* price comparison, the signature graphic */
 .pricebox{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:20px;border:1px solid var(--line)}
 .pricebox > div{background:var(--paper);padding:26px 22px;text-align:center}
@@ -138,6 +146,16 @@ footer{background:var(--ink);color:rgba(255,255,255,.52);padding:34px 0;font-siz
       <div><span><a href="https://kaorisprays.com/products/kaori-dark-cherry-hang-up-air-fresheners" target="_blank" rel="noopener">Dark Cherry Hang Ups</a> &middot; buyable now</span><span class="bad">&pound;2.00</span></div>
       <div><span><a href="https://kaorisprays.com/products/kaori-black-hang-up-air-fresheners" target="_blank" rel="noopener">Black Hang Ups</a> &middot; buyable now</span><span class="bad">&pound;2.00</span></div>
       <div><span><a href="https://kaorisprays.com/products/kaori-vanilla-hang-ups" target="_blank" rel="noopener">Kaori Vanilla Hang ups</a> &middot; sold out</span><span class="bad">&pound;2.00</span></div>
+    </div>
+    <div class="shots">
+      <figure class="fig">
+        <img src="assets/evidence-product.png" alt="Dark Cherry Hang Ups product page showing a price of GBP 2.00 next to a Pack of 10 option labelled GBP 17.99" loading="lazy">
+        <figcaption><b>Your product page.</b> The price reads &pound;2.00 while the pack option beside it is labelled &pound;17.99.</figcaption>
+      </figure>
+      <figure class="fig">
+        <img src="assets/evidence-checkout.png" alt="Kaori checkout order summary showing Dark Cherry Hang Ups with pack prices and a total of GBP 2.00" loading="lazy">
+        <figcaption><b>Your checkout, just now.</b> One Dark Cherry Hang Up, listed as &pound;17.99 / &pound;69.99 / &pound;89.99, total <b>&pound;2.00</b>.</figcaption>
+      </figure>
     </div>
     <div class="evidence">Cause: the pack sizes were entered as Shopify option <b>names</b> and the prices as option <b>values</b>, so only one variant was ever created, at 200 pence. The radio buttons render but there is nothing behind them to change the price. Each product returns a <b>variant count of 1</b>, titled &ldquo;&pound;17.99 / &pound;69.99 / &pound;89.99&rdquo;. Check it yourself in fifteen seconds: open <a href="https://kaorisprays.com/products/kaori-dark-cherry-hang-up-air-fresheners" target="_blank" rel="noopener">Dark Cherry Hang Ups</a>, add it to your basket and read the total. It stays &pound;2.00 whichever pack you press. To see the cause rather than the symptom, open <a href="https://kaorisprays.com/products/kaori-dark-cherry-hang-up-air-fresheners.js" target="_blank" rel="noopener">the same product's data</a> and look at <b>variants</b>: there is only one, priced 200.</div>
   </div>
