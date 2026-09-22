@@ -1,202 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- fc-build: status=inbound-lead source=/scale date=2026-09-22 -->
+<!-- fc-build: status=inbound-lead source=/scale date=2026-09-22 rev=2 -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>VRJJ Candles x Fusion Creative | Growth Audit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --ink:#111111; --ink-2:#3a3a3a; --ink-3:#6f6f6f;
-  --stone:#9A9696; --stone-soft:#F2F0EF; --paper:#FFFFFF;
-  --line:rgba(17,17,17,.12); --flag:#B4453A;
-}
+:root{ --ink:#111; --ink-2:#4a4a4a; --ink-3:#8a8a8a; --stone:#9A9696; --paper:#FCFBFA; --line:rgba(17,17,17,.14); }
 html{scroll-behavior:smooth}
-body{font-family:'Outfit',sans-serif;background:var(--paper);color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:clip;font-weight:300}
-h1,h2,h3,.disp{font-family:'Tenor Sans',sans-serif;font-weight:400;line-height:1.12;letter-spacing:.005em}
-img{display:block;max-width:100%}
-.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+body{font-family:'Outfit',sans-serif;font-weight:300;background:var(--paper);color:var(--ink);
+     line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:clip;font-size:17px}
+h1,h2,h3,.tn{font-family:'Tenor Sans',sans-serif;font-weight:400;line-height:1.14;letter-spacing:.01em}
+.col{max-width:620px;margin:0 auto;padding:0 28px}
+.wide{max-width:1120px;margin:0 auto;padding:0 28px}
 
-.topbar{border-bottom:1px solid var(--line);padding:18px 0}
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.lockup{font-family:'Tenor Sans',sans-serif;letter-spacing:.3em;font-size:15px}
-.lockup .x{color:var(--stone);margin:0 10px}
-.lockup .fc{font-size:10px;letter-spacing:.3em;font-weight:600;font-family:'Outfit',sans-serif}
-.topbar .co{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3)}
+/* masthead: a thin rule and letterspaced type, like the top of a lookbook */
+.mast{padding:30px 0;text-align:center;border-bottom:1px solid var(--line)}
+.mast .m1{font-family:'Tenor Sans',sans-serif;font-size:17px;letter-spacing:.44em}
+.mast .m2{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-3);margin-top:12px}
 
-.hero{background:var(--ink);color:#fff;padding:86px 0 78px}
-.kicker{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--stone);margin-bottom:22px}
-.hero h1{font-size:clamp(34px,5.4vw,58px);max-width:860px}
-.hero h1 em{font-style:normal;color:var(--stone)}
-.hero p{color:rgba(255,255,255,.72);font-size:17px;margin-top:22px;max-width:640px}
-.trust{display:flex;gap:40px;margin-top:40px;flex-wrap:wrap}
-.trust .n{font-family:'Tenor Sans',sans-serif;font-size:30px;line-height:1}
-.trust .l{font-size:10.5px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.14em;margin-top:8px}
+/* opening spread */
+.open{padding:120px 0 104px;text-align:center}
+.open .pre{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--stone);margin-bottom:34px}
+.open h1{font-size:clamp(32px,4.6vw,54px);max-width:760px;margin:0 auto}
+.open .sub{margin-top:34px;color:var(--ink-2);font-size:17.5px;max-width:540px;margin-left:auto;margin-right:auto}
+.rule{width:44px;height:1px;background:var(--ink);margin:46px auto 0}
 
-section{padding:76px 0;border-bottom:1px solid var(--line)}
-section.stone{background:var(--stone-soft)}
-section.dark{background:var(--ink);color:#fff;border-bottom:0}
-.eyebrow{font-size:10px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);margin-bottom:16px;font-family:'Outfit',sans-serif}
-.dark .eyebrow{color:var(--stone)}
-h2{font-size:clamp(26px,3.8vw,40px);margin-bottom:18px;max-width:760px}
-h3{font-size:19px;margin-bottom:8px}
-p.body{color:var(--ink-2);font-size:16.5px;max-width:700px;margin-bottom:15px}
-p.body b{font-weight:600;color:var(--ink)}
-.dark p.body{color:rgba(255,255,255,.76)} .dark p.body b{color:#fff}
+/* the one bold moment: a full bleed black spread on the shipping failure */
+.spread{background:var(--ink);color:var(--paper);padding:118px 0;text-align:center;margin:0}
+.spread .pre{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:rgba(252,251,250,.5);margin-bottom:40px}
+.spread .big{font-family:'Tenor Sans',sans-serif;font-size:clamp(76px,15vw,190px);line-height:.9;letter-spacing:-.02em}
+.spread .cap{margin-top:40px;color:rgba(252,251,250,.74);font-size:17px;max-width:520px;margin-left:auto;margin-right:auto}
+.spread .fine{margin-top:34px;font-size:13px;color:rgba(252,251,250,.44);max-width:560px;margin-left:auto;margin-right:auto;line-height:1.8}
 
-.find{border-top:1px solid var(--line);padding:26px 0;display:grid;grid-template-columns:34px 1fr;gap:18px;align-items:start}
-.dark .find{border-color:rgba(255,255,255,.16)}
-.find .num{font-family:'Tenor Sans',sans-serif;font-size:15px;color:var(--stone);padding-top:3px}
-.find p{color:var(--ink-2);font-size:15.5px;max-width:660px;margin-top:6px}
-.dark .find p{color:rgba(255,255,255,.72)}
-.tag{display:inline-block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
-     border:1px solid var(--line);padding:4px 10px;margin-top:12px;color:var(--ink-3)}
-.tag.flag{border-color:var(--flag);color:var(--flag)}
-.dark .tag{border-color:rgba(255,255,255,.28);color:rgba(255,255,255,.7)}
+/* findings read as an essay, not cards */
+.chapter{padding:104px 0 12px;text-align:center}
+.chapter .n{font-family:'Tenor Sans',sans-serif;font-size:13px;letter-spacing:.3em;color:var(--stone)}
+.chapter h2{font-size:clamp(27px,3.6vw,40px);margin-top:20px}
+.entry{padding:52px 0;border-bottom:1px solid var(--line)}
+.entry:last-child{border-bottom:0}
+.entry .lab{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);margin-bottom:18px}
+.entry h3{font-size:24px;margin-bottom:18px}
+.entry p{color:var(--ink-2);margin-bottom:16px}
+.entry p b{font-weight:500;color:var(--ink)}
+.note{margin-top:26px;padding-left:22px;border-left:1px solid var(--line);font-size:14.5px;color:var(--ink-3);line-height:1.8}
+.note b{color:var(--ink-2);font-weight:500}
 
-.proof{background:#fff;border:1px solid var(--line);padding:22px 24px;margin-top:18px;font-size:14px;color:var(--ink-3);max-width:680px}
-.proof b{color:var(--ink);font-weight:600}
-.dark .proof{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.16);color:rgba(255,255,255,.66)}
-.dark .proof b{color:#fff}
+/* a measured comparison, set like a contents page */
+.ledger{margin:34px 0 8px;width:100%;border-collapse:collapse;font-size:15px}
+.ledger td{padding:14px 0;border-bottom:1px solid var(--line);vertical-align:baseline}
+.ledger td:last-child{text-align:right;font-family:'Tenor Sans',sans-serif;white-space:nowrap;padding-left:20px}
+.ledger tr:last-child td{border-bottom:0}
 
-.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
-.btn{display:inline-block;padding:16px 30px;font-size:14px;font-weight:500;letter-spacing:.04em;text-decoration:none;border:1px solid var(--ink);color:var(--ink);background:#fff;transition:all .25s ease}
-.btn:hover{background:var(--ink);color:#fff}
-.btn.wa{background:#25D366;border-color:#25D366;color:#fff}
-.btn.wa:hover{background:#1da851;border-color:#1da851}
-.dark .btn{border-color:#fff;color:#fff;background:transparent}
-.dark .btn:hover{background:#fff;color:var(--ink)}
+/* closing */
+.close{background:#fff;border-top:1px solid var(--line);padding:110px 0 100px;text-align:center}
+.close h2{font-size:clamp(27px,3.8vw,42px);max-width:640px;margin:0 auto 32px}
+.close p{color:var(--ink-2);max-width:560px;margin:0 auto 18px}
+.close p b{font-weight:500;color:var(--ink)}
+.acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:46px}
+.act{display:inline-block;padding:17px 34px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+     text-decoration:none;border:1px solid var(--ink);color:var(--ink);transition:.28s ease}
+.act:hover{background:var(--ink);color:var(--paper)}
+.act.wa{border-color:#25D366;background:#25D366;color:#fff}
+.act.wa:hover{background:#1da851;border-color:#1da851}
+footer{padding:56px 0;text-align:center;font-size:12px;color:var(--ink-3);line-height:2}
 
-footer{padding:44px 0;font-size:12px;color:var(--ink-3);text-align:center}
 @media (max-width:640px){
-  .hero{padding:60px 0 54px} section{padding:54px 0}
-  .trust{gap:26px} .find{grid-template-columns:26px 1fr;gap:12px}
+  body{font-size:16px}
+  .open{padding:74px 0 62px} .spread{padding:80px 0} .chapter{padding:74px 0 8px}
+  .entry{padding:40px 0} .close{padding:74px 0 66px}
 }
 </style>
 </head>
 <body>
 
-<div class="topbar"><div class="wrap">
-  <div class="lockup">V R J J<span class="x">&times;</span><span class="fc">FUSION CREATIVE</span></div>
-  <div class="co">Growth audit &middot; September 2026</div>
+<div class="mast">
+  <div class="m1">V R J J</div>
+  <div class="m2">Growth audit &nbsp;&middot;&nbsp; prepared by Fusion Creative &nbsp;&middot;&nbsp; September 2026</div>
+</div>
+
+<div class="open"><div class="col">
+  <div class="pre">For Valentina</div>
+  <h1>Six years of product, and a shop that is quietly getting in its way.</h1>
+  <p class="sub">We read vrjjcandle.co.uk the way a customer does, then measured it the way an engineer does. Almost nothing below is opinion. You can re-check every figure yourself in about two minutes.</p>
+  <div class="rule"></div>
 </div></div>
 
-<section class="hero"><div class="wrap">
-  <div class="kicker">Prepared for Valentina</div>
-  <h1>Six years of product. <em>A store that is quietly losing the sale.</em></h1>
-  <p>We went through vrjjcandle.co.uk the way a customer does, then checked it the way an engineer does. Most of what follows is not opinion. It is things we could measure, and you can re-check every one of them in a couple of minutes.</p>
-  <div class="trust">
-    <div><div class="n">316</div><div class="l">Products live</div></div>
-    <div><div class="n">24</div><div class="l">Bundles that cannot ship</div></div>
-    <div><div class="n">55</div><div class="l">Products with no image</div></div>
-    <div><div class="n">2020</div><div class="l">Trading since</div></div>
-  </div>
-</div></section>
+<div class="spread">
+  <div class="pre">Every gift bundle you sell</div>
+  <div class="big">&pound;0</div>
+  <p class="cap">Not the price. The number of delivery options your &pound;100 bundles return at checkout. All twenty four of them cannot be bought.</p>
+  <p class="fine">We tested it against a control on your own store. A &pound;17.95 candle returns two delivery options, Standard at &pound;5.95 and Express at &pound;9.99. A &pound;100 bundle returns none, so the order cannot complete. Every bundle is set to require shipping, so Shopify is looking for a rate and finding nothing. It reads like a shipping profile that was never finished.</p>
+</div>
 
-<section><div class="wrap">
-  <div class="eyebrow">Section one</div>
+<div class="chapter"><div class="col">
+  <div class="n">I</div>
   <h2>The website</h2>
-  <p class="body">Your catalogue is deep and the products are good. The problem is not the range, it is that several parts of the shop are not actually functioning, and they are the expensive parts.</p>
+</div></div>
+<div class="col">
 
-  <div class="find"><div class="num">01</div><div>
-    <h3>Your &pound;100 gift bundles cannot be bought</h3>
-    <p>All 24 bundles return <b>no shipping options at all</b> at checkout. We tested it against a control: a &pound;17.95 candle returns Standard &pound;5.95 and Express &pound;9.99 as expected. A &pound;100 bundle returns nothing, so the order cannot complete. These are the highest value items you sell, and it is September.</p>
-    <div class="proof">Checked via your own Shopify shipping rates, Manchester postcode. Control cart &pound;17.95 returned <b>2 rates</b>. Bundle cart &pound;100.00 returned <b>0 rates</b>. Every bundle variant is set to require shipping, so Shopify is looking for a rate and finding none. It reads like a shipping profile or weight band that never got set.</div>
-    <div class="tag flag">Revenue blocked today</div>
-  </div></div>
-
-  <div class="find"><div class="num">02</div><div>
-    <h3>All 24 of those bundles have no photograph</h3>
-    <p>Birthday, Wedding, New Baby, Bridesmaid, Teacher, Housewarming, Valentine's. Every one is a gift people search for by occasion, priced at &pound;100, with an empty image. Across the whole store <b>55 products have no image at all</b>.</p>
-    <div class="tag">Highest value line, invisible</div>
-  </div></div>
-
-  <div class="find"><div class="num">03</div><div>
-    <h3>The mobile homepage opens on almost nothing</h3>
-    <p>Your hero image is <b>300 pixels wide</b> and is being stretched across the full screen. On a phone that is a soft grey blur with no product, no headline and nothing to tap. The larger versions of that exact file already exist on Shopify's servers. The theme simply is not asking for them.</p>
-    <div class="proof">Serving <b>IMG_8397_300x.jpg</b> at a natural 300 x 263 into a slot measured at 659 x 799.</div>
-    <div class="tag flag">Affects every phone visitor</div>
-  </div></div>
-
-  <div class="find"><div class="num">04</div><div>
-    <h3>Your cart page still has the theme's demo products on it</h3>
-    <p>Four blocks reading <b>&ldquo;Example product &dollar;29&rdquo;</b>, in US dollars, on a UK store. They sit on the page a customer sees immediately before paying, which is the single worst place to look unfinished.</p>
-    <div class="tag">Five minute fix</div>
-  </div></div>
-
-  <div class="find"><div class="num">05</div><div>
-    <h3>Nothing in the cart is working to raise the order value</h3>
-    <p>No free delivery threshold, anywhere. No &ldquo;add this and delivery is free&rdquo; nudge. No related products. No reviews or reassurance at the point of payment. Your payment options are strong, Klarna, PayPal, Shop Pay, Apple Pay and Google Pay are all there, so people can pay easily. Nothing is persuading them to add one more thing first.</p>
-    <div class="tag">Average order value</div>
-  </div></div>
-</div></section>
-
-<section class="stone"><div class="wrap">
-  <div class="eyebrow">Section two</div>
-  <h2>The ads</h2>
-  <p class="body">Before anything else is spent on advertising, the measurement has to be fixed, because right now it is reporting fiction.</p>
-
-  <div class="find"><div class="num">06</div><div>
-    <h3>You have two Meta pixels and three Google Analytics properties firing at once</h3>
-    <p>Every single sale is being counted more than once. That means any conclusion you have ever drawn about whether advertising works for you was drawn from numbers that were wrong, and Meta has been optimising against duplicated data.</p>
-    <div class="proof">Two Meta pixels live on the page: <b>1434991757100498</b> and <b>716079073847803</b>. Three GA4 properties: <b>G-NMEQ6F57RP</b>, <b>G-CMFZ3SG1LL</b>, <b>G-YZTP98GZHT</b>. Two Google Ads tags: <b>AW-536391746</b> and <b>AW-307057500</b>.</div>
-    <div class="tag flag">Fix before any spend</div>
-  </div></div>
-
-  <div class="find"><div class="num">07</div><div>
-    <h3>Nobody in your category is selling the gift</h3>
-    <p>We went through what your competitors are running. The angles repeat: mix and match pricing, stock up and save, scent throw claims, review counts, subscription boxes. Not one of them is advertising a candle as a gift for a specific person or occasion. You already have 24 occasion bundles built. They are simply unphotographed, unshippable and unadvertised.</p>
-    <div class="tag">The open lane</div>
-  </div></div>
-</div></section>
-
-<section><div class="wrap">
-  <div class="eyebrow">Section three</div>
-  <h2>The email</h2>
-  <p class="body">You are already paying for the tools. They are close to switched off.</p>
-
-  <div class="find"><div class="num">08</div><div>
-    <h3>Klaviyo is installed and barely used</h3>
-    <p>A 10 percent welcome offer is the only thing capturing anyone, and it fires on every page including the cart, where it interrupts people who are already buying. There is no back in stock, which matters because a chunk of your catalogue is sold out at any time. For a repeat purchase product like candles and refills, email should be a large share of revenue rather than an afterthought.</p>
-    <div class="tag">Already paid for, not switched on</div>
-  </div></div>
-</div></section>
-
-<section class="stone"><div class="wrap">
-  <div class="eyebrow">Section four</div>
-  <h2>The content</h2>
-  <div class="find"><div class="num">09</div><div>
-    <h3>The output has stopped, and the shop cannot use what exists</h3>
-    <p>TikTok has not been posted to since March. More to the point, 55 products have no photograph, so even the content you do have is not reaching the place where people decide to buy. Hand poured in Manchester is a genuine story and almost none of the store tells it.</p>
-    <div class="tag">Production and product photography</div>
-  </div></div>
-</div></section>
-
-<section class="dark"><div class="wrap">
-  <div class="eyebrow">Why we are confident about this</div>
-  <h2>We did this for another British candle company.</h2>
-  <p class="body">The Northumberland Candle Company came to us doing <b>&pound;6,650 a month</b>. Same platform as you, Shopify and Klaviyo. Same category. Roughly the same size.</p>
-  <p class="body">We rebuilt the store for conversion first, then ran the ads and the email as one system. Sixty days later they were doing <b>&pound;112,230 a month</b>, and August was <b>3,650 orders</b> against 248 the year before. Blended return on ad spend was 7.8x. Those are their real Shopify numbers, not a rounded up case study.</p>
-  <p class="body">We are not showing you that to impress you. We are showing you because the list above is close to the same list we started with there, and the order matters: fix the shop, then fix the measurement, then spend money on traffic. Sending paid traffic to a store where the &pound;100 bundles cannot check out would just be an expensive way to prove the point.</p>
-
-  <h3 style="margin-top:42px;font-size:24px">Where we would start</h3>
-  <p class="body">Not with a retainer. With the shipping profile, the cart page, the hero images and the tracking, because those are losing you money today and none of them need an ad budget. Then photography on the 24 bundles before Q4, because gifting season is the whole point of them. Advertising comes after that, once there is something worth sending people to and a way to measure whether it worked.</p>
-
-  <div class="cta">
-    <a class="btn" href="mailto:jay@fusioncreative.uk?subject=VRJJ%20Candles%20audit">Reply to this audit</a>
-    <a class="btn wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20VRJJ%20audit" target="_blank" rel="noopener">WhatsApp us</a>
+  <div class="entry">
+    <div class="lab">Twenty four products &nbsp;&middot;&nbsp; no photograph</div>
+    <h3>Your gifting range is invisible as well as unbuyable</h3>
+    <p>Birthday, Wedding, New Baby, Bridesmaid, Teacher, Housewarming, Valentine's. Every one is something people search for by occasion. Every one is priced at &pound;100. Every one has an empty image.</p>
+    <p>Across the whole store, <b>55 products have no image at all</b>, from 316 live.</p>
   </div>
-</div></section>
 
-<footer><div class="wrap">
-  Fusion Creative &middot; Newcastle upon Tyne &middot; fusioncreative.uk<br>
-  Prepared for VRJJ Candles, September 2026. Every figure above was measured from your live store on the day of writing.
-</div></footer>
+  <div class="entry">
+    <div class="lab">Mobile</div>
+    <h3>The phone homepage opens on almost nothing</h3>
+    <p>Your hero image is <b>300 pixels wide</b> and is being stretched across the whole screen. On a phone that is a soft grey blur: no product, no words, nothing to tap. The larger versions of that exact file already sit on Shopify's servers. The theme simply never asks for them.</p>
+    <div class="note">Serving <b>IMG_8397_300x.jpg</b>, a natural 300 by 263, into a space measured at 659 by 799.</div>
+  </div>
+
+  <div class="entry">
+    <div class="lab">The last screen before payment</div>
+    <h3>Your cart page still carries the theme's demo products</h3>
+    <p>Four blocks reading <b>&ldquo;Example product &dollar;29&rdquo;</b>, in US dollars, on a British store. They sit on the page a customer sees immediately before paying, which is the worst possible place to look unfinished.</p>
+  </div>
+
+  <div class="entry">
+    <div class="lab">Average order value</div>
+    <h3>Nothing in the basket is working to raise the order</h3>
+    <p>No delivery threshold anywhere. No nudge to add one more thing. No related products, no reassurance at the moment of payment.</p>
+    <p>Paying is easy, to be fair to you. Klarna, PayPal, Shop Pay, Apple Pay and Google Pay are all in place. Nothing is persuading anyone to add a second candle first.</p>
+  </div>
+</div>
+
+<div class="chapter"><div class="col">
+  <div class="n">II</div>
+  <h2>The ads</h2>
+</div></div>
+<div class="col">
+  <div class="entry">
+    <div class="lab">Measurement</div>
+    <h3>Two Meta pixels and three analytics properties are firing at once</h3>
+    <p>Every sale is being counted more than once. Any conclusion you have ever drawn about whether advertising works for you came from numbers that were wrong, and Meta has been learning from duplicated data.</p>
+    <table class="ledger">
+      <tr><td>Meta pixels live on the page</td><td>1434991757100498<br>716079073847803</td></tr>
+      <tr><td>Google Analytics properties</td><td>G-NMEQ6F57RP<br>G-CMFZ3SG1LL<br>G-YZTP98GZHT</td></tr>
+      <tr><td>Google Ads tags</td><td>AW-536391746<br>AW-307057500</td></tr>
+    </table>
+    <div class="note">This is the one thing that has to be right before any money is spent, rather than an improvement to make later.</div>
+  </div>
+
+  <div class="entry">
+    <div class="lab">The category</div>
+    <h3>Nobody is selling the gift</h3>
+    <p>We went through what the rest of your category advertises. The angles repeat: mix and match pricing, stock up and save, scent throw claims, review counts, subscription boxes.</p>
+    <p>Not one is selling a candle as a gift for a particular person or occasion. You already have twenty four occasion bundles built. They are simply unphotographed, unshippable and unadvertised.</p>
+  </div>
+</div>
+
+<div class="chapter"><div class="col">
+  <div class="n">III</div>
+  <h2>The email</h2>
+</div></div>
+<div class="col">
+  <div class="entry">
+    <div class="lab">Already paid for</div>
+    <h3>Klaviyo is installed and barely switched on</h3>
+    <p>A ten percent welcome offer is the only thing capturing anyone, and it appears on every page including the basket, where it interrupts people who had already decided to buy.</p>
+    <p>There is no back in stock, which matters when a meaningful part of the range is sold out at any time. For something people buy again like candles and refills, email should be a large share of the month rather than an afterthought.</p>
+  </div>
+</div>
+
+<div class="chapter"><div class="col">
+  <div class="n">IV</div>
+  <h2>The content</h2>
+</div></div>
+<div class="col">
+  <div class="entry">
+    <div class="lab">Production</div>
+    <h3>The output stopped, and the shop cannot use what exists</h3>
+    <p>TikTok has not been posted to since March. More to the point, 55 products have no photograph, so even the work you have already done is not reaching the place where people decide.</p>
+    <p>Hand poured in Manchester is a real story, and almost none of the store tells it.</p>
+  </div>
+</div>
+
+<div class="close"><div class="col">
+  <h2>We have done this once already, for a British candle company.</h2>
+  <p>The Northumberland Candle Company came to us at <b>&pound;6,650 a month</b>. Shopify and Klaviyo, same as you. Same category, roughly the same size.</p>
+  <p>We rebuilt the store to convert first, then ran the ads and the email as one system. Sixty days later they were at <b>&pound;112,230 a month</b>. August was <b>3,650 orders</b> against 248, at a blended 7.8x return on ad spend. Their real Shopify figures.</p>
+  <p>We mention it because the order matters more than the tactics. Sending paid traffic at a store where the &pound;100 bundles cannot check out would only be an expensive way to prove the point.</p>
+  <p style="margin-top:34px">So we would not start with a retainer. We would start with the shipping profile, the basket, the hero images and the tracking, none of which need an advertising budget. Then photograph the twenty four bundles before Christmas, because gifting is the entire reason they exist.</p>
+  <div class="acts">
+    <a class="act" href="mailto:jay@fusioncreative.uk?subject=VRJJ%20Candles%20audit">Reply to this</a>
+    <a class="act wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20VRJJ%20audit" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</div></div>
+
+<footer>
+  Fusion Creative &nbsp;&middot;&nbsp; Newcastle upon Tyne &nbsp;&middot;&nbsp; fusioncreative.uk<br>
+  Every figure was measured from your live store on 22 September 2026.
+</footer>
 
 </body>
 </html>

@@ -1,216 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- fc-build: status=inbound-lead source=whatsapp-from-video-ad date=2026-09-22 -->
+<!-- fc-build: status=inbound-lead source=whatsapp-from-video-ad date=2026-09-22 rev=2 -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Kaori x Fusion Creative | Growth Audit</title>
+<title>Kaori x Fusion Creative | Store Inspection</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --ink:#000000; --ink-2:#333333; --ink-3:#6B6B6B;
-  --navy:#0D3362; --stone:#E4E2DD; --stone-2:#F2F1EE; --paper:#FFFFFF;
-  --line:rgba(0,0,0,.12); --flag:#B4322B;
+  --ink:#0B0B0B; --ink-2:#3A3A3A; --ink-3:#6E6E6E;
+  --navy:#0D3362; --navy-2:#154080; --stone:#E4E2DD; --stone-2:#F3F2EF; --paper:#fff;
+  --line:rgba(11,11,11,.14); --fail:#B4322B; --advisory:#B07A12; --pass:#1E7A4C;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;background:var(--stone);color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:clip;font-weight:300}
-h1,h2,h3{font-family:'Cormorant Garamond',Garamond,serif;font-weight:500;line-height:1.1}
-img{display:block;max-width:100%}
-.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+body{font-family:'Poppins',sans-serif;font-weight:300;background:var(--stone);color:var(--ink);
+     line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+h1,h2,h3{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.14;letter-spacing:-.015em}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.mono{font-family:'Poppins',sans-serif;font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:10.5px}
 
-.topbar{background:var(--paper);border-bottom:1px solid var(--line);padding:16px 0}
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.lockup{display:flex;align-items:center;gap:14px}
-.lockup img{height:38px;width:auto}
-.lockup .x{color:var(--ink-3);font-family:'Cormorant Garamond',serif;font-size:20px}
-.lockup .fc{font-size:10px;letter-spacing:.3em;font-weight:600}
-.topbar .co{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3)}
+/* their announcement bar, borrowed */
+.strip{background:var(--navy);color:#fff;text-align:center;padding:11px 16px;
+       font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+.strip.dark{background:var(--ink)}
 
-.hero{background:var(--navy);color:#fff;padding:84px 0 76px}
-.kicker{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:22px}
-.hero h1{font-size:clamp(36px,5.8vw,62px);max-width:880px}
-.hero h1 em{font-style:italic;color:#CFE0F5}
-.hero p{color:rgba(255,255,255,.76);font-size:17px;margin-top:22px;max-width:660px;font-weight:300}
-.trust{display:flex;gap:40px;margin-top:40px;flex-wrap:wrap}
-.trust .n{font-family:'Cormorant Garamond',serif;font-size:34px;line-height:1}
-.trust .l{font-size:10.5px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.14em;margin-top:6px}
+/* report header, like a certificate */
+.head{background:var(--paper);border-bottom:3px solid var(--navy);padding:30px 0}
+.head .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.head img{height:44px;width:auto}
+.head .meta{text-align:right}
+.head .meta .r{font-weight:600;font-size:13px;letter-spacing:.06em}
+.head .meta .d{color:var(--ink-3);font-size:11px;margin-top:3px}
 
-section{padding:72px 0;border-bottom:1px solid var(--line)}
-section.paper{background:var(--paper)}
-section.dark{background:var(--ink);color:#fff;border-bottom:0}
-.eyebrow{font-size:10px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--navy);margin-bottom:14px}
-.dark .eyebrow,.hero .eyebrow{color:#CFE0F5}
-h2{font-size:clamp(28px,4.2vw,44px);margin-bottom:18px;max-width:760px}
-h3{font-size:21px;margin-bottom:8px}
-p.body{color:var(--ink-2);font-size:16.5px;max-width:700px;margin-bottom:15px}
-p.body b{font-weight:600;color:var(--ink)}
-.dark p.body{color:rgba(255,255,255,.78)} .dark p.body b{color:#fff}
+.title{background:var(--paper);padding:56px 0 52px;border-bottom:1px solid var(--line)}
+.title h1{font-size:clamp(28px,4.4vw,46px);max-width:800px}
+.title p{color:var(--ink-2);margin-top:20px;max-width:660px;font-size:16.5px}
 
-.find{border-top:1px solid var(--line);padding:26px 0;display:grid;grid-template-columns:34px 1fr;gap:18px;align-items:start}
-.dark .find{border-color:rgba(255,255,255,.18)}
-.find .num{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--navy);padding-top:4px}
-.dark .find .num{color:#CFE0F5}
-.find p{color:var(--ink-2);font-size:15.5px;max-width:670px;margin-top:6px}
-.dark .find p{color:rgba(255,255,255,.74)}
-.tag{display:inline-block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
-     border:1px solid var(--line);padding:4px 10px;margin-top:12px;color:var(--ink-3)}
-.tag.flag{border-color:var(--flag);color:var(--flag)}
+/* result summary board, the bold moment */
+.board{background:var(--ink);color:#fff;padding:0}
+.board .grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.board .cell{padding:36px 22px;border-right:1px solid rgba(255,255,255,.14)}
+.board .cell:last-child{border-right:0}
+.board .k{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4.4vw,46px);font-weight:600;line-height:1}
+.board .k.bad{color:#FF8A80}
+.board .v{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.58);margin-top:10px;line-height:1.5}
 
-.proof{background:var(--stone-2);border-left:2px solid var(--navy);padding:18px 20px;margin-top:16px;font-size:14px;color:var(--ink-3);max-width:680px}
-.proof b{color:var(--ink);font-weight:600}
-.paper .proof{background:var(--stone)}
-.dark .proof{background:rgba(255,255,255,.06);border-left-color:#CFE0F5;color:rgba(255,255,255,.68)}
-.dark .proof b{color:#fff}
+/* inspection items */
+.sec{padding:56px 0 8px}
+.sec h2{font-size:22px;display:flex;align-items:center;gap:14px}
+.sec h2 .tagno{background:var(--navy);color:#fff;font-size:11px;font-weight:600;letter-spacing:.14em;padding:5px 11px}
+.item{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--ink-3);margin-top:16px;padding:24px 26px}
+.item.fail{border-left-color:var(--fail)}
+.item.adv{border-left-color:var(--advisory)}
+.item.pass{border-left-color:var(--pass)}
+.item .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.status{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:4px 10px;color:#fff}
+.status.fail{background:var(--fail)} .status.adv{background:var(--advisory)} .status.pass{background:var(--pass)}
+.item h3{font-size:19px}
+.item p{color:var(--ink-2);font-size:15.5px;margin-top:10px;max-width:780px}
+.item p b{font-weight:600;color:var(--ink)}
+.spec{margin-top:18px;border-top:1px solid var(--line)}
+.spec div{display:flex;justify-content:space-between;gap:18px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.spec div span:first-child{color:var(--ink-3)}
+.spec div span:last-child{font-weight:500;text-align:right}
+.spec div span.bad{color:var(--fail);font-weight:600}
+.evidence{margin-top:16px;background:var(--stone-2);padding:14px 16px;font-size:13.5px;color:var(--ink-3);line-height:1.7}
+.evidence b{color:var(--ink-2);font-weight:600}
 
-table.rates{border-collapse:collapse;margin-top:16px;font-size:14.5px;max-width:620px;width:100%}
-table.rates th,table.rates td{border:1px solid var(--line);padding:9px 12px;text-align:left}
-table.rates th{background:var(--stone-2);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
-table.rates td.bad{color:var(--flag);font-weight:600}
+/* price comparison, the signature graphic */
+.pricebox{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:20px;border:1px solid var(--line)}
+.pricebox > div{background:var(--paper);padding:26px 22px;text-align:center}
+.pricebox .lbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+.pricebox .amt{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,6vw,54px);font-weight:600;margin-top:8px;line-height:1}
+.pricebox .amt.bad{color:var(--fail)}
 
-.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
-.btn{display:inline-block;padding:16px 30px;font-size:14px;font-weight:500;text-decoration:none;border:1px solid #fff;color:#fff;background:transparent;transition:all .25s ease}
-.btn:hover{background:#fff;color:var(--ink)}
-.btn.wa{background:#25D366;border-color:#25D366;color:#fff}
-.btn.wa:hover{background:#1da851;border-color:#1da851}
+.close{background:var(--navy);color:#fff;padding:72px 0}
+.close h2{font-size:clamp(26px,3.8vw,38px);max-width:700px;margin-bottom:24px}
+.close p{color:rgba(255,255,255,.82);max-width:700px;margin-bottom:15px;font-size:16.5px}
+.close p b{color:#fff;font-weight:600}
+.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.act{display:inline-block;padding:16px 30px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+     text-decoration:none;border:2px solid #fff;color:#fff;transition:.25s}
+.act:hover{background:#fff;color:var(--navy)}
+.act.wa{background:#25D366;border-color:#25D366}
+.act.wa:hover{background:#1da851;border-color:#1da851;color:#fff}
+footer{background:var(--ink);color:rgba(255,255,255,.52);padding:34px 0;font-size:11.5px;text-align:center;line-height:1.9}
 
-footer{padding:42px 0;font-size:12px;color:var(--ink-3);text-align:center}
-@media (max-width:640px){
-  .hero{padding:58px 0 52px} section{padding:52px 0}
-  .trust{gap:24px} .find{grid-template-columns:26px 1fr;gap:12px}
-  table.rates{font-size:13px} table.rates th,table.rates td{padding:7px 9px}
-}
+@media (max-width:760px){ .board .grid{grid-template-columns:1fr 1fr}
+  .board .cell{border-bottom:1px solid rgba(255,255,255,.14)} }
+@media (max-width:560px){ .pricebox{grid-template-columns:1fr} .head .meta{text-align:left}
+  .title{padding:40px 0 36px} .sec{padding:40px 0 6px} .close{padding:54px 0} }
 </style>
 </head>
 <body>
 
-<div class="topbar"><div class="wrap">
-  <div class="lockup">
-    <img src="https://kaorisprays.com/cdn/shop/files/Kaori_Logo_Document_A4_a5ef0893-8097-4f8b-b19f-06c131c1b76f_1.png?v=1730126931&width=200" alt="Kaori">
-    <span class="x">&times;</span><span class="fc">FUSION CREATIVE</span>
+<div class="strip">Store inspection &nbsp;&middot;&nbsp; prepared by Fusion Creative</div>
+
+<div class="head"><div class="wrap">
+  <img src="https://kaorisprays.com/cdn/shop/files/Kaori_Logo_Document_A4_a5ef0893-8097-4f8b-b19f-06c131c1b76f_1.png?v=1730126931&width=200" alt="Kaori">
+  <div class="meta">
+    <div class="r">kaorisprays.com</div>
+    <div class="d">Inspected 22 September 2026 &middot; 8 items checked</div>
   </div>
-  <div class="co">Growth audit &middot; 22 September 2026</div>
 </div></div>
 
-<section class="hero"><div class="wrap">
-  <div class="kicker">Prepared after your message</div>
-  <h1>You are doing the hard part yourself. <em>The shop is quietly undoing some of it.</em></h1>
-  <p>You said it is a one man team, so we went looking for things that are costing you money without needing more of your time. Most of this is not opinion. It is measurable, and you can re-check every item in about two minutes.</p>
-  <div class="trust">
-    <div><div class="n">&pound;2.00</div><div class="l">What a &pound;89.99 pack costs today</div></div>
-    <div><div class="n">5 of 15</div><div class="l">Products sold out</div></div>
-    <div><div class="n">0</div><div class="l">Analytics properties live</div></div>
-    <div><div class="n">111</div><div class="l">Google reviews not on your PDPs</div></div>
-  </div>
-</div></section>
+<div class="title"><div class="wrap">
+  <h1>You are running this on your own. The shop is losing some of it for you.</h1>
+  <p>You said it is a one man team, so we looked for things costing you money without needing more of your time. We have marked each item the way a garage would: what failed, what is advisory, and what is already right. Everything here is measurable, and you can re-check it in about two minutes.</p>
+</div></div>
 
-<section class="paper"><div class="wrap">
-  <div class="eyebrow">Section one</div>
-  <h2>The website</h2>
-  <p class="body">Start here. The first item is urgent and everything else can wait behind it.</p>
+<div class="board"><div class="grid">
+  <div class="cell"><div class="k bad">&pound;2.00</div><div class="v">What an &pound;89.99 pack<br>charges today</div></div>
+  <div class="cell"><div class="k bad">5 / 15</div><div class="v">Products currently<br>sold out</div></div>
+  <div class="cell"><div class="k bad">0</div><div class="v">Analytics properties<br>running</div></div>
+  <div class="cell"><div class="k">111</div><div class="v">Google reviews not<br>shown on your products</div></div>
+</div></div>
 
-  <div class="find"><div class="num">01</div><div>
-    <h3>Your hang up multipacks are selling for &pound;2.00</h3>
-    <p>The pages advertise packs at &pound;17.99, &pound;59.99, &pound;69.99 and &pound;89.99. Every one of them adds to the basket at <b>&pound;2.00</b>. Two of the three are live and buyable right now. Anyone who has found these pages could have bought a hundred hang ups for the price of one.</p>
-    <p>The cause is small and completely fixable: the pack sizes were entered as option <b>names</b> and the prices as option <b>values</b>, so Shopify only ever created one variant at &pound;2.00. The buttons on the page render, but there is nothing behind them to change the price.</p>
-    <div class="proof">
-      Checked directly against your product data. <b>Dark Cherry Hang Ups</b>, <b>Black Hang Ups</b> and <b>Kaori Vanilla Hang ups</b> each return a <b>variant count of 1</b> priced at 200 pence, with the variant titled &ldquo;&pound;17.99 / &pound;69.99 / &pound;89.99&rdquo;. Two minute check: open Dark Cherry Hang Ups, add it to your basket, and look at the total.
+<div class="sec"><div class="wrap">
+  <h2><span class="tagno">01</span> The website</h2>
+
+  <div class="item fail">
+    <div class="top"><span class="status fail">Fail</span><h3>Multipacks advertised to &pound;89.99 are charging &pound;2.00</h3></div>
+    <p>Three hang up products show pack prices on the page. All three add to the basket at <b>&pound;2.00</b>. Two are live and buyable right now, so anyone who has found these pages could have bought a hundred hang ups for the price of one.</p>
+    <div class="pricebox">
+      <div><div class="lbl">Advertised on the page</div><div class="amt">&pound;89.99</div></div>
+      <div><div class="lbl">Charged at the basket</div><div class="amt bad">&pound;2.00</div></div>
     </div>
-    <div class="tag flag">Fix today, before anything else</div>
-  </div></div>
-
-  <div class="find"><div class="num">02</div><div>
-    <h3>Your bundle page promises next day delivery that checkout does not offer</h3>
-    <p>The Build Your Bundle page, which your homepage button sends people to, says free next day delivery is applied automatically at checkout. It is not. We built a real bundle and asked your store for its actual rates.</p>
-    <table class="rates">
-      <tr><th>Promised on the page</th><th>Actually offered at checkout</th></tr>
-      <tr><td>Free Next Day Delivery</td><td class="bad">Standard &pound;0.00, or Fast Shipping &pound;5.00</td></tr>
-    </table>
-    <p>People who chose you because of that promise find out at the last step. That is the most expensive place to lose someone, and it is the kind of thing that generates refund requests and bad reviews rather than just a lost sale.</p>
-    <div class="tag flag">Promise gap at checkout</div>
-  </div></div>
-
-  <div class="find"><div class="num">03</div><div>
-    <h3>A third of your range is sold out, including in Best Sellers</h3>
-    <p>Five of your fifteen products are unavailable: SAV Hang Ups, Kaori Vanilla Hang ups, Kaori Black, Kaori Kreed and Kaori Guilt. With a range this focused, losing a third of it is a large hole, and sold out items are still sitting high on the page rather than being pushed down.</p>
-    <p>It matters more than usual right now, because the show season ends in November and the website has to carry the winter.</p>
-    <div class="tag">Merchandising and stock</div>
-  </div></div>
-
-  <div class="find"><div class="num">04</div><div>
-    <h3>Your live store is running a theme still named &ldquo;DEV Working&rdquo;</h3>
-    <p>The published theme on kaorisprays.com is called <b>T updates master-lite-2-1 (DEV Working)</b>. It works, so this is not an emergency. But it means there is no safe copy to make changes on, so every edit you make is made live, in front of customers. That is how the pricing issue above survives unnoticed.</p>
-    <div class="tag">No safe place to make changes</div>
-  </div></div>
-</div></section>
-
-<section><div class="wrap">
-  <div class="eyebrow">Section two</div>
-  <h2>The ads</h2>
-
-  <div class="find"><div class="num">05</div><div>
-    <h3>You have no website analytics at all</h3>
-    <p>Your Meta pixel is installed and clean, which is genuinely good and unusual. But there is <b>no Google Analytics property</b> running. There is a Google tag on the page with nothing configured behind it.</p>
-    <p>Practically, that means you cannot see how many people visit, what they look at, where they drop off, or what a visit is worth. You are the one paying for traffic and you have no way to judge it. This has to exist before any money goes into ads, or you will be guessing about your own results.</p>
-    <div class="proof">Google tag <b>GT-NNXSCDGL</b> loads on the page, but no GA4 property is configured behind it. Meta pixel <b>1567892474859335</b> is installed and is the only one, which is the right setup.</div>
-    <div class="tag flag">Prerequisite for any paid spend</div>
-  </div></div>
-
-  <div class="find"><div class="num">06</div><div>
-    <h3>Your ads point at a homepage with sold out products near the top</h3>
-    <p>You have partnership creative that most brands your size could not get near. Sending that traffic to a homepage where several of the first products are unavailable wastes the hardest part of the work, which is earning the click in the first place.</p>
-    <div class="tag">Destination, not creative</div>
-  </div></div>
-</div></section>
-
-<section class="paper"><div class="wrap">
-  <div class="eyebrow">Section three</div>
-  <h2>The email</h2>
-
-  <div class="find"><div class="num">07</div><div>
-    <h3>Klaviyo is installed properly and is not being asked to do much</h3>
-    <p>The account is live and the reviews module is loaded, so the foundation is there. The bigger opportunity is the one most market traders miss entirely.</p>
-    <p>You said shows bring in &pound;5,000 to &pound;10,000 a month from March to November. If those customers are not being captured onto a list at the stall, then every winter you start from zero with people who have already bought from you, liked it, and would buy again. Capturing at the stall costs nothing and turns a seasonal business into a year round one. That is the single highest value thing on this page after the pricing fix.</p>
-    <div class="tag">The December to February answer</div>
-  </div></div>
-</div></section>
-
-<section><div class="wrap">
-  <div class="eyebrow">Section four</div>
-  <h2>The content</h2>
-
-  <div class="find"><div class="num">08</div><div>
-    <h3>You have 111 Google reviews and your product pages do not show them</h3>
-    <p>Your site mentions over a hundred five star reviews, but a customer deciding on a product page cannot see them at the moment they are deciding. Proof works where the doubt is, not on the About page.</p>
-    <p>You already pay for the tool that displays them. This is a switch on, not a project.</p>
-    <div class="tag">Proof in the wrong place</div>
-  </div></div>
-</div></section>
-
-<section class="dark"><div class="wrap">
-  <div class="eyebrow">Why we are confident about this</div>
-  <h2>We did this for a British candle company.</h2>
-  <p class="body">The Northumberland Candle Company came to us doing <b>&pound;6,650 a month</b>. Shopify and Klaviyo, same as you. Similar size to where you are online.</p>
-  <p class="body">We rebuilt the store to convert first, then ran the ads and the email as one system. Sixty days later they were at <b>&pound;112,230 a month</b>. August was <b>3,650 orders</b> against 248, at a blended 7.8x return on ad spend. Those are their real Shopify figures.</p>
-  <p class="body">We are showing you that because the order of operations is the whole point. If we had sent paid traffic at their old store it would have burned money. Same here: fixing a &pound;2.00 price on an &pound;89.99 product is worth more today than any advert we could write for you.</p>
-
-  <h3 style="margin-top:40px;font-size:26px">What we would do first</h3>
-  <p class="body">The pricing defect today, because it is live. Then analytics, so you can see what is actually happening. Then the delivery promise and the sold out lines, because they are cheap and they are costing you orders now. None of that needs an ad budget.</p>
-  <p class="body">After that the interesting conversation is winter. Shows stop in November and that is most of your income. Capturing show customers into email, and putting real paid spend behind a shop that finally measures itself, is how that gap gets covered rather than endured.</p>
-
-  <div class="cta">
-    <a class="btn" href="mailto:jay@fusioncreative.uk?subject=Kaori%20audit">Reply to this audit</a>
-    <a class="btn wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Kaori%20audit" target="_blank" rel="noopener">WhatsApp us</a>
+    <div class="spec">
+      <div><span>Dark Cherry Hang Ups &middot; buyable now</span><span class="bad">&pound;2.00</span></div>
+      <div><span>Black Hang Ups &middot; buyable now</span><span class="bad">&pound;2.00</span></div>
+      <div><span>Kaori Vanilla Hang ups &middot; sold out</span><span class="bad">&pound;2.00</span></div>
+    </div>
+    <div class="evidence">Cause: the pack sizes were entered as Shopify option <b>names</b> and the prices as option <b>values</b>, so only one variant was ever created, at 200 pence. The radio buttons render but there is nothing behind them to change the price. Each product returns a <b>variant count of 1</b>, titled &ldquo;&pound;17.99 / &pound;69.99 / &pound;89.99&rdquo;. Two minute check: open Dark Cherry Hang Ups, add to basket, read the total.</div>
   </div>
-</div></section>
 
-<footer><div class="wrap">
-  Fusion Creative &middot; Newcastle upon Tyne &middot; fusioncreative.uk<br>
-  Prepared for Kaori, 22 September 2026. Every figure above was measured from your live store on the day of writing.
-</div></footer>
+  <div class="item fail">
+    <div class="top"><span class="status fail">Fail</span><h3>The bundle page promises delivery checkout does not offer</h3></div>
+    <p>Build Your Bundle, where your homepage button sends people, says free next day delivery is applied automatically at checkout. We built a real bundle and asked your store for its actual rates.</p>
+    <div class="spec">
+      <div><span>Promised on the page</span><span>Free Next Day Delivery</span></div>
+      <div><span>Actually offered</span><span class="bad">Standard &pound;0.00, or Fast &pound;5.00</span></div>
+    </div>
+    <p>People who chose you for that promise find out at the final step. That is the most expensive place to lose someone, and it produces refund requests rather than just a lost order.</p>
+  </div>
+
+  <div class="item adv">
+    <div class="top"><span class="status adv">Advisory</span><h3>A third of the range is unavailable</h3></div>
+    <p>Five of fifteen products are sold out: SAV Hang Ups, Kaori Vanilla Hang ups, Kaori Black, Kaori Kreed and Kaori Guilt. With a range this focused that is a large hole, and sold out lines are still sitting high on the page rather than being moved down.</p>
+    <p>It matters more than usual now, because the shows finish in November and the website has to carry the winter.</p>
+  </div>
+
+  <div class="item adv">
+    <div class="top"><span class="status adv">Advisory</span><h3>Your live theme is still named &ldquo;DEV Working&rdquo;</h3></div>
+    <p>The published theme is <b>T updates master-lite-2-1 (DEV Working)</b>. It works, so this is not urgent. But it means there is no safe copy to work on, so every change is made live in front of customers. That is how the pricing fault above survived unnoticed.</p>
+  </div>
+</div></div>
+
+<div class="sec"><div class="wrap">
+  <h2><span class="tagno">02</span> The ads</h2>
+
+  <div class="item fail">
+    <div class="top"><span class="status fail">Fail</span><h3>There is no website analytics running at all</h3></div>
+    <p>You cannot see how many people visit, what they look at, where they leave, or what a visit is worth. You are the one paying for traffic with no way to judge it. This has to exist before any money goes into advertising, or you will be guessing about your own results.</p>
+    <div class="spec">
+      <div><span>Google tag on the page</span><span>GT-NNXSCDGL</span></div>
+      <div><span>GA4 property behind it</span><span class="bad">None configured</span></div>
+      <div><span>Meta pixel</span><span>1567892474859335</span></div>
+    </div>
+  </div>
+
+  <div class="item pass">
+    <div class="top"><span class="status pass">Pass</span><h3>Your Meta pixel is clean, and that is rarer than you would think</h3></div>
+    <p>One pixel, correctly installed, no duplicates. Plenty of shops we look at are running two or three and counting every sale more than once. Yours is right, so when the analytics gap above is closed you will have a solid base to advertise from.</p>
+  </div>
+
+  <div class="item adv">
+    <div class="top"><span class="status adv">Advisory</span><h3>Your ads land on a page with sold out products near the top</h3></div>
+    <p>You have partnership creative most brands your size could not get near. Sending that traffic to a homepage where several of the first products are unavailable wastes the hardest part of the job, which is earning the click.</p>
+  </div>
+</div></div>
+
+<div class="sec"><div class="wrap">
+  <h2><span class="tagno">03</span> The email</h2>
+
+  <div class="item pass">
+    <div class="top"><span class="status pass">Pass</span><h3>Klaviyo is properly installed</h3></div>
+    <p>Account live, reviews module loaded. The foundation is there and working.</p>
+  </div>
+
+  <div class="item adv">
+    <div class="top"><span class="status adv">Advisory</span><h3>The shows are not feeding the list, and that is the winter answer</h3></div>
+    <p>You said shows bring <b>&pound;5,000 to &pound;10,000 a month from March to November</b>. If those customers are not captured onto a list at the stall, then every winter you begin again from nothing with people who have already bought from you, liked it, and would buy again.</p>
+    <p>Capturing at the stall costs nothing and turns a seasonal business into a year round one. After the pricing fault, this is the highest value item on the report.</p>
+  </div>
+</div></div>
+
+<div class="sec"><div class="wrap">
+  <h2><span class="tagno">04</span> The content</h2>
+
+  <div class="item adv">
+    <div class="top"><span class="status adv">Advisory</span><h3>111 Google reviews, and none of them on your product pages</h3></div>
+    <p>Your site mentions over a hundred five star reviews, but someone deciding on a product page cannot see them at the moment they are deciding. Proof belongs where the doubt is, not on the About page.</p>
+    <p>You already pay for the tool that shows them. This is a switch, not a project.</p>
+  </div>
+</div></div>
+
+<div class="strip dark">Summary &nbsp;&middot;&nbsp; 3 fail &nbsp;&middot;&nbsp; 5 advisory &nbsp;&middot;&nbsp; 2 pass</div>
+
+<div class="close"><div class="wrap">
+  <h2>We have done this before, for a British candle company.</h2>
+  <p>The Northumberland Candle Company came to us at <b>&pound;6,650 a month</b>. Shopify and Klaviyo, same as you, and similar to where you are online.</p>
+  <p>We rebuilt the store to convert first, then ran the ads and the email as one system. Sixty days later they were at <b>&pound;112,230 a month</b>. August was <b>3,650 orders</b> against 248, at a blended 7.8x return on ad spend. Their real Shopify figures.</p>
+  <p>We mention it because the order of work is the whole point. Fixing a &pound;2.00 price on an &pound;89.99 product is worth more to you today than any advert we could write.</p>
+  <p style="margin-top:28px"><b>What we would do first:</b> the pricing fault today, because it is live. Then analytics, so you can see what is happening. Then the delivery promise and the sold out lines. None of that needs an advertising budget.</p>
+  <p>After that the real conversation is winter, and whether the show customers you already have can carry December through February.</p>
+  <div class="acts">
+    <a class="act" href="mailto:jay@fusioncreative.uk?subject=Kaori%20audit">Reply to this</a>
+    <a class="act wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Kaori%20inspection" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</div></div>
+
+<footer>
+  Fusion Creative &nbsp;&middot;&nbsp; Newcastle upon Tyne &nbsp;&middot;&nbsp; fusioncreative.uk<br>
+  Every figure measured from your live store on 22 September 2026.
+</footer>
 
 </body>
 </html>
