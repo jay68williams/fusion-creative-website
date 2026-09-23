@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Gingerlilies x Fusion Creative | Growth Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --cream:#F8F3EF; --sand:#F2EDE7; --white:#fff;
+    --ink:#32373C; --ink-2:#55595E; --ink-3:#8A8D91;
+    --orange:#F98D00; --peach:#FFB380; --line:rgba(50,55,60,.14);
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Alegreya Sans',sans-serif;font-weight:400;background:var(--cream);color:var(--ink);
+       line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip;font-size:18px}
+  h1,h2,h3{font-family:'Jost',sans-serif;font-weight:400;line-height:1.2}
+  .col{max-width:680px;margin:0 auto;padding:0 24px}
+  b{font-weight:700;color:var(--ink)}
+  img{display:block;max-width:100%}
+
+  /* mast: their wordmark, tracked wide, leaf-orange rule */
+  .mast{padding:44px 0 34px;text-align:center;background:var(--white);border-bottom:1px solid var(--line)}
+  .mast .m1{font-family:'Jost',sans-serif;font-weight:300;font-size:22px;letter-spacing:.42em;text-transform:uppercase;color:var(--ink);padding-left:.42em}
+  .mast .m2{margin-top:8px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+  .mast .leaf{width:34px;height:3px;background:var(--orange);margin:14px auto 0}
+
+  .open{padding:80px 0 60px}
+  .open .pre{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:22px;font-weight:500}
+  .open h1{font-size:clamp(28px,4.2vw,42px);font-weight:400;letter-spacing:-.005em}
+  .open .sub{margin-top:22px;color:var(--ink-2);font-size:18px;max-width:560px}
+
+  /* the memorable thing: one number, set like a label */
+  .spread{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0;text-align:center}
+  .spread .pre{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px}
+  .spread .big{font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(88px,16vw,150px);line-height:.95;color:var(--orange)}
+  .spread .cap{max-width:520px;margin:18px auto 0;color:var(--ink);font-size:19px}
+  .spread .fine{max-width:540px;margin:14px auto 0;color:var(--ink-2);font-size:16px}
+
+  .chapter{padding:80px 0 4px}
+  .chapter .n{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);font-weight:500}
+  .chapter h2{font-size:clamp(24px,3.2vw,32px);margin-top:10px;font-weight:400}
+
+  .entry{padding:38px 0;border-top:1px solid var(--line)}
+  .entry:first-of-type{border-top:none}
+  .entry .lab{font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px;font-weight:500}
+  .entry h3{font-size:22px;margin-bottom:12px;font-weight:500}
+  .entry p{color:var(--ink-2);font-size:17.5px}
+  .entry p+p{margin-top:12px}
+  .quote{margin:16px 0 0;padding:16px 20px;background:var(--sand);border-left:3px solid var(--orange);font-size:16.5px;color:var(--ink)}
+  .quote .src{display:block;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
+  .note{margin-top:16px;padding:14px 18px;background:var(--sand);font-size:15.5px;color:var(--ink-2)}
+  .plate{margin-top:22px}
+  .plate img{width:100%;border:1px solid var(--line);background:var(--white)}
+  .plate figcaption{margin-top:10px;font-size:14.5px;color:var(--ink-3);line-height:1.55}
+  .plate.narrow{max-width:400px}
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+  .pair .plate{margin-top:0}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .tag{font-size:14px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2);background:var(--white)}
+
+  .close{background:var(--ink);color:var(--cream);padding:92px 0 84px;text-align:center}
+  .close h2{font-size:clamp(24px,3.4vw,36px);max-width:620px;margin:0 auto 28px;font-weight:400;color:var(--white)}
+  .close p{color:#F8F3EFD1;max-width:560px;margin:0 auto 16px;font-size:17.5px}
+  .close b{color:var(--peach);font-weight:700}
+  .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:44px}
+  .act{display:inline-block;padding:16px 32px;font-family:'Jost',sans-serif;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+       text-decoration:none;border:1px solid var(--cream);color:var(--cream);transition:.25s ease;font-weight:500}
+  .act:hover{background:var(--cream);color:var(--ink)}
+  .act.wa{border-color:#25D366;background:#25D366;color:#fff}
+  .act.wa:hover{background:#1da851;border-color:#1da851;color:#fff}
+  footer{padding:48px 0;text-align:center;font-size:14px;color:var(--ink-3);line-height:2;background:var(--sand)}
+
+  @media (max-width:720px){
+    .pair{grid-template-columns:1fr}
+    .open{padding:56px 0 44px} .spread{padding:52px 0} .chapter{padding:58px 0 4px}
+    .entry{padding:30px 0} .close{padding:64px 0 56px}
+    .mast{padding:34px 0 26px} .mast .m1{font-size:18px}
+  }
+</style>
+</head>
+<body>
+<!-- fc-build: status=inbound-lead source=/scale leadid=4b9ca754-f865-47cb-95ca-26cd3545a534 date=2026-09-23 -->
+
+<div class="mast">
+  <div class="m1">Gingerlilies</div>
+  <div class="m2">Growth audit &nbsp;&middot;&nbsp; prepared by Fusion Creative &nbsp;&middot;&nbsp; September 2026</div>
+  <div class="leaf"></div>
+</div>
+
+<div class="open"><div class="col">
+  <div class="pre">For Charlotte</div>
+  <h1>At a show, the candle does the selling. Online, nothing is doing it yet.</h1>
+  <p class="sub">We read gingerlilies.co.uk the way someone arriving from an ad does, on a phone, and only wrote down what was on the page. We also read your own label photographs, your Meta Ad Library history and your competitors'. Almost nothing below is opinion.</p>
+</div></div>
+
+<div class="spread"><div class="col">
+  <div class="pre">Customer reviews, anywhere</div>
+  <div class="big">0</div>
+  <p class="cap">Not on the store, not on Google, not on Trustpilot, not on Etsy, not on Facebook. We looked in all five.</p>
+  <p class="fine">At the Border Union Show a customer picks the jar up and smells it. Online, someone else's word is the only substitute for that, and there is not one yet.</p>
+</div></div>
+
+<div class="chapter"><div class="col">
+  <div class="n">I</div>
+  <h2>The website</h2>
+</div></div>
+<div class="col">
+
+  <div class="entry">
+    <div class="lab">Safety first, then copy</div>
+    <h3>The website tells people to light the wickless candles. The label says do not.</h3>
+    <p>All eight Wickless products went live on 3 September with the ordinary candle's description underneath. Every one of them says:</p>
+    <div class="quote">"Gingerlilies Relaxing Candle has a natural wick made from fruit trees, and when lit the candle will last around 40 hours."<span class="src">gingerlilies.co.uk, every Wickless product page</span></div>
+    <div class="quote">"Warning: Only use in suitable warmers/heat lamps. Do not light."<span class="src">your own label for the same product</span></div>
+    <p>A customer who reads the website and not the jar has been told the wrong thing by you. Eight descriptions, half an hour to rewrite. It comes first on this page because it is the one item that is a safety problem, not a marketing one.</p>
+    <figure class="plate">
+      <img src="label-warning.jpg" alt="Gingerlilies Relaxing Wickless Candle label warning: only use in suitable warmers or heat lamps, do not light">
+      <figcaption>From the label photograph in your own product gallery.</figcaption>
+    </figure>
+  </div>
+
+  <div class="entry">
+    <div class="lab">Two versions of the truth</div>
+    <h3>The oils on the website are not the oils on the label</h3>
+    <p>The Relaxing page names <b>ylang-ylang, neroli, cedarwood, myrrh and Roman chamomile</b>. The Relaxing label in your own product photos says <b>geranium, clary sage, frankincense and valerian</b>. Both say eleven oils. Essential oil buyers are careful readers. They will notice, and they will not know which one to believe.</p>
+    <figure class="plate narrow">
+      <img src="label-oils.jpg" alt="Gingerlilies Relaxing Wickless Candle label naming geranium, clary sage, frankincense and valerian">
+      <figcaption>The label. The website names five different oils for the same blend.</figcaption>
+    </figure>
+  </div>
+
+  <div class="entry">
+    <div class="lab">Trust</div>
+    <h3>Nothing on the store says anyone has ever bought one</h3>
+    <p>Zero reviews on all 16 products, and no review system installed to collect them. No customer quote on the homepage. We could not find a Google listing, a Trustpilot page or an Etsy shop either. Every candle brand advertising in your category right now runs a five-star quote inside the ad itself. Embers Candle Company in Yorkshire puts one in every ad, next to "free UK delivery" and a 30 day money-back guarantee.</p>
+    <p>You already have the customers: everyone who bought at the Border Union Show and the other events. A card in the box with a link, and one email to the Mailchimp list you already collect, would produce the first twenty reviews inside a month.</p>
+  </div>
+
+  <div class="entry">
+    <div class="lab">The delivery promise</div>
+    <h3>Free delivery over £30 lives on the delivery page. It should be on every page.</h3>
+    <p>Standard delivery is £3.95 and free over £30. One 85g candle at £22 does not clear it; one 210g at £38 does, and so do two of the small ones. That is a useful nudge toward the bigger jar or the second candle, and right now it is three clicks away. Put "Free UK delivery over £30" in the top bar, and repeat it under every price.</p>
+  </div>
+
+  <div class="entry">
+    <div class="lab">Mobile</div>
+    <h3>On a phone the page is 430 pixels wide on a 390 pixel screen</h3>
+    <p>The page scrolls sideways. We measured it rather than eyeballing it: the cookie consent plugin's preference panel is wider than the screen, and it stays that way after the banner is dismissed. Two overlays also open at once on arrival, the cookie bar and the 10% popup, which is 665 pixels tall on an 844 pixel screen. The popup is the right mechanic. It just needs to arrive second, and on its own.</p>
+    <div class="note">The email field inside the popup is 15px. Below 16px, iPhones zoom the whole page when someone taps it. One number in the theme.</div>
+    <figure class="plate narrow">
+      <img src="mobile-overlays.jpg" alt="gingerlilies.co.uk on a phone with the cookie bar and the newsletter popup open at the same time over the homepage">
+      <figcaption>gingerlilies.co.uk on an iPhone, 23 September 2026, a few seconds after loading.</figcaption>
+    </figure>
+  </div>
+
+  <div class="entry">
+    <div class="lab">Housekeeping</div>
+    <h3>Small things a search engine reads before a person does</h3>
+    <p>The homepage and the shop page have no H1 heading; the product page has two, and one of them is "Related products". There is no meta description and no social preview, so a shared link shows nothing. The footer column headed "Where we're based" is empty. And the site runs on PHP 7.4, which stopped receiving security updates in November 2022; that is a one-line change with your host.</p>
+  </div>
+
+  <div class="entry">
+    <div class="lab">Craft</div>
+    <h3>The product and the packaging are better than the store</h3>
+    <p>Worth saying plainly. The jar, the label, the leaf, the olive and sunflower wax, the wooden wick: a coherent, premium object. Relaxing, Restoring, Revitalising, Tranquillity is a clean range. The photography is good. This is not a rebuild. It is a store that has not yet been given the things that let a stranger trust it.</p>
+    <figure class="plate">
+      <img src="candle.jpg" alt="Gingerlilies Wickless Revitalising Candle in its glass jar with the cream label">
+      <figcaption>Your own product photography. This is the standard the rest of the store should be held to.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="chapter"><div class="col">
+  <div class="n">II</div>
+  <h2>Ads and tracking</h2>
+</div></div>
+<div class="col">
+
+  <div class="entry">
+    <div class="lab">What has run</div>
+    <h3>Two ads, ever. Neither of them linked to the website.</h3>
+    <p>Meta's Ad Library shows one Facebook ad in April (five days, a "Send message" button, no link) and one Instagram boost in July (twenty hours, "Visit Instagram profile"). Nothing is running now. Nothing has ever sent anyone to gingerlilies.co.uk.</p>
+    <p>The April ad's angle, that other candles cause "fertility issues, hormonal imbalances", is also the kind of health claim that gets an ad account restricted once it runs at any volume. The product pages carry softer versions: "deep, restorative sleep", "soothe anxious minds", "reduces anxiety and stress". Keep the mood language, lose the medical language, before any spend.</p>
+  </div>
+
+  <div class="entry">
+    <div class="lab">Measurement</div>
+    <h3>There is no pixel and no analytics on the page</h3>
+    <p>Not Meta, not Google, not TikTok. Mailchimp is the only third-party code that loads. Nobody, including you, can currently see where a visitor came from or what they did. Any ad you ran today would be spending blind. The Meta pixel and Google Analytics are fifteen minutes to install, and they come before the first pound of spend.</p>
+  </div>
+
+  <div class="entry">
+    <div class="lab">Where you are</div>
+    <h3>£1,500 a month from events, and that is a good place to start from</h3>
+    <p>You told us the number and that it is almost all in person. That is the honest starting point, and it is a good one: you already know the product sells when someone can smell it. The job online is to replace the smell with proof, and everything above is that. It costs time, not money, and it comes before an advertising budget, not after it.</p>
+  </div>
+</div>
+
+<div class="chapter"><div class="col">
+  <div class="n">III</div>
+  <h2>Content and reach</h2>
+</div></div>
+<div class="col">
+  <div class="entry">
+    <div class="lab">Confirmed from your own channels</div>
+    <h3>Facebook 66 followers. TikTok 25, with no videos. Instagram we could not read.</h3>
+    <p>The online audience is close to zero, which is not a criticism, it is simply where a business that sells at events usually is. What your competitors are doing with theirs: Embers runs 16 ads, 12 of them video, and the one that has run longest is the founder to camera, "Hi, I'm Emily". Pintail in the Lake District is already selling Christmas gift sets and a £35 advent calendar in September.</p>
+    <p>You are the makeup artist who turned an obsession with ingredients into candles. That story, told to camera in the Selkirk studio in thirty seconds, is the ad. Then the bundle: three 85g candles, one of each blend, is the unit every small candle brand in the category is selling, and you do not have one yet.</p>
+    <div class="tags">
+      <span class="tag">facebook.com/gingerliliesuk</span>
+      <span class="tag">instagram.com/gingerliliesuk</span>
+      <span class="tag">tiktok.com/@gingerliliesuk</span>
+    </div>
+  </div>
+</div>
+
+<div class="close"><div class="col">
+  <h2>We have done this once already, for a British candle brand your size.</h2>
+  <p>Same category, candles and wax melts through Shopify with email running alongside. We rebuilt the store to convert first, then ran the ads and the email as one system.</p>
+  <p>Monthly revenue grew <b>16.9x in 60 days</b>, with a <b>7.8x blended return on ad spend</b> and average order value up <b>64%</b>. Their real Shopify and Meta numbers, and we keep the exact figures to ourselves the way we would keep yours.</p>
+  <p>We mention it because the order matters more than the tactics. Sending a stranger from an ad to a store with no reviews, no pixel, and a product page that says "light it" under a label that says "do not" would be an expensive way to find that out.</p>
+  <p style="margin-top:34px">So we would not start with a retainer. We would start with the eight descriptions and the label mismatch, today. Then reviews from the people who already bought. Then the delivery line on every page, the pixel, and the overlays. Then the founder video and the bundle. Then, when there is proof on the page, ads.</p>
+  <div class="acts">
+    <a class="act" href="mailto:jay@fusioncreative.uk?subject=Gingerlilies%20audit">Reply to this</a>
+    <a class="act wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Gingerlilies%20audit" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</div></div>
+
+<footer>
+  Fusion Creative &nbsp;&middot;&nbsp; Newcastle upon Tyne &nbsp;&middot;&nbsp; fusioncreative.uk<br>
+  Everything above was read from your live store, your own label photographs and the Meta Ad Library on 23 September 2026.
+</footer>
+
+</body>
+</html>
