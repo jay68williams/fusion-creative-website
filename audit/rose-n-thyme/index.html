@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Rose n' Thyme x Fusion Creative | Growth Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Trirong:ital,wght@0,300;0,400;1,300;1,400&family=Quattrocento+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+/* palette lifted from the shop itself: the green panelling, the grey-green bag, the cerise ribbon, the oak counter */
+:root{
+  --lilac:#FCF8FD; --panel:#2C332F; --panel-2:#3F5147; --bag:#8B9892;
+  --ribbon:#D12A6E; --oak:#B98A5A; --ink:#252525; --ink-2:#505655; --ink-3:#8A8F8C;
+  --line:#2525251F;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Quattrocento Sans',sans-serif;background:var(--lilac);color:var(--ink);
+     font-size:17.5px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:clip}
+h1,h2,h3,.tr{font-family:'Trirong',serif;font-weight:300;line-height:1.15}
+em{font-style:italic}
+.col{max-width:640px;margin:0 auto;padding:0 26px}
+.wide{max-width:1100px;margin:0 auto;padding:0 26px}
+.cap{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-3)}
+
+/* masthead, set like the lettering on their carrier bag */
+.mast{background:var(--bag);color:#fff;text-align:center;padding:26px 0 22px}
+.mast .m1{font-family:'Trirong',serif;font-size:22px;letter-spacing:.2em}
+.mast .m2{font-size:10px;letter-spacing:.42em;text-transform:uppercase;margin-top:4px;opacity:.85}
+.mast .m3{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;margin-top:14px;opacity:.7}
+
+/* opening: the bouquet stands in front of the shop's green panelling, the letter sits beside it */
+.open{background:var(--panel);color:#F3EFEA;padding:0}
+.open .wide{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;padding-top:84px;padding-bottom:84px}
+.open figure img{width:100%;display:block;border-radius:220px 220px 4px 4px}
+.open .cap{color:#F3EFEA8C;margin-bottom:26px}
+.open h1{font-size:clamp(32px,4.2vw,50px)}
+.open h1 em{color:#F2A7C4}
+.open p{margin-top:26px;color:#F3EFEAC7;max-width:500px}
+.open p b{color:#fff;font-weight:700}
+
+/* the gift tag: the one bold moment, tied on with a ribbon */
+.tag-wrap{padding:110px 0 30px;text-align:center}
+.tag{display:inline-block;position:relative;background:#fff;border:1px solid var(--line);
+     padding:64px 64px 56px;max-width:600px;border-radius:6px 6px 6px 6px;box-shadow:0 30px 60px -40px #2C332F59}
+.tag::before{content:"";position:absolute;top:22px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;
+     border:1px solid var(--line);background:var(--lilac)}
+.tag::after{content:"";position:absolute;top:-70px;left:50%;width:2px;height:92px;background:var(--ribbon);margin-left:-1px}
+.tag .cap{margin:14px 0 22px}
+.tag .big{font-family:'Trirong',serif;font-weight:300;font-size:clamp(72px,13vw,150px);line-height:.95;color:var(--ribbon)}
+.tag .for{font-family:'Trirong',serif;font-style:italic;font-size:22px;margin-top:18px}
+.tag p{margin-top:22px;color:var(--ink-2);font-size:16px}
+
+/* the price card, laid out like the variant list a customer actually picks from */
+.card{margin:40px auto 0;max-width:600px;text-align:left;border-top:1px solid var(--ink)}
+.card .row{display:grid;grid-template-columns:1.2fr 1fr 1fr;padding:13px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.card .row.h{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.card .row div:not(:first-child){text-align:right;font-family:'Trirong',serif}
+.card .row.bad{color:var(--ribbon)}
+.card .row.bad div:first-child::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ribbon);margin-right:10px;vertical-align:middle}
+.card-note{max-width:600px;margin:18px auto 0;font-size:13.5px;color:var(--ink-3);text-align:left}
+
+/* observations as numbered stems down a single column */
+.sect{padding:96px 0 16px;text-align:center}
+.sect h2{font-size:clamp(28px,3.6vw,40px)}
+.sect h2 em{color:var(--ribbon)}
+.stem{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:46px 0;border-bottom:1px solid var(--line)}
+.stem:last-child{border-bottom:0}
+.stem .n{font-family:'Trirong',serif;font-size:40px;line-height:1;color:var(--oak)}
+.stem h3{font-size:25px;margin-bottom:16px}
+.stem p{color:var(--ink-2);margin-bottom:14px}
+.stem p b{color:var(--ink);font-weight:700}
+.quote{font-family:'Trirong',serif;font-style:italic;font-size:19px;color:var(--ink);border-left:2px solid var(--ribbon);padding-left:18px;margin:20px 0}
+.ladder{list-style:none;margin:22px 0 8px}
+.ladder li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15.5px}
+.ladder li span:last-child{font-family:'Trirong',serif}
+
+/* first moves, on the green panelling again */
+.first{background:var(--panel-2);color:#F3EFEA;margin-top:90px;padding:96px 0}
+.first h2{font-size:clamp(28px,3.6vw,40px);text-align:center;margin-bottom:46px}
+.first ol{list-style:none;counter-reset:f}
+.first li{counter-increment:f;display:grid;grid-template-columns:54px 1fr;padding:22px 0;border-top:1px solid #F3EFEA2E}
+.first li::before{content:counter(f,lower-roman)".";font-family:'Trirong',serif;font-style:italic;font-size:20px;color:#F2A7C4}
+.first li b{color:#fff}
+.first li span{color:#F3EFEABF}
+
+/* proof and close */
+.proof{padding:100px 0 20px;text-align:center}
+.proof h2{font-size:clamp(26px,3.4vw,36px);max-width:560px;margin:0 auto 38px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.stats div{padding:28px 10px}
+.stats div+div{border-left:1px solid var(--line)}
+.stats .v{font-family:'Trirong',serif;font-size:clamp(30px,4vw,44px);color:var(--ribbon);line-height:1}
+.stats .l{font-size:12.5px;color:var(--ink-2);margin-top:10px;line-height:1.5}
+.proof p{color:var(--ink-2);max-width:580px;margin:34px auto 0}
+
+.close{padding:80px 0 100px;text-align:center}
+.close h2{font-size:clamp(26px,3.4vw,38px);max-width:600px;margin:0 auto 22px}
+.close p{color:var(--ink-2);max-width:540px;margin:0 auto}
+.acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.act{display:inline-block;padding:16px 34px;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;
+     border:1px solid var(--panel);color:var(--panel);border-radius:40px;transition:.25s ease}
+.act:hover{background:var(--panel);color:#fff}
+.act.wa{background:#25D366;border-color:#25D366;color:#fff}
+.act.wa:hover{background:#1DA851;border-color:#1DA851}
+footer{background:var(--bag);color:#fff;text-align:center;font-size:12px;line-height:2;padding:40px 0;letter-spacing:.04em}
+
+@media (max-width:820px){
+  .open .wide{grid-template-columns:1fr;gap:40px;padding-top:56px;padding-bottom:64px}
+  .open figure{max-width:340px;margin:0 auto}
+  .tag{padding:56px 26px 44px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stats div:nth-child(3){border-left:0}
+  .stats div:nth-child(n+3){border-top:1px solid var(--line)}
+  .stem{grid-template-columns:44px 1fr}
+  .stem .n{font-size:30px}
+  .card .row{font-size:14px}
+}
+</style>
+</head>
+<body>
+<!-- fc-build: status=inbound-lead source=/scale leadid=88f1703a-f1c6-4bea-8e17-38e6ba7924e3 date=2026-09-23 -->
+
+<div class="mast">
+  <div class="m1">ROSE 'N' THYME</div>
+  <div class="m2">Florist</div>
+  <div class="m3">Growth audit &middot; prepared by Fusion Creative &middot; 23 September 2026</div>
+</div>
+
+<section class="open">
+  <div class="wide">
+    <figure><img src="assets/sophia.jpg" alt="The Sophia bouquet in a Rose 'n' Thyme carrier, in front of the shop's green panelling"></figure>
+    <div>
+      <div class="cap">For Craig</div>
+      <h1>The product is already beautiful. <em>The store is leaking</em> in a few quiet places.</h1>
+      <p>We went through rosenthyme.co.uk the way a customer would, then pulled the live catalogue behind it. Your photography is some of the best we see from an independent florist: real bouquets, shot in your own shop, in your own branded carrier. That is most of the hard work done.</p>
+      <p>What follows is <b>what we would fix before spending a penny more on ads</b>, and one thing we would fix today.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tag-wrap"><div class="col">
+  <div class="tag">
+    <div class="cap">Six months of the &pound;100 subscription</div>
+    <div class="big">&pound;115</div>
+    <div class="for">that is the price at checkout, right now</div>
+    <p>Your subscription is a great product: pay once, a hand-tied bouquet on the same date every month. But several of the price combinations have been keyed in wrong, in both directions.</p>
+  </div>
+  <div class="card">
+    <div class="row h"><div>Bouquet &times; months</div><div>Should be</div><div>Checkout shows</div></div>
+    <div class="row"><div>&pound;60 &times; 3</div><div>&pound;180</div><div>&pound;180</div></div>
+    <div class="row bad"><div>&pound;60 &times; 6</div><div>&pound;360</div><div>&pound;660</div></div>
+    <div class="row"><div>&pound;60 &times; 12</div><div>&pound;720</div><div>&pound;720</div></div>
+    <div class="row bad"><div>&pound;100 &times; 3</div><div>&pound;300</div><div>&pound;115</div></div>
+    <div class="row bad"><div>&pound;100 &times; 6</div><div>&pound;600</div><div>&pound;115</div></div>
+    <div class="row"><div>&pound;100 &times; 12</div><div>&pound;1,200</div><div>&pound;1,200</div></div>
+  </div>
+  <p class="card-note">Read from your live product data on 23 September 2026. Anyone who finds the &pound;100 option can buy six months of your top bouquet for &pound;115, and anyone choosing &pound;60 for six months is asked for almost the same as a full year. A five minute fix in Shopify, and worth doing before anything else on this page.</p>
+</div></section>
+
+<section class="sect"><div class="col">
+  <div class="cap">What we noticed</div>
+  <h2 style="margin-top:16px">Four things, <em>all fixable</em></h2>
+</div></section>
+
+<div class="col">
+
+  <div class="stem">
+    <div class="n">1</div>
+    <div>
+      <h3>Your best repeat product is hidden</h3>
+      <p>The subscription is not in your menu and not linked from your homepage. A customer has to already know it exists. For a florist, it is the one product that turns a single gift into twelve deliveries, and it makes an easy Christmas present for someone who "has everything".</p>
+      <p>It also has one photograph. Every other bouquet you sell gets two or three.</p>
+    </div>
+  </div>
+
+  <div class="stem">
+    <div class="n">2</div>
+    <div>
+      <h3>The order value ladder is built, but the words undersell it</h3>
+      <p>This is genuinely well set up. Sophia already lets someone step up like this, without leaving the page:</p>
+      <ul class="ladder">
+        <li><span>Sophia, Classic</span><span>&pound;45.00</span></li>
+        <li><span>with the Isle of Skye bar</span><span>&pound;51.00</span></li>
+        <li><span>with a vase</span><span>&pound;65.00</span></li>
+        <li><span>with a vase and Champagne truffles</span><span>&pound;82.95</span></li>
+      </ul>
+      <p>But the homepage shelf is titled <b>"Products to Compliment"</b> and the menu says <b>"Complimentary Gifts"</b>. Complimentary reads as free, so the add-ons can look like something that should come in the box. "Add something to it" or "Finish the gift" says what it is. The bar at the very top of the site also reads <b>"We delivery flowers Nationwide"</b>, which is the first line every visitor sees.</p>
+    </div>
+  </div>
+
+  <div class="stem">
+    <div class="n">3</div>
+    <div>
+      <h3>Nationwide is your growth, and the homepage talks like a local shop</h3>
+      <p>Bearsden, Hyndland and Lenzie will always be the heart of it. But the reason you can grow online is this line from your own homepage:</p>
+      <div class="quote">"Your flowers arrive fresh in water, beautifully presented in our signature branded boxes."</div>
+      <p>That is the whole ad. Most people sending flowers to another city are worried about one thing: will they arrive looking like the picture? Right now that promise sits under four bouquets that all read "From &pound;45", with no occasion attached. A person landing from an ad has to work out for themselves which one is for a birthday, a thank you or a sympathy.</p>
+    </div>
+  </div>
+
+  <div class="stem">
+    <div class="n">4</div>
+    <div>
+      <h3>The catalogue behind the store needs a tidy before any shopping ads</h3>
+      <p>Meta and Google build product ads from the catalogue data, not from what the page looks like. In yours, most products have no product type set, and the large hydrangea stems are filed under <b>Candy &amp; Chocolate</b>. There are four separate "Casket Spray" listings and five "Classic Wreath" listings, and the wreath workshop titles spell December as "Decemeber".</p>
+      <p>None of that is visible to a customer browsing. All of it is visible to an ad platform deciding who to show your bouquets to. You already have a Meta pixel on the site, which is the right starting point.</p>
+    </div>
+  </div>
+
+</div>
+
+<section class="first"><div class="col">
+  <h2>What we would do first</h2>
+  <ol>
+    <li><div><b>This week, no budget needed.</b> <span>Correct the subscription prices, fix the top bar and the "Compliment" wording, put Subscriptions in the menu, and tidy the catalogue so the ad platforms can read it.</span></div></li>
+    <li><div><b>A shoot day in the shop.</b> <span>Short-form video of a bouquet being built by hand, wrapped, dropped into the box in water, and opened at the other end. Your panelling and branded bags do the styling for us. One day gives a month of ads and organic posts.</span></div></li>
+    <li><div><b>Ads by occasion, not by bouquet.</b> <span>Birthday, thank you, sympathy and "just because", each landing on a page that answers that one reason, with the vase and truffles offered at the point of choosing.</span></div></li>
+    <li><div><b>Christmas, built early.</b> <span>The subscription sold as a gift, and the Christmas wreath workshops filled from local ads before the dates arrive.</span></div></li>
+  </ol>
+</div></section>
+
+<section class="proof"><div class="wide">
+  <div class="cap" style="margin-bottom:16px">Why we think this works</div>
+  <h2>A British gifting brand we took through the same order of work</h2>
+  <div class="stats">
+    <div><div class="v">16.9x</div><div class="l">monthly revenue in 60 days</div></div>
+    <div><div class="v">7.8x</div><div class="l">blended return on ad spend</div></div>
+    <div><div class="v">+64%</div><div class="l">average order value</div></div>
+    <div><div class="v">10x</div><div class="l">orders</div></div>
+  </div>
+  <p>The Northumberland Candle Company, a Shopify gifting brand. We fixed the store first, then ran the video, ads and email as one system. The order of work matters more than any single tactic, which is why the list above starts with the free fixes.</p>
+</div></section>
+
+<section class="close"><div class="col">
+  <h2>Happy to talk it through, Craig.</h2>
+  <p>Reply here or send a WhatsApp. If it is useful, we can start with the subscription and catalogue fixes and go from there.</p>
+  <div class="acts">
+    <a class="act" href="mailto:jay@fusioncreative.uk?subject=Rose%20n%27%20Thyme%20audit">Reply to this</a>
+    <a class="act wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Rose%20n%27%20Thyme%20audit" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</div></section>
+
+<footer>
+  Fusion Creative &middot; fusioncreative.uk &middot; 23 September 2026<br>
+  Everything above was read from rosenthyme.co.uk and its live product data on 23 September 2026.
+</footer>
+
+</body>
+</html>
