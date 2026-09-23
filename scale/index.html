@@ -363,9 +363,23 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <div class="rv" style="text-align:center">
         <div class="eyebrow">Apply</div>
         <h2 style="margin:0 auto">Want this for your brand?</h2>
-        <p class="body" style="margin:14px auto 6px">Tell us about your business. Our team will look at your numbers and reply within 24 hours with an honest read, including if we are not the right fit.</p>
+        <p class="body" style="margin:14px auto 6px">Built for product brands already doing &pound;10k a month or more. Tell us about your business and our team will reply within 24 hours with an honest read, including if we are not the right fit.</p>
       </div>
       <div id="leadForm">
+        <!-- Revenue comes first on purpose: it decides which success message the
+             visitor sees and whether the submission is reported to Meta as a Lead.
+             Sub-floor brands still get captured and audited, they just do not
+             train the ads. -->
+        <label>Current monthly revenue</label>
+        <select id="f_revenue">
+          <option value="">Choose one</option>
+          <option>Under &pound;5k / month</option>
+          <option>&pound;5k - &pound;10k / month</option>
+          <option>&pound;10k - &pound;25k / month</option>
+          <option>&pound;25k - &pound;50k / month</option>
+          <option>&pound;50k - &pound;100k / month</option>
+          <option>&pound;100k+ / month</option>
+        </select>
         <div class="grid2">
           <div><label>Your name</label><input id="f_name" type="text" autocomplete="name"></div>
           <div><label>Business name</label><input id="f_business" type="text" autocomplete="organization"></div>
@@ -375,15 +389,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <div><label>Phone (optional)</label><input id="f_phone" type="tel" autocomplete="tel"></div>
         </div>
         <label>Website or store link</label><input id="f_website" type="text" placeholder="yourstore.com">
-        <label>Current monthly revenue</label>
-        <select id="f_revenue">
-          <option value="">Choose one</option>
-          <option>Under &pound;5k / month</option>
-          <option>&pound;5k - &pound;20k / month</option>
-          <option>&pound;20k - &pound;50k / month</option>
-          <option>&pound;50k - &pound;100k / month</option>
-          <option>&pound;100k+ / month</option>
-        </select>
         <label>What do you sell, and where do you want to get to?</label>
         <textarea id="f_about" rows="3"></textarea>
         <div class="submit-error" id="leadError"></div>
@@ -391,8 +396,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div class="wa-line">Prefer to talk? <a href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%20saw%20the%20candle%20company%20case%20study" target="_blank" rel="noopener">Message us on WhatsApp</a></div>
       </div>
       <div class="form-success" id="leadSuccess">
-        <h3>Application received.</h3>
-        <p>Check your inbox, a confirmation is on its way. Our team will reply within 24 hours.</p>
+        <h3 id="leadSuccessTitle">Application received.</h3>
+        <p id="leadSuccessMsg">Check your inbox, a confirmation is on its way. Our team will reply within 24 hours.</p>
       </div>
     </div>
   </div>
@@ -499,10 +504,28 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       revenue:document.getElementById('f_revenue').value,
       about:document.getElementById('f_about').value.trim()
     };
+    if(!payload.revenue){
+      err.textContent='Please choose your current monthly revenue.';
+      err.style.display='block'; return;
+    }
     if(!payload.name||!payload.business||!payload.email||payload.email.indexOf('@')<0){
       err.textContent='Please fill in your name, business name and a valid email.';
       err.style.display='block'; return;
     }
+    // THE FLOOR. Band 0 = "Under £5k", 1 = "£5k - £10k", 2 = "£10k - £25k",
+    // 3 = "£25k - £50k" and so on (the "Choose one" placeholder is not a band).
+    // Bands at or above SCALE_FLOOR_BAND count as a real Lead for Meta; bands
+    // below it are still captured and audited but never reported, so the ads
+    // stop learning to find brands we do not take on. Jay set the floor at
+    // £10k on 23 Sep 2026, so 2. Same numbering as REVENUE_BANDS in the
+    // scale-lead API route, which re-derives this from the revenue text; the
+    // browser copy only decides what the pixel sends and which message the
+    // visitor reads. Change the label with the index.
+    var SCALE_FLOOR_BAND=2;
+    var SCALE_FLOOR_LABEL='£10k a month';
+    var band=document.getElementById('f_revenue').selectedIndex-1;
+    var qualified=band>=SCALE_FLOOR_BAND;
+    payload.tier=qualified?'qualified':'small';
     btn.disabled=true; btn.textContent='Sending...';
     var evId='scale-'+Date.now()+'-'+Math.random().toString(36).slice(2,10);
     var consented=false; try{ consented=localStorage.getItem('fc_cookie_consent')==='accepted'; }catch(e){}
@@ -511,13 +534,22 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)
     }).then(function(res){
       if(!res.ok){ return res.json().then(function(j){ throw new Error(j.error||'Could not send'); }); }
+      if(!qualified){
+        document.getElementById('leadSuccessTitle').textContent='Thanks. Here is the honest version.';
+        document.getElementById('leadSuccessMsg').textContent='Our ads management is built for stores already past '+SCALE_FLOOR_LABEL+'. Below that, ad spend is rarely what is holding you back, so instead of a call we will send you a free audit of what to fix first. Check your inbox, and when you are past '+SCALE_FLOOR_LABEL+', come back and we will talk.';
+      }
       document.getElementById('leadForm').style.display='none';
       document.getElementById('leadSuccess').style.display='block';
       // Distinct content_name so ecom applications are separable from the
       // restaurant and app Leads that share this pixel.
       // eventID must match the one the server sends, or a consented lead is
-      // counted twice.
-      if(typeof fbq!=='undefined') fbq('track','Lead',{content_name:'Ecom Scale Application', content_category:'Ads Management'},{eventID:evId});
+      // counted twice. Sub-floor submissions go out as a custom event instead,
+      // so the volume stays visible in Events Manager without training the
+      // Lead optimisation on brands below the floor.
+      if(typeof fbq!=='undefined'){
+        if(qualified) fbq('track','Lead',{content_name:'Ecom Scale Application', content_category:'Ads Management'},{eventID:evId});
+        else fbq('trackCustom','SmallLead',{content_name:'Ecom Scale Application', content_category:'Ads Management'},{eventID:evId});
+      }
       window.scrollTo({top:document.getElementById('apply').offsetTop-80});
     }).catch(function(e){
       btn.disabled=false; btn.textContent='Try again';
