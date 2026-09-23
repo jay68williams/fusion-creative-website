@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Shifa Aromas x Fusion Creative | Scent Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#141414; --ink-2:#3D3B38; --ink-3:#7A766F;
+  --paper:#FFFFFF; --cream:#FAFAF9; --mist:#EFEEEB; --line:#1414141F;
+  --gold:#B8945A; --gold-2:#D9BD8A; --gold-deep:#8C6B36;
+  --rose:#9E1B32; --souk:#6F9CB8; --souk-wash:#DCE8F0; --rose-wash:#F3DDE1; --sage:#C9D6C3;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;font-weight:300;background:var(--cream);color:var(--ink);
+     line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+.caps{font-weight:500;letter-spacing:.32em;text-transform:uppercase;font-size:10.5px}
+em,.serif{font-family:'Playfair Display',serif;font-style:italic;font-weight:400}
+
+/* their ribbon, printed with the name */
+.ribbon{background:var(--ink);color:var(--gold-2);text-align:center;padding:11px 16px;overflow:hidden;white-space:nowrap}
+.ribbon span{margin:0 18px}
+
+/* hero: the lid of the box */
+.hero{background:var(--paper);padding:64px 0 0;border-bottom:1px solid var(--line)}
+.lockup{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.lockup img{height:74px;width:auto}
+.lockup .x{font-family:'Playfair Display',serif;font-style:italic;font-size:28px;color:var(--gold)}
+.lockup .fc{font-weight:500;letter-spacing:.34em;text-transform:uppercase;font-size:13px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:end;margin-top:52px}
+.hero h1{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(32px,4.6vw,52px);line-height:1.12;letter-spacing:-.01em}
+.hero h1 em{color:var(--gold-deep)}
+.hero p{color:var(--ink-2);margin-top:22px;font-size:16px;max-width:560px}
+.hero .meta{margin-top:30px;color:var(--ink-3);padding-bottom:56px}
+.hero figure{position:relative;align-self:stretch;display:flex;align-items:flex-end}
+.hero figure img{width:100%;height:auto;display:block}
+.hero figure::before{content:"";position:absolute;left:-18px;top:18px;width:4px;bottom:0;background:var(--ink)}
+
+/* the pyramid: top, heart, base */
+.notes{padding:80px 0 30px}
+.notes-intro{display:grid;grid-template-columns:1fr 1.3fr;gap:48px;align-items:start}
+.notes-intro h2{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(26px,3.4vw,36px);line-height:1.2}
+.notes-intro p{color:var(--ink-2);font-size:15.5px}
+.pyramid{margin:46px auto 0;max-width:620px;display:grid;gap:6px}
+.pyramid div{text-align:center;padding:13px 10px;color:var(--ink)}
+.pyramid .t{width:44%;margin:0 auto;background:var(--gold-2)}
+.pyramid .h{width:72%;margin:0 auto;background:var(--rose-wash)}
+.pyramid .b{width:100%;background:var(--souk-wash)}
+.pyramid small{display:block;font-size:12.5px;color:var(--ink-2);letter-spacing:0;text-transform:none;font-weight:300;margin-top:3px}
+
+/* each observation is a scent box: white carton, watercolour band */
+.tier{padding:64px 0 10px}
+.tier-head{display:flex;align-items:baseline;gap:18px;border-bottom:1px solid var(--ink);padding-bottom:14px}
+.tier-head h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:30px}
+.tier-head .caps{color:var(--ink-3)}
+.box{display:grid;grid-template-columns:96px 1fr;background:var(--paper);margin-top:22px;border:1px solid var(--line)}
+.box .band{position:relative;overflow:hidden}
+.box .band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#FFFFFF00 0%,#FFFFFF66 55%,#FFFFFF 100%)}
+.box.gold .band{background:var(--gold-2)} .box.rose .band{background:var(--rose)} .box.souk .band{background:var(--souk)}
+.box .body{padding:30px 34px 32px}
+.box .label{color:var(--ink-3)}
+.box h4{font-family:'Playfair Display',serif;font-weight:500;font-size:23px;line-height:1.3;margin-top:8px}
+.box p{color:var(--ink-2);font-size:15.5px;margin-top:12px;max-width:760px}
+.box p b{font-weight:600;color:var(--ink)}
+.facts{margin-top:18px;border-top:1px solid var(--line)}
+.facts div{display:flex;justify-content:space-between;gap:18px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.facts div span:first-child{color:var(--ink-3)}
+.facts div span:last-child{font-weight:500;text-align:right}
+.quote{margin-top:18px;padding:16px 20px;background:var(--mist);font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--ink-2)}
+.quote cite{display:block;font-family:'Montserrat',sans-serif;font-style:normal;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.pair img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+.pair figcaption{font-size:12px;color:var(--ink-3);margin-top:8px}
+
+/* first moves: black carton, gold foil */
+.first{background:var(--ink);color:#fff;padding:84px 0;margin-top:70px}
+.first h2{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(28px,3.8vw,40px);max-width:700px}
+.first h2 em{color:var(--gold-2)}
+.first .lead{color:#FFFFFFC7;max-width:680px;margin-top:18px;font-size:16px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#FFFFFF24;margin-top:44px;border:1px solid #FFFFFF24}
+.step{background:var(--ink);padding:28px 22px}
+.step .n{font-family:'Playfair Display',serif;font-style:italic;font-size:34px;color:var(--gold-2);line-height:1}
+.step h5{font-weight:600;font-size:14px;letter-spacing:.06em;margin-top:14px}
+.step p{color:#FFFFFFB3;font-size:14px;margin-top:8px}
+.step .who{margin-top:14px;color:var(--gold-2)}
+
+/* proof: foil label */
+.proof{background:var(--paper);padding:76px 0;border-bottom:1px solid var(--line)}
+.proof-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:center}
+.proof h2{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(26px,3.4vw,34px);line-height:1.2}
+.proof p{color:var(--ink-2);margin-top:16px;font-size:15.5px}
+.foil{background:linear-gradient(135deg,#C9A76B 0%,#E8D3A6 45%,#B8945A 100%);padding:4px}
+.foil-in{background:var(--paper);display:grid;grid-template-columns:1fr 1fr}
+.foil-in>div{padding:28px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.foil-in>div:nth-child(2n){border-right:0}
+.foil-in>div:nth-child(n+3){border-bottom:0}
+.foil-in .k{font-family:'Playfair Display',serif;font-size:clamp(34px,4.6vw,48px);font-weight:500;line-height:1;color:var(--gold-deep)}
+.foil-in .v{margin-top:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);line-height:1.6}
+
+/* close */
+.close{padding:84px 0;text-align:center}
+.close h2{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(28px,4vw,42px);max-width:720px;margin:0 auto}
+.close p{color:var(--ink-2);max-width:620px;margin:18px auto 0;font-size:16px}
+.acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.act{display:inline-block;padding:16px 32px;font-size:11.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+     text-decoration:none;border:1px solid var(--ink);color:var(--ink);transition:.25s}
+.act:hover{background:var(--ink);color:#fff}
+.act.wa{background:#25D366;border-color:#25D366;color:#fff}
+.act.wa:hover{background:#1DA851;border-color:#1DA851}
+footer{background:var(--ink);color:#FFFFFF85;padding:32px 0;font-size:11.5px;text-align:center;line-height:1.9}
+footer b{color:var(--gold-2);font-weight:500}
+
+@media (max-width:860px){
+  .hero-grid,.notes-intro,.proof-grid{grid-template-columns:1fr;gap:34px}
+  .hero figure::before{display:none}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .box{grid-template-columns:1fr}.box .band{height:14px}.box .band::after{display:none}
+  .box .body{padding:24px 22px}.pair{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}.lockup img{height:58px}
+  .pyramid .t{width:70%}.pyramid .h{width:86%}
+  .facts div{flex-direction:column;gap:2px}.facts div span:last-child{text-align:left}
+}
+</style>
+</head>
+<body>
+<!-- fc-build: status=inbound-lead source=/scale leadid=abbaf17c-96db-4c42-a9f7-9ff9fe416a35 date=2026-09-23 -->
+
+<div class="ribbon caps"><span>Shifa Aromas</span><span>&middot;</span><span>Scent notes</span><span>&middot;</span><span>Prepared by Fusion Creative</span><span>&middot;</span><span>23 September 2026</span></div>
+
+<header class="hero"><div class="wrap">
+  <div class="lockup">
+    <img src="https://www.shifaromas.com/cdn/shop/files/shifa_with_bacakground_removed.png?width=300" alt="Shifa Aromas">
+    <span class="x">x</span>
+    <span class="fc">Fusion Creative</span>
+  </div>
+  <div class="hero-grid">
+    <div>
+      <h1>Jabar, the product is already finished. <em>What it needs now is to be seen before December.</em></h1>
+      <p>You told us honestly where revenue sits today, and that is below the level where we would normally take on a brand's ads. So this is a straight read of your store, not a pitch. Some of it you can act on this week without us.</p>
+      <p>We looked at shifaromas.com, every product in the catalogue, the tracking behind the site, your Trustpilot reviews, and your Instagram and TikTok.</p>
+      <div class="meta caps">Sheffield &middot; Handmade in England &middot; Since 2016</div>
+    </div>
+    <figure>
+      <img src="https://www.shifaromas.com/cdn/shop/files/J0191-18SQUARE.jpg?width=900" alt="A Shifa Aromas gift box in Moroccan Souk, with reed diffuser, room mist and tin candle, tied with printed ribbon">
+    </figure>
+  </div>
+</div></header>
+
+<section class="notes"><div class="wrap">
+  <div class="notes-intro">
+    <h2>Read it the way you would write a fragrance.</h2>
+    <p>The top note is what hits first and fades fastest. The heart is what the whole thing is really about. The base is what lasts into the winter. We have laid out what we found in that order, so the quick wins sit at the top and the thing that will matter in December sits at the bottom.</p>
+  </div>
+  <div class="pyramid caps">
+    <div class="t">Top note<small>already right</small></div>
+    <div class="h">Heart notes<small>refills and basket size</small></div>
+    <div class="b">Base note<small>Christmas, and the content to sell it</small></div>
+  </div>
+</div></section>
+
+<section class="tier"><div class="wrap">
+  <div class="tier-head"><h3>Top note</h3><span class="caps">What is already right</span></div>
+
+  <div class="box gold">
+    <div class="band"></div>
+    <div class="body">
+      <div class="label caps">Tracking</div>
+      <h4>Your tracking is set up properly, which is rarer than it should be</h4>
+      <p>Most stores your size that we look at are missing at least one of these, or have two copies of the same pixel counting every sale twice. Yours are each installed once, through Shopify, and the Google setup is reporting purchases, add to baskets and checkouts. That means the day you put money behind an advert, you will be able to see what it returned.</p>
+      <div class="facts">
+        <div><span>Meta pixel</span><span>Installed, one copy</span></div>
+        <div><span>Google Analytics 4</span><span>Installed, reporting purchases</span></div>
+        <div><span>Google Ads conversion tag</span><span>Installed</span></div>
+        <div><span>Pinterest tag</span><span>Installed</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="tier"><div class="wrap">
+  <div class="tier-head"><h3>Heart notes</h3><span class="caps">Where the money actually is</span></div>
+
+  <div class="box rose">
+    <div class="band"></div>
+    <div class="body">
+      <div class="label caps">Repeat purchase</div>
+      <h4>Refills are the business hiding inside the business</h4>
+      <p>Every one of your eight core scents has a <b>reed diffuser refill</b>, and refills already have Subscribe &amp; Save on a monthly or two monthly cycle. That is the most valuable thing on the site. A person who buys a diffuser today is a refill customer in a few months, without you paying to find them again.</p>
+      <p>Your email runs through Mailchimp (we can see it connected to the store). What we cannot see from outside is whether a diffuser buyer gets a well timed &ldquo;running low?&rdquo; email with a one click refill. If they do not, that is the first thing to build, and it costs nothing but an afternoon.</p>
+      <div class="quote">&ldquo;Beautiful aromas that really last! This is the first time I have bought direct.&rdquo;<cite>A Trustpilot reviewer</cite></div>
+    </div>
+  </div>
+
+  <div class="box rose">
+    <div class="band"></div>
+    <div class="body">
+      <div class="label caps">Basket size</div>
+      <h4>Free delivery starts below the price of your own hero products</h4>
+      <p>Free delivery kicks in at <b>&pound;20</b>. Your glass candles and reed diffusers are <b>&pound;25</b>. So the one product most people come for already qualifies on its own, and the threshold never asks anyone to add a second thing.</p>
+      <p>You already sell the perfect second thing: a <b>&pound;12</b> tin candle or a <b>&pound;13</b> refill in the same scent. A threshold that sits just above one hero product, with a &ldquo;add the matching tin&rdquo; nudge in the basket, is the cheapest basket size lever you have. Worth testing for a month and comparing.</p>
+      <div class="facts">
+        <div><span>Free delivery threshold</span><span>&pound;20</span></div>
+        <div><span>Glass candle, reed diffuser</span><span>&pound;25</span></div>
+        <div><span>Natural add ons, same scent</span><span>Tin candle &pound;12 &middot; Refill &pound;13 &middot; Room mist &pound;16</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="tier"><div class="wrap">
+  <div class="tier-head"><h3>Base note</h3><span class="caps">What lasts into winter</span></div>
+
+  <div class="box souk">
+    <div class="band"></div>
+    <div class="body">
+      <div class="label caps">Christmas</div>
+      <h4>Christmas is already on your shelves. The content to sell it is not made yet.</h4>
+      <p>You have personalised hampers, trio gift sets, perfume and candle gift sets, and a limited edition Winter Icing candle. Your Trustpilot score is 4.9, and gifting comes up again and again in the reviews. The range is ready for the busiest eight weeks of the year.</p>
+      <p>Your photography is genuinely good. Clean, well lit studio work that makes the packaging look as premium as it is. That is exactly right for product pages. It is not what stops a thumb on Instagram or TikTok. Paid social in December runs on short video: hands pulling the printed ribbon, the watercolour box opening, a match to a black glass candle. Both your accounts are set up, so the channels are there. The footage is what is missing.</p>
+      <p>Advertising costs climb from mid November. Anything filmed in October can be tested cheaply first, so by the time it matters you already know which two or three videos to put money behind.</p>
+      <div class="pair">
+        <figure><img src="https://www.shifaromas.com/cdn/shop/files/Shifa2-WEB-Res-17.jpg?width=700" alt="Midnight Rose Eau de Parfum bottle with gold label beside its crimson and white box" loading="lazy"><figcaption>Your Midnight Rose studio shot. Right for the product page.</figcaption></figure>
+        <figure><img src="https://www.shifaromas.com/cdn/shop/files/J0177-30.jpg?width=700" alt="Black glass Shifa candle lit beside a reed diffuser on a white kitchen counter" loading="lazy"><figcaption>This one is nearly a video already. The flame is the hook.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="first"><div class="wrap">
+  <div class="caps" style="color:var(--gold-2)">What Fusion would do first</div>
+  <h2 style="margin-top:14px">Two things you can do yourself, <em>then one day of filming.</em></h2>
+  <p class="lead">At your current size, spending on ads before the first two are in place would be the wrong order. They are free and they make every future sale worth more.</p>
+  <div class="steps">
+    <div class="step"><div class="n">i</div><h5>Refill reminder</h5><p>A Mailchimp email to diffuser buyers when they are due to run low, linking straight to the matching refill on Subscribe &amp; Save.</p><div class="caps who">You, this week</div></div>
+    <div class="step"><div class="n">ii</div><h5>Delivery threshold</h5><p>Move free delivery just above one hero product and suggest the matching tin or refill in the basket. Run it for a month.</p><div class="caps who">You, this week</div></div>
+    <div class="step"><div class="n">iii</div><h5>A gifting content day</h5><p>One October shoot around the hampers and gift sets, cut into short vertical videos for Instagram, TikTok and ads.</p><div class="caps who">Fusion</div></div>
+    <div class="step"><div class="n">iv</div><h5>Test, then spend</h5><p>Post the videos organically first. Put a modest budget only behind the ones that already earn attention, from mid November.</p><div class="caps who">Together</div></div>
+  </div>
+</div></section>
+
+<section class="proof"><div class="wrap"><div class="proof-grid">
+  <div>
+    <div class="caps" style="color:var(--ink-3)">A British candle maker, like you</div>
+    <h2 style="margin-top:12px">The Northumberland Candle Company</h2>
+    <p>A small, handmade candle brand on Shopify. We rebuilt the store to convert first, then ran short form video, ads and email as one system. These are their results, shared as multiples only.</p>
+    <p>The order of work is the point. The store and the email came before the budget, which is the same order we are suggesting to you.</p>
+  </div>
+  <div class="foil"><div class="foil-in">
+    <div><div class="k">16.9x</div><div class="v">Monthly revenue<br>in 60 days</div></div>
+    <div><div class="k">7.8x</div><div class="v">Blended return<br>on ad spend</div></div>
+    <div><div class="k">+64%</div><div class="v">Average<br>order value</div></div>
+    <div><div class="k">10x</div><div class="v">Orders<br>up</div></div>
+  </div></div>
+</div></div></section>
+
+<section class="close"><div class="wrap">
+  <div class="caps" style="color:var(--gold-deep)">Next step</div>
+  <h2 style="margin-top:14px">Happy to talk it through, <em>no strings.</em></h2>
+  <p>If you want a hand with the refill email or the threshold test, or you want to plan the October shoot, reply or message Jay directly.</p>
+  <div class="acts">
+    <a class="act" href="mailto:jay@fusioncreative.uk?subject=Shifa%20Aromas%20audit">Reply to this</a>
+    <a class="act wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Shifa%20Aromas%20audit" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</div></section>
+
+<footer>
+  <b>Fusion Creative</b> &nbsp;&middot;&nbsp; Newcastle upon Tyne &nbsp;&middot;&nbsp; fusioncreative.uk<br>
+  Everything here was read from your live store and public pages on 23 September 2026.
+</footer>
+
+</body>
+</html>
