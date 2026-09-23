@@ -51,7 +51,22 @@
   .grp li.no{color:var(--ink-3)}
   .terms{margin-top:18px;padding:16px 18px;background:var(--cream);font-size:15px;color:var(--ink-2)}
 
-  .glance{padding:64px 0 0}
+  .get{padding:64px 0 0}
+  .get h2{font-size:clamp(26px,3.4vw,36px);margin-top:8px}
+  .get > .col > p{color:var(--ink-2);margin-top:10px;max-width:560px;font-size:16px}
+  .get .grp:first-of-type{border-top:2px solid var(--ink);margin-top:22px}
+  .rates{padding:64px 0 0}
+  .rates h2{font-size:clamp(26px,3.4vw,36px);margin-top:8px}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+  .card{background:var(--paper);border:1px solid var(--line);padding:24px 22px 22px}
+  .card.main{border-color:var(--shop);box-shadow:0 0 0 3px rgba(47,90,69,.12)}
+  .card .w{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--shop);font-weight:700}
+  .card h3{font-size:22px;margin:6px 0 4px}
+  .card .n{font-family:'Trirong',serif;font-size:44px;line-height:1.05;margin-top:12px;color:var(--shop)}
+  .card .n small{font-family:'Quattrocento Sans',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-top:8px;font-weight:700}
+  .card p{font-size:15.5px;color:var(--ink-2);margin-top:12px}
+  .card p.not{color:var(--ink-3);font-size:14.5px}
+  .glance{padding:56px 0 0}
   .glance h2{font-size:clamp(24px,3vw,32px);margin-top:8px}
   table{width:100%;border-collapse:collapse;margin-top:22px;font-size:15px;table-layout:fixed}
   th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
@@ -83,9 +98,8 @@
     .hero .in{grid-template-columns:1fr}
     .hero .pic{min-height:280px;order:-1}
     .hero .txt{padding:40px 24px 44px}
-    .pk{padding:48px 0 0}
-    .pk .head{grid-template-columns:1fr;gap:12px}
-    .price{text-align:left}
+    .get{padding:48px 0 0} .rates{padding:48px 0 0}
+    .cards{grid-template-columns:1fr}
     .grp{grid-template-columns:1fr;gap:8px;padding:18px 0}
     .steps{grid-template-columns:1fr}
     th:nth-child(2),th:nth-child(3),td:nth-child(2),td:nth-child(3){width:64px}
@@ -105,21 +119,16 @@
 <div class="hero"><div class="in">
   <div class="txt">
     <div class="lab">Proposal for Craig &nbsp;&middot;&nbsp; September 2026</div>
-    <h1>Two ways to work together.</h1>
-    <p>Both start with the same week of fixes to the store. One of them then puts the bouquet in the bag in front of the rest of the UK, and keeps it there through Christmas, Valentine's and Mother's Day.</p>
+    <h1>What we would do, and then what it costs.</h1>
+    <p>One system: the store fixed, the shop filmed every month, the ads and the email run for you, and the peaks built a month ahead. Two ways to pay for it at the end of the page.</p>
   </div>
   <div class="pic"><img src="assets/autumn-bouquet.jpg" alt="A Rose n' Thyme autumn bouquet in the grey carrier bag"></div>
 </div></div>
 
-<section class="pk rec"><div class="col">
-  <div class="head">
-    <div>
-      <div class="lab">Option one <span class="tag">Recommended</span></div>
-      <h2>Content and managed ads</h2>
-      <p>The store fixed, a shoot in the shop every month, and the ads run for you as one system. Fusion films and buys the media in the same building.</p>
-    </div>
-    <div class="price"><div class="n">&pound;1,950</div><small>a month, three months minimum</small></div>
-  </div>
+<section class="get"><div class="col">
+  <div class="lab">What you get</div>
+  <h2>Everything, in the order it happens</h2>
+  <p>Fusion films and buys the media in the same building, so the shoot, the ads and the email are one plan rather than three suppliers.</p>
 
   <div class="grp">
     <h3><span>Week one</span>The store, fixed</h3>
@@ -138,7 +147,16 @@
     <ul>
       <li>Meta pixel checked and the Conversions API added, so purchases are counted properly on the server as well as the browser.</li>
       <li>Google Analytics purchase and add-to-basket events.</li>
-      <li>Email capture with a first order offer, so nationwide visitors who do not buy today are not lost.</li>
+    </ul>
+  </div>
+
+  <div class="grp">
+    <h3><span>Week one, then every month</span>Email</h3>
+    <ul>
+      <li>Klaviyo set up on the store: the signup form with a first order offer, the list, and the account connected to Shopify.</li>
+      <li>Three automations written and switched on: welcome with the offer, abandoned basket, and a post-delivery email that asks for the review and the next occasion.</li>
+      <li>Campaigns for the peaks: the subscription as the Christmas gift, Valentine's and Mother's Day pre-orders, the wreath workshop dates. One send a month in between.</li>
+      <li>Klaviyo's own subscription is yours, like the ad spend, and is free until the list grows.</li>
     </ul>
   </div>
 
@@ -146,7 +164,7 @@
     <h3><span>Every month</span>Content</h3>
     <ul>
       <li>A shoot day in the shop each month, Bearsden or Hyndland. Hands, ribbon, box, water, door, the window display, the workshops. Florists on camera if they are willing, the product if not.</li>
-      <li>Fifteen to twenty short videos and stills a month, cut for ads and for organic posting.</li>
+      <li>Fifteen to twenty short videos and stills a month, cut for ads, email and organic posting.</li>
       <li>Posted and scheduled across Instagram, Facebook and a new TikTok, with captions and hashtags written for you.</li>
       <li>Every occasion and peak gets its creative built the month before it lands.</li>
     </ul>
@@ -166,7 +184,7 @@
   <div class="grp">
     <h3><span>November onward</span>The peaks</h3>
     <ul>
-      <li>The subscription sold as the Christmas gift from November, with the price table fixed and the product in the menu.</li>
+      <li>The subscription sold as the Christmas gift from November, in the ads and the email, with the price table fixed and the product in the menu.</li>
       <li>Christmas bouquets, wreaths and the workshop dates.</li>
       <li>Valentine's and Mother's Day, each built a month ahead with the numbers from the previous peak setting the budget.</li>
     </ul>
@@ -188,55 +206,38 @@
       <li>Ad spend on your own card, set at the level you are comfortable with.</li>
     </ul>
   </div>
-
-  <div class="terms">Billed monthly in advance, first month on signing. Three months minimum, which takes you through Christmas, then month to month. Ad spend is separate and stays yours.</div>
 </div></section>
 
-<section class="pk"><div class="col">
-  <div class="head">
-    <div>
-      <div class="lab">Option two</div>
-      <h2>The launch month</h2>
-      <p>The same fixes and one shoot day, as a one-off. You keep everything it produces, whatever you decide about ads.</p>
+<section class="rates"><div class="col">
+  <div class="lab">The rates</div>
+  <h2>Two ways to pay for it</h2>
+  <div class="cards">
+    <div class="card main">
+      <div class="w">Option one <span class="tag">Recommended</span></div>
+      <h3>Content, ads and email</h3>
+      <div class="n">&pound;1,950<small>a month, three months minimum</small></div>
+      <p>Everything on this page, every month. Three months takes you through Christmas; after that it is month to month. Billed monthly in advance, first month on signing.</p>
+      <p class="not">Ad spend and the Klaviyo subscription are yours, paid direct, and stay yours.</p>
     </div>
-    <div class="price"><div class="n">&pound;1,250</div><small>one payment</small></div>
+    <div class="card">
+      <div class="w">Option two</div>
+      <h3>The launch month</h3>
+      <div class="n">&pound;1,250<small>one payment</small></div>
+      <p>The store fixes, the tracking, the signup form with the welcome offer, one shoot day, twelve videos posted across one month, and one report at the end. You keep everything it produces.</p>
+      <p class="not">No ads, no email automations or campaigns, no further shoots. Half on booking, half when the videos are delivered. Move to option one afterwards and the first month goes straight to the ads.</p>
+    </div>
   </div>
-
-  <div class="grp">
-    <h3><span>Week one</span>The store, fixed</h3>
-    <ul>
-      <li>Every store fix listed in option one: subscription prices, date picker and card message, reviews, nationwide delivery and collection, occasion pages, catalogue tidied.</li>
-      <li>Tracking installed: pixel and Conversions API, Google Analytics events, email capture.</li>
-    </ul>
-  </div>
-
-  <div class="grp">
-    <h3><span>Week two</span>One shoot day</h3>
-    <ul>
-      <li>A day in the shop, Bearsden or Hyndland, filmed to the same plan.</li>
-      <li>Twelve short videos cut and delivered, plus stills for the occasion pages.</li>
-      <li>The twelve videos scheduled across the month on Instagram and Facebook.</li>
-    </ul>
-  </div>
-
-  <div class="grp">
-    <h3><span>Week four</span>The report</h3>
-    <ul>
-      <li>One report at the end of the month: what the fixes changed, what the videos did, and an honest read on whether ads are worth it.</li>
-      <li class="no">No ads, no further shoots and no ongoing posting. If you move to option one afterwards, the fixes and the footage are already done, so the first month goes straight to the ads.</li>
-    </ul>
-  </div>
-
-  <div class="terms">Half on booking, half when the videos are delivered.</div>
 </div></section>
 
 <section class="glance"><div class="col">
   <div class="lab">Side by side</div>
   <h2>At a glance</h2>
   <table>
-    <tr><th>What is included</th><th>Launch month</th><th>Content and ads</th></tr>
+    <tr><th>What is included</th><th>Launch month</th><th>Content, ads and email</th></tr>
     <tr><td>Store fixes and tracking</td><td class="y">Yes</td><td class="y">Yes</td></tr>
     <tr><td>Occasion landing pages</td><td class="y">Yes</td><td class="y">Yes</td></tr>
+    <tr><td>Email: signup form and welcome offer</td><td class="y">Yes</td><td class="y">Yes</td></tr>
+    <tr><td>Email: automations and peak campaigns</td><td class="n">No</td><td class="y">Yes</td></tr>
     <tr><td>Shoot days in the shop</td><td class="y">One</td><td class="y">Monthly</td></tr>
     <tr><td>Short videos</td><td class="y">Twelve</td><td class="y">15 to 20 a month</td></tr>
     <tr><td>Posting and scheduling</td><td class="y">One month</td><td class="y">Ongoing</td></tr>
@@ -254,7 +255,7 @@
     <div class="step"><div class="w">Now</div><h3>Agree the plan</h3><p>Reply or WhatsApp, we confirm the option and the shoot date, and you send the access.</p></div>
     <div class="step"><div class="w">3 to 12 October</div><h3>The store fixes</h3><p>Done remotely while Jay is away. Nothing on the site goes down; every change is checked on a phone before it is live.</p></div>
     <div class="step"><div class="w">Week of 14 October</div><h3>The shoot</h3><p>A day in the shop. We bring the plan and the kit; you bring the flowers and yourself.</p></div>
-    <div class="step"><div class="w">Before the end of October</div><h3>Ads live</h3><p>Glasgow and nationwide campaigns on, the subscription and the workshop ads ready for early November.</p></div>
+    <div class="step"><div class="w">Before the end of October</div><h3>Ads and email live</h3><p>Glasgow and nationwide campaigns on, the automations running, the subscription and the workshop sends ready for early November.</p></div>
   </div>
 </div></section>
 
