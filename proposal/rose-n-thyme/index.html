@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Rose n' Thyme x Fusion Creative | Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Trirong:wght@300;400;500&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--paper:#FFFFFF;--cream:#F6F2EC;--ink:#252525;--ink-2:#555250;--ink-3:#8C8884;--leaf:#93C123;--shop:#2F5A45;--shop-2:#24483A;--line:rgba(37,37,37,.13)}
+  html{scroll-behavior:smooth}
+  body{font-family:'Quattrocento Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:clip}
+  h1,h2,h3,h4{font-family:'Trirong',serif;font-weight:400;line-height:1.2}
+  .col{max-width:760px;margin:0 auto;padding:0 24px}
+  b{font-weight:700;color:var(--ink)}
+  img{display:block;max-width:100%}
+  .lab{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--shop);font-weight:700}
+  .mast{border-bottom:1px solid var(--line)}
+  .mast .in{max-width:1120px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .mast img{height:30px;width:auto}
+  .mast .x{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+  .mast .x b{color:var(--ink)}
+  .hero{background:var(--shop);color:#fff}
+  .hero .in{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;align-items:stretch}
+  .hero .txt{padding:64px 24px 56px;display:flex;flex-direction:column;justify-content:center}
+  .hero .lab{color:var(--leaf)}
+  .hero h1{font-size:clamp(32px,4.6vw,52px);font-weight:300;margin-top:16px;max-width:560px;color:#fff}
+  .hero p{margin-top:18px;max-width:520px;color:rgba(255,255,255,.82)}
+  .hero .pic{position:relative;min-height:380px}
+  .hero .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+
+  .pk{padding:64px 0 0}
+  .pk .head{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:18px}
+  .pk h2{font-size:clamp(26px,3.4vw,36px);margin-top:8px}
+  .pk .head p{color:var(--ink-2);margin-top:8px;max-width:520px;font-size:16px}
+  .price{text-align:right}
+  .price .n{font-family:'Trirong',serif;font-size:clamp(36px,5vw,52px);line-height:1;color:var(--shop)}
+  .price small{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin-top:8px}
+  .pk.rec .head{border-bottom-color:var(--shop)}
+  .tag{display:inline-block;background:var(--leaf);color:#1d2e0a;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding:4px 9px;margin-left:10px;vertical-align:middle}
+  .grp{display:grid;grid-template-columns:200px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+  .grp h3{font-size:19px;line-height:1.3}
+  .grp h3 span{display:block;font-family:'Quattrocento Sans',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--leaf);font-weight:700;margin-bottom:4px}
+  .grp ul{list-style:none}
+  .grp li{position:relative;padding:5px 0 5px 22px;color:var(--ink-2);font-size:16px}
+  .grp li:before{content:"";position:absolute;left:0;top:14px;width:10px;height:10px;border-radius:50%;background:var(--shop)}
+  .grp li.no:before{background:transparent;border:1.5px solid var(--ink-3);width:9px;height:9px}
+  .grp li.no{color:var(--ink-3)}
+  .terms{margin-top:18px;padding:16px 18px;background:var(--cream);font-size:15px;color:var(--ink-2)}
+
+  .glance{padding:64px 0 0}
+  .glance h2{font-size:clamp(24px,3vw,32px);margin-top:8px}
+  table{width:100%;border-collapse:collapse;margin-top:22px;font-size:15px;table-layout:fixed}
+  th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+  th:nth-child(2),th:nth-child(3),td:nth-child(2),td:nth-child(3){width:96px;text-align:center}
+  td.y{color:var(--shop);font-weight:700}
+  td.n{color:var(--ink-3)}
+  tr.tot td{font-weight:700;color:var(--ink);border-bottom:none;padding-top:14px}
+
+  .plan{background:var(--cream);padding:56px 0;margin-top:64px;border-top:1px solid var(--line)}
+  .plan h2{font-size:clamp(24px,3vw,32px);margin-top:8px}
+  .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:26px}
+  .step{background:var(--paper);border:1px solid var(--line);padding:20px 20px 18px}
+  .step .w{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--leaf);font-weight:700}
+  .step h3{font-size:19px;margin:8px 0 8px}
+  .step p{font-size:15px;color:var(--ink-2)}
+
+  .close{background:var(--shop);color:#fff;padding:76px 0 72px}
+  .close h2{font-size:clamp(26px,3.6vw,40px);font-weight:300;max-width:680px;color:#fff;margin-top:12px}
+  .close p{color:rgba(255,255,255,.82);max-width:600px;margin-top:18px;font-size:16.5px}
+  .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+  .act{display:inline-block;padding:16px 30px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:1px solid #fff;color:#fff;font-weight:700;transition:.2s}
+  .act:hover{background:#fff;color:var(--shop)}
+  .act.wa{background:#25D366;border-color:#25D366;color:#fff}
+  .act.wa:hover{background:#1da851;border-color:#1da851;color:#fff}
+  footer{padding:34px 0;font-size:13px;color:var(--ink-3);line-height:1.9}
+  footer a{color:var(--ink-3)}
+  @media (max-width:760px){
+    .hero .in{grid-template-columns:1fr}
+    .hero .pic{min-height:280px;order:-1}
+    .hero .txt{padding:40px 24px 44px}
+    .pk{padding:48px 0 0}
+    .pk .head{grid-template-columns:1fr;gap:12px}
+    .price{text-align:left}
+    .grp{grid-template-columns:1fr;gap:8px;padding:18px 0}
+    .steps{grid-template-columns:1fr}
+    th:nth-child(2),th:nth-child(3),td:nth-child(2),td:nth-child(3){width:64px}
+    table{font-size:14px} th,td{padding:9px 6px}
+    .glance{padding:48px 0 0} .plan{padding:44px 0;margin-top:48px} .close{padding:56px 0 52px}
+  }
+</style>
+</head>
+<body>
+<!-- fc-proposal: rose-n-thyme date=2026-09-23 prices=PROPOSED-BY-CLAUDE-JAY-TO-CONFIRM -->
+
+<div class="mast"><div class="in">
+  <img src="assets/rosenthyme-logo.png" alt="Rose n' Thyme Florist">
+  <div class="x">with <b>Fusion Creative</b></div>
+</div></div>
+
+<div class="hero"><div class="in">
+  <div class="txt">
+    <div class="lab">Proposal for Craig &nbsp;&middot;&nbsp; September 2026</div>
+    <h1>Two ways to work together.</h1>
+    <p>Both start with the same week of fixes to the store. One of them then puts the bouquet in the bag in front of the rest of the UK, and keeps it there through Christmas, Valentine's and Mother's Day.</p>
+  </div>
+  <div class="pic"><img src="assets/autumn-bouquet.jpg" alt="A Rose n' Thyme autumn bouquet in the grey carrier bag"></div>
+</div></div>
+
+<section class="pk rec"><div class="col">
+  <div class="head">
+    <div>
+      <div class="lab">Option one <span class="tag">Recommended</span></div>
+      <h2>Content and managed ads</h2>
+      <p>The store fixed, a shoot in the shop every month, and the ads run for you as one system. Fusion films and buys the media in the same building.</p>
+    </div>
+    <div class="price"><div class="n">&pound;1,950</div><small>a month, three months minimum</small></div>
+  </div>
+
+  <div class="grp">
+    <h3><span>Week one</span>The store, fixed</h3>
+    <ul>
+      <li>Subscription price table corrected at every size and length, and the subscription put in the menu and on the homepage with proper photography.</li>
+      <li>Delivery date picker and card message field on every bouquet, at the point of choosing.</li>
+      <li>Reviews on every product page, with your Facebook recommendations imported, and a review request sent after every order.</li>
+      <li>Nationwide delivery priced for the whole UK, and the nationwide collection filled with all thirty bouquets rather than four.</li>
+      <li>Occasion pages built and linked: birthday, thank you, sympathy, new baby, just because. Each with the date, the card message and the vase in reach.</li>
+      <li>Top bar typo, "Compliment" wording, product types, the duplicate casket sprays and wreaths, and the two "Decemeber" listings tidied.</li>
+    </ul>
+  </div>
+
+  <div class="grp">
+    <h3><span>Week one</span>Tracking</h3>
+    <ul>
+      <li>Meta pixel checked and the Conversions API added, so purchases are counted properly on the server as well as the browser.</li>
+      <li>Google Analytics purchase and add-to-basket events.</li>
+      <li>Email capture with a first order offer, so nationwide visitors who do not buy today are not lost.</li>
+    </ul>
+  </div>
+
+  <div class="grp">
+    <h3><span>Every month</span>Content</h3>
+    <ul>
+      <li>A shoot day in the shop each month, Bearsden or Hyndland. Hands, ribbon, box, water, door, the window display, the workshops. Florists on camera if they are willing, the product if not.</li>
+      <li>Fifteen to twenty short videos and stills a month, cut for ads and for organic posting.</li>
+      <li>Posted and scheduled across Instagram, Facebook and a new TikTok, with captions and hashtags written for you.</li>
+      <li>Every occasion and peak gets its creative built the month before it lands.</li>
+    </ul>
+  </div>
+
+  <div class="grp">
+    <h3><span>Every month</span>The ads</h3>
+    <ul>
+      <li>Glasgow radius campaign: the shops, same-day delivery, and the wreath workshops. Ten miles, where no other florist is advertising.</li>
+      <li>Nationwide campaign: "arrives in water, in our box" by occasion, each ad landing on the page that answers it.</li>
+      <li>Retargeting on the pixel you already have: visitors, basket abandoners, past customers.</li>
+      <li>Creative refreshed from each shoot; losers switched off, winners given the budget.</li>
+      <li>Budget managed against the numbers. Your ad spend is paid straight to Meta on your own card; we suggest &pound;50 to &pound;100 a day to start and let the first two weeks decide.</li>
+    </ul>
+  </div>
+
+  <div class="grp">
+    <h3><span>November onward</span>The peaks</h3>
+    <ul>
+      <li>The subscription sold as the Christmas gift from November, with the price table fixed and the product in the menu.</li>
+      <li>Christmas bouquets, wreaths and the workshop dates.</li>
+      <li>Valentine's and Mother's Day, each built a month ahead with the numbers from the previous peak setting the budget.</li>
+    </ul>
+  </div>
+
+  <div class="grp">
+    <h3><span>Always</span>Reporting and contact</h3>
+    <ul>
+      <li>One report a month in plain English: spend, sales, return, what moved and what did not.</li>
+      <li>A WhatsApp line to Jay for anything in between.</li>
+    </ul>
+  </div>
+
+  <div class="grp">
+    <h3><span>From you</span>What we need</h3>
+    <ul>
+      <li>Shopify collaborator access and access to your Meta Business Manager (page, ad account, pixel).</li>
+      <li>A shoot date each month and an hour of your time on the day.</li>
+      <li>Ad spend on your own card, set at the level you are comfortable with.</li>
+    </ul>
+  </div>
+
+  <div class="terms">Billed monthly in advance, first month on signing. Three months minimum, which takes you through Christmas, then month to month. Ad spend is separate and stays yours.</div>
+</div></section>
+
+<section class="pk"><div class="col">
+  <div class="head">
+    <div>
+      <div class="lab">Option two</div>
+      <h2>The launch month</h2>
+      <p>The same fixes and one shoot day, as a one-off. You keep everything it produces, whatever you decide about ads.</p>
+    </div>
+    <div class="price"><div class="n">&pound;1,250</div><small>one payment</small></div>
+  </div>
+
+  <div class="grp">
+    <h3><span>Week one</span>The store, fixed</h3>
+    <ul>
+      <li>Every store fix listed in option one: subscription prices, date picker and card message, reviews, nationwide delivery and collection, occasion pages, catalogue tidied.</li>
+      <li>Tracking installed: pixel and Conversions API, Google Analytics events, email capture.</li>
+    </ul>
+  </div>
+
+  <div class="grp">
+    <h3><span>Week two</span>One shoot day</h3>
+    <ul>
+      <li>A day in the shop, Bearsden or Hyndland, filmed to the same plan.</li>
+      <li>Twelve short videos cut and delivered, plus stills for the occasion pages.</li>
+      <li>The twelve videos scheduled across the month on Instagram and Facebook.</li>
+    </ul>
+  </div>
+
+  <div class="grp">
+    <h3><span>Week four</span>The report</h3>
+    <ul>
+      <li>One report at the end of the month: what the fixes changed, what the videos did, and an honest read on whether ads are worth it.</li>
+      <li class="no">No ads, no further shoots and no ongoing posting. If you move to option one afterwards, the fixes and the footage are already done, so the first month goes straight to the ads.</li>
+    </ul>
+  </div>
+
+  <div class="terms">Half on booking, half when the videos are delivered.</div>
+</div></section>
+
+<section class="glance"><div class="col">
+  <div class="lab">Side by side</div>
+  <h2>At a glance</h2>
+  <table>
+    <tr><th>What is included</th><th>Launch month</th><th>Content and ads</th></tr>
+    <tr><td>Store fixes and tracking</td><td class="y">Yes</td><td class="y">Yes</td></tr>
+    <tr><td>Occasion landing pages</td><td class="y">Yes</td><td class="y">Yes</td></tr>
+    <tr><td>Shoot days in the shop</td><td class="y">One</td><td class="y">Monthly</td></tr>
+    <tr><td>Short videos</td><td class="y">Twelve</td><td class="y">Fifteen to twenty a month</td></tr>
+    <tr><td>Posting and scheduling</td><td class="y">One month</td><td class="y">Ongoing, plus TikTok</td></tr>
+    <tr><td>Meta ads, two campaigns and retargeting</td><td class="n">No</td><td class="y">Yes</td></tr>
+    <tr><td>Peaks built a month ahead</td><td class="n">No</td><td class="y">Yes</td></tr>
+    <tr><td>Monthly report and WhatsApp line</td><td class="y">One report</td><td class="y">Yes</td></tr>
+    <tr class="tot"><td>Price</td><td>&pound;1,250 once</td><td>&pound;1,950 a month</td></tr>
+  </table>
+</div></section>
+
+<section class="plan"><div class="col">
+  <div class="lab">How it runs</div>
+  <h2>From here to ads live</h2>
+  <div class="steps">
+    <div class="step"><div class="w">Now</div><h3>Agree the plan</h3><p>Reply or WhatsApp, we confirm the option and the shoot date, and you send the access.</p></div>
+    <div class="step"><div class="w">3 to 12 October</div><h3>The store fixes</h3><p>Done remotely while Jay is away. Nothing on the site goes down; every change is checked on a phone before it is live.</p></div>
+    <div class="step"><div class="w">Week of 14 October</div><h3>The shoot</h3><p>A day in the shop. We bring the plan and the kit; you bring the flowers and yourself.</p></div>
+    <div class="step"><div class="w">Before the end of October</div><h3>Ads live</h3><p>Glasgow and nationwide campaigns on, the subscription and the workshop ads ready for early November.</p></div>
+  </div>
+</div></section>
+
+<div class="close"><div class="col">
+  <div class="lab" style="color:var(--leaf)">Next step</div>
+  <h2>Reply with the option you want, or send a WhatsApp, and we will book the shoot.</h2>
+  <p>Questions first are fine too. The audit that led here is at <a href="https://fusioncreative.uk/audit/rose-n-thyme/" style="color:#fff">fusioncreative.uk/audit/rose-n-thyme</a> if you want to go back over it.</p>
+  <div class="acts">
+    <a class="act" href="mailto:jay@fusioncreative.uk?subject=Rose%20n%27%20Thyme%20proposal">Reply to Jay</a>
+    <a class="act wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20it%27s%20Craig%20from%20Rose%20n%27%20Thyme" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</div></div>
+
+<footer><div class="col">
+  Fusion Creative &nbsp;&middot;&nbsp; Newcastle upon Tyne &nbsp;&middot;&nbsp; fusioncreative.uk<br>
+  Prices exclude VAT if applicable. Proposal prepared 23 September 2026 for Craig Thorburn, Rose n' Thyme.
+</div></footer>
+</body>
+</html>
