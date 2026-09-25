@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- fc-build: status=proposal source=prospecting-playbook date=2026-09-25 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Hallington Mill x Fusion Creative | Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Julius+Sans+One&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --paper:#F6F5EA; --panel:#FFFFFF; --sage:#9C9A81; --sage-2:#7F7D66; --sage-3:#E4E3D2; --clay:#B5674A;
+    --ink:#1E1E1A; --text:#2A2A25; --text-2:#5C5B52; --text-3:#8E8C7E; --line:#DEDCCB; --wa:#25D366;
+  }
+  body{font-family:'Cormorant Garamond',serif;background:var(--paper);color:var(--text);line-height:1.5;font-size:19px;-webkit-font-smoothing:antialiased;overflow-x:clip}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.12}
+  .caps{font-family:'Julius Sans One',sans-serif;letter-spacing:.18em;text-transform:uppercase}
+  .col{max-width:720px;margin:0 auto;padding:0 26px}
+  .wide{max-width:1080px;margin:0 auto;padding:0 26px}
+  b{font-weight:600;color:var(--ink)}
+
+  .mast{padding:26px 0;text-align:center;border-bottom:1px solid var(--line)}
+  .mast .m1{font-size:14px;color:var(--ink)}
+  .mast .m2{margin-top:8px;font-size:10px;color:var(--text-3)}
+
+  .hero{background:var(--sage);color:#fff;padding:72px 0 60px;text-align:center}
+  .hero .pre{font-size:11px;color:#F1F0E3}
+  .hero h1{margin:18px auto 0;font-size:clamp(40px,6.4vw,76px);font-style:italic;font-weight:400;max-width:820px}
+  .hero p{margin:18px auto 0;max-width:560px;font-size:20px;color:#F1F0E3}
+  .pills{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:32px}
+  .pill{background:#ffffff22;border:1px solid #ffffff55;padding:12px 18px;min-width:170px}
+  .pill .v{font-size:28px;font-weight:600;line-height:1;white-space:nowrap}
+  .pill .k{font-size:9.5px;margin-top:6px;color:#F1F0E3}
+
+  .sec{padding:72px 0 0}
+  .sec .n{font-size:10.5px;color:var(--sage-2)}
+  .sec h2{font-size:clamp(30px,4vw,44px);margin-top:8px}
+  .sec .lede{margin-top:10px;color:var(--text-2);font-size:20px;max-width:640px}
+
+  .tl{margin-top:30px;border-left:2px solid var(--sage);padding-left:26px}
+  .tl .blk{position:relative;padding:0 0 34px}
+  .tl .blk::before{content:"";position:absolute;left:-33px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--sage)}
+  .tl .w{font-size:10px;color:var(--sage-2)}
+  .tl h3{font-size:25px;margin:6px 0 10px}
+  .tl ul{list-style:none;display:grid;gap:7px}
+  .tl li{padding-left:18px;position:relative;color:var(--text-2);font-size:17.5px}
+  .tl li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:2px;background:var(--clay)}
+
+
+  .dl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+  .d{background:var(--panel);border:1px solid var(--line);padding:22px 22px 18px}
+  .d .h{font-size:10px;color:var(--sage-2)}
+  .d .big{font-size:42px;font-weight:600;line-height:1;color:var(--ink);margin:10px 0 2px}
+  .d .big small{font-size:15px;font-weight:400;color:var(--text-3);margin-left:6px}
+  .d ul{list-style:none;display:grid;gap:5px;margin-top:10px}
+  .d li{padding-left:16px;position:relative;color:var(--text-2);font-size:16px}
+  .d li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:2px;background:var(--clay)}
+
+  .rates{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;margin-top:28px}
+  .rate{background:var(--panel);border:1px solid var(--line);padding:30px 28px 26px;position:relative}
+  .rate.main{border-top:4px solid var(--sage)}
+  .rate.one{border-top:4px solid var(--clay)}
+  .rate .tag{font-size:10px;color:var(--sage-2)}
+  .rate.one .tag{color:var(--clay)}
+  .rate h3{font-size:27px;margin:8px 0 6px}
+  .rate .price{font-size:48px;font-weight:600;line-height:1;margin:14px 0 4px;color:var(--ink)}
+  .rate .price small{font-size:16px;font-weight:400;color:var(--text-3);margin-left:6px}
+  .rate .terms{font-size:15px;color:var(--text-3);margin-bottom:16px}
+  .rate ul{list-style:none;display:grid;gap:6px}
+  .rate li{padding-left:18px;position:relative;color:var(--text-2);font-size:16.5px}
+  .rate li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:2px;background:var(--sage)}
+  .rate.one li::before{background:var(--clay)}
+  .sum{margin-top:16px;background:var(--sage-3);border:1px solid var(--line);padding:20px 24px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+  .sum .l{font-size:18px;color:var(--text-2)}
+  .sum .r{font-size:26px;font-weight:600;color:var(--ink);white-space:nowrap}
+  .fine{margin-top:14px;font-size:15.5px;color:var(--text-3)}
+
+  .ninety{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+  .m{background:var(--panel);border:1px solid var(--line);padding:22px 22px 20px}
+  .m .w{font-size:10px;color:var(--sage-2)}
+  .m h3{font-size:22px;margin:8px 0 8px}
+  .m p{color:var(--text-2);font-size:16.5px}
+  .m .out{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:15.5px;color:var(--clay)}
+
+  .need{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+  .need div{background:var(--panel);border:1px solid var(--line);padding:22px}
+  .need h3{font-size:20px;margin-bottom:8px}
+  .need p{font-size:16.5px;color:var(--text-2)}
+
+  .close{padding:84px 0 80px;text-align:center}
+  .close h2{font-size:clamp(30px,4vw,44px);max-width:640px;margin:0 auto 20px;font-style:italic;font-weight:400}
+  .close p{color:var(--text-2);max-width:540px;margin:0 auto 14px;font-size:19px}
+  .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+  .act{display:inline-block;padding:16px 30px;font-family:'Julius Sans One',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);color:var(--ink);transition:.25s ease}
+  .act:hover{background:var(--ink);color:var(--paper)}
+  .act.sage{background:var(--sage);border-color:var(--sage);color:#fff}
+  .act.sage:hover{background:var(--sage-2);border-color:var(--sage-2)}
+  .act.wa{border-color:var(--wa);background:var(--wa);color:#fff}
+  .act.wa:hover{background:#1da851;border-color:#1da851}
+  footer{padding:44px 0;text-align:center;font-size:14px;color:var(--text-3);line-height:1.9;border-top:1px solid var(--line)}
+
+  @media (max-width:760px){
+    body{font-size:18px}
+    .hero{padding:52px 0 46px} .hero h1{font-size:42px}
+    .pill{min-width:0;flex:1 1 44%}
+    .sec{padding:56px 0 0}
+    .rates,.ninety,.need,.dl{grid-template-columns:1fr}
+    .sum{grid-template-columns:1fr}
+    .tl{padding-left:20px} .tl .blk::before{left:-27px}
+    .close{padding:60px 0 56px}
+  }
+</style>
+</head>
+<body>
+
+<div class="mast">
+  <div class="m1 caps">Hallington Mill</div>
+  <div class="m2 caps">Proposal &nbsp;&middot;&nbsp; prepared by Fusion Creative &nbsp;&middot;&nbsp; September 2026</div>
+</div>
+
+<div class="hero">
+  <div class="pre caps">For Elizabeth and Rob</div>
+  <h1>Your marketing department.</h1>
+  <p>Not a videographer and not a social media manager. One team that films the mill, runs the channels, buys the ads, tracks every enquiry and reports back in viewings booked and dates filled.</p>
+  <div class="pills">
+    <div class="pill"><div class="v">1 team</div><div class="k caps">Content, socials, ads, tracking</div></div>
+    <div class="pill"><div class="v">1 report</div><div class="k caps">Enquiries, viewings, dates</div></div>
+    <div class="pill"><div class="v">1 film</div><div class="k caps">A three-day wedding, start to finish</div></div>
+  </div>
+</div>
+
+<div class="sec"><div class="col">
+  <div class="n caps">I</div>
+  <h2>Everything, in the order it happens</h2>
+  <p class="lede">The plan you have already read, turned into a calendar. Fusion films and buys the media in the same team, so the shoot, the posts and the ads are one plan rather than three suppliers.</p>
+  <div class="tl">
+    <div class="blk">
+      <div class="w caps">Week one</div>
+      <h3>The pipeline gets a front door</h3>
+      <ul>
+        <li>Google Analytics and the Meta pixel on hallingtonmill.co.uk, so every enquiry has a source and every visitor can be reached again.</li>
+        <li>Email and phone on the contact page, next to the forms. One button, "book a viewing", on every page and in every bio.</li>
+        <li>Your Bridebook and Airbnb reviews on the homepage, where a couple lands from Instagram.</li>
+        <li>Bridebook, Hitched and Google Business Profile checked and brought up to date, with the 2027 and 2028 brochures linked.</li>
+      </ul>
+    </div>
+    <div class="blk">
+      <div class="w caps">Month one</div>
+      <h3>First capture day, and the wedding</h3>
+      <ul>
+        <li>A capture day at the mill in autumn: the woodland, the Hay Shed dressed, the stays, the valley, you two on camera if you are willing.</li>
+        <li>The three-day wedding filmed start to finish, Thursday arrival to Sunday round the kitchen table, when a couple says yes.</li>
+        <li>Instagram taken over: 20 plus edited pieces a month, a third of them reels, filmed not stock. A TikTok started from zero. Facebook kept alive.</li>
+      </ul>
+    </div>
+    <div class="blk">
+      <div class="w caps">Every month</div>
+      <h3>Capture, post, promote, report</h3>
+      <ul>
+        <li>A capture day each month. Weddings when there are weddings, the stays and the seasons when there are not.</li>
+        <li>Captions, hashtags, scheduling and replies to comments and messages handled, so an enquiry in the DMs never sits.</li>
+        <li>One open afternoon a season, mill dressed, fire lit, promoted to couples within an hour and filled.</li>
+        <li>A one page report: enquiries and where they came from, viewings booked, dates confirmed, what the ads cost per viewing.</li>
+      </ul>
+    </div>
+    <div class="blk">
+      <div class="w caps">Month two on</div>
+      <h3>The ads</h3>
+      <ul>
+        <li>The three-day film and the best capture-day pieces run as ads to engaged couples within an hour of Hallington.</li>
+        <li>Retargeting on the pixel: everyone who visited, watched or enquired sees the open afternoon and the 2027 dates.</li>
+        <li>Budget agreed with you and paid direct to Meta on your own card. Judged on one number: viewings booked.</li>
+      </ul>
+    </div>
+    <div class="blk">
+      <div class="w caps">Always</div>
+      <h3>Contact</h3>
+      <ul>
+        <li>A WhatsApp line to Jay for anything in between.</li>
+      </ul>
+    </div>
+  </div>
+</div></div>
+
+<div class="sec"><div class="wide">
+  <div class="n caps">II</div>
+  <h2>What lands every month</h2>
+  <p class="lede">The deliverables behind the retainer, counted. This is the department's output, not a list of services.</p>
+  <div class="dl">
+    <div class="d"><div class="h caps">Filming</div><div class="big">1<small>capture day</small></div><ul><li>Up to six hours at the mill, planned with a shot list the week before</li><li>Weddings, the stays, the seasons, you two on camera</li><li>Two of us when a wedding is on</li></ul></div>
+    <div class="d"><div class="h caps">Content</div><div class="big">20+<small>edited videos</small></div><ul><li>Reels and TikToks cut for each platform, captions and hooks written</li><li>15 plus edited stills for the grid, the site and the listings</li><li>Every piece delivered to a shared library you keep</li></ul></div>
+    <div class="d"><div class="h caps">Posting</div><div class="big">5<small>posts a week</small></div><ul><li>Instagram, TikTok and Facebook scheduled and published for you</li><li>Stories on shoot days and wedding weekends</li><li>Comments and DMs answered within a working day, enquiries passed to you the same day</li></ul></div>
+    <div class="d"><div class="h caps">Ads</div><div class="big">2<small>campaigns live</small></div><ul><li>Couples within an hour, and retargeting on everyone who visited or enquired</li><li>New creative from every capture day, losers switched off weekly</li><li>Budget set with you, paid direct to Meta</li></ul></div>
+    <div class="d"><div class="h caps">Website and listings</div><div class="big">1<small>front door</small></div><ul><li>Tracking and the contact page fixed in week one</li><li>"Book a viewing" everywhere, reviews on the homepage</li><li>Bridebook, Hitched and Google checked monthly</li></ul></div>
+    <div class="d"><div class="h caps">Reporting</div><div class="big">1<small>page a month</small></div><ul><li>Enquiries and where each one came from</li><li>Viewings booked, dates confirmed, cost per viewing from the ads</li><li>One open afternoon a season promoted and filled, plus a WhatsApp line to Jay</li></ul></div>
+  </div>
+</div></div>
+
+<div class="sec"><div class="wide">
+  <div class="n caps">III</div>
+  <h2>What it costs</h2>
+  <p class="lede">One retainer for the department, one payment for the film. Monthly in advance, three month minimum, then rolling.</p>
+  <div class="rates">
+    <div class="rate main">
+      <div class="tag caps">The retainer</div>
+      <h3>Marketing department</h3>
+      <div class="price">&pound;1,950<small>a month</small></div>
+      <div class="terms">Three months minimum, then month to month. Billed monthly in advance, first month on signing.</div>
+      <ul>
+        <li>A capture day at the mill each month</li>
+        <li>20 plus edited videos and stills a month, posted and managed on Instagram, TikTok and Facebook</li>
+        <li>Meta ads planned, built, run and refreshed from each shoot</li>
+        <li>Website tracking, the contact page fixed, listings kept current</li>
+        <li>Open afternoons promoted and filled</li>
+        <li>Monthly report: enquiries, viewings booked, dates confirmed</li>
+        <li>Ad spend paid direct to Meta, agreed with you, and stays yours</li>
+      </ul>
+    </div>
+    <div class="rate one">
+      <div class="tag caps">One off</div>
+      <h3>The three-day wedding film</h3>
+      <div class="price">&pound;1,495<small>one payment</small></div>
+      <div class="terms">Half on booking the date, half on delivery.</div>
+      <ul>
+        <li>Two of us on site across the weekend</li>
+        <li>Arrival, woodland ceremony, Hay Shed, the stays, Sunday morning</li>
+        <li>One hero film for the website and the ads</li>
+        <li>Eight short vertical pieces for Instagram and TikTok</li>
+        <li>The couple get their own edit as a Hallington gift</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sum">
+    <div class="l">Month one, the department plus the film. Then &pound;1,950 a month from month two.</div>
+    <div class="r">&pound;3,445</div>
+  </div>
+  <p class="fine">A Hallington wedding is worth between five and a half and nine thousand pounds in hire alone. One extra date a year, won from the film and the ads, covers most of a year of this.</p>
+</div></div>
+
+<div class="sec"><div class="wide">
+  <div class="n caps">IV</div>
+  <h2>The first ninety days</h2>
+  <div class="ninety">
+    <div class="m"><div class="w caps">Days 1 to 30</div><h3>Set up and first shoot</h3><p>Tracking live, contact page fixed, listings current. First capture day. Instagram and TikTok posting from week two. The wedding filmed if a date falls in the window.</p><div class="out">You see: the first month of posts and the first report with enquiry sources.</div></div>
+    <div class="m"><div class="w caps">Days 31 to 60</div><h3>The film and the first ad</h3><p>The three-day film delivered and on the homepage. First ad live to couples within an hour. Open afternoon date set and promoted.</p><div class="out">You see: cost per viewing booked from the ad, and the open afternoon filling.</div></div>
+    <div class="m"><div class="w caps">Days 61 to 90</div><h3>Decide on the numbers</h3><p>Second capture day, second month of ads with the winners given the budget. Report three compares enquiries and viewings against where you started.</p><div class="out">You see: whether to carry on. We expect the answer to be obvious by then.</div></div>
+  </div>
+</div></div>
+
+<div class="sec"><div class="wide">
+  <div class="n caps">V</div>
+  <h2>What we need from you</h2>
+  <div class="need">
+    <div><h3>Access</h3><p>Instagram, Facebook and TikTok logins, or us added as a partner. Squarespace collaborator access for the tracking and the contact page. Meta Business Manager, or we set it up.</p></div>
+    <div><h3>A date each month</h3><p>One capture day a month and an hour of your time on it. A couple who will let us film their weekend, or we find one together.</p></div>
+    <div><h3>Ad spend on your card</h3><p>Paid direct to Meta at a level you are comfortable with. We suggest a small always-on budget and let the first thirty days set the rest.</p></div>
+    <div><h3>The stories</h3><p>The restoration since 2016, the Hay Shed, the woodland, why three days. Nobody else can tell it, and it is what we film.</p></div>
+  </div>
+</div></div>
+
+<div class="close"><div class="col">
+  <h2>Say yes and we book the first capture day.</h2>
+  <p>Reply here, send a WhatsApp, or ring. We will send the agreement, book the first date at the mill and start on the tracking the same week.</p>
+  <div class="acts">
+    <a class="act wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20it%27s%20Elizabeth%20from%20Hallington%20Mill" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="act sage" href="mailto:jay@fusioncreative.uk?subject=Hallington%20Mill%20proposal">Reply to this</a>
+  </div>
+</div></div>
+
+<footer>
+  Fusion Creative &nbsp;&middot;&nbsp; Newcastle upon Tyne &nbsp;&middot;&nbsp; fusioncreative.uk<br>
+  Prices exclude ad spend. Ad spend is paid by Hallington Mill direct to Meta. Prepared 25 September 2026 and valid for 30 days.
+</footer>
+
+<script>(function(){try{if(!/(^|\.)fusioncreative\.uk$/.test(location.hostname))return;var q=location.search;if(/[?&](owner|me)=1/.test(q)){try{localStorage.setItem('fc_owner','1')}catch(e){}}try{if(localStorage.getItem('fc_owner')==='1')return}catch(e){}var slug='proposal-hallington-mill';try{if(sessionStorage.getItem('fc_v_'+slug))return;sessionStorage.setItem('fc_v_'+slug,'1')}catch(e){}fetch('https://newgreek.fusioncreative.uk/api/audit-view/',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({slug:slug,ref:document.referrer,q:q}),keepalive:true}).catch(function(){})}catch(e){}})();</script>
+</body>
+</html>
