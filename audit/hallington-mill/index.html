@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- fc-build: status=outbound source=prospecting-playbook date=2026-09-25 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Hallington Mill x Fusion Creative | Growth Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Julius+Sans+One&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --paper:#F6F5EA; --panel:#FFFFFF; --sage:#9C9A81; --sage-2:#7F7D66; --sage-3:#E4E3D2;
+    --ink:#1E1E1A; --text:#2A2A25; --text-2:#5C5B52; --text-3:#8E8C7E; --line:#DEDCCB; --wa:#25D366;
+  }
+  body{font-family:'Cormorant Garamond',serif;font-weight:400;background:var(--paper);color:var(--text);
+       line-height:1.65;font-size:19px;-webkit-font-smoothing:antialiased;overflow-x:clip}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.15}
+  .caps{font-family:'Julius Sans One',sans-serif;letter-spacing:.18em;text-transform:uppercase}
+  .col{max-width:680px;margin:0 auto;padding:0 26px}
+  b{font-weight:600;color:var(--ink)}
+
+  .mast{padding:30px 0;text-align:center;border-bottom:1px solid var(--line)}
+  .mast .m1{font-size:14px;color:var(--ink)}
+  .mast .m2{margin-top:8px;font-size:10px;color:var(--text-3)}
+
+  .hero{background:var(--sage);color:#fff;padding:76px 0 72px}
+  .hero .pre{font-size:11px;color:#F1F0E3;opacity:.9}
+  .hero h1{margin-top:18px;font-size:clamp(34px,5vw,54px);max-width:720px;font-style:italic;font-weight:400}
+  .hero p{margin-top:22px;max-width:560px;font-size:19px;color:#F1F0E3}
+
+  .spread{background:var(--panel);border-bottom:1px solid var(--line);padding:64px 0;text-align:center}
+  .spread .pre{font-size:10.5px;color:var(--text-3)}
+  .spread .big{font-size:clamp(60px,10vw,108px);color:var(--sage-2);line-height:1;margin-top:8px;font-weight:500}
+  .spread .cap{max-width:560px;margin:14px auto 0;color:var(--text-2);font-size:20px}
+  .spread .fine{max-width:560px;margin:12px auto 0;color:var(--text-3);font-size:16px}
+
+  .chapter{padding:80px 0 4px}
+  .chapter .n{font-size:10.5px;color:var(--sage-2)}
+  .chapter h2{font-size:clamp(28px,3.6vw,38px);margin-top:10px}
+
+  .entry{padding:36px 0;border-top:1px solid var(--line)}
+  .entry:first-of-type{border-top:none}
+  .entry .lab{font-size:10px;color:var(--text-3);margin-bottom:10px}
+  .entry h3{font-size:25px;margin-bottom:10px}
+  .entry p{color:var(--text-2)}
+  .entry p+p{margin-top:10px}
+  .note{margin-top:14px;padding:14px 18px;background:var(--sage-3);border-left:2px solid var(--sage);font-size:17px;color:var(--text-2)}
+  .ledger{width:100%;border-collapse:collapse;margin-top:16px;font-size:17px}
+  .ledger td{padding:10px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--text-2)}
+  .ledger td:first-child{color:var(--text-3);width:46%;padding-right:16px}
+  .ledger td:last-child{color:var(--ink);font-weight:600}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .tag{font-family:'Julius Sans One',sans-serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border:1px solid var(--line);color:var(--text-2)}
+  .tag.on{border-color:var(--sage);color:var(--sage-2)}
+
+  .plan{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:84px 0}
+  .plan .n{font-size:10.5px;color:var(--sage-2)}
+  .plan h2{font-size:clamp(28px,3.6vw,38px);margin-top:10px}
+  .plan ol{list-style:none;margin-top:30px;counter-reset:s}
+  .plan li{counter-increment:s;padding:20px 0 20px 58px;position:relative;border-top:1px solid var(--line);color:var(--text-2)}
+  .plan li::before{content:counter(s);position:absolute;left:0;top:19px;width:38px;height:38px;border:1px solid var(--sage);border-radius:50%;color:var(--sage-2);
+                   display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600}
+
+  .close{padding:96px 0 88px;text-align:center}
+  .close h2{font-size:clamp(28px,3.8vw,40px);max-width:620px;margin:0 auto 26px;font-style:italic;font-weight:400}
+  .close p{color:var(--text-2);max-width:560px;margin:0 auto 16px}
+  .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+  .act{display:inline-block;padding:16px 30px;font-family:'Julius Sans One',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;
+       border:1px solid var(--ink);color:var(--ink);transition:.25s ease}
+  .act:hover{background:var(--ink);color:var(--paper)}
+  .act.sage{background:var(--sage);border-color:var(--sage);color:#fff}
+  .act.sage:hover{background:var(--sage-2);border-color:var(--sage-2)}
+  .act.wa{border-color:var(--wa);background:var(--wa);color:#fff}
+  .act.wa:hover{background:#1da851;border-color:#1da851}
+  footer{padding:48px 0;text-align:center;font-size:14px;color:var(--text-3);line-height:1.9;border-top:1px solid var(--line)}
+
+  @media (max-width:640px){
+    body{font-size:18px}
+    .hero{padding:56px 0 52px} .spread{padding:52px 0} .chapter{padding:60px 0 4px} .entry{padding:30px 0}
+    .plan{padding:64px 0} .plan li{padding-left:52px} .close{padding:64px 0 56px}
+  }
+</style>
+</head>
+<body>
+
+<div class="mast">
+  <div class="m1 caps">Hallington Mill</div>
+  <div class="m2 caps">Growth audit &nbsp;&middot;&nbsp; prepared by Fusion Creative &nbsp;&middot;&nbsp; September 2026</div>
+</div>
+
+<div class="hero"><div class="col">
+  <div class="pre caps">For Elizabeth and Rob</div>
+  <h1>Eleven of the twelve posts on your Instagram were made by somebody else.</h1>
+  <p>Photographers, florists, a hire company. All of them tagging Hallington Mill, all of it good. But the venue itself has not posted since 12 August, and a couple scrolling past would never know this is a three-day wedding, not a Saturday. We read everything from your own website, brochures, socials and the ad library on 25 September 2026.</p>
+</div></div>
+
+<div class="spread">
+  <div class="pre caps">Posts on your Instagram grid made by Hallington Mill</div>
+  <div class="big">1 of 12</div>
+  <p class="cap">The other eleven are suppliers tagging you. Your last post of your own, on Instagram and Facebook alike, was 12 August: "we are not just a wedding venue." Eighteen likes.</p>
+  <p class="fine">That is not a criticism of the suppliers. It means the content exists, is being made for free, and none of it is telling the story you would tell: the mill, the woodland, the two nights, the family behind it.</p>
+</div>
+
+<div class="chapter"><div class="col">
+  <div class="n caps">I</div>
+  <h2>The content</h2>
+</div></div>
+<div class="col">
+
+  <div class="entry">
+    <div class="lab caps">Where you are</div>
+    <h3>A following that is bigger than your output</h3>
+    <table class="ledger">
+      <tr><td>Instagram</td><td>2,612 followers, own posts dormant since 12 August</td></tr>
+      <tr><td>Facebook</td><td>872 followers, 10 reviews, 100% recommend, same last post</td></tr>
+      <tr><td>TikTok</td><td>No account found</td></tr>
+      <tr><td>Reels of your own in the last twelve posts</td><td>None</td></tr>
+    </table>
+    <p style="margin-top:14px">2,612 people chose to follow a wedding venue and holiday home in a Northumberland valley. They are not being given anything to watch. Meanwhile the venue is being shown constantly through other people's lenses, which is lovely for them and does nothing for your enquiry form.</p>
+  </div>
+
+  <div class="entry">
+    <div class="lab caps">The story nobody in the North East is telling</div>
+    <h3>You sell a three-day wedding. Everyone films a Saturday</h3>
+    <p>Every other barn in the county sells a day. You sell a Thursday arrival, a Friday in the woodland, a Saturday in the Hay Shed and a Sunday morning around the farmhouse kitchen table, with eighteen people sleeping on site. That is a completely different product and a completely different film. It has never been made.</p>
+    <p>Add the things your own site mentions only in passing: a sixteenth-century mill you restored yourselves from 2016, 27 acres of woodland and streams, a woodland ceremony spot, a cinema room, no ceremony fee, dogs and children welcome. Couples do not book a venue like this from a photograph of the barn. They book it from watching the weekend unfold.</p>
+  </div>
+</div>
+
+<div class="chapter"><div class="col">
+  <div class="n caps">II</div>
+  <h2>The funnel</h2>
+</div></div>
+<div class="col">
+  <div class="entry">
+    <div class="lab caps">Measurement</div>
+    <h3>Nothing that happens on your website is being counted</h3>
+    <p>No Google Analytics. No Meta pixel. You have never run an ad. Which means you cannot see where a single enquiry came from, and a couple who downloads the 2027 brochure and then goes quiet simply vanishes. For a venue that takes a small number of weddings a year, every one of those lost couples matters more than it would anywhere else.</p>
+    <table class="ledger">
+      <tr><td>Google Analytics</td><td>Not installed</td></tr>
+      <tr><td>Meta pixel</td><td>Not installed</td></tr>
+      <tr><td>Ads ever run</td><td>None</td></tr>
+      <tr><td>Contact on the website</td><td>Forms only, no email or phone shown</td></tr>
+      <tr><td>Brochures live</td><td>2027 and 2028</td></tr>
+    </table>
+    <div class="note">Selling 2027 and 2028 dates is a strength. It means content made this winter has two seasons of couples still to reach.</div>
+  </div>
+
+  <div class="entry">
+    <div class="lab caps">Credit where it is due</div>
+    <h3>The proof is extraordinary. It is just not where couples look</h3>
+    <p>Thirty-two reviews on Bridebook at five stars. Two hundred and twenty on Airbnb at five stars, a Superhost badge and sixteen years of hosting. Matfen Hall, a five-star hotel five miles away, offers your couples' guests a chauffeur to and from the mill. Almost none of that appears on your own social channels.</p>
+    <div class="tags">
+      <span class="tag on">Bridebook 5.0, 32 reviews</span>
+      <span class="tag on">Airbnb 5.0, 220 reviews, Superhost</span>
+      <span class="tag on">Facebook 100%, 10 reviews</span>
+      <span class="tag">Matfen Hall guest transfers</span>
+    </div>
+  </div>
+</div>
+
+<div class="chapter"><div class="col">
+  <div class="n caps">III</div>
+  <h2>Two businesses, one place</h2>
+</div></div>
+<div class="col">
+  <div class="entry">
+    <div class="lab caps">Why this is worth doing now</div>
+    <h3>Weddings pay for the year. Stays keep it alive between them</h3>
+    <p>Your published range on Bridebook runs from around five and a half thousand for venue hire to over eighteen thousand for a full weekend package. With a small number of weddings a year, one more date booked is not a marginal gain, it is a meaningful share of the year. And the stays side, which is quietly the best-reviewed thing you do, gives you something to film every month of the year, not just on wedding weekends.</p>
+  </div>
+</div>
+
+<div class="chapter"><div class="col">
+  <div class="n caps">IV</div>
+  <h2>What the venues winning nearby are doing</h2>
+</div></div>
+<div class="col">
+  <div class="entry">
+    <div class="lab caps">Three Northumberland venues, read on 25 September</div>
+    <h3>They all run the same machine. You are not running it yet</h3>
+    <p>We looked at Charlton Hall, Doxford Barns and Woodhill Hall the same way we looked at you. They are bigger operations and not the comparison you would choose, but the pattern they share is the point, and every part of it is copyable at your scale.</p>
+    <table class="ledger">
+      <tr><td>Instagram following</td><td>Charlton 17.3K, Doxford 12.5K, Woodhill 10.7K. Hallington 2.6K</td></tr>
+      <tr><td>Reels in their last twelve posts</td><td>Four, four and three. Hallington none</td></tr>
+      <tr><td>One primary call to action, repeated</td><td>All three: Book a Tour or Book a Personal Tour, on every page</td></tr>
+      <tr><td>Reasons to visit before you are ready to book</td><td>Open days, menu tastings and offers, pinned as Instagram highlights at Charlton and Doxford</td></tr>
+      <tr><td>Video on the website</td><td>Doxford and Woodhill both open with film</td></tr>
+      <tr><td>Paid ads</td><td>Doxford has three ads running since June. Hallington has never run one</td></tr>
+      <tr><td>Proof up front</td><td>Woodhill shows eleven award badges on its homepage</td></tr>
+    </table>
+    <p style="margin-top:14px">Two things in your favour. Charlton's TikTok link goes to an account that does not exist, so none of the three has cracked that channel. And none of them can tell a three-day story, because none of them sells one.</p>
+  </div>
+
+  <div class="entry">
+    <div class="lab caps">What to take from them</div>
+    <h3>Not the scale. The habits</h3>
+    <p><b>One door, everywhere.</b> "Book a tour" on every page and in the Instagram bio, instead of two enquiry forms and no phone number. <b>A reason to come before they are sure.</b> One open afternoon a season with the mill dressed and a fire lit does what a brochure cannot. <b>A third of your posts as reels.</b> Not more. Filmed, not stock. <b>The proof where couples can see it.</b> Five stars on Bridebook and Airbnb belong on the homepage and in the highlights, not on other people's websites. <b>A small, always-on ad</b> to engaged couples nearby, once the pixel exists to make it count.</p>
+  </div>
+</div>
+
+<div class="plan"><div class="col">
+  <div class="n caps">V</div>
+  <h2>What we would do first</h2>
+  <ol>
+    <li><b>Film one three-day wedding, start to finish.</b> With the couple's blessing, we follow the weekend: the arrival, the woodland, the Hay Shed, the Sunday morning. That one film is the story of Hallington Mill, and it becomes the ad, the brochure, the reel and the reason a couple books 2028.</li>
+    <li><b>Count what is already happening.</b> Google Analytics and a Meta pixel installed, and an email address and phone number put on the site. Costs nothing. Suddenly you know where enquiries come from and can reach the couples who downloaded a brochure and went quiet.</li>
+    <li><b>A capture day each month across the year.</b> The valley in every season, the stays, the mill, you two and the family project it has been. Short-form for Instagram, a TikTok started from zero, and the creative for a small, precisely aimed first campaign to engaged couples within an hour of the mill.</li>
+    <li><b>Give your couples a content creator.</b> We film weddings ourselves, phone-shot vertical content couples book alongside their photographer. Offered through Hallington as a venue perk, every wedding we film for a couple also becomes yours. For a venue that hosts few weddings and each one over three days, this fits better than anywhere else we looked.</li>
+  </ol>
+</div></div>
+
+<div class="close"><div class="col">
+  <h2>We have done this for places that had the product but not the reach.</h2>
+  <p>A Newcastle restaurant we work with has passed <b>87 million views</b> across Instagram and TikTok, and the owner puts a <b>40% lift in weekly sales</b> down to it. A Whitley Bay restaurant went from no TikTok at all in May to <b>8 million views</b> by August. And we film weddings ourselves, in Northumberland, this month.</p>
+  <p>Hallington Mill has a better story than any of them. A family, a mill, a valley, and a weekend rather than a day. What it does not have is anyone telling it to the couples who have not found you yet.</p>
+  <p style="margin-top:30px">We would start with one wedding. If you have a couple booked this autumn or winter who would let us follow their weekend, that is the whole first step.</p>
+  <div class="acts">
+    <a class="act sage" href="mailto:jay@fusioncreative.uk?subject=Hallington%20Mill%20audit">Reply to this</a>
+    <a class="act wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Hallington%20Mill%20audit" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</div></div>
+
+<footer>
+  Fusion Creative &nbsp;&middot;&nbsp; Newcastle upon Tyne &nbsp;&middot;&nbsp; fusioncreative.uk<br>
+  Everything above was read from hallingtonmill.co.uk, your 2027 and 2028 brochures, Instagram, Facebook, Bridebook, Airbnb and the Meta Ad Library on 25 September 2026.
+</footer>
+
+</body>
+</html>
