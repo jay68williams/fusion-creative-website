@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Chequers Apothecary x Fusion Creative | Growth Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --paper:#F3EEE4; --label:#FBF8F2; --amber:#4A2E17; --amber-2:#6E4A2A;
+  --sage:#3E5A4B; --lav:#8A78A6; --taupe:#85745B; --ink:#1F1B16; --ink-2:#4E463C; --ink-3:#8C8172;
+  --line:#D9D0C0;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;font-weight:300;background:var(--paper);color:var(--ink);
+     line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:clip;font-size:16.5px}
+h1,h2,h3,.pf{font-family:'Playfair Display',Georgia,serif;font-weight:400;line-height:1.18}
+.col{max-width:660px;margin:0 auto;padding:0 26px}
+.caps{font-size:10px;letter-spacing:.32em;text-transform:uppercase}
+
+/* masthead, set like the top line of one of their jar labels */
+.mast{padding:26px 0 22px;text-align:center;border-bottom:1px solid var(--line)}
+.mast .m1{font-family:'Playfair Display',serif;font-size:22px;letter-spacing:.2em;color:var(--sage)}
+.mast .m1 small{display:block;font-size:11px;letter-spacing:.5em;margin-top:2px}
+.mast .m2{color:var(--ink-3);margin-top:14px}
+
+/* the layout idea: every section is an apothecary label, cream card, double rule, batch number */
+.lab{background:var(--label);border:1px solid var(--taupe);outline:1px solid var(--taupe);outline-offset:-7px;
+     padding:52px 46px 44px;margin:0 auto 34px;position:relative}
+.lab .batch{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--paper);
+     padding:0 14px;color:var(--taupe);white-space:nowrap}
+.lab h2,.lab h3{text-align:center;color:var(--amber)}
+.lab h2{font-size:clamp(26px,3.6vw,34px)}
+.lab h3{font-size:24px}
+.lab .sprig{display:block;margin:14px auto 22px;width:60px;height:1px;background:var(--lav)}
+.lab p{color:var(--ink-2);margin-bottom:15px}
+.lab p b{font-weight:500;color:var(--ink)}
+.lab .note{margin-top:22px;padding-top:18px;border-top:1px dotted var(--line);font-size:13.5px;color:var(--ink-3);line-height:1.8}
+.lab .note b{color:var(--ink-2);font-weight:500}
+
+/* opening */
+.open{padding:92px 0 70px;text-align:center}
+.open .pre{color:var(--lav);margin-bottom:26px}
+.open h1{font-size:clamp(32px,4.8vw,52px);color:var(--amber);max-width:720px;margin:0 auto}
+.open h1 i{color:var(--sage)}
+.open .sub{margin:30px auto 0;color:var(--ink-2);max-width:540px}
+
+/* shelf: their own product shots versus what the site leads with */
+.shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:26px 0 8px}
+.shelf figure{margin:0}
+.shelf img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border:1px solid var(--line)}
+.shelf figcaption{font-size:11px;color:var(--ink-3);margin-top:6px;line-height:1.5;text-align:center}
+.shelf.stock img{filter:grayscale(.35)}
+
+/* amber band: the one dark moment, the colour of their jars */
+.band{background:var(--amber);color:var(--label);padding:96px 0;text-align:center;margin:60px 0}
+.band .caps{color:#D8C6A8}
+.band .big{font-family:'Playfair Display',serif;font-size:clamp(64px,12vw,140px);line-height:1;margin:26px 0 8px}
+.band .cap{max-width:520px;margin:0 auto;color:#EDE3D2}
+.band .fine{max-width:540px;margin:26px auto 0;font-size:13px;color:#C9B89C;line-height:1.8}
+
+.section-head{text-align:center;padding:40px 0 34px}
+.section-head .caps{color:var(--taupe)}
+.section-head h2{font-size:clamp(26px,3.6vw,36px);color:var(--sage);margin-top:12px}
+
+ol.steps{list-style:none;counter-reset:s;margin-top:8px}
+ol.steps li{counter-increment:s;padding:18px 0 18px 54px;position:relative;border-bottom:1px dotted var(--line);color:var(--ink-2)}
+ol.steps li:last-child{border-bottom:0}
+ol.steps li::before{content:counter(s,upper-roman);position:absolute;left:0;top:16px;font-family:'Playfair Display',serif;
+  font-size:20px;color:var(--lav);width:40px;text-align:center}
+ol.steps li b{font-weight:500;color:var(--ink);display:block;margin-bottom:2px}
+
+.proof{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin:26px 0 20px}
+.proof div{background:var(--label);padding:22px 12px;text-align:center}
+.proof .v{font-family:'Playfair Display',serif;font-size:34px;color:var(--amber);line-height:1.1}
+.proof .k{font-size:11.5px;color:var(--ink-3);margin-top:6px;letter-spacing:.04em}
+
+.close{padding:70px 0 80px;text-align:center}
+.close h2{font-size:clamp(26px,3.8vw,38px);color:var(--amber);max-width:600px;margin:0 auto 24px}
+.close p{color:var(--ink-2);max-width:540px;margin:0 auto 16px}
+.acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.act{display:inline-block;padding:16px 32px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
+     text-decoration:none;border:1px solid var(--sage);color:var(--sage);transition:.25s ease}
+.act:hover{background:var(--sage);color:var(--label)}
+.act.wa{border-color:#25D366;background:#25D366;color:#fff}
+.act.wa:hover{background:#1DA851;border-color:#1DA851}
+footer{padding:44px 0 56px;text-align:center;font-size:12px;color:var(--ink-3);line-height:2;border-top:1px solid var(--line)}
+
+@media (max-width:640px){
+  body{font-size:15.5px}
+  .open{padding:64px 0 48px}
+  .lab{padding:44px 24px 34px}
+  .shelf{grid-template-columns:repeat(2,1fr)}
+  .band{padding:70px 0}
+}
+</style>
+</head>
+<body>
+<!-- fc-build: status=inbound-lead source=/scale leadid=d690d3b6-aa67-497b-82a2-aca0639d6132 date=2026-09-26 -->
+
+<div class="mast">
+  <div class="m1">CHEQUERS<small>APOTHECARY</small></div>
+  <div class="m2 caps">Growth audit &nbsp;&middot;&nbsp; prepared by Fusion Creative &nbsp;&middot;&nbsp; 26 September 2026</div>
+</div>
+
+<div class="open"><div class="col">
+  <div class="pre caps">For Rhian</div>
+  <h1>The product already looks the part. <i>The shop is hiding it.</i></h1>
+  <p class="sub">You told us the goal is a regular customer base. We read chequersapothecary.co.uk the way a new customer would, then looked underneath it the way an ad platform would. Here is the honest take, including where we think you should not spend money yet.</p>
+</div></div>
+
+<div class="col">
+
+  <div class="lab">
+    <div class="batch caps">Batch No. I &nbsp;&middot;&nbsp; Imagery</div>
+    <h3>Your own photographs are better than the ones the site leads with</h3>
+    <span class="sprig"></span>
+    <p>The amber jars with cream labels, the Vanilla &amp; Lime Bloom snap bar, the marbled soap on a log in the bluebells. These are genuinely good, recognisable and yours. They look like a brand.</p>
+    <div class="shelf">
+      <figure><img src="https://img1.wsimg.com/isteam/ip/e8b040f7-a12c-4c9f-abf5-dca7960117ad/006%20(5d11b3e3-1507-4da8-8462-0aa5f1314896).png/:/rs=w:500" alt="Four amber Chequers Apothecary candle jars on white" loading="lazy"><figcaption>Your jars</figcaption></figure>
+      <figure><img src="https://img1.wsimg.com/isteam/ip/e8b040f7-a12c-4c9f-abf5-dca7960117ad/blob-021906d.png/:/rs=w:500" alt="English Rose and Lavender Woods candles" loading="lazy"><figcaption>English Rose, Lavender Woods</figcaption></figure>
+      <figure><img src="https://img1.wsimg.com/isteam/ip/e8b040f7-a12c-4c9f-abf5-dca7960117ad/3eb175b0-e672-4691-847b-6aa81d2e6480.png/:/rs=w:500" alt="Marbled soap bar on a log among bluebells" loading="lazy"><figcaption>Soap in the bluebells</figcaption></figure>
+      <figure><img src="https://img1.wsimg.com/isteam/ip/e8b040f7-a12c-4c9f-abf5-dca7960117ad/4DDCAFFD-2287-4425-B112-52918C798978.PNG/:/rs=w:500" alt="Vanilla and Lime Bloom wax melt snap bar" loading="lazy"><figcaption>Vanilla &amp; Lime Bloom</figcaption></figure>
+    </div>
+    <p style="margin-top:22px">But the homepage opens on two stock photographs: soapy hands against a blue background, and a view of a country town. The Bespoke page carries four more stock images. Several of the moodier lifestyle scenes, the candles posed on open books and velvet, are saved on your site as ChatGPT images.</p>
+    <div class="shelf stock">
+      <figure><img src="https://img1.wsimg.com/isteam/getty/173860840/:/rs=w:500" alt="Stock photo of hands with soap" loading="lazy"><figcaption>Stock, homepage</figcaption></figure>
+      <figure><img src="https://img1.wsimg.com/isteam/getty/2221144092/:/rs=w:500" alt="Stock photo of a countryside town" loading="lazy"><figcaption>Stock, homepage</figcaption></figure>
+      <figure><img src="https://img1.wsimg.com/isteam/ip/e8b040f7-a12c-4c9f-abf5-dca7960117ad/ChatGPT%20Image%20May%2025%2C%202026%2C%2009_49_38%20PM.png/:/rs=w:500" alt="Generated scene of Ember and Oak candle on an open book" loading="lazy"><figcaption>Saved as a ChatGPT image</figcaption></figure>
+      <figure><img src="https://img1.wsimg.com/isteam/ip/e8b040f7-a12c-4c9f-abf5-dca7960117ad/ChatGPT%20Image%20May%2030%2C%202026%2C%2003_17_20%20PM.png/:/rs=w:500" alt="Generated scene of Chiltern Moss and Ember and Oak candles" loading="lazy"><figcaption>Saved as a ChatGPT image</figcaption></figure>
+    </div>
+    <p style="margin-top:22px">Generated stills are a fair shortcut for a website. They are no use for what actually wins customers in this category now, which is short video: a pour, a wick being trimmed, a melt going into a burner, your hands. None of that can be generated convincingly, and all of it is cheap to make.</p>
+    <div class="note">Filenames read from your live pages on 26 September 2026. We have not been able to see your Instagram without logging in, so we are judging the website only here.</div>
+  </div>
+
+  <div class="lab">
+    <div class="batch caps">Batch No. II &nbsp;&middot;&nbsp; The shop</div>
+    <h3>To Google and to Meta, your products barely exist</h3>
+    <span class="sprig"></span>
+    <p>Your Products page is titled <b>&ldquo;Luxury Wax Melts&rdquo;</b>, but the page itself, as it arrives from the server, contains one line of text: &ldquo;Crafted with care&rdquo;. No product names, no scents. The products are drawn in afterwards by a script.</p>
+    <p>We requested your English Rose product page and your Rose Garden pouch page directly. Both returned exactly the same file as your homepage. A person with a browser sees the product in the end. A search engine, a link preview on WhatsApp, or an ad platform reading the page often does not.</p>
+    <p>That matters because the names you have chosen are good search terms on their own: English Rose, Lavender Woods, Ember &amp; Oak, Chiltern Moss, Citrus Orchard. At the moment none of them can do that job.</p>
+    <div class="note">This is how the GoDaddy online store is built, rather than something you did wrong. It is also the main reason we would eventually move a growing candle brand onto Shopify, but <b>not yet</b>, see below.</div>
+  </div>
+
+</div>
+
+<div class="band"><div class="col">
+  <div class="caps">Meta pixels on chequersapothecary.co.uk</div>
+  <div class="big">0</div>
+  <p class="cap">There is one Google Analytics tag on the site and nothing else. No Facebook or Instagram pixel, no TikTok pixel.</p>
+  <p class="fine">You found us through a paid ad, so you will have noticed how these platforms work: they learn who buys and find more people like them. Without a pixel, any money spent on Instagram ads is spent blind, and nobody who visits and leaves can ever be shown your candles again. It is a ten minute fix and costs nothing.</p>
+</div></div>
+
+<div class="col">
+
+  <div class="lab">
+    <div class="batch caps">Batch No. III &nbsp;&middot;&nbsp; Regular customers</div>
+    <h3>You already sell the thing people rebuy. Nothing asks them to.</h3>
+    <span class="sprig"></span>
+    <p>A candle is an occasional purchase. A wax melt is a habit. Your New In page already labels the melt pouches <b>&ldquo;Best Value&rdquo;</b>, and a pouch runs out in weeks, not months. That product line is your regular customer base, waiting to be switched on.</p>
+    <p>Right now the site has one mailing list box (&ldquo;Join My Mailing List&rdquo;) and a pop up offering new scents and seasonal collections. There is no reason given to come back on a schedule: no refill reminder, no scent of the month, no &ldquo;three pouches&rdquo; bundle, no nudge after a first order.</p>
+    <p>The copy is also working against you. The homepage repeats <b>&ldquo;Moments Made Magical&rdquo;</b> and <b>&ldquo;Premium Handcrafted Collections&rdquo;</b> several times over, while the genuinely specific story (small batches, poured in the Chilterns, a candle actually named Chiltern Moss) is tucked away on the About page.</p>
+  </div>
+
+  <div class="section-head">
+    <div class="caps">What we would do first</div>
+    <h2>In this order, and mostly before any ad spend</h2>
+  </div>
+
+  <div class="lab">
+    <div class="batch caps">The first ninety days</div>
+    <p>You were honest on the form that you are under the size where a full agency retainer makes sense, so this is written as the order of work, whoever does it.</p>
+    <ol class="steps">
+      <li><b>Install the Meta pixel.</b> Free, and every visitor from today onwards becomes someone you can reach again.</li>
+      <li><b>Replace the stock and generated images with your own.</b> You already have enough real product shots to cover the homepage. Lead with the amber jars.</li>
+      <li><b>Shoot one afternoon of short video.</b> Pouring, labelling, the pouch being opened, a melt going into a burner, the Chiltern walk the scents are named after. Ten to fifteen clips cut from one session covers two months of posting and your first ads.</li>
+      <li><b>Turn the wax melts into a repeat purchase.</b> A three or six pouch bundle, and a simple email four weeks after a first order: &ldquo;running low?&rdquo; This is where a regular customer base actually comes from.</li>
+      <li><b>Then, and only then, a small test on Instagram,</b> using the video, aimed at gifting in the run up to Christmas. With a pixel in place it will tell you quickly whether it works.</li>
+    </ol>
+  </div>
+
+</div>
+
+<div class="close"><div class="col">
+  <h2>We have done this for a British candle brand before.</h2>
+  <p>The Northumberland Candle Company sells candles, melts and diffusers, much like you. We fixed the shop first, then made the content and ran the ads and email as one system.</p>
+  <div class="proof">
+    <div><div class="v">16.9x</div><div class="k">monthly revenue in 60 days</div></div>
+    <div><div class="v">7.8x</div><div class="k">blended return on ad spend</div></div>
+    <div><div class="v">+64%</div><div class="k">average order value</div></div>
+    <div><div class="v">10x</div><div class="k">orders</div></div>
+  </div>
+  <p>The order mattered more than the tactics. Paid traffic only paid off once the store could be tracked and the product was shown properly, which is exactly where you are now.</p>
+  <p>If it would help to talk any of this through, even just the first two steps, reply or send a WhatsApp.</p>
+  <div class="acts">
+    <a class="act" href="mailto:jay@fusioncreative.uk?subject=Chequers%20Apothecary%20audit">Reply to this</a>
+    <a class="act wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Chequers%20Apothecary%20audit" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</div></div>
+
+<footer>
+  Fusion Creative &nbsp;&middot;&nbsp; Newcastle upon Tyne &nbsp;&middot;&nbsp; fusioncreative.uk<br>
+  Everything above was read from your live website on 26 September 2026.
+</footer>
+
+<script>(function(){try{if(!/(^|\.)fusioncreative\.uk$/.test(location.hostname))return;var q=location.search;if(/[?&](owner|me)=1/.test(q)){try{localStorage.setItem('fc_owner','1')}catch(e){}}try{if(localStorage.getItem('fc_owner')==='1')return}catch(e){}var m=location.pathname.match(/\/audit\/([a-z0-9-]+)\/?/);if(!m)return;try{if(sessionStorage.getItem('fc_v_'+m[1]))return;sessionStorage.setItem('fc_v_'+m[1],'1')}catch(e){}fetch('https://newgreek.fusioncreative.uk/api/audit-view/',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({slug:m[1],ref:document.referrer,q:q}),keepalive:true}).catch(function(){})}catch(e){}})();</script>
+</body>
+</html>
