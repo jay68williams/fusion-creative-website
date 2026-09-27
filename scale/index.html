@@ -272,6 +272,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <a class="btn-ghost" href="#casestudy">See the results</a>
   </div>
   <div class="trust mono">No contracts sold on this page. You apply, we look at your numbers, we tell you honestly.</div>
+  <p class="sub" style="margin-top:16px;font-size:15.5px">Right now we only take on product brands doing &pound;10k a month or more. Not there yet? Apply anyway. We will still audit your store for free and show you what to fix to get there.</p>
 </div>
 
 <div class="wrap" id="casestudy">
@@ -363,7 +364,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <div class="rv" style="text-align:center">
         <div class="eyebrow">Apply</div>
         <h2 style="margin:0 auto">Want this for your brand?</h2>
-        <p class="body" style="margin:14px auto 6px">Built for product brands already doing &pound;10k a month or more. Tell us about your business and our team will reply within 24 hours with an honest read, including if we are not the right fit.</p>
+        <p class="body" style="margin:14px auto 6px">We are only taking on product brands already doing &pound;10k a month or more right now. If you are not there yet, still apply. We will send you a free audit and show you what to fix to get to &pound;10k. Either way, our team replies within 24 hours with an honest read.</p>
       </div>
       <div id="leadForm">
         <!-- Revenue comes first on purpose: it decides which success message the
@@ -536,7 +537,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       if(!res.ok){ return res.json().then(function(j){ throw new Error(j.error||'Could not send'); }); }
       if(!qualified){
         document.getElementById('leadSuccessTitle').textContent='Thanks. Here is the honest version.';
-        document.getElementById('leadSuccessMsg').textContent='Our ads management is built for stores already past '+SCALE_FLOOR_LABEL+'. Below that, ad spend is rarely what is holding you back, so instead of a call we will send you a free audit of what to fix first. Check your inbox, and when you are past '+SCALE_FLOOR_LABEL+', come back and we will talk.';
+        document.getElementById('leadSuccessMsg').textContent='Our ads management is built for stores already past '+SCALE_FLOOR_LABEL+', and that is who we are taking on right now. But your application is not wasted. We will send you a free audit of what to fix first, the same things that get a store to '+SCALE_FLOOR_LABEL+'. Check your inbox, and when you are there, come back and we will talk.';
       }
       document.getElementById('leadForm').style.display='none';
       document.getElementById('leadSuccess').style.display='block';
