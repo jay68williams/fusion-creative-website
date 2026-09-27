@@ -1,0 +1,179 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fusion Event Marketing | Fusion Creative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/main.css">
+<style>
+:root{--acc:#B0824A;--acc-soft:rgba(176,130,74,.18)}
+body{background:var(--off-white);color:var(--black);font-family:var(--font-head)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.eye{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acc)}
+.g{background:rgba(255,255,255,.55);backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);border:1px solid rgba(255,255,255,.7);box-shadow:0 6px 22px rgba(0,0,0,.06);border-radius:var(--rad-md)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
+.ph{position:relative;padding:150px 0 70px;overflow:hidden}
+.ph::before{content:"";position:absolute;top:-160px;right:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,var(--acc-soft),transparent 68%);pointer-events:none}
+.ph .badge{display:inline-flex;align-items:center;gap:10px;border-radius:11px;padding:6px 14px;color:var(--black);background:rgba(255,255,255,.55);backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);border:1px solid rgba(255,255,255,.7);box-shadow:0 6px 20px rgba(0,0,0,.06);font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:22px}
+.ph .badge .dot{width:9px;height:9px;border-radius:50%;background:var(--acc)}
+.ph h1{font-family:var(--font-serif);font-weight:700;font-size:clamp(2.6rem,6.6vw,5.4rem);line-height:1.02;letter-spacing:-.02em;max-width:15ch;margin:0}
+.ph h1 em{font-style:italic;color:var(--acc)}
+.ph .sub{margin-top:26px;max-width:620px;font-size:clamp(1.05rem,1.7vw,1.28rem);line-height:1.55;color:#4a4a44}
+.ph .back{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);display:inline-block;margin-bottom:14px}
+.ph .back:hover{color:var(--acc)}
+
+.sec{padding:76px 0}
+.sec.alt{background:var(--paper)}
+.sh{max-width:640px;margin-bottom:38px}
+.sh h2{font-family:var(--font-serif);font-weight:700;font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.08;letter-spacing:-.02em;margin:12px 0 0}
+.sh h2 em{font-style:italic;color:var(--acc)}
+.sh p{margin-top:16px;color:#54544c;font-size:1.05rem;line-height:1.6}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stat{padding:28px 24px}
+.stat .v{font-family:var(--font-serif);font-size:clamp(2.2rem,4vw,3.1rem);line-height:1;color:var(--acc);letter-spacing:-.01em}
+.stat .l{font-size:.92rem;color:#54544c;margin-top:12px;line-height:1.45}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stp{padding:26px 24px;position:relative}
+.stp .w{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;color:var(--acc)}
+.stp h3{font-family:var(--font-serif);font-weight:700;font-size:1.35rem;margin:12px 0 8px;letter-spacing:-.01em}
+.stp p{font-size:.94rem;color:#54544c;line-height:1.5}
+
+.clients{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cl{padding:26px 24px;transition:transform .25s,border-color .25s}
+.cl:hover{transform:translateY(-4px)}
+.cl .cn{font-family:var(--font-serif);font-weight:700;font-size:1.5rem;letter-spacing:-.01em}
+.cl .ct{font-size:.9rem;color:#54544c;margin-top:6px}
+.cl .cs{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-top:16px}
+
+.types{display:grid;grid-template-columns:repeat(2,1fr);gap:0 44px}
+.ty{display:flex;gap:16px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--border)}
+.ty .n{font-family:var(--font-mono);font-size:.72rem;color:var(--mid)}
+.ty .tn{font-family:var(--font-serif);font-weight:700;font-size:1.25rem}
+.ty .td{font-family:var(--font-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mid);margin-left:auto}
+
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.qt{padding:28px 26px}
+.qt .q{font-family:var(--font-serif);font-size:1.15rem;line-height:1.42;color:#2a2a26}
+.qt .a{margin-top:16px;font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:#54544c}
+.qt .a b{color:var(--black)}
+.qt.ph2{outline:1px dashed var(--acc);outline-offset:3px}
+
+.case{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.case .big{font-family:var(--font-serif);font-weight:700;font-size:clamp(5.5rem,13vw,11rem);line-height:.82;color:var(--acc);letter-spacing:-.03em}
+.case .cl2{font-size:1rem;color:#54544c;margin-top:18px;max-width:36ch;line-height:1.55}
+.case ul{list-style:none;display:grid;gap:12px}
+.case li{display:flex;gap:14px;align-items:flex-start;font-size:1.02rem;color:#3a3a34}
+.case li::before{content:"";width:16px;height:16px;border-radius:50%;background:var(--acc);flex:none;margin-top:4px;-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/11px no-repeat;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/11px no-repeat}
+
+.spin{background:#111113;color:#fff;border-radius:var(--rad-md);padding:44px 40px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;position:relative;overflow:hidden}
+.spin::before{content:"";position:absolute;top:-100px;right:-60px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,var(--acc-soft),transparent 70%)}
+.spin .k{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.spin h3{font-family:var(--font-serif);font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);margin:12px 0 10px;position:relative}
+.spin p{font-size:.98rem;color:rgba(255,255,255,.62);line-height:1.55;max-width:54ch;position:relative}
+.spin a{background:var(--acc);color:#fff;border-radius:var(--rad-sm);padding:15px 26px;font-weight:600;font-size:.92rem;white-space:nowrap;position:relative;transition:transform .15s}
+.spin a:hover{transform:translateY(-2px)}
+
+.cta{position:relative;text-align:center;padding:100px 0 120px}
+.cta h2{font-family:var(--font-serif);font-weight:700;font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.02em}
+.cta h2 em{font-style:italic;color:var(--acc)}
+.cta .btns{margin-top:34px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta .b1{background:var(--acc);color:#fff;border-radius:var(--rad-sm);padding:16px 30px;font-weight:600;box-shadow:0 8px 24px rgba(230,59,46,.28)}
+.cta .b2{background:rgba(255,255,255,.55);backdrop-filter:blur(14px) saturate(160%);border:1px solid rgba(255,255,255,.7);color:var(--black);border-radius:var(--rad-sm);padding:16px 30px;font-weight:600}
+
+.pgfoot{background:#111113;color:#fff;padding:56px 0 40px}
+.pgfoot .fi{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.pgfoot .lg{font-family:var(--font-serif);font-weight:700;font-size:1.5rem}
+.pgfoot .lg em{color:var(--acc);font-style:italic}
+.pgfoot .meta{color:rgba(255,255,255,.5);font-size:.85rem;margin-top:8px;max-width:32ch}
+.pgfoot a{color:rgba(255,255,255,.7);font-size:.9rem}.pgfoot a:hover{color:#fff}
+.pgfoot .col{display:grid;gap:8px}.pgfoot .col .h{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:6px}
+.pgfoot .cols{display:flex;gap:52px;flex-wrap:wrap}
+
+@media(max-width:900px){.stats,.steps,.clients,.quotes{grid-template-columns:1fr 1fr}.case{grid-template-columns:1fr;gap:26px}}
+@media(max-width:600px){.wrap{padding:0 20px}.stats,.steps,.clients,.quotes,.types{grid-template-columns:1fr}.spin{grid-template-columns:1fr;gap:20px}.pgfoot .fi{flex-direction:column}}
+
+/* --- tech nice --- */
+.readout{margin-top:20px;display:flex;gap:18px;flex-wrap:wrap;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mid)}
+.readout .rd b{color:var(--acc);font-weight:700}
+.readout .rd .live{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--acc);margin-right:6px;vertical-align:middle;box-shadow:0 0 8px var(--acc);animation:rdpulse 1.8s ease-in-out infinite}
+@keyframes rdpulse{0%,100%{opacity:1}50%{opacity:.35}}
+.g{position:relative}
+.stat.g::after,.stp.g::after{content:"";position:absolute;top:12px;right:12px;width:9px;height:9px;border-top:1px solid var(--acc);border-right:1px solid var(--acc);opacity:.5}
+.stp .w::before,.stat .l::before{}
+.count{font-variant-numeric:tabular-nums}
+.tick{background:#111113;overflow:hidden;padding:15px 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.tick .row{display:flex;gap:0;width:max-content;animation:tkr 26s linear infinite}
+.tick .it{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.86);white-space:nowrap;padding:0 26px;display:flex;align-items:center;gap:26px}
+.tick .it .s{color:var(--acc)}
+@keyframes tkr{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.tick .row{animation:none}.readout .rd .live{animation:none}}
+
+.logowall{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.lgt{display:flex;align-items:center;justify-content:center;height:130px;padding:22px}
+.lgt img{max-height:62px;max-width:74%;object-fit:contain;filter:saturate(1)}
+</style></head><body><nav class="navbar scrolled" id="navbar"><div class="nav-inner">
+<a href="/" class="nav-logo">Fusion Creative</a>
+<ul class="nav-links">
+<li><a href="/marketing/">Marketing</a></li>
+<li><a href="/commerce/">Commerce</a></li>
+<li><a href="/events/">Event Marketing</a></li>
+<li><a href="/case-studies">Case Studies</a></li>
+<li><a href="/contact">Contact</a></li>
+</ul>
+<a href="/contact" class="btn btn-signal"><span>Start a project</span></a>
+<button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</div></nav><header class="ph"><div class="wrap">
+<a href="/" class="back">&larr; Fusion Creative</a><br>
+<span class="badge"><span class="dot"></span>Studio 03</span>
+<h1>Fusion <em>Event Marketing.</em></h1>
+<p class="sub">Marketing for wedding venues and event hire. We fill the calendar: advertising, content and lead generation that turns enquiries into viewings, and viewings into booked dates.</p>
+<div class="readout"><span class="rd"><span class="live"></span>Studio online</span><span class="rd">Metric: <b>Dates filled</b></span><span class="rd">Model: <b>Marketing dept</b></span></div>
+</div></header>
+<section class="sec"><div class="wrap">
+<div class="sh reveal"><span class="eye">What we do</span><h2>We become your <em>marketing department.</em></h2><p>Not a videographer and not a social media manager. One team that films the venue, runs the channels, buys the ads and tracks every enquiry, reported back in viewings booked and dates filled.</p></div>
+<div class="stats">
+<div class="stat g reveal"><div class="v">Leads</div><div class="l">Couples and organisers, tracked to source</div></div>
+<div class="stat g reveal"><div class="v">Viewings</div><div class="l">One clear ask, everywhere</div></div>
+<div class="stat g reveal"><div class="v">Dates</div><div class="l">The calendar, filled</div></div>
+<div class="stat g reveal"><div class="v">Reports</div><div class="l">Enquiries, viewings, bookings</div></div>
+</div></div></section>
+<section class="sec alt"><div class="wrap">
+<div class="sh reveal"><span class="eye">How it works</span><h2>A pipeline, not a <em>page of posts.</em></h2></div>
+<div class="steps">
+<div class="stp g reveal"><div class="w">01</div><h3>Track</h3><p>Analytics and a pixel on the site, so every enquiry has a source.</p></div>
+<div class="stp g reveal"><div class="w">02</div><h3>Film</h3><p>A capture day a month: the spaces, real events, the reasons to book.</p></div>
+<div class="stp g reveal"><div class="w">03</div><h3>Advertise</h3><p>Ads aimed at couples and organisers nearby, judged on viewings booked.</p></div>
+<div class="stp g reveal"><div class="w">04</div><h3>Report</h3><p>One page a month: enquiries in, viewings booked, dates confirmed.</p></div>
+</div></div></section>
+<section class="sec"><div class="wrap">
+<div class="sh reveal"><span class="eye">Who it suits</span><h2>Venues and spaces that live <em>on bookings.</em></h2></div>
+<div class="types">
+<div class="ty reveal"><span class="n">01</span><span class="tn">Wedding venues</span><span class="td">Fill the diary</span></div>
+<div class="ty reveal"><span class="n">02</span><span class="tn">Barns &amp; estates</span><span class="td">Exclusive hire</span></div>
+<div class="ty reveal"><span class="n">03</span><span class="tn">Hotels &amp; halls</span><span class="td">Weddings &amp; functions</span></div>
+<div class="ty reveal"><span class="n">04</span><span class="tn">Event &amp; party hire</span><span class="td">Corporate &amp; private</span></div>
+</div></div></section>
+<section class="sec alt"><div class="wrap"><div class="spin reveal">
+<div><div class="k">One more thing</div><h3>We also make the content couples remember.</h3>
+<p>Fusion Weddings is our separate agency that makes iPhone-first wedding content for couples, guests, brides and grooms, delivered fast. For venues, we can offer it to your couples as a perk that helps book dates, at no extra cost to you.</p></div>
+<a href="https://fusionweddings.uk" target="_blank" rel="noopener">Explore Fusion Weddings &rarr;</a>
+</div></div></section>
+<section class="cta"><div class="wrap"><span class="eye reveal">Fusion Event Marketing</span>
+<h2 class="reveal">Let's fill your <em>calendar.</em></h2>
+<div class="btns reveal"><a href="mailto:jay@fusioncreative.uk?subject=Fusion%20Event%20Marketing" class="b1">Email us</a><a href="https://wa.me/447437571250" class="b2">WhatsApp us</a></div>
+</div></section><div class="tick"><div class="row"><div class="it"><span class="s">/</span> Wedding Venues <span class="s">/</span> Event Hire <span class="s">/</span> Lead Generation <span class="s">/</span> Viewings <span class="s">/</span> Open Days <span class="s">/</span> Ad Management <span class="s">/</span> Enquiry Tracking <span class="s">/</span> Bookings </div><div class="it"><span class="s">/</span> Wedding Venues <span class="s">/</span> Event Hire <span class="s">/</span> Lead Generation <span class="s">/</span> Viewings <span class="s">/</span> Open Days <span class="s">/</span> Ad Management <span class="s">/</span> Enquiry Tracking <span class="s">/</span> Bookings </div></div></div><footer class="pgfoot"><div class="wrap"><div class="fi">
+<div><div class="lg">Fusion<em>.</em></div><div class="meta">Performance video and marketing, in one team. Newcastle upon Tyne.</div></div>
+<div class="cols">
+<div class="col"><div class="h">Studios</div><a href="/marketing/">Fusion Marketing</a><a href="/commerce/">Fusion Commerce</a><a href="/events/">Fusion Event Marketing</a></div>
+<div class="col"><div class="h">Company</div><a href="/">Home</a><a href="/contact">Contact</a><a href="https://fusionweddings.uk">Fusion Weddings</a></div>
+<div class="col"><div class="h">Social</div><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">LinkedIn</a></div>
+</div></div></div></footer><script>
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.reveal').forEach(function(el,i){el.style.transitionDelay=(Math.min(i,6)*40)+'ms';io.observe(el)});
+var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var el=e.target;cio.unobserve(el);var to=parseFloat(el.dataset.to),dec=(el.dataset.dec|0),pre=el.dataset.pre||'',suf=el.dataset.suf||'',t0=null,dur=1100;function step(t){if(!t0)t0=t;var k=Math.min((t-t0)/dur,1),e2=1-Math.pow(1-k,3),v=(to*e2).toFixed(dec);el.textContent=pre+v+suf;if(k<1)requestAnimationFrame(step)}requestAnimationFrame(step)})},{threshold:.4});
+document.querySelectorAll('.count').forEach(function(el){el.textContent=(el.dataset.pre||'')+'0'+(el.dataset.suf||'');cio.observe(el)});
+</script></body></html>
