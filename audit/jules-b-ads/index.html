@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Jules B | Paid media review | Fusion Creative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --ink:#111827; --body:#4b5563; --mute:#9ca3af;
+    --line:#e5e7eb; --line-soft:#f1f2f4; --paper:#ffffff; --wash:#fafafa;
+    --blue:#005dc6; --flag:#b42318;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+       line-height:1.65;font-size:16.5px;-webkit-font-smoothing:antialiased;overflow-x:clip}
+  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:400;line-height:1.22;letter-spacing:-0.01em}
+  .col{max-width:760px;margin:0 auto;padding:0 24px}
+  .lab{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:600}
+  b,strong{font-weight:600;color:var(--ink)}
+  p{color:var(--body)}
+  a{color:var(--blue)}
+
+  .mast{border-bottom:1px solid var(--line)}
+  .mast .in{max-width:1040px;margin:0 auto;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+  .mast img{height:26px;width:auto}
+  .mast .x{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);text-align:right}
+  .mast .x b{color:var(--ink);font-weight:600}
+
+  .open{padding:72px 0 8px}
+  .open h1{font-size:clamp(30px,4.6vw,46px);margin-top:18px;max-width:640px}
+  .open .std{margin-top:22px;font-size:17.5px;max-width:620px}
+  .open .std+.std{margin-top:14px}
+
+  section{padding:56px 0 0}
+  h2{font-size:clamp(23px,3vw,31px);margin-top:10px;max-width:620px}
+  section > .col > p{margin-top:14px}
+
+  /* verdict panel: the website */
+  .verdict{margin-top:26px;border:1px solid var(--line);padding:28px 26px;background:var(--wash)}
+  .verdict h3{font-size:20px;margin-bottom:8px}
+  .verdict p{font-size:16px}
+
+  /* the status number */
+  .status{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}
+  .status div{padding:22px 20px;border-left:1px solid var(--line)}
+  .status div:first-child{border-left:none}
+  .status .n{font-family:'Playfair Display',Georgia,serif;font-size:38px;line-height:1;color:var(--ink)}
+  .status .n.red{color:var(--flag)}
+  .status small{display:block;margin-top:9px;font-size:12.5px;color:var(--mute);letter-spacing:.02em}
+
+  /* findings list */
+  .finds{margin-top:30px;border-top:1px solid var(--line)}
+  .find{padding:26px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:34px 1fr;gap:16px}
+  .find .i{font-family:'Playfair Display',Georgia,serif;font-size:24px;color:var(--mute);line-height:1.1}
+  .find h3{font-size:19px;margin-bottom:8px}
+  .find p{font-size:16px}
+  .ev{margin-top:12px;padding:12px 15px;background:var(--wash);border-left:2px solid var(--line);
+      font-size:14.5px;color:var(--body)}
+  .ev span{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:5px;font-weight:600}
+
+  /* competitor table */
+  table{width:100%;border-collapse:collapse;margin-top:26px;font-size:15px}
+  th,td{padding:13px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  thead th{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+           color:var(--mute);font-weight:600;border-bottom:1px solid var(--ink)}
+  td.you{color:var(--flag);font-weight:600}
+  tbody th{font-weight:600;font-size:15px;color:var(--ink)}
+
+  /* plan */
+  .plan{margin-top:28px;border-top:1px solid var(--line)}
+  .step{padding:26px 0;border-bottom:1px solid var(--line)}
+  .step .lab{color:var(--blue)}
+  .step h3{font-size:19px;margin:7px 0 8px}
+  .step p{font-size:16px}
+
+  .close{border-top:1px solid var(--ink);margin-top:64px;padding:60px 0 20px}
+  .close h2{max-width:560px}
+  .close p{margin-top:16px;max-width:580px}
+  .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+  .act{display:inline-block;padding:15px 28px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+       text-decoration:none;font-weight:600;border:1px solid var(--ink);color:var(--ink);background:none;transition:.18s}
+  .act:hover{background:var(--ink);color:#fff}
+  .act.wa{background:#25D366;border-color:#25D366;color:#fff}
+  .act.wa:hover{background:#1da851;border-color:#1da851}
+  footer{padding:40px 0 56px;font-size:12.5px;color:var(--mute);line-height:1.9}
+
+  @media (max-width:680px){
+    .open{padding:48px 0 4px}
+    section{padding:44px 0 0}
+    .status{grid-template-columns:1fr}
+    .status div{border-left:none;border-top:1px solid var(--line)}
+    .status div:first-child{border-top:none}
+    .find{grid-template-columns:26px 1fr;gap:12px}
+    table{font-size:14px} th,td{padding:11px 8px}
+    .mast .in{gap:10px} .mast img{height:22px} .mast .x{font-size:10px}
+    .close{padding:48px 0 16px}
+  }
+</style>
+</head>
+<body>
+<!-- fc-build: jules-b paid-media review date=2026-09-29 contact=frances -->
+
+<div class="mast"><div class="in">
+  <img src="assets/julesb-logo.svg" alt="Jules B">
+  <div class="x">Paid media review<br><b>with Fusion Creative</b></div>
+</div></div>
+
+<div class="open"><div class="col">
+  <div class="lab">For Frances &nbsp;&middot;&nbsp; 29 September 2026</div>
+  <h1>The shop is ready. The advertising is switched off.</h1>
+  <p class="std">Since we last spoke I took another look at Jules B, this time at the paid side rather than the organic. I went through the Meta Ad Library, your last campaigns, and what the people you compete with are running today.</p>
+  <p class="std">Everything below was read from public sources this morning, so you can check any of it yourself.</p>
+</div></div>
+
+<section><div class="col">
+  <div class="lab">First, the website</div>
+  <h2>We would not change it.</h2>
+  <div class="verdict">
+    <h3>This is not the problem.</h3>
+    <p>The site is genuinely good. It is clean, it is premium, the photography holds up and it feels like what it is, an independent luxury retailer with forty years behind it. Plenty of audits would invent work here. We are not going to. If we were running traffic tomorrow, we would send it to this site as it stands.</p>
+  </div>
+  <p style="margin-top:18px">Which makes the next part more frustrating, because the thing that is ready is the thing getting no visitors sent to it.</p>
+</div></section>
+
+<section><div class="col">
+  <div class="lab">Where the ads are</div>
+  <h2>Nothing has run since July.</h2>
+  <div class="status">
+    <div><div class="n red">0</div><small>Ads live in the UK right now</small></div>
+    <div><div class="n">18 Jul</div><small>Last ad stopped delivering, about ten weeks ago</small></div>
+    <div><div class="n">~150</div><small>Ads in your library all time, so the account is not new</small></div>
+  </div>
+  <p style="margin-top:20px">The Ad Library returns nothing at all for Jules B under active ads. The most recent to stop was a Holland Cooper set that ended on 18 July. Before that a menswear spring campaign ran from 6 March to 1 June.</p>
+  <p style="margin-top:12px">We cannot tell from the outside whether that is deliberate, a paused account or a budget that has quietly run dry. Worth knowing either way, because from a customer's point of view Jules B has simply stopped appearing.</p>
+</div></section>
+
+<section><div class="col">
+  <div class="lab">The campaigns that did run</div>
+  <h2>Four things that were costing you money.</h2>
+  <div class="finds">
+
+    <div class="find"><div class="i">01</div><div>
+      <h3>A lot of the spend pointed at Facebook, not at the shop.</h3>
+      <p>Several campaigns used "Learn more" with the destination set to the Facebook page rather than a product page. Someone interested in a Paul Smith jacket clicked a paid ad and landed on a Facebook profile, not the jacket. That traffic is paid for and then given away.</p>
+      <div class="ev"><span>From the library</span>Paul Smith, BOSS, Belstaff, Fred Perry and Holland Cooper ads all show FB.COM as the destination. The spring menswear and Christmas gifting ads correctly pointed at julesb.co.uk. So the account does both, inconsistently.</div>
+    </div></div>
+
+    <div class="find"><div class="i">02</div><div>
+      <h3>The same creative ran for six and seven months.</h3>
+      <p>In fashion, newness is the product. Running one image from September to late April means the same people saw the same jacket all season, long after it stopped being new, and long after it stopped working.</p>
+      <div class="ev"><span>From the library</span>Paul Smith, 22 Sep 2025 to 28 Apr 2026. BOSS, 22 Sep 2025 to 5 May 2026. Fred Perry, 22 Sep 2025 to 30 Apr 2026. Belstaff, 8 Nov 2025 to 6 May 2026.</div>
+    </div></div>
+
+    <div class="find"><div class="i">03</div><div>
+      <h3>The copy belongs to the brands, not to Jules B.</h3>
+      <p>The wording reads like the labels' own marketing, passed through. Nothing in it could only have been said by Jules B. The buying, the forty years, the people choosing the range, the shop itself, none of that appears. That is the one thing a stockist has that the brands cannot copy, and it is missing from the advertising.</p>
+      <div class="ev"><span>From the library</span>"Discover the perfect upgrade for your wardrobe with BOSS. As a leading stockist, Jules B offers an extensive collection..."</div>
+    </div></div>
+
+    <div class="find"><div class="i">04</div><div>
+      <h3>There was never a reason to click today.</h3>
+      <p>Across the whole library there is no offer, no edit, no event, no deadline. The only hook is whether a stranger happens to like the coat in the picture. That works on people already intending to buy, and on nobody else.</p>
+      <div class="ev"><span>Worth saying</span>We are not suggesting you discount. For a premium independent, cutting price is usually the wrong lever. But there is a lot of ground between a sale and silence: a new season edit, early access, a styling appointment, made to measure.</div>
+    </div></div>
+
+  </div>
+</div></section>
+
+<section><div class="col">
+  <div class="lab">What the competition is doing</div>
+  <h2>They have not stopped.</h2>
+  <p>Both of these were read from the live Ad Library today, for the UK.</p>
+  <table>
+    <thead><tr><th>&nbsp;</th><th>Jules B</th><th>Flannels</th><th>ASOS</th></tr></thead>
+    <tbody>
+      <tr><th>Ads live now</th><td class="you">None</td><td>About 220</td><td>About 310</td></tr>
+      <tr><th>What the ad shows</th><td class="you">Brand and season imagery</td><td>A specific product, by name</td><td>A specific product, by name</td></tr>
+      <tr><th>Where the click goes</th><td class="you">Mixed, some to Facebook</td><td>Always flannels.com</td><td>Always asos.com</td></tr>
+      <tr><th>Reason to act</th><td class="you">None</td><td>Newness and range</td><td>Up to 70% off, stated in the ad</td></tr>
+      <tr><th>Rhythm</th><td class="you">Occasional, now stopped</td><td>Always on</td><td>Always on</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:18px">Flannels sell Barbour. So does Jules B. Right now they are putting a named Barbour product in front of that customer every day, linked straight to the item, while Jules B is not in the auction at all. This is the part worth acting on: the gap is not taste or product, it is presence.</p>
+</div></section>
+
+<section><div class="col">
+  <div class="lab">What we would do, menswear first</div>
+  <h2>Four moves, in order.</h2>
+  <div class="plan">
+
+    <div class="step">
+      <div class="lab">One</div>
+      <h3>Put the catalogue to work, and never send a click to Facebook again.</h3>
+      <p>Your range is the advantage. Product level ads, driven by the feed, each one landing on that product's page. This is exactly what Flannels and ASOS are doing, and it is the cheapest thing on this list to switch on because the website is already right.</p>
+    </div>
+
+    <div class="step">
+      <div class="lab">Two</div>
+      <h3>Shoot for the platform, not for the lookbook.</h3>
+      <p>The statics are beautiful and they look like advertising, so people scroll past them. What performs now is content shot on a phone, in the shop, that looks like someone showing you something rather than selling it. You have six sets and a buying team. Nobody else stocking these labels can film that.</p>
+    </div>
+
+    <div class="step">
+      <div class="lab">Three</div>
+      <h3>Partnership ads with creators. This is the one we would push hardest.</h3>
+      <p>A menswear creator puts an outfit together from your rails, films it their way, and the post runs as a paid partnership ad through their handle, pointing at your site. You borrow their credibility, it does not read as an ad, and it does not have to live on your page to sell your stock. It is the single most effective format in fashion right now and Jules B is not using it.</p>
+      <div class="ev"><span>Already in your deck</span>William Wade is the reference. Just over a million followers, modern British menswear, and he already fronts Hackett and BOSS campaigns. You stock both.</div>
+    </div>
+
+    <div class="step">
+      <div class="lab">Four</div>
+      <h3>Give people a reason to come now.</h3>
+      <p>Not a discount. An edit, a drop, early access for the mailing list, a styling appointment, the made to measure service. Something with a date on it, so the ad has a job beyond hoping the reader likes the coat.</p>
+    </div>
+
+  </div>
+</div></section>
+
+<div class="close"><div class="col">
+  <div class="lab">Where this leaves us</div>
+  <h2>None of this is a rebuild. It is switching things back on, properly.</h2>
+  <p>The site is right, the brands are right, the stores are right, and there are forty years of reasons to trust you. What is missing is anyone being shown it. That is a fixable problem and it is the one we would start on.</p>
+  <p>Happy to walk you through any of it whenever suits, no pressure either way.</p>
+  <div class="acts">
+    <a class="act" href="mailto:jay@fusioncreative.uk?subject=Jules%20B%20paid%20media%20review">Reply to Jay</a>
+    <a class="act wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20about%20the%20Jules%20B%20review" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</div></div>
+
+<footer><div class="col">
+  Fusion Creative &nbsp;&middot;&nbsp; Newcastle upon Tyne &nbsp;&middot;&nbsp; fusioncreative.uk<br>
+  Ad data read from the Meta Ad Library (UK) on 29 September 2026 and checkable there. Prepared for Frances Fletcher.
+</div></footer>
+
+</body>
+</html>
