@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AlchemyGlow x Fusion Creative | Honest Take</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Quicksand:wght@400;500;600&family=Courier+Prime&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+img{max-width:100%;height:auto}
+:root{
+  --forest:#284323; --forest-2:#1C3019; --moss:#56704F;
+  --gold:#D4AF37; --gold-ink:#9C7F22;
+  --stone:#E6E4D9; --label:#FAF7F0; --kraft:#C8A57A; --kraft-2:#A9835A;
+  --ink:#0A1109; --ink-2:#3E4A3B; --ink-3:#7A8476; --line:#D3D0C3;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Quicksand',sans-serif;font-weight:400;background:var(--stone);color:var(--ink);
+     line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:clip;font-size:17px}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:400;line-height:1.16}
+.col{max-width:640px;margin:0 auto;padding:0 26px}
+.wide{max-width:1080px;margin:0 auto;padding:0 26px}
+.type{font-family:'Courier Prime',monospace}
+
+/* masthead, set like the round botanical label on the Pumpkin Spice jar */
+.mast{padding:26px 0;text-align:center;border-bottom:1px solid var(--line)}
+.mast .m1{font-family:'Playfair Display',serif;font-size:15px;letter-spacing:.34em;text-transform:uppercase;color:var(--forest)}
+.mast .m2{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
+
+.open{padding:96px 0 90px}
+.open .wide{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.open .pre{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:24px;font-weight:600}
+.open h1{font-size:clamp(34px,4.6vw,54px);color:var(--forest)}
+.open h1 em{font-style:italic}
+.open .sub{margin-top:28px;color:var(--ink-2);font-size:17.5px;max-width:500px}
+.open .sub + .sub{margin-top:16px}
+.jar{position:relative}
+.jar img{width:100%;display:block;border-radius:220px 220px 6px 6px;border:1px solid var(--line)}
+.jar .tag{position:absolute;left:-22px;bottom:34px;background:var(--label);padding:14px 18px;border:1px solid var(--line);
+          font-family:'Courier Prime',monospace;font-size:13.5px;line-height:1.5;color:var(--ink);box-shadow:0 10px 30px #1C301926;max-width:220px}
+
+/* the one bold moment: a forest green spread built around her own message labels */
+.spread{background:var(--forest);color:var(--label);padding:104px 0}
+.spread .wide{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center}
+.spread img{width:100%;display:block;border-radius:4px}
+.spread .pre{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:26px;font-weight:600}
+.spread h2{font-size:clamp(30px,3.8vw,44px)}
+.spread p{margin-top:22px;color:#E6E4D9D9;font-size:17px}
+.spread .labels{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+.spread .labels span{font-family:'Courier Prime',monospace;font-size:13.5px;background:var(--label);color:var(--ink);padding:7px 12px;border-radius:2px}
+
+/* findings: each set on a jar label card */
+.chapter{padding:100px 0 20px;text-align:center}
+.chapter .n{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-ink);font-weight:600}
+.chapter h2{font-size:clamp(28px,3.6vw,40px);margin-top:14px;color:var(--forest)}
+.cards{display:grid;gap:26px;padding:40px 0 20px}
+.card{background:var(--label);border:1px solid var(--line);border-radius:4px;padding:44px 44px 40px;position:relative}
+.card::before{content:"";position:absolute;top:0;left:44px;right:44px;height:3px;background:var(--kraft)}
+.card .lab{font-family:'Courier Prime',monospace;font-size:13.5px;color:var(--kraft-2);margin-bottom:14px}
+.card h3{font-size:25px;color:var(--forest);margin-bottom:16px}
+.card p{color:var(--ink-2);margin-bottom:14px}
+.card p:last-child{margin-bottom:0}
+.card p b{font-weight:600;color:var(--ink)}
+.note{margin-top:22px;padding-left:18px;border-left:2px solid var(--gold);font-size:14.5px;color:var(--ink-3);line-height:1.8}
+.note b{color:var(--ink-2);font-weight:600}
+.ledger{margin:22px 0 6px;width:100%;border-collapse:collapse;font-size:15px}
+.ledger td{padding:11px 0;border-bottom:1px solid var(--line);vertical-align:baseline;color:var(--ink-2)}
+.ledger td:last-child{text-align:right;font-family:'Courier Prime',monospace;white-space:nowrap;padding-left:18px;color:var(--ink)}
+.ledger tr:last-child td{border-bottom:0}
+
+/* what we would do first: a short numbered pour order */
+.first{background:var(--label);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:100px 0 90px;margin-top:80px}
+.first h2{font-size:clamp(28px,3.6vw,40px);color:var(--forest);text-align:center;margin-bottom:14px}
+.first .intro{text-align:center;color:var(--ink-2);max-width:540px;margin:0 auto 46px}
+.steps{list-style:none;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:62px 1fr;gap:10px;padding:26px 0;border-bottom:1px solid var(--line)}
+.steps li:last-child{border-bottom:0}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:'Playfair Display',serif;font-size:30px;color:var(--gold-ink);line-height:1}
+.steps h3{font-size:21px;color:var(--forest);margin-bottom:8px}
+.steps p{color:var(--ink-2);font-size:16px}
+
+.proof{padding:96px 0 20px;text-align:center}
+.proof .pre{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-ink);font-weight:600;margin-bottom:18px}
+.proof h2{font-size:clamp(26px,3.4vw,36px);color:var(--forest);max-width:620px;margin:0 auto}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:46px auto 0;max-width:900px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats div{padding:30px 14px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(30px,4vw,44px);color:var(--forest);line-height:1.1}
+.stats span{display:block;margin-top:8px;font-size:13px;color:var(--ink-3);line-height:1.5}
+.proof p{color:var(--ink-2);max-width:560px;margin:36px auto 0}
+
+.close{padding:90px 0 96px;text-align:center}
+.close h2{font-size:clamp(28px,3.8vw,42px);color:var(--forest);max-width:620px;margin:0 auto 26px}
+.close p{color:var(--ink-2);max-width:540px;margin:0 auto 16px}
+.acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.act{display:inline-block;padding:16px 32px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+     text-decoration:none;border-radius:999px;border:1px solid var(--forest);color:var(--forest);transition:.25s ease}
+.act:hover{background:var(--forest);color:var(--label)}
+.act.wa{border-color:#25D366;background:#25D366;color:#fff}
+.act.wa:hover{background:#1DA851;border-color:#1DA851}
+footer{padding:46px 0 56px;text-align:center;font-size:12px;color:var(--ink-3);line-height:2;border-top:1px solid var(--line)}
+
+@media (max-width:820px){
+  .open .wide,.spread .wide{grid-template-columns:1fr;gap:44px}
+  .jar{max-width:380px;margin:0 auto}
+  .jar .tag{left:-8px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stats div:nth-child(2){border-right:0}
+  .stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .open{padding:60px 0 64px} .spread{padding:72px 0} .chapter{padding:72px 0 10px}
+  .card{padding:34px 24px 30px} .card::before{left:24px;right:24px}
+  .first{padding:72px 0 64px} .proof{padding:72px 0 10px} .close{padding:70px 0 72px}
+  .steps li{grid-template-columns:46px 1fr} .steps li::before{font-size:24px}
+}
+</style>
+</head>
+<body>
+<!-- fc-build: status=inbound-lead source=/scale leadid=1efb2314-4644-4216-86d7-4b497efa00fc date=2026-09-29 -->
+
+<div class="mast">
+  <div class="m1">AlchemyGlow &nbsp;&times;&nbsp; Fusion Creative</div>
+  <div class="m2">An honest take on your shop &nbsp;&middot;&nbsp; 29 September 2026</div>
+</div>
+
+<section class="open"><div class="wide">
+  <div>
+    <div class="pre">For Nicola</div>
+    <h1>The candles you sell at your market stall <em>are not on your website.</em></h1>
+    <p class="sub">You told us you want to do this full time, that you make most of your money at markets and that online barely moves. We read alchemyglowcandles.com the way a customer would, and the reason is fairly clear.</p>
+    <p class="sub">The good news: none of it needs an advertising budget to fix.</p>
+  </div>
+  <div class="jar">
+    <img src="assets/pumpkin-spice.jpg" alt="AlchemyGlow Pumpkin Spice candle by a log burner with a wicker pumpkin and acorns" width="600" height="800">
+    <div class="tag">Pumpkin Spice.<br>Made with care, and it shows.</div>
+  </div>
+</div></section>
+
+<section class="spread"><div class="wide">
+  <img src="assets/message-candles.jpg" alt="A stack of AlchemyGlow message candles with typewriter labels and wooden hearts" width="900" height="1190" loading="lazy">
+  <div>
+    <div class="pre">Your best product, from your own photo</div>
+    <h2>A candle that says what someone can't quite say themselves.</h2>
+    <p>This photograph sits in your own site's files. Every jar carries a message, a wooden heart, a reason to buy it for somebody. That is a gift, and gifts are exactly what people buy online, often for someone who lives nowhere near Burnley.</p>
+    <div class="labels">
+      <span>You rang that bell!</span><span>No more chemo!</span><span>Sisters</span><span>BFF</span><span>Happy Mother's Day</span><span>Slow down and breathe</span><span>Just for me</span>
+    </div>
+    <p>None of these can be bought on your shop today. Neither can the wax melts or gift boxes you mentioned.</p>
+  </div>
+</div></section>
+
+<div class="chapter"><div class="col">
+  <div class="n">What we found</div>
+  <h2>Four things on your shop</h2>
+</div></div>
+
+<div class="col"><div class="cards">
+
+  <div class="card">
+    <div class="lab">The range online</div>
+    <h3>Four candles for sale, all from one seasonal collection</h3>
+    <p>The shop has <b>four live products</b>: Apple and Cinnamon, Cosy Fireplace, Sandalwood and Amber and Spiced Pumpkin, each a 10oz candle with a single photograph. They are lovely, and the Pumpkin Spice shot above is genuinely well styled.</p>
+    <p>But seasonal scent candles are the most crowded shelf in the whole category. What makes AlchemyGlow different, the messages, is the part that is missing.</p>
+  </div>
+
+  <div class="card">
+    <div class="lab">The menu</div>
+    <h3>Your main menu leads to empty shelves</h3>
+    <p>Two of the four links in your top menu open collections with nothing in them. A customer taps, sees an empty page, and assumes the shop is closed.</p>
+    <table class="ledger">
+      <tr><td>10oz Signature Double Wick Candles (in the menu)</td><td>0 products</td></tr>
+      <tr><td>Citronella collection (in the menu)</td><td>0 products</td></tr>
+      <tr><td>7oz Signature Soy Candles</td><td>0 products</td></tr>
+      <tr><td>Mini candle gift set (4 pack)</td><td>0 products</td></tr>
+      <tr><td>Botanical wax melts</td><td>nothing showing</td></tr>
+    </table>
+    <div class="note">Your multi-buy codes (<b>2for24</b>, <b>3for24</b>) are written into the web addresses of those collections, where no customer will ever read them. A multi-buy is a good idea for candles. It needs to live in the basket, not the URL.</div>
+  </div>
+
+  <div class="card">
+    <div class="lab">The footer</div>
+    <h3>Your social icons send people to Shopify, not to you</h3>
+    <p>The Instagram and TikTok icons at the bottom of every page link to <b>instagram.com/shopify</b> and <b>tiktok.com/@shopify</b>, the theme's defaults. Anyone curious enough to look for you leaves your shop and lands on Shopify's own account.</p>
+    <p>We also searched for your own AlchemyGlow accounts and could not find them from the site or from search. If they exist, they are not being found, which for a brand that sells mostly face to face is the missing bridge between the stall and the shop.</p>
+  </div>
+
+  <div class="card">
+    <div class="lab">The story</div>
+    <h3>Why AlchemyGlow exists is one line on the homepage</h3>
+    <p>&ldquo;AlchemyGlow was born during my cancer treatment, a way for me to find calm, creativity and purpose.&rdquo; It is the most honest sentence on the site, and it explains the whole range: a candle for the day someone rings the bell, made by someone who knows what that day means.</p>
+    <p>You do not need to lead with it, and how much you share is entirely your call. But the message candles and the story belong together, and right now they are on different pages or not online at all.</p>
+  </div>
+
+</div></div>
+
+<section class="first"><div class="col">
+  <h2>What we would do first</h2>
+  <p class="intro">In this order. Nothing here needs ad spend, and the first two are a week of work, not a season.</p>
+  <ol class="steps">
+    <li><div><h3>Put the message candles online</h3><p>One product per message, grouped by moment: celebrations, friendship, recovery, and a few blank &ldquo;write your own&rdquo; labels. Photographed the way you already shoot them. Add the wax melts and gift boxes alongside.</p></div></li>
+    <li><div><h3>Close the empty rooms</h3><p>Hide or fill every empty collection, point the social icons at your real accounts, and move the multi-buy into the basket so it is seen at the moment it matters.</p></div></li>
+    <li><div><h3>Turn market customers into online ones</h3><p>You already meet your buyers in person. A small card in every bag with a QR code to the shop and a sign-up for new scents and restocks means the next candle, and the gift they buy for a friend, can happen online.</p></div></li>
+    <li><div><h3>Film the making, not the ad</h3><p>Short, simple videos: pouring, writing a label, tying on the heart, the stall on a Saturday. That is the content that sells hand-made gifts, and it is the kind of work we do every week.</p></div></li>
+  </ol>
+</div></section>
+
+<section class="proof"><div class="wide">
+  <div class="pre">Same category, same order of work</div>
+  <h2>We did this for a British candle company: shop first, then content and ads.</h2>
+  <div class="stats">
+    <div><b>16.9x</b><span>monthly revenue in 60 days</span></div>
+    <div><b>7.8x</b><span>blended return on ad spend</span></div>
+    <div><b>+64%</b><span>average order value</span></div>
+    <div><b>10x</b><span>orders</span></div>
+  </div>
+  <p>The Northumberland Candle Company. We share it because the order mattered more than the tactics: the shop had to be ready before a single pound went on advertising. Yours is not ready yet, and we would rather tell you that than sell you ads.</p>
+</div></section>
+
+<section class="close"><div class="col">
+  <h2>Happy to talk it through, no pressure either way.</h2>
+  <p>If any of this is useful, reply or send a WhatsApp and we can go through it together. Even if you do all of it yourself, the message candles online before Christmas is the one we would not leave.</p>
+  <div class="acts">
+    <a class="act" href="mailto:jay@fusioncreative.uk?subject=AlchemyGlow%20audit">Reply to this</a>
+    <a class="act wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20AlchemyGlow%20audit" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</div></section>
+
+<footer>
+  Fusion Creative &nbsp;&middot;&nbsp; Newcastle upon Tyne &nbsp;&middot;&nbsp; fusioncreative.uk<br>
+  Everything above was read from your live shop on 29 September 2026.
+</footer>
+
+<script>(function(){try{if(!/(^|\.)fusioncreative\.uk$/.test(location.hostname))return;var q=location.search;if(/[?&](owner|me)=1/.test(q)){try{localStorage.setItem('fc_owner','1')}catch(e){}}try{if(localStorage.getItem('fc_owner')==='1')return}catch(e){}var m=location.pathname.match(/\/audit\/([a-z0-9-]+)\/?/);if(!m)return;try{if(sessionStorage.getItem('fc_v_'+m[1]))return;sessionStorage.setItem('fc_v_'+m[1],'1')}catch(e){}fetch('https://newgreek.fusioncreative.uk/api/audit-view/',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({slug:m[1],ref:document.referrer,q:q}),keepalive:true}).catch(function(){})}catch(e){}})();</script>
+</body>
+</html>
