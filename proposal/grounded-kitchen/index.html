@@ -157,6 +157,24 @@
   .callout.unlock p{flex:1 1 320px}
   .callout.unlock .btn{background:var(--yellow);color:var(--teal-deep)}
 
+  .h2h{background:var(--white);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:16px 0 20px}
+  .h2h-head,.h2h-row{display:grid;grid-template-columns:1fr 110px 130px 92px;gap:12px;align-items:center;padding:14px 18px}
+  .h2h-head{background:var(--teal);font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding-top:11px;padding-bottom:11px}
+  .h2h-head .them{color:#ffb4b2;text-align:right}
+  .h2h-head .us{color:var(--yellow);text-align:right}
+  .h2h-row + .h2h-row{border-top:1px solid var(--line)}
+  .h2h-row .k{font-size:15px;font-weight:700;color:var(--teal-ink);line-height:1.25}
+  .h2h-row .k small{display:block;font-size:12px;font-weight:500;color:var(--soft);margin-top:3px}
+  .h2h-row .them{font-size:24px;font-weight:900;color:#E83E3B;text-align:right;letter-spacing:-.03em}
+  .h2h-row .us{font-size:30px;font-weight:900;color:#00949B;text-align:right;letter-spacing:-.04em}
+  .h2h-row .gap{justify-self:end;background:var(--teal-deep);color:var(--yellow);font-size:13px;font-weight:900;border-radius:999px;padding:5px 11px;white-space:nowrap}
+  @media (max-width:640px){
+    .h2h-head,.h2h-row{grid-template-columns:1fr 60px 88px;gap:8px;padding:12px 14px}
+    .h2h-head span:last-child,.h2h-row .gap{display:none}
+    .h2h-row .k{font-size:13.5px}
+    .h2h-row .them{font-size:18px}
+    .h2h-row .us{font-size:21px}
+  }
   .bars{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:16px 18px 10px;margin:14px 0 20px}
   .bcap{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:10px}
   .brow{display:grid;grid-template-columns:minmax(120px,190px) 1fr 58px;gap:12px;align-items:center;padding:7px 0;position:relative;outline:none}
@@ -392,26 +410,17 @@
     </div>
     <p class="small">Plays as shown publicly on Instagram on 1 October 2026.</p>
 
-    <h3>How that compares to the accounts we run</h3>
-    <p>Same measure, our side. The median video across our restaurant and food clients gets about twice your views, on accounts that are mostly a fraction of your size.</p>
-    <div class="bars" role="img" aria-label="Median views per video: Grounded Kitchen 1,188, Fusion food clients 2,473">
-      <div class="bcap">Median views per video</div>
-      <div class="brow" tabindex="0" data-tip="Grounded Kitchen: median 1,188 plays across the last 9 Instagram reels, 4 Sep to 1 Oct 2026"><div class="bl">Grounded Kitchen<small>last 9 reels</small></div><div class="bt"><span style="width:48.0%"></span></div><div class="bv">1,188</div></div>
-      <div class="brow us" tabindex="0" data-tip="Fusion: median 2,473 views across 857 videos for our restaurant and food clients, from each start date to 1 Oct 2026"><div class="bl">Fusion food clients<small>857 videos, IG and TikTok</small></div><div class="bt"><span style="width:100.0%"></span></div><div class="bv">2,473</div></div>
+    <h3>Head to head: your accounts against ours</h3>
+    <p>The same measures, side by side. Your numbers are from your public Instagram and TikTok; ours are every food and restaurant video we've posted since each client started with us.</p>
+    <div class="h2h">
+      <div class="h2h-head"><span></span><span class="them">Grounded</span><span class="us">Fusion clients</span><span></span></div>
+      <div class="h2h-row"><div class="k">Biggest single video</div><div class="them">44.6K</div><div class="us">70.1M</div><div class="gap">1,500x</div></div>
+      <div class="h2h-row"><div class="k">Videos past 1 million views</div><div class="them">0</div><div class="us">5</div><div class="gap">5 to 0</div></div>
+      <div class="h2h-row"><div class="k">Videos past 100,000 views</div><div class="them">0</div><div class="us">24</div><div class="gap">24 to 0</div></div>
+      <div class="h2h-row"><div class="k">Typical video's reach, as a share of followers<small>median Instagram video, ours across 7 food accounts</small></div><div class="them">3%</div><div class="us">68%</div><div class="gap">22x</div></div>
     </div>
-    <p>The fairer test is reach against audience size, because a bigger following should mean bigger numbers. Your typical reel reaches about 3% of your followers. Here is the same figure for every food account we run on Instagram.</p>
-    <div class="bars" role="img" aria-label="Median Instagram video views as a share of followers">
-      <div class="bcap">Median Instagram video, as a share of followers</div>
-      <div class="brow" tabindex="0" data-tip="Grounded Kitchen: median reel 1,188 plays on 37,800 followers, about 3%"><div class="bl">Grounded Kitchen<small>37,800 followers</small></div><div class="bt"><span style="width:1.3%"></span></div><div class="bv">3%</div></div>
-      <div class="brow us" tabindex="0" data-tip="The Greek Spot: median Instagram video reaches 244% of its 869 followers"><div class="bl">The Greek Spot<small>869 followers</small></div><div class="bt"><span style="width:100.0%"></span></div><div class="bv">244%</div></div>
-      <div class="brow us" tabindex="0" data-tip="New Greek Bakery: median Instagram video reaches 145% of its 2,434 followers"><div class="bl">New Greek Bakery<small>2,434 followers</small></div><div class="bt"><span style="width:59.5%"></span></div><div class="bv">145%</div></div>
-      <div class="brow us" tabindex="0" data-tip="Meraki: median Instagram video reaches 73% of its 1,034 followers"><div class="bl">Meraki<small>1,034 followers</small></div><div class="bt"><span style="width:30.0%"></span></div><div class="bv">73%</div></div>
-      <div class="brow us" tabindex="0" data-tip="Takdir: median Instagram video reaches 68% of its 3,456 followers"><div class="bl">Takdir<small>3,456 followers</small></div><div class="bt"><span style="width:27.9%"></span></div><div class="bv">68%</div></div>
-      <div class="brow us" tabindex="0" data-tip="New Greek: median Instagram video reaches 34% of its 11,800 followers"><div class="bl">New Greek<small>11,800 followers</small></div><div class="bt"><span style="width:13.9%"></span></div><div class="bv">34%</div></div>
-      <div class="brow us" tabindex="0" data-tip="Geisha: median Instagram video reaches 6% of its 21,422 followers"><div class="bl">Geisha<small>21,422 followers</small></div><div class="bt"><span style="width:2.6%"></span></div><div class="bv">6%</div></div>
-      <div class="brow us" tabindex="0" data-tip="The Bake One: median Instagram video reaches 6% of its 30,591 followers"><div class="bl">The Bake One<small>30,591 followers</small></div><div class="bt"><span style="width:2.4%"></span></div><div class="bv">6%</div></div>
-    </div>
-    <p class="small">From our own dashboard on 1 October 2026: every video posted since each client started with us, one row per post, Instagram and TikTok view counts as synced. Follower counts as of today. The Northumberland Candle Company is left out of this comparison because it is a product brand, not food.</p>
+    <p>That last row is the one that matters. A bigger following should mean bigger numbers, yet your 37,800 followers produce a typical reel of 1,188 plays, while our accounts, most of them a fraction of your size, routinely put a video in front of more people than follow them.</p>
+    <p class="small">Fusion figures from our own dashboard on 1 October 2026, one row per post, view counts as synced from Instagram and TikTok. Grounded figures are the biggest videos we could find on @getgroundeduk (44.6K on TikTok, 9,223 on Instagram) and the median of your last 9 reels against 37,800 followers. Follower counts as of today.</p>
 
     <h3>The scorecard</h3>
     <div class="score">
