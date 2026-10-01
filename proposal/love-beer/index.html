@@ -111,6 +111,12 @@
   .term h4{font-family:'Roboto Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:15px;margin-bottom:8px;color:var(--amber)}
   .term p{font-size:14.5px;color:var(--muted)}
 
+  .hooks{counter-reset:hk;list-style:none;margin-top:14px;border-top:1px solid var(--line)}
+  .hooks li{counter-increment:hk;position:relative;padding:12px 0 12px 54px;border-bottom:1px solid var(--line);font-size:15px;color:var(--muted)}
+  .hooks li::before{content:counter(hk,decimal-leading-zero);position:absolute;left:0;top:12px;font-family:'Roboto Condensed',sans-serif;font-weight:800;font-size:14px;color:var(--amber);letter-spacing:.08em}
+  .hooks li strong{color:var(--text);font-weight:500}
+  .hooks li span{display:block;font-size:13.5px;color:#7E93A6;margin-top:2px}
+
   .refs{list-style:none;margin-top:10px}
   .refs li{border-top:1px solid var(--line);padding:14px 0;font-size:15px;color:var(--muted)}
   .refs li:first-child{border-top:0}
@@ -478,7 +484,7 @@
     <p class="lede">A shoot day is planned as a harvest, not as a shoot. That is the difference between a full calendar and a dry week. One pub visit produces:</p>
     <div class="ledger">
       <div class="row"><span>1</span><span>Hero episode</span></div>
-      <div class="row"><span>3-4</span><span>Vertical cutdowns from the strongest beats</span></div>
+      <div class="row"><span>8-10</span><span>Vertical cuts, a different hook on each, from the same footage</span></div>
       <div class="row"><span>2</span><span>Split the G attempts, filmed at that bar</span></div>
       <div class="row"><span>1</span><span>Rules explainer, graphic over B roll</span></div>
       <div class="row"><span>1</span><span>Landlord interview vertical</span></div>
@@ -486,8 +492,24 @@
       <div class="row"><span>2-3</span><span>Stills carousels</span></div>
       <div class="row"><span>1</span><span>Nomination call</span></div>
       <div class="row"><span>1</span><span>Audio cut held for a podcast feed</span></div>
-      <div class="row total"><span>13-15</span><span>pieces from a single shoot day</span></div>
+      <div class="row total"><span>18-21</span><span>pieces from a single shoot day</span></div>
     </div>
+    <h3 style="font-family:'Roboto Condensed',sans-serif;font-weight:800;text-transform:uppercase;font-size:21px;margin:34px 0 8px">Every hook, not one</h3>
+    <p>The reason one shoot goes that far is that we do not pick an angle and hope. The same footage gets cut against every opening it will carry, and the platform decides which one travels. An extra cut costs edit time, not another day on the road, so there is no reason to guess.</p>
+    <p style="margin-top:14px">Here is the mountain day as an example. One shoot, one crew, these openings:</p>
+    <ol class="hooks">
+      <li><strong>You have just climbed a mountain. There is a pint at the top.</strong><span>The reward angle. Widest appeal.</span></li>
+      <li><strong>The highest pub in Britain is 528 metres up. We went to 1,085.</strong><span>The record angle. The one that gets picked up.</span></li>
+      <li><strong>We took a working bar up a mountain on a train.</strong><span>The absurdity angle. Travels on its own.</span></li>
+      <li><strong>You cannot pour a pint at 1,085 metres. We tried anyway.</strong><span>The problem angle. Sets up a payoff.</span></li>
+      <li><strong>Setting a beer line in forty mile an hour wind.</strong><span>The trade angle. Landlords and cellar people share this one.</span></li>
+      <li><strong>Watch people come over the last ridge and find a pub.</strong><span>The reaction angle. Pure faces.</span></li>
+      <li><strong>The first person to reach the summit had no idea we were there.</strong><span>The story angle. One person, start to finish.</span></li>
+      <li><strong>Carrying a keg up Snowdon, start to finish.</strong><span>The process angle. Satisfying, no talking.</span></li>
+      <li><strong>The weather turned four times before we served one pint.</strong><span>The jeopardy angle. Time lapse led.</span></li>
+      <li><strong>The first pour at the top of Wales.</strong><span>The craft angle. Close, quiet, no music.</span></li>
+    </ol>
+    <p style="margin-top:20px">Ten openings, one day of filming. Three or four will do nothing, one will do most of the numbers, and we will not know which until they are out. That is the argument for making all ten.</p>
     <p style="margin-top:24px"><strong>The commitment:</strong> a posting calendar published four weeks ahead, visible to you, every slot filled before the month starts. The metric we report on is missed slots, not views. Views are a result. Slots are a promise.</p>
   </div>
 </section>
