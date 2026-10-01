@@ -678,7 +678,7 @@
   function tick(){var n=Date.now();if(!document.hidden)active+=n-last;last=n;}
   function scr(){var h=document.documentElement.scrollHeight-innerHeight;var p=h>0?Math.round(scrollY/h*100):100;if(p>maxS)maxS=Math.min(100,p);}
   addEventListener('scroll',scr,{passive:true});
-  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var k=e.target.getAttribute('data-sec');if(!seen[k]){seen[k]=1;secs.push(k)}}})},{threshold:0.35});
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var k=e.target.getAttribute('data-sec');if(!seen[k]){seen[k]=1;secs.push(k)}}})},{rootMargin:'-45% 0px -45% 0px',threshold:0});
     document.querySelectorAll('[data-sec]').forEach(function(el){io.observe(el)});}
   document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-lock],[data-unlock],a.btn');if(!t)return;
     var k=t.hasAttribute('data-lock')?'tapped-locked':t.hasAttribute('data-unlock')?'clicked-unlock':'clicked-'+(t.classList.contains('wa')?'whatsapp':/^mailto/.test(t.href)?'email':'call');
