@@ -145,6 +145,18 @@
   .toggle-all{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:6px 0 4px;font-size:13.5px;color:var(--soft)}
   .toggle-all button{font:inherit;font-weight:800;color:var(--teal-deep);background:var(--yellow);border:0;border-radius:999px;padding:8px 14px;cursor:pointer}
 
+  .lgroup{margin-top:26px}
+  .lgroup h3{margin:0 0 4px}
+  .lgroup h3 small{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-left:10px;vertical-align:middle}
+  .concept.locked{background:repeating-linear-gradient(135deg,#fff 0 12px,#f8faf0 12px 24px);cursor:pointer;user-select:none}
+  .concept.locked .tag{background:#eef1e4;color:var(--soft)}
+  .concept.locked .bars i{display:block;height:11px;border-radius:6px;background:#e3e8d6;margin:0 0 9px}
+  .concept.locked .bars i:first-child{height:15px;background:#d6ddc6;margin-bottom:12px}
+  .concept.locked .lockline{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:800;color:var(--teal);margin-top:6px}
+  .callout.unlock{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:28px}
+  .callout.unlock p{flex:1 1 320px}
+  .callout.unlock .btn{background:var(--yellow);color:var(--teal-deep)}
+
   /* tables */
   .tbl{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14px;margin:16px 0 22px}
   .tbl th,.tbl td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
@@ -305,7 +317,7 @@
 </section>
 
 <!-- 01 -->
-<section class="page">
+<section data-sec="note" class="page">
   <div class="wrap">
     <div class="eyebrow">01 &middot; A note from Jay</div>
     <h2>the food is the easy part<span class="dot">.</span> <em>you've already done it.</em></h2>
@@ -321,7 +333,7 @@
 </section>
 
 <!-- 02 -->
-<section class="page">
+<section data-sec="working" class="page">
   <div class="wrap">
     <div class="eyebrow">02 &middot; What's already working</div>
     <h2>a lot<span class="dot">.</span> <em>credit where it's due.</em></h2>
@@ -342,7 +354,7 @@
 </section>
 
 <!-- 03 -->
-<section class="page">
+<section data-sec="audit" class="page">
   <div class="wrap">
     <div class="eyebrow">03 &middot; The audit: Instagram</div>
     <h2>37,800 followers<span class="dot">.</span> <em>about 3% see a reel.</em></h2>
@@ -381,7 +393,7 @@
 </section>
 
 <!-- 04 -->
-<section class="page dark">
+<section data-sec="metrocentre" class="page dark">
   <div class="wrap">
     <div class="eyebrow">04 &middot; The Metrocentre signal</div>
     <h2>your best videos this year<span class="dot">?</span> <em>local ones.</em></h2>
@@ -411,7 +423,7 @@
 </section>
 
 <!-- 05 -->
-<section class="page">
+<section data-sec="ads" class="page">
   <div class="wrap">
     <div class="eyebrow">05 &middot; Your ads</div>
     <h2>you're already paying for reach<span class="dot">.</span> <em>give it better creative.</em></h2>
@@ -433,7 +445,7 @@
 </section>
 
 <!-- 06 -->
-<section class="page dark">
+<section data-sec="us" class="page dark">
   <div class="wrap">
     <div class="eyebrow">06 &middot; Who we are</div>
     <h2>a Newcastle agency that holds the camera<span class="dot">.</span> <em>every week.</em></h2>
@@ -462,7 +474,7 @@
 </section>
 
 <!-- 07 -->
-<section class="page">
+<section data-sec="plan" class="page">
   <div class="wrap">
     <div class="eyebrow">07 &middot; The plan</div>
     <h2>three rules<span class="dot">.</span> <em>one playbook for nine sites.</em></h2>
@@ -486,64 +498,63 @@
 </section>
 
 <!-- 08 -->
-<section class="page">
+<section class="page" data-sec="formats">
   <div class="wrap">
     <div class="eyebrow">08 &middot; The concept bank</div>
     <h2>18 formats<span class="dot">,</span> <em>ready to shoot from day one.</em></h2>
-    <div class="toggle-all"><span>Tap a group to open it.</span><button id="toggleAll" type="button">Open all</button></div>
-
-    <details class="cgroup" open>
-      <summary><h3>A. Hooks that already work for you <small>4 formats</small></h3><span class="chev"></span></summary>
+    <p class="lead">Two are below, both built on what has already worked on your own account. The other 16 are ours, and we walk you through every one of them on the call.</p>
+    <div class="lgroup">
+      <h3>A. Hooks that already work for you <small>4 formats</small></h3>
       <div class="concepts">
-        <div class="concept"><span class="tag">Meme caption</span><h4>The PSA series</h4><p>Bring back the format behind your best reel. One relatable line over a single hero shot: "PSA: the matcha is not optional."</p><p class="why"><b>Why:</b> your top three reels all used it.</p></div>
-        <div class="concept"><span class="tag">Skit</span><h4>"Is that healthy?"</h4><p>A customer can't believe a bowl that good has 37g of protein. Short, scripted, ends on the macros.</p><p class="why"><b>Why:</b> turns the protein message into a story.</p></div>
-        <div class="concept"><span class="tag">Skit</span><h4>The matcha order that never ends</h4><p>One customer working through all ten flavours while the queue watches.</p><p class="why"><b>Why:</b> shows the range without a menu shot.</p></div>
-        <div class="concept"><span class="tag">Trend</span><h4>Weekly trend adaptation</h4><p>One trending sound or format a week, done in the Grounded voice, filmed in store.</p><p class="why"><b>Why:</b> the cheapest reach lever you're not using.</p></div>
+        <div class="concept"><span class="tag">Meme caption</span><h4>The PSA series</h4><p>Bring back the format behind your best reel. One relatable line over a single hero shot.</p><p class="why"><b>Why:</b> your top three reels all used it.</p></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
       </div>
-    </details>
-
-    <details class="cgroup">
-      <summary><h3>B. People and public interaction <small>4 formats</small></h3><span class="chev"></span></summary>
+    </div>
+    <div class="lgroup">
+      <h3>B. People and public interaction <small>4 formats</small></h3>
       <div class="concepts">
-        <div class="concept"><span class="tag">Game</span><h4>Guess the protein, win the bowl</h4><p>Shoppers at Metrocentre guess the grams in a bowl. Closest wins it.</p><p class="why"><b>Why:</b> our five-bites game did 255K for a single restaurant.</p></div>
-        <div class="concept"><span class="tag">Taste test</span><h4>First time trying tteokbokki</h4><p>Real reactions to "Korean mac and cheese" from people who've never had it.</p><p class="why"><b>Why:</b> pushes your newest hero product.</p></div>
-        <div class="concept"><span class="tag">Vox pop</span><h4>"What's in your bowl?"</h4><p>Quick interviews in the queue. Everyone's order, everyone's reason.</p><p class="why"><b>Why:</b> customers become the content and share it.</p></div>
-        <div class="concept"><span class="tag">Challenge</span><h4>Spice ladder</h4><p>How far up the gochujang scale can you go? Leaderboard by site.</p><p class="why"><b>Why:</b> repeatable, competitive, very local.</p></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
       </div>
-    </details>
-
-    <details class="cgroup">
-      <summary><h3>C. Product and nutrition <small>4 formats</small></h3><span class="chev"></span></summary>
+    </div>
+    <div class="lgroup">
+      <h3>C. Product and nutrition <small>4 formats</small></h3>
       <div class="concepts">
-        <div class="concept"><span class="tag">Macro receipts</span><h4>What 37g of protein looks like</h4><p>Ingredient by ingredient, built on camera, with the numbers on screen.</p><p class="why"><b>Why:</b> your protein captions, turned into a visual.</p></div>
-        <div class="concept"><span class="tag">Expert</span><h4>Haley says</h4><p>Your in-house nutritionist on camera, one myth a week, 20 seconds.</p><p class="why"><b>Why:</b> a real expert is a face nobody else in the category has.</p></div>
-        <div class="concept"><span class="tag">Process</span><h4>No frying here</h4><p>The oven-baked protein and the in-store sauces, filmed properly with sound.</p><p class="why"><b>Why:</b> proves "real ingredients" instead of saying it.</p></div>
-        <div class="concept"><span class="tag">Value</span><h4>How much can you get for &pound;20?</h4><p>Ordering for two at a site, totting it up on screen.</p><p class="why"><b>Why:</b> 84K for us on a single restaurant account.</p></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
       </div>
-    </details>
-
-    <details class="cgroup">
-      <summary><h3>D. Places and team <small>3 formats</small></h3><span class="chev"></span></summary>
+    </div>
+    <div class="lgroup">
+      <h3>D. Places and team <small>3 formats</small></h3>
       <div class="concepts">
         <div class="concept"><span class="tag">Local</span><h4>The only one in Metrocentre</h4><p>The format behind your 38K TikTok, repeated for every site with its own hook.</p><p class="why"><b>Why:</b> already proven on your own account.</p></div>
-        <div class="concept"><span class="tag">Team</span><h4>Meet the crew</h4><p>The staff your reviews mention by name, on camera, each with their own order.</p><p class="why"><b>Why:</b> your reviews already say the team is the draw.</p></div>
-        <div class="concept"><span class="tag">Founder</span><h4>Back from the Far East</h4><p>Ahmed's story: Leicester, 2017, why Korean, why healthy. A short series.</p><p class="why"><b>Why:</b> earns trust with customers and franchisees.</p></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
       </div>
-    </details>
-
-    <details class="cgroup">
-      <summary><h3>E. Orders and offers <small>3 formats</small></h3><span class="chev"></span></summary>
+    </div>
+    <div class="lgroup">
+      <h3>E. Orders and offers <small>3 formats</small></h3>
       <div class="concepts">
-        <div class="concept"><span class="tag">Utility</span><h4>It pays not to queue</h4><p>Ordering from the table, shown on screen start to finish, with the 10% back.</p><p class="why"><b>Why:</b> turns views into app-free orders and points.</p></div>
-        <div class="concept"><span class="tag">Launch</span><h4>New drop countdowns</h4><p>Teasers for each new product like tteokbokki, with a first-day offer.</p><p class="why"><b>Why:</b> gives every launch a reason to visit this week.</p></div>
-        <div class="concept"><span class="tag">Ads</span><h4>Site-named ad cuts</h4><p>Every winning organic video recut with the site name in the first second and a direct ordering link.</p><p class="why"><b>Why:</b> gives your ads proven creative instead of statics.</p></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
+<div class="concept locked" data-lock="1"><span class="tag">Locked</span><div class="bars"><i style="width:72%"></i><i style="width:94%"></i><i style="width:81%"></i><i style="width:46%"></i></div><div class="lockline"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Shared on our call</div></div>
       </div>
-    </details>
+    </div>
+    <div class="callout teal unlock">
+      <p><strong>The full concept bank is shared on our call, not in writing.</strong> Book 20 minutes and we'll take you through all 18, with the first month planned around them.</p>
+      <a class="btn" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27d%20like%20to%20see%20the%20full%20Grounded%20Kitchen%20concept%20bank" target="_blank" rel="noopener" data-unlock="1">Book the walkthrough</a>
+    </div>
   </div>
 </section>
 
 <!-- 09 -->
-<section class="page">
+<section data-sec="workflow" class="page">
   <div class="wrap">
     <div class="eyebrow">09 &middot; Output, workflow and reporting</div>
     <h2>planned every week<span class="dot">.</span> <em>reported every month.</em></h2>
@@ -570,7 +581,7 @@
 </section>
 
 <!-- 10 -->
-<section class="page">
+<section data-sec="packages" class="page">
   <div class="wrap">
     <div class="eyebrow">10 &middot; Packages</div>
     <h2>two options<span class="dot">.</span> <em>same content engine.</em></h2>
@@ -616,7 +627,7 @@
 </section>
 
 <!-- 11 -->
-<section class="page">
+<section data-sec="next" class="page">
   <div class="wrap">
     <div class="eyebrow">11 &middot; Next steps</div>
     <h2>let's start at metrocentre<span class="dot">.</span></h2>
@@ -651,14 +662,33 @@
 </footer>
 
 <script>
-(function(){
-  var btn=document.getElementById('toggleAll'); if(!btn) return;
-  var groups=Array.prototype.slice.call(document.querySelectorAll('details.cgroup'));
-  function sync(){ btn.textContent=groups.every(function(d){return d.open})?'Close all':'Open all'; }
-  btn.addEventListener('click',function(){ var open=!groups.every(function(d){return d.open}); groups.forEach(function(d){d.open=open}); sync(); });
-  groups.forEach(function(d){ d.addEventListener('toggle',sync); });
-  sync();
-})();
+(function(){try{
+  if(!/(^|\.)fusioncreative\.uk$/.test(location.hostname))return;
+  var q=location.search;
+  if(/[?&](owner|me)=1/.test(q)){try{localStorage.setItem('fc_owner','1')}catch(e){}}
+  try{if(localStorage.getItem('fc_owner')==='1')return}catch(e){}
+  var slug='proposal-grounded-kitchen', api='https://newgreek.fusioncreative.uk/api/audit-view/';
+  var sid; try{sid=sessionStorage.getItem('fc_sid_'+slug)}catch(e){}
+  var fresh=!sid; if(fresh){sid=Math.random().toString(36).slice(2,12)+Date.now().toString(36);try{sessionStorage.setItem('fc_sid_'+slug,sid)}catch(e){}}
+  function post(o,beacon){o.slug=slug;o.sid=sid;var b=JSON.stringify(o);
+    if(beacon&&navigator.sendBeacon){try{navigator.sendBeacon(api,new Blob([b],{type:'text/plain'}));return}catch(e){}}
+    fetch(api,{method:'POST',headers:{'Content-Type':'text/plain'},body:b,keepalive:true}).catch(function(){});}
+  if(fresh){post({t:'open',ref:document.referrer,q:q,scr:screen.width+'x'+screen.height,tz:(Intl.DateTimeFormat().resolvedOptions().timeZone||''),lang:navigator.language||''});}
+  var seen={},secs=[],maxS=0,active=0,last=Date.now();
+  function tick(){var n=Date.now();if(!document.hidden)active+=n-last;last=n;}
+  function scr(){var h=document.documentElement.scrollHeight-innerHeight;var p=h>0?Math.round(scrollY/h*100):100;if(p>maxS)maxS=Math.min(100,p);}
+  addEventListener('scroll',scr,{passive:true});
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var k=e.target.getAttribute('data-sec');if(!seen[k]){seen[k]=1;secs.push(k)}}})},{threshold:0.35});
+    document.querySelectorAll('[data-sec]').forEach(function(el){io.observe(el)});}
+  document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-lock],[data-unlock],a.btn');if(!t)return;
+    var k=t.hasAttribute('data-lock')?'tapped-locked':t.hasAttribute('data-unlock')?'clicked-unlock':'clicked-'+(t.classList.contains('wa')?'whatsapp':/^mailto/.test(t.href)?'email':'call');
+    if(!seen[k]){seen[k]=1;secs.push(k)} ping(false);});
+  function ping(b){tick();scr();post({t:'ping',dur:Math.round(active/1000),scroll:maxS,sec:secs},b);}
+  document.addEventListener('visibilitychange',function(){if(document.hidden)ping(true);else last=Date.now();});
+  addEventListener('pagehide',function(){ping(true)});
+  setTimeout(function(){ping(false)},4000);
+  setInterval(function(){if(!document.hidden)ping(false)},15000);
+}catch(e){}})();
 </script>
 </body>
 </html>
