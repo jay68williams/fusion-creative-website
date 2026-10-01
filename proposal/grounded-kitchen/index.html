@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="A social media audit and proposal for Grounded Kitchen from Fusion Creative.">
+<meta property="og:title" content="Grounded Kitchen x Fusion Creative">
+<meta property="og:description" content="An audit of @getgroundeduk and a proposal for the content, social and paid ads that turn nine sites' worth of great bowls into orders.">
+<meta property="og:image" content="https://fusioncreative.uk/proposal/grounded-kitchen/assets/food-1.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Grounded Kitchen: Audit and Proposal | Fusion Creative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!--
+  PRICES ON THIS PAGE ARE CLAUDE'S RECOMMENDATION FROM THE RATE CARD (899 / 1,250 / 1,950).
+  JAY TO CONFIRM BEFORE THIS IS SENT.
+-->
+<style>
+  :root{
+    --teal:#123C40; --teal-deep:#081A1B; --teal-ink:#0e2b2e;
+    --red:#E83E3B; --yellow:#FCC243; --yellow-soft:#fde9b8; --pink:#F29A99;
+    --cream:#F5F9E7; --white:#ffffff; --brown:#372727; --body:#2c3a3b; --soft:#5f6e6e;
+    --line:rgba(18,60,64,0.14); --line-strong:rgba(18,60,64,0.28);
+    --sans:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;color-scheme:light}
+  body{background:var(--cream);color:var(--body);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:var(--teal);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  strong,b{font-weight:700;color:var(--teal-ink)}
+
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px;min-width:0}
+  section.page{padding:60px 0}
+  section.page + section.page{border-top:1px solid var(--line)}
+  section.dark{background:var(--teal);color:#e6efe9;border-top:0!important}
+  section.dark strong,section.dark b{color:#fff}
+  section.dark a{color:var(--yellow)}
+  section.dark .eyebrow{color:var(--yellow)}
+  section.dark h2,section.dark h3{color:#fff}
+  section.dark p{color:#d7e4df}
+
+  .eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:10px;height:10px;border-radius:50%;background:currentColor;display:inline-block}
+  h1,h2,h3,h4{font-family:var(--sans);color:var(--brown);letter-spacing:-.035em}
+  h2{font-size:clamp(32px,5vw,48px);line-height:1.02;margin-bottom:18px;font-weight:900;text-transform:lowercase}
+  h2 .dot,h1 .dot{color:var(--red)}
+  h2 em{font-style:normal;color:var(--red)}
+  section.dark h2 em{color:var(--yellow)}
+  h3{font-size:22px;line-height:1.2;margin:36px 0 12px;font-weight:800;color:var(--teal)}
+  section.dark h3{color:var(--yellow)}
+  p{margin:0 0 16px}
+  p.lead{font-size:19px;line-height:1.5;color:var(--teal-ink)}
+  section.dark p.lead{color:#fff}
+  ul.plain{list-style:none;margin:0 0 16px}
+  ul.plain li{position:relative;padding-left:22px;margin-bottom:10px}
+  ul.plain li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:9px;border-radius:50%;background:var(--red)}
+  .small{font-size:13.5px;color:var(--soft);line-height:1.5}
+  section.dark .small{color:#a9c1bb}
+
+  /* hero */
+  .hero{background:var(--teal-deep);color:#fff;position:relative;overflow:hidden;min-height:94vh;display:flex;flex-direction:column}
+  .hero .bg{position:absolute;inset:0}
+  .hero .bg img{width:100%;height:100%;object-fit:cover;opacity:.42}
+  .hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(8,26,27,.96) 0%,rgba(8,26,27,.82) 48%,rgba(18,60,64,.35) 100%)}
+  .hero .top{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;padding-top:22px;padding-bottom:22px;position:relative;z-index:2;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#cfe0da}
+  .hero .top b{color:var(--yellow)}
+  .hero .mid{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:24px;padding-bottom:44px;min-width:0;width:100%}
+  .hero .logo{width:min(250px,58vw);margin-bottom:24px}
+  .hero .kicker{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px}
+  .hero h1{font-size:clamp(42px,7.4vw,78px);line-height:.96;color:#fff;max-width:13ch;font-weight:900;text-transform:lowercase}
+  .hero h1 em{font-style:normal;color:var(--yellow)}
+  .hero .sub{margin-top:22px;font-size:18px;max-width:54ch;color:#d7e4df;line-height:1.5}
+  .hero .proofline{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 24px;font-size:13.5px;color:#cfe0da}
+  .hero .proofline b{color:var(--yellow);font-size:22px;font-weight:900;margin-right:6px;letter-spacing:-.02em}
+  .hero .meta{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px 26px;max-width:min(720px,100%)}
+  .hero .meta div{border-top:1px solid rgba(255,255,255,.22);padding-top:10px;font-size:13.5px;color:#bcd2cb}
+  .hero .meta div b{display:block;color:#fff;font-size:15px;margin-top:2px;font-weight:600}
+  .lockup{display:flex;align-items:center;gap:12px}
+  .lockup .x{font-size:16px;font-weight:400;color:var(--yellow)}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:24px 0}
+  .stat{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px 16px}
+  .stat .v{font-size:36px;line-height:1;color:var(--teal);font-weight:900;letter-spacing:-.04em}
+  .stat .l{font-size:12.5px;color:var(--soft);margin-top:8px;line-height:1.35;font-weight:600}
+  .stat.hot{background:var(--red);border-color:var(--red)}
+  .stat.hot .v{color:#fff}
+  .stat.hot .l{color:#ffe1e0}
+  section.dark .stat{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16)}
+  section.dark .stat .v{color:#fff}
+  section.dark .stat .l{color:#a9c1bb}
+  section.dark .stat.hot{background:var(--yellow);border-color:var(--yellow)}
+  section.dark .stat.hot .v{color:var(--teal-deep)}
+  section.dark .stat.hot .l{color:#4a3a05}
+
+  /* callouts */
+  .callout{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--red);border-radius:12px;padding:20px 22px;margin:22px 0}
+  .callout.teal{background:var(--teal);border-color:var(--teal);color:#e6efe9}
+  .callout.teal strong{color:#fff}
+  .callout.teal p{color:#e6efe9}
+  .callout p:last-child{margin-bottom:0}
+
+  /* scorecard */
+  .score{display:grid;gap:10px;margin:20px 0}
+  .score .row{display:grid;grid-template-columns:1fr auto;gap:6px 16px;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .score .row h4{font-size:16px;font-weight:800;color:var(--teal);letter-spacing:-.01em}
+  .score .row p{grid-column:1/-1;font-size:14.5px;margin:0}
+  .pill{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:4px 10px;white-space:nowrap}
+  .pill.good{background:#dff1e4;color:#1d6b3a}
+  .pill.mid{background:var(--yellow-soft);color:#7a5600}
+  .pill.bad{background:#fde0df;color:#a8211f}
+
+  /* pillars */
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:22px 0}
+  .pillar{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px 20px}
+  .pillar .n{font-size:40px;line-height:1;color:var(--red);margin-bottom:10px;font-weight:900}
+  .pillar h4{font-size:17px;font-weight:800;color:var(--teal);margin-bottom:8px;line-height:1.25;letter-spacing:-.01em}
+  .pillar p{font-size:14.5px;margin:0;color:var(--body)}
+
+  /* concepts */
+  .concepts{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;margin:14px 0 8px}
+  .concept{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px}
+  .concept .tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);background:var(--yellow-soft);border-radius:999px;padding:4px 10px;margin-bottom:10px}
+  .concept h4{font-size:17px;font-weight:800;color:var(--teal);line-height:1.25;margin-bottom:8px;letter-spacing:-.01em}
+  .concept p{font-size:14.5px;margin:0 0 8px;line-height:1.5}
+  .concept p:last-child{margin-bottom:0}
+  .concept .why{font-size:13px;color:var(--soft)}
+  .concept .why b{color:var(--red);font-weight:800}
+
+  details.cgroup{border-top:1px solid var(--line);margin-top:16px}
+  details.cgroup summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0 12px}
+  details.cgroup summary::-webkit-details-marker{display:none}
+  details.cgroup summary h3{margin:0}
+  details.cgroup summary h3 small{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-left:10px;vertical-align:middle}
+  details.cgroup .chev{flex:none;position:relative;width:32px;height:32px;border-radius:50%;background:var(--teal);transition:transform .2s ease}
+  details.cgroup .chev::before,details.cgroup .chev::after{content:"";position:absolute;left:50%;top:50%;background:#fff;border-radius:1px;transform:translate(-50%,-50%)}
+  details.cgroup .chev::before{width:14px;height:2px}
+  details.cgroup .chev::after{width:2px;height:14px}
+  details.cgroup[open] .chev{transform:rotate(45deg)}
+  details.cgroup summary:focus-visible{outline:2px solid var(--red);outline-offset:4px}
+  .toggle-all{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:6px 0 4px;font-size:13.5px;color:var(--soft)}
+  .toggle-all button{font:inherit;font-weight:800;color:var(--teal-deep);background:var(--yellow);border:0;border-radius:999px;padding:8px 14px;cursor:pointer}
+
+  /* tables */
+  .tbl{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14px;margin:16px 0 22px}
+  .tbl th,.tbl td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  .tbl th{background:var(--teal);color:#fff;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:800}
+  .tbl tr:last-child td{border-bottom:0}
+  .tbl td b{color:var(--teal)}
+  .tbl td.num{font-size:18px;font-weight:900;color:var(--teal);white-space:nowrap;letter-spacing:-.02em}
+  .tbl tr.us td{background:#fff4f3}
+  section.dark .tbl td{color:var(--body)}
+  .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .tbl-wrap .tbl{min-width:560px}
+
+  /* timeline */
+  .timeline{list-style:none;margin:18px 0 8px;border-left:2px solid var(--line-strong);padding-left:22px}
+  .timeline li{position:relative;padding-bottom:18px}
+  .timeline li::before{content:"";position:absolute;left:-29px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--yellow);border:2px solid var(--teal)}
+  .timeline .d{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+  .timeline .t{font-weight:800;color:var(--teal-ink);margin:2px 0 3px}
+  .timeline p{font-size:14.5px;margin:0}
+
+  /* video grids */
+  .vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(122px,1fr));gap:12px;margin:16px 0 8px}
+  .vid{text-decoration:none;color:inherit;display:block}
+  .vid .img{position:relative;aspect-ratio:9/16;border-radius:10px;overflow:hidden;background:#0b2224;border:1px solid var(--line)}
+  section.dark .vid .img{border-color:rgba(255,255,255,.14)}
+  .vid .img img{width:100%;height:100%;object-fit:cover}
+  .vid .img::after{content:"\25B6";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;padding-left:2px}
+  .vid .views{position:absolute;left:7px;bottom:7px;background:var(--yellow);color:var(--teal-deep);font-size:12.5px;font-weight:800;padding:2px 7px;border-radius:6px}
+  .vid .m{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin-top:7px;font-weight:700}
+  section.dark .vid .m{color:#a9c1bb}
+  .vid .h{font-size:12.5px;color:var(--teal-ink);line-height:1.3;margin-top:3px}
+  section.dark .vid .h{color:#fff}
+
+  /* photo strip */
+  .strip{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin:22px 0}
+  .strip img{width:100%;height:220px;object-fit:cover;border-radius:12px}
+
+  /* packages */
+  .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:22px 0}
+  .tier{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px 20px;display:flex;flex-direction:column;position:relative}
+  .tier.rec{background:var(--teal);border-color:var(--teal);color:#e6efe9}
+  .tier .badge{position:absolute;top:-12px;left:20px;background:var(--red);color:#fff;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:5px 12px}
+  .tier h4{font-size:19px;font-weight:900;color:var(--teal);text-transform:lowercase;letter-spacing:-.03em}
+  .tier.rec h4{color:#fff}
+  .tier .price{font-size:40px;font-weight:900;color:var(--brown);letter-spacing:-.04em;margin:8px 0 2px;line-height:1}
+  .tier.rec .price{color:var(--yellow)}
+  .tier .per{font-size:13px;color:var(--soft);margin-bottom:14px}
+  .tier.rec .per{color:#a9c1bb}
+  .tier ul{list-style:none;font-size:14.5px}
+  .tier li{position:relative;padding-left:24px;margin-bottom:8px}
+  .tier li::before{content:"\2713";position:absolute;left:0;top:0;color:var(--red);font-weight:900}
+  .tier.rec li::before{color:var(--yellow)}
+  .tier.rec li,.tier.rec p{color:#e6efe9}
+
+  /* team */
+  .team{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;margin:18px 0}
+  .team img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:16px}
+
+  /* letter */
+  .letter{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:34px 34px 30px;margin-top:8px}
+  .letter .to{font-size:13.5px;color:var(--soft);margin-bottom:22px;line-height:1.5}
+  .letter .sig{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);font-size:14.5px;color:var(--soft)}
+  .letter .sig b{display:block;font-size:18px;color:var(--brown);font-weight:900;letter-spacing:-.02em}
+
+  .toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px 22px;margin:18px 0 0;list-style:none;counter-reset:toc}
+  .toc li{counter-increment:toc;font-size:14.5px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.14);color:#d7e4df}
+  .toc li::before{content:counter(toc,decimal-leading-zero);color:var(--yellow);margin-right:10px;font-weight:900}
+
+  /* cta / footer */
+  .cta{background:var(--teal-deep);color:#fff;border-radius:18px;padding:36px 30px;text-align:center;margin-top:12px}
+  .cta h3{color:#fff;margin:0 0 10px;font-size:34px;font-weight:900;text-transform:lowercase;letter-spacing:-.04em;line-height:1.05}
+  .cta h3 em{font-style:normal;color:var(--yellow)}
+  .cta p{color:#cfe0da;max-width:56ch;margin:0 auto 18px}
+  .cta .row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;text-decoration:none;font-weight:800;font-size:15px;padding:13px 22px;border-radius:8px}
+  .btn.wa{background:#25D366;color:#fff}
+  .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+  .cta .sub{font-size:13px;color:#a9c1bb;margin:14px 0 0}
+  footer{padding:30px 0 40px;font-size:12.5px;color:var(--soft);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+  footer .chip{background:var(--teal-deep);border-radius:8px;padding:8px 12px}
+  footer .chip img{height:26px;width:auto}
+  footer .fc{font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);font-size:12px}
+  footer .lockup .x{color:var(--red)}
+
+  @media (max-width:640px){
+    .wrap{padding:0 16px}
+    section.page{padding:44px 0}
+    .vids{grid-template-columns:repeat(3,1fr);gap:8px}
+    .hero{min-height:auto}
+    .hero .top{font-size:10.5px}
+    .hero .proofline{gap:8px 16px;font-size:12.5px}
+    .letter{padding:24px 18px}
+    .strip{grid-template-columns:1fr 1fr}
+    .strip img{height:150px}
+    .strip img:first-child{grid-column:1/-1;height:200px}
+    .team{grid-template-columns:1fr}
+    .cta{padding:28px 18px}
+    .cta h3{font-size:28px}
+    .cta .btn{width:100%;justify-content:center}
+  }
+  @media (prefers-reduced-motion:reduce){details.cgroup .chev{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="bg"><img src="assets/food-1.jpg" alt=""></div>
+  <div class="wrap top">
+    <span>Audit <b>&amp;</b> proposal</span>
+    <span>October 2026</span>
+  </div>
+  <div class="wrap mid">
+    <img class="logo" src="assets/logo-sm.png" alt="Grounded Kitchen">
+    <div class="kicker">Grounded Kitchen &nbsp;&times;&nbsp; Fusion Creative</div>
+    <h1>great bowls. quiet feed<span class="dot">.</span> <em>let's fix the second bit.</em></h1>
+    <p class="sub">An honest look at @getgroundeduk on Instagram, TikTok and Meta ads, what's already working, where the reach is leaking, and how a Newcastle content and ads agency would turn nine sites' worth of good food into more orders.</p>
+    <div class="proofline">
+      <span><b>+40%</b> weekly sales for a Heaton restaurant</span>
+      <span><b>&pound;6.6k to &pound;100k</b> a month for a Northumberland brand</span>
+      <span><b>20 min</b> from your Metrocentre site</span>
+    </div>
+    <div class="meta">
+      <div>Prepared for<b>Ahmed Kidy and the Grounded team</b></div>
+      <div>Prepared by<b>Jay Williams, Fusion Creative</b></div>
+      <div>Accounts reviewed<b>Instagram, TikTok, Meta Ad Library</b></div>
+      <div>Data checked<b>1 October 2026</b></div>
+    </div>
+  </div>
+</header>
+
+<section class="page dark">
+  <div class="wrap">
+    <div class="eyebrow">What's inside</div>
+    <h2>the short version first<span class="dot">,</span> <em>then the detail.</em></h2>
+    <ol class="toc">
+      <li>A note from Jay</li>
+      <li>What's already working</li>
+      <li>The audit: Instagram</li>
+      <li>The Metrocentre signal on TikTok</li>
+      <li>Paid ads</li>
+      <li>Who we are and our results</li>
+      <li>The plan</li>
+      <li>The concept bank</li>
+      <li>Output, workflow and reporting</li>
+      <li>Packages</li>
+      <li>Next steps</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 01 -->
+<section class="page">
+  <div class="wrap">
+    <div class="eyebrow">01 &middot; A note from Jay</div>
+    <h2>the food is the easy part<span class="dot">.</span> <em>you've already done it.</em></h2>
+    <div class="letter">
+      <div class="to">To Ahmed Kidy and the Grounded Kitchen team<br>Re: @getgroundeduk, an audit and a proposal</div>
+      <p>Hi Ahmed,</p>
+      <p>We're Fusion Creative, a content marketing agency based in Newcastle. We film short-form video in person, run social accounts, and manage paid ads on Meta and TikTok, mostly for independent restaurants and food brands across the North East. Your Metrocentre site is twenty minutes from us, which is how we found you.</p>
+      <p>Our honest take: the brand is in great shape and the product photography is genuinely good. The problem is distribution. 37,800 people follow the Instagram, and the last nine reels have a median of 1,188 plays. Nobody is on camera, there's no story behind the bowl, and the one format that has clearly worked for you (the meme caption over a hero shot) was quietly dropped. Meanwhile your Metrocentre TikTok videos have pulled 25,000 to 38,000 views each on an account with 753 followers, which tells us local, people-led content is where the reach is.</p>
+      <p><b>What we'd do: start at Metrocentre, where we can be on site every week, build a set of formats that reliably get watched, then roll that playbook out across all nine sites and put the winners behind your paid budget.</b> The rest of this page is the evidence and the plan.</p>
+      <div class="sig"><b>Jay Williams</b>Founder, Fusion Creative &middot; jay@fusioncreative.uk &middot; 07437 571250</div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="page">
+  <div class="wrap">
+    <div class="eyebrow">02 &middot; What's already working</div>
+    <h2>a lot<span class="dot">.</span> <em>credit where it's due.</em></h2>
+    <div class="strip">
+      <img src="assets/food-1.jpg" alt="Grounded Kitchen bowls, baos and matcha on a table">
+      <img src="assets/food-3.jpg" alt="A ramen bowl being finished with lime">
+      <img src="assets/food-7.jpg" alt="Salmon udon">
+    </div>
+    <ul class="plain">
+      <li><b>A brand people remember.</b> "Good food. Good mood." and "real ingredients." are clear, the lowercase type and red dot are consistent, and the packaging does the branding for you in every shot.</li>
+      <li><b>Strong photography.</b> Your September shoot is properly lit and styled. That's an asset we'd use in ads from week one, not replace.</li>
+      <li><b>Products built for video.</b> Tteokbokki, ten matcha flavours including ube and pistachio, a&ccedil;a&iacute;, sizzling prawn ramen. These are visual, a little unusual, and easy to hook.</li>
+      <li><b>Reviews to lean on.</b> 4.5 stars on Google at Queens Road (946 reviews), Fosse Park (559) and Metrocentre (333), with staff named by first name and consistent owner replies.</li>
+      <li><b>Consistency.</b> Twelve posts in the last 27 days, on a steady Monday, Wednesday, Friday schedule. The habit is there. It just needs better material to post.</li>
+      <li><b>A protein message that's on trend.</b> Leading captions with the grams (28g, 37g) is the right instinct for the gym and lunch crowd.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="page">
+  <div class="wrap">
+    <div class="eyebrow">03 &middot; The audit: Instagram</div>
+    <h2>37,800 followers<span class="dot">.</span> <em>about 3% see a reel.</em></h2>
+    <p class="lead">We pulled every post from 4 September to 1 October, plus the pinned reels. Here's what the numbers say.</p>
+    <div class="stats">
+      <div class="stat hot"><div class="v">1,188</div><div class="l">Median plays across the last 9 reels</div></div>
+      <div class="stat"><div class="v">0.16%</div><div class="l">Engagement rate on posts with visible likes</div></div>
+      <div class="stat"><div class="v">0 to 3</div><div class="l">Comments on each brand post since 4 Sep</div></div>
+      <div class="stat"><div class="v">0</div><div class="l">Posts with a face or voice on camera</div></div>
+    </div>
+
+    <h3>Your best reels all share one thing</h3>
+    <p>The three biggest reels on the account open on a relatable caption over a single hero shot. They pulled 5,000 to 9,000 plays and 6 to 10 comments each. The recent reels swapped that for a plain product shot with a small label, and plays fell to roughly a third.</p>
+    <div class="vids">
+      <div class="vid"><div class="img"><img src="assets/ig-1.jpg" alt=""><span class="views">9,223</span></div><div class="m">Jan 2026 &middot; Matcha</div><div class="h">"A PSA to all customers"</div></div>
+      <div class="vid"><div class="img"><img src="assets/ig-2.jpg" alt=""><span class="views">6,911</span></div><div class="m">Jan 2026 &middot; A&ccedil;a&iacute;</div><div class="h">"Nothing better than an a&ccedil;a&iacute; bowl"</div></div>
+      <div class="vid"><div class="img"><img src="assets/ig-3.jpg" alt=""><span class="views">4,752</span></div><div class="m">Mar 2026 &middot; A&ccedil;a&iacute;</div><div class="h">"The answer is always yes"</div></div>
+      <div class="vid"><div class="img"><img src="assets/ig-4.jpg" alt=""><span class="views">4,003</span></div><div class="m">21 Sep &middot; Ramen</div><div class="h">"Chicken ramen bowl, 37g protein"</div></div>
+      <div class="vid"><div class="img"><img src="assets/ig-5.jpg" alt=""><span class="views">2,991</span></div><div class="m">25 Sep &middot; Laksa</div><div class="h">"Consider this your autumn warning"</div></div>
+      <div class="vid"><div class="img"><img src="assets/ig-6.jpg" alt=""><span class="views">2,673</span></div><div class="m">4 Sep &middot; Bowls</div><div class="h">"28g of protein, done properly"</div></div>
+    </div>
+    <p class="small">Plays as shown publicly on Instagram on 1 October 2026.</p>
+
+    <h3>The scorecard</h3>
+    <div class="score">
+      <div class="row"><h4>Hooks in the first two seconds</h4><span class="pill bad">Missing</span><p>Recent reels open straight on the food with no reason to stop scrolling. The meme-caption hook that built your top three has gone.</p></div>
+      <div class="row"><h4>People on camera</h4><span class="pill bad">None</span><p>Across 18 posts there are hands, but no faces, no staff, no customers and no voice. People follow people, and the algorithm rewards watch time that faces hold.</p></div>
+      <div class="row"><h4>Sound and trends</h4><span class="pill bad">None</span><p>No trending audio or trend formats on any recent reel. That's the cheapest reach lever on Instagram and it's unused.</p></div>
+      <div class="row"><h4>Nine locations on the feed</h4><span class="pill bad">Absent</span><p>The main account never shows a specific site. Nine places to visit, and the feed reads like one kitchen.</p></div>
+      <div class="row"><h4>Social proof</h4><span class="pill mid">Hidden</span><p>Like counts are switched off on nearly every post since 4 September, and the three pinned posts are 13 to 14 months old with 35 to 42 likes. One pinned caption has a typo ("Strawberyy matcha").</p></div>
+      <div class="row"><h4>Calls to action</h4><span class="pill mid">Soft</span><p>"9 locations" and "which sauce is your fav?" rather than order now, collect points, or find your nearest. Your 10% cashback and order-from-your-table are barely mentioned.</p></div>
+      <div class="row"><h4>Creator collabs</h4><span class="pill good">Promising</span><p>The 29 September collab with @sali.irma drew 47 comments, more than every brand post since 4 September put together.</p></div>
+      <div class="row"><h4>Posting rhythm and visual quality</h4><span class="pill good">Strong</span><p>Three a week, on schedule, looking good. The base is there.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="page dark">
+  <div class="wrap">
+    <div class="eyebrow">04 &middot; The Metrocentre signal</div>
+    <h2>your best videos this year<span class="dot">?</span> <em>local ones.</em></h2>
+    <p class="lead">TikTok is the smallest account you run, and it has produced the biggest numbers, because it talked to a place.</p>
+    <div class="stats">
+      <div class="stat hot"><div class="v">38.2K</div><div class="l">"Metrocentre's ONLY Korean-inspired healthy food spot", 16 Jun</div></div>
+      <div class="stat"><div class="v">33.9K</div><div class="l">"FIRST place to serve real a&ccedil;a&iacute; in the Metrocentre", 7 Jul</div></div>
+      <div class="stat"><div class="v">25.8K</div><div class="l">"Changing what healthy takeaway looks like in Newcastle", 5 Jul</div></div>
+      <div class="stat"><div class="v">753</div><div class="l">TikTok followers on @getgroundeduk today</div></div>
+    </div>
+    <p>Each of those videos did 20 to 30 times the Instagram median, on an account with 2% of the followers. TikTok shows videos to people near the place being talked about, so a caption that names Metrocentre or Newcastle reaches the people who can actually walk in. Since then posting has dropped to one to three a month, and the last twelve videos sit at a median of about 1,500 views.</p>
+    <div class="callout teal">
+      <p><strong>The lesson is simple and it scales to nine sites.</strong> Content that names a place and shows the people in it beats a beautiful bowl on its own. Metrocentre is the proof of concept. Leicester, Nottingham, Birmingham, Leamington and the rest each want the same treatment.</p>
+    </div>
+    <h3>How you compare</h3>
+    <div class="tbl-wrap">
+    <table class="tbl">
+      <tr><th>Brand</th><th>Instagram</th><th>TikTok followers</th><th>TikTok likes</th></tr>
+      <tr><td><b>itsu</b></td><td>228K</td><td>46.5K</td><td>2M</td></tr>
+      <tr><td><b>LEON</b></td><td>87K</td><td>2,751</td><td>31.7K</td></tr>
+      <tr><td><b>Farmer J</b></td><td>74K</td><td>10.4K</td><td>211.4K</td></tr>
+      <tr class="us"><td><b>Grounded Kitchen</b></td><td>38K</td><td>753</td><td>15.7K</td></tr>
+    </table>
+    </div>
+    <p class="small" style="color:#a9c1bb">Public counts on 1 October 2026. Farmer J, at twice your Instagram size, has thirteen times the TikTok likes because they run it as an always-on channel.</p>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="page">
+  <div class="wrap">
+    <div class="eyebrow">05 &middot; Paid ads</div>
+    <h2>you're already paying for reach<span class="dot">.</span> <em>make the creative earn it.</em></h2>
+    <p class="lead">You've run around 86 ads on Meta since August 2025, refreshed roughly monthly. That's a good habit. The creative and the click are where the money leaks.</p>
+    <div class="stats">
+      <div class="stat"><div class="v">3</div><div class="l">Active ads today, all started 1 Oct</div></div>
+      <div class="stat hot"><div class="v">3 of 3</div><div class="l">Static images, no video in the current set</div></div>
+      <div class="stat"><div class="v">/locations</div><div class="l">Where every "Order now" button lands</div></div>
+    </div>
+    <ul class="plain">
+      <li><b>Statics compete against video in the feed and lose.</b> On Meta and TikTok the creative is the targeting. One or two still images a month gives the system nothing to learn from. We'd feed it 15 to 20 fresh videos a month and let the winners take the budget.</li>
+      <li><b>"Order now" goes to a list of nine addresses.</b> That's an extra decision before anyone can order. Each site's ads should go straight to that site's click-and-collect page, with the 10% cashback in the ad.</li>
+      <li><b>No site-level targeting visible.</b> A radius campaign per location, with the location named in the first second of the video, is exactly what made the Metrocentre TikToks work organically.</li>
+      <li><b>Track the order, not the click.</b> We'd connect the pixel and conversions API to your ordering so every pound of spend is judged on orders, per site.</li>
+    </ul>
+    <div class="callout">
+      <p><strong>Why it matters for us to do both.</strong> Most ad agencies can't make content, so they run the same three statics for a month. Most content agencies can't buy media. We film it, edit it, post it and run the ads, so the creative and the spend are planned together.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="page dark">
+  <div class="wrap">
+    <div class="eyebrow">06 &middot; Who we are</div>
+    <h2>a Newcastle agency that holds the camera<span class="dot">.</span> <em>and the ad budget.</em></h2>
+    <p class="lead">Fusion Creative is a content marketing agency based in Newcastle. We film in person, edit, post, manage the accounts and run paid ads on Meta and TikTok, for restaurants and food brands across the North East and product brands selling nationwide.</p>
+    <div class="stats">
+      <div class="stat hot"><div class="v">+40%</div><div class="l">Weekly sales for New Greek, Heaton: from &pound;8k to &pound;10k a week to more than &pound;14k</div></div>
+      <div class="stat"><div class="v">&pound;6.6k to &pound;100k</div><div class="l">A month for Northumberland Candle Company, two months after ads went live</div></div>
+      <div class="stat"><div class="v">87M+</div><div class="l">Views on New Greek, planned formats, filmed on site</div></div>
+    </div>
+
+    <h3>Some of our work</h3>
+    <p class="small">The skits get the headlines. The straight food videos are what most of a month looks like, so they're here too. View counts as published.</p>
+    <div class="vids">
+      <a class="vid" href="https://www.instagram.com/reel/DWwjCXCKQrY/"><div class="img"><img src="assets/skits-1.jpg" alt=""><span class="views">70.1M</span></div><div class="m">New Greek &middot; IG</div><div class="h">There's always the one impatient customer</div></a>
+      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7624969320166100246"><div class="img"><img src="assets/skits-2.jpg" alt=""><span class="views">7.1M</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">Not today</div></a>
+      <a class="vid" href="https://www.instagram.com/reel/DZAB3c5uN9K/"><div class="img"><img src="assets/skits-3.jpg" alt=""><span class="views">3.6M</span></div><div class="m">Takdir &middot; IG</div><div class="h">Never get between a girl and her Instagram post</div></a>
+      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7655371189015170326"><div class="img"><img src="assets/skits-4.jpg" alt=""><span class="views">3.3M</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">The only way to eat a Greek salad</div></a>
+      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7598909378586004758"><div class="img"><img src="assets/games-1.jpg" alt=""><span class="views">255K</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">Five bites, win twenty pounds</div></a>
+      <a class="vid" href="https://www.instagram.com/reel/DZ-SZJACJWn/"><div class="img"><img src="assets/games-2.jpg" alt=""><span class="views">91K</span></div><div class="m">NG Bakery &middot; IG</div><div class="h">Street interview: the taste of Greece</div></a>
+      <a class="vid" href="https://www.tiktok.com/@takdir_whitleybay/video/7658360695037234454"><div class="img"><img src="assets/show-1.jpg" alt=""><span class="views">89K</span></div><div class="m">Takdir &middot; TikTok</div><div class="h">Have you tried Nachodoms?</div></a>
+      <a class="vid" href="https://www.tiktok.com/@new.greek/video/7453177397723122976"><div class="img"><img src="assets/show-2.jpg" alt=""><span class="views">84K</span></div><div class="m">New Greek &middot; TikTok</div><div class="h">How much can you get for twenty pounds?</div></a>
+      <a class="vid" href="https://www.instagram.com/reel/DbIi31XC8IU/"><div class="img"><img src="assets/show-6.jpg" alt=""><span class="views">60K</span></div><div class="m">NG Bakery &middot; IG</div><div class="h">The best sandwich in Newcastle?</div></a>
+      <a class="vid" href="https://www.instagram.com/reel/Davd2dnOcrJ/"><div class="img"><img src="assets/show-8.jpg" alt=""><span class="views">53K</span></div><div class="m">The Bake One &middot; IG</div><div class="h">Match made in heaven</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="page">
+  <div class="wrap">
+    <div class="eyebrow">07 &middot; The plan</div>
+    <h2>three rules<span class="dot">.</span> <em>one playbook for nine sites.</em></h2>
+    <div class="pillars">
+      <div class="pillar"><div class="n">1</div><h4>Faces, not just food</h4><p>Your team, your customers and a recurring on-camera host. The bowl stays the hero; people give it a reason to be watched to the end.</p></div>
+      <div class="pillar"><div class="n">2</div><h4>Every video names a place</h4><p>"Metrocentre", "Clarendon Park", "Leamington". Local hooks put each video in front of people who can actually walk in, organically and in the ads.</p></div>
+      <div class="pillar"><div class="n">3</div><h4>Every video asks for the order</h4><p>Order from your table, collect points, 10% back, find your nearest. Reach that doesn't turn into orders isn't the goal.</p></div>
+    </div>
+
+    <h3>How it rolls out</h3>
+    <ol class="timeline">
+      <li><div class="d">Weeks 1 to 2</div><div class="t">Set-up and quick fixes</div><p>Refresh the pins and fix the typo, turn likes back on, rewrite the bio with an ordering CTA, check the pixel and conversions API against your ordering, plan the first month with you. First shoot at Metrocentre from Wednesday 14 October.</p></li>
+      <li><div class="d">Month 1</div><div class="t">Metrocentre as the test kitchen</div><p>Weekly shoots on site. We test hooks, hosts and formats fast, post daily across Instagram and TikTok, and move the best performers into the paid budget.</p></li>
+      <li><div class="d">Months 2 to 3</div><div class="t">Roll the winners out</div><p>The formats that work become templates every site can run. We film them at the Midlands sites on planned shoot days, and set up per-site radius ads pointing to each site's ordering page.</p></li>
+      <li><div class="d">Ongoing</div><div class="t">An always-on engine</div><p>Fresh creative every week, ads refreshed on performance rather than the calendar, a monthly report on views, followers, orders and cost per order by site.</p></li>
+    </ol>
+    <div class="callout">
+      <p><strong>One more reason this matters: franchise recruitment.</strong> You're selling franchises for 2026 openings. A feed full of busy sites, real customers and a team people like is the best franchise brochure you'll ever have, and it costs nothing extra.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="page">
+  <div class="wrap">
+    <div class="eyebrow">08 &middot; The concept bank</div>
+    <h2>18 formats<span class="dot">,</span> <em>ready to shoot from day one.</em></h2>
+    <div class="toggle-all"><span>Tap a group to open it.</span><button id="toggleAll" type="button">Open all</button></div>
+
+    <details class="cgroup" open>
+      <summary><h3>A. Hooks that already work for you <small>4 formats</small></h3><span class="chev"></span></summary>
+      <div class="concepts">
+        <div class="concept"><span class="tag">Meme caption</span><h4>The PSA series</h4><p>Bring back the format behind your best reel. One relatable line over a single hero shot: "PSA: the matcha is not optional."</p><p class="why"><b>Why:</b> your top three reels all used it.</p></div>
+        <div class="concept"><span class="tag">Skit</span><h4>"Is that healthy?"</h4><p>A customer can't believe a bowl that good has 37g of protein. Short, scripted, ends on the macros.</p><p class="why"><b>Why:</b> turns the protein message into a story.</p></div>
+        <div class="concept"><span class="tag">Skit</span><h4>The matcha order that never ends</h4><p>One customer working through all ten flavours while the queue watches.</p><p class="why"><b>Why:</b> shows the range without a menu shot.</p></div>
+        <div class="concept"><span class="tag">Trend</span><h4>Weekly trend adaptation</h4><p>One trending sound or format a week, done in the Grounded voice, filmed in store.</p><p class="why"><b>Why:</b> the cheapest reach lever you're not using.</p></div>
+      </div>
+    </details>
+
+    <details class="cgroup">
+      <summary><h3>B. People and public interaction <small>4 formats</small></h3><span class="chev"></span></summary>
+      <div class="concepts">
+        <div class="concept"><span class="tag">Game</span><h4>Guess the protein, win the bowl</h4><p>Shoppers at Metrocentre guess the grams in a bowl. Closest wins it.</p><p class="why"><b>Why:</b> our five-bites game did 255K for a single restaurant.</p></div>
+        <div class="concept"><span class="tag">Taste test</span><h4>First time trying tteokbokki</h4><p>Real reactions to "Korean mac and cheese" from people who've never had it.</p><p class="why"><b>Why:</b> pushes your newest hero product.</p></div>
+        <div class="concept"><span class="tag">Vox pop</span><h4>"What's in your bowl?"</h4><p>Quick interviews in the queue. Everyone's order, everyone's reason.</p><p class="why"><b>Why:</b> customers become the content and share it.</p></div>
+        <div class="concept"><span class="tag">Challenge</span><h4>Spice ladder</h4><p>How far up the gochujang scale can you go? Leaderboard by site.</p><p class="why"><b>Why:</b> repeatable, competitive, very local.</p></div>
+      </div>
+    </details>
+
+    <details class="cgroup">
+      <summary><h3>C. Product and nutrition <small>4 formats</small></h3><span class="chev"></span></summary>
+      <div class="concepts">
+        <div class="concept"><span class="tag">Macro receipts</span><h4>What 37g of protein looks like</h4><p>Ingredient by ingredient, built on camera, with the numbers on screen.</p><p class="why"><b>Why:</b> your protein captions, turned into a visual.</p></div>
+        <div class="concept"><span class="tag">Expert</span><h4>Haley says</h4><p>Your in-house nutritionist on camera, one myth a week, 20 seconds.</p><p class="why"><b>Why:</b> a real expert is a face nobody else in the category has.</p></div>
+        <div class="concept"><span class="tag">Process</span><h4>No frying here</h4><p>The oven-baked protein and the in-store sauces, filmed properly with sound.</p><p class="why"><b>Why:</b> proves "real ingredients" instead of saying it.</p></div>
+        <div class="concept"><span class="tag">Value</span><h4>How much can you get for &pound;20?</h4><p>Ordering for two at a site, totting it up on screen.</p><p class="why"><b>Why:</b> 84K for us on a single restaurant account.</p></div>
+      </div>
+    </details>
+
+    <details class="cgroup">
+      <summary><h3>D. Places and team <small>3 formats</small></h3><span class="chev"></span></summary>
+      <div class="concepts">
+        <div class="concept"><span class="tag">Local</span><h4>The only one in Metrocentre</h4><p>The format behind your 38K TikTok, repeated for every site with its own hook.</p><p class="why"><b>Why:</b> already proven on your own account.</p></div>
+        <div class="concept"><span class="tag">Team</span><h4>Meet the crew</h4><p>The staff your reviews mention by name, on camera, each with their own order.</p><p class="why"><b>Why:</b> your reviews already say the team is the draw.</p></div>
+        <div class="concept"><span class="tag">Founder</span><h4>Back from the Far East</h4><p>Ahmed's story: Leicester, 2017, why Korean, why healthy. A short series.</p><p class="why"><b>Why:</b> earns trust with customers and franchisees.</p></div>
+      </div>
+    </details>
+
+    <details class="cgroup">
+      <summary><h3>E. Orders and offers <small>3 formats</small></h3><span class="chev"></span></summary>
+      <div class="concepts">
+        <div class="concept"><span class="tag">Utility</span><h4>It pays not to queue</h4><p>Ordering from the table, shown on screen start to finish, with the 10% back.</p><p class="why"><b>Why:</b> turns views into app-free orders and points.</p></div>
+        <div class="concept"><span class="tag">Launch</span><h4>New drop countdowns</h4><p>Teasers for each new product like tteokbokki, with a first-day offer.</p><p class="why"><b>Why:</b> gives every launch a reason to visit this week.</p></div>
+        <div class="concept"><span class="tag">Ads</span><h4>Site-named ad cuts</h4><p>Every winning organic video recut with the site name in the first second and a direct ordering link.</p><p class="why"><b>Why:</b> what worked organically, put behind spend.</p></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- 09 -->
+<section class="page">
+  <div class="wrap">
+    <div class="eyebrow">09 &middot; Output, workflow and reporting</div>
+    <h2>planned every week<span class="dot">.</span> <em>reported every month.</em></h2>
+    <div class="tbl-wrap">
+    <table class="tbl">
+      <tr><th>Step</th><th>What happens</th><th>When</th></tr>
+      <tr><td><b>Plan</b></td><td>We send the next week's concepts and shot list. You approve or tweak in one message.</td><td>Thursday</td></tr>
+      <tr><td><b>Film</b></td><td>On site at Metrocentre, with planned shoot days at the Midlands sites.</td><td>Weekly</td></tr>
+      <tr><td><b>Edit and approve</b></td><td>Videos land in your client portal for sign-off before anything goes live.</td><td>Within 48 hours</td></tr>
+      <tr><td><b>Post</b></td><td>Every video goes out on Instagram and TikTok, captioned, with the right site and CTA.</td><td>Daily</td></tr>
+      <tr><td><b>Ads</b></td><td>Winners move into paid, budgets shift to what's driving orders.</td><td>Weekly</td></tr>
+      <tr><td><b>Report</b></td><td>Views, followers, engagement, orders and cost per order, by site.</td><td>Monthly</td></tr>
+    </table>
+    </div>
+    <h3>Targets we'd want to be measured against</h3>
+    <ul class="plain">
+      <li><b>Reach:</b> lift the median reel from about 1,200 plays to 10,000 or more within 90 days.</li>
+      <li><b>TikTok:</b> post daily and grow @getgroundeduk from 753 to 10,000 followers in six months.</li>
+      <li><b>Engagement:</b> comments back into double figures on brand posts, starting with the formats that ask a question.</li>
+      <li><b>Orders:</b> with ads, a tracked cost per order for each site, reported monthly against your margin.</li>
+    </ul>
+    <p class="small">These are the targets we'd set ourselves based on the audit and our other accounts. They aren't guarantees.</p>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="page">
+  <div class="wrap">
+    <div class="eyebrow">10 &middot; Packages</div>
+    <h2>three ways to start<span class="dot">.</span> <em>one we'd recommend.</em></h2>
+    <div class="tiers">
+      <div class="tier">
+        <h4>starter</h4>
+        <div class="price">&pound;899</div>
+        <div class="per">per month</div>
+        <ul>
+          <li>10 to 12 videos a month</li>
+          <li>Filmed on site at Metrocentre</li>
+          <li>Posted to Instagram and TikTok</li>
+          <li>Captions, CTAs and scheduling</li>
+          <li>Monthly report</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <h4>growth</h4>
+        <div class="price">&pound;1,250</div>
+        <div class="per">per month</div>
+        <ul>
+          <li>20 to 25 videos a month</li>
+          <li>Metrocentre weekly, plus planned Midlands shoot days</li>
+          <li>Account management and community replies</li>
+          <li>Site-by-site content across all nine</li>
+          <li>Monthly report and planning call</li>
+        </ul>
+      </div>
+      <div class="tier rec">
+        <span class="badge">Recommended</span>
+        <h4>growth + paid ads</h4>
+        <div class="price">&pound;1,950</div>
+        <div class="per">per month, ad spend paid direct</div>
+        <ul>
+          <li>Everything in Growth</li>
+          <li>Fully managed Meta and TikTok ads</li>
+          <li>Per-site radius campaigns to each site's ordering page</li>
+          <li>Pixel and conversions API set up and checked</li>
+          <li>Cost per order reported by site</li>
+        </ul>
+      </div>
+    </div>
+    <p class="small">Three month minimum, then rolling monthly. Billed monthly in advance. You're already spending on Meta every month, which is why we'd recommend putting the content and the ads under one plan.</p>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="page">
+  <div class="wrap">
+    <div class="eyebrow">11 &middot; Next steps</div>
+    <h2>let's start at metrocentre<span class="dot">.</span></h2>
+    <div class="team">
+      <img src="assets/team.jpg" alt="Jay Williams and Anya Davey of Fusion Creative">
+      <div>
+        <p><b>Jay Williams</b>, founder, and <b>Anya Davey</b>, creator. Two of us filming and editing, two faces on camera when a format needs them.</p>
+        <ul class="plain">
+          <li>A 20 minute call to walk you through this page.</li>
+          <li>We agree the package and the first month's concepts.</li>
+          <li>First shoot at Metrocentre from Wednesday 14 October.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta">
+      <h3>good food. good mood<span class="dot" style="color:var(--red)">.</span> <em>good numbers.</em></h3>
+      <p>Reply to the email, message me on WhatsApp, or give me a call whenever suits.</p>
+      <div class="row">
+        <a class="btn" href="mailto:jay@fusioncreative.uk?subject=Grounded%20Kitchen%20x%20Fusion%20Creative">Email Jay</a>
+        <a class="btn wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Grounded%20Kitchen%20audit" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp</a>
+        <a class="btn ghost" href="tel:+447437571250">07437 571250</a>
+      </div>
+      <p class="sub">jay@fusioncreative.uk &middot; fusioncreative.uk</p>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="lockup"><span class="chip"><img src="assets/logo-sm.png" alt="Grounded Kitchen"></span><span class="x">&times;</span><span class="fc">Fusion Creative</span></div>
+  <div>Prepared for Grounded Kitchen &middot; October 2026 &middot; Confidential</div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('toggleAll'); if(!btn) return;
+  var groups=Array.prototype.slice.call(document.querySelectorAll('details.cgroup'));
+  function sync(){ btn.textContent=groups.every(function(d){return d.open})?'Close all':'Open all'; }
+  btn.addEventListener('click',function(){ var open=!groups.every(function(d){return d.open}); groups.forEach(function(d){d.open=open}); sync(); });
+  groups.forEach(function(d){ d.addEventListener('toggle',sync); });
+  sync();
+})();
+</script>
+</body>
+</html>
