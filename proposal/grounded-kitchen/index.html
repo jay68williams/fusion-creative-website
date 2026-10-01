@@ -157,6 +157,20 @@
   .callout.unlock p{flex:1 1 320px}
   .callout.unlock .btn{background:var(--yellow);color:var(--teal-deep)}
 
+  .bars{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:16px 18px 10px;margin:14px 0 20px}
+  .bcap{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:10px}
+  .brow{display:grid;grid-template-columns:minmax(120px,190px) 1fr 58px;gap:12px;align-items:center;padding:7px 0;position:relative;outline:none}
+  .brow + .brow{border-top:1px solid rgba(18,60,64,.07)}
+  .bl{font-size:14px;font-weight:700;color:var(--teal-ink);line-height:1.2}
+  .bl small{display:block;font-size:11.5px;font-weight:500;color:var(--soft);margin-top:2px}
+  .bt{height:14px;background:rgba(18,60,64,.06);border-radius:4px;overflow:hidden}
+  .bt span{display:block;height:100%;background:#E83E3B;border-radius:0 4px 4px 0;min-width:3px}
+  .brow.us .bt span{background:#00949B}
+  .bv{font-size:15px;font-weight:900;color:var(--teal-ink);text-align:right;letter-spacing:-.02em}
+  .brow:hover,.brow:focus-visible{background:rgba(18,60,64,.035)}
+  .brow:hover::after,.brow:focus-visible::after{content:attr(data-tip);position:absolute;left:0;right:0;bottom:calc(100% + 4px);background:var(--teal-deep);color:#fff;font-size:12.5px;line-height:1.4;padding:8px 10px;border-radius:8px;z-index:5;pointer-events:none}
+  @media (max-width:640px){.brow{grid-template-columns:110px 1fr 46px;gap:8px}.bl{font-size:13px}.bv{font-size:14px}}
+
   /* tables */
   .tbl{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14px;margin:16px 0 22px}
   .tbl th,.tbl td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
@@ -378,6 +392,27 @@
     </div>
     <p class="small">Plays as shown publicly on Instagram on 1 October 2026.</p>
 
+    <h3>How that compares to the accounts we run</h3>
+    <p>Same measure, our side. The median video across our restaurant and food clients gets about twice your views, on accounts that are mostly a fraction of your size.</p>
+    <div class="bars" role="img" aria-label="Median views per video: Grounded Kitchen 1,188, Fusion food clients 2,473">
+      <div class="bcap">Median views per video</div>
+      <div class="brow" tabindex="0" data-tip="Grounded Kitchen: median 1,188 plays across the last 9 Instagram reels, 4 Sep to 1 Oct 2026"><div class="bl">Grounded Kitchen<small>last 9 reels</small></div><div class="bt"><span style="width:48.0%"></span></div><div class="bv">1,188</div></div>
+      <div class="brow us" tabindex="0" data-tip="Fusion: median 2,473 views across 857 videos for our restaurant and food clients, from each start date to 1 Oct 2026"><div class="bl">Fusion food clients<small>857 videos, IG and TikTok</small></div><div class="bt"><span style="width:100.0%"></span></div><div class="bv">2,473</div></div>
+    </div>
+    <p>The fairer test is reach against audience size, because a bigger following should mean bigger numbers. Your typical reel reaches about 3% of your followers. Here is the same figure for every food account we run on Instagram.</p>
+    <div class="bars" role="img" aria-label="Median Instagram video views as a share of followers">
+      <div class="bcap">Median Instagram video, as a share of followers</div>
+      <div class="brow" tabindex="0" data-tip="Grounded Kitchen: median reel 1,188 plays on 37,800 followers, about 3%"><div class="bl">Grounded Kitchen<small>37,800 followers</small></div><div class="bt"><span style="width:1.3%"></span></div><div class="bv">3%</div></div>
+      <div class="brow us" tabindex="0" data-tip="The Greek Spot: median Instagram video reaches 244% of its 869 followers"><div class="bl">The Greek Spot<small>869 followers</small></div><div class="bt"><span style="width:100.0%"></span></div><div class="bv">244%</div></div>
+      <div class="brow us" tabindex="0" data-tip="New Greek Bakery: median Instagram video reaches 145% of its 2,434 followers"><div class="bl">New Greek Bakery<small>2,434 followers</small></div><div class="bt"><span style="width:59.5%"></span></div><div class="bv">145%</div></div>
+      <div class="brow us" tabindex="0" data-tip="Meraki: median Instagram video reaches 73% of its 1,034 followers"><div class="bl">Meraki<small>1,034 followers</small></div><div class="bt"><span style="width:30.0%"></span></div><div class="bv">73%</div></div>
+      <div class="brow us" tabindex="0" data-tip="Takdir: median Instagram video reaches 68% of its 3,456 followers"><div class="bl">Takdir<small>3,456 followers</small></div><div class="bt"><span style="width:27.9%"></span></div><div class="bv">68%</div></div>
+      <div class="brow us" tabindex="0" data-tip="New Greek: median Instagram video reaches 34% of its 11,800 followers"><div class="bl">New Greek<small>11,800 followers</small></div><div class="bt"><span style="width:13.9%"></span></div><div class="bv">34%</div></div>
+      <div class="brow us" tabindex="0" data-tip="Geisha: median Instagram video reaches 6% of its 21,422 followers"><div class="bl">Geisha<small>21,422 followers</small></div><div class="bt"><span style="width:2.6%"></span></div><div class="bv">6%</div></div>
+      <div class="brow us" tabindex="0" data-tip="The Bake One: median Instagram video reaches 6% of its 30,591 followers"><div class="bl">The Bake One<small>30,591 followers</small></div><div class="bt"><span style="width:2.4%"></span></div><div class="bv">6%</div></div>
+    </div>
+    <p class="small">From our own dashboard on 1 October 2026: every video posted since each client started with us, one row per post, Instagram and TikTok view counts as synced. Follower counts as of today. The Northumberland Candle Company is left out of this comparison because it is a product brand, not food.</p>
+
     <h3>The scorecard</h3>
     <div class="score">
       <div class="row"><h4>Hooks in the first two seconds</h4><span class="pill bad">Missing</span><p>Recent reels open straight on the food with no reason to stop scrolling. The meme-caption hook that built your top three has gone.</p></div>
@@ -454,7 +489,9 @@
       <div class="stat hot"><div class="v">+40%</div><div class="l">Weekly sales for New Greek, Heaton: from &pound;8k to &pound;10k a week to more than &pound;14k</div></div>
       <div class="stat"><div class="v">11,000+</div><div class="l">New followers for one restaurant account</div></div>
       <div class="stat"><div class="v">87M+</div><div class="l">Views on New Greek, planned formats, filmed on site</div></div>
+      <div class="stat"><div class="v">4.5M</div><div class="l">Views a month on average across our clients since December 2024</div></div>
     </div>
+    <p class="small" style="color:#a9c1bb">4.5M is 98.6 million views across 1,485 videos over the 22 months since we started in December 2024, including one 70 million view reel. Without that reel it is about 1.3 million a month.</p>
 
     <h3>Some of our work</h3>
     <p class="small">The skits get the headlines. The straight food videos are what most of a month looks like, so they're here too. View counts as published.</p>
