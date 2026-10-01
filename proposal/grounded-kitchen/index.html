@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <!--
-  TWO TIERS PER JAY (1 OCT 2026): GROWTH 1,500 AND GROWTH + PAID 1,950 TOTAL.
+  TWO TIERS PER JAY (1 OCT 2026): GROWTH 1,500 AND GROWTH + PAID 1,950 TOTAL. 30 DAY GUARANTEE: 2X ORGANIC IMPRESSIONS OR FIRST MONTH AT 50%.
 -->
 <style>
   :root{
@@ -185,6 +185,14 @@
   /* packages */
   .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:22px 0}
   .tier{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px 20px;display:flex;flex-direction:column;position:relative}
+  .guarantee{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;background:var(--white);border:2px solid var(--red);border-radius:16px;padding:22px 22px;margin:4px 0 18px}
+  .guarantee .g-badge{width:104px;height:104px;border-radius:50%;background:var(--red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:38px;font-weight:900;letter-spacing:-.04em;line-height:1;text-align:center}
+  .guarantee .g-badge small{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-top:5px}
+  .guarantee h4{font-size:22px;font-weight:900;color:var(--brown);text-transform:lowercase;letter-spacing:-.03em;margin-bottom:6px}
+  .guarantee h4 .dot{color:var(--red)}
+  .guarantee p{margin:0 0 6px;font-size:15.5px}
+  .guarantee p.small{font-size:13px;margin:0}
+  @media (max-width:640px){.guarantee{grid-template-columns:1fr;justify-items:start}.guarantee .g-badge{width:84px;height:84px;font-size:30px}}
   .tiers.one{grid-template-columns:minmax(0,520px)}
   .tier.rec{background:var(--teal);border-color:var(--teal);color:#e6efe9}
   .tier .badge{position:absolute;top:-12px;left:20px;background:var(--red);color:#fff;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:5px 12px}
@@ -265,7 +273,7 @@
     <div class="proofline">
       <span><b>+40%</b> weekly sales for a Heaton restaurant</span>
       <span><b>11,000+</b> new followers for one restaurant</span>
-      <span><b>20 min</b> from your Metrocentre site</span>
+      <span><b>2x</b> your impressions in 30 days, or you pay half</span>
     </div>
     <div class="meta">
       <div>Prepared for<b>Ahmed Kidy and the Grounded team</b></div>
@@ -557,7 +565,7 @@
       <li><b>Engagement:</b> comments back into double figures on brand posts, starting with the formats that ask a question.</li>
       <li><b>Orders:</b> every video carries an ordering CTA, and we report link clicks to click-and-collect by site.</li>
     </ul>
-    <p class="small">These are the targets we'd set ourselves based on the audit and our other accounts. They aren't guarantees.</p>
+    <p class="small">These are the targets we'd set ourselves based on the audit and our other accounts. The one thing we guarantee is below: double your impressions in the first 30 days, or you pay half.</p>
   </div>
 </section>
 
@@ -595,6 +603,14 @@
         </ul>
       </div>
     </div>
+    <div class="guarantee">
+      <div class="g-badge">2x<small>or half price</small></div>
+      <div>
+        <h4>our 30 day guarantee<span class="dot">.</span></h4>
+        <p>In your first 30 days we double your impressions, or you pay half for the month.</p>
+        <p class="small">Measured as organic impressions across Instagram and TikTok in your own account insights, against the 30 days before we start. Applies to either package. If we fall short, your first month is billed at 50%.</p>
+      </div>
+    </div>
     <p class="small">Three month minimum, then rolling monthly. Billed monthly in advance. Start on Growth and move up to Growth + Paid at any point.</p>
   </div>
 </section>
@@ -610,6 +626,7 @@
         <p><b>Jay Williams</b> and <b>Anya Davey</b>, the founders of Fusion Creative. Both of us film and edit, and both of us are on camera when a format needs it.</p>
         <ul class="plain">
           <li>A 20 minute call to walk you through this page.</li>
+          <li>We record your last 30 days of impressions as the guarantee baseline.</li>
           <li>We agree the package and the first month's concepts.</li>
           <li>First shoot at Metrocentre from Wednesday 14 October.</li>
         </ul>
