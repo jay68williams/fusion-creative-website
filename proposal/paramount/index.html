@@ -187,6 +187,35 @@
   footer{padding:34px 22px 50px;font-size:13px;color:var(--soft);max-width:880px;margin:0 auto}
   footer a{color:var(--soft)}
 
+
+  /* calculator */
+  .calc{background:var(--white);border:1px solid var(--line-strong);border-radius:16px;padding:24px 22px;margin:26px 0}
+  .calc h3{margin:0 0 6px}
+  .calc .intro{font-size:14.5px;color:var(--soft);margin-bottom:18px}
+  .calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px 22px}
+  .field label{display:block;font-weight:700;color:var(--ink);font-size:14.5px;margin-bottom:4px}
+  .field .hint{display:block;font-size:12.5px;color:var(--soft);margin-bottom:8px;line-height:1.4}
+  .field .row{display:flex;align-items:center;gap:10px}
+  .field input[type=range]{flex:1;accent-color:var(--green);min-width:0;height:28px}
+  .field .num{display:flex;align-items:center;border:1px solid var(--line-strong);border-radius:10px;background:var(--paper);padding:0 10px;width:118px;flex:0 0 auto}
+  .field .num span{color:var(--soft);font-size:14.5px}
+  .field .num input{border:0;background:transparent;font:600 15.5px var(--sans);color:var(--ink);width:100%;padding:9px 4px;min-width:0}
+  .field .num input:focus{outline:none}
+  .field .num:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,95,153,.18)}
+  .field.fixed .num{background:#eef2f1}
+  .calc-out{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0 14px}
+  .calc-out .o{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .calc-out .o .v{font-family:var(--serif);font-size:28px;line-height:1.05;color:var(--ink)}
+  .calc-out .o .l{font-size:12.5px;color:var(--soft);margin-top:6px;font-weight:600;line-height:1.35}
+  .calc-out .o.key{background:var(--ink);border-color:var(--ink)}
+  .calc-out .o.key .v{color:var(--amber)}
+  .calc-out .o.key .l{color:#bcd0cb}
+  .calc-out .o.neg .v{color:var(--red)}
+  .calc-say{font-size:15.5px;color:var(--ink);background:#eef5f3;border-radius:10px;padding:14px 16px;margin:0 0 14px}
+  .calc-reset{background:none;border:1px solid var(--line-strong);border-radius:999px;padding:9px 16px;font:600 14px var(--sans);color:var(--ink);cursor:pointer}
+  .calc-reset:hover{border-color:var(--ink)}
+  .calc-reset:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+
   @media (max-width:640px){
     section.page{padding:44px 0}
     .split{grid-template-columns:1fr}
@@ -201,6 +230,9 @@
     .lockup{gap:10px}
     .lockup img{width:min(220px,70vw)}
     .issue{grid-template-columns:26px 1fr;gap:10px}
+    .calc{padding:20px 16px}
+    .calc-out{grid-template-columns:1fr 1fr}
+    .field .num{width:108px}
   }
   @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
   @media print{.hero{min-height:auto}.cta{display:none}}
@@ -457,7 +489,7 @@
     </div>
 
     <h3>How many jobs pay for it</h3>
-    <p>Total monthly cost: <b>£2,850</b>. We work this out on what you keep from a job, not on what the customer pays. We have assumed you keep 30% of each job after materials and labour. Swap in your real figure and the table updates in your head.</p>
+    <p>Total monthly cost: <b>£2,850</b>. We work this out on what you keep from a job, not on what the customer pays. We have assumed you keep 30% of each job after materials and labour. If your numbers are different, use the calculator further down.</p>
     <div class="tbl-wrap"><table class="tbl">
       <tr><th>Job</th><th>Typical price</th><th>You keep at 30%</th><th>Jobs a month to cover £2,850</th></tr>
       <tr><td><b>Windows and doors package</b><br><span class="small">Your own advertised bundle, with VAT</span></td><td class="num">£5,994</td><td class="num">£1,798</td><td class="num">2</td></tr>
@@ -473,6 +505,47 @@
       <tr class="total"><td><b>Target</b><br><span class="small">2 windows, 1 roof</span></td><td class="num">£30</td><td class="num">30</td><td class="num">1 in 10</td><td class="num">3</td><td class="num">£6,296</td><td class="num">+£3,446</td></tr>
       <tr><td><b>Each extension on top</b></td><td colspan="4" class="small">Extensions take longer to decide. Each one won adds this.</td><td class="num">£12,000</td><td class="num">+£12,000</td></tr>
     </table></div>
+
+    <div class="calc" id="calculator">
+      <h3>Try it with your own numbers</h3>
+      <p class="intro">This starts on our assumptions. Change anything you know better, such as your real job values, your margin or how many enquiries you usually turn into work, and the figures below update straight away. Nothing you type is saved or sent anywhere.</p>
+      <div class="calc-grid">
+      <div class="field">
+        <label for="c-value">Average job value</label><span class="hint">What a typical job is worth to the customer, VAT included. Ours averages two window packages and one roof.</span>
+        <div class="row"><input type="range" id="c-value-r" min="1000" max="60000" step="100" value="7000" aria-label="Average job value"><div class="num"><span>£</span><input id="c-value" type="number" inputmode="decimal" min="1000" max="60000" step="100" value="7000"></div></div>
+      </div>
+      <div class="field">
+        <label for="c-margin">What you keep from each job</label><span class="hint">After materials, labour and fitting costs.</span>
+        <div class="row"><input type="range" id="c-margin-r" min="5" max="70" step="1" value="30" aria-label="What you keep from each job"><div class="num"><input id="c-margin" type="number" inputmode="decimal" min="5" max="70" step="1" value="30"><span>%</span></div></div>
+      </div>
+      <div class="field">
+        <label for="c-cpe">Cost per enquiry</label><span class="hint">What Meta charges, on average, for each enquiry.</span>
+        <div class="row"><input type="range" id="c-cpe-r" min="5" max="150" step="1" value="30" aria-label="Cost per enquiry"><div class="num"><span>£</span><input id="c-cpe" type="number" inputmode="decimal" min="5" max="150" step="1" value="30"></div></div>
+      </div>
+      <div class="field">
+        <label for="c-close">Enquiries that become jobs</label><span class="hint">Out of every 100 enquiries, how many turn into paid work.</span>
+        <div class="row"><input type="range" id="c-close-r" min="1" max="50" step="1" value="10" aria-label="Enquiries that become jobs"><div class="num"><input id="c-close" type="number" inputmode="decimal" min="1" max="50" step="1" value="10"><span>%</span></div></div>
+      </div>
+      <div class="field">
+        <label for="c-spend">Ad spend</label><span class="hint">Paid by you, directly to Meta, each month.</span>
+        <div class="row"><input type="range" id="c-spend-r" min="100" max="10000" step="50" value="900" aria-label="Ad spend"><div class="num"><span>£</span><input id="c-spend" type="number" inputmode="decimal" min="100" max="10000" step="50" value="900"></div></div>
+      </div>
+      <div class="field fixed">
+        <label for="c-fee">Fusion Creative fee</label><span class="hint">Content and managed ads, per month.</span>
+        <div class="row"><div class="num"><span>£</span><input id="c-fee" type="number" inputmode="decimal" min="1950" max="1950" step="1" value="1950" readonly aria-readonly="true"></div></div>
+      </div>
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <div class="o"><div class="v" id="o-enq">30</div><div class="l">enquiries a month</div></div>
+        <div class="o"><div class="v" id="o-jobs">3</div><div class="l">jobs won a month</div></div>
+        <div class="o"><div class="v" id="o-rev">£21,000</div><div class="l">of work booked</div></div>
+        <div class="o"><div class="v" id="o-keep">£6,300</div><div class="l">you keep from that work</div></div>
+        <div class="o"><div class="v" id="o-cost">£2,850</div><div class="l">total monthly cost</div></div>
+        <div class="o key" id="o-net-box"><div class="v" id="o-net">+£3,450</div><div class="l">left after our cost, every month</div></div>
+      </div>
+      <p class="calc-say" id="o-say">On these numbers, 2 jobs a month cover the full cost. Every £1 spent comes back as £2.21 that you keep.</p>
+      <button type="button" class="calc-reset" id="c-reset">Back to our assumptions</button>
+    </div>
     <div class="callout warn"><p><strong>Being straight with you.</strong> These are scenarios, not promises. Nobody can guarantee what an ad will return before it runs. What we can promise is that every enquiry is tracked from the ad to the sale, so after three months you will know exactly what each pound brought in, and you can decide on facts.</p></div>
   </div>
 </section>
@@ -508,5 +581,42 @@
   <p>Fusion Creative, Newcastle upon Tyne. <a href="https://fusioncreative.uk">fusioncreative.uk</a></p>
   <p>How we checked: Meta Ad Library (United Kingdom, active ads) for each named page; public Instagram and Facebook profiles; paramounthomeimprovements.co.uk, all on 1 October 2026. Competitor names and ads are shown for comparison only. Prices marked as assumptions are ours, to be replaced with your figures.</p>
 </footer>
+
+<script>
+(function(){
+  var ids=['c-value','c-margin','c-cpe','c-close','c-spend'];
+  var defaults={'c-value':7000,'c-margin':30,'c-cpe':30,'c-close':10,'c-spend':900};
+  var FEE=1950;
+  function $(id){return document.getElementById(id)}
+  function gbp(n){var r=Math.round(n);return (r<0?'-':'')+'£'+Math.abs(r).toLocaleString('en-GB')}
+  function num(id){var el=$(id),v=parseFloat(el.value);if(isNaN(v))v=0;var mn=parseFloat(el.min),mx=parseFloat(el.max);if(!isNaN(mn)&&v<mn)v=mn;if(!isNaN(mx)&&v>mx)v=mx;return v}
+  function oneDp(n){var r=Math.round(n*10)/10;return (r%1===0?r.toFixed(0):r.toFixed(1))}
+  function calc(){
+    var value=num('c-value'),margin=num('c-margin')/100,cpe=Math.max(num('c-cpe'),1),close=num('c-close')/100,spend=num('c-spend');
+    var enq=spend/cpe,jobs=enq*close,rev=jobs*value,keep=rev*margin,cost=FEE+spend,net=keep-cost;
+    var perJob=value*margin,be=perJob>0?Math.ceil(cost/perJob):0,ratio=cost>0?keep/cost:0;
+    $('o-enq').textContent=oneDp(enq);
+    $('o-jobs').textContent=oneDp(jobs);
+    $('o-rev').textContent=gbp(rev);
+    $('o-keep').textContent=gbp(keep);
+    $('o-cost').textContent=gbp(cost);
+    $('o-net').textContent=(net>=0?'+':'')+gbp(net);
+    $('o-net-box').classList.toggle('neg',net<0);
+    var jobsWord=be===1?'1 job a month covers':be+' jobs a month cover';
+    var say='On these numbers, '+jobsWord+' the full cost. ';
+    say+= net>=0 ? 'Every £1 spent comes back as £'+ratio.toFixed(2)+' that you keep.'
+                 : 'You would be '+gbp(-net)+' short each month, so we would need a lower cost per enquiry or a better close rate before scaling.';
+    $('o-say').textContent=say;
+  }
+  ids.forEach(function(id){
+    var n=$(id),r=$(id+'-r');
+    n.addEventListener('input',function(){if(r)r.value=n.value;calc()});
+    n.addEventListener('change',function(){n.value=num(id);if(r)r.value=n.value;calc()});
+    if(r)r.addEventListener('input',function(){n.value=r.value;calc()});
+  });
+  $('c-reset').addEventListener('click',function(){ids.forEach(function(id){$(id).value=defaults[id];var r=$(id+'-r');if(r)r.value=defaults[id]});calc()});
+  calc();
+})();
+</script>
 </body>
 </html>
