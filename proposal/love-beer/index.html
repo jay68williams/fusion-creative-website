@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content Strategy - Love Beer Wholesale | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0C2032;
+    --panel:#122C42;
+    --panel2:#16344C;
+    --line:#1E4059;
+    --text:#F6F3EF;
+    --muted:#A8BACB;
+    --amber:#E3A520;
+    --amber-light:#F2C25E;
+    --tan:#A68660;
+    --good:#5FBF84;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:'Roboto',-apple-system,sans-serif;font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  a{color:var(--amber-light);text-decoration:none}
+  strong{font-weight:700}
+
+  .hero{padding:72px 0 56px;border-bottom:1px solid var(--line);background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(227,165,32,.15),transparent)}
+  .logo-row{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+  .logo-row img{height:72px;width:auto;display:block}
+  .logo-row .divider{width:1px;height:46px;background:var(--line)}
+  .logo-row .fusion{font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:.26em;text-transform:uppercase}
+  .kicker{font-family:'Roboto Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:18px}
+  h1{font-family:'Roboto Condensed',sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(40px,7vw,68px);line-height:.98}
+  h1 span{color:var(--amber)}
+  .hero p.sub{margin-top:22px;font-size:18px;color:var(--muted);max-width:620px}
+  .hero .meta{margin-top:28px;font-size:14px;color:var(--muted)}
+  .hero .meta strong{color:var(--text)}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  h2{font-family:'Roboto Condensed',sans-serif;font-weight:800;text-transform:uppercase;font-size:32px;line-height:1.08;margin-bottom:10px}
+  h2 span{color:var(--amber)}
+  .lede{color:var(--muted);font-size:16.5px;max-width:640px;margin-bottom:26px}
+  p+p{margin-top:14px}
+  .body p{font-size:16px;max-width:660px}
+
+  .statement{background:var(--panel2);border-left:5px solid var(--amber);padding:30px 32px;margin:8px 0 0}
+  .statement p{font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:27px;line-height:1.24;margin:0}
+  .statement .src{display:block;margin-top:14px;font-family:'Roboto Condensed',sans-serif;font-weight:400;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber)}
+
+  .pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:10px}
+  .pillar{background:var(--panel);border:1px solid var(--line);padding:24px}
+  .pillar .num{font-family:'Roboto Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:.14em;color:var(--amber);margin-bottom:10px;text-transform:uppercase}
+  .pillar h3{font-family:'Roboto Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:17px;margin-bottom:8px}
+  .pillar p{font-size:14.5px;color:var(--muted)}
+
+  .fmt{background:var(--panel);border:1px solid var(--line);padding:0;margin-top:22px}
+  .fmt-head{padding:26px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+  .fmt-head h3{font-family:'Roboto Condensed',sans-serif;font-weight:800;text-transform:uppercase;font-size:26px;line-height:1.1}
+  .fmt-head .tier{font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(227,165,32,.5);padding:5px 12px;white-space:nowrap}
+  .fmt-hook{padding:22px 28px;border-bottom:1px solid var(--line);font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:21px;line-height:1.3}
+  .fmt-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .fmt-col{padding:24px 28px}
+  .fmt-col+.fmt-col{border-left:1px solid var(--line)}
+  .fmt-col h4{font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:12px}
+  .fmt-col ol,.fmt-col ul{list-style:none}
+  .fmt-col li{font-size:14.5px;color:var(--muted);padding:7px 0 7px 22px;position:relative}
+  .fmt-col li strong{color:var(--text)}
+  .fmt-col li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:7px;background:var(--amber)}
+  .fmt-ref{padding:20px 28px;border-top:1px solid var(--line);background:var(--panel2);font-size:14.5px;color:var(--muted)}
+  .fmt-ref strong{color:var(--text)}
+
+  .frames{display:flex;gap:14px;margin-top:4px;flex-wrap:wrap}
+  .frame{width:132px;aspect-ratio:9/16;border:1px solid var(--line);background:#0A1926;padding:14px;display:flex;flex-direction:column;justify-content:flex-end;gap:7px}
+  .frame .tc{font-family:'Roboto Condensed',sans-serif;font-weight:800;text-transform:uppercase;font-size:17px;line-height:1.02}
+  .frame .lt{font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#0C2032;background:var(--amber);padding:3px 6px;align-self:flex-start}
+  .frame .rule{height:3px;background:var(--amber);width:36px}
+  .frame .cap{font-size:10.5px;color:var(--muted);line-height:1.3}
+
+  .tablebox{overflow-x:auto;margin-top:10px;border:1px solid var(--line)}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:620px}
+  th,td{padding:13px 18px;text-align:left;border-top:1px solid var(--line);vertical-align:top}
+  thead th{border-top:0;background:var(--panel);font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  td:first-child{color:var(--text);font-weight:500}
+  td.hl{background:rgba(227,165,32,.07)}
+
+  .ledger{margin-top:10px;border-top:2px solid var(--amber)}
+  .ledger .row{display:grid;grid-template-columns:72px 1fr;gap:18px;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .ledger .row span:first-child{font-family:'Roboto Condensed',sans-serif;font-weight:800;color:var(--amber);text-align:right}
+  .ledger .row.total{border-bottom:0;border-top:2px solid var(--amber);font-weight:700}
+  .ledger .row.total span:first-child{color:var(--text)}
+
+  .plans{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:10px;align-items:stretch}
+  .plan{background:var(--panel);border:1px solid var(--line);padding:28px;display:flex;flex-direction:column}
+  .plan.featured{background:var(--panel2);border:1px solid rgba(227,165,32,.55);position:relative}
+  .plan .badge{position:absolute;top:-12px;left:24px;background:var(--amber);color:#0C2032;font-family:'Roboto Condensed',sans-serif;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px}
+  .plan h3{font-family:'Roboto Condensed',sans-serif;font-weight:800;text-transform:uppercase;font-size:22px}
+  .plan .for{font-size:13.5px;color:var(--muted);margin-top:4px;min-height:40px}
+  .price{margin:18px 0 4px;font-family:'Roboto Condensed',sans-serif;font-weight:800;font-size:40px;line-height:1}
+  .price small{font-family:'Roboto',sans-serif;font-size:14px;font-weight:400;color:var(--muted)}
+  .plan ul{list-style:none;margin-top:14px}
+  .plan li{font-size:14px;padding:9px 0 9px 22px;position:relative;border-top:1px solid var(--line);color:var(--muted)}
+  .plan li:first-child{border-top:0}
+  .plan li strong{color:var(--text)}
+  .plan li::before{content:"";position:absolute;left:0;top:17px;width:7px;height:7px;background:var(--amber)}
+
+  .terms{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+  .term{background:var(--panel);border:1px solid var(--line);padding:22px 24px}
+  .term h4{font-family:'Roboto Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:15px;margin-bottom:8px;color:var(--amber)}
+  .term p{font-size:14.5px;color:var(--muted)}
+
+  .refs{list-style:none;margin-top:10px}
+  .refs li{border-top:1px solid var(--line);padding:14px 0;font-size:15px;color:var(--muted)}
+  .refs li:first-child{border-top:0}
+  .refs li strong{color:var(--text);font-weight:500}
+
+  .cta{background:var(--panel2);border-bottom:0}
+  .cta p{color:var(--muted);font-size:16.5px;max-width:600px;margin-bottom:26px}
+  .btnrow{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;font-family:'Roboto Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+  .btn svg{width:19px;height:19px;fill:currentColor}
+  .btn-wa{background:#25D366;color:#07301a}
+  .btn-em{background:var(--amber);color:#0C2032}
+  .foot{margin-top:34px;font-size:13px;color:var(--muted)}
+  .foot strong{color:var(--text)}
+
+  @media (max-width:820px){
+    .pillars,.plans,.terms,.fmt-grid{grid-template-columns:1fr}
+    .fmt-col+.fmt-col{border-left:0;border-top:1px solid var(--line)}
+    .frames{gap:10px}
+    .frame{width:112px}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="logo-row">
+      <img src="assets/logo.png" alt="Love Beer Wholesale">
+      <div class="divider"></div>
+      <div class="fusion">Fusion Creative</div>
+    </div>
+    <div class="kicker">Content Strategy</div>
+    <h1>Three Formats<br>For The <span>British Pub</span></h1>
+    <p class="sub">Three content formats at three levels of spend, all feeding one mechanic that turns views into named pubs you can sell kegs to.</p>
+    <div class="meta">Prepared for <strong>Rob</strong> &middot; Love Beer Wholesale &middot; 1 October 2026</div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap body">
+    <h2>Where you&rsquo;re <span>at</span></h2>
+    <p class="lede">Love Beer is being judged as a beer brand that makes content. Every video gets measured on whether it shifted stock that week. That is a fight content will always lose, and it is why the last hire did not work: the output was shaped like one-off projects instead of a system, so there was a dry week every time something slipped.</p>
+    <p>Meanwhile the subject sitting directly underneath your business is the one nobody is covering.</p>
+    <div class="statement">
+      <p>161 pubs closed across England, Scotland and Wales in the first quarter of 2026. Close to two a day, and 26% up on the same period in 2025.</p>
+      <span class="src">British Beer and Pub Association, via The Morning Advertiser, May 2026</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap body">
+    <h2>The <span>reframe</span></h2>
+    <p class="lede">Everyone is making content about beer. Nobody is making content about the pub.</p>
+    <p>Love Beer becomes the media brand of the British pub. The subject is the pub itself: its games, its characters, its rituals and its decline. Beer is the setting, not the sell. One editorial test decides every idea: would this still be interesting if nobody was drinking? If yes, make it.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="num">Why it pays</div>
+        <h3>Two audiences, one channel</h3>
+        <p>A pub brand talks to drinkers and to landlords in the same breath. The landlord half is where your trade revenue sits.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">Why it lasts</div>
+        <h3>Archive, not trend</h3>
+        <p>Pub subject matter keeps working. A trend format dies with the trend; this gets more valuable every year it exists.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">Why it is yours</div>
+        <h3>No incumbent</h3>
+        <p>No channel owns the British pub. Too unglamorous for a broadcaster to commission, too specific for a brewery to think of.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap body">
+    <h2>The engine: <span>Nominate Your Local</span></h2>
+    <p class="lede">One mechanic sits under all three formats, so they stop being three ideas and start being a system. Every piece ends the same way: nominate your local. Not &ldquo;comment below&rdquo;, but a specific ask for a specific pub, a town and a reason.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="num">Step one</div>
+        <h3>The ask</h3>
+        <p>Same end card and pinned comment on every post. Pub name, town, one line on why.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">Step two</div>
+        <h3>The board</h3>
+        <p>Nominations become a public map that grows weekly. The map growing is itself content.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">Step three</div>
+        <h3>The visit</h3>
+        <p>We film the shortlist. The pub promotes the episode to its own regulars, because it is about them.</p>
+      </div>
+    </div>
+    <p style="margin-top:22px"><strong>What it is worth commercially:</strong> a nominated pub is a warm inbound for the trade side. The landlord has already been told by their own customers that Love Beer is coming. That is a very different first call from a cold one. The number to report monthly is filmed pubs converted to trade accounts.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap body">
+    <h2>Format one: <span>The Split The G Championship</span></h2>
+
+    <div class="fmt">
+      <div class="fmt-head">
+        <h3>Split The G Championship</h3>
+        <div class="tier">Core tier</div>
+      </div>
+      <div class="fmt-hook">One sip. One line. One attempt. No retakes, filmed at the bar.</div>
+      <div class="fmt-grid">
+        <div class="fmt-col">
+          <h4>How it works</h4>
+          <ul>
+            <li><strong>The Rules.</strong> Establish the ruler, the judge and the standard. Played completely straight. Ends by setting the record to beat.</li>
+            <li><strong>The Challenger.</strong> A regular who swears they land it every time. Three attempts, all three in the edit, failures included.</li>
+            <li><strong>The Landlord.</strong> The person who pours a hundred a day. Unfair advantage, or does pouring it ruin drinking it?</li>
+            <li>Three posts a week. A standing national leaderboard that carries between episodes.</li>
+          </ul>
+        </div>
+        <div class="fmt-col">
+          <h4>How it looks</h4>
+          <ul>
+            <li>Two cameras, one operator plus host. Locked wide of the bar, 50mm at glass height for the sip.</li>
+            <li>Insert on the ruler against the glass. The measurement is read out loud.</li>
+            <li>35 to 50 seconds, vertical, hard cut on the measurement.</li>
+            <li>Amber scoreboard lower third, condensed caps, same position every episode.</li>
+          </ul>
+          <div class="frames">
+            <div class="frame"><span class="lt">Episode 01</span><div class="rule"></div><div class="tc">The Rules</div><div class="cap">Cold open, no music</div></div>
+            <div class="frame"><span class="lt">Measured</span><div class="rule"></div><div class="tc">4mm Low</div><div class="cap">Ruler insert, score card</div></div>
+            <div class="frame"><span class="lt">Standings</span><div class="rule"></div><div class="tc">Leaderboard</div><div class="cap">Carries week to week</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fmt-ref"><strong>The reference:</strong> splitting the G grew entirely on its own, with no campaign and no media budget behind it, and Guinness picked up the earned media without spending a penny on it. Nobody owns the leaderboard. <a href="https://vinepair.com/articles/splitting-the-g-guinness-trend/" target="_blank" rel="noopener">VinePair on how the trend spread</a>. The constraint worth stating out loud: the G belongs to one stout brand&rsquo;s glass, so the championship belongs to the pub and the player. Love Beer judges it, Love Beer does not claim it.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap body">
+    <h2>Format two: <span>Britain&rsquo;s Forgotten Pub Games</span></h2>
+
+    <div class="fmt">
+      <div class="fmt-head">
+        <h3>Britain&rsquo;s Forgotten Pub Games</h3>
+        <div class="tier">Growth tier</div>
+      </div>
+      <div class="fmt-hook">Before the fruit machine, every region had its own bar game. Most now survive in a handful of pubs each.</div>
+      <div class="fmt-grid">
+        <div class="fmt-col">
+          <h4>How it works</h4>
+          <ul>
+            <li>Six to nine minutes. The host plays the game badly with no explanation, then meets the person who keeps the kit in their shed.</li>
+            <li>The rules, properly, as a graphic. Then host versus a local. Host loses. Always.</li>
+            <li>Eight episodes, one game per region: Aunt Sally in Oxfordshire, bat and trap in Kent, ring the bull, shove ha&rsquo;penny, table skittles.</li>
+            <li><strong>The event:</strong> one pub with the right yard, one champion per game, run in a day and cut as a one hour special. Year one you fund it. Year two a brewery or a cider house underwrites it.</li>
+          </ul>
+        </div>
+        <div class="fmt-col">
+          <h4>How it looks</h4>
+          <ul>
+            <li>Warmer grade than Split the G. Handheld, available light, long lenses across a bar room.</li>
+            <li>Rules rendered as a clean amber diagram over the real table or alley.</li>
+            <li>Landlord and player interviews shot in situ, never against a backdrop.</li>
+            <li>Vertical cutdowns pull the single best exchange out of each long episode.</li>
+          </ul>
+          <div class="frames">
+            <div class="frame"><span class="lt">Episode 03</span><div class="rule"></div><div class="tc">Aunt Sally</div><div class="cap">Oxfordshire</div></div>
+            <div class="frame"><span class="lt">The rules</span><div class="rule"></div><div class="tc">How To Play</div><div class="cap">Diagram over the real table</div></div>
+            <div class="frame"><span class="lt">Result</span><div class="rule"></div><div class="tc">Host Loses</div><div class="cap">Every episode</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fmt-ref"><strong>The reference:</strong> these games are documented and still played, but no channel covers them. Aunt Sally leagues still run through spring and summer in Oxfordshire and bordering counties; bat and trap remains a Kentish pub game. <a href="https://www.tradgames.org.uk/features/pub-games.htm" target="_blank" rel="noopener">The Traditional Games guide to British pub games</a>. Saving something is a story a newsdesk will take. A brand channel is not.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap body">
+    <h2>Format three: <span>The AI Landlord</span></h2>
+
+    <div class="fmt">
+      <div class="fmt-head">
+        <h3>The AI Landlord</h3>
+        <div class="tier">Flagship production</div>
+      </div>
+      <div class="fmt-hook">One real pub hands over to an AI landlord for a week. The human gets three vetoes.</div>
+      <div class="fmt-grid">
+        <div class="fmt-col">
+          <h4>How it works</h4>
+          <ul>
+            <li>It sets the prices, picks the music, writes the specials board, sets the quiz and decides the lock-in.</li>
+            <li>The landlord carries out every decision. Three vetoes for the whole week, each spent on camera and justified out loud.</li>
+            <li>Five parts of eight to twelve minutes plus a daily vertical: Handover, Pricing Day, Quiz Night, The Veto, The Reckoning.</li>
+            <li>It ends on the week&rsquo;s takings against the same week last year, read out whichever way it falls.</li>
+          </ul>
+        </div>
+        <div class="fmt-col">
+          <h4>How it looks</h4>
+          <ul>
+            <li>Observational documentary. Two cameras for five days, no presenter, no voiceover.</li>
+            <li>The AI has a screen presence and a voice: amber terminal type on navy, visible behind the bar.</li>
+            <li>On-screen running tally of vetoes used and takings to date.</li>
+            <li>Interviews shot the moment a decision lands, not afterwards.</li>
+          </ul>
+          <div class="frames">
+            <div class="frame"><span class="lt">Day 02</span><div class="rule"></div><div class="tc">Pricing Day</div><div class="cap">The board changes</div></div>
+            <div class="frame"><span class="lt">Veto 01 of 03</span><div class="rule"></div><div class="tc">Refused</div><div class="cap">Justified on camera</div></div>
+            <div class="frame"><span class="lt">Finale</span><div class="rule"></div><div class="tc">The Reckoning</div><div class="cap">Takings, year on year</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fmt-ref"><strong>The reference:</strong> Anthropic ran this experiment for real by letting an AI operate a vending machine business. It lost the money, and the failure is exactly why the story travelled. <a href="https://www.youtube.com/watch?v=SpPhm7S9vsQ" target="_blank" rel="noopener">We Let AI Run a Vending Machine. It Lost All the Money.</a> The same rule applies here: the result gets reported honestly even if the week loses money, because a real loss is a better story than a soft win. <strong>Condition:</strong> the pub is made whole, underwritten in writing before a camera comes out.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap body">
+    <h2>Formats that already work, <span>reworked</span></h2>
+    <p class="lede">Rather than inventing demand, we take formats that have already proved people watch them and rebuild them so the output sells kegs. Each one below exists already. The right hand column is the Love Beer version.</p>
+    <div class="tablebox">
+      <table>
+        <thead>
+          <tr><th>What already works</th><th>The Love Beer rework</th><th class="hl">Why it sells</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>&ldquo;Five pumps&rdquo;: asking drinkers which five beers they would put on in their own pub. One creator&rsquo;s version drew thousands of comments.</td>
+            <td><strong>Price My Five Pumps.</strong> They name the lineup, we price the kegs and show what it costs to actually stock it, delivered.</td>
+            <td class="hl">Turns a comment thread into a product demonstration. Every answer is a quote request you did not have to ask for.</td>
+          </tr>
+          <tr>
+            <td>Street interview formats built on one repeated question and fast cuts.</td>
+            <td><strong>Pub Or Not.</strong> One question at the door of a venue: is this still a pub? Regulars argue it out.</td>
+            <td class="hl">Cheap to shoot, endlessly repeatable, and it maps the exact venues your trade team wants named.</td>
+          </tr>
+          <tr>
+            <td>Price comparison content: the same item, different places, real numbers.</td>
+            <td><strong>What A Pint Costs Here.</strong> Same pint, five towns, the landlord explains their margin on camera.</td>
+            <td class="hl">Puts your trade pricing in the conversation without pitching it. Landlords share it themselves.</td>
+          </tr>
+          <tr>
+            <td>Skill and precision challenges, judged strictly, with a running leaderboard.</td>
+            <td><strong>Split the G Championship.</strong> Format one above, as the recurring weekly spine.</td>
+            <td class="hl">The cheapest format to produce and the one with the most proven appetite.</td>
+          </tr>
+          <tr>
+            <td>Access documentary: hand a business to an outsider and film what breaks.</td>
+            <td><strong>The AI Landlord.</strong> Format three above, as the annual flagship.</td>
+            <td class="hl">The press piece. It puts Love Beer in trade, national and tech coverage at once.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="refs" style="margin-top:26px">
+      <li><strong>Source for the five pumps format:</strong> <a href="https://www.ladbible.com/lifestyle/food-and-drink/top-five-beers-pump-pub-viral-tiktok-trend-388016-20231027" target="_blank" rel="noopener">LADbible on the dream pint lineup trend</a></li>
+      <li><strong>Source for the closure figures:</strong> <a href="https://www.morningadvertiser.co.uk/Article/2026/05/05/two-pubs-a-day-closed-in-q1-2026-as-161-sites-shut-bbpa/" target="_blank" rel="noopener">The Morning Advertiser, Q1 2026 BBPA figures</a></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap body">
+    <h2>How the output <span>adds up</span></h2>
+    <p class="lede">A shoot day is planned as a harvest, not as a shoot. That is the difference between a full calendar and a dry week. One pub visit produces:</p>
+    <div class="ledger">
+      <div class="row"><span>1</span><span>Hero episode</span></div>
+      <div class="row"><span>3-4</span><span>Vertical cutdowns from the strongest beats</span></div>
+      <div class="row"><span>2</span><span>Split the G attempts, filmed at that bar</span></div>
+      <div class="row"><span>1</span><span>Rules explainer, graphic over B roll</span></div>
+      <div class="row"><span>1</span><span>Landlord interview vertical</span></div>
+      <div class="row"><span>1</span><span>Artefact piece: what is on the wall and why</span></div>
+      <div class="row"><span>2-3</span><span>Stills carousels</span></div>
+      <div class="row"><span>1</span><span>Nomination call</span></div>
+      <div class="row"><span>1</span><span>Audio cut held for a podcast feed</span></div>
+      <div class="row total"><span>13-15</span><span>pieces from a single shoot day</span></div>
+    </div>
+    <p style="margin-top:24px"><strong>The commitment:</strong> a posting calendar published four weeks ahead, visible to you, every slot filled before the month starts. The metric we report on is missed slots, not views. Views are a result. Slots are a promise.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap body">
+    <h2>The <span>packages</span></h2>
+    <p class="lede">Three month initial term, then monthly rolling. Content filmed, edited, posted and socials managed in all three.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Core</h3>
+        <div class="for">The championship as a weekly spine, proved inside a month.</div>
+        <div class="price">&pound;899<small> /mo</small></div>
+        <ul>
+          <li><strong>10 to 12 pieces a month</strong></li>
+          <li>1 shoot day a month</li>
+          <li>Split the G Championship</li>
+          <li>Nominate Your Local running on every post</li>
+          <li>Calendar published 4 weeks ahead</li>
+        </ul>
+      </div>
+      <div class="plan featured">
+        <div class="badge">Recommended</div>
+        <h3>Growth</h3>
+        <div class="for">Both recurring formats, plus the series that becomes an annual event.</div>
+        <div class="price">&pound;1,250<small> /mo</small></div>
+        <ul>
+          <li><strong>20 to 25 pieces a month</strong></li>
+          <li>2 shoot days a month</li>
+          <li>Split the G plus Forgotten Pub Games</li>
+          <li>Eight part series, one game per region</li>
+          <li>Monthly nomination map post</li>
+          <li>Monthly strategy call</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3>Trade</h3>
+        <div class="for">Everything in Growth, plus paid media run in house against your trade accounts.</div>
+        <div class="price">&pound;1,950<small> /mo</small></div>
+        <ul>
+          <li><strong>Everything in Growth</strong></li>
+          <li>Fully managed paid ads</li>
+          <li>Monthly creative testing against keg and trade account signups</li>
+          <li>Ad spend billed direct to you by the platform</li>
+          <li>Reporting on cost per trade account</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:24px"><strong>The AI Landlord is quoted separately as a production</strong>, not inside a monthly retainer. Producer, two camera crew for five days, the AI build and post. Indicative figure to confirm: [&pound;____]. The Forgotten Games Championship day is likewise quoted as its own production.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap body">
+    <h2>The <span>detail</span></h2>
+    <div class="terms">
+      <div class="term">
+        <h4>Term</h4>
+        <p>Three month initial term, then monthly rolling. Content compounds; three months is the honest minimum to judge it on.</p>
+      </div>
+      <div class="term">
+        <h4>Billing</h4>
+        <p>Monthly in advance by invoice. On the Trade tier, ad spend is billed separately to you by the platform.</p>
+      </div>
+      <div class="term">
+        <h4>Where to start</h4>
+        <p>Core for 90 days is enough to prove the championship and fill the nomination board. Move up to Growth any month.</p>
+      </div>
+      <div class="term">
+        <h4>What we need from you</h4>
+        <p>Introductions to two or three pubs for the first shoot day, sign-off on the monthly plan, and access to the social accounts. We handle the rest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Ready when <span>you are</span></h2>
+    <p>Pick a format and we will get the first shoot day in the diary. The championship can be filming inside a fortnight.</p>
+    <div class="btnrow">
+      <a class="btn btn-wa" href="https://wa.me/447437571250">
+        <svg viewBox="0 0 24 24"><path d="M12 2a9.94 9.94 0 0 0-8.51 15.13L2 22l4.99-1.44A9.99 9.99 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-2.96.86.86-2.89-.2-.31A8.22 8.22 0 1 1 12 20.2Zm4.51-6.13c-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.66.3-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.14.16 1.57.1.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+        WhatsApp Jay
+      </a>
+      <a class="btn btn-em" href="mailto:jay@fusioncreative.uk">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+        jay@fusioncreative.uk
+      </a>
+    </div>
+    <div class="foot"><strong>Fusion Creative</strong> &middot; Newcastle upon Tyne &middot; fusioncreative.uk &middot; Commercially confidential</div>
+  </div>
+</section>
+
+</body>
+</html>
