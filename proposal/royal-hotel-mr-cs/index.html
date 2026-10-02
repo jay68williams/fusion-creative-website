@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal - The Royal Hotel and Mr C's | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root{
+  --ink:#141414; --ink-2:#4A4A4A; --ink-3:#8A8A8A;
+  --paper:#F6F5F1; --white:#FFFFFF; --line:rgba(20,20,20,0.12); --line-soft:rgba(20,20,20,0.07);
+  /* Royal Hotel */
+  --teal:#5CBDAF; --teal-deep:#2C7A70; --teal-soft:#E4F3F0; --sea:#13262B;
+  /* Mr C's */
+  --red:#B8343B; --red-deep:#8E242A; --kraft:#D9BE98; --kraft-2:#EADBC4; --kraft-3:#F4ECDF; --navy:#2B4A8B; --char:#1A1A1A;
+}
+html{ scroll-behavior:smooth; }
+body{ font-family:'Outfit',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--paper); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+.container{ max-width:940px; margin:0 auto; padding:0 24px; }
+img{ display:block; max-width:100%; }
+a{ color:inherit; }
+.mono{ font-family:'Courier Prime',ui-monospace,monospace; }
+
+/* header */
+.header{ background:var(--white); border-bottom:1px solid var(--line); }
+.header-inner{ display:flex; justify-content:space-between; align-items:center; gap:18px; padding:16px 24px; flex-wrap:wrap; }
+.lockup{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.lockup .royal{ height:22px; width:auto; }
+.lockup .mrc{ height:46px; width:auto; }
+.lockup .amp{ font-size:14px; color:var(--ink-3); }
+.lockup .x{ font-size:13px; color:var(--ink-3); }
+.lockup .fc{ font-size:11px; letter-spacing:2.6px; text-transform:uppercase; font-weight:700; }
+.header-meta{ font-size:11px; letter-spacing:2.2px; text-transform:uppercase; color:var(--ink-3); }
+
+/* hero */
+.hero{ position:relative; background:var(--sea); color:#fff; overflow:hidden; }
+.hero-imgs{ position:absolute; inset:0; display:grid; grid-template-columns:1fr 1fr; }
+.hero-imgs img{ width:100%; height:100%; object-fit:cover; }
+.hero::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,18,20,0.55) 0%, rgba(10,18,20,0.78) 55%, rgba(10,18,20,0.96) 100%); }
+.hero-inner{ position:relative; z-index:2; padding:96px 24px 70px; }
+.kicker{ font-size:11px; letter-spacing:3.4px; text-transform:uppercase; color:var(--teal); margin-bottom:22px; font-weight:600; }
+.hero h1{ font-size:clamp(40px,7vw,68px); line-height:1.02; font-weight:800; letter-spacing:-0.02em; margin-bottom:22px; }
+.hero h1 .t{ color:var(--teal); } .hero h1 .r{ color:#E9646B; }
+.hero-sub{ font-size:17.5px; max-width:620px; color:rgba(255,255,255,0.88); font-weight:300; }
+.hero-facts{ display:flex; gap:40px; margin-top:44px; flex-wrap:wrap; padding-top:26px; border-top:1px solid rgba(255,255,255,0.18); }
+.hero-fact .l{ font-size:10.5px; letter-spacing:2.4px; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:4px; }
+.hero-fact .v{ font-size:15px; font-weight:500; }
+
+/* contents */
+.contents{ background:var(--ink); color:#fff; padding:30px 0; }
+.contents-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.12); }
+.contents a{ background:var(--ink); padding:18px 18px; text-decoration:none; display:block; }
+.contents a:hover{ background:#222; }
+.contents .n{ font-family:'Courier Prime',monospace; font-size:12px; color:var(--teal); }
+.contents .t{ font-size:14.5px; font-weight:600; margin-top:4px; line-height:1.35; }
+
+/* sections */
+.section{ padding:72px 0; }
+.section.tight{ padding:52px 0; }
+.eyebrow{ font-family:'Courier Prime',monospace; font-size:12.5px; letter-spacing:2.4px; text-transform:uppercase; color:var(--teal-deep); margin-bottom:14px; font-weight:700; }
+h2{ font-weight:800; font-size:clamp(30px,4.6vw,44px); line-height:1.08; letter-spacing:-0.015em; margin-bottom:20px; }
+h2 em{ font-style:normal; color:var(--teal-deep); }
+h3{ font-weight:700; }
+p{ margin-bottom:15px; color:var(--ink-2); font-size:15.5px; }
+p:last-child{ margin-bottom:0; }
+.lead{ font-size:17.5px; color:var(--ink); }
+.max{ max-width:660px; }
+
+/* letter */
+.letter{ background:var(--white); border:1px solid var(--line); padding:44px; border-radius:6px; }
+.letter .hi{ font-size:26px; font-weight:700; margin-bottom:16px; }
+.checked{ margin-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.checked-col{ border-top:3px solid var(--teal); padding-top:16px; }
+.checked-col.mrc{ border-top-color:var(--red); }
+.checked-title{ font-family:'Courier Prime',monospace; font-size:12px; letter-spacing:1.8px; text-transform:uppercase; color:var(--ink-3); margin-bottom:8px; font-weight:700; }
+.crow{ display:flex; justify-content:space-between; gap:14px; padding:10px 0; border-bottom:1px solid var(--line-soft); font-size:14.5px; }
+.crow:last-child{ border-bottom:none; }
+.crow .k{ color:var(--ink-2); }
+.crow .v{ font-weight:600; text-align:right; }
+.crow .v.hot{ color:var(--red); }
+.crow .v.good{ color:var(--teal-deep); }
+
+/* proof */
+.proof-wrap{ background:var(--ink); color:#fff; }
+.proof-wrap h2 em{ color:var(--teal); }
+.proof-wrap p{ color:rgba(255,255,255,0.75); }
+.proof-wrap .eyebrow{ color:var(--teal); }
+.proof{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.14); margin-top:30px; }
+.proof div{ background:var(--ink); padding:26px 18px; }
+.proof .num{ font-size:clamp(28px,4vw,40px); font-weight:800; color:var(--teal); line-height:1; }
+.proof .lbl{ font-size:12.5px; color:rgba(255,255,255,0.65); margin-top:10px; line-height:1.4; }
+.quote{ margin-top:28px; border-left:3px solid var(--teal); padding:4px 0 4px 22px; }
+.quote p{ font-size:17px; color:#fff; font-weight:300; font-style:italic; }
+.quote .who{ font-size:12.5px; color:rgba(255,255,255,0.55); margin-top:8px; font-style:normal; letter-spacing:1px; text-transform:uppercase; }
+
+/* part banners */
+.part{ position:relative; overflow:hidden; color:#fff; }
+.part img.bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.part::after{ content:''; position:absolute; inset:0; }
+.part.mrc::after{ background:linear-gradient(90deg, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.75) 55%, rgba(142,36,42,0.55) 100%); }
+.part.royal::after{ background:linear-gradient(90deg, rgba(19,38,43,0.95) 0%, rgba(19,38,43,0.72) 55%, rgba(44,122,112,0.5) 100%); }
+.part-inner{ position:relative; z-index:2; padding:80px 24px; display:flex; align-items:center; gap:34px; flex-wrap:wrap; }
+.part-inner .badge{ height:120px; width:auto; }
+.part-inner .badge.crest{ background:#fff; border-radius:10px; padding:8px 10px; }
+.part-inner .badge.wide{ height:auto; width:260px; }
+.part .pn{ font-family:'Courier Prime',monospace; font-size:13px; letter-spacing:2.4px; text-transform:uppercase; margin-bottom:10px; font-weight:700; }
+.part.mrc .pn{ color:#F08A8F; } .part.royal .pn{ color:var(--teal); }
+.part h2{ margin-bottom:10px; color:#fff; }
+.part p{ color:rgba(255,255,255,0.82); max-width:560px; }
+
+/* Mr C's zone */
+.zone-mrc{ background:var(--kraft-3); }
+.zone-mrc .eyebrow{ color:var(--red); }
+.zone-mrc h2 em{ color:var(--red); }
+.zone-mrc.k2{ background:var(--kraft-2); }
+.zone-royal{ background:var(--white); }
+.zone-royal.soft{ background:var(--teal-soft); }
+
+/* working cards */
+.work{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:30px; }
+.wcard{ background:var(--white); border:1px solid var(--line); border-radius:6px; padding:24px 22px; }
+.wcard .h{ font-family:'Courier Prime',monospace; font-size:12px; letter-spacing:1.4px; text-transform:uppercase; color:var(--ink-3); font-weight:700; }
+.wcard h3{ font-size:18px; margin:8px 0 8px; line-height:1.25; }
+.wcard p{ font-size:14.5px; }
+.wcard .stat{ display:inline-block; margin-top:12px; font-size:12.5px; font-weight:600; padding:4px 10px; border-radius:20px; }
+.zone-mrc .wcard .stat{ background:#F6E1E2; color:var(--red-deep); }
+.zone-royal .wcard .stat{ background:var(--teal-soft); color:var(--teal-deep); }
+.src{ font-size:12.5px; color:var(--ink-3); margin-top:18px; }
+.src a{ color:var(--ink-3); }
+
+/* ideas */
+.ideas{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:30px; }
+.idea{ background:var(--white); border:1px solid var(--line); border-radius:6px; padding:24px 24px 22px; position:relative; }
+.zone-mrc .idea{ border-top:4px solid var(--red); }
+.zone-royal .idea{ border-top:4px solid var(--teal); }
+.idea .num{ font-family:'Courier Prime',monospace; font-size:13px; font-weight:700; color:var(--ink-3); }
+.idea h3{ font-size:19px; margin:6px 0 8px; line-height:1.25; }
+.idea p{ font-size:14.5px; }
+.idea .hook{ margin-top:12px; font-family:'Courier Prime',monospace; font-size:13.5px; color:var(--ink); background:var(--paper); padding:10px 12px; border-radius:4px; }
+.idea .who{ display:inline-block; margin-top:12px; font-size:11.5px; letter-spacing:1.2px; text-transform:uppercase; font-weight:700; padding:4px 10px; border-radius:20px; }
+.who.staff{ background:#F6E1E2; color:var(--red-deep); }
+.who.us{ background:var(--ink); color:#fff; }
+.who.either{ background:var(--teal-soft); color:var(--teal-deep); }
+
+/* photo strip */
+.strip{ display:grid; grid-template-columns:repeat(6,1fr); }
+.strip img{ width:100%; height:210px; object-fit:cover; }
+.strip.five{ grid-template-columns:repeat(5,1fr); }
+
+/* packages */
+.packages{ display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:34px; align-items:start; }
+.pack{ background:var(--white); border:1px solid var(--line); border-radius:8px; padding:34px 30px; position:relative; }
+.zone-mrc .pack.featured{ border:2px solid var(--red); box-shadow:0 18px 50px rgba(142,36,42,0.13); }
+.zone-royal .pack.featured{ border:2px solid var(--teal-deep); box-shadow:0 18px 50px rgba(19,38,43,0.12); }
+.flag{ position:absolute; top:-12px; left:28px; color:#fff; font-size:10.5px; letter-spacing:2px; text-transform:uppercase; padding:6px 12px; border-radius:20px; font-weight:700; }
+.zone-mrc .flag{ background:var(--red); } .zone-royal .flag{ background:var(--teal-deep); }
+.pack .name{ font-size:26px; font-weight:800; margin-bottom:4px; letter-spacing:-0.01em; }
+.pack .tag{ font-size:14px; color:var(--ink-3); margin-bottom:22px; }
+.price{ display:flex; align-items:baseline; gap:8px; }
+.price .amt{ font-size:46px; font-weight:800; line-height:1; letter-spacing:-0.02em; }
+.zone-mrc .price .amt{ color:var(--red); } .zone-royal .price .amt{ color:var(--teal-deep); }
+.price .per{ font-size:13.5px; color:var(--ink-3); }
+.per-video{ font-family:'Courier Prime',monospace; font-size:13px; color:var(--ink-2); margin:8px 0 22px; }
+.plist{ list-style:none; border-top:1px solid var(--line-soft); }
+.plist li{ padding:13px 0 13px 24px; border-bottom:1px solid var(--line-soft); font-size:14.5px; color:var(--ink-2); position:relative; line-height:1.55; }
+.plist li:last-child{ border-bottom:none; }
+.plist li::before{ content:''; position:absolute; left:2px; top:20px; width:10px; height:10px; border-radius:50%; }
+.zone-mrc .plist li::before{ background:var(--red); } .zone-royal .plist li::before{ background:var(--teal); }
+.plist li b{ color:var(--ink); font-weight:600; }
+.plist li span{ display:block; font-size:13px; color:var(--ink-3); margin-top:2px; }
+
+/* note */
+.note{ background:var(--white); border-left:4px solid var(--ink); padding:22px 26px; margin-top:26px; border-radius:0 6px 6px 0; }
+.zone-mrc .note{ border-left-color:var(--red); }
+.zone-royal .note{ border-left-color:var(--teal-deep); }
+.note h4{ font-size:15.5px; font-weight:700; margin-bottom:6px; }
+.note p{ font-size:14.5px; margin:0; }
+
+/* table */
+.tbl-wrap{ overflow-x:auto; margin-top:28px; border:1px solid var(--line); background:var(--white); border-radius:6px; }
+table{ width:100%; border-collapse:collapse; font-size:14.5px; min-width:640px; }
+th,td{ padding:13px 16px; text-align:left; border-bottom:1px solid var(--line-soft); vertical-align:top; }
+thead th{ background:var(--ink); color:#fff; font-size:11px; letter-spacing:1.6px; text-transform:uppercase; font-weight:600; }
+thead th.m{ background:var(--red-deep); } thead th.r{ background:var(--teal-deep); }
+tbody tr:last-child td{ border-bottom:none; }
+td:first-child{ color:var(--ink-2); }
+td.val{ font-weight:600; }
+
+/* combos */
+.combos{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:28px; }
+.combo{ background:var(--white); border:1px solid var(--line); border-radius:6px; padding:24px 22px; }
+.combo.pick{ border:2px solid var(--ink); }
+.combo .l{ font-family:'Courier Prime',monospace; font-size:12px; letter-spacing:1.4px; text-transform:uppercase; color:var(--ink-3); font-weight:700; }
+.combo .a{ font-size:34px; font-weight:800; margin:8px 0 4px; letter-spacing:-0.02em; }
+.combo .a small{ font-size:14px; font-weight:400; color:var(--ink-3); letter-spacing:0; }
+.combo p{ font-size:14px; }
+
+/* detail */
+.detail-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:28px; border-radius:6px; overflow:hidden; }
+.detail{ background:var(--white); padding:24px 26px; }
+.detail h4{ font-family:'Courier Prime',monospace; font-size:12.5px; letter-spacing:1.6px; text-transform:uppercase; color:var(--teal-deep); margin-bottom:8px; }
+.detail p{ font-size:14.5px; margin:0; }
+
+/* timeline */
+.timeline{ margin-top:28px; display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.step{ border-top:3px solid var(--ink); padding-top:14px; }
+.step .w{ font-family:'Courier Prime',monospace; font-size:12.5px; font-weight:700; color:var(--ink-3); text-transform:uppercase; letter-spacing:1.4px; }
+.step h4{ font-size:16px; margin:4px 0 6px; }
+.step p{ font-size:14px; }
+
+/* cta */
+.cta{ background:var(--sea); color:#fff; }
+.cta h2 em{ color:var(--teal); }
+.cta p{ color:rgba(255,255,255,0.8); }
+.cta .eyebrow{ color:var(--teal); }
+.btns{ display:flex; gap:14px; flex-wrap:wrap; margin-top:28px; }
+.btn{ display:inline-flex; align-items:center; gap:10px; padding:15px 30px; font-size:15.5px; font-weight:600; text-decoration:none; border-radius:6px; }
+.btn.wa{ background:#25D366; color:#0b3d1c; }
+.btn.mail{ background:#fff; color:var(--sea); }
+.btn svg{ width:20px; height:20px; }
+.sig{ margin-top:40px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.18); }
+.sig .n{ font-size:21px; font-weight:700; }
+.sig .r{ font-size:14px; color:rgba(255,255,255,0.65); margin-top:2px; }
+
+/* footer */
+.footer{ background:#0B1416; color:rgba(255,255,255,0.5); padding:28px 0; font-size:12.5px; }
+.footer-inner{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center; }
+.footer .logos{ display:flex; align-items:center; gap:16px; }
+.footer .logos img{ height:16px; opacity:0.85; }
+.footer .logos img.mrc{ height:40px; background:#fff; border-radius:6px; padding:3px 5px; }
+
+@media (max-width:820px){
+  .contents-grid{ grid-template-columns:1fr 1fr; }
+  .checked{ grid-template-columns:1fr; }
+  .proof{ grid-template-columns:1fr 1fr; }
+  .work{ grid-template-columns:1fr; }
+  .ideas{ grid-template-columns:1fr; }
+  .packages{ grid-template-columns:1fr; gap:30px; }
+  .combos{ grid-template-columns:1fr; }
+  .detail-grid{ grid-template-columns:1fr; }
+  .timeline{ grid-template-columns:1fr 1fr; }
+  .strip{ grid-template-columns:repeat(3,1fr); }
+  .strip img{ height:150px; }
+  .strip.five{ grid-template-columns:repeat(3,1fr); }
+  .strip.five img:nth-child(n+4){ display:none; }
+  .letter{ padding:30px 22px; }
+  .hero-inner{ padding:70px 24px 54px; }
+  .hero-facts{ gap:24px; }
+  .section{ padding:56px 0; }
+  .part-inner{ padding:60px 24px; }
+  .part-inner .badge{ height:90px; }
+  .part-inner .badge.wide{ width:200px; }
+}
+@media (max-width:440px){
+  .strip img{ height:115px; }
+  .pack{ padding:30px 20px; }
+  .timeline{ grid-template-columns:1fr; }
+  .lockup .royal{ height:17px; }
+  .lockup .mrc{ height:38px; }
+  .lockup{ gap:10px; }
+  .btn{ width:100%; justify-content:center; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="lockup">
+      <img class="royal" src="assets/royal-logo.png" alt="The Royal Hotel, Whitley Bay">
+      <span class="amp">&amp;</span>
+      <img class="mrc" src="assets/mrc-logo.png" alt="Mr C's Fish and Chips">
+      <span class="x">x</span>
+      <span class="fc">Fusion Creative</span>
+    </div>
+    <div class="header-meta">Proposal &middot; 2 October 2026</div>
+  </div>
+</header>
+
+<section class="hero" data-sec="hero">
+  <div class="hero-imgs">
+    <img src="assets/royal-front.jpg" alt="The Royal Hotel on East Parade, Whitley Bay">
+    <img src="assets/mrc-35.jpg" alt="Mr C's fish bites and chips">
+  </div>
+  <div class="container hero-inner">
+    <div class="kicker">Prepared for Megan</div>
+    <h1>The <span class="t">Royal Hotel</span><br>and <span class="r">Mr C's.</span></h1>
+    <p class="hero-sub">What we would film, what is already working for businesses like yours, and what it costs. One plan for each business, priced separately so you can start with one or both.</p>
+    <div class="hero-facts">
+      <div class="hero-fact"><div class="l">Hotel</div><div class="v">East Parade, Whitley Bay</div></div>
+      <div class="hero-fact"><div class="l">Chippy</div><div class="v">Kirkwood Drive, Kenton</div></div>
+      <div class="hero-fact"><div class="l">Prepared by</div><div class="v">Jay Williams, Fusion Creative</div></div>
+    </div>
+  </div>
+</section>
+
+<nav class="contents" aria-label="What's inside">
+  <div class="container"><div class="contents-grid">
+    <a href="#mrcs"><div class="n">01</div><div class="t">Mr C's: what works, ideas, packages</div></a>
+    <a href="#royal"><div class="n">02</div><div class="t">The Royal Hotel: what works, ideas, packages</div></a>
+    <a href="#glance"><div class="n">03</div><div class="t">Both at a glance</div></a>
+    <a href="#next"><div class="n">04</div><div class="t">How we start</div></a>
+  </div></div>
+</nav>
+
+<section class="section" data-sec="letter">
+  <div class="container">
+    <div class="letter">
+      <div class="hi">Hi Megan,</div>
+      <p>Thanks for coming back so quickly. Fusion Creative is a content marketing agency based in Newcastle: we film short form video in person, run your social channels and, when it makes sense, the paid ads behind them. You asked what it costs, so this page has the prices for both businesses, plus what we would actually make for each one.</p>
+      <p class="lead"><b>Our take: Mr C's is the easy win. Fish and chips is one of the most watched food categories on short form video, and you already have the things that work on camera: a family story going back to 1974, two Good Food Awards and a lunchtime menu from &pound;4.50. The hotel is a different job: your seven sea view rooms are being refurbished right now, which gives us a ready made series and a reason to build an audience before they reopen.</b></p>
+      <div class="checked">
+        <div class="checked-col mrc">
+          <div class="checked-title">Mr C's, checked 2 October</div>
+          <div class="crow"><span class="k">Instagram</span><span class="v">462 followers, 140 posts</span></div>
+          <div class="crow"><span class="k">TikTok</span><span class="v hot">No account</span></div>
+          <div class="crow"><span class="k">Review rating</span><span class="v good">4.4 from 260 reviews</span></div>
+          <div class="crow"><span class="k">Good Food Award</span><span class="v good">2023/24 and 2024/25</span></div>
+          <div class="crow"><span class="k">Lunch specials from</span><span class="v">&pound;4.50</span></div>
+        </div>
+        <div class="checked-col">
+          <div class="checked-title">The Royal Hotel, checked 2 October</div>
+          <div class="crow"><span class="k">Instagram, TikTok, Facebook</span><span class="v hot">None we could find</span></div>
+          <div class="crow"><span class="k">Booking.com score</span><span class="v">7.3, location 9.2</span></div>
+          <div class="crow"><span class="k">TripAdvisor</span><span class="v">3.9 from 744 reviews</span></div>
+          <div class="crow"><span class="k">TripAdvisor rank</span><span class="v">#5 of 8 in Whitley Bay</span></div>
+          <div class="crow"><span class="k">Sea view rooms</span><span class="v good">7 being refurbished</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section proof-wrap" data-sec="proof">
+  <div class="container">
+    <div class="eyebrow">Who you would be working with</div>
+    <h2>Local, in person, <em>measured on sales.</em></h2>
+    <p class="max">Jay Williams and Anya Davey, the founders of Fusion Creative, are the people who turn up, film, and appear on camera when a video needs a presenter. Our best known food result is New Greek, an independent Newcastle restaurant.</p>
+    <div class="proof">
+      <div><div class="num">+40%</div><div class="lbl">New Greek weekly sales, in the owner's own words</div></div>
+      <div><div class="num">87M+</div><div class="lbl">Views across New Greek's Instagram and TikTok</div></div>
+      <div><div class="num">11,000+</div><div class="lbl">New followers grown for New Greek</div></div>
+      <div><div class="num">7.6x</div><div class="lbl">Blended return on ad spend for an ads client this summer</div></div>
+    </div>
+    <div class="quote">
+      <p>"The sales we made when we used Fusion we never made them in 2 years of the restaurant."</p>
+      <div class="who">Owner, New Greek, Heaton</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MR C'S ============ -->
+<section class="part mrc" id="mrcs" data-sec="mrcs-intro">
+  <img class="bg" src="assets/mrc-5.jpg" alt="">
+  <div class="container part-inner">
+    <img class="badge crest" src="assets/mrc-logo.png" alt="Mr C's crest">
+    <div>
+      <div class="pn">Part 01 &middot; Mr C's Fish &amp; Chips</div>
+      <h2>"One taste and you're hooked."</h2>
+      <p>It is written on your window. The job is to put that taste on every phone in Kenton, Gosforth and Fenham before they decide what is for tea.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section zone-mrc" data-sec="mrcs-working">
+  <div class="container">
+    <div class="eyebrow">What is working for chippies right now</div>
+    <h2>Fish and chips <em>travels.</em></h2>
+    <p class="max">These are the formats pulling the biggest numbers for UK chip shops on TikTok and Instagram. None of them need a studio. All of them can be filmed at Kirkwood Drive.</p>
+    <div class="work">
+      <div class="wcard">
+        <div class="h">Staff as the star</div>
+        <h3>Merchants Fish &amp; Chips, Bewdley</h3>
+        <p>Short scripted counter skits built around one member of staff, the "chip shop diva". Their first video passed 25.7 million views in ten days. This is our Your Team package in its purest form: your people, our script and edit.</p>
+        <span class="stat">672K TikTok followers</span>
+      </div>
+      <div class="wcard">
+        <div class="h">Batter anything</div>
+        <h3>The Silver Fish, Wellington</h3>
+        <p>Stunts like a fish in 100 layers of batter and battered birthday cake. One clip passed 4 million views, and customers now drive over an hour to visit a small town chippy.</p>
+        <span class="stat">4M+ views on one clip</span>
+      </div>
+      <div class="wcard">
+        <div class="h">Creator visits</div>
+        <h3>Colmans, South Shields</h3>
+        <p>Brought in a US creator with 3.4 million TikTok followers for a family visit. Creator content puts your counter in front of an audience someone else has already built.</p>
+        <span class="stat">3.4M follower creator</span>
+      </div>
+    </div>
+    <div class="note">
+      <h4>The local creators we would book for Mr C's</h4>
+      <p>North East food creators already reviewing chippies and takeaways include @kylevfood (238K on TikTok), @geordiejoiner (62K) and @newcastlecravings (23K, who has reviewed Fenham and Low Fell chippies). One creator visit a month is in the We Present package.</p>
+    </div>
+    <p class="src">Follower counts checked live on 2 October 2026. Sources: <a href="https://www.thedrum.com/opinion/2024/11/11/who-the-chip-shop-diva-taking-over-tiktok" target="_blank" rel="noopener">The Drum</a>, <a href="https://www.shropshirestar.com/news/tiktok-wellington-telford-food-6475071" target="_blank" rel="noopener">Shropshire Star</a>.</p>
+  </div>
+</section>
+
+<div class="strip">
+  <img src="assets/mrc-13.jpg" alt="Fish lifted from the fryer">
+  <img src="assets/mrc-35.jpg" alt="Fish bites and chips">
+  <img src="assets/mrc-29.jpg" alt="Fish bites, chips and a can">
+  <img src="assets/mrc-27.jpg" alt="Kebab wrap">
+  <img src="assets/mrc-38.jpg" alt="Good Food Award plaques">
+  <img src="assets/mrc-10.jpg" alt="Mr C's menu outside the shop">
+</div>
+
+<section class="section zone-mrc k2" data-sec="mrcs-ideas">
+  <div class="container">
+    <div class="eyebrow">Ideas for Mr C's</div>
+    <h2>Eight videos we would <em>film first.</em></h2>
+    <p class="max">Each one is tagged with who is on camera. The red ones work with your own team in shot, the black ones are where one of us presents. That is the difference between the two packages below.</p>
+    <div class="ideas">
+      <div class="idea">
+        <div class="num">01</div>
+        <h3>The batter dip, in slow motion</h3>
+        <p>Fillet into the batter, into the fryer, out golden, onto the paper. Close, loud, no talking. The single most reliable chippy format there is.</p>
+        <div class="hook">Hook: "The sound of a Friday."</div>
+        <span class="who staff">Your team</span>
+      </div>
+      <div class="idea">
+        <div class="num">02</div>
+        <h3>What &pound;5.50 gets you at lunchtime</h3>
+        <p>Every lunchtime special on the counter in one shot: pie and chips, kebab and chips, fish bites, sausage special. Price led content is what makes people get in the car.</p>
+        <div class="hook">Hook: "Name a better lunch for &pound;5.50. I'll wait."</div>
+        <span class="who either">Either</span>
+      </div>
+      <div class="idea">
+        <div class="num">03</div>
+        <h3>Three generations, since 1974</h3>
+        <p>The family story in under a minute: the grandfather's first shop, what has stayed the same, what has changed. Story videos are what turn viewers into regulars.</p>
+        <div class="hook">Hook: "My granddad opened his first chippy in 1974."</div>
+        <span class="who staff">Your team</span>
+      </div>
+      <div class="idea">
+        <div class="num">04</div>
+        <h3>Rate my order, live at the counter</h3>
+        <p>One of us asks the queue what they ordered and rates it out of ten. Real customers, real banter, the food in every shot.</p>
+        <div class="hook">Hook: "Rating your chippy order out of ten."</div>
+        <span class="who us">Fusion on camera</span>
+      </div>
+      <div class="idea">
+        <div class="num">05</div>
+        <h3>The pensioner special</h3>
+        <p>Large fish and small chips for &pound;10.50. Film a regular collecting it, ask how long they have been coming. Warm, local, very shareable with family.</p>
+        <div class="hook">Hook: "He's been coming here every Friday for 20 years."</div>
+        <span class="who either">Either</span>
+      </div>
+      <div class="idea">
+        <div class="num">06</div>
+        <h3>Back to back award winners</h3>
+        <p>Good Food Award 2023/24 and 2024/25, shown as proof rather than a poster. Pair it with the MSC fish and the "frozen at sea within hours" line.</p>
+        <div class="hook">Hook: "Two years running. Here's why."</div>
+        <span class="who staff">Your team</span>
+      </div>
+      <div class="idea">
+        <div class="num">07</div>
+        <h3>The chippy challenge</h3>
+        <p>Can one of us finish a large cod, chips, curry sauce and a can in under ten minutes, or guess the price of five items. Games are the formats people send to their mates.</p>
+        <div class="hook">Hook: "If I finish this, it's free. (It's not free.)"</div>
+        <span class="who us">Fusion on camera</span>
+      </div>
+      <div class="idea">
+        <div class="num">08</div>
+        <h3>Friday rush, sped up</h3>
+        <p>A fixed camera on the counter from 4pm to 8pm, cut down to 20 seconds. Shows how busy you are, which is the best advert a chippy can have.</p>
+        <div class="hook">Hook: "4pm to 8pm on a Friday in Kenton."</div>
+        <span class="who staff">Your team</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section zone-mrc" data-sec="mrcs-packages">
+  <div class="container">
+    <div class="eyebrow">Packages for Mr C's</div>
+    <h2>Your team on camera, <em>or us.</em></h2>
+    <p class="max">Same filming, editing and posting standard on both. The difference is who is in front of the lens and how much we make. Your team on camera is the better value way in; having us present unlocks the challenge, review and street formats that need a confident host.</p>
+    <div class="packages">
+      <div class="pack">
+        <div class="name">Your Team</div>
+        <div class="tag">We direct and film your staff and family.</div>
+        <div class="price"><span class="amt">&pound;899</span><span class="per">per month</span></div>
+        <div class="per-video">12 videos &middot; about &pound;75 each</div>
+        <ul class="plist">
+          <li><b>12 videos a month, 3 posts a week</b><span>Instagram, TikTok and Facebook</span></li>
+          <li><b>1 filming day a month at Kirkwood Drive</b><span>Filmed around service, no floor time lost</span></li>
+          <li><b>Your team on camera, directed by us</b><span>We plan every shot and line, nobody has to perform</span></li>
+          <li><b>Editing, captions, hooks and posting</b><span>All done for you</span></li>
+          <li><b>Google profile tidied up</b><span>Photos, hours and menu kept current</span></li>
+          <li><b>Monthly report</b><span>Views, followers, what worked</span></li>
+        </ul>
+      </div>
+      <div class="pack featured">
+        <div class="flag">Recommended</div>
+        <div class="name">We Present</div>
+        <div class="tag">Jay or Anya on camera, plus your team.</div>
+        <div class="price"><span class="amt">&pound;1,250</span><span class="per">per month</span></div>
+        <div class="per-video">20 videos &middot; about &pound;62.50 each</div>
+        <ul class="plist">
+          <li><b>20 videos a month, 5 posts a week</b><span>Instagram, TikTok and Facebook</span></li>
+          <li><b>2 filming days a month</b><span>One for the presenter formats, one for food and team</span></li>
+          <li><b>One of us presenting on camera</b><span>Reviews, challenges, counter interviews, rate my order</span></li>
+          <li><b>Your team content as well</b><span>Batter dip, Friday rush, the family story</span></li>
+          <li><b>1 local food creator visit a month</b><span>We find them, brief them and host them</span></li>
+          <li><b>Google profile and review push</b></li>
+          <li><b>Monthly report and strategy call</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">
+      <h4>Why we would point Mr C's at We Present</h4>
+      <p>A presenter is what turns a food clip into something people comment on and share. Five posts a week is the volume that gets a local chippy into the feed of everyone within a few miles, and it works out cheaper per video. If you would rather start on Your Team, you can move up any month.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROYAL HOTEL ============ -->
+<section class="part royal" id="royal" data-sec="royal-intro">
+  <img class="bg" src="assets/royal-c.jpg" alt="">
+  <div class="container part-inner">
+    <img class="badge wide" src="assets/royal-logo-white.png" alt="The Royal Hotel, Whitley Bay">
+    <div>
+      <div class="pn">Part 02 &middot; The Royal Hotel</div>
+      <h2>Sea views, Spanish City, and seven rooms about to reopen.</h2>
+      <p>People choose a seaside hotel from a phone screen. Right now the only place they can see the Royal is a booking site listing, which takes a cut of every room.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section zone-royal" data-sec="royal-working">
+  <div class="container">
+    <div class="eyebrow">What is working for seaside hotels</div>
+    <h2>Show the room, <em>show the view.</em></h2>
+    <p class="max">Small, independent hotels are some of the biggest winners on short form video, because a phone shows a room and a view far better than a listing photo does.</p>
+    <div class="work">
+      <div class="wcard">
+        <div class="h">Owner walk throughs</div>
+        <h3>Fyfield Manor B&amp;B, Oxfordshire</h3>
+        <p>The owner and her daughter walk through the rooms using trending sounds. Around 10 million views from just 43 videos, and guests now say they booked because of them.</p>
+        <span class="stat">40K TikTok followers, 43 videos</span>
+      </div>
+      <div class="wcard">
+        <div class="h">Video ads to bookings</div>
+        <h3>The Botanist, Edinburgh</h3>
+        <p>Creator style videos run as paid ads on TikTok: 1.5 million views and over 700 bookings reported by the platform partner. This is what our Direct Bookings package does with your own footage.</p>
+        <span class="stat">700+ bookings reported</span>
+      </div>
+      <div class="wcard">
+        <div class="h">The open goal</div>
+        <h3>Whitley Bay and Tynemouth</h3>
+        <p>We could not find a single Whitley Bay seafront hotel posting short form video. The Grand Hotel in Tynemouth has 13 TikTok followers and no videos. The first hotel on the coast to do this properly owns it.</p>
+        <span class="stat">No local competition yet</span>
+      </div>
+    </div>
+    <div class="note">
+      <h4>Why booking direct matters</h4>
+      <p>Booking.com's base commission for UK hotels is around 15% of the room price, and independents often pay more once the visibility programmes are added. Every guest who books direct because they saw your video keeps that money in the hotel.</p>
+    </div>
+    <p class="src">Checked 2 October 2026. Sources: <a href="https://www.henleystandard.co.uk/news/community/492101/the-demure-b-b-that-has-so-much-rizz-goes-viral.html" target="_blank" rel="noopener">Henley Standard</a>, <a href="https://joliapp.com/blog/tiktok-ads-hospitality-guide/" target="_blank" rel="noopener">Joli</a>, <a href="https://www.revinate.com/blog/the-margin-uki-hotels-are-giving-away-to-otas/" target="_blank" rel="noopener">Revinate</a>.</p>
+  </div>
+</section>
+
+<section class="section zone-royal soft" data-sec="royal-ideas">
+  <div class="container">
+    <div class="eyebrow">Ideas for the Royal</div>
+    <h2>Six videos we would <em>film first.</em></h2>
+    <div class="ideas">
+      <div class="idea">
+        <div class="num">01</div>
+        <h3>The refurb, room by room</h3>
+        <p>A running series while the seven sea view rooms are being finished: before, during, reveal. Builds an audience who are waiting for the rooms before they are even bookable.</p>
+        <div class="hook">Hook: "We're redoing our sea view rooms. Here's room one."</div>
+      </div>
+      <div class="idea">
+        <div class="num">02</div>
+        <h3>Open the curtains</h3>
+        <p>One shot: curtains open, Whitley Bay beach and St Mary's Lighthouse in the window. Ten seconds, no voice. The view sells the room.</p>
+        <div class="hook">Hook: "This is what you wake up to."</div>
+      </div>
+      <div class="idea">
+        <div class="num">03</div>
+        <h3>A weekend in Whitley Bay</h3>
+        <p>Check in, Spanish City, the promenade, fish and chips, the lighthouse at low tide, back to the room. A guide people save and send to whoever they are going with.</p>
+        <div class="hook">Hook: "The perfect weekend on the coast, for less than you'd think."</div>
+      </div>
+      <div class="idea">
+        <div class="num">04</div>
+        <h3>What your room rate gets you</h3>
+        <p>Sea view room, buffet breakfast, parking, a minute from the beach. Plain value, laid out on screen with the price.</p>
+        <div class="hook">Hook: "Sea view, breakfast, parking. Here's the price."</div>
+      </div>
+      <div class="idea">
+        <div class="num">05</div>
+        <h3>Concert and event weekends</h3>
+        <p>Short, timely posts aimed at people coming to the coast or into Newcastle for gigs, the Great North Run and summer events, with "book direct" in every one.</p>
+        <div class="hook">Hook: "Coming up for the weekend? Stay on the seafront."</div>
+      </div>
+      <div class="idea">
+        <div class="num">06</div>
+        <h3>Breakfast with a view</h3>
+        <p>The home cooked buffet breakfast filmed properly. Breakfast is one of the most saved hotel formats, and it is included in every one of your rates.</p>
+        <div class="hook">Hook: "Breakfast's included. So is the sea."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip five">
+  <img src="assets/royal-front.jpg" alt="The Royal Hotel at dusk">
+  <img src="assets/royal-05621.jpg" alt="Double room">
+  <img src="assets/royal-b.jpg" alt="Room detail">
+  <img src="assets/royal-c.jpg" alt="Spanish City, Whitley Bay">
+  <img src="assets/royal-09032.jpg" alt="Fish and chips on the coast">
+</div>
+
+<section class="section zone-royal" data-sec="royal-packages">
+  <div class="container">
+    <div class="eyebrow">Packages for the Royal</div>
+    <h2>Content now, <em>bookings next.</em></h2>
+    <p class="max">A hotel is sold on bookings, not views. The first package builds the content and the audience. The second puts paid ads behind it and sends people to book direct with you rather than through a booking site that takes a commission.</p>
+    <div class="packages">
+      <div class="pack featured">
+        <div class="flag">Start here</div>
+        <div class="name">Hotel Content</div>
+        <div class="tag">The refurb series, the rooms, the coast.</div>
+        <div class="price"><span class="amt">&pound;899</span><span class="per">per month</span></div>
+        <div class="per-video">12 videos &middot; about &pound;75 each</div>
+        <ul class="plist">
+          <li><b>12 videos a month, 3 posts a week</b><span>Instagram, TikTok and Facebook</span></li>
+          <li><b>1 filming day a month at the hotel and on the coast</b></li>
+          <li><b>The refurb series, start to reveal</b><span>Timed to the reopening of the sea view rooms</span></li>
+          <li><b>Room and view photography for your website and listings</b><span>Taken on the same filming days</span></li>
+          <li><b>"Book direct" on every post</b><span>Pointing to your own booking page</span></li>
+          <li><b>Google profile tidied up and monthly report</b></li>
+        </ul>
+      </div>
+      <div class="pack">
+        <div class="name">Direct Bookings</div>
+        <div class="tag">Content plus fully managed Meta ads.</div>
+        <div class="price"><span class="amt">&pound;1,950</span><span class="per">per month</span></div>
+        <div class="per-video">20+ videos &middot; ads run by us</div>
+        <ul class="plist">
+          <li><b>Everything in Hotel Content, at 20+ videos</b><span>5 posts a week</span></li>
+          <li><b>Meta ads built, run and optimised by us</b><span>Couples, families and event visitors within driving distance</span></li>
+          <li><b>Retargeting</b><span>Anyone who watched a room video or visited the site, followed up</span></li>
+          <li><b>Booking tracking set up in week one</b><span>So we report bookings, not just clicks</span></li>
+          <li><b>Seasonal pushes</b><span>Summer, Christmas, events, quiet midweeks</span></li>
+          <li><b>Monthly report: spend, bookings, cost per booking</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">
+      <h4>Our recommendation for the hotel</h4>
+      <p>Start on Hotel Content now, while the rooms are being refurbished, so there is an audience and a library of room footage ready for the reopening. Move to Direct Bookings when the sea view rooms are back on sale. Ad spend is separate, paid by you directly to Meta, and starts small.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AT A GLANCE ============ -->
+<section class="section" id="glance" data-sec="glance">
+  <div class="container">
+    <div class="eyebrow">Both at a glance</div>
+    <h2>The <em>numbers.</em></h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>What you get</th><th class="m">Mr C's &middot; Your Team</th><th class="m">Mr C's &middot; We Present</th><th class="r">Royal &middot; Content</th><th class="r">Royal &middot; Bookings</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Monthly fee</td><td class="val">&pound;899</td><td class="val">&pound;1,250</td><td class="val">&pound;899</td><td class="val">&pound;1,950</td></tr>
+          <tr><td>Videos per month</td><td class="val">12</td><td class="val">20</td><td class="val">12</td><td class="val">20+</td></tr>
+          <tr><td>Posts per week</td><td>3</td><td>5</td><td>3</td><td>5</td></tr>
+          <tr><td>Filming days</td><td>1 a month</td><td>2 a month</td><td>1 a month</td><td>1 to 2 a month</td></tr>
+          <tr><td>Who is on camera</td><td>Your team</td><td>Jay or Anya, plus your team</td><td>The hotel and the coast</td><td>The hotel and the coast</td></tr>
+          <tr><td>Creator visits</td><td>No</td><td>1 a month</td><td>No</td><td>No</td></tr>
+          <tr><td>Paid ads managed</td><td>No</td><td>No</td><td>No</td><td>Yes, ad spend separate</td></tr>
+          <tr><td>Report</td><td>Monthly</td><td>Monthly plus call</td><td>Monthly</td><td>Monthly, with bookings</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="combos">
+      <div class="combo">
+        <div class="l">Mr C's only</div>
+        <div class="a">&pound;1,250<small> /month</small></div>
+        <p>We Present. The quickest way to see what this does for you, on the business it suits best.</p>
+      </div>
+      <div class="combo pick">
+        <div class="l">Both, our pick</div>
+        <div class="a">&pound;2,149<small> /month</small></div>
+        <p>Mr C's on We Present plus Hotel Content through the refurb. Move the hotel to Direct Bookings when the rooms reopen.</p>
+      </div>
+      <div class="combo">
+        <div class="l">Both, lighter start</div>
+        <div class="a">&pound;1,798<small> /month</small></div>
+        <p>Mr C's on Your Team plus Hotel Content. Same standard, lower volume, upgrade either one any month.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <h4>And the other shops</h4>
+      <p>You mentioned Dhillons and Krispies. Once Mr C's has a few months of formats that we know work, the same playbook can be rolled out across the other shops, filmed on shared days. Happy to price that whenever you want to look at it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section tight" style="background:var(--white)" data-sec="detail">
+  <div class="container">
+    <div class="eyebrow">The detail</div>
+    <h2>How it <em>works.</em></h2>
+    <div class="detail-grid">
+      <div class="detail"><h4>Term</h4><p>Three month initial term per business, then rolling monthly with 30 days notice. Content builds on itself, so three months is the honest minimum to judge it.</p></div>
+      <div class="detail"><h4>Billing</h4><p>Monthly in advance by invoice, first month on signing. No setup fee. Ad spend, where it applies, is paid by you directly to Meta.</p></div>
+      <div class="detail"><h4>Switching</h4><p>Each business is its own agreement. Move up, or add the second business, any month.</p></div>
+      <div class="detail"><h4>What we need from you</h4><p>Access on filming days, a quick sign off on each month's plan, and logins for the social accounts. We handle the rest.</p></div>
+    </div>
+    <div class="timeline">
+      <div class="step"><div class="w">Week 1</div><h4>Agree and plan</h4><p>Short call, pick packages, we send the agreement and a shoot list for each business.</p></div>
+      <div class="step"><div class="w">Week 1 to 2</div><h4>First filming day</h4><p>Mr C's first, around a lunchtime and a teatime service. Hotel the same week.</p></div>
+      <div class="step"><div class="w">Week 2</div><h4>First posts live</h4><p>Videos go out on the agreed days. TikTok set up if there is not one already.</p></div>
+      <div class="step"><div class="w">Month 1</div><h4>First report</h4><p>What worked, what we film more of, what we drop.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section cta" id="next" data-sec="next">
+  <div class="container">
+    <div class="eyebrow">Next steps</div>
+    <h2>Ready when <em>you are.</em></h2>
+    <p class="lead max" style="color:#fff">Tell me which package suits each business and I will send the agreement and get the first filming day in the diary. If it is easier to talk it through, I am happy to come to Kirkwood Drive or the hotel.</p>
+    <div class="btns">
+      <a class="btn wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20it%27s%20Megan%20about%20the%20Royal%20Hotel%20and%20Mr%20C%27s%20proposal" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 0 1-1.44-5.01c0-5.2 4.23-9.43 9.44-9.43a9.37 9.37 0 0 1 6.67 2.77 9.37 9.37 0 0 1 2.76 6.67c0 5.2-4.23 9.43-9.43 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.8.72.72 5.8.72 12.05c0 2 .52 3.95 1.52 5.66L.62 23.28l5.7-1.5a11.3 11.3 0 0 0 5.42 1.38h.01c6.25 0 11.33-5.08 11.33-11.33 0-3.03-1.18-5.87-3.32-8.01z"/></svg>WhatsApp Jay</a>
+      <a class="btn mail" href="mailto:jay@fusioncreative.uk?subject=Royal%20Hotel%20and%20Mr%20C%27s%20proposal">Email instead</a>
+    </div>
+    <p style="margin-top:16px;font-size:14px">Or call me on 07437 571250 whenever suits.</p>
+    <div class="sig">
+      <div class="n">Jay Williams</div>
+      <div class="r">Co-founder, Fusion Creative &middot; fusioncreative.uk</div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="logos"><img src="assets/royal-logo-white.png" alt="The Royal Hotel"><img class="mrc" src="assets/mrc-logo.png" alt="Mr C's"></div>
+    <div>Confidential &middot; Prepared for Megan, The Royal Hotel and Mr C's Fish &amp; Chips &middot; 2 October 2026</div>
+  </div>
+</footer>
+
+<script>
+(function(){try{
+  if(!/(^|\.)fusioncreative\.uk$/.test(location.hostname))return;
+  var q=location.search;
+  if(/[?&](owner|me)=1/.test(q)){try{localStorage.setItem('fc_owner','1')}catch(e){}}
+  try{if(localStorage.getItem('fc_owner')==='1')return}catch(e){}
+  var slug='proposal-royal-hotel-mr-cs', api='https://newgreek.fusioncreative.uk/api/audit-view/';
+  var sid; try{sid=sessionStorage.getItem('fc_sid_'+slug)}catch(e){}
+  var fresh=!sid; if(fresh){sid=Math.random().toString(36).slice(2,12)+Date.now().toString(36);try{sessionStorage.setItem('fc_sid_'+slug,sid)}catch(e){}}
+  function post(o,beacon){o.slug=slug;o.sid=sid;var b=JSON.stringify(o);
+    if(beacon&&navigator.sendBeacon){try{navigator.sendBeacon(api,new Blob([b],{type:'text/plain'}));return}catch(e){}}
+    fetch(api,{method:'POST',headers:{'Content-Type':'text/plain'},body:b,keepalive:true}).catch(function(){});}
+  if(fresh){post({t:'open',ref:document.referrer,q:q,scr:screen.width+'x'+screen.height,tz:(Intl.DateTimeFormat().resolvedOptions().timeZone||''),lang:navigator.language||''});}
+  var seen={},secs=[],maxS=0,active=0,last=Date.now();
+  function tick(){var n=Date.now();if(!document.hidden)active+=n-last;last=n;}
+  function scr(){var h=document.documentElement.scrollHeight-innerHeight;var p=h>0?Math.round(scrollY/h*100):100;if(p>maxS)maxS=Math.min(100,p);}
+  addEventListener('scroll',scr,{passive:true});
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var k=e.target.getAttribute('data-sec');if(!seen[k]){seen[k]=1;secs.push(k)}}})},{rootMargin:'-45% 0px -45% 0px',threshold:0});
+    document.querySelectorAll('[data-sec]').forEach(function(el){io.observe(el)});}
+  document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-lock],[data-unlock],a.btn');if(!t)return;
+    var k=t.hasAttribute('data-lock')?'tapped-locked':t.hasAttribute('data-unlock')?'clicked-unlock':'clicked-'+(t.classList.contains('wa')?'whatsapp':/^mailto/.test(t.href)?'email':'call');
+    if(!seen[k]){seen[k]=1;secs.push(k)} ping(false);});
+  function ping(b){tick();scr();post({t:'ping',dur:Math.round(active/1000),scroll:maxS,sec:secs},b);}
+  document.addEventListener('visibilitychange',function(){if(document.hidden)ping(true);else last=Date.now();});
+  addEventListener('pagehide',function(){ping(true)});
+  setTimeout(function(){ping(false)},4000);
+  setInterval(function(){if(!document.hidden)ping(false)},15000);
+}catch(e){}})();
+</script>
+</body>
+</html>
