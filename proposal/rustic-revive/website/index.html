@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="A website and conversion audit of rusticrevive.co.uk: mistakes, what stops people buying, what other furniture sites do, and the fix list.">
+<meta property="og:title" content="Rustic Revive website audit x Fusion Creative">
+<meta property="og:description" content="Mistakes, conversion blockers, five competitor sites compared, and the fix list in order.">
+<meta property="og:image" content="https://fusioncreative.uk/proposal/rustic-revive/assets/table-thornton.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.png">
+<title>Rustic Revive website audit x Fusion Creative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Lato:ital,wght@0,400;0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1f1f1f; --ink-deep:#141414; --blue:#5f7a5f; --green:#5f7a5f;
+    --amber:#FBBC34; --amber-soft:#fdf1d3; --red:#b4232c;
+    --paper:#f3f3f1; --white:#ffffff; --body:#4a4a4a; --soft:#6f6f6f;
+    --line:rgba(20,20,20,0.13); --line-strong:rgba(20,20,20,0.28);
+    --serif:'Poppins',ui-sans-serif,system-ui,sans-serif;
+    --sans:'Lato',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+    --ond1:#e3e3e3; --ond2:#d2d2d2; --ond3:#b8b8b8; --ond4:#9a9a9a;
+    --tint:#ecefea; --tint2:#e4e4e1; --focus:rgba(95,122,95,0.2);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;color-scheme:light}
+  body{background:var(--paper);color:var(--body);font-family:var(--sans);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:var(--blue);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  strong,b{font-weight:700;color:var(--ink)}
+  em{font-style:italic}
+
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px;min-width:0}
+  section.page{padding:56px 0}
+  section.page + section.page{border-top:1px solid var(--line)}
+  section.dark{background:var(--ink);color:var(--ond1);border-top:0!important}
+  section.dark strong,section.dark b{color:#fff}
+  section.dark a{color:var(--amber)}
+  section.dark .eyebrow{color:var(--amber)}
+  section.dark h2{color:#fff}
+  section.dark p{color:var(--ond2)}
+
+  .eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:currentColor;display:inline-block}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;color:var(--ink);letter-spacing:-.005em}
+  h2{font-size:clamp(28px,4.4vw,40px);line-height:1.1;margin-bottom:18px}
+  h3{font-size:22px;line-height:1.2;margin:34px 0 12px;color:var(--ink)}
+  section.dark h3{color:var(--amber)}
+  p{margin:0 0 16px}
+  p.lead{font-size:18.5px;line-height:1.52;color:var(--ink)}
+  section.dark p.lead{color:#fff}
+  ul.plain{list-style:none;margin:0 0 16px}
+  ul.plain li{position:relative;padding-left:22px;margin-bottom:9px}
+  ul.plain li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:9px;border-radius:50%;background:var(--green)}
+  section.dark ul.plain li::before{background:var(--amber)}
+  .small{font-size:13.5px;color:var(--soft);line-height:1.5}
+  section.dark .small{color:var(--ond4)}
+
+  /* hero */
+  .hero{background:var(--ink);color:#fff;position:relative;overflow:hidden;min-height:92vh;display:flex;flex-direction:column}
+  .hero .photo{position:absolute;right:-8%;bottom:-6%;width:min(66vw,640px);aspect-ratio:1/1;border-radius:50%;overflow:hidden;opacity:.32}
+  .hero .photo img{width:100%;height:100%;object-fit:cover}
+  .hero .top{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;padding-top:22px;padding-bottom:22px;position:relative;z-index:2;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ond4);font-weight:700;flex-wrap:wrap}
+  .hero .top b{color:var(--amber)}
+  .hero .mid{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:30px;padding-bottom:44px;min-width:0;width:100%}
+  .lockup{display:flex;align-items:center;gap:14px;margin-bottom:28px;flex-wrap:wrap}
+  .lockup img{width:min(260px,58vw);height:auto}
+  .lockup .with{white-space:nowrap;display:inline-flex;align-items:center;gap:12px}
+  .lockup .x{font-family:var(--serif);font-size:20px;color:var(--amber)}
+  .lockup .fc{font-family:var(--serif);font-size:22px;color:#fff;line-height:1}
+  .hero .kicker{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+  .hero h1{font-size:clamp(36px,6.6vw,66px);line-height:1.02;color:#fff;max-width:15ch}
+  .hero .sub{margin-top:22px;font-size:18px;max-width:54ch;color:var(--ond2);line-height:1.52}
+  .hero .meta{margin-top:34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px 26px;max-width:min(740px,100%)}
+  .hero .meta div{border-top:1px solid rgba(255,255,255,.22);padding-top:10px;font-size:13.5px;color:var(--ond3)}
+  .hero .meta div b{display:block;color:#fff;font-size:15px;margin-top:2px;font-weight:600}
+
+  /* contents */
+  ol.toc{list-style:none;counter-reset:t;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px 26px;margin:22px 0 0}
+  ol.toc li{counter-increment:t;border-top:1px solid rgba(255,255,255,.16);padding:10px 0 4px;font-size:15px}
+  ol.toc li::before{content:counter(t,decimal-leading-zero);font-family:var(--serif);color:var(--amber);margin-right:12px}
+  ol.toc a{color:#fff;text-decoration:none}
+
+  /* components */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:24px 0}
+  .stat{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px 16px}
+  .stat .v{font-family:var(--serif);font-size:36px;line-height:1;color:var(--ink)}
+  .stat .l{font-size:12.5px;color:var(--soft);margin-top:8px;line-height:1.38;font-weight:600}
+  .stat.hot{background:var(--ink);border-color:var(--ink)}
+  .stat.hot .v{color:var(--amber)}
+  .stat.hot .l{color:var(--ond3)}
+  section.dark .stat.hot{border-color:rgba(255,255,255,.2)}
+  .callout{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:12px;padding:20px 22px;margin:22px 0}
+  .callout.warn{border-left-color:var(--amber)}
+  .callout.ink{background:var(--ink);border-color:var(--ink);color:var(--ond1)}
+  .callout.ink strong{color:#fff}
+  .callout.ink p{color:var(--ond1)}
+  .callout p:last-child,.callout ul:last-child{margin-bottom:0}
+  .promise{font-family:var(--serif);font-size:clamp(23px,3.4vw,30px);line-height:1.22;color:var(--ink);margin:8px 0 22px}
+  section.dark .promise{color:#fff}
+
+  .tbl{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14px;margin:16px 0 22px}
+  .tbl th,.tbl td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  .tbl th{background:var(--ink);color:#fff;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:800}
+  .tbl tr:last-child td{border-bottom:0}
+  .tbl td b{color:var(--ink)}
+  .tbl td.num{font-family:var(--serif);font-size:19px;color:var(--ink);white-space:nowrap}
+  .tbl tr.us td{background:var(--tint)}
+  .tbl tr.total td{background:var(--amber-soft)}
+  .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0 22px}
+  .tbl-wrap .tbl{min-width:640px;margin:0}
+
+  .adgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;margin:20px 0 10px}
+  .ad{background:var(--white);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .ad img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#e9eeec}
+  .ad .cap{padding:10px 12px 12px;font-size:13px;line-height:1.42}
+  .ad .cap b{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+  .ad .cap b.bad{color:var(--red)}
+  .ad .cap b.good{color:var(--green)}
+  .ad .cap .when{display:block;color:var(--soft);font-size:12px;margin-top:5px}
+
+  .issues{display:grid;gap:12px;margin:18px 0}
+  .issue{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;grid-template-columns:34px 1fr;gap:14px}
+  .issue .n{font-family:var(--serif);font-size:26px;color:var(--amber);line-height:1}
+  .issue h4{font-size:16.5px;font-weight:800;color:var(--ink);margin-bottom:6px;line-height:1.3}
+  .issue p{font-size:14.5px;margin:0 0 6px}
+  .issue p:last-child{margin:0}
+  .issue .fix{color:var(--green);font-weight:700}
+
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:22px 0}
+  .pillar{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px 20px}
+  .pillar .n{font-family:var(--serif);font-size:40px;line-height:1;color:var(--green);margin-bottom:10px}
+  .pillar h4{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:8px;line-height:1.28}
+  .pillar p{font-size:14.5px;margin:0}
+
+  .concepts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:18px 0 8px}
+  .concept{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px}
+  .concept .tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:var(--amber-soft);border-radius:999px;padding:3px 10px;margin-bottom:10px}
+  .concept .tag.org{background:var(--tint2)}
+  .concept h4{font-size:17.5px;font-weight:800;color:var(--ink);line-height:1.28;margin-bottom:8px}
+  .concept .hook{font-family:var(--serif);font-size:17px;line-height:1.3;color:var(--blue);margin:0 0 8px}
+  .concept p{font-size:14.5px;margin:0 0 8px;line-height:1.5}
+  .concept p:last-child{margin-bottom:0}
+  .concept .why{font-size:13px;color:var(--soft)}
+  .concept .why b{color:var(--green)}
+  .group-head{display:flex;align-items:baseline;gap:14px;margin:40px 0 6px;flex-wrap:wrap}
+  .group-head h3{margin:0}
+  .group-head .count{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;margin:20px 0}
+  .split img{border-radius:12px;width:100%;height:100%;object-fit:cover}
+  .photo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}
+  .photo-row img{border-radius:10px;aspect-ratio:4/3;object-fit:cover;width:100%}
+
+  .timeline{list-style:none;margin:18px 0 8px;border-left:2px solid var(--line-strong);padding-left:22px}
+  .timeline li{position:relative;padding-bottom:18px}
+  .timeline li::before{content:"";position:absolute;left:-29px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--amber);border:2px solid var(--ink)}
+  .timeline .d{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+  .timeline .t{font-weight:700;color:var(--ink);margin:2px 0 3px}
+  .timeline p{font-size:14.5px;margin:0}
+
+  .price{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:22px 0}
+  .plan{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px 22px}
+  .plan.main{background:var(--ink);border-color:var(--ink);color:var(--ond1)}
+  .plan .name{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+  .plan.main .name{color:var(--amber)}
+  .plan .amt{font-family:var(--serif);font-size:44px;line-height:1;color:var(--ink)}
+  .plan.main .amt{color:#fff}
+  .plan .per{font-size:14px;color:var(--soft);margin:6px 0 14px}
+  .plan.main .per{color:var(--ond3)}
+  .plan ul.plain li{font-size:14.5px}
+  .plan.main ul.plain li::before{background:var(--amber)}
+  .plan.main b{color:#fff}
+
+  .proof{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:22px 0 8px}
+  .proof img{border-radius:10px;aspect-ratio:9/16;object-fit:cover;width:100%}
+  .team{display:grid;grid-template-columns:160px 1fr;gap:22px;align-items:center;margin:24px 0}
+  .team img{border-radius:50%;aspect-ratio:1/1;object-fit:cover;width:160px}
+
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 8px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:15.5px}
+  .btn.mail{background:var(--amber);color:var(--ink)}
+  .btn.wa{background:#25d366;color:#06301a}
+  .btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+  footer{padding:34px 22px 50px;font-size:13px;color:var(--soft);max-width:880px;margin:0 auto}
+  footer a{color:var(--soft)}
+
+
+  /* calculator */
+  .calc{background:var(--white);border:1px solid var(--line-strong);border-radius:16px;padding:24px 22px;margin:26px 0}
+  .calc h3{margin:0 0 6px}
+  .calc .intro{font-size:14.5px;color:var(--soft);margin-bottom:18px}
+  .calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px 22px}
+  .field label{display:block;font-weight:700;color:var(--ink);font-size:14.5px;margin-bottom:4px}
+  .field .hint{display:block;font-size:12.5px;color:var(--soft);margin-bottom:8px;line-height:1.4}
+  .field .row{display:flex;align-items:center;gap:10px}
+  .field input[type=range]{flex:1;accent-color:var(--green);min-width:0;height:28px}
+  .field .num{display:flex;align-items:center;border:1px solid var(--line-strong);border-radius:10px;background:var(--paper);padding:0 10px;width:118px;flex:0 0 auto}
+  .field .num span{color:var(--soft);font-size:14.5px}
+  .field .num input{border:0;background:transparent;font:600 15.5px var(--sans);color:var(--ink);width:100%;padding:9px 4px;min-width:0}
+  .field .num input:focus{outline:none}
+  .field .num:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px var(--focus)}
+  .field.fixed .num{background:var(--tint)}
+  .calc-out{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0 14px}
+  .calc-out .o{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .calc-out .o .v{font-family:var(--serif);font-size:28px;line-height:1.05;color:var(--ink)}
+  .calc-out .o .l{font-size:12.5px;color:var(--soft);margin-top:6px;font-weight:600;line-height:1.35}
+  .calc-out .o.key{background:var(--ink);border-color:var(--ink)}
+  .calc-out .o.key .v{color:var(--amber)}
+  .calc-out .o.key .l{color:var(--ond3)}
+  .calc-out .o.neg .v{color:var(--red)}
+  .calc-say{font-size:15.5px;color:var(--ink);background:var(--tint);border-radius:10px;padding:14px 16px;margin:0 0 14px}
+  .calc-reset{background:none;border:1px solid var(--line-strong);border-radius:999px;padding:9px 16px;font:600 14px var(--sans);color:var(--ink);cursor:pointer}
+  .calc-reset:hover{border-color:var(--ink)}
+  .calc-reset:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+
+  @media (max-width:640px){
+    section.page{padding:44px 0}
+    .split{grid-template-columns:1fr}
+    .proof{grid-template-columns:repeat(3,1fr)}
+    .proof img:nth-child(n+4){display:none}
+    .photo-row{grid-template-columns:1fr 1fr}
+    .photo-row img:nth-child(3){display:none}
+    .team{grid-template-columns:1fr}
+    .team img{width:120px}
+    .hero{min-height:auto}
+    .hero .photo{opacity:.14;width:110vw;right:-45%;bottom:auto;top:30%}
+    .lockup{gap:10px}
+    .lockup img{width:min(220px,70vw)}
+    .issue{grid-template-columns:26px 1fr;gap:10px}
+    .calc{padding:20px 16px}
+    .calc-out{grid-template-columns:1fr 1fr}
+    .field .num{width:108px}
+  }
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+  @media print{.hero{min-height:auto}.cta{display:none}}
+
+
+  h1,h2,h3{font-weight:600;letter-spacing:-.01em}
+  h1{font-size:clamp(34px,6vw,60px)}
+  h2{font-size:clamp(26px,4vw,40px)}
+  h3{font-size:20px}
+  .stat .v,.pillar .n,.plan .amt,.calc-out .o .v,.tbl td.num,.issue .n{font-weight:600}
+  .stat .v{font-size:32px}.plan .amt{font-size:40px}.tbl td.num{font-size:16px}
+  .concept .hook{font-family:var(--sans);font-weight:700;font-style:italic;font-size:16px}
+  .badge{display:inline-flex;align-items:center;justify-content:center;background:#f3f3f1;border-radius:50%;width:132px;height:132px;padding:14px;flex:0 0 auto}
+  .badge img{width:100%;height:auto}
+  .lockup .fc{font-family:var(--serif);font-weight:600;font-size:18px;letter-spacing:.18em}
+  .btn{border-radius:0;text-transform:uppercase;letter-spacing:.06em;font-size:14px}
+  .calc-reset{border-radius:0}
+  .hero .photo{border-radius:0;aspect-ratio:3/4;right:-4%;bottom:0;opacity:.3}
+  .ad img{aspect-ratio:4/5}
+  @media (max-width:640px){.badge{width:96px;height:96px;padding:10px}.hero .photo{right:-30%;top:auto;bottom:0;width:90vw;opacity:.12}}
+  .pkg{display:flex;gap:6px;flex-wrap:wrap}
+  .pk{border:1px solid var(--line-strong);background:var(--paper);padding:9px 12px;font:700 13.5px var(--sans);color:var(--ink);cursor:pointer;border-radius:0}
+  .pk.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .pk:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+  .field .lbl{display:block;font-weight:700;color:var(--ink);font-size:14.5px;margin-bottom:4px}
+  section.dark .pillar{background:#2a2a2a;border-color:rgba(255,255,255,.12)}
+  section.dark .pillar h4{color:#fff}
+  section.dark .pillar p{color:var(--ond2)}
+  section.dark .pillar .n{color:var(--amber)}
+  section.dark .callout.ink{background:#2a2a2a;border-color:rgba(255,255,255,.12);border-left:5px solid var(--amber)}
+  .plan.main .small b{color:#fff}
+
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0 10px}
+  .shots.four{grid-template-columns:repeat(4,1fr)}
+  .shots figure{background:var(--white);border:1px solid var(--line);overflow:hidden;border-radius:12px}
+  .shots img{width:100%;aspect-ratio:375/640;object-fit:cover;object-position:top}
+  .shots figcaption{font-size:13px;line-height:1.42;padding:10px 12px 12px}
+  .tbl.cmp{min-width:860px;font-size:13px}
+  .tbl.cmp td.good{background:#eef3ec}
+  .tbl.cmp td.bad{background:#fbecea}
+  code{font-size:.9em;background:var(--tint);padding:1px 5px}
+  @media (max-width:640px){.shots,.shots.four{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<!-- fc-build: rustic-revive website CRO audit, checked 2026-10-02; sources: rusticrevive.co.uk (browser at 375px and 1440px, WooCommerce Store API, sitemaps, Lighthouse 12), competitor sites via curl + Lighthouse -->
+
+<header class="hero">
+  <div class="photo" aria-hidden="true"><img src="../assets/table-thornton.jpg" alt=""></div>
+  <div class="wrap top"><span>Prepared for <b>Rustic Revive</b></span><span>2 October 2026</span></div>
+  <div class="wrap mid">
+    <div class="lockup">
+      <span class="badge"><img src="../assets/logo-header.png" alt="Rustic Revive, custom bespoke furniture, est 2016"></span>
+      <span class="with"><span class="x">x</span> <span class="fc">FUSION CREATIVE</span></span>
+    </div>
+    <div class="kicker">Website and conversion audit</div>
+    <h1>A fast website that does not yet sell like your showroom.</h1>
+    <p class="sub">We went through rusticrevive.co.uk the way a buyer would, on a phone and on a laptop: homepage, menus, categories, five product pages, the basket and the first checkout screen. We checked speed, spelling, links and tracking, then compared it with five furniture websites, from Jarrow to London. This is what is wrong, what is missing, what others do better, and the order we would fix it in.</p>
+    <div class="meta">
+      <div>Prepared for<b>Jonathan, Rustic Revive</b></div>
+      <div>Prepared by<b>Jay Williams, Fusion Creative</b></div>
+      <div>Checked on<b>2 October 2026</b></div>
+      <div>Goes with<b><a href="../" style="color:#fff">Your content audit and proposal</a></b></div>
+    </div>
+  </div>
+</header>
+
+<section class="page dark"><div class="wrap"><div class="eyebrow">What's inside</div><h2>Mistakes first, then what would sell more.</h2>
+<ol class="toc"><li><a href="#summary">The short version</a></li><li><a href="#mistakes">Mistakes a buyer can see</a></li><li><a href="#phone">What a phone visitor sees</a></li><li><a href="#blockers">What stops people buying</a></li><li><a href="#trust">Proof you have but do not show</a></li><li><a href="#others">What other furniture sites have</a></li><li><a href="#copy">Twelve things worth copying</a></li><li><a href="#tech">Tracking, speed and Google</a></li><li><a href="#fixplan">The fix list, in order</a></li><li><a href="#next">Next steps</a></li></ol></div></section>
+
+<section class="page" id="summary"><div class="wrap"><div class="eyebrow">01 · The short version</div><h2>The speed is there. The selling is not.</h2>
+<p class="lead">Your site is quicker on a phone than every competitor we tested, has no broken links, and shows dimensions, materials and a lead time on every product we checked. That is a good base. But a buyer on a phone sees a sale banner before they see what you make, the price of a £2,980 bar sits below the photos, there is not one product review on the site, and an offer from the Great Yorkshire Show is still live.</p>
+<div class="stats"><div class="stat hot"><div class="v">0</div><div class="l">reviews on 65 products. Your 138 Google reviews never reach a product page</div></div><div class="stat"><div class="v">94</div><div class="l">mobile speed score on your £2,980 bar page. Faster than all five competitors</div></div><div class="stat"><div class="v">7</div><div class="l">mistakes a buyer can see, including a checkout debug message</div></div><div class="stat"><div class="v">0</div><div class="l">ways to ask for a custom piece from a product page</div></div></div>
+<div class="callout"><p><strong>What is already good</strong></p><ul class="plain"><li>Fast: product page speed 94 on mobile, largest image loads in 2.6 seconds.</li><li>Dimensions, materials, colour options and a lead time on every product we audited.</li><li>Free UK mainland delivery, clear in the banner and the basket.</li><li>Klarna at checkout with three options, plus WhatsApp and click-to-call on every page.</li><li>No broken internal links across 132 pages checked, and clean redirects.</li></ul></div>
+<p>None of what follows needs a new website. It is fixes, rewrites and a better product page on the site you already have.</p></div></section>
+
+<section class="page" id="mistakes"><div class="wrap"><div class="eyebrow">02 · Mistakes a buyer can see</div><h2>Small errors that make a £2,000 purchase feel risky.</h2>
+<p>Each of these is visible to customers today. Most take minutes to fix.</p>
+<div class="tbl-wrap"><table class="tbl"><tr><th>What we found</th><th>Where</th><th>Fix</th></tr>
+<tr><td><b>Great Yorkshire Show offer still live.</b> "This is an amazing offer we are running inline with greatyorkshireshow.co.uk", still discounted £2,795 to £1,995.</td><td>Adjustable dining table, bench and chairs</td><td>Remove the show line, decide the price.</td></tr>
+<tr><td><b>A list of SEO keywords shown to shoppers.</b> "Keywords: Industrial dining table, handmade dining table..." about 18 phrases in the description.</td><td>Same product</td><td>Delete the paragraph.</td></tr>
+<tr><td><b>Debug message at checkout.</b> A green box saying 'Customer matched zone "UK Delivery"', shown twice.</td><td>/checkout/</td><td>Turn off shipping debug mode in WooCommerce.</td></tr>
+<tr><td><b>"Customer Satisfaction Gauranteed"</b>, your main promise, misspelt.</td><td>Homepage, Business, FAQ, About, every product page on desktop</td><td>"Guaranteed".</td></tr>
+<tr><td><b>"Shop Now" buttons that go nowhere useful.</b> 12 category buttons per page send people to the general shop, not the category.</td><td>Business, FAQ, About</td><td>Point each at its real category.</td></tr>
+<tr><td><b>Homepage button to a deleted product.</b> "Complete your space in seconds... Shop Now" goes to a removed cushion, then to the shop.</td><td>Homepage</td><td>Repoint or remove.</td></tr>
+<tr><td><b>An empty category in the menu.</b> Gifts &gt; Candles says "No products were found" while the header says 12 products.</td><td>/gifts/candles/</td><td>Hide it or fill it.</td></tr>
+<tr><td><b>Lead times disagree.</b> Delivery page says 4 to 8 weeks, FAQ and most products 6 to 8, the Thornton table 8 to 10.</td><td>Site wide</td><td>One lead time per product, one rule on the delivery page.</td></tr>
+<tr><td><b>Delivery cost disagrees.</b> Banner and basket say free UK mainland. The £2,980 bar says "choose the furniture delivery option at checkout for accurate shipping costs".</td><td>Steel home bar</td><td>One delivery message everywhere.</td></tr>
+<tr><td><b>Footer says "2024".</b></td><td>Every page</td><td>Make it update itself.</td></tr>
+<tr><td><b>"On Sale" shows a full-price item.</b> The Mill side table, £295, its normal price.</td><td>/on-sale/</td><td>Remove it from the sale category.</td></tr>
+</table></div>
+<h3>Spelling and copy slips</h3>
+<ul class="plain"><li>"3 tolic style leather topped chair" (Tolix), adjustable dining table</li><li>"Stylish indutrial modern home bar", double fridge home bar</li><li>"As with all of our proctucts", wine crate log storage unit</li><li>"depth 6ocm" (letter o, not zero), home bar with fridge</li><li>"How can i customise", "Sidetables", and both "customise" and "customizable", FAQ</li><li>"jacobean" and "Old Jacobean" as two different wood colours, 9 drawer wine crate unit</li><li>Thornton table listed as weighing 20 kg at 206cm of solid wood</li><li>Product names like "log rack wood storage  steel" (lower case, double space) and "Outdoor Picnic table bench stunning"</li></ul>
+<div class="shots">
+<figure><img src="assets/site-expired-yorkshire-show-offer-typo.jpg" alt="Product page still showing the Great Yorkshire Show offer and the tolic typo" loading="lazy"><figcaption>The show offer, still live, with "tolic".</figcaption></figure>
+<figure><img src="assets/site-seo-keywords-visible-on-product.jpg" alt="Product description showing a visible list of SEO keywords" loading="lazy"><figcaption>SEO keywords printed in the description.</figcaption></figure>
+<figure><img src="assets/site-checkout-debug-notice.jpg" alt="Checkout page showing a WooCommerce shipping debug notice twice" loading="lazy"><figcaption>Debug notice at checkout, twice.</figcaption></figure>
+</div>
+<p class="small">Every item checked on rusticrevive.co.uk on 2 October 2026, at phone and laptop width.</p></div></section>
+
+<section class="page" id="phone"><div class="wrap"><div class="eyebrow">03 · What a phone visitor sees</div><h2>A sale banner, then photos, then finally the price.</h2>
+<p>Most of your visitors arrive from Facebook, Instagram and TikTok, on a phone. These are the first screens they get.</p>
+<div class="shots four">
+<figure><img src="assets/site-mobile-home-above-fold.jpg" alt="Mobile homepage first screen: delivery banner, a bundle sale graphic and a pink strip" loading="lazy"><figcaption><b>Homepage.</b> A delivery banner and a "Bundle and save" graphic. Nothing says handmade, Durham, or bespoke.</figcaption></figure>
+<figure><img src="assets/site-mobile-product-no-price-above-fold.jpg" alt="Mobile product page first screen showing only photos" loading="lazy"><figcaption><b>£2,980 bar.</b> The whole first screen is photos. Title, price and Add to Basket are further down.</figcaption></figure>
+<figure><img src="assets/site-mobile-widgets-cover-price.jpg" alt="Chat and cookie buttons covering the price and quantity" loading="lazy"><figcaption><b>Price, covered.</b> The chat bubble and cookie button sit on top of the price and the quantity buttons.</figcaption></figure>
+<figure><img src="assets/site-mobile-category-no-products-above-fold.jpg" alt="Mobile category page with paragraphs of text before any product" loading="lazy"><figcaption><b>Home bars.</b> Three paragraphs of text before the first product.</figcaption></figure>
+</div>
+<div class="callout warn"><p><strong>Why this matters:</strong> someone who taps an ad for a home bar decides in a few seconds whether to stay. If they have to scroll past a sale graphic and a wall of text to find out what the piece is and what it costs, many will not.</p></div></div></section>
+
+<section class="page" id="blockers"><div class="wrap"><div class="eyebrow">04 · What stops people buying</div><h2>Nine things between a visitor and an order.</h2>
+<div class="issues">
+<div class="issue"><div class="n">1</div><div><h4>No reviews on any product</h4><p>All 65 products have zero reviews. No stars on product cards, product pages, the basket or checkout. You have 138 five-star Google reviews; buyers of a £1,000 piece never see them where they decide.</p><p class="fix">Fix: product reviews switched on, past customers asked for one with a photo, Google rating shown by the price.</p></div></div>
+<div class="issue"><div class="n">2</div><div><h4>Klarna is hidden until checkout</h4><p>Klarna works at checkout, but product pages never say "or 3 payments of £993". On £935 to £2,980 pieces, that line is often what makes someone carry on.</p><p class="fix">Fix: Klarna's own price message under every price over £300.</p></div></div>
+<div class="issue"><div class="n">3</div><div><h4>No way to ask for a custom piece</h4><p>Product pages say "if you need a custom size, get in touch" with no button, form or link. The FAQ says you can pick finishes and dimensions on product pages; in fact only steel and wood colour can be chosen.</p><p class="fix">Fix: a "Make it bespoke" button on every product, opening a short form: size, finish, budget, photo of the space.</p></div></div>
+<div class="issue"><div class="n">4</div><div><h4>Business customers have nowhere to go</h4><p>The Business page has no enquiry form, no phone number and no photos of pubs or restaurants you have fitted. Its only buttons are the broken "Shop Now" links. On a phone, the "We also create furniture for businesses" bar is hidden and the menu has no Business or Contact link.</p><p class="fix">Fix: a real fit-out page with venue photos and an enquiry form, linked in the phone menu.</p></div></div>
+<div class="issue"><div class="n">5</div><div><h4>No add-to-basket that follows you on a phone</h4><p>Once you scroll into the description, the button is gone. Two of the competitors we checked keep it pinned to the bottom of the screen.</p><p class="fix">Fix: a sticky bar with price and Add to Basket on phones.</p></div></div>
+<div class="issue"><div class="n">6</div><div><h4>The returns policy reads as "no"</h4><p>The delivery and returns page says you cannot accept "refunds, returns, or exchanges once an order has been placed", for every item including £15 garden ornaments. UK rules generally give online buyers 14 days to cancel goods that are not made to their own specification, so this is worth checking with someone qualified as well as rewriting.</p><p class="fix">Fix: separate rules for bespoke pieces and standard stock, written plainly.</p></div></div>
+<div class="issue"><div class="n">7</div><div><h4>The basket does not reassure</h4><p>On a phone, "Proceed to checkout" sits below the fold under a full-width coupon box. No lead time, no Klarna, no reviews, and "You may be interested in" shows random items tagged "Uncategorised".</p><p class="fix">Fix: checkout button first, lead time and Klarna in the basket, coupon box made small.</p></div></div>
+<div class="issue"><div class="n">8</div><div><h4>Categories are hard to browse</h4><p>Only two filters (steel colour, wood colour), no price, size or seats. Sorted by newest. Search for "bar" brings up an owl garden ornament. One table sits in nine categories, including Desk and Chairs.</p><p class="fix">Fix: products in one or two sensible categories, filters for size and seats, sort by popularity.</p></div></div>
+<div class="issue"><div class="n">9</div><div><h4>The contact page is bare</h4><p>Four fields, the phone number is not tappable, the email is hidden, and opening hours are not shown. The WhatsApp button that floats on every page is good; the contact page itself does little.</p><p class="fix">Fix: tappable phone and WhatsApp, hours, a showroom photo and map, and the bespoke form.</p></div></div>
+</div></div></section>
+
+<section class="page" id="trust"><div class="wrap"><div class="eyebrow">05 · Proof you have but do not show</div><h2>Most makers would kill for your proof. It is hidden.</h2>
+<div class="pillars">
+<div class="pillar"><div class="n">138</div><h4>Google reviews at 5.0</h4><p>The widget on your site says 127, its newest review is a year old, and one reviewer appears as "my name is x". It never appears on product pages.</p></div>
+<div class="pillar"><div class="n">0</div><h4>Mentions of Living North</h4><p>You have been featured and exhibited at Living North LIVE. The site does not say so anywhere.</p></div>
+<div class="pillar"><div class="n">0</div><h4>Photos of you or the workshop</h4><p>The About page is text only. Jonathan is named only inside customer reviews. No showroom photos anywhere.</p></div>
+<div class="pillar"><div class="n">1 to 9</div><h4>Photos per product, no video</h4><p>Some products have a single photo. One file is named "WhatsApp Image 2024". None of the five products we audited has a video.</p></div>
+</div>
+<p>"Customer Satisfaction Gauranteed" is the only guarantee on the site, with no terms. Competitors near you offer 25 years and a lifetime warranty on the frame (section 06). Steel furniture is the easiest product in this market to guarantee.</p></div></section>
+
+<section class="page" id="others"><div class="wrap"><div class="eyebrow">06 · What other furniture sites have</div><h2>Five sites, side by side with yours.</h2>
+<p>Funky Chunky, Chronology and Novocastrian are the makers advertising near you (see your content audit). The Industrial Furniture in London and Liberty Games, which sells a handmade British home bar at £2,499, are among the best built sites in this space.</p>
+<div class="tbl-wrap"><table class="tbl cmp"><tr><th></th><th>Rustic Revive</th><th>Funky Chunky</th><th>Chronology</th><th>Novocastrian</th><th>The Industrial Furniture</th><th>Liberty Games</th></tr>
+<tr><td><b>Mobile speed</b><br><span class="small">home / product</span></td><td class="good">87 / 94</td><td>48 / 67</td><td class="bad">28 / 27</td><td>45 / 34</td><td>57 / 22</td><td>63 / 69</td></tr>
+<tr><td><b>Headline</b></td><td class="bad">None, a sale graphic</td><td>"Chunky Wooden Furniture Handcrafted in the UK"</td><td>"Make your space make sense"</td><td class="bad">None, a trade show banner</td><td>"Made for you, not for a warehouse."</td><td>"Build the games room you've always wanted."</td></tr>
+<tr><td><b>Trust bar</b></td><td>Free delivery only</td><td>Free delivery over £100, 5% off sign-up</td><td class="good">Handmade in North Yorkshire, own delivery team, 1,600+ reviews</td><td class="bad">None</td><td class="good">Made to order, free delivery, bespoke sizes, solid wood</td><td class="good">Price guarantee, free delivery, 180 day returns, finance, 15,000+ reviews</td></tr>
+<tr><td><b>Reviews on product</b></td><td class="bad">None</td><td class="bad">None</td><td class="good">30 reviews, 14 customer photos</td><td class="bad">None</td><td class="bad">None</td><td class="bad">0</td></tr>
+<tr><td><b>Finance shown by price</b></td><td class="bad">Checkout only</td><td>Klarna</td><td>Klarna</td><td class="bad">None</td><td>Klarna, Clearpay</td><td class="good">"from £56.97 per month"</td></tr>
+<tr><td><b>Lead time by the button</b></td><td>In description</td><td class="good">"Handcrafted in the UK in 8-10 working weeks"</td><td>"allow 4-5 weeks"</td><td>"Made to order in 12 - 16 weeks"</td><td>"Delivery within 6 Weeks"</td><td class="good">On category tiles too</td></tr>
+<tr><td><b>Bespoke request on product</b></td><td class="bad">"Get in touch", no link</td><td>Finishes and lengths</td><td class="good">Form on the page, 63 size and leg options</td><td class="good">Form, quote in two working days</td><td>7 sizes, 6 leg styles, seating guide</td><td>Size, timber, rails</td></tr>
+<tr><td><b>Guarantee</b></td><td class="bad">"Gauranteed", no terms</td><td class="good">25 years</td><td class="bad">None</td><td class="good">Lifetime</td><td>1 or 2 years (pages disagree)</td><td>Paid 5 year cover</td></tr>
+<tr><td><b>Sticky add to basket</b></td><td class="bad">No</td><td class="good">Yes</td><td>No</td><td>No</td><td class="good">Yes</td><td>Not confirmed</td></tr>
+<tr><td><b>Samples</b></td><td>No</td><td class="good">£5 samples on the product page</td><td>At showroom</td><td>Finishes page</td><td>Fabric</td><td>No</td></tr>
+<tr><td><b>Showroom prompt</b></td><td>Desktop top bar only</td><td>None</td><td class="good">Homepage block with hours</td><td>None</td><td class="good">Book a visit</td><td class="good">Book in person or by video</td></tr>
+<tr><td><b>WhatsApp or chat</b></td><td class="good">WhatsApp, phone, Messenger</td><td>Chat bot</td><td>Chat</td><td>Phone, email</td><td class="good">WhatsApp, until 8pm</td><td class="good">Chat, WhatsApp, video demo</td></tr>
+<tr><td><b>Product video</b></td><td class="bad">None</td><td class="bad">None</td><td class="bad">None</td><td class="bad">None</td><td class="bad">None</td><td class="bad">None</td></tr>
+</table></div>
+<div class="callout ink"><p><strong>The gap nobody fills:</strong> not one of these six sites has a video of the actual piece on its product page. That is the cheapest advantage on offer in this market, and it is exactly what the content plan produces every month.</p></div>
+<p class="small">Speed scores from Google Lighthouse 12 (mobile), run once on 2 October 2026 for every site, so treat them as a guide, not exact. Review counts for Feefo, Trustpilot and reviews.io from search listings. Features checked on each site's homepage, a category page and one product page.</p></div></section>
+
+<section class="page" id="copy"><div class="wrap"><div class="eyebrow">07 · Twelve things worth copying</div><h2>What the best of them do, and the words they use.</h2>
+<div class="concepts">
+<div class="concept"><span class="tag">Trust bar</span><h4>Four proof points under the header</h4><p class="hook">"Handmade in North Yorkshire. Delivered by our own team. Rated Excellent by 1,600+ customers."</p><p>Chronology. Yours: "Handmade in County Durham. Steel and solid wood. 138 five-star Google reviews. Free UK delivery."</p></div>
+<div class="concept"><span class="tag">Finance</span><h4>A monthly price beside the price</h4><p class="hook">"Finance from £56.97 per month"</p><p>Liberty Games, on a £2,499 home bar. Your £2,980 bar is the same buyer.</p></div>
+<div class="concept"><span class="tag">Lead time</span><h4>One line next to the button</h4><p class="hook">"Handcrafted in the UK in 8-10 working weeks. Delivered via roadside pallet shortly after completion."</p><p>Funky Chunky. Clear, honest, and it turns waiting into craft.</p></div>
+<div class="concept"><span class="tag">Guarantee</span><h4>A long guarantee, repeated on the product</h4><p class="hook">"25 Year Guarantee on this item of furniture"</p><p>Funky Chunky. Novocastrian offers a lifetime warranty. A steel frame can carry the same promise.</p></div>
+<div class="concept"><span class="tag">Bespoke</span><h4>The custom form on the product page</h4><p class="hook">"We will send a quotation to your email address within two working days."</p><p>Novocastrian. A promised reply time makes people actually send it.</p></div>
+<div class="concept"><span class="tag">Bespoke</span><h4>A drawing before they buy</h4><p class="hook">"a to-scale, full-colour 2D diagram of your furniture design"</p><p>Chronology's FAQ. Ideal for your kitchens, bars and fit-outs.</p></div>
+<div class="concept"><span class="tag">Sizing</span><h4>Tell them how many it seats</h4><p class="hook">"Seats comfortably 6. Based on a minimum of 60 cm of table edge per guest."</p><p>The Industrial Furniture. For your bars: "fits 3 stools".</p></div>
+<div class="concept"><span class="tag">Samples</span><h4>Sell finish samples</h4><p class="hook">"Order samples", £5</p><p>Funky Chunky, because "colours can look different from one screen to another".</p></div>
+<div class="concept"><span class="tag">Reviews</span><h4>Customer photos on the product</h4><p>Chronology shows 30 reviews and 14 customer photos on one table, with a short summary at the top.</p></div>
+<div class="concept"><span class="tag">Process</span><h4>Made to order in three steps</h4><p class="hook">"You choose. We prepare it. It comes home."</p><p>The Industrial Furniture. Explains the wait before anyone asks.</p></div>
+<div class="concept"><span class="tag">Showroom</span><h4>Make visiting a button</h4><p class="hook">"Book In-Person Visit" and "Book Virtual Showroom"</p><p>Liberty Games. Your showroom is a reason to buy from you; let people book it, or a video call from it.</p></div>
+<div class="concept"><span class="tag">Story</span><h4>Where the material comes from</h4><p class="hook">"Most of the solid timber is sustainably produced in the grounds of Alnwick Castle, Northumberland."</p><p>Liberty Games. Your steel and timber story belongs on every product.</p></div>
+</div>
+<h3>And what to avoid, from the same sites</h3>
+<ul class="plain"><li>Permanent "Save 42%" crossed-out prices on bespoke furniture (The Industrial Furniture). It cheapens handmade.</li><li>Policies copied from an Etsy shop in the first person: "I gladly accept returns" (Chronology).</li><li>A trade show banner instead of a headline (Novocastrian).</li><li>Warranty and lead times that disagree between pages (The Industrial Furniture). You have the same lead-time problem today.</li></ul></div></section>
+
+<section class="page" id="tech"><div class="wrap"><div class="eyebrow">08 · Tracking, speed and Google</div><h2>Two tracking problems worth fixing before any more ad spend.</h2>
+<div class="issues">
+<div class="issue"><div class="n">1</div><div><h4>A "purchase" fires when nobody has bought</h4><p>The checkout page has an unfinished Google Ads code snippet, <code>conversion_event_purchase</code>, that fires every time the checkout loads, before any order. If it is linked in Google Ads, your purchase numbers there are inflated.</p><p class="fix">Fix: remove it, track real orders from the thank-you page.</p></div></div>
+<div class="issue"><div class="n">2</div><div><h4>Meta tracking ignores "Reject All" at checkout, and counts twice</h4><p>With cookies rejected, the checkout still sent Meta a page view and "initiate checkout", and sent "initiate checkout" twice. That is a privacy problem and it doubles a number Meta uses to optimise. We could not see "add to basket" reach Meta at all.</p><p class="fix">Fix: consent respected, each event sent once, and the Conversions API so orders are counted properly.</p></div></div>
+<div class="issue"><div class="n">3</div><div><h4>Google Tag Manager is installed twice</h4><p>The same container loads two times on every page, which can double other tags.</p><p class="fix">Fix: remove one.</p></div></div>
+<div class="issue"><div class="n">4</div><div><h4>The laptop homepage jumps while loading</h4><p>Layout shift on desktop is 1.025 on the homepage and 0.511 on the home bars page (good is under 0.1). The page moves as it loads, so people tap the wrong thing.</p><p class="fix">Fix: reserve space for the slider and images.</p></div></div>
+</div>
+<div class="tbl-wrap"><table class="tbl"><tr><th>Page</th><th>Device</th><th>Speed</th><th>Main image loads</th><th>Layout shift</th><th>Page weight</th></tr>
+<tr><td><b>Homepage</b></td><td>Phone</td><td class="num">87</td><td>2.4s</td><td>0.001</td><td>1.07 MB</td></tr>
+<tr><td><b>Homepage</b></td><td>Laptop</td><td class="num">70</td><td>1.5s</td><td><b style="color:var(--red)">1.025</b></td><td>1.51 MB</td></tr>
+<tr><td><b>Home bars</b></td><td>Phone</td><td class="num">86</td><td>1.4s</td><td>0.261</td><td>1.07 MB</td></tr>
+<tr><td><b>£2,980 steel bar</b></td><td>Phone</td><td class="num">94</td><td>2.6s</td><td>0</td><td>1.62 MB</td></tr></table></div>
+<h3>Google and search</h3>
+<ul class="plain"><li><b>No H1 heading on the homepage,</b> and two H1s on Business, FAQ and About.</li><li><b>No star rating in Google results.</b> There is no review data on product pages for Google to show.</li><li><b>Missing or wrong descriptions</b> on 8 pages, including Pub and Restaurant Furnishings, Signs and On Sale; the contact page description talks about products.</li><li><b>No real "page not found".</b> Any wrong address quietly redirects to the shop.</li><li><b>Pages that should not be in Google</b> are: wishlist, lost password, and "Uncategorised".</li><li><b>Large images.</b> The homepage bundle graphic is 444 KB; about 744 KB could be saved on the steel bar page alone.</li><li><b>Fine already:</b> https and www redirects, sitemap, robots file, product data for Google, and no broken internal links.</li></ul>
+<p class="small">Lighthouse 12 run on 2 October 2026 (Google's PageSpeed service was over its daily limit, Lighthouse is the same engine). Tracking checked in the browser with cookies rejected; server-side tracking could not be seen from outside.</p></div></section>
+
+<section class="page" id="fixplan"><div class="wrap"><div class="eyebrow">09 · The fix list, in order</div><h2>Mistakes this week, product pages next, video after.</h2>
+<ol class="timeline">
+<li><div class="d">Days 1 to 3</div><div class="t">Fix what buyers can see</div><p>Show offer, keyword list and debug message removed. "Guaranteed", footer, all typos and product names corrected. Broken "Shop Now" buttons and the deleted-product link repointed. Candles hidden. One lead time, one delivery message, one address and opening hours everywhere.</p></li>
+<li><div class="d">Week 1</div><div class="t">Fix the tracking</div><p>Fake purchase snippet removed, Meta consent and double events fixed, second Tag Manager removed, Conversions API checked. From here, every order can be traced to the ad or post that brought it.</p></li>
+<li><div class="d">Week 2</div><div class="t">Homepage and trust</div><p>A real headline (handmade in County Durham, steel and solid wood, 138 five-star reviews), a trust bar, the Google rating refreshed, Living North shown, the showroom with photos and a "visit us" button, and a written guarantee you are happy to stand behind.</p></li>
+<li><div class="d">Weeks 2 to 3</div><div class="t">Product pages that sell</div><p>Price and button higher on phones, a sticky Add to Basket, Klarna monthly price under the price, lead time and delivery by the button, chat bubble moved off the price, "Make it bespoke" form, seats or stools guide, reviews switched on and past customers asked for photos.</p></li>
+<li><div class="d">Week 3</div><div class="t">Basket, categories, business</div><p>Checkout button first in the basket, lead time and Klarna shown, products tidied into sensible categories with size filters, a proper fit-out page with venue photos and an enquiry form, Business and Contact in the phone menu, returns rewritten.</p></li>
+<li><div class="d">Month 2 onwards</div><div class="t">Video on every best-seller</div><p>A short video of the real piece on each top product page, filmed on the content days. Nobody in your market does this yet.</p></li>
+</ol>
+<div class="price">
+<div class="plan main"><div class="name">Website fix</div><div class="amt">£950</div><div class="per">one-off, on top of either content package</div><ul class="plain"><li>Every fix on this page, days 1 to week 3</li><li>Done on your current WordPress site, with whoever hosts it now</li><li>Checked on phone and laptop before and after</li><li>You see the before and after for each change</li></ul></div>
+<div class="plan"><div class="name">What we need from you</div><div class="amt">3 things</div><div class="per">to start</div><ul class="plain"><li>Admin access to the website, or an introduction to Madhouse Media</li><li>Your real lead times and the guarantee you are happy to give</li><li>A list of past customers we can ask for a review</li></ul></div>
+</div>
+<p class="small">The returns wording should be checked by someone qualified in consumer law; we will write it in plain English once the rules are agreed.</p></div></section>
+
+<section class="page" id="next"><div class="wrap"><div class="eyebrow">10 · Next steps</div><h2>The first fixes could be live this week.</h2>
+<p>Nothing here needs a new website. The mistakes in section 02 are a few hours' work, the tracking fixes protect any money you spend on ads, and the product page changes are where extra orders come from.</p>
+<ul class="plain"><li>Tell us if you want the website fix on its own, or with one of the content packages in your <a href="../#price">content proposal</a>.</li><li>Send website access, or put us in touch with Madhouse Media.</li><li>We start with the mistakes and tracking, and show you each change as it goes live.</li></ul>
+<div class="cta"><a class="btn wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20I%27ve%20read%20the%20Rustic%20Revive%20website%20audit" target="_blank" rel="noopener">WhatsApp Jay</a><a class="btn mail" href="mailto:jay@fusioncreative.uk?subject=Rustic%20Revive%20website%20audit">Reply by email</a></div>
+</div></section>
+
+<footer>Fusion Creative, Newcastle upon Tyne. <a href="https://fusioncreative.uk">fusioncreative.uk</a><br>How we checked: rusticrevive.co.uk in a browser at 375px and 1440px with cookies rejected, one item added to the basket and stopped before entering any details, no order placed; the WooCommerce product feed, sitemaps and Google Lighthouse; competitor homepages, category pages and one product page each, all on 2 October 2026. Competitor names are used only to describe their public websites. Prepared for Rustic Revive, not for wider distribution.</footer>
+</body>
+</html>
