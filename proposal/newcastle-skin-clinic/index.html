@@ -245,6 +245,15 @@
   h3{font-weight:600}
   .concept .hook{font-style:italic}
   .lockup img{width:min(150px,40vw);height:auto}
+  .ltv{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0 10px}
+  .ltv .t{background:#fff;border:1px solid #e3ddd3;border-radius:14px;padding:18px}
+  .ltv .t b{display:block;font-family:var(--serif);font-size:30px;color:var(--ink);line-height:1.1}
+  .ltv .t i{display:block;font-style:normal;font-size:14px;color:#5b6170;margin-top:6px}
+  .ltv .t.key{background:var(--ink)}
+  .ltv .t.key b{color:#fff}
+  .ltv .t.key i{color:#c9d2e3}
+  @media(max-width:800px){.ltv{grid-template-columns:1fr 1fr}}
+
 </style>
 </head>
 <body>
@@ -300,22 +309,30 @@
 <section class="page" id="price"><div class="wrap"><div class="eyebrow">09 · Price and return</div><h2>What it costs, and what it takes to pay for itself.</h2>
 <div class="price"><div class="plan main"><div class="name">Content and managed ads</div><div class="amt">£1,950</div><div class="per">a month, three month minimum, then rolling</div><ul class="plain"><li>Two filming days and 20 to 25 videos a month</li><li>Meta ads written, built and managed, always on</li><li>Conversions API and booking tracking in week one</li><li>Instagram posting support</li><li>Monthly report on consultations, treatments and plans</li></ul></div>
 <div class="plan"><div class="name">Ad spend</div><div class="amt">£800</div><div class="per">a month suggested to start (about £27 a day), paid by you directly to Meta</div><ul class="plain"><li>Not marked up. You can see every pound in your own account.</li><li>Paid to Meta directly from your own card.</li></ul></div></div>
-<h3>How many clients pay for it</h3><p>Total monthly cost: <b>£2,750</b>. We work this out on what you keep from a new client in their first year, not on one appointment. The plan prices and the facelift price come from your website; we have assumed you keep 60% after products and practitioner time. The calculator below lets you put in your own figures.</p><div class="tbl-wrap"><table class="tbl "><tr><th>New client</th><th>First-year value</th><th>You keep at 60%</th><th>A month to cover £2,750</th></tr><tr><td><b>Enhance plan, 12 months</b><br><span class="small">£75 a month, a price shown on your website</span></td><td class="num">£900</td><td class="num">£540</td><td class="num">6</td></tr><tr><td><b>Maintain plan, 12 months</b><br><span class="small">£50 a month, a price shown on your website</span></td><td class="num">£600</td><td class="num">£360</td><td class="num">8</td></tr><tr><td><b>Non-surgical face lift</b><br><span class="small">From £375, a price shown on your website</span></td><td class="num">£375</td><td class="num">£225</td><td class="num">13</td></tr></table></div>
-<h3>What we would aim for</h3><p>Two scenarios on £800 a month of ad spend, from month three once the new videos are running. A new client worth £900 in their first year is our assumption, about one Enhance plan or a treatment plus follow-ups. The cost of a booked assessment and the share who become clients are our assumptions too; your own figures replace them in week one.</p><div class="tbl-wrap"><table class="tbl "><tr><th>Month three onwards</th><th>Cost per enquiry</th><th>Enquiries</th><th>Become clients</th><th>Clients won</th><th>Work you keep</th><th>After our cost</th></tr><tr><td><b>Steady</b><br><span class="small">about 9 new clients a month</span></td><td class="num">£25</td><td class="num">32</td><td class="num">28%</td><td class="num">9</td><td class="num">£4,838</td><td class="num">+£2,088</td></tr><tr class="total"><td><b>Target</b><br><span class="small">about 13 new clients a month</span></td><td class="num">£20</td><td class="num">40</td><td class="num">33%</td><td class="num">13.2</td><td class="num">£7,128</td><td class="num">+£4,378</td></tr></table></div>
-<div class="calc" id="calculator"><h3>Try it with your own numbers</h3><p class="intro">This starts on our assumptions. Change anything you know better, such as your real job values, your margin or how many enquiries you usually turn into work, and the figures below update straight away. Nothing you type is saved or sent anywhere.</p><div class="calc-grid">
-<div class="field"><label for="c-value">First-year value of a new client</label><span class="hint">A treatment plus follow-ups, or a 12-month plan.</span><div class="row"><input type="range" id="c-value-r" min="100" max="5000" step="25" value="900" aria-label="First-year value of a new client"><div class="num"><span>£</span><input id="c-value" type="number" inputmode="decimal" min="100" max="5000" step="25" value="900"></div></div></div>
-<div class="field"><label for="c-margin">What you keep from each job</label><span class="hint">After materials, labour and other direct costs.</span><div class="row"><input type="range" id="c-margin-r" min="5" max="80" step="1" value="60" aria-label="What you keep from each job"><div class="num"><input id="c-margin" type="number" inputmode="decimal" min="5" max="80" step="1" value="60"><span>%</span></div></div></div>
-<div class="field"><label for="c-cpe">Cost per enquiry</label><span class="hint">What Meta charges, on average, for each enquiry.</span><div class="row"><input type="range" id="c-cpe-r" min="3" max="200" step="1" value="25" aria-label="Cost per enquiry"><div class="num"><span>£</span><input id="c-cpe" type="number" inputmode="decimal" min="3" max="200" step="1" value="25"></div></div></div>
-<div class="field"><label for="c-close">Enquiries that become clients</label><span class="hint">Out of every 100 enquiries, how many turn into paid work.</span><div class="row"><input type="range" id="c-close-r" min="1" max="60" step="1" value="25" aria-label="Enquiries that become clients"><div class="num"><input id="c-close" type="number" inputmode="decimal" min="1" max="60" step="1" value="25"><span>%</span></div></div></div>
+<h3>How many clients pay for it</h3><p>Total monthly cost: <b>£2,750</b>. Aesthetics is not a one-off sale. A client who joins a plan pays every month and comes back for treatments, so we work this out on what a new client is worth over two years, not on one appointment. The plan and facelift prices come from your website; two years on a plan, and keeping 60% after products and practitioner time, are our assumptions. The calculator below lets you put in your own figures.</p><div class="tbl-wrap"><table class="tbl "><tr><th>New client</th><th>Lifetime value (two years)</th><th>You keep at 60%</th><th>New clients a month to cover £2,750</th></tr><tr><td><b>Enhance plan, two years</b><br><span class="small">£75 a month, a price shown on your website</span></td><td class="num">£1,800</td><td class="num">£1,080</td><td class="num">3</td></tr><tr><td><b>Maintain plan, two years</b><br><span class="small">£50 a month, a price shown on your website</span></td><td class="num">£1,200</td><td class="num">£720</td><td class="num">4</td></tr><tr><td><b>Essential plan, two years</b><br><span class="small">£35 a month, a price shown on your website</span></td><td class="num">£840</td><td class="num">£504</td><td class="num">6</td></tr></table></div>
+<h3>What we would aim for</h3><p>Two scenarios on £800 a month of ad spend, from month three once the new videos are running, each judged on the lifetime value of the clients it brings in. A new client worth £1,800 over two years is our assumption: an Enhance plan kept for two years, or a mix of plans and treatments. The cost of a booked assessment and the share who become clients are our assumptions too; your own figures replace them in week one.</p><div class="tbl-wrap"><table class="tbl "><tr><th>Month three onwards</th><th>Cost per assessment</th><th>Assessments</th><th>Become clients</th><th>New clients</th><th>Lifetime value you keep</th><th>Lifetime profit per month of ads</th></tr><tr><td><b>Steady</b><br><span class="small">about 8 new clients a month</span></td><td class="num">£25</td><td class="num">32</td><td class="num">25%</td><td class="num">8</td><td class="num">£8,640</td><td class="num">+£5,890</td></tr><tr class="total"><td><b>Target</b><br><span class="small">about 13 new clients a month</span></td><td class="num">£20</td><td class="num">40</td><td class="num">33%</td><td class="num">13.2</td><td class="num">£14,256</td><td class="num">+£11,506</td></tr></table></div><h3>One month of the campaign, in lifetime value</h3>
+<p>Judge each month of ads on what the clients it brings in are worth over their time with you, not on what they spend in their first visit.</p>
+<div class="ltv">
+ <div class="t"><b>£2,750</b><i>one month of the campaign: our fee and £800 of ads</i></div>
+ <div class="t"><b>8</b><i>new clients, from about 32 skin assessments booked</i></div>
+ <div class="t key"><b>£14,400</b><i>of lifetime value, at £1,800 a client</i></div>
+ <div class="t key"><b>£8,640</b><i>of that you keep, about 3x what the month cost</i></div>
+</div>
+<p class="small">Lifetime value here means two years on a plan: £75 a month for 24 months on Enhance. That is a cautious figure. It counts no treatments booked on top of a plan and nobody staying past two years, and both are common in aesthetics. Every figure is ours to start with; put your own into the calculator below.</p>
+<div class="calc" id="calculator"><h3>Try it with your own numbers</h3><p class="intro">This starts on our assumptions. Change anything you know better, such as what a client is really worth to you, your margin or how many assessments become clients, and the figures below update straight away. Nothing you type is saved or sent anywhere.</p><div class="calc-grid">
+<div class="field"><label for="c-value">Value of a new client over two years</label><span class="hint">A plan kept for two years, or treatments plus top-ups.</span><div class="row"><input type="range" id="c-value-r" min="100" max="8000" step="25" value="1800" aria-label="Value of a new client over two years"><div class="num"><span>£</span><input id="c-value" type="number" inputmode="decimal" min="100" max="8000" step="25" value="1800"></div></div></div>
+<div class="field"><label for="c-margin">What you keep from each client</label><span class="hint">After products, practitioner time and other direct costs.</span><div class="row"><input type="range" id="c-margin-r" min="5" max="80" step="1" value="60" aria-label="What you keep from each client"><div class="num"><input id="c-margin" type="number" inputmode="decimal" min="5" max="80" step="1" value="60"><span>%</span></div></div></div>
+<div class="field"><label for="c-cpe">Cost per skin assessment booked</label><span class="hint">What Meta charges, on average, for each assessment booked.</span><div class="row"><input type="range" id="c-cpe-r" min="3" max="200" step="1" value="25" aria-label="Cost per skin assessment booked"><div class="num"><span>£</span><input id="c-cpe" type="number" inputmode="decimal" min="3" max="200" step="1" value="25"></div></div></div>
+<div class="field"><label for="c-close">Assessments that become clients</label><span class="hint">Out of every 100 assessments, how many become clients.</span><div class="row"><input type="range" id="c-close-r" min="1" max="60" step="1" value="25" aria-label="Assessments that become clients"><div class="num"><input id="c-close" type="number" inputmode="decimal" min="1" max="60" step="1" value="25"><span>%</span></div></div></div>
 <div class="field"><label for="c-spend">Ad spend</label><span class="hint">Paid by you, directly to Meta, each month.</span><div class="row"><input type="range" id="c-spend-r" min="100" max="10000" step="50" value="800" aria-label="Ad spend"><div class="num"><span>£</span><input id="c-spend" type="number" inputmode="decimal" min="100" max="10000" step="50" value="800"></div></div></div>
 <div class="field fixed"><label for="c-fee">Fusion Creative fee</label><span class="hint">Content and managed ads, per month.</span><div class="row"><div class="num"><span>£</span><input id="c-fee" type="number" inputmode="decimal" min="1950" max="1950" step="1" value="1950" readonly aria-readonly="true"></div></div></div>
 </div><div class="calc-out" aria-live="polite">
-<div class="o"><div class="v" id="o-enq">0</div><div class="l">enquiries a month</div></div>
-<div class="o"><div class="v" id="o-jobs">0</div><div class="l">clients won a month</div></div>
-<div class="o"><div class="v" id="o-rev">£0</div><div class="l">of work booked</div></div>
-<div class="o"><div class="v" id="o-keep">£0</div><div class="l">you keep from that work</div></div>
-<div class="o"><div class="v" id="o-cost">£0</div><div class="l">total monthly cost</div></div>
-<div class="o key" id="o-net-box"><div class="v" id="o-net">£0</div><div class="l">left after our cost, every month</div></div>
+<div class="o"><div class="v" id="o-enq">0</div><div class="l">skin assessments booked a month</div></div>
+<div class="o"><div class="v" id="o-jobs">0</div><div class="l">new clients a month</div></div>
+<div class="o"><div class="v" id="o-rev">£0</div><div class="l">lifetime value booked each month</div></div>
+<div class="o"><div class="v" id="o-keep">£0</div><div class="l">lifetime value you keep</div></div>
+<div class="o"><div class="v" id="o-cost">£0</div><div class="l">cost of one month</div></div>
+<div class="o key" id="o-net-box"><div class="v" id="o-net">£0</div><div class="l">lifetime profit from each month of ads</div></div>
 </div><p class="calc-say" id="o-say"></p><button type="button" class="calc-reset" id="c-reset">Back to our assumptions</button></div>
 <div class="callout warn"><p><strong>Being straight with you.</strong> These are scenarios, not promises. Nobody can guarantee what an ad will return before it runs. What we can promise is that every enquiry is tracked from the ad to the sale, so after three months you will know exactly what each pound brought in, and you can decide on facts.</p></div></div></section>
 
@@ -330,7 +347,7 @@
 <script>
 (function(){
   var ids=['c-value','c-margin','c-cpe','c-close','c-spend'];
-  var defaults={'c-value':900,'c-margin':60,'c-cpe':25,'c-close':25,'c-spend':800};
+  var defaults={'c-value':1800,'c-margin':60,'c-cpe':25,'c-close':25,'c-spend':800};
   var FEE=1950;
   function $(id){return document.getElementById(id)}
   function gbp(n){var r=Math.round(n);return (r<0?'-':'')+'£'+Math.abs(r).toLocaleString('en-GB')}
@@ -349,7 +366,7 @@
     $('o-net-box').classList.toggle('neg',net<0);
     var jobsWord=be===1?'1 client a month covers':be+' clients a month cover';
     var say='On these numbers, '+jobsWord+' the full cost. ';
-    say+= net>=0 ? 'Every £1 spent comes back as £'+ratio.toFixed(2)+' that you keep.'
+    say+= net>=0 ? 'Every £1 spent books £'+ratio.toFixed(2)+' of lifetime value that you keep.'
                  : 'You would be '+gbp(-net)+' short each month, so we would need a lower cost per enquiry or a better close rate before scaling.';
     $('o-say').textContent=say;
   }
