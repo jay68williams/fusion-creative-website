@@ -366,5 +366,34 @@
   calc();
 })();
 </script>
+<script>
+(function(){try{
+  if(!/(^|\.)fusioncreative\.uk$/.test(location.hostname))return;
+  var q=location.search;
+  if(/[?&](owner|me)=1/.test(q)){try{localStorage.setItem('fc_owner','1')}catch(e){}}
+  try{if(localStorage.getItem('fc_owner')==='1')return}catch(e){}
+  var slug='proposal-box-and-beam', api='https://newgreek.fusioncreative.uk/api/audit-view/';
+  var sid; try{sid=sessionStorage.getItem('fc_sid_'+slug)}catch(e){}
+  var fresh=!sid; if(fresh){sid=Math.random().toString(36).slice(2,12)+Date.now().toString(36);try{sessionStorage.setItem('fc_sid_'+slug,sid)}catch(e){}}
+  function post(o,beacon){o.slug=slug;o.sid=sid;var b=JSON.stringify(o);
+    if(beacon&&navigator.sendBeacon){try{navigator.sendBeacon(api,new Blob([b],{type:'text/plain'}));return}catch(e){}}
+    fetch(api,{method:'POST',headers:{'Content-Type':'text/plain'},body:b,keepalive:true}).catch(function(){});}
+  if(fresh){post({t:'open',ref:document.referrer,q:q,scr:screen.width+'x'+screen.height,tz:(Intl.DateTimeFormat().resolvedOptions().timeZone||''),lang:navigator.language||''});}
+  var seen={},secs=[],maxS=0,active=0,last=Date.now();
+  function tick(){var n=Date.now();if(!document.hidden)active+=n-last;last=n;}
+  function scr(){var h=document.documentElement.scrollHeight-innerHeight;var p=h>0?Math.round(scrollY/h*100):100;if(p>maxS)maxS=Math.min(100,p);}
+  addEventListener('scroll',scr,{passive:true});
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var k=e.target.getAttribute('data-sec')||e.target.id;if(!seen[k]){seen[k]=1;secs.push(k)}}})},{rootMargin:'-45% 0px -45% 0px',threshold:0});
+    document.querySelectorAll('[data-sec],section[id]').forEach(function(el){io.observe(el)});}
+  document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a.btn');if(!t)return;
+    var k='clicked-'+(t.classList.contains('wa')?'whatsapp':/^mailto/.test(t.href)?'email':'call');
+    if(!seen[k]){seen[k]=1;secs.push(k)} ping(false);});
+  function ping(b){tick();scr();post({t:'ping',dur:Math.round(active/1000),scroll:maxS,sec:secs},b);}
+  document.addEventListener('visibilitychange',function(){if(document.hidden)ping(true);else last=Date.now();});
+  addEventListener('pagehide',function(){ping(true)});
+  setTimeout(function(){ping(false)},4000);
+  setInterval(function(){if(!document.hidden)ping(false)},15000);
+}catch(e){}})();
+</script>
 </body>
 </html>
