@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- fc-build: status=proposal source=inbound-email date=2026-10-03 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>North 18 Indoor Golf x Fusion Creative | Launch proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#070708; --bg-2:#0E100F; --panel:#121513; --line:#232724; --line-2:#2E332F;
+    --paper:#F4F4EF; --text:#D9DBD5; --text-2:#A4AAA4; --text-3:#737A74;
+    --green:#7CC242; --green-2:#5E9A2E; --forest:#215D39; --wa:#25D366;
+  }
+  html{color-scheme:dark}
+  body{font-family:'Geist',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:clip}
+  h1,h2,h3{font-family:'Geist',sans-serif;color:var(--paper);line-height:1.08}
+  .mono{font-family:'Geist Mono',monospace;letter-spacing:.14em;text-transform:uppercase;font-size:11px}
+  .col{max-width:760px;margin:0 auto;padding:0 22px}
+  .wide{max-width:1100px;margin:0 auto;padding:0 22px}
+  b{font-weight:600;color:var(--paper)}
+  .g{color:var(--green)}
+  a{color:var(--green)}
+
+  .mast{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;border-bottom:1px solid var(--line);max-width:1100px;margin:0 auto}
+  .mast .lock{display:flex;align-items:center;gap:12px;color:var(--text-2)}
+  .mast .lock span{color:var(--text-3)}
+  .mast .lock b{font-weight:600;color:var(--paper);letter-spacing:.16em}
+  .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:8px;vertical-align:1px}
+
+  .hero{padding:64px 0 56px;text-align:center;background:radial-gradient(ellipse at 50% 0%,#14301f 0%,var(--bg) 62%)}
+  .hero img{width:min(340px,72vw);height:auto;display:block;margin:0 auto;mix-blend-mode:lighten}
+  .hero .x{margin:22px 0 0;color:var(--text-3)}
+  .hero .x b{color:var(--paper);letter-spacing:.16em}
+  .hero h1{margin:30px auto 0;font-size:clamp(38px,6.2vw,72px);font-weight:300;letter-spacing:-.035em;max-width:860px}
+  .hero h1 em{font-style:normal;font-weight:600;color:var(--green)}
+  .hero p{margin:20px auto 0;max-width:600px;font-size:18.5px;color:var(--text-2)}
+  .pills{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:38px auto 0;max-width:820px}
+  .pill{background:var(--panel);border:1px solid var(--line-2);border-radius:14px;padding:16px 16px 14px;text-align:left}
+  .pill .v{font-size:24px;font-weight:600;color:var(--paper);line-height:1.1;letter-spacing:-.02em}
+  .pill .k{margin-top:6px;color:var(--text-3);font-size:10px}
+
+  .toc{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0}
+  .toc .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px 28px;margin-top:14px}
+  .toc a{display:flex;gap:12px;text-decoration:none;color:var(--text);font-size:15px;padding:6px 0;border-bottom:1px solid var(--line)}
+  .toc a span{font-family:'Geist Mono',monospace;color:var(--green);font-size:12px;padding-top:2px}
+  .toc a:hover{color:var(--paper)}
+
+  .sec{padding:76px 0 0}
+  .sec .n{color:var(--green)}
+  .sec h2{font-size:clamp(30px,4.2vw,46px);font-weight:400;letter-spacing:-.03em;margin-top:10px}
+  .sec .lede{margin-top:14px;color:var(--text-2);font-size:18px;max-width:680px}
+
+  .answer{margin-top:28px;background:var(--panel);border:1px solid var(--line-2);border-left:4px solid var(--green);border-radius:14px;padding:24px 26px}
+  .answer .big{font-size:26px;font-weight:600;color:var(--paper);letter-spacing:-.02em}
+  .answer p{margin-top:8px;color:var(--text-2)}
+
+  .dates{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+  .date{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .date .d{color:var(--green);font-size:10.5px}
+  .date h3{font-size:17px;font-weight:600;margin:8px 0 6px;letter-spacing:-.01em}
+  .date p{font-size:14.5px;color:var(--text-2);line-height:1.5}
+
+  .phases{margin-top:30px;display:grid;gap:14px}
+  .phase{display:grid;grid-template-columns:200px 1fr;gap:26px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px}
+  .phase .when{color:var(--green);font-size:10.5px}
+  .phase .name{font-size:24px;font-weight:600;color:var(--paper);margin-top:8px;letter-spacing:-.02em;line-height:1.15}
+  .phase .goal{margin-top:10px;font-size:14px;color:var(--text-3)}
+  .phase ul{list-style:none;display:grid;gap:9px}
+  .phase li{padding-left:20px;position:relative;color:var(--text-2);font-size:16px}
+  .phase li::before{content:"";position:absolute;left:0;top:10px;width:8px;height:8px;border-radius:50%;border:2px solid var(--green)}
+
+  .ideas{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+  .idea{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .idea .t{color:var(--green);font-size:10px}
+  .idea h3{font-size:18px;font-weight:600;margin:8px 0 6px;letter-spacing:-.01em}
+  .idea p{font-size:15px;color:var(--text-2);line-height:1.5}
+
+  .verdict{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .vbox{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .vbox h3{font-size:19px;font-weight:600;margin-bottom:10px}
+  .vbox ul{list-style:none;display:grid;gap:8px}
+  .vbox li{padding-left:18px;position:relative;color:var(--text-2);font-size:15.5px}
+  .vbox li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:2px;background:var(--green)}
+
+  .dl{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+  .d{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px}
+  .d .h{font-size:10px;color:var(--green)}
+  .d .big{font-size:40px;font-weight:600;line-height:1;color:var(--paper);margin:12px 0 2px;letter-spacing:-.03em}
+  .d .big small{font-size:14px;font-weight:400;color:var(--text-3);margin-left:6px;letter-spacing:0}
+  .d ul{list-style:none;display:grid;gap:6px;margin-top:12px}
+  .d li{padding-left:16px;position:relative;color:var(--text-2);font-size:15px;line-height:1.5}
+  .d li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:2px;background:var(--green)}
+
+  .rates{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+  .rate{background:var(--panel);border:1px solid var(--line-2);border-radius:18px;padding:28px 26px 24px;position:relative}
+  .rate.main{border-color:var(--green);box-shadow:0 0 0 1px var(--green) inset}
+  .rate .tag{font-size:10px;color:var(--green)}
+  .rate h3{font-size:24px;font-weight:600;margin:10px 0 4px;letter-spacing:-.02em}
+  .rate .price{font-size:52px;font-weight:600;line-height:1;margin:16px 0 6px;color:var(--paper);letter-spacing:-.04em}
+  .rate .price small{font-size:15px;font-weight:400;color:var(--text-3);margin-left:6px;letter-spacing:0}
+  .rate .terms{font-size:15px;color:var(--text-2);margin-bottom:14px}
+  .rate ul{list-style:none;display:grid;gap:7px}
+  .rate li{padding-left:18px;position:relative;color:var(--text-2);font-size:15.5px}
+  .rate li::before{content:"";position:absolute;left:0;top:10px;width:8px;height:2px;background:var(--green)}
+  .badge{position:absolute;top:-12px;right:20px;background:var(--green);color:#081006;font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;font-weight:500}
+
+  .tbl{width:100%;border-collapse:collapse;margin-top:26px;font-size:15.5px}
+  .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:14px;margin-top:26px;background:var(--panel)}
+  .tblwrap .tbl{margin:0;min-width:560px}
+  .tbl th{text-align:left;font-family:'Geist Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);padding:14px 16px;border-bottom:1px solid var(--line-2)}
+  .tbl td{padding:14px 16px;border-bottom:1px solid var(--line);color:var(--text-2);vertical-align:top}
+  .tbl tr:last-child td{border-bottom:0}
+  .tbl td.num{color:var(--paper);font-weight:600;white-space:nowrap}
+  .tbl tr.tot td{background:#17221a;color:var(--paper)}
+  .swipe{display:none;margin-top:8px;font-size:12px;color:var(--text-3)}
+
+  .sum{margin-top:14px;background:#13241a;border:1px solid var(--forest);border-radius:14px;padding:20px 24px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+  .sum .l{font-size:16.5px;color:var(--text)}
+  .sum .r{font-size:28px;font-weight:600;color:var(--paper);white-space:nowrap;letter-spacing:-.02em}
+  .fine{margin-top:14px;font-size:14.5px;color:var(--text-3)}
+  .notes{margin-top:18px;display:grid;gap:10px}
+  .note{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .note .k{font-size:10.5px;color:var(--green);padding-top:3px}
+  .note p{color:var(--text-2);font-size:15.5px}
+
+  .steps{counter-reset:s;margin-top:28px;display:grid;gap:12px}
+  .step{counter-increment:s;display:grid;grid-template-columns:52px 1fr;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .step::before{content:counter(s,decimal-leading-zero);font-family:'Geist Mono',monospace;color:var(--green);font-size:20px;line-height:1.2}
+  .step h3{font-size:18px;font-weight:600;letter-spacing:-.01em;margin-bottom:4px}
+  .step p{font-size:15.5px;color:var(--text-2)}
+  .formula{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .formula div{background:var(--bg-2);border:1px dashed var(--line-2);border-radius:14px;padding:18px}
+  .formula .k{font-size:10px;color:var(--green)}
+  .formula .f{margin-top:8px;color:var(--paper);font-size:16px;font-weight:500}
+  .formula p{margin-top:6px;font-size:14px;color:var(--text-3)}
+
+  .proof{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+  .pr{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column}
+  .pr .who{font-size:10px;color:var(--green)}
+  .pr .v{font-size:34px;font-weight:600;color:var(--paper);margin:12px 0 4px;letter-spacing:-.03em;line-height:1.05}
+  .pr p{font-size:15px;color:var(--text-2);flex:1}
+  .pr a{margin-top:14px;font-size:13px;text-decoration:none}
+  .honest{margin-top:16px;padding:18px 22px;border:1px solid var(--line-2);border-radius:14px;color:var(--text-2);font-size:15.5px;background:var(--bg-2)}
+
+  .close{padding:90px 0 80px;text-align:center}
+  .close h2{font-size:clamp(30px,4.4vw,48px);font-weight:300;letter-spacing:-.03em;max-width:700px;margin:0 auto 18px}
+  .close h2 em{font-style:normal;font-weight:600;color:var(--green)}
+  .close p{color:var(--text-2);max-width:560px;margin:0 auto 12px}
+  .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+  .act{display:inline-block;padding:15px 28px;border-radius:999px;font-family:'Geist Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid var(--line-2);color:var(--paper);transition:.2s ease}
+  .act:hover{border-color:var(--paper)}
+  .act.green{background:var(--green);border-color:var(--green);color:#081006;font-weight:500}
+  .act.green:hover{background:#8fd455}
+  .act.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+  .act.wa:hover{background:#1da851;border-color:#1da851}
+  .sign{margin-top:40px;color:var(--text-3);font-size:15px}
+  .sign b{display:block;color:var(--paper);font-size:17px}
+  footer{padding:36px 22px;text-align:center;font-size:13px;color:var(--text-3);line-height:1.9;border-top:1px solid var(--line)}
+
+  @media (max-width:860px){
+    .dates{grid-template-columns:1fr 1fr}
+    .ideas,.dl,.proof{grid-template-columns:1fr 1fr}
+    .toc .grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:640px){
+    body{font-size:16.5px}
+    .mast .lock .fc,.mast .lock span:not(.dot){display:none}
+    .mast .lock b{white-space:nowrap}
+    .mast>.mono:last-child{font-size:9.5px;text-align:right}
+    .hero{padding:44px 0 42px}
+    .hero h1{font-size:36px}
+    .pills{grid-template-columns:1fr}
+    .toc .grid{grid-template-columns:1fr}
+    .sec{padding:58px 0 0}
+    .dates,.ideas,.dl,.proof,.rates,.verdict,.formula{grid-template-columns:1fr}
+    .phase{grid-template-columns:1fr;gap:14px;padding:22px}
+    .sum{grid-template-columns:1fr}
+    .note{grid-template-columns:1fr;gap:4px}
+    .swipe{display:block}
+    .close{padding:64px 0 56px}
+  }
+</style>
+</head>
+<body>
+
+<div class="mast">
+  <div class="lock mono"><span class="dot"></span><b>North 18</b><span>x</span><b class="fc">Fusion Creative</b></div>
+  <div class="mono" style="color:var(--text-3)">Launch proposal &middot; October 2026</div>
+</div>
+
+<header class="hero">
+  <div class="wide">
+    <img src="assets/logo.jpg" alt="North 18 Indoor Golf" width="1072" height="432">
+    <div class="x mono">Prepared for Ross Sisterson &nbsp;x&nbsp; <b>Fusion Creative</b></div>
+    <h1>Open in December with <em>bays already booked.</em></h1>
+    <p>One team to film North 18, run Instagram, Facebook and TikTok, answer every message and buy the ads, measured on one thing: paid bay bookings.</p>
+    <div class="pills">
+      <div class="pill"><div class="v">Yes</div><div class="k mono">Capacity for a December opening</div></div>
+      <div class="pill"><div class="v">Mon 19 Oct</div><div class="k mono">Proposed start, first filming that week</div></div>
+      <div class="pill"><div class="v">8 weeks</div><div class="k mono">Of pre-launch before doors open</div></div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc"><div class="wide">
+  <div class="mono" style="color:var(--text-3)">Your questions, answered in order</div>
+  <div class="grid">
+    <a href="#start"><span>01</span>Capacity and earliest start</a>
+    <a href="#plan"><span>02</span>The launch plan</a>
+    <a href="#before"><span>03</span>What we promote before the fit-out</a>
+    <a href="#tiktok"><span>04</span>Is TikTok worthwhile?</a>
+    <a href="#included"><span>05</span>Exactly what is included</a>
+    <a href="#fees"><span>06</span>Fees</a>
+    <a href="#budget"><span>07</span>Advertising budget, VAT and other costs</a>
+    <a href="#tracking"><span>08</span>Tracking bookings and cost per booking</a>
+    <a href="#terms"><span>09</span>Term, cancellation and ownership</a>
+    <a href="#work"><span>10</span>Our work and results</a>
+    <a href="#next"><span>11</span>Next steps</a>
+  </div>
+</div></nav>
+
+<section class="sec" id="start"><div class="col">
+  <div class="n mono">01 &middot; Capacity and earliest start</div>
+  <h2>Yes, we can support a December opening.</h2>
+  <div class="answer">
+    <div class="big">Start Monday 19 October.</div>
+    <p>That gives North 18 eight weeks of build-up before the doors open, which is the right amount: long enough to grow a local following and a waiting list, short enough that people are still excited when you open. Our filming diary is full until 13 October, so the intro call can happen any day that week and the first filming visit the week after.</p>
+  </div>
+  <div class="dates">
+    <div class="date"><div class="d mono">Week of 13 Oct</div><h3>Intro call</h3><p>Agree the plan, the opening offer and the booking provider. Agreement signed.</p></div>
+    <div class="date"><div class="d mono">Week of 19 Oct</div><h3>Set up and first visit</h3><p>Accounts, tracking and ad account built. First filming visit on site, mid fit-out.</p></div>
+    <div class="date"><div class="d mono">By end of Oct</div><h3>Ads live</h3><p>The waiting list campaign running to golfers and groups in North Tyneside.</p></div>
+    <div class="date"><div class="d mono">Early to mid Dec</div><h3>Doors open</h3><p>Launch night, opening offer to the list, Christmas parties and gift vouchers.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="plan"><div class="wide">
+  <div class="n mono">02 &middot; The launch plan</div>
+  <h2>Three phases, one goal: paid bookings.</h2>
+  <p class="lede">A new venue does not need fame, it needs a list of local people who have said "tell me when I can book". Everything before opening builds that list. Everything after opening turns it into bookings, then fills the quiet hours.</p>
+  <div class="phases">
+    <div class="phase">
+      <div><div class="when mono">19 Oct to opening</div><div class="name">Build the waiting list</div><div class="goal">Measured on: waiting list sign-ups and cost per sign-up.</div></div>
+      <ul>
+        <li>Instagram, Facebook and TikTok set up properly or tidied: bios, highlights, link to a "join the list" page, and the North 18 look carried through every post.</li>
+        <li>Content from the build itself (see section 03): the fit-out, the tech, you, and what indoor golf actually is for people who have never tried it.</li>
+        <li>A <b>founding list</b> offer for people who sign up before opening, for example first access to the booking calendar and an opening rate. You choose the offer, we build it.</li>
+        <li>Meta ads to golfers and social groups within a short drive of North Shields, sending people to the sign-up page, not just to a follow.</li>
+        <li>Christmas parties and gift vouchers promoted from early November, so the first weeks are filling before you open.</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div><div class="when mono">Opening fortnight</div><div class="name">Turn the list into bookings</div><div class="goal">Measured on: paid bay bookings and cost per booking.</div></div>
+      <ul>
+        <li>Booking opens to the founding list first, by email and message, 48 hours before everyone else.</li>
+        <li>A launch evening filmed start to finish: local golfers, club members, North Tyneside creators and friends of the venue in every bay.</li>
+        <li>Ads switch from "join the list" to "book a bay", retargeting everyone who watched, visited or signed up.</li>
+        <li>Christmas push: party bookings, group packages and gift vouchers as the obvious local present for a golfer.</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div><div class="when mono">January onwards</div><div class="name">Fill the quiet hours</div><div class="goal">Measured on: bookings per week, off-peak occupancy, repeat customers.</div></div>
+      <ul>
+        <li>Evenings and weekends will fill themselves sooner. The ads move to weekday daytime and early evening: retirees, shift workers, coaching, practice sessions.</li>
+        <li>Recurring formats that bring people back: a monthly closest to the pin leaderboard, a winter league, corporate and team nights.</li>
+        <li>Reviews collected after every visit and used in the ads, because a new venue's biggest problem is that nobody has heard of it yet.</li>
+        <li>Monthly report and a planning call: what booked, what it cost, what we change next month.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" id="before"><div class="wide">
+  <div class="n mono">03 &middot; Before the fit-out is finished</div>
+  <h2>An unfinished venue is the best content you will ever have.</h2>
+  <p class="lede">People follow a build. Watching a shell turn into four bays gives them a reason to follow now and a reason to come on opening week to see the finished thing. None of this needs a single bay to be working.</p>
+  <div class="ideas">
+    <div class="idea"><div class="t mono">Series</div><h3>The build</h3><p>Weekly progress: the empty unit, the screens and enclosures arriving, the turf going down, first lights on. A countdown with a reason to keep watching.</p></div>
+    <div class="idea"><div class="t mono">Founder</div><h3>Why North Shields</h3><p>Ross on camera: why North Shields, why now, and what a night at North 18 will feel like and what it will be like. People book with people.</p></div>
+    <div class="idea"><div class="t mono">Explainer</div><h3>What is indoor golf?</h3><p>For the non-golfers who are half your market: no kit needed, famous courses on screen, a social night out like bowling but better. Short, plain answers.</p></div>
+    <div class="idea"><div class="t mono">The tech</div><h3>How accurate is it?</h3><p>The launch monitor and the data it reads, shown in a way that hooks golfers: ball speed, spin, carry. First test swings the day it is installed.</p></div>
+    <div class="idea"><div class="t mono">Community</div><h3>Local golfers, first swing</h3><p>Invite members from the nearby clubs and local golf creators for a first look, filmed. Their followers are exactly who you want.</p></div>
+    <div class="idea"><div class="t mono">Offer</div><h3>Founding list and Christmas</h3><p>Join the list for first access. Christmas party enquiries and gift vouchers taken before opening day.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="tiktok"><div class="col">
+  <div class="n mono">04 &middot; Is TikTok worthwhile?</div>
+  <h2>Yes for content. Not yet for ads.</h2>
+  <p class="lede">TikTok now sends a lot of local discovery: people search it for things to do near them the way they used to search Google. Golf simulator content (trick shots, challenges, "can a beginner beat a single figure golfer") travels well there, and we post the same vertical videos on all three platforms, so it costs North 18 nothing extra in time.</p>
+  <div class="verdict">
+    <div class="vbox"><h3>What we would do</h3><ul><li>Post on TikTok from day one, alongside Instagram Reels and Facebook</li><li>Use challenge and reaction formats that suit it, filmed at each visit</li><li>Point every profile to the same booking link</li></ul></div>
+    <div class="vbox"><h3>What we would not do yet</h3><ul><li>Spend ad budget on TikTok before opening</li><li>Meta (Facebook and Instagram) targets a local radius and an older golfing audience more precisely, so the money goes there first</li><li>We review TikTok ads in month three, once we know which videos people book from</li></ul></div>
+  </div>
+</div></section>
+
+<section class="sec" id="included"><div class="wide">
+  <div class="n mono">05 &middot; Exactly what is included</div>
+  <h2>What lands every month.</h2>
+  <p class="lede">Counted, so you know exactly what you are paying for.</p>
+  <div class="dl">
+    <div class="d"><div class="h mono">Platforms</div><div class="big">3<small>channels</small></div><ul><li>Instagram, Facebook and TikTok</li><li>Set up or tidied in week one: bios, highlights, booking link</li><li>Google Business Profile photos and posts kept current</li></ul></div>
+    <div class="d"><div class="h mono">Filming visits</div><div class="big">2<small>visits a month</small></div><ul><li>Two half-day visits a month through the build and opening (October to December)</li><li>Then one full capture day a month (up to six hours) from January</li><li>Photography and video at every visit, shot list agreed the week before</li></ul></div>
+    <div class="d"><div class="h mono">Content</div><div class="big">20+<small>videos a month</small></div><ul><li>Reels and TikToks edited, captioned and cut for each platform</li><li>15 plus edited photos a month for the grid, stories, website and listings</li><li>Everything delivered to a shared folder that you own</li></ul></div>
+    <div class="d"><div class="h mono">Posting</div><div class="big">5<small>posts a week</small></div><ul><li>Scheduled and published across all three platforms</li><li>Stories on filming days, launch night and events</li><li>You approve the month's plan; we do the rest</li></ul></div>
+    <div class="d"><div class="h mono">Community management</div><div class="big">1<small>working day</small></div><ul><li>Comments and messages answered within one working day, Monday to Saturday</li><li>Booking and party enquiries passed to you the same day</li><li>Agreed replies for prices, opening hours and FAQs</li></ul></div>
+    <div class="d"><div class="h mono">Paid ads and reporting</div><div class="big">Weekly<small>optimisation</small></div><ul><li>Meta campaigns planned, built and run: waiting list, then bookings, then off-peak</li><li>New ad creative from every filming visit, weak ads switched off weekly</li><li>A short weekly update before opening, then a monthly report and planning call</li></ul></div>
+  </div>
+</div></section>
+
+<section class="sec" id="fees"><div class="wide">
+  <div class="n mono">06 &middot; Fees</div>
+  <h2>One fixed monthly fee. No setup charge.</h2>
+  <p class="lede">The pre-launch setup (accounts, tracking, ad account, sign-up page connection, the first visit) is part of month one, not an extra. Fees are billed monthly in advance, the first month on signing.</p>
+  <div class="rates">
+    <div class="rate main">
+      <span class="badge">Recommended</span>
+      <div class="tag mono">Three month launch term</div>
+      <h3>Launch and grow</h3>
+      <div class="price">&pound;1,500<small>a month</small></div>
+      <div class="terms">An initial three months: 19 October to 18 January, which covers the build-up, opening and the first full month trading. Then month to month on 30 days' notice, at the same rate.</div>
+      <ul>
+        <li>Everything in section 05</li>
+        <li>Setup and pre-launch work included</li>
+        <li>Monthly planning call and report</li>
+        <li>A WhatsApp line to Jay</li>
+      </ul>
+    </div>
+    <div class="rate">
+      <div class="tag mono">No minimum term</div>
+      <h3>Rolling</h3>
+      <div class="price">&pound;1,950<small>a month</small></div>
+      <div class="terms">Exactly the same service, month to month from the start, cancel any time on 30 days' notice.</div>
+      <ul>
+        <li>Everything in section 05</li>
+        <li>Setup and pre-launch work included</li>
+        <li>Monthly planning call and report</li>
+        <li>A WhatsApp line to Jay</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sum">
+    <div class="l">Three month launch term, Fusion fees in total. Advertising budget is separate, below.</div>
+    <div class="r">&pound;4,500</div>
+  </div>
+</div></section>
+
+<section class="sec" id="budget"><div class="wide">
+  <div class="n mono">07 &middot; Advertising budget</div>
+  <h2>Ad spend, shown separately from our fees.</h2>
+  <p class="lede">Ad spend is paid by North 18 directly to Meta on your own card, so every penny of it is visible to you and none of it passes through us. This is our recommended budget for a four-bay venue in North Tyneside. It flexes up or down whenever you want.</p>
+  <div class="tblwrap">
+    <table class="tbl">
+      <thead><tr><th>Period</th><th>Daily</th><th>Approx. total</th><th>What the ads do</th></tr></thead>
+      <tbody>
+        <tr><td>Late Oct to opening<br><span style="color:var(--text-3)">about 6 weeks</span></td><td class="num">&pound;15</td><td class="num">&pound;630</td><td>Grow the founding list; Christmas parties and vouchers from November</td></tr>
+        <tr><td>Opening month<br><span style="color:var(--text-3)">December</span></td><td class="num">&pound;30</td><td class="num">&pound;930</td><td>Book a bay, retarget the list, Christmas parties and vouchers</td></tr>
+        <tr><td>January onwards<br><span style="color:var(--text-3)">per month</span></td><td class="num">&pound;20</td><td class="num">&pound;600</td><td>Off-peak bookings, leagues, corporate, retargeting past visitors</td></tr>
+        <tr class="tot"><td>First three months</td><td></td><td class="num">about &pound;1,900</td><td>Through to 18 January</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="swipe">Swipe the table sideways to see every column.</div>
+  <div class="notes">
+    <div class="note"><div class="k mono">VAT on fees</div><p>Fusion Creative is not currently VAT registered, so no VAT is added to the fees above. If that changes during the agreement we will tell you in writing before any invoice carries VAT.</p></div>
+    <div class="note"><div class="k mono">VAT on ad spend</div><p>Meta adds VAT at 20% to UK ad spend. If North 18 is VAT registered and your VAT number is on the ad account, it is normally reverse charged instead, and you account for it on your own return. The budgets above are before VAT.</p></div>
+    <div class="note"><div class="k mono">Other costs</div><p>None expected. Filming kit, editing, music and travel in the North East are included. Anything outside the plan, such as printed material or paying a creator for a post, is quoted to you first and only goes ahead with your written OK.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="tracking"><div class="col">
+  <div class="n mono">08 &middot; Tracking bookings</div>
+  <h2>Cost per booking, worked out from your real bookings.</h2>
+  <p class="lede">We work with whichever booking provider you choose. On the intro call we check what it can pass back, then set up the following in the first week.</p>
+  <div class="steps">
+    <div class="step"><div><h3>Meta pixel and Conversions API on north18golf.com</h3><p>So Meta can see which ads lead to a sign-up or a booking, even when people book later on a different device.</p></div></div>
+    <div class="step"><div><h3>A booking event from your provider</h3><p>Most booking systems either support the Meta pixel or Google Tag Manager directly, or show a confirmation page we can track. If yours does neither, we use the next step on its own.</p></div></div>
+    <div class="step"><div><h3>Tagged links and a code per channel</h3><p>Every bio, ad and post uses a tracked link, and the opening offer uses a code per channel, so a booking can be traced even without a pixel.</p></div></div>
+    <div class="step"><div><h3>A monthly check against your booking export</h3><p>We compare what the ads claim with the bookings your system actually took, so the report shows real numbers, not just Meta's view.</p></div></div>
+  </div>
+  <div class="formula">
+    <div><div class="k mono">Cost per booking from ads</div><div class="f">Ad spend &divide; bookings traced to ads</div><p>Tells us which ads to keep and which to switch off.</p></div>
+    <div><div class="k mono">All-in cost per new customer</div><div class="f">(Ad spend + our fee) &divide; new customers</div><p>The honest number for judging whether this is worth it.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="terms"><div class="col">
+  <div class="n mono">09 &middot; Term, cancellation and ownership</div>
+  <h2>Plain terms. Everything stays yours.</h2>
+  <div class="notes">
+    <div class="note"><div class="k mono">Minimum term</div><p>Three months on the launch term at &pound;1,500 a month. Or no minimum on the rolling option at &pound;1,950 a month.</p></div>
+    <div class="note"><div class="k mono">Cancellation</div><p>30 days' notice in writing, by email is fine. On the launch term, notice can be given from the start of month three, so you can finish on 18 January if you want to.</p></div>
+    <div class="note"><div class="k mono">Accounts</div><p>North 18 owns every account: Instagram, Facebook page, TikTok, the Meta business portfolio and the ad account, all in your name. We are added as partners or admins and removed the day the agreement ends.</p></div>
+    <div class="note"><div class="k mono">Content</div><p>All photos and videos we deliver are yours to use anywhere, for good, including after we finish. We ask only to show selected pieces in our own portfolio, which you can decline.</p></div>
+    <div class="note"><div class="k mono">Ad spend</div><p>Paid by you direct to Meta. We never hold or mark up your ad budget.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="work"><div class="wide">
+  <div class="n mono">10 &middot; Our work and results</div>
+  <h2>Local venues, filmed by us, sold by us.</h2>
+  <p class="lede">We are a Newcastle team. We film it ourselves and we run the ads ourselves, which is why the ads never run out of fresh creative.</p>
+  <div class="proof">
+    <div class="pr"><div class="who mono">Takdir &middot; Whitley Bay</div><div class="v">~4M views</div><p>A local North Tyneside restaurant: almost four million views and 1,200 plus new followers across Instagram and TikTok in the first month, built around the people behind the food.</p><a href="https://fusioncreative.uk/case-studies/takdir" target="_blank" rel="noopener">Read the case study &rarr;</a></div>
+    <div class="pr"><div class="who mono">New Greek &middot; Newcastle</div><div class="v">+40% sales</div><p>Weekly sales up around 40% in the owner's own words, with 87 million plus views and one reel past 70 million. Filmed and posted by us every month.</p><a href="https://fusioncreative.uk/case-studies/new-greek" target="_blank" rel="noopener">Read the case study &rarr;</a></div>
+    <div class="pr"><div class="who mono">Northumberland brand &middot; paid ads</div><div class="v">16.9x</div><p>Monthly revenue up 16.9 times in 60 days once our paid ads and email went live. Same team, same method: we make the creative and we buy the media.</p><a href="https://fusioncreative.uk/case-studies/tncc-redesign" target="_blank" rel="noopener">Read the case study &rarr;</a></div>
+  </div>
+  <div class="honest">To be straight with you: North 18 would be our first golf venue. Our venue work so far is restaurants, hotels and event spaces across the North East, and our strongest paid ads result is a product brand. The method is the same one we would use here: film what makes the place worth visiting, put it in front of the right people nearby, and judge it on bookings.</div>
+</div></section>
+
+<section class="close" id="next"><div class="col">
+  <h2>Let's get North 18 <em>booked before it opens.</em></h2>
+  <p>Happy to do the introductory call any day in the week of 13 October. Reply to the email, send a WhatsApp or call, and we will send the agreement after the call so we can start on Monday 19 October.</p>
+  <div class="acts">
+    <a class="act wa" href="https://wa.me/447437571250?text=Hi%20Jay%2C%20it%27s%20Ross%20from%20North%2018%20Indoor%20Golf" target="_blank" rel="noopener">WhatsApp Jay</a>
+    <a class="act green" href="mailto:jay@fusioncreative.uk?subject=North%2018%20proposal">Reply by email</a>
+  </div>
+  <div class="sign"><b>Jay Williams</b>Co-founder, Fusion Creative &middot; jay@fusioncreative.uk &middot; 07437 571250</div>
+</div></section>
+
+<footer>
+  Fusion Creative &nbsp;&middot;&nbsp; Newcastle upon Tyne &nbsp;&middot;&nbsp; fusioncreative.uk<br>
+  Prepared for North 18 Indoor Golf on 3 October 2026 and valid for 30 days. Fees exclude advertising spend, which is paid by North 18 direct to Meta.
+</footer>
+
+<script>(function(){try{if(!/(^|\.)fusioncreative\.uk$/.test(location.hostname))return;var q=location.search;if(/[?&](owner|me)=1/.test(q)){try{localStorage.setItem('fc_owner','1')}catch(e){}}try{if(localStorage.getItem('fc_owner')==='1')return}catch(e){}var slug='proposal-north-18-golf';try{if(sessionStorage.getItem('fc_v_'+slug))return;sessionStorage.setItem('fc_v_'+slug,'1')}catch(e){}fetch('https://newgreek.fusioncreative.uk/api/audit-view/',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({slug:slug,ref:document.referrer,q:q}),keepalive:true}).catch(function(){})}catch(e){}})();</script>
+</body>
+</html>
