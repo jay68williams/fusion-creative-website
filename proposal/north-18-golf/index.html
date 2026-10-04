@@ -161,12 +161,63 @@
   .sign b{display:block;color:var(--paper);font-size:17px}
   footer{padding:36px 22px;text-align:center;font-size:13px;color:var(--text-3);line-height:1.9;border-top:1px solid var(--line)}
 
+  .funnel{margin:34px auto 0;max-width:760px;display:grid;gap:5px}
+  .fbar{width:var(--w);margin:0 auto;min-height:62px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;padding:10px 34px;clip-path:polygon(0 0,100% 0,calc(100% - 18px) 100%,18px 100%);background:linear-gradient(180deg,var(--c1),var(--c2));color:#081006}
+  .fbar.dark{color:var(--paper)}
+  .fbar .st{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.1em;opacity:.7}
+  .fbar .nm{font-size:19px;font-weight:600;letter-spacing:-.02em;line-height:1.15;text-align:left}
+  .fbar .ex{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;text-align:right;opacity:.85;white-space:nowrap}
+  .fsteps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+  .fstep{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .fstep .t{font-size:10px;color:var(--green)}
+  .fstep h3{font-size:18px;font-weight:600;margin:8px 0 6px;letter-spacing:-.01em}
+  .fstep p{font-size:15px;color:var(--text-2);line-height:1.5}
+  .fstep .m{margin-top:12px;font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);border-top:1px solid var(--line);padding-top:10px}
+  .loop{margin-top:14px;display:flex;gap:12px;align-items:center;background:var(--bg-2);border:1px dashed var(--line-2);border-radius:14px;padding:14px 18px;font-size:15px;color:var(--text-2)}
+  .loop svg{flex:none}
+  .sub{font-size:22px;font-weight:600;color:var(--paper);letter-spacing:-.02em;margin-top:54px}
+  .sub + .lede{margin-top:8px}
+  .offers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+  .offer{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;position:relative}
+  .offer.pick{border-color:var(--green);box-shadow:0 0 0 1px var(--green) inset}
+  .offer .t{font-size:10px;color:var(--green)}
+  .offer h3{font-size:19px;font-weight:600;margin:8px 0 6px;letter-spacing:-.01em}
+  .offer p{font-size:15px;color:var(--text-2);line-height:1.5}
+  .offer .pc{margin-top:12px;display:grid;gap:6px;font-size:14px;color:var(--text-3)}
+  .offer .pc b{font-weight:500}
+  .market{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+  .mk{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .mk .t{font-size:10px;color:var(--green)}
+  .mk h3{font-size:18px;font-weight:600;margin:8px 0 8px;letter-spacing:-.01em}
+  .mk ul{list-style:none;display:grid;gap:7px}
+  .mk li{padding-left:16px;position:relative;color:var(--text-2);font-size:15px;line-height:1.5}
+  .mk li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:2px;background:var(--green)}
+  .mk.flag{border-left:4px solid var(--green)}
+  .adgal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+  .ad{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+  .ad .cr{background:#000;aspect-ratio:4/5;overflow:hidden;position:relative}
+  .ad .cr img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+  .ad .cr .fmt{position:absolute;left:10px;top:10px;font-family:'Geist Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;background:rgba(7,7,8,.78);color:var(--paper);border:1px solid var(--line-2);border-radius:999px;padding:4px 8px}
+  .ad .bd{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .ad .who{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 10px;align-items:baseline}
+  .ad .who b{font-size:16px}
+  .ad .who span{font-family:'Geist Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);white-space:nowrap}
+  .ad q{display:block;font-size:14.5px;color:var(--text);quotes:none;border-left:2px solid var(--line-2);padding-left:10px}
+  .ad p{font-size:14.5px;color:var(--text-2);line-height:1.5}
+  .ad p b{font-weight:600}
+  .ad .src{margin-top:auto;padding-top:6px;font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
   @media (max-width:860px){
+    .offers,.market,.fsteps,.adgal{grid-template-columns:1fr 1fr}
     .dates{grid-template-columns:1fr 1fr}
     .ideas,.dl,.proof{grid-template-columns:1fr 1fr}
     .toc .grid{grid-template-columns:1fr 1fr}
   }
   @media (max-width:640px){
+    .offers,.market,.adgal{grid-template-columns:1fr}
+    .fsteps{grid-template-columns:1fr}
+    .fbar{width:calc(72% + (var(--w) - 50%) * .56);padding:9px 24px;gap:8px;grid-template-columns:auto 1fr;min-height:56px}
+    .fbar .ex{grid-column:1 / -1;text-align:center;font-size:10px;margin-top:-4px}
+    .fbar .nm{font-size:16.5px}
     body{font-size:16.5px}
     .mast .lock .fc,.mast .lock span:not(.dot){display:none}
     .mast .lock b{white-space:nowrap}
@@ -272,6 +323,69 @@
       </ul>
     </div>
   </div>
+</div></section>
+
+<section class="sec" id="funnel"><div class="wide">
+  <div class="n mono">02 &middot; The launch plan, step by step</div>
+  <h2>How a stranger in the feed becomes a paid booking.</h2>
+  <p class="lede">Ads on their own do not fill bays. Each ad sends people to a page with one clear offer, the offer captures their details, and the list is what books when the doors open. Every step has its own number, so we always know which step to fix.</p>
+  <div class="funnel" role="img" aria-label="Funnel: see the ad, land on the page, claim the offer, warm up the list, book a bay, come back">
+    <div class="fbar" style="--w:100%;--c1:#9AD663;--c2:#7CC242"><span class="st">01</span><span class="nm">See the ad</span><span class="ex">~25,000 local people</span></div>
+    <div class="fbar" style="--w:90%;--c1:#7CC242;--c2:#64A433"><span class="st">02</span><span class="nm">Land on the page</span><span class="ex">~900 visits</span></div>
+    <div class="fbar" style="--w:80%;--c1:#5E9A2E;--c2:#4C8326"><span class="st">03</span><span class="nm">Claim the offer</span><span class="ex">~270 sign-ups</span></div>
+    <div class="fbar dark" style="--w:70%;--c1:#3F7A2E;--c2:#2E6A30"><span class="st">04</span><span class="nm">Warm up the list</span><span class="ex">6 weeks of build-up</span></div>
+    <div class="fbar dark" style="--w:60%;--c1:#2A6436;--c2:#215D39"><span class="st">05</span><span class="nm">Book a bay</span><span class="ex">~70 opening bookings</span></div>
+    <div class="fbar dark" style="--w:50%;--c1:#1E4F31;--c2:#183F28"><span class="st">06</span><span class="nm">Come back</span><span class="ex">Reviews, repeat visits</span></div>
+  </div>
+  <div class="fsteps">
+    <div class="fstep"><div class="t mono">Step 01 &middot; See the ad</div><h3>A short video in the feed</h3><p>Vertical video from the build and the bays, shown to people within a short drive of North Shields: golfers, groups of mates, work teams. Hooks that work in this category: "it is always golf weather in here", a night out with mates, the tech.</p><div class="m">Measured on: Cost per 1,000 people reached</div></div>
+    <div class="fstep"><div class="t mono">Step 02 &middot; Land on the page</div><h3>One page, one job</h3><p>Not the home page. A page built for the offer: what North 18 is, the offer, a short video and a short sign-up form. Before opening it says "join the list"; after opening it says "book a bay".</p><div class="m">Measured on: Click-through rate, cost per click</div></div>
+    <div class="fstep"><div class="t mono">Step 03 &middot; Claim the offer</div><h3>The reason to act now</h3><p>The founding offer (below) turns a visitor into a name on the list. Name, email, mobile, and one question: who would you come with? That answer decides which ads and messages each person gets.</p><div class="m">Measured on: Sign-up rate, cost per sign-up</div></div>
+    <div class="fstep"><div class="t mono">Step 04 &middot; Warm up the list</div><h3>Stay in their head until opening</h3><p>Build updates, a countdown and first looks, sent by email and message. Retargeting ads show the build to everyone who watched or visited but has not signed up yet.</p><div class="m">Measured on: Opens, replies, list growth</div></div>
+    <div class="fstep"><div class="t mono">Step 05 &middot; Book a bay</div><h3>The list books first</h3><p>Booking opens to the list 48 hours before everyone else. Prices shown before the booking engine, four steps to pay, and a separate route for groups of six or more.</p><div class="m">Measured on: Paid bookings, cost per booking</div></div>
+    <div class="fstep"><div class="t mono">Step 06 &middot; Come back</div><h3>Turn one visit into ten</h3><p>A review request after every visit, then the reasons to return: a league, a monthly leaderboard, membership, gift vouchers for the next person.</p><div class="m">Measured on: Repeat visits, reviews</div></div>
+  </div>
+  <div class="loop"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7CC242" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg><span><b>The loop:</b> reviews, videos and visitors from step 6 feed straight back into the ads in step 1, so the ads get cheaper the longer the venue is open.</span></div>
+  <p class="fine">The figures in the funnel use the pre-launch budget in section 07 (about &pounds;630) and typical rates for local venue ads. They are planning numbers to measure against, not a promise. We report the real figure for every step.</p>
+
+  <div class="sub">The two pages that do the selling</div>
+  <p class="lede">The ads are only as good as the page they send people to. We build both, connect them to your booking system, and track every step with the Meta pixel.</p>
+  <div class="verdict">
+    <div class="vbox"><h3>Before opening: "Join the list"</h3><ul><li>The offer in one line at the top, with a short build video</li><li>Three fields: name, email, mobile, plus "who would you come with?"</li><li>A countdown to opening and a line on what the list gets first</li><li>Christmas party and gift voucher enquiries from November</li><li>Thank you page that asks them to share it with whoever they would bring</li></ul></div>
+    <div class="vbox"><h3>After opening: "Book a bay"</h3><ul><li>Prices shown up front, before anyone opens the booking calendar</li><li>Four steps to a paid booking: date, players, slot, pay</li><li>A separate route for groups of six or more, parties and corporate</li><li>Gift vouchers one tap away</li><li>A first-booking code that only runs in the ads, so every ad booking is counted</li></ul></div>
+  </div>
+
+  <div class="sub">The offer: the reason to sign up now</div>
+  <p class="lede">The offer is the single biggest lever in the whole funnel. Three options that work for a new venue, and our recommendation. You choose the numbers; we build the pages, ads and messages around it.</p>
+  <div class="offers">
+    <div class="offer pick"><div class="t mono">Recommended</div><h3>Founding members</h3><p>A limited number of founding memberships, for example the first 50, sold before opening: hours included each month, a member rate on extra bookings, a free guest, members' competitions.</p><div class="pc"><span><b>For:</b> money in the bank before opening, and members bring friends</span><span><b>Against:</b> needs membership pricing agreed early</span></div></div>
+    <div class="offer"><div class="t mono">Simple</div><h3>First access plus an opening rate</h3><p>Everyone on the list books 48 hours before the public, with an opening rate or a free extra half hour on their first visit.</p><div class="pc"><span><b>For:</b> easy to explain, works for golfers and non-golfers</span><span><b>Against:</b> no recurring income from it</span></div></div>
+    <div class="offer"><div class="t mono">Fastest list</div><h3>Win a year of golf</h3><p>Everyone who joins the list is entered into a draw: a free year of membership, or a free Christmas party for their group.</p><div class="pc"><span><b>For:</b> the cheapest sign-ups, and they share it</span><span><b>Against:</b> some people only want the prize</span></div></div>
+  </div>
+  <p class="fine">Our recommendation: run the simple offer for everyone, with founding memberships as the headline for the first 50. The draw is a good extra in the last two weeks before opening if the list needs a push.</p>
+
+  <div class="sub">What other indoor golf venues are doing</div>
+  <p class="lede">We looked at indoor golf venues across the North East and the strongest independents in the UK, and the ads they are running on Facebook and Instagram (checked early October 2026).</p>
+  <div class="market">
+    <div class="mk flag"><div class="t mono">The opening</div><h3>Nobody in the North East is launching properly</h3><ul><li>Most local venues are practice studios on industrial estates, built around lessons rather than a night out</li><li>We could not find one running a launch campaign, founding memberships, a referral scheme or a proper email list</li><li>Several earlier venues in and around Newcastle appear to have closed, which is why the launch plan matters</li></ul></div>
+    <div class="mk"><div class="t mono">Prices</div><h3>Where North 18 will sit</h3><ul><li>North East venues: about &pounds;15 to &pounds;25 per bay hour, usually with around &pounds;5 per extra player</li><li>Premium UK venues: about &pounds;40 off-peak to &pounds;80 peak</li><li>Memberships usually come in three tiers, roughly &pounds;40 to &pounds;130, &pounds;100 to &pounds;190 and &pounds;150 to &pounds;300 a month</li></ul></div>
+    <div class="mk"><div class="t mono">Their ads</div><h3>What the best ones run (examples below)</h3><ul><li>Short vertical videos with a "Book now" button straight to booking</li><li>Weather hooks from October to February, and nights out with mates</li><li>A first-booking discount code used only in the ads, and gift cards at Christmas</li><li>Group prices per head with a drink included for parties</li></ul></div>
+    <div class="mk"><div class="t mono">Worth knowing</div><h3>A new name tested Newcastle in August</h3><ul><li>A planned Newcastle venue, Bunker NCL, ran ads in August offering a free year's membership "if it launches"</li><li>That is a demand test, not an opening, but it is a reason to claim "the North East's indoor golf venue" first</li><li>We will keep an eye on it and on any other new openings</li></ul></div>
+  </div>
+
+  <div class="sub">Their actual ads</div>
+  <p class="lede">Six real ads from indoor golf venues, pulled from the Meta Ad Library. Each one shows something North 18 should copy.</p>
+  <div class="adgal">
+    <div class="ad"><div class="cr"><img src="assets/ads/golfbox_803637665736728.jpg" alt="Golfbox ad creative" loading="lazy"><span class="fmt">Video</span></div><div class="bd"><div class="who"><b>Golfbox</b><span>Bristol &middot; Oct to Dec 2025</span></div><q>OPEN NOW. Bristol's new Indoor Golf Club. Use code GB10.</q><p>Their launch ad. A 3-bay venue, like North 18: "now open", the tech, founder memberships and a discount code in one short video.</p><p><b>For North 18:</b> Lead the opening with "now open" and the founding offer together.</p><a class="src" href="https://www.facebook.com/ads/library/?id=803637665736728" target="_blank" rel="noopener">View in Meta Ad Library</a></div></div>
+    <div class="ad"><div class="cr"><img src="assets/ads/golfbox_778025705237242.jpg" alt="Golfbox ad creative" loading="lazy"><span class="fmt">Static</span></div><div class="bd"><div class="who"><b>Golfbox</b><span>Bath and Bristol &middot; Nov to Dec 2025</span></div><q>10% off first booking. FB10. Book Now.</q><p>A code that only appears in their Facebook ads, so every booking that uses it is a booking the ads paid for.</p><p><b>For North 18:</b> An ads-only first-booking code, so we can prove cost per booking.</p><a class="src" href="https://www.facebook.com/ads/library/?id=778025705237242" target="_blank" rel="noopener">View in Meta Ad Library</a></div></div>
+    <div class="ad"><div class="cr"><img src="assets/ads/sq1_4501445593433876.jpg" alt="Square One ad creative" loading="lazy"><span class="fmt">Video</span></div><div class="bd"><div class="who"><b>Square One</b><span>Ashford &middot; Running since 9 Sep 2026</span></div><q>Forget checking the forecast. It's always golf weather.</q><p>The seasonal hook. From October to February, the weather is the reason to book indoor golf.</p><p><b>For North 18:</b> Weather hooks through the whole of North 18's first winter.</p><a class="src" href="https://www.facebook.com/ads/library/?id=4501445593433876" target="_blank" rel="noopener">View in Meta Ad Library</a></div></div>
+    <div class="ad"><div class="cr"><img src="assets/ads/pitchm_1435721014199291.jpg" alt="Pitch ad creative" loading="lazy"><span class="fmt">Video</span></div><div class="bd"><div class="who"><b>Pitch</b><span>Manchester &middot; Oct to Dec 2025</span></div><q>Make this year's Christmas party one to remember.</q><p>Christmas parties sold from mid October, two months ahead, with "book early to secure your date".</p><p><b>For North 18:</b> Christmas party ads from early November, before the doors open.</p><a class="src" href="https://www.facebook.com/ads/library/?id=1435721014199291" target="_blank" rel="noopener">View in Meta Ad Library</a></div></div>
+    <div class="ad"><div class="cr"><img src="assets/ads/sgc_1385029106494256.jpg" alt="SGC ad creative" loading="lazy"><span class="fmt">Video</span></div><div class="bd"><div class="who"><b>SGC</b><span>London &middot; Jan to May 2026</span></div><q>The call you've been waiting for.</q><p>A fake incoming call that stops the scroll, then a membership sign-up. Cheap to make and impossible to ignore.</p><p><b>For North 18:</b> Playful formats like this for founding member sign-ups.</p><a class="src" href="https://www.facebook.com/ads/library/?id=1385029106494256" target="_blank" rel="noopener">View in Meta Ad Library</a></div></div>
+    <div class="ad"><div class="cr"><img src="assets/ads/bunker_3375584262646281.jpg" alt="Bunker NCL ad creative" loading="lazy"><span class="fmt">Static</span></div><div class="bd"><div class="who"><b>Bunker NCL</b><span>Newcastle &middot; 10 to 14 Aug 2026</span></div><q>Win a free year's membership if Bunker NCL launches.</q><p>A planned premium venue in Newcastle testing demand with a survey and a prize. Not open yet.</p><p><b>For North 18:</b> Claim "the North East's indoor golf venue" before anyone else does.</p><a class="src" href="https://www.facebook.com/ads/library/?id=3375584262646281" target="_blank" rel="noopener">View in Meta Ad Library</a></div></div>
+  </div>
+
+  <div class="sub">Email, when you are ready</div>
+  <p class="lede">We collect every sign-up into an email list from day one, so nothing is lost. Running the emails themselves is an optional extra we can add later: a welcome message, the opening countdown, a thank you and review request after each visit, birthday offers, and quiet-hour deals sent to the people most likely to book them.</p>
 </div></section>
 
 <section class="sec" id="before"><div class="wide">
