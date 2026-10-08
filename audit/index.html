@@ -229,6 +229,7 @@ h2{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:7
 .cursor-glow{position:fixed;width:500px;height:500px;border-radius:50%;pointer-events:none;z-index:0;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(230,59,46,0.10) 0%,rgba(230,59,46,0.06) 20%,rgba(230,59,46,0.03) 40%,rgba(230,59,46,0.01) 60%,transparent 80%);mix-blend-mode:screen;will-change:transform;transition:opacity 0.3s}
 @media(max-width:767px){.cursor-glow{display:none}}
 </style>
+  <script src="/assets/lead-source.js?v=1"></script>
 </head>
 <body>
 
@@ -533,7 +534,7 @@ function submitForm(){
       name:formData.name,
       email:formData.email,
       phone:formData.phone||null,
-      notes:'Source: Audit Page Form (v2)'
+      notes:'Source: Audit Page Form (v2)' + (window.fcLeadSource ? ' | ' + window.fcLeadSource() : '')
     })
   }).then(function(res){
     if(!res.ok)throw new Error('Server error');

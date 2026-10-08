@@ -156,6 +156,7 @@ em{font-family:var(--font-serif);font-style:italic;font-weight:400}
 }
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 </style>
+  <script src="/assets/lead-source.js?v=1"></script>
 </head>
 <body>
 
@@ -376,7 +377,7 @@ function submitForm(){
       name:formData.name,
       email:formData.email,
       phone:formData.phone||null,
-      notes:'Source: Audit Direct Landing Page (Ad Traffic) v3 credibility'
+      notes:'Source: Audit Direct Landing Page (Ad Traffic) v3 credibility' + (window.fcLeadSource ? ' | ' + window.fcLeadSource() : '')
     })
   }).then(function(res){
     if(!res.ok)throw new Error('Server error');

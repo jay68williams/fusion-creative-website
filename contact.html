@@ -186,6 +186,7 @@
       .form-row { grid-template-columns: 1fr; }
     }
   </style>
+  <script src="/assets/lead-source.js?v=1"></script>
 </head>
 <body>
   <!-- NAVBAR -->
@@ -336,7 +337,7 @@
                 social_status: 'N/A - contact form',
                 social_handle: contactSocial || null,
                 website: contactWebsite || null,
-                notes: 'Source: Contact Page Form\nBudget: ' + (contactBudget || 'Not specified') + '\nMessage: ' + contactMessage
+                notes: 'Source: Contact Page Form\nBudget: ' + (contactBudget || 'Not specified') + '\nMessage: ' + contactMessage + (window.fcLeadSource ? '\n' + window.fcLeadSource() : '')
               })
             }).catch(function(){});
             form.style.display = 'none';

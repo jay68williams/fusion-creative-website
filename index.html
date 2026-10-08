@@ -105,6 +105,7 @@
   <!-- GSAP & ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="/assets/lead-source.js?v=1"></script>
 </head>
 <body>
 
@@ -1358,7 +1359,7 @@
         business_type: 'unknown', goal: 'free_audit', social_status: 'unknown',
         business_name: businessName || name, social_handle: socialHandle || null,
         website: website || null, name: name, email: email, phone: null,
-        notes: 'Source: Homepage Free Audit CTA | URL provided: ' + auditCTAUrl
+        notes: 'Source: Homepage Free Audit CTA | URL provided: ' + auditCTAUrl + (window.fcLeadSource ? ' | ' + window.fcLeadSource() : '')
       })
     }).then(function(res) {
       if (!res.ok) throw new Error('Server error');
