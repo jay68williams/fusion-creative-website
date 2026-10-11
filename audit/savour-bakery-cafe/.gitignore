@@ -1,0 +1,3 @@
+# Internal working files: never publish (deploy.yml uploads the whole repo to GitHub Pages).
+/research/
+/qa/
