@@ -43,6 +43,15 @@ The audit pages capture hospitality business leads:
 - n8n workflows trigger email notifications
 - Facebook Pixel tracks Lead events
 
+## Automatic audits
+A new lead at `https://newgreek.fusioncreative.uk/api/audit-lead/` starts the audit immediately. Do not wait to be asked.
+
+When the page is finished:
+- Open a draft pull request. Do not merge it and do not publish it.
+- Keep the page `noindex`, and leave it out of the sitemap, nav, and any index listing.
+- Grok Bot tells Jay twice, in the bot chat: once when the lead arrives (business name, handle, website), and again when the draft is ready (business name and the draft pull request link).
+- The nine proof-format cards are links to the videos listed below.
+
 ## Proof videos on audits
 When an audit shows the nine filmed formats (skit, dish moment, trend, challenge, launch, new dish, offer, hero product, local call-out), each still must be a link that opens that video in a new tab. Do not leave the cards as dead images. Keep the page `noindex`. Use these videos:
 
