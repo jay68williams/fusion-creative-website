@@ -43,6 +43,21 @@ The audit pages capture hospitality business leads:
 - n8n workflows trigger email notifications
 - Facebook Pixel tracks Lead events
 
+## Proof videos on audits
+When an audit shows the nine filmed formats (skit, dish moment, trend, challenge, launch, new dish, offer, hero product, local call-out), each still must be a link that opens that video in a new tab. Do not leave the cards as dead images. Keep the page `noindex`. Use these videos:
+
+- Skit, New Greek, "There's always the one impatient customer." — https://www.instagram.com/reel/DWwjCXCKQrY/
+- Dish moment, New Greek, "The ONLY way to eat a Greek salad." — https://www.tiktok.com/@new.greek/video/7655371189015170326
+- Trend, Takdir, "POV: You forget you're at work." — https://www.tiktok.com/@takdir_whitleybay/video/7687324905301396769
+- Challenge, New Greek, "5 bites or less wins £20." — https://www.tiktok.com/@new.greek/video/7598909378586004758
+- Launch, New Greek Bakery, "The Taste of Greece has landed." — https://www.tiktok.com/@newgreek.bakery/video/7654979261777956118
+- New dish, Takdir, "Have you tried our Nachodoms?" — https://www.tiktok.com/@takdir_whitleybay/video/7658360695037234454
+- Offer, Takdir, "All for £20? Yes please." — https://www.tiktok.com/@takdir_whitleybay/video/7639044788016172310
+- Hero product, New Greek Bakery, "The best sandwich in Newcastle?" — https://www.instagram.com/reel/DbIi31XC8IU/
+- Local call-out, The Greek Spot, "Attention Middlesbrough gyros lovers." — https://www.tiktok.com/@thegreekspot_/video/7673404018416209174
+
+Show a play control on the still so it is obvious the card can be watched. Link the whole card, with `target="_blank"` and `rel="noopener"`.
+
 ## Assets
 - `assets/jay.jpg` - founder portrait
 - `assets/logos/` - client logos (Cadence, ORBE, Hii Club, Undeniable, Red Bull, FitCookie)
