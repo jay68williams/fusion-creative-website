@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Month One - Geisha Restaurants | Fusion Creative</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --night:#08080d; --ink-dark:#14131a; --navy:#222d57;
+  --pink:#FF32A5; --magenta:#E4076A; --orange:#E37132; --blue:#2AA2D6;
+  --cream:#f5efe0; --white:#FFFDFA; --ink:#1b1a24; --muted:#585670; --dim:#7d7a8f;
+  --line:rgba(34,45,87,0.18);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;
+  background:radial-gradient(900px 620px at 100% 100%,rgba(228,7,106,.38),transparent 62%),radial-gradient(820px 520px at 0% 58%,rgba(34,45,87,.95),transparent 60%),var(--night);min-height:100vh}
+img{display:block;max-width:100%}
+a{color:var(--magenta)}
+.band{height:4px;background:linear-gradient(90deg,var(--magenta),var(--pink) 35%,var(--orange) 70%,var(--blue))}
+header.top{position:sticky;top:0;z-index:40;background:rgba(8,8,13,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--cream)}
+.top-inner{max-width:880px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:12px}
+.top-inner .fc{font-size:10px;letter-spacing:2.2px;text-transform:uppercase;font-weight:600;opacity:.9}
+.top-inner .tag{margin-left:auto;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--pink);font-weight:600}
+.wrap{max-width:880px;margin:0 auto;padding:0 22px 72px}
+.hero{position:relative;margin:22px 0;border-radius:18px;overflow:hidden;background:#111 url('/contract/geisha/assets/room-sakura.jpg') center/cover}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,13,.25) 0%,rgba(8,8,13,.72) 55%,rgba(8,8,13,.94) 100%)}
+.hero-in{position:relative;padding:150px 34px 34px}
+.eyebrow{font-size:10.5px;letter-spacing:3.2px;text-transform:uppercase;color:var(--pink);margin-bottom:12px;font-weight:600}
+.hero h1{font-family:'Fraunces',Georgia,serif;font-weight:900;font-size:clamp(32px,5.4vw,48px);line-height:1.06;margin-bottom:16px;color:#fff}
+.hero h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 22px rgba(255,50,165,.55)}
+.hero p{color:rgba(245,239,224,.86);max-width:620px;font-size:15.5px}
+section{margin-top:38px}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.sec-num{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:14px;color:var(--pink);background:var(--ink-dark);border:1px solid rgba(255,50,165,.4);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+h2{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:26px;color:#fff;line-height:1.2}
+.sub{color:rgba(245,239,224,.62);font-size:14px;margin-bottom:18px;padding-left:44px}
+.card{background:var(--white);border-radius:16px;padding:26px 28px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.card + .card{margin-top:14px}
+.card h3{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:18px;color:var(--ink);margin-bottom:8px}
+.card p{color:var(--muted);font-size:14.5px}
+.card p + p{margin-top:10px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stat{background:var(--ink-dark);border-radius:14px;padding:20px 22px;box-shadow:inset 0 0 0 1px rgba(255,50,165,.3)}
+.stat .k{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--pink);font-weight:600;margin-bottom:10px}
+.stat .before{color:rgba(245,239,224,.45);font-size:12.5px}
+.stat .v{font-family:'Fraunces',Georgia,serif;font-weight:900;color:#fff;font-size:32px;line-height:1.1;margin:3px 0 5px}
+.stat .d{color:var(--blue);font-size:12.5px;font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:var(--dim);font-weight:600;padding:0 10px 10px 0;border-bottom:1px solid var(--line)}
+td{padding:12px 10px 12px 0;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
+td.n{font-family:'Fraunces',Georgia,serif;font-weight:700;color:var(--ink);white-space:nowrap}
+td.t{color:var(--ink);font-weight:500}
+.rank{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--magenta);color:#fff;font-size:11px;font-weight:700;align-items:center;justify-content:center;margin-right:8px}
+ul.tick{list-style:none;margin-top:4px}
+ul.tick li{position:relative;padding-left:22px;color:var(--muted);font-size:14.5px;margin-bottom:9px}
+ul.tick li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;background:var(--pink)}
+.pull{background:var(--ink-dark);border-radius:16px;padding:26px 28px;box-shadow:inset 0 0 0 1px rgba(255,50,165,.3)}
+.pull p{color:var(--cream);font-size:16px}
+.pull strong{color:var(--pink)}
+.foot{margin-top:46px;text-align:center;color:rgba(245,239,224,.45);font-size:12px;line-height:1.8}
+@media(max-width:640px){.grid3{grid-template-columns:1fr}.hero-in{padding:110px 22px 26px}.card,.pull{padding:22px}.sub{padding-left:0}}
+</style>
+</head>
+<body>
+<div class="band"></div>
+<header class="top"><div class="top-inner">
+  <span class="fc">Fusion Creative</span><span class="tag">Month One</span>
+</div></header>
+
+<div class="wrap">
+  <div class="hero"><div class="hero-in">
+    <div class="eyebrow">Geisha Restaurants &middot; Front Street, Benton</div>
+    <h1>One month<br>in, and <em>here is</em><br>where we are</h1>
+    <p>15 September to 15 October. Two shoots, both venues, 31 videos, and an account reaching ten times the people it was a month ago.</p>
+  </div></div>
+
+  <section>
+    <div class="sec-head"><div class="sec-num">1</div><h2>Where we started</h2></div>
+    <p class="sub">The 28 days before our first post went out.</p>
+    <div class="card">
+      <p>Geisha already had the hard part. Two genuinely beautiful rooms, a kitchen turning out food worth filming, and more than 21,000 people already following on Instagram. What was missing was a steady stream of content actually reaching them.</p>
+      <p>Posting ran at roughly one piece every three days. In the 28 days to 14 September the account was viewed <strong>36,797 times</strong> and reached <strong>6,015 accounts</strong>. TikTok was effectively not running at all.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="sec-num">2</div><h2>What we have done</h2></div>
+    <div class="card">
+      <ul class="tick">
+        <li><strong>Two full shoots</strong>, both covering Asia and Fusion. The first on 12 September, the second on 29 September built entirely around the new menu and your offers.</li>
+        <li><strong>31 videos produced</strong> from those two days, against the 24 a month in your agreement.</li>
+        <li><strong>Posting went from once every three days to near daily</strong>, across Instagram and TikTok.</li>
+        <li><strong>The new menu launch</strong> given its own run of content, from the walkthrough and the POV to the paella, the nduja pizza and the build your own burger.</li>
+        <li><strong>TikTok rebuilt from zero</strong> and posted to properly for the first time.</li>
+        <li><strong>A live posting schedule</strong> in your portal, so you can always see what is going out and when.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="sec-num">3</div><h2>The month in numbers</h2></div>
+    <p class="sub">The 28 days to 14 October, against the 28 days to 14 September.</p>
+    <div class="grid3">
+      <div class="stat">
+        <div class="k">Views</div>
+        <div class="before">was 36,797</div>
+        <div class="v">179,634</div>
+        <div class="d">4.9x more</div>
+      </div>
+      <div class="stat">
+        <div class="k">Accounts reached</div>
+        <div class="before">was 6,015</div>
+        <div class="v">60,807</div>
+        <div class="d">10x more</div>
+      </div>
+      <div class="stat">
+        <div class="k">Interactions</div>
+        <div class="before">was 1,161</div>
+        <div class="v">1,502</div>
+        <div class="d">up 29 percent</div>
+      </div>
+    </div>
+    <div class="pull" style="margin-top:14px">
+      <p>The number worth pausing on is reach. A month ago the account was getting in front of <strong>6,015 people</strong> in a four week stretch. It is now getting in front of <strong>60,807</strong>. That is ten times as many people seeing Geisha, and the large majority of them do not follow you yet.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="sec-num">4</div><h2>What worked</h2></div>
+    <p class="sub">Our best performing videos on Instagram this month.</p>
+    <div class="card">
+      <table>
+        <tr><th>Video</th><th>Views</th><th>Reached</th></tr>
+        <tr><td class="t"><span class="rank">1</span>The sushi maths game, the quiz at the table</td><td class="n">26,274</td><td class="n">20,391</td></tr>
+        <tr><td class="t"><span class="rank">2</span>"Sushi's rolling right now, and you're still on your phone"</td><td class="n">16,402</td><td class="n">9,743</td></tr>
+        <tr><td class="t"><span class="rank">3</span>Blurry vision, sharp cravings, the glasses one</td><td class="n">9,815</td><td class="n">7,551</td></tr>
+        <tr><td class="t"><span class="rank">4</span>"And for the lady, perhaps a salad?" with the ribs</td><td class="n">7,888</td><td class="n">6,254</td></tr>
+        <tr><td class="t"><span class="rank">5</span>Fresh sushi is waiting while you're deciding</td><td class="n">5,741</td><td class="n">3,543</td></tr>
+        <tr><td class="t"><span class="rank">6</span>Pizza or the burger, fusion done properly</td><td class="n">5,223</td><td class="n">3,757</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>TikTok, built from nothing</h3>
+      <p>The account started this month with no followers and no posts. It has now done <strong>28,023 views</strong> across 19 videos, with 553 likes and 53 followers picked up from a standing start.</p>
+      <table style="margin-top:14px">
+        <tr><th>Video</th><th>Views</th><th>Likes</th></tr>
+        <tr><td class="t"><span class="rank">1</span>Meet our new menu</td><td class="n">7,720</td><td class="n">87</td></tr>
+        <tr><td class="t"><span class="rank">2</span>The sushi maths game, again</td><td class="n">5,349</td><td class="n">75</td></tr>
+        <tr><td class="t"><span class="rank">3</span>"What more could you ask for"</td><td class="n">2,800</td><td class="n">60</td></tr>
+        <tr><td class="t"><span class="rank">4</span>Welcome to Geisha Fusion, new menu loading</td><td class="n">1,656</td><td class="n">23</td></tr>
+        <tr><td class="t"><span class="rank">5</span>All of that for less than £20</td><td class="n">1,334</td><td class="n">18</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>What the numbers are telling us</h3>
+      <p>The maths game was the strongest video on both platforms, and it is not a coincidence. The videos where you and the team are playing off each other travel considerably further than the food filmed on its own, however good the food looks.</p>
+      <p>The second thing is that reach has grown far faster than follower count. That is exactly what we want in month one: Instagram is pushing this content to people who have never heard of Geisha, which is where new covers come from.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="sec-num">5</div><h2>Month two</h2></div>
+    <div class="card">
+      <p>The plan for the next month is to lean into what has already proved itself. More of the two of you on camera together, more of the rooms, and the new menu kept in front of people while it is still new.</p>
+      <p>Alongside that we want to get the Sunday roast and the bottomless brunch properly on camera, since both are easy sells that we have not given a run yet, and keep building TikTok while it is young and growing quickly.</p>
+    </div>
+  </section>
+
+  <div class="foot">
+    Prepared by Fusion Creative for Geisha Restaurants<br>
+    Figures taken from Instagram and TikTok account insights on 14 October 2026.<br>
+    Comparison windows are the 28 days to 14 September and the 28 days to 14 October.
+  </div>
+</div>
+</body>
+</html>
