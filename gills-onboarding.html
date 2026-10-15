@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onboarding - Gills Fish and Chips</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  /* Placeholder until the exact Gills red is confirmed. Change --brand only. */
+  --brand:#C8102E;
+  --brand-hover:color-mix(in srgb, var(--brand) 84%, #000);
+  --brand-deep:color-mix(in srgb, var(--brand) 70%, #000);
+  --brand-tint:color-mix(in srgb, var(--brand) 10%, #fff);
+  --brand-soft:color-mix(in srgb, var(--brand) 18%, #fff);
+  --brand-ring:color-mix(in srgb, var(--brand) 26%, transparent);
+  --paper:color-mix(in srgb, var(--brand) 4%, #fff);
+  --white:#fff; --ink:#1C2430; --ink-2:#4E5968; --ink-3:#7A8494;
+  --line:rgba(28,36,48,0.14); --line-soft:rgba(28,36,48,0.08);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+
+header.top{position:sticky;top:0;z-index:40;background:var(--brand);color:#fff;border-bottom:1px solid var(--brand-deep)}
+.top-inner{max-width:860px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:16px}
+.lockup{display:flex;align-items:center;flex-shrink:0}
+.lockup img{height:42px;width:auto}
+.progress{flex:1;height:6px;background:rgba(255,255,255,.28);border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:#fff;border-radius:99px;transition:width .35s ease}
+.pct{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.82);white-space:nowrap}
+
+.wrap{max-width:860px;margin:0 auto;padding:0 22px 90px}
+.hero{padding:56px 0 34px}
+.hero .kicker{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--brand);margin-bottom:14px}
+.hero h1{font-family:'Oswald',sans-serif;font-weight:600;font-size:clamp(36px,6vw,58px);line-height:1.02;letter-spacing:.01em;text-transform:uppercase;color:var(--brand-deep);margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--brand)}
+.hero p{font-size:16.5px;color:var(--ink-2);max-width:640px}
+.hero .meta{margin-top:18px;font-size:13px;color:var(--ink-3);line-height:1.7}
+.hero .meta b{color:var(--brand-deep);font-weight:700}
+#syncState{color:var(--brand)}
+.tools{display:flex;gap:14px;align-items:center;margin-top:18px;font-size:13px;color:var(--ink-3);flex-wrap:wrap}
+.tools button{background:none;border:1px solid var(--line);color:var(--brand);font-family:inherit;font-size:12.5px;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer}
+.tools button:hover{background:var(--brand-tint);border-color:var(--brand);color:var(--brand-hover)}
+
+.card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:34px 32px;margin-bottom:22px;box-shadow:0 1px 2px rgba(16,36,63,.04),0 14px 40px rgba(16,36,63,.06)}
+.card.star{border-top:4px solid var(--brand)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.sec-num{font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;color:var(--brand);letter-spacing:.12em}
+.sec-head h2{font-family:'Oswald',sans-serif;font-weight:600;font-size:28px;line-height:1.1;letter-spacing:.02em;text-transform:uppercase;color:var(--brand-deep)}
+.sec-sub{font-size:14.5px;color:var(--ink-2);margin-bottom:22px}
+.subhead{font-family:'Oswald',sans-serif;font-weight:600;font-size:20px;letter-spacing:.03em;text-transform:uppercase;color:var(--brand-deep);margin:26px 0 6px}
+.field{margin-bottom:18px}
+.field label{display:block;font-weight:700;font-size:14.5px;margin-bottom:6px;color:var(--ink)}
+.field label .hint{display:block;font-weight:400;font-size:13px;color:var(--ink-3);margin-top:2px;line-height:1.55}
+.req{color:var(--brand)}
+input[type=text],input[type=email],input[type=url],input[type=tel],input[type=date],textarea,select{
+  width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;outline:none;transition:border-color .15s,box-shadow .15s}
+textarea{min-height:92px;resize:vertical;line-height:1.55}
+textarea.tall{min-height:140px}
+input:focus,textarea:focus,select:focus{border-color:var(--brand);box-shadow:0 0 0 4px var(--brand-ring);background:#fff}
+::placeholder{color:#b3ab9c}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.radios{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.radio{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-size:14px;cursor:pointer;background:var(--white)}
+.radio input{accent-color:var(--brand)}
+.radio:has(input:checked){border-color:var(--brand);background:var(--brand-tint)}
+.ticks{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.ticks.four{grid-template-columns:repeat(4,1fr)}
+.tick{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:11px 13px;cursor:pointer;background:var(--white);transition:background .15s,border-color .15s}
+.tick input{margin-top:3px;accent-color:var(--brand);flex-shrink:0}
+.tick span{font-size:13.5px;line-height:1.4}
+.tick span b{display:block;font-weight:700;color:var(--ink)}
+.tick span i{font-style:normal;color:var(--ink-3);font-size:12.5px}
+.tick.on{border-color:var(--brand);background:var(--brand-tint)}
+.access{display:grid;grid-template-columns:1fr;gap:10px}
+.access .row{display:grid;grid-template-columns:1.4fr .8fr;gap:10px;align-items:start;background:var(--brand-tint);border-radius:14px;padding:12px 14px}
+.access .row .what{font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+.access .row .what b{display:block;color:var(--ink);font-weight:700}
+.access .row input,.access .row select{background:#fff}
+.note{background:var(--brand-soft);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--ink-2);line-height:1.55;margin-top:8px}
+.note b{color:var(--ink)}
+.loc{border:1px solid var(--line);border-radius:16px;padding:18px 16px 4px;margin-bottom:14px;background:var(--paper)}
+.loc.main{border-color:var(--brand);background:#fff;box-shadow:0 0 0 3px var(--brand-ring)}
+.loc-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.loc-k{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--brand)}
+.loc-head h3{font-family:'Oswald',sans-serif;font-weight:600;font-size:22px;letter-spacing:.03em;text-transform:uppercase;color:var(--brand-deep)}
+.badge{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--brand);border-radius:999px;padding:4px 10px}
+.pagerow{background:var(--brand-tint);border-radius:14px;padding:14px 14px 6px;margin-bottom:12px}
+.pagerow .ph{font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand-deep);margin-bottom:8px}
+
+.submit-card{background:linear-gradient(135deg,var(--brand),var(--brand-deep));color:#fff;border-radius:22px;padding:36px 32px;text-align:center}
+.submit-card h2{font-family:'Oswald',sans-serif;font-weight:600;font-size:30px;letter-spacing:.03em;text-transform:uppercase;margin-bottom:8px}
+.submit-card p{font-size:14.5px;color:rgba(255,255,255,.88);max-width:520px;margin:0 auto 22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--brand);font-family:inherit;font-weight:700;font-size:16px;border:none;border-radius:999px;padding:16px 34px;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.btn:hover{transform:translateY(-2px);background:var(--brand-tint);color:var(--brand-hover)}
+.btn:disabled{opacity:.6;cursor:default;transform:none}
+.status{margin-top:14px;font-size:13.5px;color:#fff;min-height:20px}
+.status a{color:#fff}
+
+.thanks{display:none;background:var(--white);border:1px solid var(--line);border-radius:22px;padding:56px 32px;text-align:center;margin-top:30px}
+.thanks.show{display:block}
+.thanks .check{width:72px;height:72px;border-radius:50%;margin:0 auto 18px;border:2px solid var(--brand);display:flex;align-items:center;justify-content:center;font-size:34px;color:var(--brand);background:var(--brand-tint)}
+.thanks h2{font-family:'Oswald',sans-serif;font-weight:600;font-size:32px;letter-spacing:.03em;text-transform:uppercase;color:var(--brand-deep);margin-bottom:10px}
+.thanks p{font-size:15px;color:var(--ink-2);max-width:520px;margin:0 auto}
+
+footer{text-align:center;font-size:13px;color:var(--ink-2);padding:26px 22px 40px;border-top:1px solid var(--line);background:var(--white);line-height:1.7}
+footer .credit{display:block;margin-top:6px;font-size:11.5px;letter-spacing:.03em;color:var(--ink-3)}
+footer a{color:var(--ink-3);font-weight:600}
+footer a:hover{color:var(--brand-hover)}
+
+@media (max-width:640px){
+  .grid2{grid-template-columns:1fr} .ticks,.ticks.four{grid-template-columns:1fr} .card{padding:24px 18px;border-radius:18px}
+  .hero{padding:40px 0 26px}
+  .access .row{grid-template-columns:1fr}
+  .pct{display:none}
+  .lockup img{height:34px}
+  .submit-card{padding:28px 20px} .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="lockup"><img src="/assets/gills/logo.png" alt="Gills Fish and Chips"></div>
+    <div class="progress"><i id="prog"></i></div>
+    <div class="pct">Onboarding</div>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <div class="hero">
+    <div class="kicker">Gills Fish and Chips &middot; Onboarding</div>
+    <h1>Let's get Gills <em>back on camera.</em></h1>
+    <p>Thanks for choosing Fusion Creative for your growth package. This form gives us what we need to start your reels, bring every social page together under Gateshead, and plan around 30 locations over the next six years. We focus on video, so everything here is about reels and short form content. Keep answers short, tick boxes where you can, and skip anything you are unsure of. We can go through the rest together on a call.</p>
+    <div class="meta">Takes about 15 minutes. <b>It saves as you type</b>, and anyone with this link picks up the same progress, so you can start it on your phone and a manager can finish a shop.<br><span id="syncState">Loading the shared draft...</span></div>
+    <div class="tools"><span>Prefer to fill it in later?</span><button type="button" id="downloadBtn">Download a copy of your answers</button></div>
+  </div>
+
+  <form id="form" novalidate>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">01</span><h2>Your business and contact details</h2></div>
+    <p class="sec-sub">The basics, so we know who to talk to and when.</p>
+    <div class="grid2">
+      <div class="field"><label>Business name <span class="req">*</span></label><input type="text" name="business_name" required value="Gills Fish and Chips"></div>
+      <div class="field"><label>Group or company name<span class="hint">If it is different from the shop name.</span></label><input type="text" name="group_name" placeholder="Company name, if different"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Main contact name <span class="req">*</span></label><input type="text" name="contact_name" required value="Sonny Gill"></div>
+      <div class="field"><label>Role</label><input type="text" name="contact_role" placeholder="Owner"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="contact_email" required value="sonny@gillsfishandchips.uk"></div>
+      <div class="field"><label>Mobile</label><input type="tel" name="contact_phone" placeholder="07..."></div>
+    </div>
+    <div class="field"><label>Website</label><input type="url" name="website" value="https://www.gillsfishandchips.uk"></div>
+    <div class="field"><label>Who makes the final decisions on marketing?</label><input type="text" name="decision_maker" placeholder="Name and role"></div>
+    <div class="field"><label>Who approves videos before they go live?<span class="hint">Name, role, and the best way to reach them.</span></label><textarea name="video_approver" placeholder="Name, role, phone or email"></textarea></div>
+    <div class="field"><label>Anyone else we should keep in the loop?</label><textarea name="loop_in" placeholder="Names, roles, and how to reach them"></textarea></div>
+    <div class="field"><label>Best way to reach you</label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="reach_method" value="Phone call"><span>Phone call</span></label>
+        <label class="tick"><input type="checkbox" name="reach_method" value="WhatsApp"><span>WhatsApp</span></label>
+        <label class="tick"><input type="checkbox" name="reach_method" value="Text"><span>Text</span></label>
+        <label class="tick"><input type="checkbox" name="reach_method" value="Email"><span>Email</span></label>
+      </div>
+    </div>
+    <div class="field"><label>Best days and times to reach you</label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="reach_times" value="Mornings"><span>Mornings</span></label>
+        <label class="tick"><input type="checkbox" name="reach_times" value="Afternoons"><span>Afternoons</span></label>
+        <label class="tick"><input type="checkbox" name="reach_times" value="Evenings"><span>Evenings</span></label>
+      </div>
+      <div class="field" style="margin-top:12px"><label>Days</label><input type="text" name="reach_days" placeholder="For example, Monday to Thursday"></div>
+    </div>
+    <div class="field"><label>Times to avoid<span class="hint">For example, the lunch or tea time rush.</span></label><input type="text" name="times_to_avoid" placeholder="Times we should not call"></div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Your story and heritage</h2></div>
+    <p class="sec-sub">Gills has been part of people's lives for almost 50 years. This is the story we want to bring back to the front of people's minds through video.</p>
+    <div class="field"><label>When and where did Gills first open?</label><textarea name="founded_when_where" placeholder="Year, town, and the first shop"></textarea></div>
+    <div class="field"><label>Who founded Gills, and who in the family is involved today?</label><textarea name="founders_and_family"></textarea></div>
+    <div class="field"><label>Key milestones over the years<span class="hint">New shops, awards, firsts, big moments.</span></label><textarea class="tall" name="milestones" placeholder="One per line is fine"></textarea></div>
+    <div class="grid2">
+      <div class="field"><label>Long serving staff who have a story to tell<span class="hint">Names, and how many years they have been with Gills.</span></label><textarea name="long_serving_staff"></textarea></div>
+      <div class="field"><label>Loyal customers or regulars who might happily share their memories</label><textarea name="loyal_customers" placeholder="First names are enough if that is all you have"></textarea></div>
+    </div>
+    <div class="field"><label>Old photos, signs, menus or keepsakes we could film?</label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="keepsakes" value="Yes"> Yes</label>
+        <label class="radio"><input type="radio" name="keepsakes" value="No"> No</label>
+        <label class="radio"><input type="radio" name="keepsakes" value="Not sure"> Not sure</label>
+      </div>
+      <div class="field" style="margin-top:12px"><label>Details</label><textarea name="keepsakes_details" placeholder="What you have, and where it is kept"></textarea></div>
+    </div>
+    <div class="field"><label>In a sentence or two, what makes Gills different from other chippies?</label><textarea name="what_makes_different"></textarea></div>
+    <div class="field"><label>Any anniversary plans we should build towards?<span class="hint">For example, 50 years.</span></label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="anniversary_plans" value="Yes"> Yes</label>
+        <label class="radio"><input type="radio" name="anniversary_plans" value="No"> No</label>
+        <label class="radio"><input type="radio" name="anniversary_plans" value="Not yet"> Not yet</label>
+      </div>
+      <div class="field" style="margin-top:12px"><label>Details</label><textarea name="anniversary_details" placeholder="Dates, ideas, or nothing decided yet"></textarea></div>
+    </div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Expansion plans</h2></div>
+    <p class="sec-sub">You are aiming for 30 locations over the next six years. Knowing the plan helps us shape the main Gateshead page and the videos around it.</p>
+    <div class="field"><label>Target regions or towns for new locations</label><textarea name="target_regions" placeholder="Towns or areas, in any order"></textarea></div>
+    <div class="grid2">
+      <div class="field"><label>Rough timeline<span class="hint">How many openings per year.</span></label><textarea name="openings_timeline"></textarea></div>
+      <div class="field"><label>Which new openings are likely to come first, and when?</label><textarea name="first_openings"></textarea></div>
+    </div>
+    <div class="field"><label>How would you like new locations announced?</label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="announce_new_locations" value="Opening reels"><span>Opening reels</span></label>
+        <label class="tick"><input type="checkbox" name="announce_new_locations" value="Behind the scenes of the build"><span>Behind the scenes of the build</span></label>
+        <label class="tick"><input type="checkbox" name="announce_new_locations" value="Countdown posts"><span>Countdown posts</span></label>
+        <label class="tick"><input type="checkbox" name="announce_new_locations" value="Opening day event"><span>Opening day event</span></label>
+        <label class="tick"><input type="checkbox" name="announce_new_locations" value="Not sure yet"><span>Not sure yet</span></label>
+      </div>
+    </div>
+    <div class="field"><label>How should each new location be added to the main Gateshead page?<span class="hint">For example, a location tag, a highlight, a pinned post, or the Google profile.</span></label><textarea name="new_location_on_main_page"></textarea></div>
+    <div class="field"><label>Is recruitment for new sites something video should help with?</label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="recruitment_video" value="Yes"> Yes</label>
+        <label class="radio"><input type="radio" name="recruitment_video" value="No"> No</label>
+        <label class="radio"><input type="radio" name="recruitment_video" value="Maybe"> Maybe</label>
+      </div>
+    </div>
+    <div class="field"><label>Anything about expansion that must stay private for now?</label><textarea name="expansion_private" placeholder="We will keep this off camera and out of captions"></textarea></div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Your seven locations</h2></div>
+    <p class="sec-sub">We've filled in what's on your website, please correct anything that's out of date.<br>Gateshead is the main location. Please fill in one block per shop. If a manager knows the details better, please pass this part to them. The link keeps one shared draft, so their answers land in the same form.</p>
+    
+    <div class="loc">
+      <div class="loc-head"><span class="loc-k">Location 1</span><h3>Heaton</h3></div>
+      <div class="field"><label>Location name</label><input type="text" name="loc1_name" value="Heaton"></div>
+      <div class="field"><label>Full address and postcode</label><input type="text" name="loc1_address" value="64 Heaton Road, Newcastle upon Tyne, NE6 5HL"></div>
+      <div class="grid2">
+        <div class="field"><label>Opening hours</label><textarea name="loc1_hours">Mon to Sat 11.30am-2pm and 4.30pm-10pm; Fri 11.30am-10pm; Sun 4.30pm-10pm.</textarea></div>
+        <div class="field"><label>Manager or on site contact<span class="hint">Name and number.</span></label><input type="text" name="loc1_manager" value="0191 908 7133"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Best filming times<span class="hint">Quieter periods, so we are not in the way of service.</span></label><input type="text" name="loc1_filming_times" placeholder="For example, weekday afternoons"></div>
+        <div class="field"><label>Parking and access for our team</label><textarea name="loc1_parking" placeholder="Where to park, which door to use"></textarea></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Signature dishes or local favourites</label><textarea name="loc1_signature_dishes" placeholder="What this shop is known for"></textarea></div>
+        <div class="field"><label>Anything to avoid on camera</label><textarea name="loc1_avoid_camera" placeholder="People, spots, or topics"></textarea></div>
+      </div>
+      <div class="field"><label>Do we need to film here?</label>
+        <div class="radios">
+          <label class="radio"><input type="radio" name="loc1_film_here" value="Yes"> Yes</label>
+          <label class="radio"><input type="radio" name="loc1_film_here" value="No"> No</label>
+          <label class="radio"><input type="radio" name="loc1_film_here" value="Later"> Later</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="loc">
+      <div class="loc-head"><span class="loc-k">Location 2</span><h3>Wallsend</h3></div>
+      <div class="field"><label>Location name</label><input type="text" name="loc2_name" value="Wallsend"></div>
+      <div class="field"><label>Full address and postcode</label><input type="text" name="loc2_address" value="27 Frank Street, Wallsend, NE28 6RN"></div>
+      <div class="grid2">
+        <div class="field"><label>Opening hours</label><textarea name="loc2_hours">Mon to Sat 11am-10pm; Sun 4pm-10pm.</textarea></div>
+        <div class="field"><label>Manager or on site contact<span class="hint">Name and number.</span></label><input type="text" name="loc2_manager" value="0191 287 0311"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Best filming times<span class="hint">Quieter periods, so we are not in the way of service.</span></label><input type="text" name="loc2_filming_times" placeholder="For example, weekday afternoons"></div>
+        <div class="field"><label>Parking and access for our team</label><textarea name="loc2_parking" placeholder="Where to park, which door to use"></textarea></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Signature dishes or local favourites</label><textarea name="loc2_signature_dishes" placeholder="What this shop is known for"></textarea></div>
+        <div class="field"><label>Anything to avoid on camera</label><textarea name="loc2_avoid_camera" placeholder="People, spots, or topics"></textarea></div>
+      </div>
+      <div class="field"><label>Do we need to film here?</label>
+        <div class="radios">
+          <label class="radio"><input type="radio" name="loc2_film_here" value="Yes"> Yes</label>
+          <label class="radio"><input type="radio" name="loc2_film_here" value="No"> No</label>
+          <label class="radio"><input type="radio" name="loc2_film_here" value="Later"> Later</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="loc">
+      <div class="loc-head"><span class="loc-k">Location 3</span><h3>Ponteland</h3></div>
+      <div class="field"><label>Location name</label><input type="text" name="loc3_name" value="Ponteland"></div>
+      <div class="field"><label>Full address and postcode</label><input type="text" name="loc3_address" value="19 Merton Way, Ponteland, NE20 9PY"></div>
+      <div class="grid2">
+        <div class="field"><label>Opening hours</label><textarea name="loc3_hours">Mon to Sat 11.30am-9.30pm; Sun 4.30pm-9.30pm.</textarea></div>
+        <div class="field"><label>Manager or on site contact<span class="hint">Name and number.</span></label><input type="text" name="loc3_manager" value="01661 820666"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Best filming times<span class="hint">Quieter periods, so we are not in the way of service.</span></label><input type="text" name="loc3_filming_times" placeholder="For example, weekday afternoons"></div>
+        <div class="field"><label>Parking and access for our team</label><textarea name="loc3_parking" placeholder="Where to park, which door to use"></textarea></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Signature dishes or local favourites</label><textarea name="loc3_signature_dishes" placeholder="What this shop is known for"></textarea></div>
+        <div class="field"><label>Anything to avoid on camera</label><textarea name="loc3_avoid_camera" placeholder="People, spots, or topics"></textarea></div>
+      </div>
+      <div class="field"><label>Do we need to film here?</label>
+        <div class="radios">
+          <label class="radio"><input type="radio" name="loc3_film_here" value="Yes"> Yes</label>
+          <label class="radio"><input type="radio" name="loc3_film_here" value="No"> No</label>
+          <label class="radio"><input type="radio" name="loc3_film_here" value="Later"> Later</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="loc">
+      <div class="loc-head"><span class="loc-k">Location 4</span><h3>Sunderland</h3></div>
+      <div class="field"><label>Location name</label><input type="text" name="loc4_name" value="Sunderland"></div>
+      <div class="field"><label>Full address and postcode</label><input type="text" name="loc4_address" value="Aline Street, Tunstall Village, Silksworth, Sunderland, SR3 2DZ"></div>
+      <div class="grid2">
+        <div class="field"><label>Opening hours</label><textarea name="loc4_hours">Mon to Thu 4.30pm-9.30pm; Fri and Sat 11.30am-2pm and 4.30pm-9.30pm; Sun 4.30pm-9.30pm.</textarea></div>
+        <div class="field"><label>Manager or on site contact<span class="hint">Name and number.</span></label><input type="text" name="loc4_manager" value="0191 521 0605"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Best filming times<span class="hint">Quieter periods, so we are not in the way of service.</span></label><input type="text" name="loc4_filming_times" placeholder="For example, weekday afternoons"></div>
+        <div class="field"><label>Parking and access for our team</label><textarea name="loc4_parking" placeholder="Where to park, which door to use"></textarea></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Signature dishes or local favourites</label><textarea name="loc4_signature_dishes" placeholder="What this shop is known for"></textarea></div>
+        <div class="field"><label>Anything to avoid on camera</label><textarea name="loc4_avoid_camera" placeholder="People, spots, or topics"></textarea></div>
+      </div>
+      <div class="field"><label>Do we need to film here?</label>
+        <div class="radios">
+          <label class="radio"><input type="radio" name="loc4_film_here" value="Yes"> Yes</label>
+          <label class="radio"><input type="radio" name="loc4_film_here" value="No"> No</label>
+          <label class="radio"><input type="radio" name="loc4_film_here" value="Later"> Later</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="loc">
+      <div class="loc-head"><span class="loc-k">Location 5</span><h3>Silverlink</h3></div>
+      <div class="field"><label>Location name</label><input type="text" name="loc5_name" value="Silverlink"></div>
+      <div class="field"><label>Full address and postcode</label><input type="text" name="loc5_address" value="Delivery only, NE27/NE28"></div>
+      <div class="grid2">
+        <div class="field"><label>Opening hours</label><textarea name="loc5_hours">Every day 4.30pm-10pm; Fri also 11.30am-2pm.</textarea></div>
+        <div class="field"><label>Manager or on site contact<span class="hint">Name and number.</span></label><input type="text" name="loc5_manager" value="0191 468 2770"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Best filming times<span class="hint">Quieter periods, so we are not in the way of service.</span></label><input type="text" name="loc5_filming_times" placeholder="For example, weekday afternoons"></div>
+        <div class="field"><label>Parking and access for our team</label><textarea name="loc5_parking" placeholder="Where to park, which door to use"></textarea></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Signature dishes or local favourites</label><textarea name="loc5_signature_dishes" placeholder="What this shop is known for"></textarea></div>
+        <div class="field"><label>Anything to avoid on camera</label><textarea name="loc5_avoid_camera" placeholder="People, spots, or topics"></textarea></div>
+      </div>
+      <div class="field"><label>Do we need to film here?</label>
+        <div class="radios">
+          <label class="radio"><input type="radio" name="loc5_film_here" value="Yes"> Yes</label>
+          <label class="radio"><input type="radio" name="loc5_film_here" value="No"> No</label>
+          <label class="radio"><input type="radio" name="loc5_film_here" value="Later"> Later</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="loc main">
+      <div class="loc-head"><span class="loc-k">Location 6</span><h3>Gateshead</h3><span class="badge">Main location</span></div>
+      <div class="field"><label>Location name</label><input type="text" name="loc6_name" value="Gateshead (main location)"></div>
+      <div class="field"><label>Full address and postcode</label><input type="text" name="loc6_address" value="99 Meresyde, Leam Lane Estate, Gateshead, NE10 8UN"></div>
+      <div class="grid2">
+        <div class="field"><label>Opening hours</label><textarea name="loc6_hours" placeholder="Day by day"></textarea></div>
+        <div class="field"><label>Manager or on site contact<span class="hint">Name and number.</span></label><input type="text" name="loc6_manager" value="0191 438 6106"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Best filming times<span class="hint">Quieter periods, so we are not in the way of service.</span></label><input type="text" name="loc6_filming_times" placeholder="For example, weekday afternoons"></div>
+        <div class="field"><label>Parking and access for our team</label><textarea name="loc6_parking" placeholder="Where to park, which door to use"></textarea></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Signature dishes or local favourites</label><textarea name="loc6_signature_dishes" placeholder="What this shop is known for"></textarea></div>
+        <div class="field"><label>Anything to avoid on camera</label><textarea name="loc6_avoid_camera" placeholder="People, spots, or topics"></textarea></div>
+      </div>
+      <div class="field"><label>Do we need to film here?</label>
+        <div class="radios">
+          <label class="radio"><input type="radio" name="loc6_film_here" value="Yes"> Yes</label>
+          <label class="radio"><input type="radio" name="loc6_film_here" value="No"> No</label>
+          <label class="radio"><input type="radio" name="loc6_film_here" value="Later"> Later</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="loc">
+      <div class="loc-head"><span class="loc-k">Location 7</span><h3>West Denton</h3></div>
+      <div class="field"><label>Location name</label><input type="text" name="loc7_name" value="West Denton"></div>
+      <div class="field"><label>Full address and postcode</label><input type="text" name="loc7_address" value="Unit 18, West Denton Shopping Centre, Newcastle upon Tyne, NE5 2QZ"></div>
+      <div class="grid2">
+        <div class="field"><label>Opening hours</label><textarea name="loc7_hours">Mon to Sat 11.30am-10pm; Sun 4pm-10pm.</textarea></div>
+        <div class="field"><label>Manager or on site contact<span class="hint">Name and number.</span></label><input type="text" name="loc7_manager" value="0191 267 9593"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Best filming times<span class="hint">Quieter periods, so we are not in the way of service.</span></label><input type="text" name="loc7_filming_times" placeholder="For example, weekday afternoons"></div>
+        <div class="field"><label>Parking and access for our team</label><textarea name="loc7_parking" placeholder="Where to park, which door to use"></textarea></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Signature dishes or local favourites</label><textarea name="loc7_signature_dishes" placeholder="What this shop is known for"></textarea></div>
+        <div class="field"><label>Anything to avoid on camera</label><textarea name="loc7_avoid_camera" placeholder="People, spots, or topics"></textarea></div>
+      </div>
+      <div class="field"><label>Do we need to film here?</label>
+        <div class="radios">
+          <label class="radio"><input type="radio" name="loc7_film_here" value="Yes"> Yes</label>
+          <label class="radio"><input type="radio" name="loc7_film_here" value="No"> No</label>
+          <label class="radio"><input type="radio" name="loc7_film_here" value="Later"> Later</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num">05</span><h2>Bringing your pages together under Gateshead</h2></div>
+    <p class="sec-sub">You are moving all your social pages into one main page, with Gateshead as the main location. This section helps us plan that move without losing customers. Add one block per page, including each location's own pages. Four spare blocks are at the bottom if you have more.</p>
+    
+    <div class="pagerow">
+      <div class="ph">Page 1</div>
+      <div class="grid2">
+        <div class="field"><label>Platform</label><input type="text" name="page1_platform" value="Facebook"></div>
+        <div class="field"><label>Page name and full URL</label><input type="text" name="page1_url" placeholder="https://"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Followers</label><input type="text" name="page1_followers" placeholder="Rough number, if you know it"></div>
+        <div class="field"><label>Who has admin access</label><input type="text" name="page1_admin" placeholder="Name, or not sure"></div>
+      </div>
+      <div class="field"><label>What should happen?</label>
+        <div class="ticks four">
+          <label class="tick"><input type="checkbox" name="page1_action" value="Main page"><span>Main page</span></label>
+          <label class="tick"><input type="checkbox" name="page1_action" value="Merge"><span>Merge</span></label>
+          <label class="tick"><input type="checkbox" name="page1_action" value="Archive"><span>Archive</span></label>
+          <label class="tick"><input type="checkbox" name="page1_action" value="Redirect"><span>Redirect</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagerow">
+      <div class="ph">Page 2</div>
+      <div class="grid2">
+        <div class="field"><label>Platform</label><input type="text" name="page2_platform" value="Instagram"></div>
+        <div class="field"><label>Page name and full URL</label><input type="text" name="page2_url" placeholder="https://"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Followers</label><input type="text" name="page2_followers" placeholder="Rough number, if you know it"></div>
+        <div class="field"><label>Who has admin access</label><input type="text" name="page2_admin" placeholder="Name, or not sure"></div>
+      </div>
+      <div class="field"><label>What should happen?</label>
+        <div class="ticks four">
+          <label class="tick"><input type="checkbox" name="page2_action" value="Main page"><span>Main page</span></label>
+          <label class="tick"><input type="checkbox" name="page2_action" value="Merge"><span>Merge</span></label>
+          <label class="tick"><input type="checkbox" name="page2_action" value="Archive"><span>Archive</span></label>
+          <label class="tick"><input type="checkbox" name="page2_action" value="Redirect"><span>Redirect</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagerow">
+      <div class="ph">Page 3</div>
+      <div class="grid2">
+        <div class="field"><label>Platform</label><input type="text" name="page3_platform" value="TikTok"></div>
+        <div class="field"><label>Page name and full URL</label><input type="text" name="page3_url" placeholder="https://"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Followers</label><input type="text" name="page3_followers" placeholder="Rough number, if you know it"></div>
+        <div class="field"><label>Who has admin access</label><input type="text" name="page3_admin" placeholder="Name, or not sure"></div>
+      </div>
+      <div class="field"><label>What should happen?</label>
+        <div class="ticks four">
+          <label class="tick"><input type="checkbox" name="page3_action" value="Main page"><span>Main page</span></label>
+          <label class="tick"><input type="checkbox" name="page3_action" value="Merge"><span>Merge</span></label>
+          <label class="tick"><input type="checkbox" name="page3_action" value="Archive"><span>Archive</span></label>
+          <label class="tick"><input type="checkbox" name="page3_action" value="Redirect"><span>Redirect</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagerow">
+      <div class="ph">Page 4</div>
+      <div class="grid2">
+        <div class="field"><label>Platform</label><input type="text" name="page4_platform" value="Google Business Profile"></div>
+        <div class="field"><label>Page name and full URL</label><input type="text" name="page4_url" placeholder="https://"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Followers</label><input type="text" name="page4_followers" placeholder="Rough number, if you know it"></div>
+        <div class="field"><label>Who has admin access</label><input type="text" name="page4_admin" placeholder="Name, or not sure"></div>
+      </div>
+      <div class="field"><label>What should happen?</label>
+        <div class="ticks four">
+          <label class="tick"><input type="checkbox" name="page4_action" value="Main page"><span>Main page</span></label>
+          <label class="tick"><input type="checkbox" name="page4_action" value="Merge"><span>Merge</span></label>
+          <label class="tick"><input type="checkbox" name="page4_action" value="Archive"><span>Archive</span></label>
+          <label class="tick"><input type="checkbox" name="page4_action" value="Redirect"><span>Redirect</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagerow">
+      <div class="ph">Page 5</div>
+      <div class="grid2">
+        <div class="field"><label>Platform</label><input type="text" name="page5_platform" value="YouTube"></div>
+        <div class="field"><label>Page name and full URL</label><input type="text" name="page5_url" placeholder="https://"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Followers</label><input type="text" name="page5_followers" placeholder="Rough number, if you know it"></div>
+        <div class="field"><label>Who has admin access</label><input type="text" name="page5_admin" placeholder="Name, or not sure"></div>
+      </div>
+      <div class="field"><label>What should happen?</label>
+        <div class="ticks four">
+          <label class="tick"><input type="checkbox" name="page5_action" value="Main page"><span>Main page</span></label>
+          <label class="tick"><input type="checkbox" name="page5_action" value="Merge"><span>Merge</span></label>
+          <label class="tick"><input type="checkbox" name="page5_action" value="Archive"><span>Archive</span></label>
+          <label class="tick"><input type="checkbox" name="page5_action" value="Redirect"><span>Redirect</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagerow">
+      <div class="ph">Page 6</div>
+      <div class="grid2">
+        <div class="field"><label>Platform</label><input type="text" name="page6_platform" value="Other"></div>
+        <div class="field"><label>Page name and full URL</label><input type="text" name="page6_url" placeholder="https://"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Followers</label><input type="text" name="page6_followers" placeholder="Rough number, if you know it"></div>
+        <div class="field"><label>Who has admin access</label><input type="text" name="page6_admin" placeholder="Name, or not sure"></div>
+      </div>
+      <div class="field"><label>What should happen?</label>
+        <div class="ticks four">
+          <label class="tick"><input type="checkbox" name="page6_action" value="Main page"><span>Main page</span></label>
+          <label class="tick"><input type="checkbox" name="page6_action" value="Merge"><span>Merge</span></label>
+          <label class="tick"><input type="checkbox" name="page6_action" value="Archive"><span>Archive</span></label>
+          <label class="tick"><input type="checkbox" name="page6_action" value="Redirect"><span>Redirect</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagerow">
+      <div class="ph">Page 7</div>
+      <div class="grid2">
+        <div class="field"><label>Platform</label><input type="text" name="page7_platform" placeholder="Platform"></div>
+        <div class="field"><label>Page name and full URL</label><input type="text" name="page7_url" placeholder="https://"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Followers</label><input type="text" name="page7_followers" placeholder="Rough number, if you know it"></div>
+        <div class="field"><label>Who has admin access</label><input type="text" name="page7_admin" placeholder="Name, or not sure"></div>
+      </div>
+      <div class="field"><label>What should happen?</label>
+        <div class="ticks four">
+          <label class="tick"><input type="checkbox" name="page7_action" value="Main page"><span>Main page</span></label>
+          <label class="tick"><input type="checkbox" name="page7_action" value="Merge"><span>Merge</span></label>
+          <label class="tick"><input type="checkbox" name="page7_action" value="Archive"><span>Archive</span></label>
+          <label class="tick"><input type="checkbox" name="page7_action" value="Redirect"><span>Redirect</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagerow">
+      <div class="ph">Page 8</div>
+      <div class="grid2">
+        <div class="field"><label>Platform</label><input type="text" name="page8_platform" placeholder="Platform"></div>
+        <div class="field"><label>Page name and full URL</label><input type="text" name="page8_url" placeholder="https://"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Followers</label><input type="text" name="page8_followers" placeholder="Rough number, if you know it"></div>
+        <div class="field"><label>Who has admin access</label><input type="text" name="page8_admin" placeholder="Name, or not sure"></div>
+      </div>
+      <div class="field"><label>What should happen?</label>
+        <div class="ticks four">
+          <label class="tick"><input type="checkbox" name="page8_action" value="Main page"><span>Main page</span></label>
+          <label class="tick"><input type="checkbox" name="page8_action" value="Merge"><span>Merge</span></label>
+          <label class="tick"><input type="checkbox" name="page8_action" value="Archive"><span>Archive</span></label>
+          <label class="tick"><input type="checkbox" name="page8_action" value="Redirect"><span>Redirect</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagerow">
+      <div class="ph">Page 9</div>
+      <div class="grid2">
+        <div class="field"><label>Platform</label><input type="text" name="page9_platform" placeholder="Platform"></div>
+        <div class="field"><label>Page name and full URL</label><input type="text" name="page9_url" placeholder="https://"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Followers</label><input type="text" name="page9_followers" placeholder="Rough number, if you know it"></div>
+        <div class="field"><label>Who has admin access</label><input type="text" name="page9_admin" placeholder="Name, or not sure"></div>
+      </div>
+      <div class="field"><label>What should happen?</label>
+        <div class="ticks four">
+          <label class="tick"><input type="checkbox" name="page9_action" value="Main page"><span>Main page</span></label>
+          <label class="tick"><input type="checkbox" name="page9_action" value="Merge"><span>Merge</span></label>
+          <label class="tick"><input type="checkbox" name="page9_action" value="Archive"><span>Archive</span></label>
+          <label class="tick"><input type="checkbox" name="page9_action" value="Redirect"><span>Redirect</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagerow">
+      <div class="ph">Page 10</div>
+      <div class="grid2">
+        <div class="field"><label>Platform</label><input type="text" name="page10_platform" placeholder="Platform"></div>
+        <div class="field"><label>Page name and full URL</label><input type="text" name="page10_url" placeholder="https://"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Followers</label><input type="text" name="page10_followers" placeholder="Rough number, if you know it"></div>
+        <div class="field"><label>Who has admin access</label><input type="text" name="page10_admin" placeholder="Name, or not sure"></div>
+      </div>
+      <div class="field"><label>What should happen?</label>
+        <div class="ticks four">
+          <label class="tick"><input type="checkbox" name="page10_action" value="Main page"><span>Main page</span></label>
+          <label class="tick"><input type="checkbox" name="page10_action" value="Merge"><span>Merge</span></label>
+          <label class="tick"><input type="checkbox" name="page10_action" value="Archive"><span>Archive</span></label>
+          <label class="tick"><input type="checkbox" name="page10_action" value="Redirect"><span>Redirect</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="field"><label>Any other pages<span class="hint">If a page did not fit above, add it here. Platform, full URL, followers, who has admin access, and what should happen to it.</span></label><textarea name="extra_pages" placeholder="One page per line"></textarea></div>
+    <div class="grid2">
+      <div class="field"><label>Preferred name for the main page</label><input type="text" name="main_page_name" placeholder="Gills Fish and Chips"></div>
+      <div class="field"><label>Preferred handle<span class="hint">For example, @gillsfishandchips.</span></label><input type="text" name="main_page_handle" placeholder="@gillsfishandchips"></div>
+    </div>
+    <div class="field"><label>When would you like the move to happen?</label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="move_timing" value="As soon as possible"> As soon as possible</label>
+        <label class="radio"><input type="radio" name="move_timing" value="Within a month"> Within a month</label>
+        <label class="radio"><input type="radio" name="move_timing" value="Specific date"> Specific date</label>
+      </div>
+      <div class="field" style="margin-top:12px"><label>Date</label><input type="date" name="move_date"></div>
+    </div>
+    <div class="field"><label>How should customers of the other locations be told?</label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="tell_customers" value="Posts on the old pages"><span>Posts on the old pages</span></label>
+        <label class="tick"><input type="checkbox" name="tell_customers" value="In shop posters"><span>In shop posters</span></label>
+        <label class="tick"><input type="checkbox" name="tell_customers" value="Staff telling customers"><span>Staff telling customers</span></label>
+        <label class="tick"><input type="checkbox" name="tell_customers" value="Website notice"><span>Website notice</span></label>
+        <label class="tick"><input type="checkbox" name="tell_customers" value="Other"><span>Other</span></label>
+      </div>
+      <div class="field" style="margin-top:12px"><label>If other, what should we do?</label><input type="text" name="tell_customers_other"></div>
+    </div>
+    <div class="field"><label>How should each location still be represented on the main page?</label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="location_on_page" value="Location tags on posts"><span>Location tags on posts</span></label>
+        <label class="tick"><input type="checkbox" name="location_on_page" value="Location list in bio or highlights"><span>Location list in bio or highlights</span></label>
+        <label class="tick"><input type="checkbox" name="location_on_page" value="Separate Google Business Profiles kept for each shop"><span>Separate Google Business Profiles kept for each shop</span></label>
+        <label class="tick"><input type="checkbox" name="location_on_page" value="Location specific videos"><span>Location specific videos</span></label>
+        <label class="tick"><input type="checkbox" name="location_on_page" value="Other"><span>Other</span></label>
+      </div>
+      <div class="field" style="margin-top:12px"><label>If other, how should a shop show up?</label><input type="text" name="location_on_page_other"></div>
+    </div>
+    <div class="field"><label>Any pages you want to keep running separately? Why?</label><textarea name="pages_keep_separate"></textarea></div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">06</span><h2>Your current social media and past marketing</h2></div>
+    <p class="sec-sub">A quick look at what has been done so far, so we build on it. If reels have not been tried yet, say so. If the person looking after the pages is short on time, tell us how much time they actually have.</p>
+    <div class="grid2">
+      <div class="field"><label>Who runs your social media at the moment?</label><input type="text" name="social_owner" placeholder="Name and role"></div>
+      <div class="field"><label>Roughly how much time do they have for it each week?</label><input type="text" name="social_time" placeholder="For example, an hour, or almost none"></div>
+    </div>
+    <div class="field"><label>What have you tried before?</label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="marketing_tried" value="Paid social ads"><span>Paid social ads</span></label>
+        <label class="tick"><input type="checkbox" name="marketing_tried" value="Influencers"><span>Influencers</span></label>
+        <label class="tick"><input type="checkbox" name="marketing_tried" value="Leaflets"><span>Leaflets</span></label>
+        <label class="tick"><input type="checkbox" name="marketing_tried" value="Local press or radio"><span>Local press or radio</span></label>
+        <label class="tick"><input type="checkbox" name="marketing_tried" value="Delivery app promotions"><span>Delivery app promotions</span></label>
+        <label class="tick"><input type="checkbox" name="marketing_tried" value="Loyalty cards"><span>Loyalty cards</span></label>
+        <label class="tick"><input type="checkbox" name="marketing_tried" value="Other"><span>Other</span></label>
+      </div>
+      <div class="field" style="margin-top:12px"><label>If other, what was it?</label><input type="text" name="marketing_tried_other"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>What worked well?</label><textarea name="what_worked"></textarea></div>
+      <div class="field"><label>What did not work, or what would you not do again?</label><textarea name="what_did_not"></textarea></div>
+    </div>
+    <div class="field"><label>Any experience with reels or short videos so far?</label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="reels_experience" value="None yet"> None yet</label>
+        <label class="radio"><input type="radio" name="reels_experience" value="A few, informally"> A few, informally</label>
+        <label class="radio"><input type="radio" name="reels_experience" value="Regularly"> Regularly</label>
+      </div>
+      <div class="field" style="margin-top:12px"><label>Details</label><textarea name="reels_experience_details" placeholder="What you posted, and where the files are if we can use them"></textarea></div>
+    </div>
+
+    <h3 class="subhead">Brand assets</h3>
+    <p class="sec-sub">So the reels carry the Gills name, colours and wording you already use on the shops.</p>
+    <div class="field"><label>Logo files available?</label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="logo_files" value="Yes"> Yes</label>
+        <label class="radio"><input type="radio" name="logo_files" value="No"> No</label>
+        <label class="radio"><input type="radio" name="logo_files" value="Not sure"> Not sure</label>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Brand colours<span class="hint">Names or codes, if you know them.</span></label><input type="text" name="brand_colours" placeholder="For example, navy and gold"></div>
+      <div class="field"><label>Fonts used on signage, menus or packaging</label><input type="text" name="brand_fonts" placeholder="Names, or not sure"></div>
+    </div>
+    <div class="field"><label>Any existing video footage we can use? Where is it stored?</label><textarea name="existing_footage" placeholder="A full link, or where to find the files"></textarea></div>
+
+    <h3 class="subhead">Access we will need</h3>
+    <p class="sec-sub">Tick what you can sort, and we will help with the rest. Invites go to <b>jay@fusioncreative.uk</b>.</p>
+    <div class="access">
+      <div class="row"><div class="what"><b>Meta Business Suite</b>Facebook and Instagram. Add Fusion Creative as a partner or team member so we can post the reels.</div><select name="meta_access"><option value="">Choose</option><option value="Done">Done</option><option value="Will do this week">Will do this week</option><option value="Not sure help me">Not sure help me</option></select></div>
+      <div class="row"><div class="what"><b>TikTok account</b>Team access on the account the reels will go out from.</div><select name="tiktok_access"><option value="">Choose</option><option value="Done">Done</option><option value="Will do this week">Will do this week</option><option value="Not sure help me">Not sure help me</option></select></div>
+      <div class="row"><div class="what"><b>Ad accounts</b>Meta, TikTok, or any other ad account you already use. Partner access only.</div><select name="ad_accounts_access"><option value="">Choose</option><option value="Done">Done</option><option value="Will do this week">Will do this week</option><option value="Not sure help me">Not sure help me</option></select></div>
+      <div class="row"><div class="what"><b>Google Business Profiles</b>Manager access for the shops, so each location stays findable while the social pages move under Gateshead.</div><select name="google_business_access"><option value="">Choose</option><option value="Done">Done</option><option value="Will do this week">Will do this week</option><option value="Not sure help me">Not sure help me</option></select></div>
+    </div>
+    <div class="note"><b>Sharing access safely.</b> Please do not send passwords by email, text or WhatsApp. We will walk you through adding Fusion Creative as a partner or team member inside Meta Business Suite, TikTok and Google Business Profile. You stay in control and can remove our access at any time.</div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num">07</span><h2>Your reels goals</h2></div>
+    <p class="sec-sub">People already know the Gills name. The aim is to remind them why they love Gills, highlight what you do best, and give them a reason to come in today.</p>
+    <div class="field"><label>What do you most want people to be reminded of?</label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="remind_of" value="Signature dishes"><span>Signature dishes</span></label>
+        <label class="tick"><input type="checkbox" name="remind_of" value="Quality"><span>Quality</span></label>
+        <label class="tick"><input type="checkbox" name="remind_of" value="Where your fish comes from"><span>Where your fish comes from</span></label>
+        <label class="tick"><input type="checkbox" name="remind_of" value="Family heritage"><span>Family heritage</span></label>
+        <label class="tick"><input type="checkbox" name="remind_of" value="Community and local roots"><span>Community and local roots</span></label>
+        <label class="tick"><input type="checkbox" name="remind_of" value="Value and portions"><span>Value and portions</span></label>
+        <label class="tick"><input type="checkbox" name="remind_of" value="Other"><span>Other</span></label>
+      </div>
+      <div class="field" style="margin-top:12px"><label>If other, what should we remind them of?</label><input type="text" name="remind_of_other"></div>
+    </div>
+    <div class="field"><label>Main goals for the reels</label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="reel_goals" value="More visits to the shops"><span>More visits to the shops</span></label>
+        <label class="tick"><input type="checkbox" name="reel_goals" value="More online and delivery orders"><span>More online and delivery orders</span></label>
+        <label class="tick"><input type="checkbox" name="reel_goals" value="Bring back lapsed customers"><span>Bring back lapsed customers</span></label>
+        <label class="tick"><input type="checkbox" name="reel_goals" value="Promote offers"><span>Promote offers</span></label>
+        <label class="tick"><input type="checkbox" name="reel_goals" value="Support new openings"><span>Support new openings</span></label>
+        <label class="tick"><input type="checkbox" name="reel_goals" value="Recruitment"><span>Recruitment</span></label>
+        <label class="tick"><input type="checkbox" name="reel_goals" value="Other"><span>Other</span></label>
+      </div>
+      <div class="field" style="margin-top:12px"><label>If other, what is the goal?</label><input type="text" name="reel_goals_other"></div>
+    </div>
+    <div class="field"><label>Where does your fish and other produce come from?<span class="hint">Anything special about sourcing or preparation.</span></label><textarea name="sourcing"></textarea></div>
+    <div class="field"><label>Community links<span class="hint">Local clubs, charities, events, schools.</span></label><textarea name="community_links"></textarea></div>
+    <div class="grid2">
+      <div class="field"><label>Key dishes to feature</label><textarea name="key_dishes" placeholder="One per line"></textarea></div>
+      <div class="field"><label>Current or planned offers to feature</label><textarea name="offers_to_feature" placeholder="What the offer is, and when it runs"></textarea></div>
+    </div>
+    <div class="field"><label>Who are your customers at each location?<span class="hint">For example, families, workers at lunch, students, older regulars.</span></label><textarea name="customers_by_location" placeholder="Shop by shop if they differ"></textarea></div>
+    <div class="field"><label>Tone and style you would like</label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="tone" value="Warm and nostalgic"><span>Warm and nostalgic</span></label>
+        <label class="tick"><input type="checkbox" name="tone" value="Fun and cheeky"><span>Fun and cheeky</span></label>
+        <label class="tick"><input type="checkbox" name="tone" value="Mouthwatering food close ups"><span>Mouthwatering food close ups</span></label>
+        <label class="tick"><input type="checkbox" name="tone" value="Behind the scenes"><span>Behind the scenes</span></label>
+        <label class="tick"><input type="checkbox" name="tone" value="Straight talking local"><span>Straight talking local</span></label>
+      </div>
+    </div>
+    <div class="field"><label>Example accounts or reels you like<span class="hint">Full links, please.</span></label><textarea name="example_accounts" placeholder="https://"></textarea></div>
+    <div class="field"><label>Who is happy to appear on camera?<span class="hint">Names, roles, and which shop they are at. Nobody is put on camera who does not want to be there.</span></label><textarea name="on_camera"></textarea></div>
+    <div class="field"><label>Seasonal or event dates to plan around<span class="hint">For example, Fish Friday, Lent, school holidays, local events.</span></label><textarea name="seasonal_dates"></textarea></div>
+    <div class="field"><label>How quickly can the person who approves videos usually reply?<span class="hint">The name sits in the contact section above.</span></label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="approval_speed" value="Same day"> Same day</label>
+        <label class="radio"><input type="radio" name="approval_speed" value="Within 48 hours"> Within 48 hours</label>
+        <label class="radio"><input type="radio" name="approval_speed" value="Within a week"> Within a week</label>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Things we must always say or show</label><textarea name="must_say"></textarea></div>
+      <div class="field"><label>Things we must never say or show</label><textarea name="must_never"></textarea></div>
+    </div>
+    <div class="field"><label>Main competitors<span class="hint">Local or national.</span></label><textarea name="competitors" placeholder="Names are enough"></textarea></div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">08</span><h2>Practical details</h2></div>
+    <p class="sec-sub">The bits that make filming days and reporting run smoothly.</p>
+    <div class="grid2">
+      <div class="field"><label>Best days and times for filming</label><textarea name="filming_days" placeholder="Days, times, and which shop if it varies"></textarea></div>
+      <div class="field"><label>Dates to avoid<span class="hint">Busy periods, refits, holidays.</span></label><textarea name="dates_to_avoid"></textarea></div>
+    </div>
+    <div class="field"><label>Any health and safety rules for our team in kitchens or front of house?</label><textarea name="health_safety"></textarea></div>
+    <div class="field"><label>Do we need permission from a landlord, shopping centre or anyone else to film?</label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="film_permission" value="Yes"> Yes</label>
+        <label class="radio"><input type="radio" name="film_permission" value="No"> No</label>
+        <label class="radio"><input type="radio" name="film_permission" value="Not sure"> Not sure</label>
+      </div>
+      <div class="field" style="margin-top:12px"><label>Details</label><textarea name="film_permission_details" placeholder="Who to ask, and which shop"></textarea></div>
+    </div>
+    <div class="field"><label>Delivery apps</label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="delivery_apps" value="Just Eat"><span>Just Eat</span></label>
+        <label class="tick"><input type="checkbox" name="delivery_apps" value="Deliveroo"><span>Deliveroo</span></label>
+        <label class="tick"><input type="checkbox" name="delivery_apps" value="Uber Eats"><span>Uber Eats</span></label>
+        <label class="tick"><input type="checkbox" name="delivery_apps" value="Other"><span>Other</span></label>
+      </div>
+      <div class="field" style="margin-top:12px"><label>Full links for each location</label><textarea name="delivery_links" placeholder="https://"></textarea></div>
+    </div>
+    <div class="field"><label>Online ordering link<span class="hint">A full link.</span></label><input type="url" name="online_ordering" placeholder="https://"></div>
+    <div class="field"><label>How do you measure sales today?<span class="hint">Tills, delivery app reports, online orders.</span></label><textarea name="sales_measurement"></textarea></div>
+    <div class="field"><label>Are you happy to use offer codes or a phrase customers mention in store, so we can track results?</label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="offer_codes" value="Yes"> Yes</label>
+        <label class="radio"><input type="radio" name="offer_codes" value="No"> No</label>
+        <label class="radio"><input type="radio" name="offer_codes" value="Maybe"> Maybe</label>
+      </div>
+    </div>
+    <div class="field"><label>How would you like reporting?</label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="reporting" value="Monthly report by email"><span>Monthly report by email</span></label>
+        <label class="tick"><input type="checkbox" name="reporting" value="Short call"><span>Short call</span></label>
+        <label class="tick"><input type="checkbox" name="reporting" value="WhatsApp summary"><span>WhatsApp summary</span></label>
+        <label class="tick"><input type="checkbox" name="reporting" value="Other"><span>Other</span></label>
+      </div>
+      <div class="field" style="margin-top:12px"><label>If other, how should we report?</label><input type="text" name="reporting_other"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">09</span><h2>Confirmation</h2></div>
+    <p class="sec-sub">Nearly done. Thank you for taking the time.</p>
+    <div class="field">
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="confirm_correct" value="Yes" required><span>I confirm the details above are correct to the best of my knowledge <span class="req">*</span></span></label>
+      </div>
+    </div>
+    <div class="field"><label>I am happy for Fusion Creative to contact the location managers listed above</label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="contact_managers" value="Yes"> Yes</label>
+        <label class="radio"><input type="radio" name="contact_managers" value="No"> No</label>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Name <span class="req">*</span></label><input type="text" name="confirm_name" required placeholder="Sonny Gill"></div>
+      <div class="field"><label>Role</label><input type="text" name="confirm_role" placeholder="Owner"></div>
+    </div>
+    <div class="field"><label>Date</label><input type="date" name="confirm_date"></div>
+    <div class="field"><label>Anything else you would like us to know?</label><textarea class="tall" name="anything_else"></textarea></div>
+  </section>
+
+  <div class="submit-card">
+    <h2>That is everything.</h2>
+    <p>Send it over and we will be in touch to book the first filming day.</p>
+    <button type="submit" class="btn" id="submitBtn">Send to Fusion Creative</button>
+    <div class="status" id="formStatus"></div>
+  </div>
+
+  </form>
+
+  <div class="thanks" id="thanks">
+    <div class="check">&#10003;</div>
+    <h2>Got it, thank you Sonny.</h2>
+    <p>Everything is with us. We will be in touch to book the first filming day.</p>
+  </div>
+</main>
+
+<footer>Gills Fish and Chips<span class="credit">Onboarding by Fusion Creative &middot; <a href="mailto:jay@fusioncreative.uk">jay@fusioncreative.uk</a> &middot; 07437 571250 &middot; <a href="https://fusioncreative.uk">https://fusioncreative.uk</a></span></footer>
+
+<script>
+const CONFIG = {
+  endpoint: "https://newgreek.fusioncreative.uk/api/gills-onboarding/", // Fusion dashboard intake. Primary dashboard domain (the .vercel.app alias 307-redirects, which breaks CORS preflight). Trailing slash required (trailingSlash:true).
+  storageKey: "gills_onboarding_v1",
+  draftKey: "gills-gateshead-2026",
+  pollMs: 25000,
+  clientName: "Gills Fish and Chips",
+  downloadName: "gills-onboarding.txt"
+};
+
+const form = document.getElementById('form');
+const statusEl = document.getElementById('formStatus');
+const progEl = document.getElementById('prog');
+const syncEl = document.getElementById('syncState');
+const HDR = {'Content-Type':'application/json','X-Draft-Key':CONFIG.draftKey};
+
+function ser(v){ if(v==null||v===''||(Array.isArray(v)&&!v.length)) return ''; return JSON.stringify(v); }
+
+function currentValues(){
+  const d={};
+  form.querySelectorAll('input,textarea,select').forEach(el=>{
+    if(!el.name) return;
+    if(el.type==='radio'){ if(el.checked) d[el.name]=el.value; else if(!(el.name in d)) d[el.name]=''; }
+    else if(el.type==='checkbox'){ if(!Array.isArray(d[el.name])) d[el.name]=[]; if(el.checked) d[el.name].push(el.value); }
+    else { d[el.name]=el.value; }
+  });
+  return d;
+}
+function setField(name,val){
+  form.querySelectorAll('[name="'+CSS.escape(name)+'"]').forEach(el=>{
+    if(el.type==='radio'){ el.checked=(el.value===val); }
+    else if(el.type==='checkbox'){ el.checked=Array.isArray(val)&&val.includes(el.value); }
+    else if(el.type!=='hidden'){ el.value=(val==null?'':val); }
+  });
+}
+function save(){ try{ localStorage.setItem(CONFIG.storageKey, JSON.stringify(currentValues())); }catch(e){} }
+function restore(){
+  let d; try{ d=JSON.parse(localStorage.getItem(CONFIG.storageKey)||'{}'); }catch(e){ d={}; }
+  Object.keys(d).forEach(name=>{ const v=d[name]; if(ser(v)!=='') setField(name, Array.isArray(v)&&form.querySelector('[name="'+CSS.escape(name)+'"][type=radio]') ? v[0] : v); });
+}
+function paintTicks(){
+  form.querySelectorAll('.tick').forEach(t=>{ const cb=t.querySelector('input'); t.classList.toggle('on', !!(cb && cb.checked)); });
+}
+const RADIO_GROUPS=new Set([...form.querySelectorAll('input[type=radio]')].map(r=>r.name)).size;
+function updateProgress(){
+  const fields=[...form.querySelectorAll('input[type=text],input[type=email],input[type=url],input[type=tel],input[type=date],textarea,select')];
+  const filled=fields.filter(f=>f.value.trim()!=='').length;
+  const chosen=new Set([...form.querySelectorAll('input:checked')].map(r=>r.name));
+  const total=fields.length+RADIO_GROUPS;
+  progEl.style.width=Math.min(100, Math.round(((filled+chosen.size)/total)*100))+'%';
+}
+
+let lastSynced={}, syncTimer=null, syncing=false, queued=false, submitted=false;
+function setSync(state, when){
+  if(!syncEl) return;
+  if(state==='saving') syncEl.textContent='Saving to the shared draft...';
+  else if(state==='saved'){ const t=when?new Date(when):new Date(); syncEl.textContent='Shared draft saved '+t.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); }
+  else if(state==='ready') syncEl.textContent='Shared draft on. Saves as you type.';
+  else if(state==='offline') syncEl.textContent='Cannot reach the shared draft right now, kept on this device.';
+  else if(state==='loading') syncEl.textContent='Loading the shared draft...';
+}
+function applyRemote(payload, force){
+  const cur=currentValues(); const active=document.activeElement;
+  Object.keys(payload||{}).forEach(k=>{
+    if(k.startsWith('_')) return;
+    const remote=payload[k], local=cur[k];
+    if(force && ser(remote)==='') return;
+    const focused=!!(active && active.name===k);
+    const dirty=ser(local)!==ser(lastSynced[k]);
+    if(force || (!focused && !dirty)){
+      if(ser(remote)!==ser(local)) setField(k, remote);
+      lastSynced[k]=remote;
+    }
+  });
+  paintTicks(); updateProgress(); save();
+}
+function computeDelta(){
+  const cur=currentValues(); const d={};
+  Object.keys(cur).forEach(k=>{ if(ser(cur[k])!==ser(lastSynced[k])) d[k]=cur[k]; });
+  return d;
+}
+function showAlreadySent(){
+  if(submitted) return; submitted=true; clearTimeout(syncTimer);
+  document.getElementById('main').querySelectorAll('form,.hero').forEach(el=>el.style.display='none');
+  const th=document.getElementById('thanks');
+  th.querySelector('h2').textContent='This form has already been sent.';
+  th.querySelector('p').textContent='Someone at '+CONFIG.clientName+' has already submitted it, so there is nothing left to do here. Thank you.';
+  th.classList.add('show');
+  try{ localStorage.removeItem(CONFIG.storageKey); }catch(e){}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+async function pushDraft(){
+  if(submitted) return;
+  if(syncing){ queued=true; return; }
+  const delta=computeDelta(); if(!Object.keys(delta).length) return;
+  syncing=true; setSync('saving');
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'PUT',headers:HDR,body:JSON.stringify({delta}),keepalive:true});
+    if(res.status===409){ showAlreadySent(); return; }
+    if(!res.ok) throw new Error('status '+res.status);
+    const j=await res.json();
+    Object.keys(delta).forEach(k=>{ lastSynced[k]=delta[k]; });
+    applyRemote(j.payload||{}, false);
+    setSync('saved', j.saved_at);
+  }catch(e){ setSync('offline'); }
+  finally{ syncing=false; if(queued){ queued=false; pushDraft(); } }
+}
+function scheduleSync(ms){ clearTimeout(syncTimer); syncTimer=setTimeout(pushDraft, ms); }
+async function pullDraft(initial){
+  if(submitted) return;
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'GET',headers:{'X-Draft-Key':CONFIG.draftKey},cache:'no-store'});
+    if(!res.ok) throw new Error('status '+res.status);
+    const j=await res.json();
+    if(j.status==='submitted'){ showAlreadySent(); return; }
+    applyRemote(j.payload||{}, !!initial);
+    if(initial){ setSync(j.saved_at?'saved':'ready', j.saved_at); pushDraft(); }
+  }catch(e){ if(initial) setSync('offline'); }
+}
+
+form.addEventListener('input', ()=>{ save(); updateProgress(); scheduleSync(1200); });
+form.addEventListener('change', ()=>{ save(); paintTicks(); updateProgress(); scheduleSync(250); });
+document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='hidden'){ clearTimeout(syncTimer); pushDraft(); } else { pullDraft(false); } });
+window.addEventListener('pagehide', ()=>{ clearTimeout(syncTimer); pushDraft(); });
+setInterval(()=>{ if(document.visibilityState==='visible') pullDraft(false); }, CONFIG.pollMs);
+
+function collect(){
+  const d={};
+  form.querySelectorAll('input,textarea,select').forEach(el=>{
+    if(!el.name) return;
+    if(el.type==='radio'){ if(el.checked) d[el.name]=el.value; }
+    else if(el.type==='checkbox'){ if(el.checked){ (d[el.name]=d[el.name]||[]).push(el.value); } }
+    else { d[el.name]=el.value; }
+  });
+  return d;
+}
+
+function missingRequired(){
+  const seen=new Set();
+  const missing=[];
+  form.querySelectorAll('[required]').forEach(f=>{
+    const key=(f.type==='radio'||f.type==='checkbox') ? f.type+':'+f.name : f;
+    if(seen.has(key)) return;
+    seen.add(key);
+    if(f.type==='checkbox'){ if(!f.checked) missing.push(f); }
+    else if(f.type==='radio'){
+      const any=[...form.querySelectorAll('input[type=radio][name="'+CSS.escape(f.name)+'"]')].some(r=>r.checked);
+      if(!any) missing.push(f);
+    }
+    else if(!String(f.value||'').trim()) missing.push(f);
+  });
+  return missing;
+}
+
+document.getElementById('downloadBtn').addEventListener('click', ()=>{
+  const d=collect();
+  let txt=CONFIG.clientName.toUpperCase()+" - ONBOARDING\n\n";
+  Object.keys(d).forEach(k=>{ const v=Array.isArray(d[k])?d[k].join(', '):d[k]; if(String(v).trim()) txt+=k+": "+v+"\n\n"; });
+  const blob=new Blob([txt],{type:'text/plain'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download=CONFIG.downloadName; a.click();
+});
+
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const req=missingRequired();
+  if(req.length){ statusEl.textContent='Please fill in the starred fields ('+req.length+' left).'; req[0].scrollIntoView({block:'center'}); req[0].focus(); return; }
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true; statusEl.textContent='Sending...'; clearTimeout(syncTimer);
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(collect())});
+    if(!res.ok) throw new Error('bad status '+res.status);
+    submitted=true;
+    try{ localStorage.removeItem(CONFIG.storageKey); }catch(x){}
+    document.getElementById('main').querySelectorAll('form,.hero').forEach(el=>el.style.display='none');
+    document.getElementById('thanks').classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }catch(err){
+    btn.disabled=false;
+    statusEl.innerHTML='Hmm, that did not send. Please try again, or use "download a copy" above and email it to <a href="mailto:jay@fusioncreative.uk">jay@fusioncreative.uk</a>.';
+  }
+});
+
+restore(); paintTicks(); updateProgress(); setSync('loading'); pullDraft(true);
+</script>
+
+</body>
+</html>
