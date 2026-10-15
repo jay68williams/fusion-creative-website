@@ -137,8 +137,8 @@ footer a:hover{color:var(--brand-hover)}
   <div class="hero">
     <div class="kicker">Gills Fish and Chips &middot; Onboarding</div>
     <h1>Let's get Gills <em>back on camera.</em></h1>
-    <p>Thanks for choosing Fusion Creative for your growth package. This form gives us what we need to start your reels, bring every social page together under Gateshead, and plan around 30 locations over the next six years. We focus on video, so everything here is about reels and short form content. Keep answers short, tick boxes where you can, and skip anything you are unsure of. We can go through the rest together on a call.</p>
-    <div class="meta">Takes about 15 minutes. <b>It saves as you type</b>, and anyone with this link picks up the same progress, so you can start it on your phone and a manager can finish a shop.<br><span id="syncState">Loading the shared draft...</span></div>
+    <p>Thanks for choosing Fusion Creative for your growth package. This form gives us what we need to start your reels, and to note the page names you want to use. We focus on video, so everything here is about reels and short form content. Keep answers short, tick boxes where you can, and skip anything you are unsure of. We can go through the rest together on a call.</p>
+    <div class="meta">Takes about 15 minutes. <b>It saves as you type</b>, and anyone with this link picks up the same progress, so you can start it on your phone and finish it at the desk.<br><span id="syncState">Loading the shared draft...</span></div>
     <div class="tools"><span>Prefer to fill it in later?</span><button type="button" id="downloadBtn">Download a copy of your answers</button></div>
   </div>
 
@@ -146,10 +146,10 @@ footer a:hover{color:var(--brand-hover)}
 
   <section class="card">
     <div class="sec-head"><span class="sec-num">01</span><h2>Your business and contact details</h2></div>
-    <p class="sec-sub">The basics, so we know who to talk to and when.</p>
+    <p class="sec-sub">The basics, so we know who to talk to.</p>
     <div class="grid2">
       <div class="field"><label>Business name <span class="req">*</span></label><input type="text" name="business_name" required value="Gills Fish and Chips"></div>
-      <div class="field"><label>Group or company name<span class="hint">If it is different from the shop name.</span></label><input type="text" name="group_name" placeholder="Company name, if different"></div>
+      <div class="field"><label>Company name</label><input type="text" name="group_name" placeholder="Company name"></div>
     </div>
     <div class="grid2">
       <div class="field"><label>Main contact name <span class="req">*</span></label><input type="text" name="contact_name" required value="Sonny Gill"></div>
@@ -157,29 +157,9 @@ footer a:hover{color:var(--brand-hover)}
     </div>
     <div class="grid2">
       <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="contact_email" required value="sonny@gillsfishandchips.uk"></div>
-      <div class="field"><label>Mobile</label><input type="tel" name="contact_phone" placeholder="07..."></div>
+      <div class="field"><label>Mobile number</label><input type="tel" name="contact_phone" placeholder="07..."></div>
     </div>
     <div class="field"><label>Website</label><input type="url" name="website" value="https://www.gillsfishandchips.uk"></div>
-    <div class="field"><label>Who makes the final decisions on marketing?</label><input type="text" name="decision_maker" placeholder="Name and role"></div>
-    <div class="field"><label>Who approves videos before they go live?<span class="hint">Name, role, and the best way to reach them.</span></label><textarea name="video_approver" placeholder="Name, role, phone or email"></textarea></div>
-    <div class="field"><label>Anyone else we should keep in the loop?</label><textarea name="loop_in" placeholder="Names, roles, and how to reach them"></textarea></div>
-    <div class="field"><label>Best way to reach you</label>
-      <div class="ticks">
-        <label class="tick"><input type="checkbox" name="reach_method" value="Phone call"><span>Phone call</span></label>
-        <label class="tick"><input type="checkbox" name="reach_method" value="WhatsApp"><span>WhatsApp</span></label>
-        <label class="tick"><input type="checkbox" name="reach_method" value="Text"><span>Text</span></label>
-        <label class="tick"><input type="checkbox" name="reach_method" value="Email"><span>Email</span></label>
-      </div>
-    </div>
-    <div class="field"><label>Best days and times to reach you</label>
-      <div class="ticks">
-        <label class="tick"><input type="checkbox" name="reach_times" value="Mornings"><span>Mornings</span></label>
-        <label class="tick"><input type="checkbox" name="reach_times" value="Afternoons"><span>Afternoons</span></label>
-        <label class="tick"><input type="checkbox" name="reach_times" value="Evenings"><span>Evenings</span></label>
-      </div>
-      <div class="field" style="margin-top:12px"><label>Days</label><input type="text" name="reach_days" placeholder="For example, Monday to Thursday"></div>
-    </div>
-    <div class="field"><label>Times to avoid<span class="hint">For example, the lunch or tea time rush.</span></label><input type="text" name="times_to_avoid" placeholder="Times we should not call"></div>
   </section>
 
   <section class="card star">
@@ -188,10 +168,7 @@ footer a:hover{color:var(--brand-hover)}
     <div class="field"><label>When and where did Gills first open?</label><textarea name="founded_when_where" placeholder="Year, town, and the first shop"></textarea></div>
     <div class="field"><label>Who founded Gills, and who in the family is involved today?</label><textarea name="founders_and_family"></textarea></div>
     <div class="field"><label>Key milestones over the years<span class="hint">New shops, awards, firsts, big moments.</span></label><textarea class="tall" name="milestones" placeholder="One per line is fine"></textarea></div>
-    <div class="grid2">
-      <div class="field"><label>Long serving staff who have a story to tell<span class="hint">Names, and how many years they have been with Gills.</span></label><textarea name="long_serving_staff"></textarea></div>
-      <div class="field"><label>Loyal customers or regulars who might happily share their memories</label><textarea name="loyal_customers" placeholder="First names are enough if that is all you have"></textarea></div>
-    </div>
+    <div class="field"><label>Long serving staff who have a story to tell<span class="hint">Names, and how many years they have been with Gills.</span></label><textarea name="long_serving_staff"></textarea></div>
     <div class="field"><label>Old photos, signs, menus or keepsakes we could film?</label>
       <div class="radios">
         <label class="radio"><input type="radio" name="keepsakes" value="Yes"> Yes</label>
@@ -212,485 +189,82 @@ footer a:hover{color:var(--brand-hover)}
   </section>
 
   <section class="card star">
-    <div class="sec-head"><span class="sec-num">03</span><h2>Expansion plans</h2></div>
-    <p class="sec-sub">You are aiming for 30 locations over the next six years. Knowing the plan helps us shape the main Gateshead page and the videos around it.</p>
-    <div class="field"><label>Target regions or towns for new locations</label><textarea name="target_regions" placeholder="Towns or areas, in any order"></textarea></div>
-    <div class="grid2">
-      <div class="field"><label>Rough timeline<span class="hint">How many openings per year.</span></label><textarea name="openings_timeline"></textarea></div>
-      <div class="field"><label>Which new openings are likely to come first, and when?</label><textarea name="first_openings"></textarea></div>
-    </div>
-    <div class="field"><label>How would you like new locations announced?</label>
-      <div class="ticks">
-        <label class="tick"><input type="checkbox" name="announce_new_locations" value="Opening reels"><span>Opening reels</span></label>
-        <label class="tick"><input type="checkbox" name="announce_new_locations" value="Behind the scenes of the build"><span>Behind the scenes of the build</span></label>
-        <label class="tick"><input type="checkbox" name="announce_new_locations" value="Countdown posts"><span>Countdown posts</span></label>
-        <label class="tick"><input type="checkbox" name="announce_new_locations" value="Opening day event"><span>Opening day event</span></label>
-        <label class="tick"><input type="checkbox" name="announce_new_locations" value="Not sure yet"><span>Not sure yet</span></label>
-      </div>
-    </div>
-    <div class="field"><label>How should each new location be added to the main Gateshead page?<span class="hint">For example, a location tag, a highlight, a pinned post, or the Google profile.</span></label><textarea name="new_location_on_main_page"></textarea></div>
-    <div class="field"><label>Is recruitment for new sites something video should help with?</label>
-      <div class="radios">
-        <label class="radio"><input type="radio" name="recruitment_video" value="Yes"> Yes</label>
-        <label class="radio"><input type="radio" name="recruitment_video" value="No"> No</label>
-        <label class="radio"><input type="radio" name="recruitment_video" value="Maybe"> Maybe</label>
-      </div>
-    </div>
-    <div class="field"><label>Anything about expansion that must stay private for now?</label><textarea name="expansion_private" placeholder="We will keep this off camera and out of captions"></textarea></div>
-  </section>
-
-  <section class="card">
-    <div class="sec-head"><span class="sec-num">04</span><h2>Your seven locations</h2></div>
-    <p class="sec-sub">We've filled in what's on your website, please correct anything that's out of date.<br>Gateshead is the main location. Please fill in one block per shop. If a manager knows the details better, please pass this part to them. The link keeps one shared draft, so their answers land in the same form.</p>
-    
-    <div class="loc">
-      <div class="loc-head"><span class="loc-k">Location 1</span><h3>Heaton</h3></div>
-      <div class="field"><label>Location name</label><input type="text" name="loc1_name" value="Heaton"></div>
-      <div class="field"><label>Full address and postcode</label><input type="text" name="loc1_address" value="64 Heaton Road, Newcastle upon Tyne, NE6 5HL"></div>
-      <div class="grid2">
-        <div class="field"><label>Opening hours</label><textarea name="loc1_hours">Mon to Sat 11.30am-2pm and 4.30pm-10pm; Fri 11.30am-10pm; Sun 4.30pm-10pm.</textarea></div>
-        <div class="field"><label>Manager or on site contact<span class="hint">Name and number.</span></label><input type="text" name="loc1_manager" value="0191 908 7133"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Best filming times<span class="hint">Quieter periods, so we are not in the way of service.</span></label><input type="text" name="loc1_filming_times" placeholder="For example, weekday afternoons"></div>
-        <div class="field"><label>Parking and access for our team</label><textarea name="loc1_parking" placeholder="Where to park, which door to use"></textarea></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Signature dishes or local favourites</label><textarea name="loc1_signature_dishes" placeholder="What this shop is known for"></textarea></div>
-        <div class="field"><label>Anything to avoid on camera</label><textarea name="loc1_avoid_camera" placeholder="People, spots, or topics"></textarea></div>
-      </div>
-      <div class="field"><label>Do we need to film here?</label>
-        <div class="radios">
-          <label class="radio"><input type="radio" name="loc1_film_here" value="Yes"> Yes</label>
-          <label class="radio"><input type="radio" name="loc1_film_here" value="No"> No</label>
-          <label class="radio"><input type="radio" name="loc1_film_here" value="Later"> Later</label>
-        </div>
-      </div>
-    </div>
-
-    <div class="loc">
-      <div class="loc-head"><span class="loc-k">Location 2</span><h3>Wallsend</h3></div>
-      <div class="field"><label>Location name</label><input type="text" name="loc2_name" value="Wallsend"></div>
-      <div class="field"><label>Full address and postcode</label><input type="text" name="loc2_address" value="27 Frank Street, Wallsend, NE28 6RN"></div>
-      <div class="grid2">
-        <div class="field"><label>Opening hours</label><textarea name="loc2_hours">Mon to Sat 11am-10pm; Sun 4pm-10pm.</textarea></div>
-        <div class="field"><label>Manager or on site contact<span class="hint">Name and number.</span></label><input type="text" name="loc2_manager" value="0191 287 0311"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Best filming times<span class="hint">Quieter periods, so we are not in the way of service.</span></label><input type="text" name="loc2_filming_times" placeholder="For example, weekday afternoons"></div>
-        <div class="field"><label>Parking and access for our team</label><textarea name="loc2_parking" placeholder="Where to park, which door to use"></textarea></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Signature dishes or local favourites</label><textarea name="loc2_signature_dishes" placeholder="What this shop is known for"></textarea></div>
-        <div class="field"><label>Anything to avoid on camera</label><textarea name="loc2_avoid_camera" placeholder="People, spots, or topics"></textarea></div>
-      </div>
-      <div class="field"><label>Do we need to film here?</label>
-        <div class="radios">
-          <label class="radio"><input type="radio" name="loc2_film_here" value="Yes"> Yes</label>
-          <label class="radio"><input type="radio" name="loc2_film_here" value="No"> No</label>
-          <label class="radio"><input type="radio" name="loc2_film_here" value="Later"> Later</label>
-        </div>
-      </div>
-    </div>
-
-    <div class="loc">
-      <div class="loc-head"><span class="loc-k">Location 3</span><h3>Ponteland</h3></div>
-      <div class="field"><label>Location name</label><input type="text" name="loc3_name" value="Ponteland"></div>
-      <div class="field"><label>Full address and postcode</label><input type="text" name="loc3_address" value="19 Merton Way, Ponteland, NE20 9PY"></div>
-      <div class="grid2">
-        <div class="field"><label>Opening hours</label><textarea name="loc3_hours">Mon to Sat 11.30am-9.30pm; Sun 4.30pm-9.30pm.</textarea></div>
-        <div class="field"><label>Manager or on site contact<span class="hint">Name and number.</span></label><input type="text" name="loc3_manager" value="01661 820666"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Best filming times<span class="hint">Quieter periods, so we are not in the way of service.</span></label><input type="text" name="loc3_filming_times" placeholder="For example, weekday afternoons"></div>
-        <div class="field"><label>Parking and access for our team</label><textarea name="loc3_parking" placeholder="Where to park, which door to use"></textarea></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Signature dishes or local favourites</label><textarea name="loc3_signature_dishes" placeholder="What this shop is known for"></textarea></div>
-        <div class="field"><label>Anything to avoid on camera</label><textarea name="loc3_avoid_camera" placeholder="People, spots, or topics"></textarea></div>
-      </div>
-      <div class="field"><label>Do we need to film here?</label>
-        <div class="radios">
-          <label class="radio"><input type="radio" name="loc3_film_here" value="Yes"> Yes</label>
-          <label class="radio"><input type="radio" name="loc3_film_here" value="No"> No</label>
-          <label class="radio"><input type="radio" name="loc3_film_here" value="Later"> Later</label>
-        </div>
-      </div>
-    </div>
-
-    <div class="loc">
-      <div class="loc-head"><span class="loc-k">Location 4</span><h3>Sunderland</h3></div>
-      <div class="field"><label>Location name</label><input type="text" name="loc4_name" value="Sunderland"></div>
-      <div class="field"><label>Full address and postcode</label><input type="text" name="loc4_address" value="Aline Street, Tunstall Village, Silksworth, Sunderland, SR3 2DZ"></div>
-      <div class="grid2">
-        <div class="field"><label>Opening hours</label><textarea name="loc4_hours">Mon to Thu 4.30pm-9.30pm; Fri and Sat 11.30am-2pm and 4.30pm-9.30pm; Sun 4.30pm-9.30pm.</textarea></div>
-        <div class="field"><label>Manager or on site contact<span class="hint">Name and number.</span></label><input type="text" name="loc4_manager" value="0191 521 0605"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Best filming times<span class="hint">Quieter periods, so we are not in the way of service.</span></label><input type="text" name="loc4_filming_times" placeholder="For example, weekday afternoons"></div>
-        <div class="field"><label>Parking and access for our team</label><textarea name="loc4_parking" placeholder="Where to park, which door to use"></textarea></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Signature dishes or local favourites</label><textarea name="loc4_signature_dishes" placeholder="What this shop is known for"></textarea></div>
-        <div class="field"><label>Anything to avoid on camera</label><textarea name="loc4_avoid_camera" placeholder="People, spots, or topics"></textarea></div>
-      </div>
-      <div class="field"><label>Do we need to film here?</label>
-        <div class="radios">
-          <label class="radio"><input type="radio" name="loc4_film_here" value="Yes"> Yes</label>
-          <label class="radio"><input type="radio" name="loc4_film_here" value="No"> No</label>
-          <label class="radio"><input type="radio" name="loc4_film_here" value="Later"> Later</label>
-        </div>
-      </div>
-    </div>
-
-    <div class="loc">
-      <div class="loc-head"><span class="loc-k">Location 5</span><h3>Silverlink</h3></div>
-      <div class="field"><label>Location name</label><input type="text" name="loc5_name" value="Silverlink"></div>
-      <div class="field"><label>Full address and postcode</label><input type="text" name="loc5_address" value="Delivery only, NE27/NE28"></div>
-      <div class="grid2">
-        <div class="field"><label>Opening hours</label><textarea name="loc5_hours">Every day 4.30pm-10pm; Fri also 11.30am-2pm.</textarea></div>
-        <div class="field"><label>Manager or on site contact<span class="hint">Name and number.</span></label><input type="text" name="loc5_manager" value="0191 468 2770"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Best filming times<span class="hint">Quieter periods, so we are not in the way of service.</span></label><input type="text" name="loc5_filming_times" placeholder="For example, weekday afternoons"></div>
-        <div class="field"><label>Parking and access for our team</label><textarea name="loc5_parking" placeholder="Where to park, which door to use"></textarea></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Signature dishes or local favourites</label><textarea name="loc5_signature_dishes" placeholder="What this shop is known for"></textarea></div>
-        <div class="field"><label>Anything to avoid on camera</label><textarea name="loc5_avoid_camera" placeholder="People, spots, or topics"></textarea></div>
-      </div>
-      <div class="field"><label>Do we need to film here?</label>
-        <div class="radios">
-          <label class="radio"><input type="radio" name="loc5_film_here" value="Yes"> Yes</label>
-          <label class="radio"><input type="radio" name="loc5_film_here" value="No"> No</label>
-          <label class="radio"><input type="radio" name="loc5_film_here" value="Later"> Later</label>
-        </div>
-      </div>
-    </div>
-
-    <div class="loc main">
-      <div class="loc-head"><span class="loc-k">Location 6</span><h3>Gateshead</h3><span class="badge">Main location</span></div>
-      <div class="field"><label>Location name</label><input type="text" name="loc6_name" value="Gateshead (main location)"></div>
-      <div class="field"><label>Full address and postcode</label><input type="text" name="loc6_address" value="99 Meresyde, Leam Lane Estate, Gateshead, NE10 8UN"></div>
-      <div class="grid2">
-        <div class="field"><label>Opening hours</label><textarea name="loc6_hours" placeholder="Day by day"></textarea></div>
-        <div class="field"><label>Manager or on site contact<span class="hint">Name and number.</span></label><input type="text" name="loc6_manager" value="0191 438 6106"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Best filming times<span class="hint">Quieter periods, so we are not in the way of service.</span></label><input type="text" name="loc6_filming_times" placeholder="For example, weekday afternoons"></div>
-        <div class="field"><label>Parking and access for our team</label><textarea name="loc6_parking" placeholder="Where to park, which door to use"></textarea></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Signature dishes or local favourites</label><textarea name="loc6_signature_dishes" placeholder="What this shop is known for"></textarea></div>
-        <div class="field"><label>Anything to avoid on camera</label><textarea name="loc6_avoid_camera" placeholder="People, spots, or topics"></textarea></div>
-      </div>
-      <div class="field"><label>Do we need to film here?</label>
-        <div class="radios">
-          <label class="radio"><input type="radio" name="loc6_film_here" value="Yes"> Yes</label>
-          <label class="radio"><input type="radio" name="loc6_film_here" value="No"> No</label>
-          <label class="radio"><input type="radio" name="loc6_film_here" value="Later"> Later</label>
-        </div>
-      </div>
-    </div>
-
-    <div class="loc">
-      <div class="loc-head"><span class="loc-k">Location 7</span><h3>West Denton</h3></div>
-      <div class="field"><label>Location name</label><input type="text" name="loc7_name" value="West Denton"></div>
-      <div class="field"><label>Full address and postcode</label><input type="text" name="loc7_address" value="Unit 18, West Denton Shopping Centre, Newcastle upon Tyne, NE5 2QZ"></div>
-      <div class="grid2">
-        <div class="field"><label>Opening hours</label><textarea name="loc7_hours">Mon to Sat 11.30am-10pm; Sun 4pm-10pm.</textarea></div>
-        <div class="field"><label>Manager or on site contact<span class="hint">Name and number.</span></label><input type="text" name="loc7_manager" value="0191 267 9593"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Best filming times<span class="hint">Quieter periods, so we are not in the way of service.</span></label><input type="text" name="loc7_filming_times" placeholder="For example, weekday afternoons"></div>
-        <div class="field"><label>Parking and access for our team</label><textarea name="loc7_parking" placeholder="Where to park, which door to use"></textarea></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Signature dishes or local favourites</label><textarea name="loc7_signature_dishes" placeholder="What this shop is known for"></textarea></div>
-        <div class="field"><label>Anything to avoid on camera</label><textarea name="loc7_avoid_camera" placeholder="People, spots, or topics"></textarea></div>
-      </div>
-      <div class="field"><label>Do we need to film here?</label>
-        <div class="radios">
-          <label class="radio"><input type="radio" name="loc7_film_here" value="Yes"> Yes</label>
-          <label class="radio"><input type="radio" name="loc7_film_here" value="No"> No</label>
-          <label class="radio"><input type="radio" name="loc7_film_here" value="Later"> Later</label>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="card star">
-    <div class="sec-head"><span class="sec-num">05</span><h2>Bringing your pages together under Gateshead</h2></div>
-    <p class="sec-sub">You are moving all your social pages into one main page, with Gateshead as the main location. This section helps us plan that move without losing customers. Add one block per page, including each location's own pages. Four spare blocks are at the bottom if you have more.</p>
-    
+    <div class="sec-head"><span class="sec-num">03</span><h2>Your pages</h2></div>
+    <p class="sec-sub">For each page, write the name it uses today and the name you want it to use. One existing page will be renamed to become the main account. Leave a row blank if you do not need it.</p>
     <div class="pagerow">
       <div class="ph">Page 1</div>
       <div class="grid2">
-        <div class="field"><label>Platform</label><input type="text" name="page1_platform" value="Facebook"></div>
-        <div class="field"><label>Page name and full URL</label><input type="text" name="page1_url" placeholder="https://"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Followers</label><input type="text" name="page1_followers" placeholder="Rough number, if you know it"></div>
-        <div class="field"><label>Who has admin access</label><input type="text" name="page1_admin" placeholder="Name, or not sure"></div>
-      </div>
-      <div class="field"><label>What should happen?</label>
-        <div class="ticks four">
-          <label class="tick"><input type="checkbox" name="page1_action" value="Main page"><span>Main page</span></label>
-          <label class="tick"><input type="checkbox" name="page1_action" value="Merge"><span>Merge</span></label>
-          <label class="tick"><input type="checkbox" name="page1_action" value="Archive"><span>Archive</span></label>
-          <label class="tick"><input type="checkbox" name="page1_action" value="Redirect"><span>Redirect</span></label>
-        </div>
+        <div class="field"><label>Current name</label><input type="text" name="page1_current_name" placeholder="Current name"></div>
+        <div class="field"><label>New name</label><input type="text" name="page1_new_name" placeholder="New name"></div>
       </div>
     </div>
-
     <div class="pagerow">
       <div class="ph">Page 2</div>
       <div class="grid2">
-        <div class="field"><label>Platform</label><input type="text" name="page2_platform" value="Instagram"></div>
-        <div class="field"><label>Page name and full URL</label><input type="text" name="page2_url" placeholder="https://"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Followers</label><input type="text" name="page2_followers" placeholder="Rough number, if you know it"></div>
-        <div class="field"><label>Who has admin access</label><input type="text" name="page2_admin" placeholder="Name, or not sure"></div>
-      </div>
-      <div class="field"><label>What should happen?</label>
-        <div class="ticks four">
-          <label class="tick"><input type="checkbox" name="page2_action" value="Main page"><span>Main page</span></label>
-          <label class="tick"><input type="checkbox" name="page2_action" value="Merge"><span>Merge</span></label>
-          <label class="tick"><input type="checkbox" name="page2_action" value="Archive"><span>Archive</span></label>
-          <label class="tick"><input type="checkbox" name="page2_action" value="Redirect"><span>Redirect</span></label>
-        </div>
+        <div class="field"><label>Current name</label><input type="text" name="page2_current_name" placeholder="Current name"></div>
+        <div class="field"><label>New name</label><input type="text" name="page2_new_name" placeholder="New name"></div>
       </div>
     </div>
-
     <div class="pagerow">
       <div class="ph">Page 3</div>
       <div class="grid2">
-        <div class="field"><label>Platform</label><input type="text" name="page3_platform" value="TikTok"></div>
-        <div class="field"><label>Page name and full URL</label><input type="text" name="page3_url" placeholder="https://"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Followers</label><input type="text" name="page3_followers" placeholder="Rough number, if you know it"></div>
-        <div class="field"><label>Who has admin access</label><input type="text" name="page3_admin" placeholder="Name, or not sure"></div>
-      </div>
-      <div class="field"><label>What should happen?</label>
-        <div class="ticks four">
-          <label class="tick"><input type="checkbox" name="page3_action" value="Main page"><span>Main page</span></label>
-          <label class="tick"><input type="checkbox" name="page3_action" value="Merge"><span>Merge</span></label>
-          <label class="tick"><input type="checkbox" name="page3_action" value="Archive"><span>Archive</span></label>
-          <label class="tick"><input type="checkbox" name="page3_action" value="Redirect"><span>Redirect</span></label>
-        </div>
+        <div class="field"><label>Current name</label><input type="text" name="page3_current_name" placeholder="Current name"></div>
+        <div class="field"><label>New name</label><input type="text" name="page3_new_name" placeholder="New name"></div>
       </div>
     </div>
-
     <div class="pagerow">
       <div class="ph">Page 4</div>
       <div class="grid2">
-        <div class="field"><label>Platform</label><input type="text" name="page4_platform" value="Google Business Profile"></div>
-        <div class="field"><label>Page name and full URL</label><input type="text" name="page4_url" placeholder="https://"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Followers</label><input type="text" name="page4_followers" placeholder="Rough number, if you know it"></div>
-        <div class="field"><label>Who has admin access</label><input type="text" name="page4_admin" placeholder="Name, or not sure"></div>
-      </div>
-      <div class="field"><label>What should happen?</label>
-        <div class="ticks four">
-          <label class="tick"><input type="checkbox" name="page4_action" value="Main page"><span>Main page</span></label>
-          <label class="tick"><input type="checkbox" name="page4_action" value="Merge"><span>Merge</span></label>
-          <label class="tick"><input type="checkbox" name="page4_action" value="Archive"><span>Archive</span></label>
-          <label class="tick"><input type="checkbox" name="page4_action" value="Redirect"><span>Redirect</span></label>
-        </div>
+        <div class="field"><label>Current name</label><input type="text" name="page4_current_name" placeholder="Current name"></div>
+        <div class="field"><label>New name</label><input type="text" name="page4_new_name" placeholder="New name"></div>
       </div>
     </div>
-
     <div class="pagerow">
       <div class="ph">Page 5</div>
       <div class="grid2">
-        <div class="field"><label>Platform</label><input type="text" name="page5_platform" value="YouTube"></div>
-        <div class="field"><label>Page name and full URL</label><input type="text" name="page5_url" placeholder="https://"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Followers</label><input type="text" name="page5_followers" placeholder="Rough number, if you know it"></div>
-        <div class="field"><label>Who has admin access</label><input type="text" name="page5_admin" placeholder="Name, or not sure"></div>
-      </div>
-      <div class="field"><label>What should happen?</label>
-        <div class="ticks four">
-          <label class="tick"><input type="checkbox" name="page5_action" value="Main page"><span>Main page</span></label>
-          <label class="tick"><input type="checkbox" name="page5_action" value="Merge"><span>Merge</span></label>
-          <label class="tick"><input type="checkbox" name="page5_action" value="Archive"><span>Archive</span></label>
-          <label class="tick"><input type="checkbox" name="page5_action" value="Redirect"><span>Redirect</span></label>
-        </div>
+        <div class="field"><label>Current name</label><input type="text" name="page5_current_name" placeholder="Current name"></div>
+        <div class="field"><label>New name</label><input type="text" name="page5_new_name" placeholder="New name"></div>
       </div>
     </div>
-
     <div class="pagerow">
       <div class="ph">Page 6</div>
       <div class="grid2">
-        <div class="field"><label>Platform</label><input type="text" name="page6_platform" value="Other"></div>
-        <div class="field"><label>Page name and full URL</label><input type="text" name="page6_url" placeholder="https://"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Followers</label><input type="text" name="page6_followers" placeholder="Rough number, if you know it"></div>
-        <div class="field"><label>Who has admin access</label><input type="text" name="page6_admin" placeholder="Name, or not sure"></div>
-      </div>
-      <div class="field"><label>What should happen?</label>
-        <div class="ticks four">
-          <label class="tick"><input type="checkbox" name="page6_action" value="Main page"><span>Main page</span></label>
-          <label class="tick"><input type="checkbox" name="page6_action" value="Merge"><span>Merge</span></label>
-          <label class="tick"><input type="checkbox" name="page6_action" value="Archive"><span>Archive</span></label>
-          <label class="tick"><input type="checkbox" name="page6_action" value="Redirect"><span>Redirect</span></label>
-        </div>
+        <div class="field"><label>Current name</label><input type="text" name="page6_current_name" placeholder="Current name"></div>
+        <div class="field"><label>New name</label><input type="text" name="page6_new_name" placeholder="New name"></div>
       </div>
     </div>
-
     <div class="pagerow">
       <div class="ph">Page 7</div>
       <div class="grid2">
-        <div class="field"><label>Platform</label><input type="text" name="page7_platform" placeholder="Platform"></div>
-        <div class="field"><label>Page name and full URL</label><input type="text" name="page7_url" placeholder="https://"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Followers</label><input type="text" name="page7_followers" placeholder="Rough number, if you know it"></div>
-        <div class="field"><label>Who has admin access</label><input type="text" name="page7_admin" placeholder="Name, or not sure"></div>
-      </div>
-      <div class="field"><label>What should happen?</label>
-        <div class="ticks four">
-          <label class="tick"><input type="checkbox" name="page7_action" value="Main page"><span>Main page</span></label>
-          <label class="tick"><input type="checkbox" name="page7_action" value="Merge"><span>Merge</span></label>
-          <label class="tick"><input type="checkbox" name="page7_action" value="Archive"><span>Archive</span></label>
-          <label class="tick"><input type="checkbox" name="page7_action" value="Redirect"><span>Redirect</span></label>
-        </div>
+        <div class="field"><label>Current name</label><input type="text" name="page7_current_name" placeholder="Current name"></div>
+        <div class="field"><label>New name</label><input type="text" name="page7_new_name" placeholder="New name"></div>
       </div>
     </div>
-
     <div class="pagerow">
       <div class="ph">Page 8</div>
       <div class="grid2">
-        <div class="field"><label>Platform</label><input type="text" name="page8_platform" placeholder="Platform"></div>
-        <div class="field"><label>Page name and full URL</label><input type="text" name="page8_url" placeholder="https://"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Followers</label><input type="text" name="page8_followers" placeholder="Rough number, if you know it"></div>
-        <div class="field"><label>Who has admin access</label><input type="text" name="page8_admin" placeholder="Name, or not sure"></div>
-      </div>
-      <div class="field"><label>What should happen?</label>
-        <div class="ticks four">
-          <label class="tick"><input type="checkbox" name="page8_action" value="Main page"><span>Main page</span></label>
-          <label class="tick"><input type="checkbox" name="page8_action" value="Merge"><span>Merge</span></label>
-          <label class="tick"><input type="checkbox" name="page8_action" value="Archive"><span>Archive</span></label>
-          <label class="tick"><input type="checkbox" name="page8_action" value="Redirect"><span>Redirect</span></label>
-        </div>
+        <div class="field"><label>Current name</label><input type="text" name="page8_current_name" placeholder="Current name"></div>
+        <div class="field"><label>New name</label><input type="text" name="page8_new_name" placeholder="New name"></div>
       </div>
     </div>
-
     <div class="pagerow">
       <div class="ph">Page 9</div>
       <div class="grid2">
-        <div class="field"><label>Platform</label><input type="text" name="page9_platform" placeholder="Platform"></div>
-        <div class="field"><label>Page name and full URL</label><input type="text" name="page9_url" placeholder="https://"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Followers</label><input type="text" name="page9_followers" placeholder="Rough number, if you know it"></div>
-        <div class="field"><label>Who has admin access</label><input type="text" name="page9_admin" placeholder="Name, or not sure"></div>
-      </div>
-      <div class="field"><label>What should happen?</label>
-        <div class="ticks four">
-          <label class="tick"><input type="checkbox" name="page9_action" value="Main page"><span>Main page</span></label>
-          <label class="tick"><input type="checkbox" name="page9_action" value="Merge"><span>Merge</span></label>
-          <label class="tick"><input type="checkbox" name="page9_action" value="Archive"><span>Archive</span></label>
-          <label class="tick"><input type="checkbox" name="page9_action" value="Redirect"><span>Redirect</span></label>
-        </div>
+        <div class="field"><label>Current name</label><input type="text" name="page9_current_name" placeholder="Current name"></div>
+        <div class="field"><label>New name</label><input type="text" name="page9_new_name" placeholder="New name"></div>
       </div>
     </div>
-
     <div class="pagerow">
       <div class="ph">Page 10</div>
       <div class="grid2">
-        <div class="field"><label>Platform</label><input type="text" name="page10_platform" placeholder="Platform"></div>
-        <div class="field"><label>Page name and full URL</label><input type="text" name="page10_url" placeholder="https://"></div>
-      </div>
-      <div class="grid2">
-        <div class="field"><label>Followers</label><input type="text" name="page10_followers" placeholder="Rough number, if you know it"></div>
-        <div class="field"><label>Who has admin access</label><input type="text" name="page10_admin" placeholder="Name, or not sure"></div>
-      </div>
-      <div class="field"><label>What should happen?</label>
-        <div class="ticks four">
-          <label class="tick"><input type="checkbox" name="page10_action" value="Main page"><span>Main page</span></label>
-          <label class="tick"><input type="checkbox" name="page10_action" value="Merge"><span>Merge</span></label>
-          <label class="tick"><input type="checkbox" name="page10_action" value="Archive"><span>Archive</span></label>
-          <label class="tick"><input type="checkbox" name="page10_action" value="Redirect"><span>Redirect</span></label>
-        </div>
+        <div class="field"><label>Current name</label><input type="text" name="page10_current_name" placeholder="Current name"></div>
+        <div class="field"><label>New name</label><input type="text" name="page10_new_name" placeholder="New name"></div>
       </div>
     </div>
-    <div class="field"><label>Any other pages<span class="hint">If a page did not fit above, add it here. Platform, full URL, followers, who has admin access, and what should happen to it.</span></label><textarea name="extra_pages" placeholder="One page per line"></textarea></div>
-    <div class="grid2">
-      <div class="field"><label>Preferred name for the main page</label><input type="text" name="main_page_name" placeholder="Gills Fish and Chips"></div>
-      <div class="field"><label>Preferred handle<span class="hint">For example, @gillsfishandchips.</span></label><input type="text" name="main_page_handle" placeholder="@gillsfishandchips"></div>
-    </div>
-    <div class="field"><label>When would you like the move to happen?</label>
-      <div class="radios">
-        <label class="radio"><input type="radio" name="move_timing" value="As soon as possible"> As soon as possible</label>
-        <label class="radio"><input type="radio" name="move_timing" value="Within a month"> Within a month</label>
-        <label class="radio"><input type="radio" name="move_timing" value="Specific date"> Specific date</label>
-      </div>
-      <div class="field" style="margin-top:12px"><label>Date</label><input type="date" name="move_date"></div>
-    </div>
-    <div class="field"><label>How should customers of the other locations be told?</label>
-      <div class="ticks">
-        <label class="tick"><input type="checkbox" name="tell_customers" value="Posts on the old pages"><span>Posts on the old pages</span></label>
-        <label class="tick"><input type="checkbox" name="tell_customers" value="In shop posters"><span>In shop posters</span></label>
-        <label class="tick"><input type="checkbox" name="tell_customers" value="Staff telling customers"><span>Staff telling customers</span></label>
-        <label class="tick"><input type="checkbox" name="tell_customers" value="Website notice"><span>Website notice</span></label>
-        <label class="tick"><input type="checkbox" name="tell_customers" value="Other"><span>Other</span></label>
-      </div>
-      <div class="field" style="margin-top:12px"><label>If other, what should we do?</label><input type="text" name="tell_customers_other"></div>
-    </div>
-    <div class="field"><label>How should each location still be represented on the main page?</label>
-      <div class="ticks">
-        <label class="tick"><input type="checkbox" name="location_on_page" value="Location tags on posts"><span>Location tags on posts</span></label>
-        <label class="tick"><input type="checkbox" name="location_on_page" value="Location list in bio or highlights"><span>Location list in bio or highlights</span></label>
-        <label class="tick"><input type="checkbox" name="location_on_page" value="Separate Google Business Profiles kept for each shop"><span>Separate Google Business Profiles kept for each shop</span></label>
-        <label class="tick"><input type="checkbox" name="location_on_page" value="Location specific videos"><span>Location specific videos</span></label>
-        <label class="tick"><input type="checkbox" name="location_on_page" value="Other"><span>Other</span></label>
-      </div>
-      <div class="field" style="margin-top:12px"><label>If other, how should a shop show up?</label><input type="text" name="location_on_page_other"></div>
-    </div>
-    <div class="field"><label>Any pages you want to keep running separately? Why?</label><textarea name="pages_keep_separate"></textarea></div>
   </section>
 
   <section class="card">
-    <div class="sec-head"><span class="sec-num">06</span><h2>Your current social media and past marketing</h2></div>
-    <p class="sec-sub">A quick look at what has been done so far, so we build on it. If reels have not been tried yet, say so. If the person looking after the pages is short on time, tell us how much time they actually have.</p>
-    <div class="grid2">
-      <div class="field"><label>Who runs your social media at the moment?</label><input type="text" name="social_owner" placeholder="Name and role"></div>
-      <div class="field"><label>Roughly how much time do they have for it each week?</label><input type="text" name="social_time" placeholder="For example, an hour, or almost none"></div>
-    </div>
-    <div class="field"><label>What have you tried before?</label>
-      <div class="ticks">
-        <label class="tick"><input type="checkbox" name="marketing_tried" value="Paid social ads"><span>Paid social ads</span></label>
-        <label class="tick"><input type="checkbox" name="marketing_tried" value="Influencers"><span>Influencers</span></label>
-        <label class="tick"><input type="checkbox" name="marketing_tried" value="Leaflets"><span>Leaflets</span></label>
-        <label class="tick"><input type="checkbox" name="marketing_tried" value="Local press or radio"><span>Local press or radio</span></label>
-        <label class="tick"><input type="checkbox" name="marketing_tried" value="Delivery app promotions"><span>Delivery app promotions</span></label>
-        <label class="tick"><input type="checkbox" name="marketing_tried" value="Loyalty cards"><span>Loyalty cards</span></label>
-        <label class="tick"><input type="checkbox" name="marketing_tried" value="Other"><span>Other</span></label>
-      </div>
-      <div class="field" style="margin-top:12px"><label>If other, what was it?</label><input type="text" name="marketing_tried_other"></div>
-    </div>
-    <div class="grid2">
-      <div class="field"><label>What worked well?</label><textarea name="what_worked"></textarea></div>
-      <div class="field"><label>What did not work, or what would you not do again?</label><textarea name="what_did_not"></textarea></div>
-    </div>
-    <div class="field"><label>Any experience with reels or short videos so far?</label>
-      <div class="radios">
-        <label class="radio"><input type="radio" name="reels_experience" value="None yet"> None yet</label>
-        <label class="radio"><input type="radio" name="reels_experience" value="A few, informally"> A few, informally</label>
-        <label class="radio"><input type="radio" name="reels_experience" value="Regularly"> Regularly</label>
-      </div>
-      <div class="field" style="margin-top:12px"><label>Details</label><textarea name="reels_experience_details" placeholder="What you posted, and where the files are if we can use them"></textarea></div>
-    </div>
-
-    <h3 class="subhead">Brand assets</h3>
+    <div class="sec-head"><span class="sec-num">04</span><h2>Brand assets</h2></div>
     <p class="sec-sub">So the reels carry the Gills name, colours and wording you already use on the shops.</p>
     <div class="field"><label>Logo files available?</label>
       <div class="radios">
@@ -708,16 +282,15 @@ footer a:hover{color:var(--brand-hover)}
     <h3 class="subhead">Access we will need</h3>
     <p class="sec-sub">Tick what you can sort, and we will help with the rest. Invites go to <b>jay@fusioncreative.uk</b>.</p>
     <div class="access">
-      <div class="row"><div class="what"><b>Meta Business Suite</b>Facebook and Instagram. Add Fusion Creative as a partner or team member so we can post the reels.</div><select name="meta_access"><option value="">Choose</option><option value="Done">Done</option><option value="Will do this week">Will do this week</option><option value="Not sure help me">Not sure help me</option></select></div>
-      <div class="row"><div class="what"><b>TikTok account</b>Team access on the account the reels will go out from.</div><select name="tiktok_access"><option value="">Choose</option><option value="Done">Done</option><option value="Will do this week">Will do this week</option><option value="Not sure help me">Not sure help me</option></select></div>
-      <div class="row"><div class="what"><b>Ad accounts</b>Meta, TikTok, or any other ad account you already use. Partner access only.</div><select name="ad_accounts_access"><option value="">Choose</option><option value="Done">Done</option><option value="Will do this week">Will do this week</option><option value="Not sure help me">Not sure help me</option></select></div>
-      <div class="row"><div class="what"><b>Google Business Profiles</b>Manager access for the shops, so each location stays findable while the social pages move under Gateshead.</div><select name="google_business_access"><option value="">Choose</option><option value="Done">Done</option><option value="Will do this week">Will do this week</option><option value="Not sure help me">Not sure help me</option></select></div>
+      <div class="row"><div class="what"><b>Meta Business Suite</b>Add Fusion Creative as a partner or team member so we can post the reels.</div><select name="meta_access"><option value="">Choose</option><option value="Done">Done</option><option value="Will do this week">Will do this week</option><option value="Not sure help me">Not sure help me</option></select></div>
+      <div class="row"><div class="what"><b>TikTok accounts</b>Team access on the accounts the reels will go out from.</div><select name="tiktok_access"><option value="">Choose</option><option value="Done">Done</option><option value="Will do this week">Will do this week</option><option value="Not sure help me">Not sure help me</option></select></div>
+      <div class="row"><div class="what"><b>Instagram accounts</b>Add Fusion Creative so we can post the reels.</div><select name="instagram_access"><option value="">Choose</option><option value="Done">Done</option><option value="Will do this week">Will do this week</option><option value="Not sure help me">Not sure help me</option></select></div>
     </div>
-    <div class="note"><b>Sharing access safely.</b> Please do not send passwords by email, text or WhatsApp. We will walk you through adding Fusion Creative as a partner or team member inside Meta Business Suite, TikTok and Google Business Profile. You stay in control and can remove our access at any time.</div>
+    <div class="note"><b>Sharing access safely.</b> Please do not send passwords by email, text or WhatsApp. We will walk you through adding Fusion Creative as a partner or team member inside Meta Business Suite, TikTok and Instagram. You stay in control and can remove our access at any time.</div>
   </section>
 
   <section class="card star">
-    <div class="sec-head"><span class="sec-num">07</span><h2>Your reels goals</h2></div>
+    <div class="sec-head"><span class="sec-num">05</span><h2>Your reels goals</h2></div>
     <p class="sec-sub">People already know the Gills name. The aim is to remind them why they love Gills, highlight what you do best, and give them a reason to come in today.</p>
     <div class="field"><label>What do you most want people to be reminded of?</label>
       <div class="ticks">
@@ -762,7 +335,7 @@ footer a:hover{color:var(--brand-hover)}
     <div class="field"><label>Example accounts or reels you like<span class="hint">Full links, please.</span></label><textarea name="example_accounts" placeholder="https://"></textarea></div>
     <div class="field"><label>Who is happy to appear on camera?<span class="hint">Names, roles, and which shop they are at. Nobody is put on camera who does not want to be there.</span></label><textarea name="on_camera"></textarea></div>
     <div class="field"><label>Seasonal or event dates to plan around<span class="hint">For example, Fish Friday, Lent, school holidays, local events.</span></label><textarea name="seasonal_dates"></textarea></div>
-    <div class="field"><label>How quickly can the person who approves videos usually reply?<span class="hint">The name sits in the contact section above.</span></label>
+    <div class="field"><label>How quickly can the person who approves videos usually reply?<span class="hint">How soon we can usually expect a reply.</span></label>
       <div class="radios">
         <label class="radio"><input type="radio" name="approval_speed" value="Same day"> Same day</label>
         <label class="radio"><input type="radio" name="approval_speed" value="Within 48 hours"> Within 48 hours</label>
@@ -777,7 +350,7 @@ footer a:hover{color:var(--brand-hover)}
   </section>
 
   <section class="card">
-    <div class="sec-head"><span class="sec-num">08</span><h2>Practical details</h2></div>
+    <div class="sec-head"><span class="sec-num">06</span><h2>Practical details</h2></div>
     <p class="sec-sub">The bits that make filming days and reporting run smoothly.</p>
     <div class="grid2">
       <div class="field"><label>Best days and times for filming</label><textarea name="filming_days" placeholder="Days, times, and which shop if it varies"></textarea></div>
@@ -822,14 +395,14 @@ footer a:hover{color:var(--brand-hover)}
   </section>
 
   <section class="card">
-    <div class="sec-head"><span class="sec-num">09</span><h2>Confirmation</h2></div>
+    <div class="sec-head"><span class="sec-num">07</span><h2>Confirmation</h2></div>
     <p class="sec-sub">Nearly done. Thank you for taking the time.</p>
     <div class="field">
       <div class="ticks">
         <label class="tick"><input type="checkbox" name="confirm_correct" value="Yes" required><span>I confirm the details above are correct to the best of my knowledge <span class="req">*</span></span></label>
       </div>
     </div>
-    <div class="field"><label>I am happy for Fusion Creative to contact the location managers listed above</label>
+    <div class="field"><label>I am happy for Fusion Creative to contact the shop managers</label>
       <div class="radios">
         <label class="radio"><input type="radio" name="contact_managers" value="Yes"> Yes</label>
         <label class="radio"><input type="radio" name="contact_managers" value="No"> No</label>
