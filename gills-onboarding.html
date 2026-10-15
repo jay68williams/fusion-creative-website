@@ -92,6 +92,8 @@ input:focus,textarea:focus,select:focus{border-color:var(--brand);box-shadow:0 0
 .badge{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--brand);border-radius:999px;padding:4px 10px}
 .pagerow{background:var(--brand-tint);border-radius:14px;padding:14px 14px 6px;margin-bottom:12px}
 .pagerow .ph{font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand-deep);margin-bottom:8px}
+.add-page{margin-top:4px;background:none;border:1px solid var(--line);color:var(--brand);font-family:inherit;font-size:14px;font-weight:700;padding:10px 16px;border-radius:999px;cursor:pointer}
+.add-page:hover{background:var(--brand-tint);border-color:var(--brand);color:var(--brand-hover)}
 
 .submit-card{background:linear-gradient(135deg,var(--brand),var(--brand-deep));color:#fff;border-radius:22px;padding:36px 32px;text-align:center}
 .submit-card h2{font-family:'Oswald',sans-serif;font-weight:600;font-size:30px;letter-spacing:.03em;text-transform:uppercase;margin-bottom:8px}
@@ -198,69 +200,70 @@ footer a:hover{color:var(--brand-hover)}
         <div class="field"><label>New name</label><input type="text" name="page1_new_name" placeholder="New name"></div>
       </div>
     </div>
-    <div class="pagerow">
+    <div class="pagerow" hidden>
       <div class="ph">Page 2</div>
       <div class="grid2">
         <div class="field"><label>Current name</label><input type="text" name="page2_current_name" placeholder="Current name"></div>
         <div class="field"><label>New name</label><input type="text" name="page2_new_name" placeholder="New name"></div>
       </div>
     </div>
-    <div class="pagerow">
+    <div class="pagerow" hidden>
       <div class="ph">Page 3</div>
       <div class="grid2">
         <div class="field"><label>Current name</label><input type="text" name="page3_current_name" placeholder="Current name"></div>
         <div class="field"><label>New name</label><input type="text" name="page3_new_name" placeholder="New name"></div>
       </div>
     </div>
-    <div class="pagerow">
+    <div class="pagerow" hidden>
       <div class="ph">Page 4</div>
       <div class="grid2">
         <div class="field"><label>Current name</label><input type="text" name="page4_current_name" placeholder="Current name"></div>
         <div class="field"><label>New name</label><input type="text" name="page4_new_name" placeholder="New name"></div>
       </div>
     </div>
-    <div class="pagerow">
+    <div class="pagerow" hidden>
       <div class="ph">Page 5</div>
       <div class="grid2">
         <div class="field"><label>Current name</label><input type="text" name="page5_current_name" placeholder="Current name"></div>
         <div class="field"><label>New name</label><input type="text" name="page5_new_name" placeholder="New name"></div>
       </div>
     </div>
-    <div class="pagerow">
+    <div class="pagerow" hidden>
       <div class="ph">Page 6</div>
       <div class="grid2">
         <div class="field"><label>Current name</label><input type="text" name="page6_current_name" placeholder="Current name"></div>
         <div class="field"><label>New name</label><input type="text" name="page6_new_name" placeholder="New name"></div>
       </div>
     </div>
-    <div class="pagerow">
+    <div class="pagerow" hidden>
       <div class="ph">Page 7</div>
       <div class="grid2">
         <div class="field"><label>Current name</label><input type="text" name="page7_current_name" placeholder="Current name"></div>
         <div class="field"><label>New name</label><input type="text" name="page7_new_name" placeholder="New name"></div>
       </div>
     </div>
-    <div class="pagerow">
+    <div class="pagerow" hidden>
       <div class="ph">Page 8</div>
       <div class="grid2">
         <div class="field"><label>Current name</label><input type="text" name="page8_current_name" placeholder="Current name"></div>
         <div class="field"><label>New name</label><input type="text" name="page8_new_name" placeholder="New name"></div>
       </div>
     </div>
-    <div class="pagerow">
+    <div class="pagerow" hidden>
       <div class="ph">Page 9</div>
       <div class="grid2">
         <div class="field"><label>Current name</label><input type="text" name="page9_current_name" placeholder="Current name"></div>
         <div class="field"><label>New name</label><input type="text" name="page9_new_name" placeholder="New name"></div>
       </div>
     </div>
-    <div class="pagerow">
+    <div class="pagerow" hidden>
       <div class="ph">Page 10</div>
       <div class="grid2">
         <div class="field"><label>Current name</label><input type="text" name="page10_current_name" placeholder="Current name"></div>
         <div class="field"><label>New name</label><input type="text" name="page10_new_name" placeholder="New name"></div>
       </div>
     </div>
+    <button type="button" class="add-page" id="addPageBtn">Add another page</button>
   </section>
 
   <section class="card">
@@ -508,7 +511,7 @@ function applyRemote(payload, force){
       lastSynced[k]=remote;
     }
   });
-  paintTicks(); updateProgress(); save();
+  paintTicks(); updateProgress(); save(); revealFilledPageRows();
 }
 function computeDelta(){
   const cur=currentValues(); const d={};
@@ -617,7 +620,36 @@ form.addEventListener('submit', async (e)=>{
   }
 });
 
-restore(); paintTicks(); updateProgress(); setSync('loading'); pullDraft(true);
+function revealFilledPageRows(){
+  let last=1;
+  for(let n=2;n<=10;n++){
+    const cur=form.querySelector('[name="page'+n+'_current_name"]');
+    const neu=form.querySelector('[name="page'+n+'_new_name"]');
+    if((cur&&String(cur.value).trim())||(neu&&String(neu.value).trim())) last=n;
+  }
+  for(let n=2;n<=last;n++){
+    const row=form.querySelector('[name="page'+n+'_current_name"]').closest('.pagerow');
+    if(row) row.hidden=false;
+  }
+  syncAddPageBtn();
+}
+function syncAddPageBtn(){
+  const btn=document.getElementById('addPageBtn');
+  if(!btn) return;
+  const more=[...form.querySelectorAll('.pagerow')].some(r=>r.hidden);
+  btn.hidden=!more;
+  btn.disabled=!more;
+}
+document.getElementById('addPageBtn').addEventListener('click', ()=>{
+  const next=[...form.querySelectorAll('.pagerow')].find(r=>r.hidden);
+  if(!next){ syncAddPageBtn(); return; }
+  next.hidden=false;
+  const input=next.querySelector('input');
+  if(input) input.focus();
+  syncAddPageBtn();
+});
+
+restore(); revealFilledPageRows(); paintTicks(); updateProgress(); setSync('loading'); pullDraft(true);
 </script>
 
 </body>
