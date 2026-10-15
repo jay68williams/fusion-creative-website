@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onboarding - Chinchilla Pizzeria</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  /* From the public Chinchilla website: near-black ground, gold type, orange action. */
+  --brand:#CDA45E;
+  --brand-hot:#F95F09;
+  --brand-hover:#E45408;
+  --brand-deep:#6E5424;
+  --brand-tint:#F8F1E4;
+  --brand-soft:#F3E6CC;
+  --brand-ring:rgba(205,164,94,0.35);
+  --paper:#F7F3EC;
+  --white:#fff; --ink:#241F18; --ink-2:#5C564C; --ink-3:#8A8378;
+  --line:rgba(36,31,24,0.14); --line-soft:rgba(36,31,24,0.08);
+  --header:#111;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+
+header.top{position:sticky;top:0;z-index:40;background:var(--header);color:#fff;border-bottom:3px solid var(--brand)}
+.top-inner{max-width:860px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:16px}
+.lockup{display:flex;align-items:center;flex-shrink:0}
+.lockup img{height:58px;width:auto}
+.progress{flex:1;height:6px;background:rgba(255,255,255,.18);border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--brand);border-radius:99px;transition:width .35s ease}
+.pct{font-family:'Poppins',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);white-space:nowrap}
+
+.wrap{max-width:860px;margin:0 auto;padding:0 22px 90px}
+.hero{padding:56px 0 34px}
+.hero .kicker{font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--brand-deep);margin-bottom:14px}
+.hero h1{font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(32px,5.4vw,52px);line-height:1.08;letter-spacing:-0.02em;color:var(--header);margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--brand-hot)}
+.hero p{font-size:16.5px;color:var(--ink-2);max-width:660px}
+.hero .meta{margin-top:18px;font-size:13px;color:var(--ink-3);line-height:1.7}
+.hero .meta b{color:var(--ink);font-weight:700}
+#syncState{color:var(--brand-deep)}
+.tools{display:flex;gap:14px;align-items:center;margin-top:18px;font-size:13px;color:var(--ink-3);flex-wrap:wrap}
+.tools button{background:none;border:1px solid var(--line);color:var(--brand-deep);font-family:inherit;font-size:12.5px;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer}
+.tools button:hover{background:var(--brand-tint);border-color:var(--brand);color:var(--header)}
+
+.card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:34px 32px;margin-bottom:22px;box-shadow:0 1px 2px rgba(17,17,17,.04),0 14px 40px rgba(17,17,17,.05)}
+.card.star{border-top:4px solid var(--brand)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.sec-num{font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;color:var(--brand-hot);letter-spacing:.12em}
+.sec-head h2{font-family:'Poppins',sans-serif;font-weight:600;font-size:26px;line-height:1.15;letter-spacing:-0.02em;color:var(--header)}
+.sec-sub{font-size:14.5px;color:var(--ink-2);margin-bottom:22px}
+.field{margin-bottom:18px}
+.field label{display:block;font-weight:700;font-size:14.5px;margin-bottom:6px;color:var(--ink)}
+.field label .hint{display:block;font-weight:400;font-size:13px;color:var(--ink-3);margin-top:2px;line-height:1.55}
+.req{color:var(--brand-hot)}
+input[type=text],input[type=email],input[type=url],input[type=tel],input[type=date],textarea,select{
+  width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;outline:none;transition:border-color .15s,box-shadow .15s}
+textarea{min-height:92px;resize:vertical;line-height:1.55}
+textarea.tall{min-height:140px}
+input:focus,textarea:focus,select:focus{border-color:var(--brand);box-shadow:0 0 0 4px var(--brand-ring);background:#fff}
+::placeholder{color:#b3ab9c}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.radios{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.radio{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-size:14px;cursor:pointer;background:var(--white)}
+.radio input{accent-color:var(--brand-hot)}
+.radio:has(input:checked){border-color:var(--brand);background:var(--brand-tint)}
+.ticks{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.tick{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:11px 13px;cursor:pointer;background:var(--white);transition:background .15s,border-color .15s}
+.tick input{margin-top:3px;accent-color:var(--brand-hot);flex-shrink:0}
+.tick span{font-size:13.5px;line-height:1.4}
+.tick span b{display:block;font-weight:700;color:var(--ink)}
+.tick.on{border-color:var(--brand);background:var(--brand-tint)}
+.access{display:grid;grid-template-columns:1fr;gap:10px}
+.access .row{display:grid;grid-template-columns:1.4fr .8fr;gap:10px;align-items:start;background:var(--brand-tint);border-radius:14px;padding:12px 14px}
+.access .row .what{font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+.access .row .what b{display:block;color:var(--ink);font-weight:700}
+.access .row select{background:#fff}
+.note{background:var(--brand-soft);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--ink-2);line-height:1.55;margin-top:8px}
+.note b{color:var(--ink)}
+.subhead{font-family:'Poppins',sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.02em;color:var(--header);margin:22px 0 6px}
+
+.submit-card{background:var(--header);color:#fff;border-radius:22px;padding:36px 32px;text-align:center;border-top:4px solid var(--brand)}
+.submit-card h2{font-family:'Poppins',sans-serif;font-weight:600;font-size:28px;letter-spacing:-0.02em;margin-bottom:8px}
+.submit-card p{font-size:14.5px;color:rgba(255,255,255,.82);max-width:520px;margin:0 auto 22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--brand-hot);color:#fff;font-family:inherit;font-weight:700;font-size:16px;border:none;border-radius:999px;padding:16px 34px;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s;box-shadow:0 8px 24px rgba(249,95,9,.28)}
+.btn:hover{transform:translateY(-2px);background:var(--brand-hover)}
+.btn:disabled{opacity:.6;cursor:default;transform:none}
+.status{margin-top:14px;font-size:13.5px;color:#fff;min-height:20px}
+.status a{color:var(--brand)}
+
+.thanks{display:none;background:var(--white);border:1px solid var(--line);border-radius:22px;padding:56px 32px;text-align:center;margin-top:30px}
+.thanks.show{display:block}
+.thanks .check{width:72px;height:72px;border-radius:50%;margin:0 auto 18px;border:2px solid var(--brand);display:flex;align-items:center;justify-content:center;font-size:34px;color:var(--brand-hot);background:var(--brand-tint)}
+.thanks h2{font-family:'Poppins',sans-serif;font-weight:600;font-size:30px;letter-spacing:-0.02em;color:var(--header);margin-bottom:10px}
+.thanks p{font-size:15px;color:var(--ink-2);max-width:520px;margin:0 auto}
+
+footer{text-align:center;font-size:13px;color:var(--ink-2);padding:26px 22px 40px;border-top:1px solid var(--line);background:var(--white);line-height:1.7}
+footer .credit{display:block;margin-top:6px;font-size:11.5px;letter-spacing:.03em;color:var(--ink-3)}
+footer a{color:var(--ink-3);font-weight:600}
+footer a:hover{color:var(--brand-hot)}
+
+@media (max-width:640px){
+  .grid2{grid-template-columns:1fr} .ticks{grid-template-columns:1fr} .card{padding:24px 18px;border-radius:18px}
+  .hero{padding:40px 0 26px}
+  .access .row{grid-template-columns:1fr}
+  .pct{display:none}
+  .lockup img{height:46px}
+  .submit-card{padding:28px 20px} .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="lockup"><img src="/assets/chinchilla/logo.png" alt="Chinchilla Pizzeria"></div>
+    <div class="progress"><i id="prog"></i></div>
+    <div class="pct">Onboarding</div>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <div class="hero">
+    <div class="kicker">Chinchilla Pizzeria &middot; Onboarding</div>
+    <h1>Sabah, let's get Chinchilla <em>on video.</em></h1>
+    <p>Thanks for choosing Fusion Creative. This form is for Chinchilla Pizzeria, the takeaway and restaurant at 133-135 Ashington Drive, Stakeford. Melissa Hayes can fill it in with you. We make short-form video only. The answers cover your story, the dishes and offers to film, your pages, and the practical bits for a filming day. Keep answers short, tick boxes where you can, and skip anything you are unsure of. We can go through the rest together on a call.</p>
+    <div class="meta">Takes about 15 minutes. <b>It saves as you type</b>, and anyone with this link picks up the same progress, so you can start it on your phone and finish it at the desk.<br><span id="syncState">Loading the shared draft...</span></div>
+    <div class="tools"><span>Prefer to fill it in later?</span><button type="button" id="downloadBtn">Download a copy of your answers</button></div>
+  </div>
+
+  <form id="form" novalidate>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">01</span><h2>Contact and who approves</h2></div>
+    <p class="sec-sub">The basics, and the person who signs a video off before it is posted. Correct anything that is wrong.</p>
+    <div class="grid2">
+      <div class="field"><label>Business name <span class="req">*</span></label><input type="text" name="business_name" required value="Chinchilla Pizzeria"></div>
+      <div class="field"><label>What you offer</label><input type="text" name="service_style" value="Takeaway and restaurant"></div>
+    </div>
+    <div class="field"><label>Address</label><input type="text" name="address" value="133-135 Ashington Drive, Stakeford, Northumberland NE62 5AF"></div>
+    <div class="grid2">
+      <div class="field"><label>Cuisine</label><input type="text" name="cuisine" value="Pizza, Italian, Turkish, Greek"></div>
+      <div class="field"><label>Restaurant phone</label><input type="tel" name="business_phone" value="01670 521222"></div>
+    </div>
+    <div class="field"><label>Website</label><input type="url" name="website" value="https://www.chinchillastakeford.co.uk/"></div>
+    <div class="grid2">
+      <div class="field"><label>Main contact name <span class="req">*</span></label><input type="text" name="contact_name" required value="Sabah Moeini"></div>
+      <div class="field"><label>Role</label><input type="text" name="contact_role" placeholder="Your role"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="contact_email" required value="sabah.moeini@yahoo.co.uk"></div>
+      <div class="field"><label>Mobile number</label><input type="tel" name="contact_phone" value="+44 7595 394377"></div>
+    </div>
+    <h3 class="subhead">Person helping on Sabah's behalf</h3>
+    <p class="sec-sub">Melissa can use this same link. Add a phone number if you want us to reach her directly.</p>
+    <div class="grid2">
+      <div class="field"><label>Name</label><input type="text" name="helper_name" value="Melissa Hayes"></div>
+      <div class="field"><label>Email</label><input type="email" name="helper_email" value="melissahayes60@gmail.com"></div>
+    </div>
+    <div class="field"><label>Phone</label><input type="tel" name="helper_phone" placeholder="07..."></div>
+    <h3 class="subhead">Who approves videos</h3>
+    <p class="sec-sub">Who signs a video off before it goes live. This can be Sabah, Melissa, or someone else.</p>
+    <div class="grid2">
+      <div class="field"><label>Name</label><input type="text" name="approver_name" placeholder="Full name"></div>
+      <div class="field"><label>Role</label><input type="text" name="approver_role" placeholder="Role"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Email</label><input type="email" name="approver_email" placeholder="name@email.com"></div>
+      <div class="field"><label>Phone</label><input type="tel" name="approver_phone" placeholder="07..."></div>
+    </div>
+    <div class="field"><label>How quickly can that person usually reply?<span class="hint">How soon we can usually expect a reply.</span></label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="approval_speed" value="Same day"> Same day</label>
+        <label class="radio"><input type="radio" name="approval_speed" value="Within 48 hours"> Within 48 hours</label>
+        <label class="radio"><input type="radio" name="approval_speed" value="Within a week"> Within a week</label>
+      </div>
+    </div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Your story</h2></div>
+    <p class="sec-sub">In your own words. We will not guess this.</p>
+    <div class="field"><label>The story of Chinchilla<span class="hint">How it started, who is behind it, and how long you have been in Stakeford.</span></label><textarea class="tall" name="story" placeholder="A few lines is plenty"></textarea></div>
+    <div class="field"><label>What makes Chinchilla different?</label><textarea name="what_makes_different" placeholder="The thing a new customer should understand"></textarea></div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Menu, best sellers and offers</h2></div>
+    <p class="sec-sub">Your public menu is on the website. Tell us what actually sells, and what you want on video. One dish per line is fine.</p>
+    <div class="field"><label>Best sellers</label><textarea class="tall" name="best_sellers" placeholder="The dishes people order most"></textarea></div>
+    <div class="field"><label>Offers to feature<span class="hint">What the offer is, and when it runs. Leave blank if there is nothing on at the moment.</span></label><textarea name="offers" placeholder="Offer, and when it runs"></textarea></div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Delivery apps and online ordering</h2></div>
+    <p class="sec-sub">Your own ordering page is already filled in from the website. Tick any delivery apps you use as well.</p>
+    <div class="field"><label>Delivery apps</label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="delivery_apps" value="Just Eat"><span>Just Eat</span></label>
+        <label class="tick"><input type="checkbox" name="delivery_apps" value="Deliveroo"><span>Deliveroo</span></label>
+        <label class="tick"><input type="checkbox" name="delivery_apps" value="Uber Eats"><span>Uber Eats</span></label>
+        <label class="tick"><input type="checkbox" name="delivery_apps" value="Other"><span>Other</span></label>
+      </div>
+    </div>
+    <div class="field"><label>If other, which app?</label><input type="text" name="delivery_apps_other" placeholder="App name"></div>
+    <div class="field"><label>Links for the delivery apps<span class="hint">A full link for each one you ticked.</span></label><textarea name="delivery_links" placeholder="https://"></textarea></div>
+    <div class="field"><label>Online ordering link</label><input type="url" name="online_ordering" value="https://www.chinchillastakeford.co.uk/takeaways/Newcastle/NE62/chinchilla/menu"></div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">05</span><h2>Social access</h2></div>
+    <p class="sec-sub">Facebook is your main page. Tick what you can sort, and we will help with the rest. Invites go to <b>jay@fusioncreative.uk</b>.</p>
+    <div class="access">
+      <div class="row"><div class="what"><b>Facebook, your main page</b>Add Fusion Creative in Meta Business Suite so we can post the videos to https://www.facebook.com/chinchillapizzeria/.</div><select name="facebook_access"><option value="">Choose</option><option value="Done">Done</option><option value="Will do this week">Will do this week</option><option value="Not sure, help me">Not sure, help me</option></select></div>
+      <div class="row"><div class="what"><b>Instagram</b>Add Fusion Creative if you use Instagram. Leave this on Choose if there is no account.</div><select name="instagram_access"><option value="">Choose</option><option value="Done">Done</option><option value="Will do this week">Will do this week</option><option value="Not sure, help me">Not sure, help me</option></select></div>
+      <div class="row"><div class="what"><b>TikTok</b>Team access if you use TikTok. Leave this on Choose if there is no account.</div><select name="tiktok_access"><option value="">Choose</option><option value="Done">Done</option><option value="Will do this week">Will do this week</option><option value="Not sure, help me">Not sure, help me</option></select></div>
+    </div>
+    <div class="note"><b>Sharing access safely.</b> Please do not send passwords by email, text or WhatsApp. We will walk you through adding Fusion Creative as a partner or team member. You stay in control and can remove our access at any time.</div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num">06</span><h2>Current pages and followers</h2></div>
+    <p class="sec-sub">The Facebook link is your main page. Add follower counts, and any other accounts, if you have them to hand. Approximate numbers are fine.</p>
+    <div class="grid2">
+      <div class="field"><label>Facebook page</label><input type="url" name="facebook_url" value="https://www.facebook.com/chinchillapizzeria/"></div>
+      <div class="field"><label>Facebook followers</label><input type="text" name="facebook_followers" placeholder="Approximate number"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Instagram</label><input type="url" name="instagram_url" placeholder="https://"></div>
+      <div class="field"><label>Instagram followers</label><input type="text" name="instagram_followers" placeholder="Approximate number, or none yet"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>TikTok</label><input type="url" name="tiktok_url" placeholder="https://"></div>
+      <div class="field"><label>TikTok followers</label><input type="text" name="tiktok_followers" placeholder="Approximate number, or none yet"></div>
+    </div>
+    <div class="field"><label>Any other pages<span class="hint">Name, link, and followers if you know them.</span></label><textarea name="other_pages" placeholder="One per line"></textarea></div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">07</span><h2>Brand assets</h2></div>
+    <p class="sec-sub">So the videos use the Chinchilla name, colours and wording you already use. The public website uses a near-black background, gold lettering and an orange button, set in Poppins and Open Sans. Confirm that, or tell us what to use instead.</p>
+    <div class="field"><label>Logo files available?</label>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="logo_files" value="Yes"> Yes</label>
+        <label class="radio"><input type="radio" name="logo_files" value="No"> No</label>
+        <label class="radio"><input type="radio" name="logo_files" value="Not sure"> Not sure</label>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Brand colours<span class="hint">Names or codes, if you know them.</span></label><input type="text" name="brand_colours" placeholder="For example, black, gold and orange"></div>
+      <div class="field"><label>Fonts on signage, menus or packaging</label><input type="text" name="brand_fonts" placeholder="Names, or not sure"></div>
+    </div>
+    <div class="field"><label>Any existing video we can use? Where is it stored?</label><textarea name="existing_footage" placeholder="A full link, or where to find the files"></textarea></div>
+  </section>
+
+  <section class="card star">
+    <div class="sec-head"><span class="sec-num">08</span><h2>Goals</h2></div>
+    <p class="sec-sub">The aims we have noted are more followers and orders, regular posting on your main Facebook page, and short-form video. Tick what you want us to prioritise.</p>
+    <div class="field"><label>Priorities</label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="goals" value="More followers and orders"><span>More followers and orders</span></label>
+        <label class="tick"><input type="checkbox" name="goals" value="Regular Facebook posting"><span>Regular Facebook posting</span></label>
+        <label class="tick"><input type="checkbox" name="goals" value="Video content"><span>Video content</span></label>
+        <label class="tick"><input type="checkbox" name="goals" value="Other"><span>Other</span></label>
+      </div>
+    </div>
+    <div class="field"><label>If other, what else should the videos do?</label><input type="text" name="goals_other"></div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">09</span><h2>Filming practicalities</h2></div>
+    <p class="sec-sub">You are open 4.30pm to 11pm every day, for the restaurant and for delivery. We film inside those hours unless you tell us otherwise.</p>
+    <div class="field"><label>Opening hours</label><input type="text" name="opening_hours" value="4.30pm to 11pm daily"></div>
+    <div class="field"><label>Best days and times for filming<span class="hint">Inside your opening hours, when we will be least in the way.</span></label><textarea name="best_filming_times" placeholder="Days and times"></textarea></div>
+    <div class="field"><label>Parking<span class="hint">Where the crew should park, and anything to avoid blocking.</span></label><textarea name="parking" placeholder="Where to park"></textarea></div>
+    <div class="field"><label>What should we avoid on camera?<span class="hint">People, areas, dishes, or anything else that should stay off camera. Nobody is put on camera who does not want to be there.</span></label><textarea name="avoid_on_camera" placeholder="People, areas, or subjects to leave out"></textarea></div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">10</span><h2>Reporting</h2></div>
+    <p class="sec-sub">How you would like to hear how the videos are doing.</p>
+    <div class="field"><label>Reporting preference</label>
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="reporting" value="Monthly report by email"><span>Monthly report by email</span></label>
+        <label class="tick"><input type="checkbox" name="reporting" value="Short call"><span>Short call</span></label>
+        <label class="tick"><input type="checkbox" name="reporting" value="WhatsApp summary"><span>WhatsApp summary</span></label>
+        <label class="tick"><input type="checkbox" name="reporting" value="Other"><span>Other</span></label>
+      </div>
+    </div>
+    <div class="field"><label>If other, how should we report?</label><input type="text" name="reporting_other"></div>
+  </section>
+
+  <section class="card">
+    <div class="sec-head"><span class="sec-num">11</span><h2>Confirmation</h2></div>
+    <p class="sec-sub">Nearly done. Thank you for taking the time.</p>
+    <div class="field">
+      <div class="ticks">
+        <label class="tick"><input type="checkbox" name="confirm_correct" value="Yes" required><span>I confirm the details above are correct to the best of my knowledge <span class="req">*</span></span></label>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Name <span class="req">*</span></label><input type="text" name="confirm_name" required placeholder="Sabah Moeini"></div>
+      <div class="field"><label>Role</label><input type="text" name="confirm_role" placeholder="Role"></div>
+    </div>
+    <div class="field"><label>Date</label><input type="date" name="confirm_date"></div>
+    <div class="field"><label>Anything else you would like us to know?</label><textarea class="tall" name="anything_else"></textarea></div>
+  </section>
+
+  <div class="submit-card">
+    <h2>That is everything.</h2>
+    <p>Send it over and we will be in touch to book the first filming day.</p>
+    <button type="submit" class="btn" id="submitBtn">Send to Fusion Creative</button>
+    <div class="status" id="formStatus"></div>
+  </div>
+
+  </form>
+
+  <div class="thanks" id="thanks">
+    <div class="check">&#10003;</div>
+    <h2>Got it, thank you Sabah.</h2>
+    <p>Everything is with us. We will be in touch to book the first filming day.</p>
+  </div>
+</main>
+
+<footer>Chinchilla Pizzeria<span class="credit">Onboarding by Fusion Creative &middot; <a href="mailto:jay@fusioncreative.uk">jay@fusioncreative.uk</a> &middot; 07437 571250 &middot; <a href="https://fusioncreative.uk">https://fusioncreative.uk</a></span></footer>
+
+<script>
+const CONFIG = {
+  endpoint: "https://newgreek.fusioncreative.uk/api/chinchilla-onboarding/", // Fusion dashboard intake for client_slug chinchilla. Primary dashboard domain (the .vercel.app alias 307-redirects, which breaks CORS preflight). Trailing slash required (trailingSlash:true).
+  storageKey: "chinchilla_onboarding_v1",
+  draftKey: "chinchilla-stakeford-2026",
+  pollMs: 25000,
+  clientName: "Chinchilla Pizzeria",
+  downloadName: "chinchilla-onboarding.txt"
+};
+
+const form = document.getElementById('form');
+const statusEl = document.getElementById('formStatus');
+const progEl = document.getElementById('prog');
+const syncEl = document.getElementById('syncState');
+const HDR = {'Content-Type':'application/json','X-Draft-Key':CONFIG.draftKey};
+
+function ser(v){ if(v==null||v===''||(Array.isArray(v)&&!v.length)) return ''; return JSON.stringify(v); }
+
+function currentValues(){
+  const d={};
+  form.querySelectorAll('input,textarea,select').forEach(el=>{
+    if(!el.name) return;
+    if(el.type==='radio'){ if(el.checked) d[el.name]=el.value; else if(!(el.name in d)) d[el.name]=''; }
+    else if(el.type==='checkbox'){ if(!Array.isArray(d[el.name])) d[el.name]=[]; if(el.checked) d[el.name].push(el.value); }
+    else { d[el.name]=el.value; }
+  });
+  return d;
+}
+function setField(name,val){
+  form.querySelectorAll('[name="'+CSS.escape(name)+'"]').forEach(el=>{
+    if(el.type==='radio'){ el.checked=(el.value===val); }
+    else if(el.type==='checkbox'){ el.checked=Array.isArray(val)&&val.includes(el.value); }
+    else if(el.type!=='hidden'){ el.value=(val==null?'':val); }
+  });
+}
+function save(){ try{ localStorage.setItem(CONFIG.storageKey, JSON.stringify(currentValues())); }catch(e){} }
+function restore(){
+  let d; try{ d=JSON.parse(localStorage.getItem(CONFIG.storageKey)||'{}'); }catch(e){ d={}; }
+  Object.keys(d).forEach(name=>{ const v=d[name]; if(ser(v)!=='') setField(name, Array.isArray(v)&&form.querySelector('[name="'+CSS.escape(name)+'"][type=radio]') ? v[0] : v); });
+}
+function paintTicks(){
+  form.querySelectorAll('.tick').forEach(t=>{ const cb=t.querySelector('input'); t.classList.toggle('on', !!(cb && cb.checked)); });
+}
+const RADIO_GROUPS=new Set([...form.querySelectorAll('input[type=radio]')].map(r=>r.name)).size;
+function updateProgress(){
+  const fields=[...form.querySelectorAll('input[type=text],input[type=email],input[type=url],input[type=tel],input[type=date],textarea,select')];
+  const filled=fields.filter(f=>f.value.trim()!=='').length;
+  const chosen=new Set([...form.querySelectorAll('input:checked')].map(r=>r.name));
+  const total=fields.length+RADIO_GROUPS;
+  progEl.style.width=Math.min(100, Math.round(((filled+chosen.size)/total)*100))+'%';
+}
+
+let lastSynced={}, syncTimer=null, syncing=false, queued=false, submitted=false;
+function setSync(state, when){
+  if(!syncEl) return;
+  if(state==='saving') syncEl.textContent='Saving to the shared draft...';
+  else if(state==='saved'){ const t=when?new Date(when):new Date(); syncEl.textContent='Shared draft saved '+t.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); }
+  else if(state==='ready') syncEl.textContent='Shared draft on. Saves as you type.';
+  else if(state==='offline') syncEl.textContent='Cannot reach the shared draft right now, kept on this device.';
+  else if(state==='loading') syncEl.textContent='Loading the shared draft...';
+}
+function applyRemote(payload, force){
+  const cur=currentValues(); const active=document.activeElement;
+  Object.keys(payload||{}).forEach(k=>{
+    if(k.startsWith('_')) return;
+    const remote=payload[k], local=cur[k];
+    if(force && ser(remote)==='') return;
+    const focused=!!(active && active.name===k);
+    const dirty=ser(local)!==ser(lastSynced[k]);
+    if(force || (!focused && !dirty)){
+      if(ser(remote)!==ser(local)) setField(k, remote);
+      lastSynced[k]=remote;
+    }
+  });
+  paintTicks(); updateProgress(); save();
+}
+function computeDelta(){
+  const cur=currentValues(); const d={};
+  Object.keys(cur).forEach(k=>{ if(ser(cur[k])!==ser(lastSynced[k])) d[k]=cur[k]; });
+  return d;
+}
+function showAlreadySent(){
+  if(submitted) return; submitted=true; clearTimeout(syncTimer);
+  document.getElementById('main').querySelectorAll('form,.hero').forEach(el=>el.style.display='none');
+  const th=document.getElementById('thanks');
+  th.querySelector('h2').textContent='This form has already been sent.';
+  th.querySelector('p').textContent='Someone at '+CONFIG.clientName+' has already submitted it, so there is nothing left to do here. Thank you.';
+  th.classList.add('show');
+  try{ localStorage.removeItem(CONFIG.storageKey); }catch(e){}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+async function pushDraft(){
+  if(submitted) return;
+  if(syncing){ queued=true; return; }
+  const delta=computeDelta(); if(!Object.keys(delta).length) return;
+  syncing=true; setSync('saving');
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'PUT',headers:HDR,body:JSON.stringify({delta}),keepalive:true});
+    if(res.status===409){ showAlreadySent(); return; }
+    if(!res.ok) throw new Error('status '+res.status);
+    const j=await res.json();
+    Object.keys(delta).forEach(k=>{ lastSynced[k]=delta[k]; });
+    applyRemote(j.payload||{}, false);
+    setSync('saved', j.saved_at);
+  }catch(e){ setSync('offline'); }
+  finally{ syncing=false; if(queued){ queued=false; pushDraft(); } }
+}
+function scheduleSync(ms){ clearTimeout(syncTimer); syncTimer=setTimeout(pushDraft, ms); }
+async function pullDraft(initial){
+  if(submitted) return;
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'GET',headers:{'X-Draft-Key':CONFIG.draftKey},cache:'no-store'});
+    if(!res.ok) throw new Error('status '+res.status);
+    const j=await res.json();
+    if(j.status==='submitted'){ showAlreadySent(); return; }
+    applyRemote(j.payload||{}, !!initial);
+    if(initial){ setSync(j.saved_at?'saved':'ready', j.saved_at); pushDraft(); }
+  }catch(e){ if(initial) setSync('offline'); }
+}
+
+form.addEventListener('input', ()=>{ save(); updateProgress(); scheduleSync(1200); });
+form.addEventListener('change', ()=>{ save(); paintTicks(); updateProgress(); scheduleSync(250); });
+document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='hidden'){ clearTimeout(syncTimer); pushDraft(); } else { pullDraft(false); } });
+window.addEventListener('pagehide', ()=>{ clearTimeout(syncTimer); pushDraft(); });
+setInterval(()=>{ if(document.visibilityState==='visible') pullDraft(false); }, CONFIG.pollMs);
+
+function collect(){
+  const d={};
+  form.querySelectorAll('input,textarea,select').forEach(el=>{
+    if(!el.name) return;
+    if(el.type==='radio'){ if(el.checked) d[el.name]=el.value; }
+    else if(el.type==='checkbox'){ if(el.checked){ (d[el.name]=d[el.name]||[]).push(el.value); } }
+    else { d[el.name]=el.value; }
+  });
+  return d;
+}
+
+function missingRequired(){
+  const seen=new Set();
+  const missing=[];
+  form.querySelectorAll('[required]').forEach(f=>{
+    const key=(f.type==='radio'||f.type==='checkbox') ? f.type+':'+f.name : f;
+    if(seen.has(key)) return;
+    seen.add(key);
+    if(f.type==='checkbox'){ if(!f.checked) missing.push(f); }
+    else if(f.type==='radio'){
+      const any=[...form.querySelectorAll('input[type=radio][name="'+CSS.escape(f.name)+'"]')].some(r=>r.checked);
+      if(!any) missing.push(f);
+    }
+    else if(!String(f.value||'').trim()) missing.push(f);
+  });
+  return missing;
+}
+
+document.getElementById('downloadBtn').addEventListener('click', ()=>{
+  const d=collect();
+  let txt=CONFIG.clientName.toUpperCase()+" - ONBOARDING\n\n";
+  Object.keys(d).forEach(k=>{ const v=Array.isArray(d[k])?d[k].join(', '):d[k]; if(String(v).trim()) txt+=k+": "+v+"\n\n"; });
+  const blob=new Blob([txt],{type:'text/plain'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download=CONFIG.downloadName; a.click();
+});
+
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const req=missingRequired();
+  if(req.length){ statusEl.textContent='Please fill in the starred fields ('+req.length+' left).'; req[0].scrollIntoView({block:'center'}); req[0].focus(); return; }
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true; statusEl.textContent='Sending...'; clearTimeout(syncTimer);
+  try{
+    const res=await fetch(CONFIG.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(collect())});
+    if(!res.ok) throw new Error('bad status '+res.status);
+    submitted=true;
+    try{ localStorage.removeItem(CONFIG.storageKey); }catch(x){}
+    document.getElementById('main').querySelectorAll('form,.hero').forEach(el=>el.style.display='none');
+    document.getElementById('thanks').classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }catch(err){
+    btn.disabled=false;
+    statusEl.innerHTML='Hmm, that did not send. Please try again, or use "download a copy" above and email it to <a href="mailto:jay@fusioncreative.uk">jay@fusioncreative.uk</a>.';
+  }
+});
+
+restore(); paintTicks(); updateProgress(); setSync('loading'); pullDraft(true);
+</script>
+
+</body>
+</html>
