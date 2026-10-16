@@ -1,6 +1,33 @@
 {
   "creators": [
     {
+      "name": "Claire",
+      "handle": "claires_foodie_therapy",
+      "followers": 28236,
+      "area": "Newcastle upon Tyne",
+      "focus": "Meals out, home cooking and recipes, Newcastle life",
+      "image": "img/claires_foodie_therapy.jpg",
+      "show": true
+    },
+    {
+      "name": "Kate",
+      "handle": "baitwithkate",
+      "followers": 21789,
+      "area": "Newcastle upon Tyne",
+      "focus": "Best of the North East: food, travel, nights out",
+      "image": "img/baitwithkate.jpg",
+      "show": true
+    },
+    {
+      "name": "Rob Sampson",
+      "handle": "ganforbaitlike",
+      "followers": 17201,
+      "area": "Newcastle and Sunderland (North East)",
+      "focus": "North East restaurants, hidden spots, weekend getaways, vlogs",
+      "image": "img/ganforbaitlike.jpg",
+      "show": true
+    },
+    {
       "name": "beth",
       "handle": "eatswithbeth",
       "followers": 12707,
@@ -34,6 +61,15 @@
       "area": "Northumberland / Newcastle",
       "focus": "Family content creator, helps brands with dining, stays and experiences",
       "image": "img/newcastlefoodlover.jpg",
+      "show": true
+    },
+    {
+      "name": "Ania",
+      "handle": "ania.askwith",
+      "followers": 10224,
+      "area": "Newcastle",
+      "focus": "Restaurants, staycations, travel, things to do, UGC",
+      "image": "img/ania.askwith.jpg",
       "show": true
     },
     {
@@ -82,6 +118,15 @@
       "show": true
     },
     {
+      "name": "Darren",
+      "handle": "n.e.bait",
+      "followers": 7279,
+      "area": "Newcastle and North East",
+      "focus": "Food, drink, stays, trips",
+      "image": "img/n.e.bait.jpg",
+      "show": true
+    },
+    {
       "name": "North East Victoria",
       "handle": "geordiefoodguide",
       "followers": 7012,
@@ -89,6 +134,16 @@
       "focus": "Places to eat and drink, new openings (Greek, Italian, fast food, Asian fusion)",
       "image": "img/geordiefoodguide.jpg",
       "show": true
+    },
+    {
+      "name": "TyneAndDine_Newcastle",
+      "handle": "tyneanddine_newcastle",
+      "followers": null,
+      "area": "Newcastle",
+      "focus": "Newcastle food guide: best eats, hidden gems, new openings",
+      "image": "img/tyneanddine_newcastle.jpg",
+      "show": true,
+      "followers_label": "7K on TikTok"
     },
     {
       "name": "Tamzin",
@@ -118,12 +173,57 @@
       "show": true
     },
     {
+      "name": "Eat Newcastle",
+      "handle": "eat.newcastle",
+      "followers": 6100,
+      "area": "Newcastle upon Tyne",
+      "focus": "Food, drink, venues, events, honest reviews, UGC",
+      "image": "img/eat.newcastle.jpg",
+      "show": true
+    },
+    {
+      "name": "Demi",
+      "handle": "demi_devours_everything",
+      "followers": 5897,
+      "area": "North East",
+      "focus": "Eating out, home cooking, staycations, dog friendly",
+      "image": "img/demi_devours_everything.jpg",
+      "show": true
+    },
+    {
       "name": "Emily",
       "handle": "emilylikesscran",
       "followers": 5482,
       "area": "North East",
       "focus": "Local eats, drinks, dog friendly places",
       "image": "img/emilylikesscran.jpg",
+      "show": true
+    },
+    {
+      "name": "Kristy’s Donuts and Dumbbells",
+      "handle": "kristysdonutsanddumbbells",
+      "followers": 4091,
+      "area": "Newcastle upon Tyne",
+      "focus": "Food, travel and wellness",
+      "image": "img/kristysdonutsanddumbbells.jpg",
+      "show": true
+    },
+    {
+      "name": "Time4Bait",
+      "handle": "time4bait",
+      "followers": 3529,
+      "area": "Newcastle upon Tyne",
+      "focus": "Everything she eats, UGC",
+      "image": "img/time4bait.jpg",
+      "show": true
+    },
+    {
+      "name": "Liv",
+      "handle": "livforfood.__",
+      "followers": 3454,
+      "area": "Newcastle",
+      "focus": "Food, drinks and travel",
+      "image": "img/livforfood.__.jpg",
       "show": true
     },
     {
@@ -136,12 +236,39 @@
       "show": true
     },
     {
+      "name": "NE Feasts",
+      "handle": "nefeasts",
+      "followers": 3300,
+      "area": "Tyne and Wear",
+      "focus": "Eating around the North East",
+      "image": "img/nefeasts.jpg",
+      "show": true
+    },
+    {
       "name": "Kirsten Boucher",
       "handle": "pouchersscran",
       "followers": 3176,
       "area": "Teesside / North East",
       "focus": "Eating out and travel",
       "image": "img/pouchersscran.jpg",
+      "show": true
+    },
+    {
+      "name": "Propatoonfood (Lau)",
+      "handle": "propatoonfood",
+      "followers": 3071,
+      "area": "Newcastle",
+      "focus": "Food spots, matcha, home cooking",
+      "image": "img/propatoonfood.jpg",
+      "show": true
+    },
+    {
+      "name": "MyMy",
+      "handle": "thehappyricegrain",
+      "followers": 2991,
+      "area": "Sunderland / Newcastle",
+      "focus": "North East foodie, Japanese and Filipino background",
+      "image": "img/thehappyricegrain.jpg",
       "show": true
     },
     {
@@ -172,6 +299,15 @@
       "show": true
     },
     {
+      "name": "J’s North East Scran",
+      "handle": "jnescran",
+      "followers": 2289,
+      "area": "North East",
+      "focus": "Food and travel, invites and PR",
+      "image": "img/jnescran.jpg",
+      "show": true
+    },
+    {
       "name": "Chase the Taste",
       "handle": "chasethetaaste",
       "followers": 2235,
@@ -187,6 +323,15 @@
       "area": "Newcastle",
       "focus": "Food, cooking and drinks blog",
       "image": "img/kellythefoodiencl.jpg",
+      "show": true
+    },
+    {
+      "name": "North Eaters",
+      "handle": "north.eaters",
+      "followers": 2044,
+      "area": "North East",
+      "focus": "Reviews and reels, eating around the world",
+      "image": "img/north.eaters.jpg",
       "show": true
     },
     {
