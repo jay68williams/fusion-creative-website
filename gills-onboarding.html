@@ -672,12 +672,13 @@ restore(); revealFilledPageRows(); paintTicks(); updateProgress(); setSync('load
   addEventListener('scroll',scr,{passive:true});
   function ping(b){tick();scr();post({t:'ping',dur:Math.round(active/1000),scroll:maxS,sec:secs},b);}
   function mark(k){if(seen[k])return;seen[k]=1;secs.push(k);setTimeout(function(){ping(false)},300);}
-  /* Passive observers only: they read the page, they never call or wrap the form's own code. */
+  /* Passive observers only: they read the page, they never call or wrap the form's own code.
+     draft-saved counts only saves that follow the visitor typing (the page also saves its pre-filled defaults on first load). */
   try{
     var fm=document.getElementById('form');
     if(fm){fm.addEventListener('input',function(){mark('form-started')},{capture:true,passive:true,once:true});}
     var sy=document.getElementById('syncState');
-    if(sy&&window.MutationObserver){var sv=false;new MutationObserver(function(){var t=sy.textContent||'';if(/^Saving/.test(t))sv=true;else if(sv&&/^Shared draft saved/.test(t)){sv=false;mark('draft-saved')}}).observe(sy,{childList:true,characterData:true,subtree:true});}
+    if(sy&&window.MutationObserver){var sv=false;new MutationObserver(function(){var t=sy.textContent||'';if(/^Saving/.test(t))sv=!!seen['form-started'];else if(sv&&/^Shared draft saved/.test(t)){sv=false;mark('draft-saved')}}).observe(sy,{childList:true,characterData:true,subtree:true});}
     var th=document.getElementById('thanks');
     if(th&&window.MutationObserver){var dn=false;new MutationObserver(function(){if(dn||!th.classList.contains('show'))return;dn=true;var h=th.querySelector('h2');mark(h&&/already been sent/i.test(h.textContent||'')?'form-already-sent':'form-submitted')}).observe(th,{attributes:true,attributeFilter:['class']});}
   }catch(e){}
