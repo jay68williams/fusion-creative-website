@@ -73,6 +73,15 @@
       "show": true
     },
     {
+      "name": "GeordieFoodLife",
+      "handle": "geordiefoodlife",
+      "followers": 9983,
+      "area": "Newcastle upon Tyne",
+      "focus": "Food blogger (eating out, cooking)",
+      "image": "img/geordiefoodlife.jpg",
+      "show": true
+    },
+    {
       "name": "Eating Again",
       "handle": "im_eating_again",
       "followers": 9338,
@@ -97,6 +106,15 @@
       "area": "North East (Newcastle)",
       "focus": "Restaurant reels, recipes, Cabbage Crush series",
       "image": "img/evesalwayseating.jpg",
+      "show": true
+    },
+    {
+      "name": "Scran and Wear",
+      "handle": "scranandwear",
+      "followers": 8241,
+      "area": "Tyne and Wear",
+      "focus": "Eating out and food enthusiast page",
+      "image": "img/scranandwear.jpg",
       "show": true
     },
     {
